@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users, Tag } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users } from 'lucide-react';
 import Link from 'next/link';
 import * as React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
@@ -44,12 +44,7 @@ const navLinks = [
     icon: TrendingUp,
     description: 'Full-funnel marketing packages',
   },
-  {
-    title: 'Pricing',
-    href: '/pricing',
-    icon: Tag,
-    description: 'Transparent plans & packages',
-  },
+
   {
     title: 'Industries',
     href: '#',
