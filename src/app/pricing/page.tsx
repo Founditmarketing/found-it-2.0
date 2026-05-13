@@ -40,12 +40,22 @@ export default function PricingPage() {
       <section className="py-24 lg:py-32">
         {/* Remove the Zoho "floating card" look that clashes with the dark site */}
         <style>{`
-          #zf-widget-root-id-iovzp44nu {
+          #zf-widget-root-id-iovzp44nu,
+          #zf-widget-root-id-iovzp44nu > *,
+          #zf-widget-root-id-iovzp44nu > div,
+          #zf-widget-root-id-iovzp44nu [class*="zf-"],
+          #zf-widget-root-id-iovzp44nu [class*="widget"],
+          #zf-widget-root-id-iovzp44nu [class*="container"],
+          #zf-widget-root-id-iovzp44nu [class*="wrapper"] {
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
             padding: 0 !important;
             border-radius: 0 !important;
+          }
+          #zf-widget-root-id-iovzp44nu iframe {
+            border: none !important;
+            border-radius: 12px !important;
           }
         `}</style>
         <div className="max-w-[1440px] mx-auto px-6 relative z-10">
