@@ -38,6 +38,16 @@ export default function PricingPage() {
 
       {/* Pricing Widget Section */}
       <section className="py-24 lg:py-32">
+        {/* Remove the Zoho "floating card" look that clashes with the dark site */}
+        <style>{`
+          #zf-widget-root-id-iovzp44nu {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+          }
+        `}</style>
         <div className="max-w-[1440px] mx-auto px-6 relative z-10">
           <ScrollReveal>
             {/* Zoho Pricing Widget Container */}
@@ -46,7 +56,6 @@ export default function PricingPage() {
               data-pricing-table="true" 
               data-digest="2-909c6d12ec4b3af1f4878aa4b2762a1d1969e250db6bf56bbc3bf476eb563c89a788cb5a3b0b8326b737c2b253195bdfb2df1cb0269783dca262b6d698c356cf" 
               data-product_url="https://billing.zoho.com"
-              className="bg-card rounded-xl border border-border shadow-2xl p-4 sm:p-8"
             ></div>
             
             {/* Zoho Pricing Widget Script */}
