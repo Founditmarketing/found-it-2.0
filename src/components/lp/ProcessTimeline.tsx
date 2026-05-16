@@ -51,7 +51,7 @@ export function ProcessTimeline() {
                 className="relative"
               >
                 <div className="absolute -left-8 top-0 w-8 h-8 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center">
-                  <span className="text-xs font-black text-primary">{i + 1}</span>
+                  <span className="text-xs font-black text-primary">0{i + 1}</span>
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-1">{step.week}</p>
                 <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">{step.title}</h3>

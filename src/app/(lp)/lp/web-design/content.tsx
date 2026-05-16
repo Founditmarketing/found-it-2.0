@@ -6,6 +6,7 @@ import { PainPoints } from '@/components/lp/PainPoints';
 import { ProcessTimeline } from '@/components/lp/ProcessTimeline';
 import { CaseStudy } from '@/components/lp/CaseStudy';
 import { FinalCTA } from '@/components/lp/FinalCTA';
+import { ClientLogoBar } from '@/components/lp/ClientLogoBar';
 
 const serviceFeatures = [
   { title: 'Fully Custom Design', description: 'No themes, no page builders. Every pixel intentional. Your site will look like no one else\'s because it was built for no one else.' },
@@ -31,6 +32,7 @@ export function WebDesignLPContent() {
       <LPNav />
       <WebDesignHero />
       <PortfolioMarquee heading="Sites We've Built" />
+      <ClientLogoBar />
       <TrustBar stats={[
         { value: '100+', label: 'Sites Launched' },
         { value: '90+', label: 'Avg. Lighthouse Score' },

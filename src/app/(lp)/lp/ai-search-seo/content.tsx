@@ -8,6 +8,7 @@ import { AIVisibilityWidget } from '@/components/lp/AIVisibilityWidget';
 import { EducationSection } from '@/components/lp/EducationSection';
 import { SEOvsGEOComparison } from '@/components/lp/SEOvsGEOComparison';
 import { GEOCaseStudy } from '@/components/lp/GEOCaseStudy';
+import { ClientLogoBar } from '@/components/lp/ClientLogoBar';
 import { motion } from 'framer-motion';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import Link from 'next/link';
@@ -33,6 +34,7 @@ export function AISearchSEOContent() {
       <LPNav />
       <AISearchHero />
       <AIVisibilityWidget onBusinessNameCaptured={setBusinessName} />
+      <ClientLogoBar />
       <TrustBar stats={[
         { value: '60%', label: 'Searches Without Clicks' },
         { value: '500M+', label: 'Weekly ChatGPT Users' },

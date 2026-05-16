@@ -1,8 +1,9 @@
 'use client';
 
-import { LPLayout, LPNav, TrustBar, JohnCTA, FAQSection, LPFormSection, LPFooter, ExitIntent } from '@/components/lp';
+import { LPLayout, LPNav, TrustBar, BenefitsGrid, JohnCTA, FAQSection, LPFormSection, LPFooter, ExitIntent } from '@/components/lp';
 import { SocialMediaHero } from '@/components/lp/SocialMediaHero';
 import { ContentGallery } from '@/components/lp/ContentGallery';
+import { ClientLogoBar } from '@/components/lp/ClientLogoBar';
 import { PainPoints } from '@/components/lp/PainPoints';
 import { motion } from 'framer-motion';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -26,11 +27,19 @@ const faqItems = [
   { question: 'Is there a contract?', answer: 'Month-to-month. We recommend a 90-day initial commitment to see real traction, but we never lock you in. Results earn your business, not paperwork.' },
 ];
 
+const serviceFeatures = [
+  { title: 'Real Content, Not Stock', description: 'Custom graphics, original copy, real photos and videos from your business. Nothing recycled, nothing generic.' },
+  { title: 'Strategy Before Posting', description: "Every client gets a content pillar strategy before we post a single thing. We don't guess what works — we build a system." },
+  { title: 'Paid + Organic Working Together', description: 'Most agencies silo their teams. Our paid ads team and content team work from the same strategy, so paid amplifies your strongest organic performers.' },
+  { title: 'Reporting That Matters', description: "Monthly reports show what actually moved the needle — leads, calls, bookings — not vanity metrics like impressions and 'reach.'" },
+];
+
 export function SocialMediaLPContent() {
   return (
     <LPLayout ctaLabel="Get Free Content Plan">
       <LPNav />
       <SocialMediaHero />
+      <ClientLogoBar />
       <TrustBar stats={[
         { value: '100+', label: 'Businesses Managed' },
         { value: '13+', label: 'Years Experience' },
@@ -60,6 +69,7 @@ export function SocialMediaLPContent() {
       </section>
 
 
+      <BenefitsGrid heading="Why Found It" subheading="Content that converts, not just fills a calendar." benefits={serviceFeatures} />
       <ContentGallery />
 
       {/* Case Study — inline */}
