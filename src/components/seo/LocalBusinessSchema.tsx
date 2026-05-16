@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { phoneTel } from '@/lib/phone';
 
 export function LocalBusinessSchema() {
     const schema = {
@@ -8,7 +9,7 @@ export function LocalBusinessSchema() {
         "image": "https://founditmarketing.com/og-image.png",
         "@id": "https://founditmarketing.com",
         "url": "https://founditmarketing.com",
-        "telephone": "+1-318-280-0115",
+        "telephone": `+1${phoneTel}`,
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",

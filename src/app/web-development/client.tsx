@@ -218,7 +218,7 @@ function ProjectSlide({
             {/* WIDER ASPECT RATIO applied here (aspect-[16/10] and lg:col-span-8) */}
             <div className="lg:col-span-8 w-full aspect-[16/10] max-h-[60vh] lg:max-h-[75vh] relative order-1 lg:order-2 group perspective-[2000px]">
                 
-                <a href={project.url} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-none group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+                <a href={project.url} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-none group-hover:scale-[1.02] transition-transform duration-700 ease-liquid">
                     
                     {/* Inner and Outer Glows */}
                     <div className={cn("absolute -inset-10 bg-gradient-to-tr opacity-20 blur-2xl lg:opacity-30 lg:blur-3xl group-hover:opacity-60 transition-opacity duration-1000 transform-gpu", project.color)} />

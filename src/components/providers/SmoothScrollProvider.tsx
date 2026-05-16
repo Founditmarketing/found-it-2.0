@@ -6,6 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 function SmoothScrollEffects() {
     const lenisRef = useRef<Lenis | null>(null);
+    const rafIdRef = useRef<number | null>(null);
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
@@ -25,12 +26,16 @@ function SmoothScrollEffects() {
 
         function raf(time: number) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafIdRef.current = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafIdRef.current = requestAnimationFrame(raf);
 
         return () => {
+            if (rafIdRef.current !== null) {
+                cancelAnimationFrame(rafIdRef.current);
+                rafIdRef.current = null;
+            }
             lenis.destroy();
             lenisRef.current = null;
         };

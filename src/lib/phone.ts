@@ -3,7 +3,7 @@
    Provides formatted display and tel: link versions.
    All phone elements use className="callrail-phone" for CallRail DNI. */
 
-const RAW_PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
+const RAW_PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3375259650';
 
 /** Strip to digits only */
 export const phoneTel = RAW_PHONE.replace(/\D/g, '');

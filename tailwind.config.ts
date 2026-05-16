@@ -82,11 +82,16 @@ const config = {
                     '90%': { opacity: '1' },
                     '100%': { transform: 'translateY(120px)', opacity: '0' },
                 },
+                'bounce-dot': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-4px)' },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 scan: 'scan 3s ease-in-out infinite',
+                'bounce-dot': 'bounce-dot 2s ease-in-out infinite',
             },
         },
     },

@@ -9,6 +9,7 @@ import {
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { phoneHref as centralPhoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 const liquidEasing = [0.16, 1, 0.3, 1] as const;
 
@@ -19,8 +20,8 @@ export function Footer() {
     setMounted(true);
   }, []);
 
-  const phoneNumber = '(318) 280-0115';
-  const phoneHref = 'tel:3182800115';
+  const phoneNumber = phoneDisplay;
+  const phoneHref = centralPhoneHref;
 
   return (
     <footer className="bg-background text-foreground pt-12 sm:pt-24 pb-20 sm:pb-8 relative overflow-hidden border-t border-border/10">
@@ -108,7 +109,7 @@ export function Footer() {
                 3803 Rue Left Bank<br />
                 Alexandria, LA 71303
               </p>
-              <a href={mounted ? phoneHref : '#'} className="flex items-center gap-4 sm:gap-6 text-foreground hover:text-primary transition-all group p-3 sm:p-4 border border-transparent hover:border-primary/20 rounded-2xl sm:rounded-[2rem] hover:bg-primary/5 w-full sm:w-auto overflow-hidden">
+              <a href={mounted ? phoneHref : '#'} className={`flex items-center gap-4 sm:gap-6 text-foreground hover:text-primary transition-all group p-3 sm:p-4 border border-transparent hover:border-primary/20 rounded-2xl sm:rounded-[2rem] hover:bg-primary/5 w-full sm:w-auto overflow-hidden ${CALLRAIL_CLASS}`}>
                 <div className="p-3 sm:p-4 bg-muted rounded-xl sm:rounded-2xl group-hover:bg-primary/20 transition-colors shrink-0">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
                 </div>

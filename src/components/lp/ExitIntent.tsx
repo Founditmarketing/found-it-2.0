@@ -45,18 +45,24 @@ export function ExitIntent({
     // Only enable on desktop (>1024px)
     if (typeof window === 'undefined' || window.innerWidth < 1024) return;
 
+    let handler: ((e: MouseEvent) => void) | null = null;
+
     // Delay activation by 5 seconds so it doesn't fire immediately
     const timer = setTimeout(() => {
-      const handler = (e: MouseEvent) => {
+      handler = (e: MouseEvent) => {
         if (e.clientY < 5) {
           handleTrigger();
         }
       };
       document.addEventListener('mouseout', handler);
-      return () => document.removeEventListener('mouseout', handler);
     }, 5000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (handler) {
+        document.removeEventListener('mouseout', handler);
+      }
+    };
   }, [handleTrigger]);
 
   return (

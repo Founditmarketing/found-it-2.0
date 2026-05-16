@@ -10,6 +10,7 @@ import {
 import { cn } from '@/lib/utils';
 import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users } from 'lucide-react';
 import Link from 'next/link';
+import { phoneHref as centralPhoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import * as React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher';
@@ -382,8 +383,8 @@ export function Header() {
     };
   }, [mobileMenuOpen]);
 
-  const phoneNumber = '(318) 280-0115';
-  const phoneHref = 'tel:3182800115';
+  const phoneNumber = phoneDisplay;
+  const phoneHref = centralPhoneHref;
 
   return (
     <>
@@ -464,7 +465,7 @@ export function Header() {
                 className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
                 asChild
               >
-                <a href={mounted ? phoneHref : '#'}>
+                <a href={mounted ? phoneHref : '#'} className={CALLRAIL_CLASS}>
                   <Phone className="mr-2 h-4 w-4" />
                   {mounted ? phoneNumber : '...'}
                 </a>
@@ -584,7 +585,7 @@ export function Header() {
                 <a
                   href={mounted ? phoneHref : '#'}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
+                  className={`w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px] ${CALLRAIL_CLASS}`}
                 >
                   <Phone className="w-4 h-4 text-primary" />
                   {mounted ? phoneNumber : '...'}
