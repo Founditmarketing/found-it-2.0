@@ -1,18 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
 import { Inter, Outfit } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/landing/Header';
-import { Footer } from '@/components/landing/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import { LayoutShell } from '@/components/LayoutShell';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
-
-import { ClientBackground } from '@/components/landing/ClientBackground';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://founditmarketing.com'),
@@ -108,21 +103,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrollProvider>
-            <div className="relative z-20">
-              <Header />
-            </div>
-            <ClientBackground />
-            <div className="relative z-10 flex flex-col min-h-screen">
-              {children}
-            </div>
-            <div className="relative z-10 bg-background/95">
-              <Footer />
-            </div>
-            <Toaster />
-          </SmoothScrollProvider>
+          <LayoutShell>
+            {children}
+          </LayoutShell>
         </ThemeProvider>
       </body>
-    </html >
+    </html>
   );
 }
