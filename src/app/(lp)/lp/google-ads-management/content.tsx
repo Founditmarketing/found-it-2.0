@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import {
   LPLayout,
   LPNav,
@@ -17,7 +16,7 @@ import { ClientLogoBar } from '@/components/lp/ClientLogoBar';
 import { motion } from 'framer-motion';
 import { AlertTriangle, ArrowRight, Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick, createFormSubmitListener, captureUTMs } from '@/lib/analytics';
+import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -57,13 +56,6 @@ const faqItems = [
 ];
 
 export function GoogleAdsLPContent() {
-  useEffect(() => {
-    captureUTMs();
-    const handler = createFormSubmitListener('lp_google_ads');
-    window.addEventListener('message', handler);
-    return () => window.removeEventListener('message', handler);
-  }, []);
-
   return (
     <LPLayout ctaLabel="Get Free Audit">
       <LPNav />

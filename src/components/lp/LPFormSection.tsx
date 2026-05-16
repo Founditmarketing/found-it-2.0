@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Script from 'next/script';
 import { CheckCircle2, Phone } from 'lucide-react';
-import { trackCallClick, captureUTMs, buildFormSrc } from '@/lib/analytics';
+import { trackCallClick, captureUTMs, buildFormSrc, createFormSubmitListener } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { useEffect, useState } from 'react';
 
@@ -42,6 +42,27 @@ export function LPFormSection({
     captureUTMs();
     // Build attributed form URL with source + UTMs
     setIframeSrc(buildFormSrc(formSrc, source, pageSlug));
+
+    // LeadConnector postMessage listener for conversion tracking
+    const handleMessage = createFormSubmitListener(source);
+    window.addEventListener('message', handleMessage);
+
+    // Debug: log all iframe messages during development
+    if (process.env.NODE_ENV === 'development') {
+      const debugHandler = (e: MessageEvent) => {
+        const origins = ['leadconnectorhq.com', 'msgsndr.com'];
+        if (origins.some(o => (e.origin || '').includes(o))) {
+          console.log('[Found It] iframe message:', e.origin, e.data);
+        }
+      };
+      window.addEventListener('message', debugHandler);
+      return () => {
+        window.removeEventListener('message', handleMessage);
+        window.removeEventListener('message', debugHandler);
+      };
+    }
+
+    return () => window.removeEventListener('message', handleMessage);
   }, [formSrc, source, pageSlug]);
 
   return (
