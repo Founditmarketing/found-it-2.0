@@ -17,16 +17,19 @@ export const metadata: Metadata = {
 };
 
 const faqSchema = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'What is GEO (Generative Engine Optimization)?', acceptedAnswer: { '@type': 'Answer', text: 'GEO is the practice of optimizing your business to appear in AI-generated search results — ChatGPT, Perplexity, Google AI Overviews, and Gemini. It involves entity optimization, AI-citable content architecture, and structured data designed for answer engines.' } },
-    { '@type': 'Question', name: 'Is traditional SEO dead?', acceptedAnswer: { '@type': 'Answer', text: 'No. Traditional SEO feeds the AI engines — they pull from the same sources. SEO is now the foundation that GEO builds on. You need both.' } },
-    { '@type': 'Question', name: 'How long until I start showing up in AI search?', acceptedAnswer: { '@type': 'Answer', text: 'Most clients see initial AI mentions within 60-90 days. Full optimization across all platforms typically takes 4-6 months of consistent work.' } },
-    { '@type': 'Question', name: 'Do you guarantee rankings?', acceptedAnswer: { '@type': 'Answer', text: 'No. Anyone who guarantees rankings in Google or AI search is either lying or about to get penalized. We guarantee strategy, execution, and transparent reporting — not outcomes we can\'t control.' } },
-    { '@type': 'Question', name: "What's the difference between SEO and GEO?", acceptedAnswer: { '@type': 'Answer', text: 'SEO optimizes for traditional search engine results pages. GEO optimizes for AI-generated answers. SEO focuses on keywords and links; GEO focuses on entity authority, structured data, and AI-citable content.' } },
-    { '@type': 'Question', name: 'How does AI search optimization actually work?', acceptedAnswer: { '@type': 'Answer', text: 'We optimize your business entity across knowledge graphs, build content structured for AI citation, implement advanced schema markup, and build the authority signals that AI engines use to recommend businesses.' } },
+    { '@type': 'Question', name: 'What is GEO (Generative Engine Optimization)?', acceptedAnswer: { '@type': 'Answer', text: 'GEO is the discipline of making your business visible and recommended by AI search engines — ChatGPT, Perplexity, Google AI Overviews, Gemini, and others. Where SEO targets ranking on a search results page, GEO targets being the answer when an AI assistant responds to a buying question. Different signals, different content structures, different authority models.' } },
+    { '@type': 'Question', name: 'Is traditional SEO dead?', acceptedAnswer: { '@type': 'Answer', text: 'No, but it is not enough anymore. Strong SEO still feeds the AI engines — they pull from sites that already rank well. But ranking #1 on Google does not guarantee an AI will recommend you. You need both layers working together.' } },
+    { '@type': 'Question', name: 'How long until I start showing up in AI search?', acceptedAnswer: { '@type': 'Answer', text: 'Most clients see initial mentions in AI responses within 60-90 days of starting GEO work. Consistent visibility across multiple AI platforms typically takes 4-6 months.' } },
+    { '@type': 'Question', name: 'Do you guarantee rankings?', acceptedAnswer: { '@type': 'Answer', text: 'No. Anyone who guarantees rankings in Google or AI search is either lying or about to get penalized. We guarantee strategy, execution, transparent reporting, and that we use the same approach we use for ourselves — not outcomes we cannot fully control.' } },
+    { '@type': 'Question', name: 'What is the difference between SEO and GEO?', acceptedAnswer: { '@type': 'Answer', text: 'SEO optimizes for ranking on search results pages — keywords, backlinks, on-page optimization, technical performance. GEO optimizes for being cited by AI assistants — entity authority, structured data, AI-citable content patterns, and presence across the sources AI engines pull from.' } },
+    { '@type': 'Question', name: 'How does AI search optimization actually work?', acceptedAnswer: { '@type': 'Answer', text: 'Three layers: (1) Make sure your business is a clear entity that AI engines can understand — schema markup, consistent NAP data, knowledge graph presence. (2) Build content specifically structured for AI citation. (3) Build the authority signals AI engines use to decide who to recommend — reviews, expert mentions, and high-quality backlinks from trusted sources.' } },
   ],
 };
+
+
 
 const localBusinessSchema = {
   '@context': 'https://schema.org', '@type': 'ProfessionalService',

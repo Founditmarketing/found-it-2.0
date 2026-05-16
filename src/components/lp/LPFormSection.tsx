@@ -2,14 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Script from 'next/script';
-import { LiquidButton } from '@/components/ui/LiquidButton';
 import { CheckCircle2, Phone } from 'lucide-react';
-import Link from 'next/link';
-import { trackCallClick, trackLead } from '@/lib/analytics';
+import { trackCallClick, captureUTMs, buildFormSrc } from '@/lib/analytics';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { useEffect, useState } from 'react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
-const PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
-const PHONE_DISPLAY = PHONE.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 
 interface LPFormSectionProps {
   heading?: string;
@@ -18,6 +16,10 @@ interface LPFormSectionProps {
   /** GoHighLevel form embed URL */
   formSrc?: string;
   formId?: string;
+  /** Source tag for attribution (e.g. 'lp_google_ads') */
+  source?: string;
+  /** Page slug for attribution (e.g. 'google-ads-management') */
+  pageSlug?: string;
 }
 
 export function LPFormSection({
@@ -30,7 +32,18 @@ export function LPFormSection({
   ],
   formSrc = 'https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz',
   formId = 'FXyD279qmIC0yUDrZfYz',
+  source = 'lp_general',
+  pageSlug = 'general',
 }: LPFormSectionProps) {
+  const [iframeSrc, setIframeSrc] = useState(formSrc);
+
+  useEffect(() => {
+    // Capture UTMs on first load
+    captureUTMs();
+    // Build attributed form URL with source + UTMs
+    setIframeSrc(buildFormSrc(formSrc, source, pageSlug));
+  }, [formSrc, source, pageSlug]);
+
   return (
     <section id="lp-form" className="relative py-20 lg:py-32 scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-6">
@@ -78,15 +91,15 @@ export function LPFormSection({
                 Prefer to talk?
               </p>
               <a
-                href={`tel:${PHONE}`}
+                href={phoneHref}
                 onClick={() => trackCallClick()}
-                className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group"
+                className={`flex items-center gap-4 text-foreground hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
               >
                 <span className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Phone className="w-5 h-5 text-primary" />
                 </span>
                 <span className="text-2xl font-black italic tracking-tighter">
-                  {PHONE_DISPLAY}
+                  {phoneDisplay}
                 </span>
               </a>
             </div>
@@ -96,7 +109,7 @@ export function LPFormSection({
           <div className="lg:col-span-7">
             <div className="bg-card/10 backdrop-blur-2xl border border-border/20 rounded-[2rem] p-6 lg:p-10 shadow-2xl">
               <iframe
-                src={formSrc}
+                src={iframeSrc}
                 style={{
                   width: '100%',
                   height: '100%',

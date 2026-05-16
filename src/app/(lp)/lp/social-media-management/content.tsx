@@ -2,7 +2,6 @@
 
 import { LPLayout, LPNav, TrustBar, JohnCTA, FAQSection, LPFormSection, LPFooter, ExitIntent } from '@/components/lp';
 import { SocialMediaHero } from '@/components/lp/SocialMediaHero';
-import { SocialMediaTiers } from '@/components/lp/SocialMediaTiers';
 import { ContentGallery } from '@/components/lp/ContentGallery';
 import { PainPoints } from '@/components/lp/PainPoints';
 import { motion } from 'framer-motion';
@@ -60,7 +59,7 @@ export function SocialMediaLPContent() {
         </div>
       </section>
 
-      <SocialMediaTiers />
+
       <ContentGallery />
 
       {/* Case Study — inline */}
@@ -98,7 +97,7 @@ export function SocialMediaLPContent() {
       </section>
 
       <JohnCTA heading="Get a Custom 30-Day Content Plan" body="John will build you a free 30-day content plan tailored to your business, your audience, and your goals. No templates, no commitment — just a real plan you can use." ctaLabel="Get My Free Content Plan" />
-      <LPFormSection heading="Get Your Free 30-Day Content Plan" subheading="Tell us about your business and we'll create a custom content calendar you can start using immediately." benefits={['Custom 30-day content calendar', 'Platform-specific strategy', 'Content pillar recommendations', 'Zero obligation — the plan is yours to keep']} />
+      <LPFormSection heading="Get Your Free 30-Day Content Plan" subheading="Tell us about your business and we'll create a custom content calendar you can start using immediately." benefits={['Custom 30-day content calendar', 'Platform-specific strategy', 'Content pillar recommendations', 'Zero obligation — the plan is yours to keep']} source="lp_social" pageSlug="social-media" />
       <FAQSection items={faqItems} />
 
       {/* Final CTA — inline */}

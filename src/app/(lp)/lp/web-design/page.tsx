@@ -33,7 +33,7 @@ const faqSchema = {
       name: 'Who owns the website when it\'s built?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You do. We build it on your domain, your hosting (or ours if you prefer), and you have full administrative access from day one. No proprietary lock-in, ever.',
+        text: 'You do. The site is built on your domain, your hosting (or ours if you prefer), and you have full administrative access from day one. No proprietary lock-ins, no hostage situations. If you ever leave, you keep everything.',
       },
     },
     {
@@ -41,7 +41,7 @@ const faqSchema = {
       name: 'What CMS do you use?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We build primarily with Next.js and React for maximum performance. For content-heavy sites, we integrate headless CMS solutions like Sanity or Contentful so you can edit pages without touching code.',
+        text: 'It depends on what you need. For most premium builds we use Next.js with a headless CMS like Sanity or Payload — this gives you a clean editing experience plus blazing performance. For simpler sites we may use WordPress with a custom theme. We pick the stack that fits your team, not ours.',
       },
     },
     {
@@ -49,7 +49,7 @@ const faqSchema = {
       name: 'Do you handle hosting?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — we offer managed hosting on Vercel with global CDN, automatic SSL, and 99.99% uptime. You can also self-host if you prefer. We\'ll hand over everything.',
+        text: 'Yes. We host on Vercel for Next.js builds and recommended managed WordPress hosting for WP sites. Hosting runs $25-$100/mo depending on traffic. You are welcome to host it yourself — we will hand off everything cleanly.',
       },
     },
     {
@@ -57,7 +57,7 @@ const faqSchema = {
       name: 'Can you redesign my existing site?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Absolutely. We redesign, rebuild, and migrate existing sites regularly. We preserve your SEO equity and domain authority while upgrading your design, performance, and conversion architecture.',
+        text: 'Yes. About 60% of our projects are redesigns. We audit what is working (do not break the SEO that is earning you traffic), identify what is not (slow load times, dead pages, weak conversion paths), and rebuild on a modern stack. Most redesigns ship in 4-6 weeks.',
       },
     },
     {
@@ -65,7 +65,7 @@ const faqSchema = {
       name: 'How long does the full process take?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most projects launch within 4-6 weeks. Simpler sites can be ready in 2-3 weeks. Enterprise builds with custom features and integrations may take 8-12 weeks.',
+        text: 'A full custom build typically runs 4-6 weeks from kickoff to launch. Larger sites with 25+ pages or complex integrations can extend to 8-10 weeks. We will give you a firm timeline after the discovery call.',
       },
     },
     {
@@ -73,7 +73,7 @@ const faqSchema = {
       name: 'What if I need changes after launch?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Every build includes 60 days of post-launch optimization. After that, our monthly maintenance plans start at $250/mo and include content updates, security patches, and performance monitoring.',
+        text: 'Included in every build: 60 days of free post-launch optimization. After that, most clients move to a monthly maintenance plan starting at $250/mo — covers content updates, security patches, performance monitoring, and ongoing optimization. No long contracts.',
       },
     },
   ],

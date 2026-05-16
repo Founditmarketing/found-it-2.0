@@ -15,13 +15,12 @@ import {
 import { GoogleAdsHero } from '@/components/lp/GoogleAdsHero';
 import { ClientLogoBar } from '@/components/lp/ClientLogoBar';
 import { motion } from 'framer-motion';
-import { AlertTriangle, CheckCircle2, ArrowRight, Phone, Calendar } from 'lucide-react';
+import { AlertTriangle, ArrowRight, Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick } from '@/lib/analytics';
+import { trackCallClick, createFormSubmitListener, captureUTMs } from '@/lib/analytics';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
-const PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
-const PHONE_DISPLAY = PHONE.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || '';
 
 /* ─── Data ─── */
@@ -57,32 +56,13 @@ const faqItems = [
   { question: 'Is there a contract?', answer: "No. Month-to-month, cancel anytime with 30 days notice. The only reason to lock clients into long contracts is if you can't deliver results consistently — we can, so we don't." },
 ];
 
-const tiers = [
-  { name: 'Starter', price: '$1,500', period: '/mo', target: 'For businesses spending $1K-$5K/mo in ad spend', tag: null, features: ['Weekly optimization', 'Monthly strategy call', 'Real-time reporting dashboard', 'Conversion tracking setup'] },
-  { name: 'Growth', price: '$2,500', period: '/mo', target: 'For businesses spending $5K-$15K/mo in ad spend', tag: 'Most Popular', features: ['Everything in Starter', 'Bi-weekly strategy calls', 'A/B testing on ads and landing pages', 'Quarterly creative refresh'] },
-  { name: 'Scale', price: 'Custom', period: '', target: 'For businesses spending $15K+/mo in ad spend', tag: null, features: ['Everything in Growth', 'Dedicated senior strategist', 'Multi-campaign management', 'Custom integrations'] },
-];
-
-/* ─── Form Tracking ─── */
-function useFormConversionTracking() {
-  useEffect(() => {
-    const GADS_CONVERSION = process.env.NEXT_PUBLIC_GADS_CONVERSION_ID;
-    const handleMessage = (e: MessageEvent) => {
-      if (typeof e.data !== 'string' && typeof e.data !== 'object') return;
-      const data = typeof e.data === 'string' ? e.data : JSON.stringify(e.data);
-      const isFormSubmit = data.includes('form-submit') || data.includes('form-success') || data.includes('form_submitted') || data.includes('formSubmitted');
-      if (isFormSubmit && typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'lead_submit', { event_category: 'conversion', source: 'google-ads-mgmt-lp' });
-        if (GADS_CONVERSION) window.gtag('event', 'conversion', { send_to: GADS_CONVERSION });
-      }
-    };
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-}
-
 export function GoogleAdsLPContent() {
-  useFormConversionTracking();
+  useEffect(() => {
+    captureUTMs();
+    const handler = createFormSubmitListener('lp_google_ads');
+    window.addEventListener('message', handler);
+    return () => window.removeEventListener('message', handler);
+  }, []);
 
   return (
     <LPLayout ctaLabel="Get Free Audit">
@@ -184,8 +164,8 @@ export function GoogleAdsLPContent() {
                       Schedule My Free Call <ArrowRight className="w-4 h-4" />
                     </motion.div>
                   </Link>
-                  <a href={`tel:${PHONE}`} onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-                    <Phone className="w-4 h-4" /> {PHONE_DISPLAY}
+                  <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
+                    <Phone className="w-4 h-4" /> {phoneDisplay}
                   </a>
                 </div>
               </div>
@@ -208,48 +188,12 @@ export function GoogleAdsLPContent() {
         </div>
       </section>
 
-      {/* ─── Honest Pricing ─── */}
-      <section className="relative py-20 lg:py-32">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: ease as any }} className="text-center mb-16">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Investment</p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">Honest Pricing</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {tiers.map((tier, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.7, ease: ease as any }}
-                className={`bg-card/15 backdrop-blur-xl border rounded-[2rem] p-8 text-center relative overflow-hidden transition-all duration-500 flex flex-col ${tier.tag ? 'border-primary/30' : 'border-border/20 hover:border-border/30'}`}
-              >
-                {tier.tag && <span className="absolute top-4 right-4 text-[9px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">{tier.tag}</span>}
-                <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">{tier.name}</h3>
-                <p className="text-4xl font-black text-primary italic tracking-tighter mb-1">{tier.price}<span className="text-lg text-muted-foreground/60">{tier.period}</span></p>
-                <p className="text-xs text-muted-foreground/60 font-bold mb-2">Management fee</p>
-                <p className="text-xs text-muted-foreground font-medium italic mb-6">{tier.target}</p>
-                <div className="space-y-3 text-left flex-1">
-                  {tier.features.map((f, j) => (
-                    <div key={j} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-primary/60 mt-0.5 shrink-0" />
-                      <span className="text-sm text-muted-foreground font-medium">{f}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link href="#lp-form" className="mt-8 block">
-                  <motion.div whileTap={{ scale: 0.97 }}
-                    className={`w-full font-black uppercase italic tracking-tighter py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition-shadow ${tier.tag ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-white/5 text-foreground border border-border/30 hover:border-primary/30'}`}
-                  >
-                    Get Started <ArrowRight className="w-4 h-4" />
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-center text-xs text-muted-foreground/40 mt-8 font-medium">No setup fees. Month-to-month. You own your Google Ads account — always.</p>
-        </div>
-      </section>
-
-      <LPFormSection heading="Get Your Free Google Ads Audit" subheading="We'll review your current campaigns (or build a plan from scratch) and show you exactly where you're leaving money on the table."
+      <LPFormSection
+        heading="Get Your Free Google Ads Audit"
+        subheading="We'll review your current campaigns (or build a plan from scratch) and show you exactly where you're leaving money on the table."
         benefits={['Full campaign audit with wasted spend analysis', 'Competitor ad strategy breakdown', 'Custom bid & keyword recommendations', 'Zero obligation — the audit is yours to keep']}
+        source="lp_google_ads"
+        pageSlug="google-ads-management"
       />
       <FAQSection items={faqItems} />
       <LPFooter />

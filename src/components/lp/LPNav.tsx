@@ -4,11 +4,10 @@ import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { trackCallClick } from '@/lib/analytics';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { useEffect, useState } from 'react';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
-const PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
-const PHONE_DISPLAY = PHONE.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 
 export function LPNav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,11 +46,11 @@ export function LPNav() {
 
           {/* Phone CTA */}
           <a
-            href={mounted ? `tel:${PHONE}` : '#'}
+            href={mounted ? phoneHref : '#'}
             onClick={() => trackCallClick()}
-            className="flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors group"
+            className={`flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
           >
-            <span className="hidden sm:inline">{mounted ? PHONE_DISPLAY : '...'}</span>
+            <span className="hidden sm:inline">{mounted ? phoneDisplay : '...'}</span>
             <span className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
               <Phone className="w-5 h-5 text-primary" />
             </span>

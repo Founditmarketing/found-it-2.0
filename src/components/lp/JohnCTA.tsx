@@ -4,10 +4,9 @@ import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { trackCallClick } from '@/lib/analytics';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
-const PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
-const PHONE_DISPLAY = PHONE.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 
 interface JohnCTAProps {
   /** Section heading */
@@ -69,12 +68,12 @@ export function JohnCTA({
                 </motion.div>
               </Link>
               <a
-                href={`tel:${PHONE}`}
+                href={phoneHref}
                 onClick={() => trackCallClick()}
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm font-bold"
+                className={`flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}
               >
                 <Phone className="w-4 h-4" />
-                <span>{PHONE_DISPLAY}</span>
+                <span>{phoneDisplay}</span>
               </a>
             </div>
           </div>

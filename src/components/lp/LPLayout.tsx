@@ -3,10 +3,8 @@
 import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick } from '@/lib/analytics';
-
-const PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3182800115';
-const PHONE_DISPLAY = PHONE.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+import { trackCallClick, trackStickyCTAClick } from '@/lib/analytics';
+import { phoneHref, CALLRAIL_CLASS } from '@/lib/phone';
 
 interface LPLayoutProps {
   children: React.ReactNode;
@@ -34,14 +32,14 @@ export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLa
         className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 flex items-center gap-3 safe-bottom"
       >
         <a
-          href={`tel:${PHONE}`}
+          href={phoneHref}
           onClick={() => trackCallClick()}
-          className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 border border-border/30 shrink-0"
+          className={`flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 border border-border/30 shrink-0 ${CALLRAIL_CLASS}`}
           aria-label="Call us"
         >
           <Phone className="w-5 h-5 text-primary" />
         </a>
-        <Link href="#lp-form" className="flex-1">
+        <Link href="#lp-form" className="flex-1" onClick={() => trackStickyCTAClick()}>
           <motion.div
             whileTap={{ scale: 0.97 }}
             className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"

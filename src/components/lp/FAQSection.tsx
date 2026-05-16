@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -18,6 +18,9 @@ interface FAQSectionProps {
 
 function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
+  const toggle = useCallback(() => setIsOpen(v => !v), []);
+  const panelId = `faq-panel-${index}`;
+  const headingId = `faq-heading-${index}`;
 
   return (
     <motion.div
@@ -28,9 +31,12 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
       className="border-b border-border/10 last:border-0"
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-6 lg:py-8 text-left group"
+        onClick={toggle}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } }}
+        className="w-full flex items-center justify-between py-6 lg:py-8 text-left group min-h-[56px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg px-2 -mx-2"
         aria-expanded={isOpen}
+        aria-controls={panelId}
+        id={headingId}
       >
         <h3 className="text-lg lg:text-xl font-black uppercase italic tracking-tighter text-foreground pr-4 group-hover:text-primary transition-colors duration-300">
           {item.question}
@@ -39,6 +45,7 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
           className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
+          aria-hidden="true"
         />
       </button>
       <AnimatePresence>
@@ -49,8 +56,11 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: ease as any }}
             className="overflow-hidden"
+            id={panelId}
+            role="region"
+            aria-labelledby={headingId}
           >
-            <p className="pb-6 lg:pb-8 text-muted-foreground font-medium leading-relaxed max-w-3xl">
+            <p className="pb-6 lg:pb-8 px-2 text-muted-foreground font-medium leading-relaxed max-w-3xl">
               {item.answer}
             </p>
           </motion.div>
@@ -65,7 +75,7 @@ export function FAQSection({
   items,
 }: FAQSectionProps) {
   return (
-    <section className="relative py-20 lg:py-32">
+    <section className="relative py-20 lg:py-32" aria-label="Frequently Asked Questions">
       <div className="max-w-[900px] mx-auto px-6">
         {/* Section heading */}
         <motion.div
@@ -84,7 +94,7 @@ export function FAQSection({
         </motion.div>
 
         {/* FAQ items */}
-        <div className="bg-card/10 backdrop-blur-xl border border-border/20 rounded-[2rem] px-6 lg:px-10">
+        <div className="bg-card/10 backdrop-blur-xl border border-border/20 rounded-[2rem] px-6 lg:px-10" role="list">
           {items.map((item, i) => (
             <FAQAccordion key={i} item={item} index={i} />
           ))}
