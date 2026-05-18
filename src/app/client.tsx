@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
+import { PremiumIntro } from '@/components/landing/PremiumIntro';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
@@ -80,33 +81,58 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════ */}
+      <PremiumIntro />
       <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24">
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 1, ease }}
+            >
               {/* Eyebrow */}
-              <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8 opacity-0 animate-fade-in-up delay-100">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 0.5, y: 0 }}
+                transition={{ delay: 1.1, duration: 0.8, ease: introEase }}
+                className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8"
+              >
                 Found It Marketing — Alexandria, LA
-              </p>
+              </motion.p>
 
               {/* Headline */}
-              <h1 className="text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7 opacity-0 animate-fade-in-up delay-200">
+              <motion.h1
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.2, duration: 1, ease: introEase }}
+                className="text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7"
+              >
                 We Help Local Businesses{' '}
                 <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
                   Get More Customers.
                 </span>
-              </h1>
+              </motion.h1>
 
               {/* Subheadline */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up delay-300">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3, duration: 0.8, ease: introEase }}
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed"
+              >
                 Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
-              </p>
+              </motion.p>
 
               {/* CTA cluster */}
-              <div className="flex flex-col items-center gap-5 opacity-0 animate-fade-in-up delay-400">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.45, duration: 0.8, ease: introEase }}
+                className="flex flex-col items-center gap-5"
+              >
                 <Link href="#services">
                   <LiquidButton className="px-12 sm:px-16 h-16 sm:h-[72px] text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                     See What We Do
@@ -119,8 +145,8 @@ export default function HomePage() {
                   <span className="text-white/10 text-xs">|</span>
                   <span className="text-xs text-white/25 font-medium">Free audit on every service</span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
 
