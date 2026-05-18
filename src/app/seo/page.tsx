@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function SeoPage() {
-  redirect('/lp/ai-search-seo');
+  permanentRedirect('/lp/ai-search-seo');
 }

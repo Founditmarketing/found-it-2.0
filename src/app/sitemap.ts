@@ -1,82 +1,79 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://founditmarketing.com';
+  const baseUrl = 'https://founditmarketing.com';
 
-    // Core pages
-    const coreRoutes = [
-        '',
-        '/about',
-        '/contact',
-        '/team',
-        '/blog',
-        '/case-studies',
-        '/web-development',
-        '/platform',
-        '/marketing',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
-    }));
+  // Core pages (highest priority)
+  const coreRoutes = [
+    '',
+    '/about',
+    '/contact',
+    '/team',
+    '/pricing',
+    '/case-studies',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: route === '' ? 1 : 0.8,
+  }));
 
-    // Website tier pages
-    const websiteTiers = [
-        'ignite',
-        'accelerate',
-        'dominate',
-        'empire',
-    ].map((tier) => ({
-        url: `${baseUrl}/websites/${tier}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.9,
-    }));
+  // Landing pages (high priority — ad traffic destinations)
+  const landingPages = [
+    '/lp/google-ads-management',
+    '/lp/web-design',
+    '/lp/ai-search-seo',
+    '/lp/social-media-management',
+    '/lp/lake-charles/google-ads-management',
+    '/lp/lake-charles/web-design',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
 
-    // Industry vertical pages
-    const industries = [
-        'medical',
-        'contractors',
-        'dealerships',
-        'retail',
-        'realtors',
-        'lawyers',
-    ].map((slug) => ({
-        url: `${baseUrl}/industries/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.9,
-    }));
+  // Industry vertical pages
+  const industries = [
+    'medical',
+    'contractors',
+    'dealerships',
+    'retail',
+    'realtors',
+    'lawyers',
+  ].map((slug) => ({
+    url: `${baseUrl}/industries/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
 
-    // Legacy SEO/PPC pages (still indexed)
-    const legacyRoutes = [
-        '/seo',
-        '/ppc',
-        '/solutions',
-        '/ai-visibility-check',
-        '/marketing-alexandria',
-        '/pineville-seo',
-        '/central-louisiana-web-design',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-    }));
+  // Geo SEO pages
+  const geoPages = [
+    '/central-louisiana-web-design',
+    '/marketing-alexandria',
+    '/pineville-seo',
+    '/ai-visibility-check',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
 
-    // Blog posts
-    const blogPosts = [
-        'intro-to-geo',
-        'common-ppc-mistakes',
-        'local-seo-dominance',
-        'ai-content-strategy',
-    ].map((slug) => ({
-        url: `${baseUrl}/blog/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-    }));
+  // Blog
+  const blogPosts = [
+    '/blog',
+    '/blog/intro-to-geo',
+    '/blog/common-ppc-mistakes',
+    '/blog/local-seo-dominance',
+    '/blog/ai-content-strategy',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
 
-    return [...coreRoutes, ...websiteTiers, ...industries, ...legacyRoutes, ...blogPosts];
+  return [...coreRoutes, ...landingPages, ...industries, ...geoPages, ...blogPosts];
 }

@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function MarketingPage() {
-  redirect('/lp/social-media-management');
+  permanentRedirect('/lp/social-media-management');
 }

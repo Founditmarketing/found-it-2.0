@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function PpcPage() {
-  redirect('/lp/google-ads-management');
+  permanentRedirect('/lp/google-ads-management');
 }
