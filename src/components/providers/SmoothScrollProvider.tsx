@@ -58,11 +58,6 @@ interface SmoothScrollProviderProps {
 
 export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     return (
-        <>
-            <Suspense fallback={null}>
-                <SmoothScrollEffects />
-            </Suspense>
-            {children}
-        </>
+        <>{children}</>
     );
 }
