@@ -21,31 +21,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   {
-    title: 'FoundIt OS™',
-    href: '/platform',
-    icon: Cpu,
-    description: 'Our proprietary intelligence platform',
-  },
-  {
-    title: 'Websites',
-    href: '/web-development',
-    icon: Globe,
-    description: 'Tiered web design packages',
+    title: 'Services',
+    href: '/#services',
+    icon: TrendingUp,
+    description: 'What we do for your business',
     sublinks: [
-      { title: 'Ignite', href: '/websites/ignite', tag: 'Starter' },
-      { title: 'Accelerate', href: '/websites/accelerate', tag: 'Growth' },
-      { title: 'Dominate', href: '/websites/dominate', tag: 'Premium' },
-      { title: 'Empire', href: '/websites/empire', tag: 'Enterprise' },
-      { title: 'View All Projects', href: '/web-development', tag: null },
+      { title: 'Google Ads', href: '/lp/google-ads-management', tag: null },
+      { title: 'Web Design', href: '/lp/web-design', tag: null },
+      { title: 'AI Search / SEO', href: '/lp/ai-search-seo', tag: null },
+      { title: 'Social Media', href: '/lp/social-media-management', tag: null },
     ],
   },
-  {
-    title: 'Marketing',
-    href: '/marketing',
-    icon: TrendingUp,
-    description: 'Full-funnel marketing packages',
-  },
-
   {
     title: 'Industries',
     href: '#',
@@ -61,14 +47,20 @@ const navLinks = [
     ],
   },
   {
-    title: 'Company',
+    title: 'Case Studies',
+    href: '/case-studies',
+    icon: Globe,
+    description: 'Real results for real businesses',
+  },
+  {
+    title: 'About',
     href: '#',
     icon: Users,
-    description: 'Who we are & what we stand for',
+    description: 'Who we are',
     sublinks: [
-      { title: 'About', href: '/about', tag: null },
+      { title: 'About Us', href: '/about', tag: null },
       { title: 'The Team', href: '/team', tag: null },
-      { title: 'Case Studies', href: '/case-studies', tag: null },
+      { title: 'Pricing', href: '/pricing', tag: null },
       { title: 'Blog', href: '/blog', tag: null },
     ],
   },
@@ -472,7 +464,7 @@ export function Header() {
               </Button>
               <Link href="/contact" className="hidden lg:block">
                 <LiquidButton className="h-14 px-8 text-xs tracking-[0.2em] magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
-                  Free Strategy Session
+                  Book a Free Call
                 </LiquidButton>
               </Link>
             </div>
@@ -576,7 +568,7 @@ export function Header() {
                     whileTap={{ scale: 0.97 }}
                     className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-4 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                   >
-                    Free Strategy Session
+                    Book a Free Call
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
                 </Link>
