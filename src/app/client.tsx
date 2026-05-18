@@ -4,12 +4,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { PremiumIntro } from '@/components/landing/PremiumIntro';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 // World-class intro animation bezier
-const introEase = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 /* ─── Data ─── */
@@ -81,58 +79,33 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════ */}
-      <PremiumIntro />
       <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24">
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0, duration: 1, ease }}
-            >
+            <div>
               {/* Eyebrow */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.5, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.8, ease: introEase }}
-                className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8"
-              >
+              <p className="opacity-0 animate-reveal-up-sm delay-100 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8">
                 Found It Marketing — Alexandria, LA
-              </motion.p>
+              </p>
 
               {/* Headline */}
-              <motion.h1
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 1.2, duration: 1, ease: introEase }}
-                className="text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7"
-              >
+              <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
                 We Help Local Businesses{' '}
                 <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
                   Get More Customers.
                 </span>
-              </motion.h1>
+              </h1>
 
               {/* Subheadline */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.3, duration: 0.8, ease: introEase }}
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed"
-              >
+              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
                 Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
-              </motion.p>
+              </p>
 
               {/* CTA cluster */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.45, duration: 0.8, ease: introEase }}
-                className="flex flex-col items-center gap-5"
-              >
+              <div className="opacity-0 animate-reveal-up-sm delay-400 flex flex-col items-center gap-5">
                 <Link href="#services">
                   <LiquidButton className="px-12 sm:px-16 h-16 sm:h-[72px] text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                     See What We Do
@@ -145,26 +118,26 @@ export default function HomePage() {
                   <span className="text-white/10 text-xs">|</span>
                   <span className="text-xs text-white/25 font-medium">Free audit on every service</span>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
         {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border-2 border-white/10 flex items-start justify-center p-1"
-          >
-            <div className="w-1 h-2 bg-primary/40 rounded-full" />
-          </motion.div>
-        </motion.div>
+        <div className="opacity-0 animate-fade-in delay-700 absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <div className="w-5 h-8 rounded-full border-2 border-white/10 flex items-start justify-center p-1">
+            <style jsx>{`
+              @keyframes scroll-bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(8px); }
+              }
+              .animate-scroll-bounce {
+                animation: scroll-bounce 2s ease-in-out infinite;
+              }
+            `}</style>
+            <div className="w-1 h-2 bg-primary/40 rounded-full animate-scroll-bounce" />
+          </div>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════

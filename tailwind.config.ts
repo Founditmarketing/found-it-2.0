@@ -96,6 +96,18 @@ const config = {
                     '0%': { opacity: '0', transform: 'translateY(20px)' },
                     '100%': { opacity: '1', transform: 'translateY(0)' },
                 },
+                'reveal-up': {
+                    '0%': { opacity: '0', transform: 'translateY(50px) scale(0.95)' },
+                    '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                },
+                'reveal-up-sm': {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                'fade-in': {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -104,6 +116,9 @@ const config = {
                 'bounce-dot': 'bounce-dot 2s ease-in-out infinite',
                 blob: 'blob 7s infinite',
                 'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                'reveal-up': 'reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                'reveal-up-sm': 'reveal-up-sm 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                'fade-in': 'fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
         },
     },
@@ -121,6 +136,12 @@ const config = {
                 '.delay-200': { 'animation-delay': '200ms' },
                 '.delay-300': { 'animation-delay': '300ms' },
                 '.delay-400': { 'animation-delay': '400ms' },
+                '.delay-500': { 'animation-delay': '500ms' },
+                '.delay-600': { 'animation-delay': '600ms' },
+                '.delay-700': { 'animation-delay': '700ms' },
+                '.delay-800': { 'animation-delay': '800ms' },
+                '.delay-900': { 'animation-delay': '900ms' },
+                '.delay-1000': { 'animation-delay': '1000ms' },
             };
             addUtilities(newUtilities);
         }
