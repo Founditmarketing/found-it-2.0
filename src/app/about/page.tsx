@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import AboutPage from './client';
 
 export const metadata: Metadata = {
-    title: 'About Us | 20 Years of Digital Dominance',
-    description: "Data driven. Empire built. We've generated over $2.3 billion in client revenue since 2005. Meet the team behind the numbers.",
+  title: 'About Found It Marketing | Local Louisiana Agency, 13+ Years',
+  description: 'Digital marketing agency based in Alexandria, LA. Google Ads, web design, SEO, and AI search optimization. 13+ years, 100+ clients. No contracts.',
 };
 
 export default function Page() {
-    return <AboutPage />;
+  return <AboutPage />;
 }
