@@ -54,7 +54,7 @@ const proofPoints = [
 ];
 
 const differentiators = [
-  { title: 'No contracts.', detail: 'Month-to-month on everything. Cancel anytime with 30 days notice.' },
+  { title: 'No contracts.', detail: 'Month-to-month options on everything.' },
   { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
   { title: 'Senior strategist, not interns.', detail: 'John works on your account. Not a junior who Googles the answers.' },
 ];
