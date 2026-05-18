@@ -111,7 +111,8 @@ export function createFormSubmitListener(source: string) {
 
     const data = typeof e.data === 'string' ? e.data : JSON.stringify(e.data || '');
     const isSubmit = data.includes('form-submit') || data.includes('form-success')
-      || data.includes('form_submitted') || data.includes('formSubmitted');
+      || data.includes('form_submitted') || data.includes('formSubmitted')
+      || data.includes('set-sticky-contact');
 
     if (isSubmit) {
       trackLead(source);
