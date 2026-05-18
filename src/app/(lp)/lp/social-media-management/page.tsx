@@ -3,19 +3,23 @@ import { SocialMediaLPContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Social Media Management Services | Found It Marketing',
-  description: 'Organic social, paid ads, and full-stack social media management for businesses across Louisiana and Texas. Real strategy. Real engagement. Real leads.',
-  openGraph: { title: 'Social Media Management | Found It Marketing', description: 'Organic social, paid ads, and full-stack social strategy. 100+ businesses managed.', type: 'website', url: 'https://founditmarketing.com/lp/social-media-management' },
+  title: 'Social Media Management | Content That Gets Calls, Not Just Likes | Found It Marketing',
+  description:
+    'Social media management for local businesses. Real content, real strategy, real leads. Free 30-day content plan. No contracts.',
+  openGraph: {
+    title: 'Social Media Management | Content That Gets Calls | Found It Marketing',
+    description: 'Social media management for local businesses. Free 30-day content plan.',
+    type: 'website',
+    url: 'https://founditmarketing.com/lp/social-media-management',
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/social-media-management' },
 };
 
 const faqItems = [
-  { question: 'Which platforms do you manage?', answer: 'Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses see the highest ROI from Facebook + Instagram, which is where we typically recommend starting.' },
-  { question: 'Do you create the content or do I provide it?', answer: 'We create everything — photography direction, graphic design, copywriting, and scheduling. You just approve. If you have existing brand assets or photos, we incorporate those too.' },
-  { question: 'Can I approve posts before they go live?', answer: 'Absolutely. Every post goes through an approval workflow before publishing. You see everything in advance and can request changes. Nothing goes live without your green light.' },
-  { question: "What's included in paid ads management?", answer: 'Campaign strategy, audience research, creative production, A/B testing, weekly optimization, and detailed performance reporting. You pay ad spend directly to the platform — full transparency.' },
-  { question: 'Is there a contract?', answer: 'Month-to-month. We recommend a 90-day initial commitment to see real traction, but we never lock you in. Results earn your business, not paperwork.' },
+  { question: 'Which platforms do you manage?', answer: "Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses get the best results starting with Facebook + Instagram." },
+  { question: 'Do you create the content or do I?', answer: "We create everything — graphics, copy, scheduling. You just approve before it goes live. Nothing posts without your green light." },
+  { question: 'Is there a contract?', answer: "No. Month-to-month. We recommend 90 days to see real traction, but we never lock you in." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
