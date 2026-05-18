@@ -1,18 +1,11 @@
-import { ContactSection } from '@/components/landing/ContactSection';
-import { Suspense } from 'react';
 import { Metadata } from 'next';
+import ContactClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Free Strategy Session | Found It Marketing',
-  description: "Book your free strategy session. We'll analyze your market, audit your digital presence, and deliver a custom growth plan — no pressure, no obligations.",
+  title: 'Contact | Talk to John | Found It Marketing',
+  description: 'Book a free 15-minute call or reach us directly. Alexandria, LA. No pitch, no commitment.',
 };
 
 export default function ContactPage() {
-  return (
-    <main>
-      <Suspense>
-        <ContactSection />
-      </Suspense>
-    </main>
-  );
+  return <ContactClient />;
 }
