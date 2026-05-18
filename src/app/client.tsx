@@ -1,0 +1,341 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2 } from 'lucide-react';
+import Link from 'next/link';
+import { LiquidButton } from '@/components/ui/LiquidButton';
+import { trackCallClick } from '@/lib/analytics';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+
+const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+/* ─── Data ─── */
+
+const services = [
+  {
+    name: 'Google Ads',
+    result: 'Get more leads from your ad spend — or stop paying us.',
+    href: '/lp/google-ads-management',
+    cta: 'Get a Free Audit',
+    icon: Megaphone,
+    accent: 'from-orange-500/20 to-amber-500/5',
+  },
+  {
+    name: 'Web Design',
+    result: 'A website that makes your phone ring. Live in 6 weeks.',
+    href: '/lp/web-design',
+    cta: 'Get a Free Concept Call',
+    icon: Globe,
+    accent: 'from-blue-500/20 to-cyan-500/5',
+  },
+  {
+    name: 'AI Search',
+    result: 'Show up when ChatGPT and Google AI recommend your industry.',
+    href: '/lp/ai-search-seo',
+    cta: 'Get a Free AI Audit',
+    icon: Cpu,
+    accent: 'from-violet-500/20 to-purple-500/5',
+  },
+  {
+    name: 'Social Media',
+    result: 'Content that gets calls, not just likes. We create it all.',
+    href: '/lp/social-media-management',
+    cta: 'Get a Free Content Plan',
+    icon: Share2,
+    accent: 'from-emerald-500/20 to-teal-500/5',
+  },
+];
+
+const proofPoints = [
+  { value: '10x', label: 'ROAS', detail: '$4.2K/mo spend → $42K/mo revenue' },
+  { value: '3x', label: 'Calls', detail: 'Tripled qualified calls in 90 days' },
+  { value: '#1', label: 'AI Rec', detail: 'Only recommendation in ChatGPT' },
+  { value: '750', label: 'Calls', detail: '750 organic calls in 5 months' },
+];
+
+const differentiators = [
+  { title: 'No contracts.', detail: 'Month-to-month on everything. Cancel anytime with 30 days notice.' },
+  { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
+  { title: 'Senior strategist, not interns.', detail: 'John works on your account. Not a junior who Googles the answers.' },
+];
+
+export default function HomePage() {
+  const { scrollY } = useScroll();
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const heroY = useTransform(scrollY, [0, 500], [0, 80]);
+
+  return (
+    <div className="bg-transparent text-foreground relative overflow-hidden">
+
+      {/* ═══════════════════════════════════════════
+          AMBIENT GLOW — Subtle background atmosphere
+      ═══════════════════════════════════════════ */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
+      </div>
+
+      {/* ═══════════════════════════════════════════
+          HERO
+      ═══════════════════════════════════════════ */}
+      <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24">
+        {/* Hero gradient wash */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
+
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
+          <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease }}
+            >
+              {/* Eyebrow */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, ease }}
+                className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8 opacity-50"
+              >
+                Found It Marketing — Alexandria, LA
+              </motion.p>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 1, ease }}
+                className="text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7"
+              >
+                We Help Local Businesses{' '}
+                <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
+                  Get More Customers.
+                </span>
+              </motion.h1>
+
+              {/* Subheadline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8, ease }}
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed"
+              >
+                Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
+              </motion.p>
+
+              {/* CTA cluster */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8, ease }}
+                className="flex flex-col items-center gap-5"
+              >
+                <Link href="#services">
+                  <LiquidButton className="px-12 sm:px-16 h-16 sm:h-[72px] text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
+                    See What We Do
+                  </LiquidButton>
+                </Link>
+                <div className="flex items-center gap-6">
+                  <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-white/40 hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
+                    <Phone className="w-4 h-4" /> {phoneDisplay}
+                  </a>
+                  <span className="text-white/10 text-xs">|</span>
+                  <span className="text-xs text-white/25 font-medium">Free audit on every service</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-5 h-8 rounded-full border-2 border-white/10 flex items-start justify-center p-1"
+          >
+            <div className="w-1 h-2 bg-primary/40 rounded-full" />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          DIFFERENTIATORS — 3 horizontal pills
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-12 lg:py-20">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {differentiators.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease }}
+                className="bg-card/10 backdrop-blur-sm border border-border/15 rounded-2xl p-5 lg:p-6 group hover:border-primary/20 transition-all duration-500"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-6 h-6 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">{item.title}</p>
+                </div>
+                <p className="text-xs text-muted-foreground/70 font-medium leading-relaxed pl-9">{item.detail}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SERVICES — 4 premium cards with icons
+      ═══════════════════════════════════════════ */}
+      <section id="services" className="relative py-16 lg:py-28 scroll-mt-20">
+        {/* Section glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/5 to-transparent pointer-events-none" />
+
+        <div className="max-w-[1100px] mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-14"
+          >
+            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">Services</p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+              What We Do
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              Four services. Each one comes with a free audit so you can see what we&apos;d do — before you spend a dollar.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+            {services.map((svc, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.7, ease }}
+              >
+                <Link href={svc.href} className="group relative block bg-card/10 backdrop-blur-sm border border-border/15 rounded-2xl lg:rounded-3xl p-7 lg:p-9 hover:border-primary/25 transition-all duration-500 h-full overflow-hidden">
+                  {/* Card gradient accent */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${svc.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl lg:rounded-3xl`} />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                        <svc.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                      </div>
+                      <p className="text-xs font-black uppercase tracking-[0.25em] text-primary/70">{svc.name}</p>
+                    </div>
+                    <p className="text-foreground font-bold text-sm lg:text-base leading-relaxed mb-5">{svc.result}</p>
+                    <span className="text-xs text-primary font-bold flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
+                      {svc.cta} <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          PROOF — 4 real results in a premium card
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-16 lg:py-28">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+            className="bg-card/10 backdrop-blur-xl border border-border/15 rounded-3xl overflow-hidden shadow-2xl shadow-black/20"
+          >
+            {/* Card header */}
+            <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-7 lg:px-10 py-5 border-b border-border/10">
+              <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] opacity-60">Real Results</p>
+            </div>
+
+            <div className="p-7 lg:p-10">
+              <h3 className="text-xl md:text-3xl lg:text-4xl font-black uppercase italic tracking-tighter leading-[0.92] text-foreground mb-10">
+                Here&apos;s What Happened for{' '}
+                <span className="text-primary">Our Clients.</span>
+              </h3>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+                {proofPoints.map((point, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5, ease }}
+                    className="bg-gradient-to-b from-primary/[0.06] to-primary/[0.02] border border-primary/10 rounded-2xl p-5 text-center hover:border-primary/20 transition-colors duration-300"
+                  >
+                    <p className="text-3xl lg:text-4xl font-black text-primary italic tracking-tighter drop-shadow-[0_0_15px_rgba(249,115,22,0.1)]">
+                      {point.value}
+                    </p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground/50 mt-1.5 mb-2.5">{point.label}</p>
+                    <p className="text-[11px] text-muted-foreground/70 font-medium leading-relaxed">{point.detail}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-8 text-center">
+                <Link href="/case-studies" className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:gap-3 transition-all duration-300 group">
+                  See all case studies <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          BOTTOM CTA
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-24 lg:py-40 overflow-hidden">
+        {/* CTA ambient */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[40vh] bg-primary/[0.03] rounded-full blur-[100px]" />
+        </div>
+
+        <div className="max-w-[700px] mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] mb-5 text-foreground">
+              Talk to John.{' '}
+              <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">15 Minutes.</span>
+            </h2>
+            <p className="text-lg lg:text-xl text-muted-foreground font-medium italic mb-10 max-w-lg mx-auto leading-relaxed">
+              No pitch. No junior account managers. Just a candid conversation about what would actually work for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+              <Link href="/lp/google-ads-management#lp-form">
+                <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
+                  Book a Free Call
+                </LiquidButton>
+              </Link>
+              <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
+                <Phone className="w-4 h-4" /> {phoneDisplay}
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
