@@ -92,6 +92,10 @@ const config = {
                     '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                     '100%': { transform: 'translate(0px, 0px) scale(1)' },
                 },
+                'fade-in-up': {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -99,6 +103,7 @@ const config = {
                 scan: 'scan 3s ease-in-out infinite',
                 'bounce-dot': 'bounce-dot 2s ease-in-out infinite',
                 blob: 'blob 7s infinite',
+                'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
         },
     },
@@ -112,6 +117,10 @@ const config = {
                 '.animation-delay-4000': {
                     'animation-delay': '4s',
                 },
+                '.delay-100': { 'animation-delay': '100ms' },
+                '.delay-200': { 'animation-delay': '200ms' },
+                '.delay-300': { 'animation-delay': '300ms' },
+                '.delay-400': { 'animation-delay': '400ms' },
             };
             addUtilities(newUtilities);
         }
