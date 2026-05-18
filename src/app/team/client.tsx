@@ -42,7 +42,10 @@ const teamMembers = [
 export default function TeamPage() {
   return (
     <main className="bg-transparent text-foreground py-24 lg:py-48 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.03)_0%,transparent_60%)] pointer-events-none" />
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
+      </div>
       
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         <div className="lg:grid lg:grid-cols-12 gap-12 mb-32 items-end">
