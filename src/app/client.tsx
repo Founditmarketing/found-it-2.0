@@ -93,8 +93,8 @@ export default function HomePage() {
             >
               {/* Eyebrow */}
               <motion.p
-                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                animate={{ opacity: 0.5, y: 0, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 0.5, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.8, ease: introEase }}
                 className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8"
               >
@@ -103,8 +103,8 @@ export default function HomePage() {
 
               {/* Headline */}
               <motion.h1
-                initial={{ opacity: 0, y: 40, scale: 0.95, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.2, duration: 1, ease: introEase }}
                 className="text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7"
               >
@@ -116,8 +116,8 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <motion.p
-                initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8, ease: introEase }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed"
               >

@@ -99,11 +99,10 @@ const staggerContainer = {
 };
 
 const navItemVariants = {
-  closed: { x: 50, opacity: 0, filter: 'blur(4px)' },
+  closed: { x: 50, opacity: 0 },
   open: {
     x: 0,
     opacity: 1,
-    filter: 'blur(0px)',
     transition: { duration: 0.5, ease },
   },
 };
@@ -381,8 +380,8 @@ export function Header() {
   return (
     <>
       <motion.header
-        initial={{ y: -15, opacity: 0, filter: 'blur(10px)' }}
-        animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+        initial={{ y: -15, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           'fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid',
