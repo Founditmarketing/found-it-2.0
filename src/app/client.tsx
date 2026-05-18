@@ -56,7 +56,7 @@ const proofPoints = [
 const differentiators = [
   { title: 'No contracts.', detail: 'Month-to-month options on everything.' },
   { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
-  { title: 'Senior strategist, not interns.', detail: 'John works on your account. Not a junior who Googles the answers.' },
+  { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
 
 export default function HomePage() {
@@ -316,11 +316,11 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease }}
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Talk to John.{' '}
+              Call Trevor.{' '}
               <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">15 Minutes.</span>
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium italic mb-10 max-w-lg mx-auto leading-relaxed">
-              No pitch. No junior account managers. Just a candid conversation about what would actually work for your business.
+              No pitch. No pressure. Just a straight conversation about what would actually work for your business.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link href="/lp/google-ads-management#lp-form">

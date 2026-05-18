@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import TeamClient from './client';
+import TeamPage from './client';
 
 export const metadata: Metadata = {
-  title: 'Meet the Team | Found It Marketing',
-  description: 'Small team, senior strategists. No hand-offs to interns. Based in Alexandria, LA.',
+    title: 'Our Team | The People Behind the Empire',
+    description: "Meet the specialized team of strategists, engineers, and creatives building the Generative Engine Optimization (GEO) infrastructure.",
 };
 
 export default function Page() {
-  return <TeamClient />;
+    return <TeamPage />;
 }

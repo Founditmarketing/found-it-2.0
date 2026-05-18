@@ -1,87 +1,127 @@
 'use client';
 
+import { TextScramble } from '@/components/ui/TextScramble';
 import { motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
-import Link from 'next/link';
-import { LiquidButton } from '@/components/ui/LiquidButton';
-import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import Image from 'next/image';
+import { User } from 'lucide-react';
 
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+const teamMembers = [
+  {
+    name: 'Trevor Ruby',
+    role: 'Founder',
+    image: '/trevorruby.jpeg',
+  },
+  {
+    name: 'Reese Roberts',
+    role: 'Head of Search & Generative Optimization',
+    image: '/reese-roberts.jpeg',
+  },
+  {
+    name: 'Thomas Dombrowski',
+    role: 'Director of Client Relations',
+    image: '/thomas-dombrowski.jpeg',
+    objectPosition: 'center 10%',
+  },
+  {
+    name: 'Jason Albright',
+    role: 'Director of Web Development',
+    image: '/jason-albright.jpeg',
+  },
+  {
+    name: 'Bethany Hernandez',
+    role: 'Head of Google Ads',
+    image: '/bethany-hernandez.jpeg',
+  },
+  {
+    name: 'Megan Sanguinetti',
+    role: 'Head of Social Media',
+    image: '/megan-sanguinetti.jpeg',
+  }
+];
 
-export default function TeamClient() {
+export default function TeamPage() {
   return (
-    <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
-      <div className="max-w-[800px] mx-auto px-6 relative z-10">
-
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="mb-16">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">The Team</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            Small Team.{' '}<span className="text-primary">Senior People.</span>
-          </h1>
-          <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
-            We don&apos;t have 50 employees and a sales floor. We have senior strategists who do the work themselves. When you call, you talk to the person managing your account.
-          </p>
-        </motion.div>
-
-        {/* John — the lead */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}
-          className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-8 lg:p-10 mb-8"
-        >
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-              <span className="text-3xl font-black text-primary italic">J</span>
-            </div>
-            <div>
-              <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-1">John Caldwell</h2>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary/60 mb-4">Founder & Lead Strategist</p>
-              <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
-                13+ years in digital marketing. Manages every client relationship directly. Built campaigns that generated $42K/month from $4.2K in ad spend. Your strategist, not a middleman.
+    <main className="bg-transparent text-foreground py-24 lg:py-48 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.03)_0%,transparent_60%)] pointer-events-none" />
+      
+      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+        <div className="lg:grid lg:grid-cols-12 gap-12 mb-32 items-end">
+          <div className="lg:col-span-8">
+            <h1 className="text-oversized leading-[0.85] mb-8">
+              <TextScramble text="The Architects." delay={200} /><br />
+              <span className="text-primary">
+                <TextScramble text="Behind the Empire." delay={800} />
+              </span>
+            </h1>
+            <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
+              Algorithms don't build empires alone. Meet the specialized minds who engineer the data, train the models, and drive the revenue. 
+            </p>
+          </div>
+          <div className="hidden lg:block lg:col-span-4">
+            <div className="text-right">
+              <span className="text-primary font-mono text-xl font-black uppercase tracking-[0.3em] block mb-4">
+                TEAM SIZE
+              </span>
+              <p className="text-muted-foreground text-lg uppercase tracking-widest font-bold">
+                20+ Specialists
               </p>
-              <a href={phoneHref} onClick={() => trackCallClick()} className={`text-sm text-primary font-bold hover:underline ${CALLRAIL_CLASS}`}>
-                {phoneDisplay}
-              </a>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* How we work */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.6, ease }}
-          className="bg-card/10 border border-border/15 rounded-2xl p-8 lg:p-10 mb-16"
-        >
-          <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground mb-5">How We Work</h3>
-          <div className="space-y-4">
-            {[
-              'You talk to the person doing the work. No sales team, no account coordinators, no hand-offs.',
-              'Small client roster on purpose. We take fewer clients so we can actually focus.',
-              'Based in Alexandria, LA. Available by phone, text, or email. We respond fast.',
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="text-primary text-xs font-black mt-0.5">•</span>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{item}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.8 }}
+              className="bg-card/30 backdrop-blur-xl border border-border/50 hover:border-primary/50 flex flex-col p-8 lg:p-10 rounded-[3rem] shadow-2xl relative group overflow-hidden transition-colors"
+            >
+              <div className="relative w-full aspect-[4/5] mb-8 overflow-hidden rounded-[2rem] bg-muted/30 flex items-center justify-center">
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: member.objectPosition || 'center' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                ) : (
+                  <User className="w-1/3 h-1/3 text-muted-foreground/30 transition-transform duration-700 group-hover:scale-110" />
+                )}
               </div>
-            ))}
-          </div>
-        </motion.div>
+              <div className="flex-1 flex flex-col justify-end text-center lg:text-left">
+                <p className="text-sm text-primary font-mono font-black mb-2 tracking-[0.2em] uppercase opacity-80">
+                  {member.role}
+                </p>
+                <h3 className="text-2xl lg:text-3xl font-black text-foreground uppercase italic tracking-tight">
+                  {member.name}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* CTA */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}
-          className="text-center py-12 border-t border-border/10"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Want to Talk?{' '}<span className="text-primary">15 Minutes.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">No pitch. Just a conversation about your business.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
-              <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">Book a Free Call</LiquidButton>
-            </Link>
-            <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
-              <Phone className="w-4 h-4" /> {phoneDisplay}
+        <div className="mt-32 relative">
+          <div className="bg-card border border-border/50 p-12 lg:p-24 rounded-[4rem] text-center max-w-5xl mx-auto overflow-hidden relative shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+            <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-8 max-w-2xl mx-auto leading-tight">
+              Join the Vanguard of <span className="text-primary">Search.</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-12 max-w-xl mx-auto font-medium">
+              We're always looking for elite talent to join our Alexandria headquarters. If you speak data fluently, we want to talk.
+            </p>
+            <a 
+              href="/contact" 
+              className="inline-flex items-center justify-center bg-primary text-primary-foreground font-black uppercase italic tracking-[0.2em] px-12 py-6 rounded-full hover:scale-105 transition-transform"
+            >
+              View Open Positions
             </a>
           </div>
-        </motion.div>
-
+        </div>
       </div>
     </main>
   );

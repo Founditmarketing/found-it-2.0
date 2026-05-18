@@ -124,11 +124,11 @@ export default function AboutPage() {
           className="text-center py-16 border-t border-border/10"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Talk to John.{' '}
+            Call Trevor.{' '}
             <span className="text-primary">15 Minutes.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            No pitch. No junior account managers. Just a candid conversation about your business.
+            No pitch. No pressure. Just a conversation about your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/lp/google-ads-management#lp-form">
