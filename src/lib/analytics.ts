@@ -128,6 +128,9 @@ export function createFormSubmitListener(source: string) {
       if (typeof console !== 'undefined') {
         console.log(`[Found It] Lead conversion fired — source: ${source}`);
       }
+      
+      // Redirect to dedicated thank you page for Google Ads conversion tracking
+      window.location.href = '/thank-you';
     }
   };
 }
