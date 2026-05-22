@@ -53,7 +53,7 @@ const feasibilityStudyFlow = ai.defineFlow(
       throw new Error('Failed to generate feasibility study.');
     }
 
-    // Notify Trevor in background
+    // Notify John in background
     void notifyFeasibilitySubmission(input.businessConcept, output.feasibilityScore, output.executiveSummary).catch(err => {
       console.error('Background feasibility notification failed:', err);
     });

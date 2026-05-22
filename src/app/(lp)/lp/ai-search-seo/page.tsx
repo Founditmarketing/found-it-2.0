@@ -3,11 +3,11 @@ import { AISearchSEOContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'AI Search Optimization | Show Up When AI Recommends Your Industry | Found It Marketing',
+  title: 'AI Search Optimization | Show Up When AI Recommends Your Industry',
   description:
     'Make sure your business is the answer when customers ask ChatGPT, Perplexity, or Google AI. Free visibility audit. No contracts.',
   openGraph: {
-    title: 'AI Search Optimization | Show Up When AI Recommends | Found It Marketing',
+    title: 'AI Search Optimization | Show Up When AI Recommends',
     description: 'Make sure your business is the answer when customers ask AI. Free visibility audit.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/ai-search-seo',

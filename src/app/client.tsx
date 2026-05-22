@@ -320,7 +320,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease }}
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Call Trevor.{' '}
+              Call John.{' '}
               <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">15 Minutes.</span>
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium italic mb-10 max-w-lg mx-auto leading-relaxed">

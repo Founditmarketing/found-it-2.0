@@ -3,16 +3,22 @@ import { GoogleAdsLPContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Google Ads Management | Get More Leads in 60 Days | Found It Marketing',
+  title: 'Google Ads Management | Get More Leads in 60 Days',
   description:
     'Google Ads management that gets results. Weekly optimization, transparent reporting, no contracts. Free audit included.',
   openGraph: {
-    title: 'Google Ads Management | Get More Leads in 60 Days | Found It Marketing',
+    title: 'Google Ads Management | Get More Leads in 60 Days',
     description:
       'Google Ads management that gets results. Weekly optimization, no contracts. Free audit.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/google-ads-management',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Google Ads Management | Get More Leads in 60 Days',
+    description: 'Google Ads management that gets results. Weekly optimization, no contracts. Free audit.',
+    images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/google-ads-management' },

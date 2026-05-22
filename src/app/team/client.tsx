@@ -7,7 +7,7 @@ import { User } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'Trevor Ruby',
+    name: 'John',
     role: 'Founder',
     image: '/trevorruby.jpeg',
   },

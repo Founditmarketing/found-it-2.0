@@ -64,7 +64,7 @@ const solutionStrategyFlow = ai.defineFlow(
         throw new Error('Failed to generate a strategy.');
       }
 
-      // Notify Trevor in background
+      // Notify John in background
       void notifySolutionSubmission(input.businessName, input.industry, output.executiveSummary).catch(err => {
         console.error('Background strategy notification failed:', err);
       });

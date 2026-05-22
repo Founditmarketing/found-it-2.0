@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import AIVisibilityClient from './client';
 
 export const metadata: Metadata = {
-  title: 'AI Visibility Check | See Where AI Recommends You | Found It Marketing',
+  title: 'AI Visibility Check | See Where AI Recommends You',
   description: 'Check if ChatGPT, Perplexity, and Google AI recommend your business. Free instant check.',
 };
 

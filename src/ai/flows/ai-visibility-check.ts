@@ -60,7 +60,7 @@ const aiVisibilityFlow = ai.defineFlow(
         throw new Error('AI generated empty output');
       }
 
-      // Notify Trevor of the lead in the background
+      // Notify John of the lead in the background
       // Use void to not block the return and ignore errors in notification
       void notifyAISubmission(input.url, output.score, output.summary).catch(err => {
         console.error('Background AI notification failed:', err);

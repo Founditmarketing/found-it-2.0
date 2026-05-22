@@ -16,10 +16,10 @@ export async function generateMetadata({
   if (!data) return {};
 
   return {
-    title: `${data.name} Marketing | Found It Marketing`,
+    title: `${data.name} Marketing`,
     description: data.subline,
     openGraph: {
-      title: `${data.name} Marketing | Found It Marketing`,
+      title: `${data.name} Marketing`,
       description: data.subline,
       type: 'website',
     },

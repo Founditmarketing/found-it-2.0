@@ -3,12 +3,12 @@ import { LakeCharlesWebDesignContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Lake Charles Web Design | Websites That Win Bids | Found It Marketing',
+  title: 'Lake Charles Web Design | Websites That Win Bids',
   description:
-    'Custom web design for Lake Charles industrial, construction, and service businesses. Mobile-first, fast, owned by you. Free concept call.',
+    'Web design for Lake Charles contractors and service businesses. Mobile-first, fast-loading, owned by you. Live in 6 weeks.',
   openGraph: {
-    title: 'Lake Charles Web Design | Websites That Win Bids | Found It Marketing',
-    description: 'Custom web design for Lake Charles businesses. Mobile-first, owned by you. Free concept call.',
+    title: 'Lake Charles Web Design | Websites That Win Bids',
+    description: 'Web design for Lake Charles contractors. Live in 6 weeks.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/lake-charles/web-design',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],

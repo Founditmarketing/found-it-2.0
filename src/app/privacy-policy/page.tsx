@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy | Found It Marketing',
+    title: 'Privacy Policy',
     description: 'Privacy Policy and SMS Communications Consent for Found It Marketing LLC.',
 };
 
