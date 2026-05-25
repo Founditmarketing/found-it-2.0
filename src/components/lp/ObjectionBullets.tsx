@@ -11,7 +11,7 @@ interface Bullet {
 }
 
 interface ObjectionBulletsProps {
-  bullets: [Bullet, Bullet, Bullet];
+  bullets: Bullet[];
 }
 
 export function ObjectionBullets({ bullets }: ObjectionBulletsProps) {
