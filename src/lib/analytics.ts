@@ -24,6 +24,15 @@ function fire(eventName: string, params?: Record<string, any>) {
 /* ─── Event Helpers ─── */
 export function trackLead(source: string) {
   fire('lead_submit', { event_category: 'conversion', event_label: source, value: 1 });
+  
+  // Google Ads specific conversion: Lead Form Submit
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-17848789749/j48-CMiG0K4cEPXV-75C',
+      'value': 800.0,
+      'currency': 'USD'
+    });
+  }
 }
 
 export function trackCallClick() {
@@ -119,6 +128,30 @@ export function createFormSubmitListener(source: string) {
       // Log for debugging
       if (typeof console !== 'undefined') {
         console.log(`[Found It] Lead conversion fired — source: ${source}`);
+      }
+      
+      // Redirect to dedicated thank you page for Google Ads conversion tracking
+      window.location.href = '/thank-you';
+    }
+  };
+}
+
+/* ─── Calendly postMessage Listener ─── */
+/**
+ * Attach to window in a useEffect. Listens for Calendly booking events.
+ */
+export function createCalendlyListener() {
+  return function handleMessage(e: MessageEvent) {
+    if (e.data && e.data.event && e.data.event === 'calendly.event_scheduled') {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17848789749/EDtKCMuG0K4cEPXV-75C',
+          'value': 800.0,
+          'currency': 'USD'
+        });
+      }
+      if (typeof console !== 'undefined') {
+        console.log(`[Found It] Calendly conversion fired`);
       }
     }
   };

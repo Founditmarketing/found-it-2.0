@@ -160,10 +160,10 @@ export function PlatformSection() {
             WHY FOUND IT
           </span>
           <h2 className="text-foreground text-oversized mb-4">
-            The <span className="text-primary">FoundIt OS</span>™
+            <span className="text-primary">Our Approach</span>
           </h2>
           <p className="text-muted-foreground text-base sm:text-xl max-w-3xl font-medium border-l-8 border-primary pl-4 sm:pl-8 mt-4 sm:mt-8">
-            Every agency offers web design and SEO. We built a proprietary intelligence layer that makes the difference between showing up and dominating.
+            Every agency offers web design and SEO. We built an intelligence layer that makes the difference between showing up and dominating.
           </p>
         </motion.div>
 

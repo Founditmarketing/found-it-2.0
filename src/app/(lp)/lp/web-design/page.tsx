@@ -3,11 +3,11 @@ import { WebDesignLPContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Web Design | Get a Website That Makes Your Phone Ring | Found It Marketing',
+  title: 'Web Design | Get a Website That Makes Your Phone Ring',
   description:
     'Custom websites that turn visitors into calls. Mobile-first, fast-loading, owned by you. Live in 6 weeks. Free concept call.',
   openGraph: {
-    title: 'Web Design | Get a Website That Makes Your Phone Ring | Found It Marketing',
+    title: 'Web Design | Get a Website That Makes Your Phone Ring',
     description:
       'Custom websites that turn visitors into calls. Live in 6 weeks. Free concept call.',
     type: 'website',

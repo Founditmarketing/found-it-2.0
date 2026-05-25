@@ -77,6 +77,7 @@ export const metadata: Metadata = {
 
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { GoogleTag } from '@/components/analytics/GoogleTag';
+import { GoogleTagManager } from '@/components/analytics/GoogleTagManager';
 import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
 
 export default function RootLayout({
@@ -93,6 +94,7 @@ export default function RootLayout({
           outfit.variable
         )}
       >
+        <GoogleTagManager />
         <MetaPixel />
         <GoogleTag />
         <LocalBusinessSchema />

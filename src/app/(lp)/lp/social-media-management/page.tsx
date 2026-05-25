@@ -3,14 +3,19 @@ import { SocialMediaLPContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Social Media Management | Content That Gets Calls, Not Just Likes | Found It Marketing',
+  title: 'Social Media Management | Content That Gets Calls, Not Just Likes',
   description:
     'Social media management for local businesses. Real content, real strategy, real leads. Free 30-day content plan. No contracts.',
   openGraph: {
-    title: 'Social Media Management | Content That Gets Calls | Found It Marketing',
+    title: 'Social Media Management | Content That Gets Calls',
     description: 'Social media management for local businesses. Free 30-day content plan.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/social-media-management',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Social Media Management | Content That Gets Calls',
+    description: 'Social media management for local businesses. Free 30-day content plan.',
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/social-media-management' },

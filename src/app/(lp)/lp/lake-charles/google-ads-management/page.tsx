@@ -3,11 +3,11 @@ import { LakeCharlesGoogleAdsContent } from './content';
 import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Lake Charles Google Ads Management | More Leads in 60 Days | Found It Marketing',
+  title: 'Lake Charles Google Ads Management | More Leads in 60 Days',
   description:
-    'Google Ads management for Lake Charles industrial, construction, and service businesses. Weekly optimization, no contracts. Free audit.',
+    'Google Ads management for Lake Charles businesses. Weekly optimization, transparent reporting, no contracts. Free audit included.',
   openGraph: {
-    title: 'Lake Charles Google Ads Management | More Leads in 60 Days | Found It Marketing',
+    title: 'Lake Charles Google Ads Management | More Leads in 60 Days',
     description: 'Google Ads management for Lake Charles businesses. Weekly optimization, no contracts. Free audit.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/lake-charles/google-ads-management',

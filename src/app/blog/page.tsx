@@ -2,7 +2,7 @@ import { BlogList } from '@/components/blog/BlogList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'The Archives | Found It Marketing',
+    title: 'The Archives',
     description: "Unapologetic insights into Generative Engine Optimization, High-Velocity Acquisition, and dominating the AI Search landscape.",
 };
 

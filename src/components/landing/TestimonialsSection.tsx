@@ -42,13 +42,13 @@ const testimonials = [
     id: 4,
     name: 'A C',
     title: 'Google Review - 5 Stars',
-    quote: "Trevor convinced me to sign up for his SEO company when I didnt know what SEO was and he put my business at the top of Google. He did what he said he would do and now I call him my friend. Great company.",
+    quote: "John convinced me to sign up for his SEO company when I didnt know what SEO was and he put my business at the top of Google. He did what he said he would do and now I call him my friend. Great company.",
   },
   {
     id: 5,
     name: 'Emanuele Romiti',
     title: 'Google Review - 5 Stars',
-    quote: "Trevor is fast and efficient, he is available any time of the day and very interested on the well performing marketing actions he takes for the business.",
+    quote: "John is fast and efficient, he is available any time of the day and very interested on the well performing marketing actions he takes for the business.",
   },
   {
     id: 6,

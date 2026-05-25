@@ -1,8 +1,16 @@
 'use client';
 
 import Script from 'next/script';
+import { useEffect } from 'react';
+import { createCalendlyListener } from '@/lib/analytics';
 
 export const GoogleTag = () => {
+    useEffect(() => {
+        const handleCalendlyMessage = createCalendlyListener();
+        window.addEventListener('message', handleCalendlyMessage);
+        return () => window.removeEventListener('message', handleCalendlyMessage);
+    }, []);
+
     return (
         <>
             <Script

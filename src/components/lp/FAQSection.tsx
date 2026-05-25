@@ -59,32 +59,28 @@ function FAQAccordion({
       </button>
 
       {/* ─── Answer panel ─── */}
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="answer"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            style={{ overflow: 'hidden' }}
-            id={panelId}
-            role="region"
-            aria-labelledby={headingId}
-          >
-            <div className="pb-6 lg:pb-8 px-2">
-              <div className="border-l-[3px] border-primary/60 pl-5">
-                <p
-                  className="text-muted-foreground/90 font-medium leading-relaxed max-w-3xl"
-                  style={{ fontSize: '16px', lineHeight: '1.75' }}
-                >
-                  {item.answer}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        key="answer"
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        style={{ overflow: 'hidden' }}
+        id={panelId}
+        role="region"
+        aria-labelledby={headingId}
+        aria-hidden={!isOpen}
+      >
+        <div className="pb-6 lg:pb-8 px-2">
+          <div className="border-l-[3px] border-primary/60 pl-5">
+            <p
+              className="text-muted-foreground/90 font-medium leading-relaxed max-w-3xl"
+              style={{ fontSize: '16px', lineHeight: '1.75' }}
+            >
+              {item.answer}
+            </p>
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

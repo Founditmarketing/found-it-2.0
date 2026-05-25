@@ -47,11 +47,11 @@ export function OwnerMessage() {
                             <div className="w-64 h-64 md:w-[28rem] md:h-[28rem] rounded-3xl overflow-hidden shadow-2xl mb-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-primary/30 hover:ring-4 hover:ring-primary/10">
                                 <img
                                     src="/Trevorandfamily.jpg"
-                                    alt="Trevor Ruby and Family"
+                                    alt="John and Family"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <p className="font-black text-2xl uppercase italic tracking-tighter">Trevor Ruby</p>
+                            <p className="font-black text-2xl uppercase italic tracking-tighter">John</p>
                             <p className="text-primary font-bold tracking-widest text-sm uppercase">Founder, Found It Marketing</p>
                         </div>
                     </ScrollReveal>

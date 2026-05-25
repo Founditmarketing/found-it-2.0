@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         console.log('Calling AI SDK with Gemini 2.5 Flash...');
         const { text } = await generateText({
             model: google('gemini-2.5-flash'),
-            system: `You are an elite marketing strategist at "Found It Marketing", an agency led by Trevor. 
+            system: `You are an elite marketing strategist at "Found It Marketing", an agency led by John. 
       Your goal is to provide a comprehensive, high-converting marketing proposal based on a business's website.
       
       BE PROFESSIONAL, BOLD, AND EMPIRICAL. Use "we" to refer to the agency.
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
       * **Focus**: [Short description]
       * **Investment**: $7,500 / month
       
-      End with a strong call to action to speak with Trevor or the strategy team.`,
+      End with a strong call to action to speak with John or the strategy team.`,
             prompt: `Lead Name: ${name}
       Lead Email: ${email}
       Business Website: ${website}

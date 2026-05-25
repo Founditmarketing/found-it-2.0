@@ -28,7 +28,7 @@ export default function ContactClient() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-16">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Contact</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
+            Call John.{' '}<span className="text-primary">15 Minutes.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
             No pitch. No junior account managers. Just a straight answer about what would work for your business.
