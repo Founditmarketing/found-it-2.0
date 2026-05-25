@@ -130,14 +130,8 @@ export function createFormSubmitListener(source: string) {
         console.log(`[Found It] Lead conversion fired — source: ${source}`);
       }
       
-      // Push event to GTM dataLayer
-      if (typeof window !== 'undefined') {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'lead_form_submit',
-          form_source: source
-        });
-      }
+      // Redirect to dedicated thank you page for foolproof Google Ads tracking
+      window.location.href = '/thank-you';
     }
   };
 }
