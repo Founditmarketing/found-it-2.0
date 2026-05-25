@@ -42,7 +42,7 @@ export function AIMarketingLPContent() {
       />
 
       <ProcessSteps
-        title="How We Automate Your Growth"
+        heading="How We Automate Your Growth"
         steps={[
           {
             number: '01',

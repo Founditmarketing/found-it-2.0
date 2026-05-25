@@ -42,7 +42,7 @@ export function AppDevelopmentLPContent() {
       />
 
       <ProcessSteps
-        title="Our App Development Process"
+        heading="Our App Development Process"
         steps={[
           {
             number: '01',
