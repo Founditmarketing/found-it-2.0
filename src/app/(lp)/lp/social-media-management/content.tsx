@@ -27,15 +27,15 @@ const faqItems = [
 
 export function SocialMediaLPContent() {
   return (
-    <LPLayout ctaLabel="Get My Free Content Plan">
+    <LPLayout ctaLabel="Claim Your Free In-Person Strategy Session">
       <LPNav />
 
       <HormoziHero
         headline="Social Media That Gets Calls,"
         headlineAccent="Not Just Likes."
-        subheadline="We create the content, run the ads, and track what actually brings in business. You just approve. Free 30-day content plan included."
-        ctaText="Get My Free Content Plan"
-        frictionReducer="15-minute intro call (or we can meet at your office!). Zero obligation. The plan is yours to keep."
+        subheadline="We'll come to your office, map out a custom 30-day content strategy, and show you how to turn views into booked calls. No contracts. You just approve."
+        ctaText="Claim Your Free In-Person Strategy Session"
+        frictionReducer="15 minutes. We meet at your office. The 30-day plan is yours to keep."
       />
 
       <ObjectionBullets
@@ -71,7 +71,7 @@ export function SocialMediaLPContent() {
       />
 
       <LPFormSection
-        heading="Get Your Free 30-Day Content Plan"
+        heading="Book Your Free In-Person Strategy Session"
         subheading="Tell us about your business and we'll build you a custom content calendar you can start using immediately."
         benefits={[
           'Custom 30-day content calendar',
@@ -99,7 +99,7 @@ export function SocialMediaLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get My Free Content Plan
+                Claim Your Free In-Person Strategy Session
               </LiquidButton>
             </Link>
           </motion.div>

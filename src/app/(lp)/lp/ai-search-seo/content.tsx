@@ -27,15 +27,15 @@ const faqItems = [
 
 export function AISearchSEOContent() {
   return (
-    <LPLayout ctaLabel="Get My Free AI Audit">
+    <LPLayout ctaLabel="Book Your Free In-Person AI Audit">
       <LPNav />
 
       <HormoziHero
         headline="Show Up When AI Recommends"
         headlineAccent="Your Industry."
-        subheadline="Your customers are asking ChatGPT, Perplexity, and Google AI who to hire. We make sure the answer is you. Free audit — no commitment."
-        ctaText="Get My Free AI Visibility Audit"
-        frictionReducer="Takes 2 minutes (or we can meet at your office!). We'll show you exactly where you stand."
+        subheadline="Your customers are asking AI who to hire. We'll come to your office, run a live scan, and show you exactly how to become the recommended answer."
+        ctaText="Book Your Free In-Person AI Audit"
+        frictionReducer="Takes 15 minutes. We come directly to you. Zero obligation."
       />
 
       <ObjectionBullets
@@ -71,7 +71,7 @@ export function AISearchSEOContent() {
       />
 
       <LPFormSection
-        heading="Get Your Free AI Visibility Audit"
+        heading="Book Your Free In-Person AI Audit"
         subheading="We'll check where your business shows up in AI search — and where it doesn't. Takes 24 hours."
         benefits={[
           'AI visibility scan across ChatGPT, Perplexity, Gemini, Google AI',
@@ -99,7 +99,7 @@ export function AISearchSEOContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get My Free AI Audit
+                Book Your Free In-Person AI Audit
               </LiquidButton>
             </Link>
           </motion.div>
