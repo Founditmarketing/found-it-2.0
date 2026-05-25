@@ -27,15 +27,15 @@ const faqItems = [
 
 export function WebDesignLPContent() {
   return (
-    <LPLayout ctaLabel="Get a Free Concept Call">
+    <LPLayout ctaLabel="Claim Your Free Custom Homepage Mockup">
       <LPNav />
 
       <HormoziHero
-        headline="Get a Website That Makes"
-        headlineAccent="Your Phone Ring."
-        subheadline="We build fast, mobile-first websites that turn visitors into calls and quotes. Live in 6 weeks. You own everything."
-        ctaText="Get a Free Concept Call"
-        frictionReducer="15-minute call. Zero obligation. Free mockup concept included."
+        headline="Your Website is Costing You Leads. "
+        headlineAccent="Let’s Fix It in 6 Weeks."
+        subheadline="We write the copy, build the site, and engineer it to turn mobile traffic into booked calls. No missed deadlines. No hostage games."
+        ctaText="Claim Your Free Custom Homepage Mockup"
+        frictionReducer="15-minute intro call. We design a concept for free. Zero obligation to hire us."
       />
 
       <ObjectionBullets
@@ -49,8 +49,8 @@ export function WebDesignLPContent() {
             detail: "We don't disappear after go-live. Post-launch tweaks and optimization are included.",
           },
           {
-            title: 'Live in 4–6 weeks.',
-            detail: "Not 4 months. You get a firm timeline on the first call.",
+            title: 'Live in 6 weeks, guaranteed.',
+            detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
           },
         ]}
       />
@@ -67,12 +67,12 @@ export function WebDesignLPContent() {
       />
 
       <LPFormSection
-        heading="See Your Site Reimagined"
+        heading="Get a Free ‘Website Teardown & Rebuild’ Strategy Session."
         subheading="Tell us about your business and we'll show you what a site that actually converts looks like for your market."
         benefits={[
-          'Competitive website teardown',
-          'Custom design direction and mockup concept',
-          'Zero obligation — the insights are yours to keep',
+          'The Competitor Gap Analysis: We’ll show you exactly why your top 3 competitors are outranking you and out-converting you.',
+          'Your Free Custom Mockup: A custom-designed concept of what your new, high-converting homepage should look like.',
+          'No Strings Attached: You can take our mockup and competitor research and give it to another agency. We just want to prove our value first.',
         ]}
         source="lp_web_design"
         pageSlug="web-design"
@@ -94,7 +94,7 @@ export function WebDesignLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get a Free Concept Call
+                Claim Your Free Custom Homepage Mockup
               </LiquidButton>
             </Link>
           </motion.div>
