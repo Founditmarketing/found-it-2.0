@@ -35,11 +35,15 @@ export function AISearchSEOContent() {
         headlineAccent="Your Industry."
         subheadline="Your customers are asking ChatGPT, Perplexity, and Google AI who to hire. We make sure the answer is you. Free audit — no commitment."
         ctaText="Get My Free AI Visibility Audit"
-        frictionReducer="Takes 2 minutes. We'll show you exactly where you stand."
+        frictionReducer="Takes 2 minutes (or we can meet at your office!). We'll show you exactly where you stand."
       />
 
       <ObjectionBullets
         bullets={[
+          {
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+          },
           {
             title: 'This is not traditional SEO.',
             detail: "SEO gets you ranked on Google. AI optimization gets you recommended by ChatGPT, Perplexity, and Gemini. Different game, different playbook.",
@@ -73,6 +77,7 @@ export function AISearchSEOContent() {
           'AI visibility scan across ChatGPT, Perplexity, Gemini, Google AI',
           'Competitor AI visibility comparison',
           'Custom action plan — yours to keep either way',
+          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_ai_seo"
         pageSlug="ai-search-seo"

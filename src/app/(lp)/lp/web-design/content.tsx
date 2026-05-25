@@ -35,11 +35,15 @@ export function WebDesignLPContent() {
         headlineAccent="Let’s Fix It in 6 Weeks."
         subheadline="We write the copy, build the site, and engineer it to turn mobile traffic into booked calls. No missed deadlines. No hostage games."
         ctaText="Claim Your Free Custom Homepage Mockup"
-        frictionReducer="15-minute intro call. We design a concept for free. Zero obligation to hire us."
+        frictionReducer="15-minute intro call (or we can meet at your office!). We design a concept for free. Zero obligation."
       />
 
       <ObjectionBullets
         bullets={[
+          {
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+          },
           {
             title: 'You own everything.',
             detail: "Your domain, your code, your content. No lock-in. Leave anytime — take it all with you.",
@@ -73,6 +77,7 @@ export function WebDesignLPContent() {
           'The Competitor Gap Analysis: We’ll show you exactly why your top 3 competitors are outranking you and out-converting you.',
           'Your Free Custom Mockup: A custom-designed concept of what your new, high-converting homepage should look like.',
           'No Strings Attached: You can take our mockup and competitor research and give it to another agency. We just want to prove our value first.',
+          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_web_design"
         pageSlug="web-design"

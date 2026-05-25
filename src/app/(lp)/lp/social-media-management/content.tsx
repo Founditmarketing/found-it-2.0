@@ -35,11 +35,15 @@ export function SocialMediaLPContent() {
         headlineAccent="Not Just Likes."
         subheadline="We create the content, run the ads, and track what actually brings in business. You just approve. Free 30-day content plan included."
         ctaText="Get My Free Content Plan"
-        frictionReducer="15-minute call. Zero obligation. The plan is yours to keep."
+        frictionReducer="15-minute intro call (or we can meet at your office!). Zero obligation. The plan is yours to keep."
       />
 
       <ObjectionBullets
         bullets={[
+          {
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+          },
           {
             title: "We create everything. You just approve.",
             detail: "Graphics, copy, scheduling — all done for you. Nothing goes live without your sign-off.",
@@ -73,6 +77,7 @@ export function SocialMediaLPContent() {
           'Custom 30-day content calendar',
           'Platform-specific strategy',
           'Zero obligation — the plan is yours to keep',
+          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_social"
         pageSlug="social-media"

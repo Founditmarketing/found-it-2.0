@@ -35,11 +35,15 @@ export function GoogleAdsLPContent() {
         headlineAccent="Junk Clicks."
         subheadline="We take over your Google Ads, cut the waste, and start driving qualified leads in days. Month-to-month. No hostage situations."
         ctaText="Get Your Free Wasted-Spend Analysis"
-        frictionReducer="We guarantee we'll find at least $500 in wasted spend during our free review, or we'll send you a $50 gift card just for your time."
+        frictionReducer="We guarantee we'll find at least $500 in wasted spend during our free review (which we can do in person at your office), or we'll send you a $50 gift card."
       />
 
       <ObjectionBullets
         bullets={[
+          {
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+          },
           {
             title: 'No contracts. Cancel anytime.',
             detail: "Month-to-month. 30 days notice. You keep everything we built if you leave.",
@@ -72,7 +76,8 @@ export function GoogleAdsLPContent() {
         benefits={[
           '5-minute video breakdown of your ad account',
           'Actionable list of wasted spend and junk keywords',
-          'Guaranteed to find $500 in waste, or we send a $50 gift card'
+          'Guaranteed to find $500 in waste, or we send a $50 gift card',
+          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_google_ads"
         pageSlug="google-ads-management"

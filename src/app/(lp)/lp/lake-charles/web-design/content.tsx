@@ -35,7 +35,7 @@ export function LakeCharlesWebDesignContent() {
         headlineAccent="Lake Charles."
         subheadline="We build websites for contractors, fabricators, and service businesses across Southwest Louisiana. No templates. Mobile-first. You own everything."
         ctaText="Get a Free Concept Call"
-        frictionReducer="15-minute call. Zero obligation. Free mockup concept included."
+        frictionReducer="15-minute call (or we can meet at your office!). Zero obligation. Free mockup concept included."
       />
 
       <ObjectionBullets
@@ -49,8 +49,8 @@ export function LakeCharlesWebDesignContent() {
             detail: "We don't disappear after go-live. Post-launch tweaks and optimization are included.",
           },
           {
-            title: "We're 90 minutes away in Alexandria.",
-            detail: "Local Louisiana team. Real partnership, not offshore overflow.",
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We're just 90 minutes away in Alexandria. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
           },
         ]}
       />
@@ -73,6 +73,7 @@ export function LakeCharlesWebDesignContent() {
           'Competitive website teardown',
           'Custom design direction and mockup concept',
           'Zero obligation — the insights are yours to keep',
+          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_web_design_lc"
         pageSlug="lake-charles-web-design"

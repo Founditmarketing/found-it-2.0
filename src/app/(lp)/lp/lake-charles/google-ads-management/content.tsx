@@ -35,7 +35,7 @@ export function LakeCharlesGoogleAdsContent() {
         headlineAccent="in 60 Days."
         subheadline="We manage Google Ads for contractors, fabricators, and service businesses across Southwest Louisiana. Real tracking. Weekly optimization. No contracts."
         ctaText="Get My Free Audit"
-        frictionReducer="Takes 2 minutes. No contracts, ever."
+        frictionReducer="Takes 2 minutes (or we can meet at your office!). No contracts, ever."
       />
 
       <ObjectionBullets
@@ -49,8 +49,8 @@ export function LakeCharlesGoogleAdsContent() {
             detail: "We work inside YOUR Google Ads account. Nothing is held hostage. Ever.",
           },
           {
-            title: "We're 90 minutes away in Alexandria.",
-            detail: "Local Louisiana team. Real partnership, not offshore overflow. Call us anytime.",
+            title: '100% Local. We come to your office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We're just 90 minutes away in Alexandria. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
           },
         ]}
       />
@@ -73,6 +73,7 @@ export function LakeCharlesGoogleAdsContent() {
           'Full campaign audit with wasted spend breakdown',
           'Competitor keyword analysis for your market',
           'Custom plan — yours to keep either way',
+          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_google_ads_lc"
         pageSlug="lake-charles-google-ads"
