@@ -27,14 +27,14 @@ const faqItems = [
 
 export function WebDesignLPContent() {
   return (
-    <LPLayout ctaLabel="Claim Your Free Custom Homepage Mockup">
+    <LPLayout ctaLabel="Claim Your Free In-Person Mockup Review">
       <LPNav />
 
       <HormoziHero
         headline="Your Website is Costing You Leads. "
         headlineAccent="Let’s Fix It in 6 Weeks."
-        subheadline="We write the copy, build the site, and engineer it to turn mobile traffic into booked calls. No missed deadlines. No hostage games."
-        ctaText="Claim Your Free Custom Homepage Mockup"
+        subheadline="We'll come directly to your office, map out a custom web strategy, and present your free mockup concept in person. No missed deadlines. No hostage games."
+        ctaText="Claim Your Free In-Person Mockup Review"
         frictionReducer="15-minute intro call (or we can meet at your office!). We design a concept for free. Zero obligation."
       />
 
@@ -71,7 +71,7 @@ export function WebDesignLPContent() {
       />
 
       <LPFormSection
-        heading="Get a Free ‘Website Teardown & Rebuild’ Strategy Session."
+        heading="Book Your Free In-Person Strategy Session"
         subheading="Tell us about your business and we'll show you what a site that actually converts looks like for your market."
         benefits={[
           'The Competitor Gap Analysis: We’ll show you exactly why your top 3 competitors are outranking you and out-converting you.',
@@ -99,7 +99,7 @@ export function WebDesignLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Claim Your Free Custom Homepage Mockup
+                Claim Your Free In-Person Mockup Review
               </LiquidButton>
             </Link>
           </motion.div>

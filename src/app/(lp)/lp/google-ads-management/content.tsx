@@ -27,14 +27,14 @@ const faqItems = [
 
 export function GoogleAdsLPContent() {
   return (
-    <LPLayout ctaLabel="Get Your Free Wasted-Spend Analysis">
+    <LPLayout ctaLabel="Book Your Free In-Person Ad Audit">
       <LPNav />
 
       <HormoziHero
         headline="Stop Wasting Ad Spend on "
         headlineAccent="Junk Clicks."
-        subheadline="We take over your Google Ads, cut the waste, and start driving qualified leads in days. Month-to-month. No hostage situations."
-        ctaText="Get Your Free Wasted-Spend Analysis"
+        subheadline="We'll drive to your office, review your Google Ads, cut the waste, and build a plan to drive qualified leads. Local to Louisiana? Let's sit down face-to-face."
+        ctaText="Book Your Free In-Person Ad Audit"
         frictionReducer="We guarantee we'll find at least $500 in wasted spend during our free review (which we can do in person at your office), or we'll send you a $50 gift card."
       />
 
@@ -71,7 +71,7 @@ export function GoogleAdsLPContent() {
       />
 
       <LPFormSection
-        heading="Get Your Free Wasted-Spend Analysis"
+        heading="Book Your Free In-Person Ad Audit"
         subheading="You'll receive a 5-minute video breakdown of your ad account showing exactly where you are bleeding money, what your competitors are bidding on, and 3 changes you can make today to get cheaper leads."
         benefits={[
           '5-minute video breakdown of your ad account',
@@ -99,7 +99,7 @@ export function GoogleAdsLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get Your Free Wasted-Spend Analysis
+                Book Your Free In-Person Ad Audit
               </LiquidButton>
             </Link>
           </motion.div>
