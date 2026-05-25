@@ -27,15 +27,15 @@ const faqItems = [
 
 export function GoogleAdsLPContent() {
   return (
-    <LPLayout ctaLabel="Get My Free Audit">
+    <LPLayout ctaLabel="Get Your Free Wasted-Spend Analysis">
       <LPNav />
 
       <HormoziHero
-        headline="Get More Leads From Your Google Ads —"
-        headlineAccent="in 60 Days."
-        subheadline="We find what's wasting your money, cut it, and show you the results every week. Free audit — no commitment."
-        ctaText="Get My Free Audit"
-        frictionReducer="Takes 2 minutes. No contracts, ever."
+        headline="Stop Wasting Ad Spend on "
+        headlineAccent="Junk Clicks."
+        subheadline="We take over your Google Ads, cut the waste, and start driving qualified leads in days. Month-to-month. No hostage situations."
+        ctaText="Get Your Free Wasted-Spend Analysis"
+        frictionReducer="We guarantee we'll find at least $500 in wasted spend during our free review, or we'll send you a $50 gift card just for your time."
       />
 
       <ObjectionBullets
@@ -67,12 +67,12 @@ export function GoogleAdsLPContent() {
       />
 
       <LPFormSection
-        heading="Get Your Free Audit"
-        subheading="Tell us what you're spending, what's not working, and we'll show you where the money is going."
+        heading="Get Your Free Wasted-Spend Analysis"
+        subheading="You'll receive a 5-minute video breakdown of your ad account showing exactly where you are bleeding money, what your competitors are bidding on, and 3 changes you can make today to get cheaper leads."
         benefits={[
-          'Full campaign audit with wasted spend breakdown',
-          'Competitor keyword analysis',
-          'Custom recommendation plan — yours to keep either way',
+          '5-minute video breakdown of your ad account',
+          'Actionable list of wasted spend and junk keywords',
+          'Guaranteed to find $500 in waste, or we send a $50 gift card'
         ]}
         source="lp_google_ads"
         pageSlug="google-ads-management"
@@ -90,11 +90,11 @@ export function GoogleAdsLPContent() {
               <span className="text-primary">Start Growing.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Worst case — you get a free audit. Best case — you stop wasting money next week.
+              Worst case — we send you a $50 Amazon gift card for wasting your time. Best case — you stop wasting money next week.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get My Free Audit
+                Get Your Free Wasted-Spend Analysis
               </LiquidButton>
             </Link>
           </motion.div>
