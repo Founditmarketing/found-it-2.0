@@ -13,7 +13,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const faqItems = [
   {
     question: 'How long does it take to build?',
-    answer: "4 to 6 weeks from kickoff to launch. Larger sites with custom features extend to 8–10 weeks. You'll get a firm timeline on the first call.",
+    answer: "2 weeks or less from kickoff to launch. Larger sites with custom features may take slightly longer, but you'll get a firm timeline on the first call.",
   },
   {
     question: 'Who owns the website?',
@@ -32,7 +32,7 @@ export function WebDesignLPContent() {
 
       <HormoziHero
         headline="Your Website is Costing You Leads. "
-        headlineAccent="Let’s Fix It in 6 Weeks."
+        headlineAccent="Let’s Fix It in 2 Weeks or Less."
         subheadline="We'll come directly to your office, map out a custom web strategy, and present your free mockup concept in person. No missed deadlines. No hostage games."
         ctaText="Claim Your Free In-Person Mockup Review"
         frictionReducer="15-minute intro call (or we can meet at your office!). We design a concept for free. Zero obligation."
@@ -53,7 +53,7 @@ export function WebDesignLPContent() {
             detail: "We don't disappear after go-live. Post-launch tweaks and optimization are included.",
           },
           {
-            title: 'Live in 6 weeks, guaranteed.',
+            title: 'Live in 2 weeks or less, guaranteed.',
             detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
           },
         ]}

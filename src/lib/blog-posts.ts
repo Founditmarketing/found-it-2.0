@@ -17,7 +17,7 @@ export const blogPosts: Post[] = [
         excerpt: 'The companies terrified of AI replacing them will be replaced by the companies weaponizing it to dominate their markets. Here is how you turn Generative AI into your unfair advantage.',
         author: 'The Architect',
         authorImage: 'https://picsum.photos/seed/architect/40/40',
-        image: 'https://picsum.photos/seed/weaponize/800/400',
+        image: '/images/blog/weaponize-ai.png',
         content: `
 <p>There is a dangerous, pervasive fear echoing through boardrooms across the country: <em>"Is AI going to replace us?"</em></p>
 <p>Let's be brutally honest. If your entire business model relies on low-level data entry or churning out generic, soulless content, yes. You are in trouble. But for true industry leaders—the actual experts, the service providers, the innovators—that fear is misplaced. You shouldn't be afraid of AI. <strong>You should be weaponizing it.</strong></p>
@@ -53,7 +53,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Search is evolving. Learn why Generative Engine Optimization (GEO) is the key to staying visible in the age of AI, turning your brand into the definitive answer.',
         author: 'Jane Doe',
         authorImage: 'https://picsum.photos/seed/author1/40/40',
-        image: 'https://picsum.photos/seed/post1/800/400',
+        image: '/images/blog/intro-to-geo.png',
         content: `
 <p>For two decades, Search Engine Optimization (SEO) has been the undisputed king of digital marketing. But the kingdom is changing. The rise of AI-powered "answer engines" like Google's AI Overviews and Perplexity is rewriting the rules of online visibility. Welcome to the era of Generative Engine Optimization (GEO).</p>
 <h3>What is GEO?</h3>
@@ -70,7 +70,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Are your ad campaigns underperforming? You might be making one of these five common—and costly—PPC mistakes that we see every day.',
         author: 'John Smith',
         authorImage: 'https://picsum.photos/seed/author2/40/40',
-        image: 'https://picsum.photos/seed/post2/800/400',
+        image: '/images/blog/common-ppc-mistakes.png',
         content: `
 <p>Pay-Per-Click (PPC) advertising can be a powerful driver of growth, but it's also an easy place to waste your budget. After auditing hundreds of ad accounts, we've seen the same mistakes time and time again. Here are the top five to avoid:</p>
 <h3>1. Neglecting Negative Keywords</h3>
@@ -92,7 +92,7 @@ export const blogPosts: Post[] = [
         excerpt: 'For local businesses, the Google Map Pack is the most valuable real estate online. Learn the key strategies to secure your spot and drive high-intent customers to your door.',
         author: 'Jane Doe',
         authorImage: 'https://picsum.photos/seed/author1/40/40',
-        image: 'https://picsum.photos/seed/post3/800/400',
+        image: '/images/blog/local-seo-dominance.png',
         content: `
 <p>If you run a local business, you know that visibility in your immediate area is everything. While national SEO is important, winning the local search game—specifically, the Google Map Pack—is what drives foot traffic and phone calls. Here's how to do it.</p>
 <h3>1. Master Your Google Business Profile</h3>
@@ -112,7 +112,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Generative AI like Google Gemini is changing how content is created and consumed. Discover how to adapt your content strategy to thrive in the new age of AI-driven search.',
         author: 'John Smith',
         authorImage: 'https://picsum.photos/seed/author2/40/40',
-        image: 'https://picsum.photos/seed/post4/800/400',
+        image: '/images/blog/ai-content-strategy.png',
         content: `
 <p>Content has always been the foundation of digital marketing. But the rise of powerful generative AI models like Google Gemini means the way we create and strategize content must evolve. AI is no longer just a tool; it's a collaborator and a new kind of audience.</p>
 <h3>Shift from Keywords to Concepts</h3>

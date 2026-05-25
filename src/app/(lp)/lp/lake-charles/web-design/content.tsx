@@ -13,7 +13,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const faqItems = [
   {
     question: 'How long does it take?',
-    answer: "4 to 6 weeks from kickoff to launch. Larger builds with custom integrations extend to 8–10 weeks. You get a firm timeline on the first call.",
+    answer: "2 weeks or less from kickoff to launch. Larger builds with custom integrations may take slightly longer, but you get a firm timeline on the first call.",
   },
   {
     question: 'Do you work with industrial and B2B businesses?',
