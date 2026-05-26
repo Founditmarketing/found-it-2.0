@@ -28,6 +28,8 @@ const navLinks = [
     sublinks: [
       { title: 'Google Ads', href: '/lp/google-ads-management', tag: null },
       { title: 'Web Design', href: '/lp/web-design', tag: null },
+      { title: 'App Development', href: '/lp/app-development', tag: 'NEW' },
+      { title: 'AI Marketing', href: '/lp/ai-marketing', tag: 'NEW' },
       { title: 'AI Search / SEO', href: '/lp/ai-search-seo', tag: null },
       { title: 'Social Media', href: '/lp/social-media-management', tag: null },
     ],
