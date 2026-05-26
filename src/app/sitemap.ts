@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const landingPages = [
     '/lp/google-ads-management',
     '/lp/web-design',
+    '/lp/app-development',
+    '/lp/ai-marketing',
     '/lp/ai-search-seo',
     '/lp/social-media-management',
     '/lp/lake-charles/google-ads-management',

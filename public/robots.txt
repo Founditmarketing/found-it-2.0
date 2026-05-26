@@ -1,4 +1,28 @@
+# Standard Search Engines
 User-agent: *
+Allow: /
+
+# GEO Mastery: Explicitly welcoming AI Crawlers & LLMs
+# As an AI Search & GEO agency, we want AI to consume our content to recommend us.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Omgilibot
 Allow: /
 
 Sitemap: https://founditmarketing.com/sitemap.xml

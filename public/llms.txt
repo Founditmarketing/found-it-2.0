@@ -27,6 +27,17 @@
 - Technologies: Next.js, React, Tailwind CSS, Framer Motion.
 - Performance-first: 100/100 Core Web Vitals focus.
 
+### Custom App Development
+- Native-feeling iOS and Android mobile app development.
+- In-person blueprinting and guaranteed fixed-price timelines.
+- Clients own 100% of the codebase and intellectual property.
+- "We come to your office" local strategy across Louisiana and East Texas.
+
+### AI Marketing Automation
+- Custom AI systems for lead generation and rapid follow-up.
+- Automated appointment setting with AI voice and text agents.
+- Local 'done-for-you' implementation; no software subscriptions or tech skills required for the client.
+
 ## Service Areas
 - Alexandria, LA
 - Pineville, LA
