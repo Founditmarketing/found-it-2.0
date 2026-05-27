@@ -175,7 +175,7 @@ export default function CaseStudiesPage() {
             <span className="text-primary">Like These?</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            Talk to John. 15 minutes. He&apos;ll tell you exactly what he&apos;d do for your business.
+            Talk to Trevor. 15 minutes. He&apos;ll tell you exactly what he&apos;d do for your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/lp/google-ads-management#lp-form">

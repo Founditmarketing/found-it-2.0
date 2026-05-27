@@ -18,8 +18,8 @@ interface JohnCTAProps {
 }
 
 export function JohnCTA({
-  heading = "Talk to John — He'll Build Your Strategy Personally",
-  body = "John has spent 13+ years helping service businesses dominate their local markets. Every strategy session is conducted by him personally — no junior account managers, no runaround.",
+  heading = "Talk to Trevor — He'll Build Your Strategy Personally",
+  body = "Trevor has spent 13+ years helping service businesses dominate their local markets. Every strategy session is conducted by him personally — no junior account managers, no runaround.",
   ctaLabel = 'Schedule My Free Call',
 }: JohnCTAProps) {
   return (
@@ -42,7 +42,7 @@ export function JohnCTA({
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 className="w-32 h-32 lg:w-48 lg:h-48 rounded-[2rem] bg-gradient-to-br from-primary/30 via-primary/10 to-transparent border-2 border-primary/20 flex items-center justify-center shadow-2xl shadow-primary/10"
               >
-                <span className="text-5xl lg:text-7xl font-black text-primary italic tracking-tighter">J</span>
+                <span className="text-5xl lg:text-7xl font-black text-primary italic tracking-tighter">T</span>
               </motion.div>
             </div>
 

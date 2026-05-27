@@ -31,7 +31,7 @@ export default function ThankYouClient() {
             Thank You.
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed mb-10">
-            We've received your information. John will review your details and reach out to you shortly.
+            We've received your information. Trevor will review your details and reach out to you shortly.
           </p>
           
           <Link 

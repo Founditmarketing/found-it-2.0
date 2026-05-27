@@ -48,7 +48,7 @@ const proofPoints = [
 const differentiators = [
   { title: 'No contracts.', detail: 'Month-to-month on everything. Cancel anytime with 30 days notice.' },
   { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
-  { title: 'Senior strategist, not interns.', detail: 'John works on your account. Not a junior who Googles the answers.' },
+  { title: 'Senior strategist, not interns.', detail: 'Trevor works on your account. Not a junior who Googles the answers.' },
 ];
 
 export default function HormoziHome() {
@@ -221,7 +221,7 @@ export default function HormoziHome() {
             transition={{ duration: 0.8, ease }}
           >
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-              Talk to John.{' '}
+              Talk to Trevor.{' '}
               <span className="text-primary">15 Minutes.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">

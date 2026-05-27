@@ -143,7 +143,7 @@ export function GoogleAdsHero() {
                 </motion.h1>
               </div>
               <motion.p variants={fadeRise} className="text-base sm:text-lg md:text-xl text-white/70 font-medium mb-8 leading-relaxed max-w-xl">
-                We manage Google Ads for 250+ businesses across Louisiana, Texas, and beyond. Transparent reporting, weekly optimization, no long-term contracts. Talk to John.
+                We manage Google Ads for 250+ businesses across Louisiana, Texas, and beyond. Transparent reporting, weekly optimization, no long-term contracts. Talk to Trevor.
               </motion.p>
               <motion.div variants={fadeRise}>
                 <Link href="#lp-form" className="w-full sm:w-auto inline-block">

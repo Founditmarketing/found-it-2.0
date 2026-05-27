@@ -133,7 +133,7 @@ export default function PricingClient() {
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
             Not Sure What You Need?{' '}
-            <span className="text-primary">Ask John.</span>
+            <span className="text-primary">Ask Trevor.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
             15-minute call. No pitch. He&apos;ll tell you what makes sense for your business and budget.

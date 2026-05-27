@@ -7,12 +7,12 @@ import { User } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'John',
+    name: 'Trevor Ruby',
     role: 'Founder',
     image: '/trevorruby.jpeg',
   },
   {
-    name: 'Reese Roberts',
+    name: 'Reece Roberts',
     role: 'Head of Search & Generative Optimization',
     image: '/reese-roberts.jpeg',
   },

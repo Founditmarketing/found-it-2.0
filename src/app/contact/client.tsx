@@ -10,8 +10,8 @@ import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const contactMethods = [
-  { icon: Phone, label: 'Call John directly', value: phoneDisplay, href: phoneHref, onClick: () => trackCallClick(), className: CALLRAIL_CLASS },
-  { icon: Mail, label: 'Email', value: 'john@founditmarketing.com', href: 'mailto:john@founditmarketing.com' },
+  { icon: Phone, label: 'Call Trevor directly', value: phoneDisplay, href: phoneHref, onClick: () => trackCallClick(), className: CALLRAIL_CLASS },
+  { icon: Mail, label: 'Email', value: 'trevor@founditmarketing.com', href: 'mailto:trevor@founditmarketing.com' },
   { icon: MapPin, label: 'Location', value: 'Alexandria, Louisiana' },
   { icon: Clock, label: 'Response time', value: 'Usually within 2 hours' },
 ];
@@ -28,7 +28,7 @@ export default function ContactClient() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-16">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Contact</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            Call John.{' '}<span className="text-primary">15 Minutes.</span>
+            Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
             No pitch. No junior account managers. Just a straight answer about what would work for your business.
@@ -40,7 +40,7 @@ export default function ContactClient() {
           className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-8 lg:p-10 text-center mb-10"
         >
           <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-3">Fastest Way to Reach Us</h2>
-          <p className="text-sm text-muted-foreground font-medium mb-6">Pick a service page below and fill out the form. John will call you back — usually within 2 hours.</p>
+          <p className="text-sm text-muted-foreground font-medium mb-6">Pick a service page below and fill out the form. Trevor will call you back — usually within 2 hours.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               { label: 'Google Ads Audit', href: '/lp/google-ads-management#lp-form' },

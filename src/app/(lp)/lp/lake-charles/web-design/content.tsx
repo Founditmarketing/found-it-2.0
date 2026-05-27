@@ -91,7 +91,7 @@ export function LakeCharlesWebDesignContent() {
               <span className="text-primary">Look the Part.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Make sure you do too. Talk to John — 15 minutes, no pitch, just a straight answer.
+              Make sure you do too. Talk to Trevor — 15 minutes, no pitch, just a straight answer.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">

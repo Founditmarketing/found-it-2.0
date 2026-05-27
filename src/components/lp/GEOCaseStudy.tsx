@@ -64,7 +64,7 @@ export function GEOCaseStudy() {
             <div className="relative bg-card/20 border border-border/20 rounded-2xl p-6 lg:p-8">
               <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
               <p className="text-foreground italic font-bold text-lg leading-relaxed mb-4">
-                &ldquo;We had no idea AI search was a thing until John showed us we were completely invisible. Three months later, ChatGPT recommends us by name. Our patient inquiries have nearly tripled.&rdquo;
+                &ldquo;We had no idea AI search was a thing until Trevor showed us we were completely invisible. Three months later, ChatGPT recommends us by name. Our patient inquiries have nearly tripled.&rdquo;
               </p>
               <p className="text-sm text-muted-foreground font-black uppercase tracking-wider">— Practice Manager, [Name Redacted]</p>
             </div>

@@ -106,7 +106,7 @@ export default function GeoClient({ region, city, service }: GeoClientProps) {
           className="text-center py-12 border-t border-border/10"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Call John.{' '}<span className="text-primary">He&apos;s Local.</span>
+            Call Trevor.{' '}<span className="text-primary">He&apos;s Local.</span>
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <Link href={`/lp/${service}#lp-form`}>

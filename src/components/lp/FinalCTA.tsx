@@ -18,7 +18,7 @@ export function FinalCTA() {
             <span className="text-primary drop-shadow-[0_0_20px_rgba(249,115,22,0.2)]">Better Marketing.</span>
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground font-medium italic mb-10 max-w-2xl mx-auto leading-relaxed">
-            Win the next one with a better website. Talk to John.
+            Win the next one with a better website. Talk to Trevor.
           </p>
           <Link href="#lp-form">
             <LiquidButton className="px-12 h-18 text-base sm:text-lg tracking-[0.1em] shadow-2xl shadow-primary/20">

@@ -95,7 +95,7 @@ export function SocialMediaLPContent() {
               <span className="text-primary">Into the Void.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Get a real strategy. 15 minutes with John — no pitch, just a plan.
+              Get a real strategy. 15 minutes with Trevor — no pitch, just a plan.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
