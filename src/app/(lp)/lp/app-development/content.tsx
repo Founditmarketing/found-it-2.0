@@ -1,7 +1,9 @@
 'use client';
 
 import { LPLayout } from '@/components/lp/LPLayout';
-import { HormoziHero } from '@/components/lp/HormoziHero';
+import { LPSplitHero } from '@/components/lp/LPSplitHero';
+import { SocialProof } from '@/components/lp/SocialProof';
+import { FounderVideo } from '@/components/lp/FounderVideo';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
@@ -10,33 +12,79 @@ import { LPNav } from '@/components/lp/LPNav';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
+import { ShieldCheck } from 'lucide-react';
 
 export function AppDevelopmentLPContent() {
   return (
     <LPLayout ctaLabel="Book Your Free In-Person App Blueprint">
       <LPNav />
 
-      <HormoziHero
+      <LPSplitHero
         headline="Don't Outsource Your App."
-        headlineAccent="Let's Build It Here."
-        subheadline="Your business needs an app, but you don't want to deal with overseas developers or bloated agencies. We'll come directly to your office, map out the entire app architecture for free, and give you a firm timeline. Local to Louisiana? Let's meet face-to-face."
+        headlineAccent="Build It Here."
+        subheadline="A fast, native-feeling app for iOS and Android, architected and built by a local team you can actually sit down with."
+        highlight="You get a fixed price and a guaranteed delivery date before you sign anything."
+        highlightIcon={ShieldCheck}
+        stats={[
+          { value: '250+', label: 'Local businesses' },
+          { value: 'iOS+Android', label: 'Native build' },
+          { value: '4.9★', label: 'Google rating' },
+        ]}
+        formHeading="Book Your Free App Blueprint"
+        formSource="lp_app_development"
+        formPageSlug="app-development"
+      />
+
+      <SocialProof
+        heading="Builds owners"
+        headingAccent="can count on."
+        stats={[
+          { value: '250+', label: 'Local businesses served' },
+          { value: '15+', label: 'Years building software' },
+          { value: '4.9★', label: 'Average Google rating' },
+          { value: '48', label: 'States we operate in' },
+        ]}
+        testimonials={[
+          {
+            quote: 'Extremely responsive, and they use a great app that makes collaboration and communication seamless. So glad to have this team.',
+            name: 'Smith Lake Rentals & Sales',
+          },
+          {
+            quote: "They stand out in every way. They take the time to understand your business, your goals, and what will actually move the needle.",
+            name: 'Tyler Griffin',
+          },
+          {
+            quote: "Been working with them for years. Anytime we need something, they're right on it.",
+            name: 'Cory Chandler',
+          },
+        ]}
+      />
+
+      <FounderVideo
+        eyebrow="Meet Your Local Team"
+        heading="No time zones."
+        headingAccent="No language barriers."
+        body="Building an app with an overseas shop usually means midnight calls and missed expectations. We'll come to your office, whiteboard the whole build with you, and stay reachable through launch and beyond."
+        founderName="Trevor Ruby"
+        videoSrc="/founder-intro-web.mp4"
+        poster="/founder-intro-poster.jpg"
+        orientation="portrait"
         ctaText="Book Your Free In-Person App Blueprint"
-        frictionReducer="Takes 15 minutes. We come to you. You get a full blueprint to keep."
       />
 
       <ObjectionBullets
         bullets={[
           {
-            title: '100% Local. We come to your office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+            title: 'Fixed Timelines & Budgets.',
+            detail: "We don't do scope creep. You get a fixed price and a guaranteed delivery date before you sign anything.",
           },
           {
             title: 'You Own the Codebase.',
             detail: "If you ever decide to bring development in-house, the code is yours. No hostage situations.",
           },
           {
-            title: 'Fixed Timelines & Budgets.',
-            detail: "We don't do 'scope creep.' You get a fixed price and a guaranteed delivery date before you sign anything.",
+            title: '100% Local. We Come To Your Office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We'll gladly drive to you and map out the build in person.",
           },
         ]}
       />
@@ -82,12 +130,24 @@ export function AppDevelopmentLPContent() {
             answer: "Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to App Store launch. You'll get a firm, guaranteed timeline on our first call.",
           },
           {
+            question: 'How much does an app cost?',
+            answer: "We quote a fixed price after the free blueprint, based on the exact features you need. No hourly billing, no scope-creep invoices. You approve the full number before any work begins.",
+          },
+          {
             question: 'Who owns the code?',
             answer: "You do. You own the intellectual property, the source code, and the developer accounts. We build it, but it's 100% your asset.",
           },
           {
             question: 'Do you build for both iOS and Android?',
-            answer: "Yes. We use modern cross-platform frameworks to deploy native-feeling apps to both the Apple App Store and Google Play Store simultaneously, saving you time and money.",
+            answer: "Yes. We use modern cross-platform frameworks to deploy native-feeling apps to both the Apple App Store and Google Play Store at once, saving you time and money.",
+          },
+          {
+            question: 'What happens after launch?',
+            answer: "We don't disappear at go-live. We handle store submissions, monitor the launch, and offer simple maintenance plans for updates and new features as your business grows.",
+          },
+          {
+            question: 'Do I need a technical team to run it?',
+            answer: "No. We build it to be maintained, document everything, and hand over clean accounts. If you ever bring development in-house later, your team inherits a tidy, fully owned codebase.",
           },
         ]}
       />

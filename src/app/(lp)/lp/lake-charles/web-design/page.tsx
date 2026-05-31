@@ -18,9 +18,12 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { question: 'How long does it take?', answer: "4 to 6 weeks from kickoff to launch. Larger builds with custom integrations extend to 8-10 weeks. You get a firm timeline on the first call." },
-  { question: 'Do you work with industrial and B2B businesses?', answer: "Yes — it's most of what we do. Trucking, construction, fabrication, oilfield services, manufacturing. We know how to build for procurement managers, not just consumers." },
+  { question: 'How long does it take?', answer: "2 weeks or less from kickoff to launch. Larger builds with custom integrations may take slightly longer, but you get a firm timeline on the first call." },
+  { question: 'How much does a new website cost?', answer: "We quote a clear, flat price up front based on what your business actually needs. No hourly surprises and no scope-creep invoices. You'll know the full number before you commit." },
+  { question: 'Do you work with industrial and B2B businesses?', answer: "Yes, it's most of what we do. Trucking, construction, fabrication, oilfield services, manufacturing. We know how to build for procurement managers, not just consumers." },
+  { question: 'Who owns the website?', answer: "You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything with you. No lock-in." },
   { question: 'What if I need changes after launch?', answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts." },
+  { question: 'What if you miss the launch date?', answer: "If your site isn't ready on the date we promise, we take $500 off the final invoice. We stand behind our timeline." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);

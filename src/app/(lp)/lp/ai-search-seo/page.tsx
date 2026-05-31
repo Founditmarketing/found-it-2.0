@@ -18,9 +18,13 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { question: 'What is AI search optimization?', answer: "It's making sure your business shows up when people ask AI tools like ChatGPT, Perplexity, or Google AI for recommendations in your industry. Different from traditional SEO — AI engines use different signals to decide who to recommend." },
-  { question: 'Is traditional SEO dead?', answer: "No, but it's not enough anymore. Ranking #1 on Google doesn't guarantee AI will recommend you. You need both working together." },
-  { question: 'How long until I show up in AI search?', answer: "Most clients see initial AI mentions within 60-90 days. Consistent visibility across multiple platforms takes 4-6 months. We track it and report monthly." },
+  { question: 'What is AI search optimization?', answer: "It's making sure your business is the answer when people ask AI tools like ChatGPT, Perplexity, or Google AI for a recommendation in your industry. AI engines use different signals than Google's blue links, so it takes a different playbook." },
+  { question: 'Is traditional SEO dead?', answer: "No, but ranking #1 on Google no longer guarantees AI will recommend you. You need both working together. We handle the classic local SEO and the new AI visibility layer at the same time." },
+  { question: 'How is this different from the SEO I might already pay for?', answer: "Most SEO stops at Google rankings. We also structure your content, schema, and citations so the large language models behind ChatGPT, Gemini, and Perplexity pull you in as the recommended local option." },
+  { question: 'How long until I show up in AI search?', answer: "Most clients see initial AI mentions within 60 to 90 days. Consistent visibility across multiple platforms takes 4 to 6 months. We track it and report monthly so you can see the movement." },
+  { question: "How do I know it's actually working?", answer: "Every month you get a report showing where AI recommends you, where it doesn't yet, and what we're doing about it, alongside your organic traffic and call volume. Real signals, not vanity metrics." },
+  { question: 'Is there a contract?', answer: "No. Month-to-month, cancel anytime with 30 days notice. You keep all the work we've done, including the content and schema, if you leave." },
+  { question: "What if it doesn't move the needle?", answer: "Then you cancel, and you keep everything we built. We earn the relationship every month with reporting you can actually read, not with a long contract." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);

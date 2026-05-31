@@ -11,6 +11,6 @@ export { LPFooter } from './LPFooter';
 export { PortfolioMarquee } from './PortfolioMarquee';
 export { ExitIntent } from './ExitIntent';
 export { LeadFormEmbed } from './LeadFormEmbed';
-export { AIMarketingHero } from './AIMarketingHero';
+export { LPSplitHero } from './LPSplitHero';
 export { SocialProof } from './SocialProof';
 export { FounderVideo } from './FounderVideo';

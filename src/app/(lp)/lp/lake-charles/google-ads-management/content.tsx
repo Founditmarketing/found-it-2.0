@@ -1,27 +1,39 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter } from '@/components/lp';
-import { HormoziHero } from '@/components/lp/HormoziHero';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
+import { ShieldCheck } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const faqItems = [
   {
     question: 'Do you have experience with industrial and contractor businesses?',
-    answer: "Yes. We manage Google Ads for contractors, oilfield service companies, manufacturers, and industrial suppliers. We know your search terms and we know how to filter out residential leads when you only want commercial work.",
+    answer: "Yes. We manage Google Ads for contractors, oilfield service companies, manufacturers, and industrial suppliers. We know your search terms, and we know how to filter out residential leads when you only want commercial work.",
   },
   {
     question: 'How much should I spend on Google Ads?',
-    answer: "Most industrial and commercial businesses start between $2,000–$8,000/month. The right number depends on what a customer is worth to you. We'll give you specific projections in the free audit.",
+    answer: "Most industrial and commercial businesses start between $2,000 and $8,000/month. The right number depends on what a customer is worth to you. You'll get specific projections in the free audit.",
+  },
+  {
+    question: "What's the catch with the free audit?",
+    answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. If we can't find at least $500 in wasted spend, we send you a $50 gift card for your time. You keep the findings either way.",
+  },
+  {
+    question: 'Who actually manages my account?',
+    answer: "A senior strategist, not an intern. The same person who audits your account is the one optimizing it every week, and you'll know exactly who to call.",
+  },
+  {
+    question: 'Do I own my ad account and data?',
+    answer: "Yes. We work inside your own Google Ads account. Your campaigns, conversion history, and data are yours, and you keep everything we built if you leave.",
   },
   {
     question: 'Is there a contract?',
-    answer: "No. Month-to-month. Cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in.",
+    answer: "No. Month-to-month, cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in.",
   },
 ];
 
@@ -30,27 +42,44 @@ export function LakeCharlesGoogleAdsContent() {
     <LPLayout ctaLabel="Get My Free Audit">
       <LPNav />
 
-      <HormoziHero
-        headline="Get More Leads From Google Ads in Lake Charles —"
-        headlineAccent="in 60 Days."
-        subheadline="We manage Google Ads for contractors, fabricators, and service businesses across Southwest Louisiana. Real tracking. Weekly optimization. No contracts."
-        ctaText="Get My Free Audit"
-        frictionReducer="Takes 2 minutes (or we can meet at your office!). No contracts, ever."
+      <LPSplitHero
+        badge="Serving Lake Charles & SW Louisiana"
+        headline="More Commercial Leads From Google Ads in"
+        headlineAccent="Lake Charles."
+        subheadline="We run Google Ads for contractors, fabricators, and service businesses across Southwest Louisiana. Real tracking, weekly optimization, no contracts."
+        highlight="We'll find at least $500 in wasted spend on your free review, or we send you a $50 gift card."
+        highlightIcon={ShieldCheck}
+        stats={[
+          { value: '250+', label: 'Local businesses' },
+          { value: '10x', label: 'Best client ROAS' },
+          { value: '4.9★', label: 'Google rating' },
+        ]}
+        formHeading="Get My Free Audit"
+        formSource="lp_google_ads_lc"
+        formPageSlug="lake-charles-google-ads"
       />
 
-      <ObjectionBullets
-        bullets={[
+      <SocialProof
+        heading="Southwest Louisiana owners,"
+        headingAccent="real phone calls."
+        stats={[
+          { value: '250+', label: 'Local businesses served' },
+          { value: '15+', label: 'Years running ads' },
+          { value: '4.9★', label: 'Average Google rating' },
+          { value: '48', label: 'States we operate in' },
+        ]}
+        testimonials={[
           {
-            title: 'No contracts. Cancel anytime.',
-            detail: "Month-to-month. 30 days notice. You keep everything we built if you leave.",
+            quote: 'Excellent marketing company. Several reasons, but number 1 is results. Trevor got my phone ringing.',
+            name: 'David Roshto',
           },
           {
-            title: 'You own your ad account.',
-            detail: "We work inside YOUR Google Ads account. Nothing is held hostage. Ever.",
+            quote: 'Great people to work with. If you want the best targeted marketing team, choose Found It. A+ knowledge on how to grow your small business.',
+            name: 'William Whiddon',
           },
           {
-            title: '100% Local. We come to your office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We're just 90 minutes away in Alexandria. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+            quote: 'Great customer service. So many more clients, and the website looks amazing. Thank you Trevor and the team!',
+            name: 'Santos Mendez',
           },
         ]}
       />
@@ -63,7 +92,36 @@ export function LakeCharlesGoogleAdsContent() {
           { value: '$42,000', label: 'Monthly Revenue' },
           { value: '10x', label: 'Return on Ad Spend' },
         ]}
-        narrative="They were spending $4,200/month with no idea what was working. We rebuilt their campaigns around their highest-margin services, set up call tracking from first ring to signed contract, and cut the wasted keywords. 90 days later — $42K/month in new revenue."
+        narrative="They were spending $4,200/month with no idea what was working. We rebuilt their campaigns around their highest-margin services, set up call tracking from first ring to signed contract, and cut the wasted keywords. 90 days later: $42K/month in new revenue."
+      />
+
+      <FounderVideo
+        eyebrow="Meet Your Local Team"
+        heading="Just 90 minutes up"
+        headingAccent="the interstate."
+        body="We're in Alexandria, so we'll drive to Lake Charles, sit down at your shop, and walk through your numbers in person. You get a real local team that understands Southwest Louisiana industry, not a call center."
+        founderName="Trevor Ruby"
+        videoSrc="/founder-intro-web.mp4"
+        poster="/founder-intro-poster.jpg"
+        orientation="portrait"
+        ctaText="Get My Free Audit"
+      />
+
+      <ObjectionBullets
+        bullets={[
+          {
+            title: 'You Own Your Ad Account.',
+            detail: "We work inside YOUR Google Ads account. Nothing is held hostage. Ever.",
+          },
+          {
+            title: 'No Contracts. Cancel Anytime.',
+            detail: "Month-to-month. 30 days notice. You keep everything we built if you leave.",
+          },
+          {
+            title: '100% Local. We Come To Your Office.',
+            detail: "We're just 90 minutes away in Alexandria. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+          },
+        ]}
       />
 
       <LPFormSection
@@ -72,7 +130,7 @@ export function LakeCharlesGoogleAdsContent() {
         benefits={[
           'Full campaign audit with wasted spend breakdown',
           'Competitor keyword analysis for your market',
-          'Custom plan — yours to keep either way',
+          'Custom plan, yours to keep either way',
           '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_google_ads_lc"
@@ -91,7 +149,7 @@ export function LakeCharlesGoogleAdsContent() {
               <span className="text-primary">Start Growing.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Worst case — you get a free audit. Best case — you stop wasting money next week.
+              Worst case, you get a free audit. Best case, you stop wasting money next week.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">

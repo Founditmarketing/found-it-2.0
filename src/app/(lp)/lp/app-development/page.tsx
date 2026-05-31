@@ -25,8 +25,11 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { question: 'How long does it take to build an app?', answer: "Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to App Store launch. You'll get a firm, guaranteed timeline on our first call." },
+  { question: 'How much does an app cost?', answer: "We quote a fixed price after the free blueprint, based on the exact features you need. No hourly billing, no scope-creep invoices. You approve the full number before any work begins." },
   { question: 'Who owns the code?', answer: "You do. You own the intellectual property, the source code, and the developer accounts. We build it, but it's 100% your asset." },
-  { question: 'Do you build for both iOS and Android?', answer: "Yes. We use modern cross-platform frameworks to deploy native-feeling apps to both the Apple App Store and Google Play Store simultaneously, saving you time and money." },
+  { question: 'Do you build for both iOS and Android?', answer: "Yes. We use modern cross-platform frameworks to deploy native-feeling apps to both the Apple App Store and Google Play Store at once, saving you time and money." },
+  { question: 'What happens after launch?', answer: "We don't disappear at go-live. We handle store submissions, monitor the launch, and offer simple maintenance plans for updates and new features as your business grows." },
+  { question: 'Do I need a technical team to run it?', answer: "No. We build it to be maintained, document everything, and hand over clean accounts. If you ever bring development in-house later, your team inherits a tidy, fully owned codebase." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);

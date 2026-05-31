@@ -22,8 +22,12 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { question: 'Which platforms do you manage?', answer: "Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses get the best results starting with Facebook + Instagram." },
-  { question: 'Do you create the content or do I?', answer: "We create everything — graphics, copy, scheduling. You just approve before it goes live. Nothing posts without your green light." },
+  { question: 'Which platforms do you manage?', answer: "Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses get the best results starting with Facebook and Instagram." },
+  { question: 'Do you create the content or do I?', answer: "We create everything: graphics, copy, and scheduling. You just approve before it goes live. Nothing posts without your green light." },
+  { question: 'How much does social media management cost?', answer: "We keep pricing simple and flat, scoped to the platforms and posting volume you need. You'll get a clear monthly number up front, with no setup fees that lock you in." },
+  { question: 'Do you shoot photos and video too?', answer: "Yes. We can produce content for you or direct what you capture on your phone, then turn it into a steady stream of posts, reels, and ads. You stay in full control of what goes out." },
+  { question: 'How fast will I see results?', answer: "Reach and engagement usually move in the first month. Real traction, more calls and bookings, typically takes about 90 days of consistent, strategic posting. We recommend giving it that runway." },
+  { question: 'How do you measure success?', answer: "We track calls, leads, and bookings, not likes. Every month you get a report showing what actually moved the needle for your business, with the vanity metrics left where they belong." },
   { question: 'Is there a contract?', answer: "No. Month-to-month. We recommend 90 days to see real traction, but we never lock you in." },
 ];
 

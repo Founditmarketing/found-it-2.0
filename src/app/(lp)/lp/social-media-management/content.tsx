@@ -1,23 +1,39 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter } from '@/components/lp';
-import { HormoziHero } from '@/components/lp/HormoziHero';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
+import { MessageSquare } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const faqItems = [
   {
     question: 'Which platforms do you manage?',
-    answer: "Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses get the best results starting with Facebook + Instagram.",
+    answer: "Facebook, Instagram, LinkedIn, TikTok, and Google Business Profile. Most local businesses get the best results starting with Facebook and Instagram.",
   },
   {
     question: 'Do you create the content or do I?',
-    answer: "We create everything — graphics, copy, scheduling. You just approve before it goes live. Nothing posts without your green light.",
+    answer: "We create everything: graphics, copy, and scheduling. You just approve before it goes live. Nothing posts without your green light.",
+  },
+  {
+    question: 'How much does social media management cost?',
+    answer: "We keep pricing simple and flat, scoped to the platforms and posting volume you need. You'll get a clear monthly number up front, with no setup fees that lock you in.",
+  },
+  {
+    question: 'Do you shoot photos and video too?',
+    answer: "Yes. We can produce content for you or direct what you capture on your phone, then turn it into a steady stream of posts, reels, and ads. You stay in full control of what goes out.",
+  },
+  {
+    question: 'How fast will I see results?',
+    answer: "Reach and engagement usually move in the first month. Real traction, more calls and bookings, typically takes about 90 days of consistent, strategic posting. We recommend giving it that runway.",
+  },
+  {
+    question: 'How do you measure success?',
+    answer: "We track calls, leads, and bookings, not likes. Every month you get a report showing what actually moved the needle for your business, with the vanity metrics left where they belong.",
   },
   {
     question: 'Is there a contract?',
@@ -30,31 +46,43 @@ export function SocialMediaLPContent() {
     <LPLayout ctaLabel="Claim Your Free In-Person Strategy Session">
       <LPNav />
 
-      <HormoziHero
+      <LPSplitHero
         headline="Social Media That Gets Calls,"
         headlineAccent="Not Just Likes."
-        subheadline="We'll come to your office, map out a custom 30-day content strategy, and show you how to turn views into booked calls. No contracts. You just approve."
-        ctaText="Claim Your Free In-Person Strategy Session"
-        frictionReducer="15 minutes. We meet at your office. The 30-day plan is yours to keep."
+        subheadline="A done-for-you content engine that turns scrolls into booked calls, built and managed by a local team."
+        highlight="We create every post and ad. You just approve, and we report on calls, not likes."
+        highlightIcon={MessageSquare}
+        stats={[
+          { value: '250+', label: 'Local businesses' },
+          { value: '3x', label: 'Best client growth' },
+          { value: '4.9★', label: 'Google rating' },
+        ]}
+        formHeading="Claim Your Free Strategy Session"
+        formSource="lp_social"
+        formPageSlug="social-media"
       />
 
-      <ObjectionBullets
-        bullets={[
+      <SocialProof
+        heading="Content that owners"
+        headingAccent="actually see results from."
+        stats={[
+          { value: '250+', label: 'Local businesses served' },
+          { value: '15+', label: 'Years in marketing' },
+          { value: '4.9★', label: 'Average Google rating' },
+          { value: '48', label: 'States we operate in' },
+        ]}
+        testimonials={[
           {
-            title: '100% Local. We come to your office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+            quote: 'He moves fast, communicates well, and delivers results. Their marketing and design have helped our business grow significantly.',
+            name: 'Creighton Harmon',
           },
           {
-            title: "We create everything. You just approve.",
-            detail: "Graphics, copy, scheduling — all done for you. Nothing goes live without your sign-off.",
+            quote: 'The Found It team is great to work with, and the website and videos are professional!',
+            name: 'Donald Ruby',
           },
           {
-            title: "We track calls and leads, not likes.",
-            detail: "Monthly reports show what actually moved the needle — leads, calls, bookings. Not vanity metrics.",
-          },
-          {
-            title: 'No contracts. Cancel anytime.',
-            detail: "Month-to-month. We earn your business every month by getting results, not by locking you in.",
+            quote: 'Absolutely amazing company to work with. They laid out all of the steps from point A to B, set realistic expectations, and communicated well.',
+            name: "Everything's Albright",
           },
         ]}
       />
@@ -67,7 +95,40 @@ export function SocialMediaLPContent() {
           { value: '400%', label: 'Follower Growth' },
           { value: '12K', label: 'Monthly Reach' },
         ]}
-        narrative="They were posting phone photos with generic captions. We built a real content strategy — behind-the-scenes kitchen content, seasonal menu highlights, and targeted Instagram ads within 15 miles. 90 days later, Friday and Saturday nights are packed."
+        narrative="They were posting phone photos with generic captions. We built a real content strategy: behind-the-scenes kitchen content, seasonal menu highlights, and targeted Instagram ads within 15 miles. 90 days later, Friday and Saturday nights are packed."
+      />
+
+      <FounderVideo
+        eyebrow="Meet Your Local Team"
+        heading="Real content, made by"
+        headingAccent="real people here."
+        body="No generic stock posts pumped out by a stranger overseas. We'll come to your office, learn your voice, and build a content plan that sounds like you and books real calls."
+        founderName="Trevor Ruby"
+        videoSrc="/founder-intro-web.mp4"
+        poster="/founder-intro-poster.jpg"
+        orientation="portrait"
+        ctaText="Claim Your Free In-Person Strategy Session"
+      />
+
+      <ObjectionBullets
+        bullets={[
+          {
+            title: 'We Create Everything. You Just Approve.',
+            detail: "Graphics, copy, scheduling, all done for you. Nothing goes live without your sign-off.",
+          },
+          {
+            title: 'We Track Calls and Leads, Not Likes.',
+            detail: "Monthly reports show what actually moved the needle: leads, calls, bookings. Not vanity metrics.",
+          },
+          {
+            title: 'No Contracts. Cancel Anytime.',
+            detail: "Month-to-month. We earn your business every month by getting results, not by locking you in.",
+          },
+          {
+            title: '100% Local. We Come To Your Office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here, and we'll gladly drive to you and review your strategy in person.",
+          },
+        ]}
       />
 
       <LPFormSection
@@ -76,7 +137,7 @@ export function SocialMediaLPContent() {
         benefits={[
           'Custom 30-day content calendar',
           'Platform-specific strategy',
-          'Zero obligation — the plan is yours to keep',
+          'Zero obligation, the plan is yours to keep',
           '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_social"
@@ -95,7 +156,7 @@ export function SocialMediaLPContent() {
               <span className="text-primary">Into the Void.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Get a real strategy. 15 minutes with Trevor — no pitch, just a plan.
+              Get a real strategy. 15 minutes with Trevor, no pitch, just a plan.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">

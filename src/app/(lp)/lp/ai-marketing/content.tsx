@@ -1,7 +1,7 @@
 'use client';
 
 import { LPLayout } from '@/components/lp/LPLayout';
-import { AIMarketingHero } from '@/components/lp/AIMarketingHero';
+import { LPSplitHero } from '@/components/lp/LPSplitHero';
 import { SocialProof } from '@/components/lp/SocialProof';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
@@ -12,22 +12,25 @@ import { LPNav } from '@/components/lp/LPNav';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
+import { Zap } from 'lucide-react';
 
 export function AIMarketingLPContent() {
   return (
     <LPLayout ctaLabel="Book Your Free In-Person AI Demo">
       <LPNav />
 
-      <AIMarketingHero
+      <LPSplitHero
         headline="We Automate Your Marketing"
         headlineAccent="With AI."
         subheadline="Custom AI systems that capture every lead, follow up instantly, and book the appointment — you just watch the calendar fill up."
-        speedHighlight="Every new lead gets a reply in under 5 seconds — 24/7, even while you sleep."
+        highlight="Every new lead gets a reply in under 5 seconds — 24/7, even while you sleep."
+        highlightIcon={Zap}
         stats={[
           { value: '250+', label: 'Local businesses' },
           { value: '<5 sec', label: 'Lead reply speed' },
           { value: '4.9★', label: 'Client rating' },
         ]}
+        formHeading="Book Your Free In-Person AI Demo"
         formSource="lp_ai_marketing"
         formPageSlug="ai-marketing"
       />

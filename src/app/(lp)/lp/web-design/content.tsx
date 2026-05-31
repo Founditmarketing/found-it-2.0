@@ -1,12 +1,12 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter } from '@/components/lp';
-import { HormoziHero } from '@/components/lp/HormoziHero';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
+import { Clock } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -16,12 +16,28 @@ const faqItems = [
     answer: "2 weeks or less from kickoff to launch. Larger sites with custom features may take slightly longer, but you'll get a firm timeline on the first call.",
   },
   {
+    question: 'How much does a new website cost?',
+    answer: "Most local business sites land in a clear, flat range we'll quote you up front. No hourly surprises, no scope-creep invoices. You'll know the full price before you commit to anything.",
+  },
+  {
     question: 'Who owns the website?',
     answer: "You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything. No lock-in, no hostage games.",
   },
   {
+    question: 'Will my new site actually show up on Google?',
+    answer: "Yes. Every build ships with the technical SEO foundation in place: fast load times, clean structure, mobile-first design, and proper schema. It's built to be found, not just to look good.",
+  },
+  {
+    question: 'Do you write the content and handle photos?',
+    answer: "We can. We'll write conversion-focused copy and guide your photos (or arrange them). You approve everything before it goes live.",
+  },
+  {
     question: 'What if I need changes after launch?',
     answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts.",
+  },
+  {
+    question: 'What happens if you miss the launch date?',
+    answer: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice. We put our money where our timeline is.",
   },
 ];
 
@@ -30,31 +46,44 @@ export function WebDesignLPContent() {
     <LPLayout ctaLabel="Claim Your Free In-Person Mockup Review">
       <LPNav />
 
-      <HormoziHero
-        headline="Your Website is Costing You Leads. "
-        headlineAccent="Let’s Fix It in 2 Weeks or Less."
-        subheadline="We'll come directly to your office, map out a custom web strategy, and present your free mockup concept in person. No missed deadlines. No hostage games."
-        ctaText="Claim Your Free In-Person Mockup Review"
-        frictionReducer="15-minute intro call (or we can meet at your office!). We design a concept for free. Zero obligation."
+      <LPSplitHero
+        headline="Your Website Is Costing You Leads."
+        headlineAccent="Let's Fix It."
+        subheadline="A fast, modern site that makes your phone ring, built around the way your best customers actually buy."
+        highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
+        highlightIcon={Clock}
+        stats={[
+          { value: '250+', label: 'Local businesses' },
+          { value: '2 wks', label: 'Typical build' },
+          { value: '4.9★', label: 'Google rating' },
+        ]}
+        formHeading="Claim Your Free Mockup Review"
+        formSource="lp_web_design"
+        formPageSlug="web-design"
       />
 
-      <ObjectionBullets
-        bullets={[
+      <SocialProof
+        heading="Sites that owners"
+        headingAccent="are proud to share."
+        stats={[
+          { value: '250+', label: 'Local businesses served' },
+          { value: '2 wks', label: 'Typical time to launch' },
+          { value: '4.9★', label: 'Average Google rating' },
+          { value: '48', label: 'States we operate in' },
+        ]}
+        testimonials={[
           {
-            title: '100% Local. We come to your office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here. We'll gladly drive to your office, shake your hand, and review your strategy in person.",
+            quote: 'Website came out great, actually better than I imagined! The process from start to finish was easy and smooth.',
+            name: 'Justin Morgan',
           },
           {
-            title: 'You own everything.',
-            detail: "Your domain, your code, your content. No lock-in. Leave anytime — take it all with you.",
+            quote: 'Professional, responsive, and they truly listened to our vision. They delivered quality work and helped bring our ideas to life. Highly recommend!',
+            name: 'Angela',
           },
           {
-            title: '60 days of free changes after launch.',
-            detail: "We don't disappear after go-live. Post-launch tweaks and optimization are included.",
-          },
-          {
-            title: 'Live in 2 weeks or less, guaranteed.',
-            detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
+            quote: 'Great website rework and marketing for Area Wide Paving.',
+            name: 'Boo Wilkerson',
+            business: 'Area Wide Paving',
           },
         ]}
       />
@@ -67,16 +96,49 @@ export function WebDesignLPContent() {
           { value: '94', label: 'Lighthouse Score' },
           { value: '2.1s', label: 'Load Time' },
         ]}
-        narrative="Their old site loaded in 6 seconds on mobile and the contact form was buried 3 clicks deep. We rebuilt from scratch — custom design, fast code, and a clear path to call or request a quote. 90 days later, qualified calls tripled."
+        narrative="Their old site loaded in 6 seconds on mobile and the contact form was buried 3 clicks deep. We rebuilt from scratch with custom design, fast code, and a clear path to call or request a quote. 90 days later, qualified calls tripled."
+      />
+
+      <FounderVideo
+        eyebrow="Meet Your Local Team"
+        heading="We design it with you,"
+        headingAccent="in person."
+        body="No offshore template factory. We'll come to your office, learn how your customers actually find you, and design a homepage concept around that. You'll see the team behind the work before you ever sign."
+        founderName="Trevor Ruby"
+        videoSrc="/founder-intro-web.mp4"
+        poster="/founder-intro-poster.jpg"
+        orientation="portrait"
+        ctaText="Claim Your Free In-Person Mockup Review"
+      />
+
+      <ObjectionBullets
+        bullets={[
+          {
+            title: 'Live in 2 Weeks or Less, Guaranteed.',
+            detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
+          },
+          {
+            title: 'You Own Everything.',
+            detail: "Your domain, your code, your content. No lock-in. Leave anytime and take it all with you.",
+          },
+          {
+            title: '60 Days of Free Changes After Launch.',
+            detail: "We don't disappear after go-live. Post-launch tweaks and optimization are included.",
+          },
+          {
+            title: '100% Local. We Come To Your Office.',
+            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here, and we'll gladly drive to you and review your strategy in person.",
+          },
+        ]}
       />
 
       <LPFormSection
         heading="Book Your Free In-Person Strategy Session"
         subheading="Tell us about your business and we'll show you what a site that actually converts looks like for your market."
         benefits={[
-          'The Competitor Gap Analysis: We’ll show you exactly why your top 3 competitors are outranking you and out-converting you.',
-          'Your Free Custom Mockup: A custom-designed concept of what your new, high-converting homepage should look like.',
-          'No Strings Attached: You can take our mockup and competitor research and give it to another agency. We just want to prove our value first.',
+          'The Competitor Gap Analysis: exactly why your top 3 competitors are outranking and out-converting you.',
+          'Your Free Custom Mockup: a designed concept of what your new, high-converting homepage should look like.',
+          'No Strings Attached: take our mockup and research to any agency. We just want to prove our value first.',
           '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
         ]}
         source="lp_web_design"
@@ -95,7 +157,7 @@ export function WebDesignLPContent() {
               <span className="text-primary">Look the Part.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Make sure you do too. Talk to Trevor — 15 minutes, no pitch, just a straight answer on what your site could be.
+              Make sure you do too. Talk to Trevor, 15 minutes, no pitch, just a straight answer on what your site could be.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
