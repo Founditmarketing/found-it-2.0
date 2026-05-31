@@ -66,9 +66,10 @@ export function AppDevelopmentLPContent() {
         headingAccent="No language barriers."
         body="Building an app with an overseas shop usually means midnight calls and missed expectations. We'll come to your office, whiteboard the whole build with you, and stay reachable through launch and beyond."
         founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
+        videoSrc="/app-intro-web.mp4"
+        poster="/app-intro-poster.jpg"
         orientation="portrait"
+        portraitRatio="9 / 16"
         ctaText="Book Your Free In-Person App Blueprint"
       />
 

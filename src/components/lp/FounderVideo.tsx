@@ -17,8 +17,10 @@ interface FounderVideoProps {
   videoSrc?: string;
   /** Poster/thumbnail image shown before playing. */
   poster?: string;
-  /** Video aspect — 'landscape' (16:9) or 'portrait' (phone reel, 2:3). */
+  /** Video aspect — 'landscape' (16:9) or 'portrait' (phone reel). */
   orientation?: 'landscape' | 'portrait';
+  /** CSS aspect-ratio for portrait videos, e.g. '2 / 3' or '9 / 16'. */
+  portraitRatio?: string;
   ctaText?: string;
   ctaHref?: string;
   founderName?: string;
@@ -32,6 +34,7 @@ export function FounderVideo({
   videoSrc,
   poster = '/team-member-1.jpeg',
   orientation = 'landscape',
+  portraitRatio = '2 / 3',
   ctaText = 'Book Your Free In-Person AI Demo',
   ctaHref = '#lp-form',
   founderName = 'Trevor Ruby',
@@ -51,8 +54,9 @@ export function FounderVideo({
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: ease as any }}
             className={`relative w-full overflow-hidden rounded-[2rem] border border-border/20 shadow-2xl bg-card/20 ${
-              isPortrait ? 'aspect-[2/3] max-w-[360px] mx-auto' : 'aspect-video'
+              isPortrait ? 'max-w-[340px] mx-auto' : 'aspect-video'
             }`}
+            style={isPortrait ? { aspectRatio: portraitRatio } : undefined}
           >
             {playing && videoSrc ? (
               isYouTubeOrVimeo ? (
