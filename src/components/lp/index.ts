@@ -14,3 +14,4 @@ export { LeadFormEmbed } from './LeadFormEmbed';
 export { LPSplitHero } from './LPSplitHero';
 export { SocialProof } from './SocialProof';
 export { FounderVideo } from './FounderVideo';
+export { AIAutomationGrid } from './AIAutomationGrid';

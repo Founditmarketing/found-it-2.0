@@ -4,6 +4,7 @@ import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
 import { SocialProof } from '@/components/lp/SocialProof';
 import { FounderVideo } from '@/components/lp/FounderVideo';
+import { AIAutomationGrid } from '@/components/lp/AIAutomationGrid';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
@@ -22,7 +23,7 @@ export function AIMarketingLPContent() {
       <LPSplitHero
         headline="We Automate Your Marketing"
         headlineAccent="With AI."
-        subheadline="Custom AI systems that capture every lead, follow up instantly, and book the appointment — you just watch the calendar fill up."
+        subheadline="Custom AI systems that capture leads, follow up instantly, run your content and ads, and keep your site working, so your whole marketing engine runs while you sleep."
         highlight="Every new lead gets a reply in under 5 seconds — 24/7, even while you sleep."
         highlightIcon={Zap}
         stats={[
@@ -62,6 +63,8 @@ export function AIMarketingLPContent() {
           },
         ]}
       />
+
+      <AIAutomationGrid />
 
       <FounderVideo
         eyebrow="Meet Your Local Team"
@@ -113,7 +116,7 @@ export function AIMarketingLPContent() {
             number: '02',
             title: 'System Architecture & Build',
             description:
-              "We build the custom AI voice agents, automated SMS follow-ups, and AI content generators tuned specifically to your brand voice.",
+              "We build the pieces you need: AI voice and SMS agents, social and content automation, ad management, and on-site chat, all tuned to your brand voice.",
           },
           {
             number: '03',
@@ -140,9 +143,14 @@ export function AIMarketingLPContent() {
       <FAQSection
         items={[
           {
+            question: 'Is this just a chatbot, or can you automate more?',
+            answer:
+              "Way more than a chatbot. We automate lead follow-up by text and voice, your social media posting, SEO and content, Google Ads management, on-site chat and forms, and review requests. We build whichever pieces move the needle for your business and connect them into one system.",
+          },
+          {
             question: 'What exactly does AI marketing automation do?',
             answer:
-              "It handles the tasks you don't have time for. Instant SMS responses to new leads, AI voice agents answering FAQs, automated email sequences, and even AI generating your daily social media posts. It runs your pipeline 24/7.",
+              "It handles the tasks you don't have time for: instant SMS and voice responses to new leads, automated email and follow-up sequences, AI-generated social posts and content, ad optimization, and review requests. It runs your whole pipeline 24/7.",
           },
           {
             question: 'How much does it cost?',

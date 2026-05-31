@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 };
 
 const faqItems = [
-  { question: 'What exactly does AI marketing automation do?', answer: "It handles the tasks you don't have time for. Instant SMS responses to new leads, AI voice agents answering FAQs, automated email sequences, and even AI generating your daily social media posts. It runs your pipeline 24/7." },
+  { question: 'Is this just a chatbot, or can you automate more?', answer: "Way more than a chatbot. We automate lead follow-up by text and voice, your social media posting, SEO and content, Google Ads management, on-site chat and forms, and review requests. We build whichever pieces move the needle for your business and connect them into one system." },
+  { question: 'What exactly does AI marketing automation do?', answer: "It handles the tasks you don't have time for: instant SMS and voice responses to new leads, automated email and follow-up sequences, AI-generated social posts and content, ad optimization, and review requests. It runs your whole pipeline 24/7." },
   { question: 'How much does it cost?', answer: "It depends on what we build for you, but we're month-to-month with no setup fees that lock you in. We'll give you a transparent flat price at your free demo — no surprises, no long contracts. Most local businesses spend less on this than on a single part-time hire." },
   { question: 'How fast can you launch it?', answer: "Most systems go live within 1–2 weeks of your strategy session. Simple lead-response automations can be running in days. We handle the entire build so there's nothing for you to set up." },
   { question: "What if it doesn't work? Am I locked in?", answer: "No. We're month-to-month with zero long-term contracts. If the AI system isn't generating ROI, you fire us — no penalties, no lock-in. We earn your business every single month." },
