@@ -104,9 +104,10 @@ export function AISearchSEOContent() {
         headingAccent="your visibility."
         body="AI search is new, confusing, and full of agencies selling smoke. We'll sit down at your office, run a live scan in front of you, and explain exactly what's happening in plain English. No jargon, no smoke."
         founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
+        videoSrc="/seo-intro-web.mp4"
+        poster="/seo-intro-poster.jpg"
         orientation="portrait"
+        portraitRatio="9 / 16"
         ctaText="Book Your Free In-Person AI Audit"
       />
 
