@@ -105,9 +105,10 @@ export function WebDesignLPContent() {
         headingAccent="in person."
         body="No offshore template factory. We'll come to your office, learn how your customers actually find you, and design a homepage concept around that. You'll see the team behind the work before you ever sign."
         founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
+        videoSrc="/webdesign-intro-web.mp4"
+        poster="/webdesign-intro-poster.jpg"
         orientation="portrait"
+        portraitRatio="3 / 4"
         ctaText="Claim Your Free In-Person Mockup Review"
       />
 
