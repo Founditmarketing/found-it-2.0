@@ -8,8 +8,10 @@ const ease = [0.16, 1, 0.3, 1] as const;
 interface Testimonial {
   quote: string;
   name: string;
-  business: string;
-  town: string;
+  /** Optional business name (shown if provided). */
+  business?: string;
+  /** Optional town/location (shown if provided). */
+  town?: string;
   /** Optional headshot path. Falls back to initials avatar. */
   image?: string;
 }
@@ -135,8 +137,13 @@ export function SocialProof({
                 )}
                 <div className="min-w-0">
                   <p className="text-sm font-black text-foreground truncate">{t.name}</p>
-                  <p className="text-xs text-muted-foreground/70 font-medium truncate">
-                    {t.business} · {t.town}
+                  <p className="flex items-center gap-1.5 text-xs text-muted-foreground/70 font-medium truncate">
+                    <span className="inline-flex w-4 h-4 rounded-full bg-white items-center justify-center shrink-0" aria-hidden="true">
+                      <span className="text-[9px] font-black bg-gradient-to-br from-blue-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+                        G
+                      </span>
+                    </span>
+                    {[t.business, t.town].filter(Boolean).join(' · ') || 'Verified Google review'}
                   </p>
                 </div>
               </div>

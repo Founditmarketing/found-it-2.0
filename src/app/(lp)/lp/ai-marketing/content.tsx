@@ -44,24 +44,18 @@ export function AIMarketingLPContent() {
         testimonials={[
           {
             quote:
-              "We were losing leads because we couldn't answer fast enough. Now the AI texts them back in seconds and books the appointment before I even see it. Game changer.",
-            name: 'Marcus Hebert',
-            business: 'Hebert HVAC & Air',
-            town: 'Lafayette, LA',
+              'Excellent marketing company. Several reasons — but number 1 is results. Trevor got my phone ringing.',
+            name: 'David Roshto',
           },
           {
             quote:
-              'They actually came to my office, set the whole thing up, and explained it in plain English. No tech headaches. My calendar has been full ever since.',
-            name: 'Danielle Fontenot',
-            business: 'Bayou Smiles Dental',
-            town: 'Lake Charles, LA',
+              'The guys over at Found It Marketing are great — they come to me directly to make sure I\u2019m taken care of and issues are solved.',
+            name: 'Sky',
           },
           {
             quote:
-              "I was skeptical AI could sound human. It does. Customers think they're texting my front desk. We've booked more jobs this quarter than all of last year.",
-            name: 'Chris Domingue',
-            business: 'Domingue Roofing',
-            town: 'Alexandria, LA',
+              'After only a week, they absolutely earned a five-star review. So glad to have this team managing my marketing — extremely responsive, with a great app that makes communication seamless.',
+            name: 'Smith Lake Rentals & Sales',
           },
         ]}
       />
