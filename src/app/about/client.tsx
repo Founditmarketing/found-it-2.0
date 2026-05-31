@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Phone } from 'lucide-react';
+import { Check, ArrowRight, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
@@ -29,6 +29,8 @@ const differentiators = [
   'Senior strategist on every account. No hand-offs to interns.',
   'Based in Alexandria, LA. Real people, real phone number.',
 ];
+
+const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas'];
 
 export default function AboutPage() {
   return (
@@ -91,6 +93,33 @@ export default function AboutPage() {
                 </div>
                 <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
               </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Where We Work */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-20"
+        >
+          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+            Where We Work
+          </h2>
+          <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
+            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, or up into southern Arkansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, we deliver the same senior-level work remotely.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {serviceArea.map((region, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center gap-2 bg-card/15 border border-primary/20 rounded-full px-4 py-2 text-sm font-bold text-foreground"
+              >
+                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden="true" />
+                {region}
+              </span>
             ))}
           </div>
         </motion.div>
