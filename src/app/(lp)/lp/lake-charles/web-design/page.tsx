@@ -5,10 +5,10 @@ import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Lake Charles Web Design | Websites That Win Bids',
   description:
-    'Web design for Lake Charles contractors and service businesses. Mobile-first, fast-loading, owned by you. Live in 6 weeks.',
+    'Web design for Lake Charles contractors and service businesses. Mobile-first, fast-loading, owned by you. Live in 2 weeks or less.',
   openGraph: {
     title: 'Lake Charles Web Design | Websites That Win Bids',
-    description: 'Web design for Lake Charles contractors. Live in 6 weeks.',
+    description: 'Web design for Lake Charles contractors. Live in 2 weeks or less.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/lake-charles/web-design',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],

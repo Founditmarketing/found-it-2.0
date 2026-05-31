@@ -20,7 +20,7 @@ const services = [
   },
   {
     name: 'Web Design',
-    result: 'A website that makes your phone ring. Live in 6 weeks.',
+    result: 'A website that makes your phone ring. Live in 2 weeks or less.',
     href: '/lp/web-design',
     cta: 'Get a Free Concept Call',
   },

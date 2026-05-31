@@ -5,11 +5,11 @@ import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Web Design | Get a Website That Makes Your Phone Ring',
   description:
-    'Custom websites that turn visitors into calls. Mobile-first, fast-loading, owned by you. Live in 6 weeks. Free concept call.',
+    'Custom websites that turn visitors into calls. Mobile-first, fast-loading, owned by you. Live in 2 weeks or less. Free concept call.',
   openGraph: {
     title: 'Web Design | Get a Website That Makes Your Phone Ring',
     description:
-      'Custom websites that turn visitors into calls. Live in 6 weeks. Free concept call.',
+      'Custom websites that turn visitors into calls. Live in 2 weeks or less. Free concept call.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/web-design',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Web Design | Get a Website That Makes Your Phone Ring',
-    description: 'Custom websites that turn visitors into calls. Live in 6 weeks.',
+    description: 'Custom websites that turn visitors into calls. Live in 2 weeks or less.',
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/web-design' },
