@@ -104,9 +104,10 @@ export function SocialMediaLPContent() {
         headingAccent="real people here."
         body="No generic stock posts pumped out by a stranger overseas. We'll come to your office, learn your voice, and build a content plan that sounds like you and books real calls."
         founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
+        videoSrc="/social-intro-web.mp4"
+        poster="/social-intro-poster.jpg"
         orientation="portrait"
+        portraitRatio="9 / 16"
         ctaText="Claim Your Free In-Person Strategy Session"
       />
 
