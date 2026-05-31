@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -97,19 +97,6 @@ export function WebDesignLPContent() {
           { value: '2.1s', label: 'Load Time' },
         ]}
         narrative="Their old site loaded in 6 seconds on mobile and the contact form was buried 3 clicks deep. We rebuilt from scratch with custom design, fast code, and a clear path to call or request a quote. 90 days later, qualified calls tripled."
-      />
-
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="We design it with you,"
-        headingAccent="in person."
-        body="No offshore template factory. We'll come to your office, learn how your customers actually find you, and design a homepage concept around that. You'll see the team behind the work before you ever sign."
-        founderName="Trevor Ruby"
-        videoSrc="/webdesign-intro-web.mp4"
-        poster="/webdesign-intro-poster.jpg"
-        orientation="portrait"
-        portraitRatio="3 / 4"
-        ctaText="Claim Your Free In-Person Mockup Review"
       />
 
       <ObjectionBullets
