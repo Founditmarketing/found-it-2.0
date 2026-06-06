@@ -43,7 +43,7 @@ const faqItems = [
 
 export function AISearchSEOContent() {
   return (
-    <LPLayout ctaLabel="Book Your Free In-Person AI Audit">
+    <LPLayout ctaLabel="Get My Free AI Audit">
       <LPNav />
 
       <LPSplitHero
@@ -57,7 +57,7 @@ export function AISearchSEOContent() {
           { value: '4', label: 'AI engines tracked' },
           { value: '4.9★', label: 'Google rating' },
         ]}
-        formHeading="Book Your Free In-Person AI Audit"
+        formHeading="Get My Free AI Audit"
         formSource="lp_ai_seo"
         formPageSlug="ai-search-seo"
       />
@@ -67,7 +67,7 @@ export function AISearchSEOContent() {
         headingAccent="to found."
         stats={[
           { value: '250+', label: 'Local businesses served' },
-          { value: '15+', label: 'Years doing SEO' },
+          { value: '13+', label: 'Years doing SEO' },
           { value: '4.9★', label: 'Average Google rating' },
           { value: '48', label: 'States we operate in' },
         ]}
@@ -108,7 +108,7 @@ export function AISearchSEOContent() {
         poster="/seo-intro-poster.jpg"
         orientation="portrait"
         portraitRatio="9 / 16"
-        ctaText="Book Your Free In-Person AI Audit"
+        ctaText="Get My Free AI Audit"
       />
 
       <ObjectionBullets
@@ -133,7 +133,7 @@ export function AISearchSEOContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person AI Audit"
+        heading="Get My Free AI Audit"
         subheading="We'll check where your business shows up in AI search, and where it doesn't. Takes 24 hours."
         benefits={[
           'AI visibility scan across ChatGPT, Perplexity, Gemini, and Google AI',
@@ -161,7 +161,7 @@ export function AISearchSEOContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Book Your Free In-Person AI Audit
+                Get My Free AI Audit
               </LiquidButton>
             </Link>
           </motion.div>

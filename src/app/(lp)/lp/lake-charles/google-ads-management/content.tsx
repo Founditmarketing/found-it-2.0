@@ -64,7 +64,7 @@ export function LakeCharlesGoogleAdsContent() {
         headingAccent="real phone calls."
         stats={[
           { value: '250+', label: 'Local businesses served' },
-          { value: '15+', label: 'Years running ads' },
+          { value: '13+', label: 'Years running ads' },
           { value: '4.9★', label: 'Average Google rating' },
           { value: '48', label: 'States we operate in' },
         ]}

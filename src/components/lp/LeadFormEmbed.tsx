@@ -31,7 +31,7 @@ export function LeadFormEmbed({
   source = 'lp_general',
   pageSlug = 'general',
   heading,
-  privacyNote = 'We never sell or spam your info. Your details stay between us.',
+  privacyNote = 'Free & no obligation. We reply within 2 hours — and never sell your info.',
   className = '',
 }: LeadFormEmbedProps) {
   const [iframeSrc, setIframeSrc] = useState(formSrc);

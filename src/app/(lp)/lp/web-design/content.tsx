@@ -43,7 +43,7 @@ const faqItems = [
 
 export function WebDesignLPContent() {
   return (
-    <LPLayout ctaLabel="Claim Your Free In-Person Mockup Review">
+    <LPLayout ctaLabel="Get My Free Mockup Review">
       <LPNav />
 
       <LPSplitHero
@@ -57,7 +57,7 @@ export function WebDesignLPContent() {
           { value: '2 wks', label: 'Typical build' },
           { value: '4.9★', label: 'Google rating' },
         ]}
-        formHeading="Claim Your Free Mockup Review"
+        formHeading="Get My Free Mockup Review"
         formSource="lp_web_design"
         formPageSlug="web-design"
       />
@@ -121,7 +121,7 @@ export function WebDesignLPContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person Strategy Session"
+        heading="Get My Free Mockup Review"
         subheading="Tell us about your business and we'll show you what a site that actually converts looks like for your market."
         benefits={[
           'The Competitor Gap Analysis: exactly why your top 3 competitors are outranking and out-converting you.',
@@ -149,7 +149,7 @@ export function WebDesignLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Claim Your Free In-Person Mockup Review
+                Get My Free Mockup Review
               </LiquidButton>
             </Link>
           </motion.div>

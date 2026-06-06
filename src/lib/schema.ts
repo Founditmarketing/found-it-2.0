@@ -11,6 +11,7 @@ import {
   KNOWS_ABOUT,
   AREA_SERVED,
   SERVICES,
+  AWARD,
   type ServiceArea,
 } from './site';
 
@@ -69,6 +70,7 @@ export function buildEntityGraph() {
         address: postalAddress,
         areaServed: areaServedNodes(),
         knowsAbout: [...KNOWS_ABOUT],
+        award: `${AWARD.full} (${AWARD.year})`,
         sameAs: [...SAME_AS],
         contactPoint: [
           {

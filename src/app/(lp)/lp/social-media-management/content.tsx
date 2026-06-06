@@ -43,7 +43,7 @@ const faqItems = [
 
 export function SocialMediaLPContent() {
   return (
-    <LPLayout ctaLabel="Claim Your Free In-Person Strategy Session">
+    <LPLayout ctaLabel="Get My Free Strategy Session">
       <LPNav />
 
       <LPSplitHero
@@ -57,7 +57,7 @@ export function SocialMediaLPContent() {
           { value: '3x', label: 'Best client growth' },
           { value: '4.9★', label: 'Google rating' },
         ]}
-        formHeading="Claim Your Free Strategy Session"
+        formHeading="Get My Free Strategy Session"
         formSource="lp_social"
         formPageSlug="social-media"
       />
@@ -67,7 +67,7 @@ export function SocialMediaLPContent() {
         headingAccent="actually see results from."
         stats={[
           { value: '250+', label: 'Local businesses served' },
-          { value: '15+', label: 'Years in marketing' },
+          { value: '13+', label: 'Years in marketing' },
           { value: '4.9★', label: 'Average Google rating' },
           { value: '48', label: 'States we operate in' },
         ]}
@@ -108,7 +108,7 @@ export function SocialMediaLPContent() {
         poster="/social-intro-poster.jpg"
         orientation="portrait"
         portraitRatio="9 / 16"
-        ctaText="Claim Your Free In-Person Strategy Session"
+        ctaText="Get My Free Strategy Session"
       />
 
       <ObjectionBullets
@@ -133,7 +133,7 @@ export function SocialMediaLPContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person Strategy Session"
+        heading="Get My Free Strategy Session"
         subheading="Tell us about your business and we'll build you a custom content calendar you can start using immediately."
         benefits={[
           'Custom 30-day content calendar',
@@ -161,7 +161,7 @@ export function SocialMediaLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Claim Your Free In-Person Strategy Session
+                Get My Free Strategy Session
               </LiquidButton>
             </Link>
           </motion.div>

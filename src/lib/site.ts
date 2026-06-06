@@ -63,6 +63,17 @@ export const TRACK_RECORD = {
   googleRating: '4.9',
 } as const;
 
+/* ─── Award / recognition ───
+   Update the exact award name, issuer, and year when confirmed (specifics make
+   it more credible to people and to AI/answer engines). */
+export const AWARD = {
+  /** Short label for badges/chips. */
+  label: "Region's Fastest-Growing Company",
+  /** Full award name for schema.org `award`. */
+  full: 'Fastest-Growing Company in the Region',
+  year: '2026',
+} as const;
+
 /** Social / authoritative profiles — used for sameAs entity reconciliation. */
 export const SAME_AS = [
   'https://www.facebook.com/founditmarketing',

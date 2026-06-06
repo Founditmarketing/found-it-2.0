@@ -6,7 +6,7 @@ import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { ShieldCheck } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -43,21 +43,21 @@ const faqItems = [
 
 export function GoogleAdsLPContent() {
   return (
-    <LPLayout ctaLabel="Book Your Free In-Person Ad Audit">
+    <LPLayout ctaLabel="Get My Free Ad Audit">
       <LPNav />
 
       <LPSplitHero
-        headline="Stop Wasting Ad Spend on"
-        headlineAccent="Junk Clicks."
+        headline="Turn Ad Spend Into Customers,"
+        headlineAccent="Not Junk Clicks."
         subheadline="We review your Google Ads, cut the waste, and rebuild around the leads that actually become customers."
-        highlight="We'll find at least $500 in wasted spend on your free review, or we send you a $50 gift card."
-        highlightIcon={ShieldCheck}
+        highlight="One client turned $4,200/mo in ad spend into $42,000/mo in revenue — a 10x return."
+        highlightIcon={TrendingUp}
         stats={[
           { value: '250+', label: 'Local businesses' },
           { value: '10x', label: 'Best client ROAS' },
           { value: '4.9★', label: 'Google rating' },
         ]}
-        formHeading="Book Your Free In-Person Ad Audit"
+        formHeading="Get My Free Ad Audit"
         formSource="lp_google_ads"
         formPageSlug="google-ads-management"
       />
@@ -67,7 +67,7 @@ export function GoogleAdsLPContent() {
         headingAccent="real phone calls."
         stats={[
           { value: '250+', label: 'Local businesses served' },
-          { value: '15+', label: 'Years running ads' },
+          { value: '13+', label: 'Years running ads' },
           { value: '4.9★', label: 'Average Google rating' },
           { value: '48', label: 'States we operate in' },
         ]}
@@ -107,7 +107,7 @@ export function GoogleAdsLPContent() {
         videoSrc="/founder-intro-web.mp4"
         poster="/founder-intro-poster.jpg"
         orientation="portrait"
-        ctaText="Book Your Free In-Person Ad Audit"
+        ctaText="Get My Free Ad Audit"
       />
 
       <ObjectionBullets
@@ -132,7 +132,7 @@ export function GoogleAdsLPContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person Ad Audit"
+        heading="Get My Free Ad Audit"
         subheading="You'll get a 5-minute video breakdown of your ad account showing exactly where you're bleeding money, what your competitors are bidding on, and 3 changes you can make today to get cheaper leads."
         benefits={[
           '5-minute video breakdown of your ad account',
@@ -160,7 +160,7 @@ export function GoogleAdsLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Book Your Free In-Person Ad Audit
+                Get My Free Ad Audit
               </LiquidButton>
             </Link>
           </motion.div>

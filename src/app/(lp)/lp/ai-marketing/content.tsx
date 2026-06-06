@@ -17,7 +17,7 @@ import { Zap } from 'lucide-react';
 
 export function AIMarketingLPContent() {
   return (
-    <LPLayout ctaLabel="Book Your Free In-Person AI Demo">
+    <LPLayout ctaLabel="Get My Free AI Demo">
       <LPNav />
 
       <LPSplitHero
@@ -31,7 +31,7 @@ export function AIMarketingLPContent() {
           { value: '<5 sec', label: 'Lead reply speed' },
           { value: '4.9★', label: 'Client rating' },
         ]}
-        formHeading="Book Your Free In-Person AI Demo"
+        formHeading="Get My Free AI Demo"
         formSource="lp_ai_marketing"
         formPageSlug="ai-marketing"
       />
@@ -75,7 +75,7 @@ export function AIMarketingLPContent() {
         videoSrc="/founder-intro-web.mp4"
         poster="/founder-intro-poster.jpg"
         orientation="portrait"
-        ctaText="Book Your Free In-Person AI Demo"
+        ctaText="Get My Free AI Demo"
       />
 
       <ObjectionBullets
@@ -128,7 +128,7 @@ export function AIMarketingLPContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person AI Demo"
+        heading="Get My Free AI Demo"
         subheading="Let us show you exactly how a custom AI system can automate your marketing."
         benefits={[
           'Live demo of an AI voice/text agent booking an appointment',
@@ -206,7 +206,7 @@ export function AIMarketingLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-black/20 bg-white text-primary hover:bg-white/90">
-                Book Your Free In-Person AI Demo
+                Get My Free AI Demo
               </LiquidButton>
             </Link>
           </motion.div>

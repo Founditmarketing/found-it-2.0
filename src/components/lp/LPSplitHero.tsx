@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Zap, type LucideIcon } from 'lucide-react';
+import { MapPin, Phone, Zap, Trophy, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { AWARD } from '@/lib/site';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -24,6 +25,8 @@ interface LPSplitHeroProps {
   /** Icon for the highlight chip. */
   highlightIcon?: LucideIcon;
   stats?: StatChip[];
+  /** Show the award trust chip above the headline. */
+  showAward?: boolean;
   formHeading: string;
   formSource: string;
   formPageSlug: string;
@@ -37,6 +40,7 @@ export function LPSplitHero({
   highlight,
   highlightIcon: HighlightIcon = Zap,
   stats = [],
+  showAward = true,
   formHeading,
   formSource,
   formPageSlug,
@@ -52,14 +56,24 @@ export function LPSplitHero({
             transition={{ duration: 0.8, ease }}
             className="lg:col-span-7"
           >
-            {badge && (
-              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
-                <MapPin className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-                  {badge}
-                </span>
-              </div>
-            )}
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              {badge && (
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                    {badge}
+                  </span>
+                </div>
+              )}
+              {showAward && (
+                <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-full px-4 py-1.5">
+                  <Trophy className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-amber-300">
+                    {AWARD.year} · {AWARD.label}
+                  </span>
+                </div>
+              )}
+            </div>
 
             <h1 className="text-[9vw] sm:text-[6.5vw] lg:text-[3.4vw] leading-[0.98] tracking-tight font-black font-heading uppercase italic text-white mb-5">
               {headline}{' '}

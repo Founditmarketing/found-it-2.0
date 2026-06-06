@@ -16,7 +16,7 @@ import { ShieldCheck } from 'lucide-react';
 
 export function AppDevelopmentLPContent() {
   return (
-    <LPLayout ctaLabel="Book Your Free In-Person App Blueprint">
+    <LPLayout ctaLabel="Get My Free App Blueprint">
       <LPNav />
 
       <LPSplitHero
@@ -30,7 +30,7 @@ export function AppDevelopmentLPContent() {
           { value: 'iOS+Android', label: 'Native build' },
           { value: '4.9★', label: 'Google rating' },
         ]}
-        formHeading="Book Your Free App Blueprint"
+        formHeading="Get My Free App Blueprint"
         formSource="lp_app_development"
         formPageSlug="app-development"
       />
@@ -40,7 +40,7 @@ export function AppDevelopmentLPContent() {
         headingAccent="can count on."
         stats={[
           { value: '250+', label: 'Local businesses served' },
-          { value: '15+', label: 'Years building software' },
+          { value: '13+', label: 'Years building software' },
           { value: '4.9★', label: 'Average Google rating' },
           { value: '48', label: 'States we operate in' },
         ]}
@@ -70,7 +70,7 @@ export function AppDevelopmentLPContent() {
         poster="/app-intro-poster.jpg"
         orientation="portrait"
         portraitRatio="9 / 16"
-        ctaText="Book Your Free In-Person App Blueprint"
+        ctaText="Get My Free App Blueprint"
       />
 
       <ObjectionBullets
@@ -112,7 +112,7 @@ export function AppDevelopmentLPContent() {
       />
 
       <LPFormSection
-        heading="Book Your Free In-Person App Blueprint"
+        heading="Get My Free App Blueprint"
         subheading="Tell us about your app idea and we'll come to your office to architect the entire build."
         benefits={[
           'Full technical architecture and database mapping',
@@ -169,7 +169,7 @@ export function AppDevelopmentLPContent() {
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-black/20 bg-white text-primary hover:bg-white/90">
-                Book Your Free In-Person App Blueprint
+                Get My Free App Blueprint
               </LiquidButton>
             </Link>
           </motion.div>
