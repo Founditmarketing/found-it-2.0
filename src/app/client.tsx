@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
@@ -285,6 +286,68 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          MEET THE TEAM — trust band with real team photo
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-16 lg:py-28">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease }}
+            >
+              <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">Meet The Team</p>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+                Real People.{' '}
+                <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">Real Local Team.</span>
+              </h2>
+              <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
+                When you call about your campaigns, you reach the same senior team that built them — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  '13+ years in business, millions in managed ad spend',
+                  '2026 CLEDA Highest Traded Revenue Award winner',
+                  'A senior strategist on every account',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
+                    </div>
+                    <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <Link href="/about" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all duration-300 group">
+                Meet the team <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </motion.div>
+
+            {/* Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease }}
+              className="relative rounded-3xl overflow-hidden border border-border/20 shadow-2xl shadow-black/30"
+            >
+              <Image
+                src="/team-meeting.png"
+                alt="The Found It Marketing team meeting at their office in Alexandria, Louisiana"
+                width={1023}
+                height={471}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#020202]/40 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
