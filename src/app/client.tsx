@@ -72,17 +72,15 @@ export default function HomePage() {
     <div className="bg-transparent text-foreground relative overflow-hidden">
 
       {/* ═══════════════════════════════════════════
-          AMBIENT GLOW — Subtle background atmosphere
-      ═══════════════════════════════════════════ */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
-      </div>
-
-      {/* ═══════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24">
+      <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden">
+        {/* Drifting glow orbs — confined to the hero only */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute top-[-15%] left-[-10%] w-[45vw] h-[45vw] bg-[radial-gradient(ellipse_at_center,rgba(255,85,0,0.18)_0%,transparent_70%)] rounded-full animate-drift-1 motion-reduce:animate-none transform-gpu will-change-transform" />
+          <div className="absolute top-[8%] right-[-10%] w-[40vw] h-[40vw] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.16)_0%,transparent_70%)] rounded-full animate-drift-2 animation-delay-2000 motion-reduce:animate-none transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-20%] left-[25%] w-[50vw] h-[50vw] bg-[radial-gradient(ellipse_at_center,rgba(234,88,12,0.15)_0%,transparent_70%)] rounded-full animate-drift-3 animation-delay-4000 motion-reduce:animate-none transform-gpu will-change-transform" />
+        </div>
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 

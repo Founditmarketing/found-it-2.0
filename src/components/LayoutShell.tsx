@@ -10,6 +10,7 @@ import { Toaster } from '@/components/ui/toaster';
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isLP = pathname.startsWith('/lp');
+  const isHome = pathname === '/';
 
   if (isLP) {
     return (
@@ -25,7 +26,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <div className="relative z-20">
         <Header />
       </div>
-      <ClientBackground />
+      <ClientBackground showOrbs={!isHome} />
       <div className="relative z-10 flex flex-col min-h-screen">
         {children}
       </div>
