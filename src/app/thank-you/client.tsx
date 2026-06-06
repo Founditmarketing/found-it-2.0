@@ -3,10 +3,16 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { useEffect } from 'react';
+import { trackThankYouConversion } from '@/lib/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ThankYouClient() {
+  useEffect(() => {
+    trackThankYouConversion();
+  }, []);
+
   return (
     <main className="bg-transparent text-foreground min-h-[80vh] flex items-center justify-center pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">

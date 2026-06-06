@@ -10,6 +10,16 @@ declare global {
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || '';
 const GADS_CONVERSION_ID = process.env.NEXT_PUBLIC_GADS_CONVERSION_ID || '';
 
+/**
+ * Full `send_to` for the Google Ads "Form Submit - Thank You Page" conversion
+ * action, e.g. 'AW-17848789749/XXXXXXXXXXXXXXXXXXXX'.
+ *
+ * Paste the conversion label from Google Ads here (or set the env var). The
+ * thank-you page only fires the conversion when this is set, so a missing/wrong
+ * value never records to the wrong action.
+ */
+const GADS_THANKYOU_SEND_TO = process.env.NEXT_PUBLIC_GADS_THANKYOU_SEND_TO || '';
+
 /* ─── Core Fire ─── */
 function fire(eventName: string, params?: Record<string, any>) {
   if (typeof window === 'undefined') return;
@@ -32,6 +42,31 @@ export function trackLead(source: string) {
       'value': 800.0,
       'currency': 'USD'
     });
+  }
+}
+
+/**
+ * Fires the Google Ads "Form Submit - Thank You Page" conversion on the
+ * dedicated /thank-you page load. No-op until GADS_THANKYOU_SEND_TO is set,
+ * so it never records to the wrong conversion action.
+ */
+export function trackThankYouConversion() {
+  if (typeof window === 'undefined') return;
+
+  // GA4 page-level event for funnel visibility (safe, label-independent)
+  fire('thank_you_view', { event_category: 'conversion', event_label: 'thank_you_page', value: 800.0 });
+
+  if (window.gtag && GADS_THANKYOU_SEND_TO) {
+    window.gtag('event', 'conversion', {
+      'send_to': GADS_THANKYOU_SEND_TO,
+      'value': 800.0,
+      'currency': 'USD',
+    });
+    if (typeof console !== 'undefined') {
+      console.log('[Found It] Thank-you page conversion fired');
+    }
+  } else if (typeof console !== 'undefined' && !GADS_THANKYOU_SEND_TO) {
+    console.warn('[Found It] Thank-you conversion NOT fired: GADS_THANKYOU_SEND_TO is not set.');
   }
 }
 
@@ -108,31 +143,79 @@ export function buildFormSrc(baseSrc: string, source: string, page: string): str
 }
 
 /* ─── LeadConnector postMessage Listener ─── */
+
+/** Hostnames LeadConnector / GoHighLevel forms post messages from. */
+const LC_ALLOWED_HOSTS = ['leadconnectorhq.com', 'msgsndr.com'];
+
+/** Match LeadConnector domains by hostname suffix (covers any subdomain). */
+function isLeadConnectorOrigin(origin: string): boolean {
+  if (!origin) return false;
+  try {
+    const host = new URL(origin).hostname;
+    return LC_ALLOWED_HOSTS.some(h => host === h || host.endsWith(`.${h}`));
+  } catch {
+    return false;
+  }
+}
+
+/** Broad signal that a LeadConnector message represents a successful submit. */
+function isLeadSubmitMessage(rawData: unknown): boolean {
+  // Structured object payloads — check common type/event fields directly.
+  if (rawData && typeof rawData === 'object') {
+    const obj = rawData as Record<string, any>;
+    const typeFields = [obj.type, obj.event, obj.action, obj.name, obj.eventName]
+      .filter(v => typeof v === 'string')
+      .map(v => v.toLowerCase());
+    if (typeFields.some(t =>
+      t.includes('form-submit') || t.includes('form_submit') || t.includes('formsubmit') ||
+      t.includes('form-success') || t.includes('form_success') || t.includes('submitted') ||
+      t.includes('set-sticky-contact')
+    )) {
+      return true;
+    }
+  }
+
+  // Fallback: stringify and keyword-match (covers string payloads + nested shapes).
+  let data = '';
+  try {
+    data = typeof rawData === 'string' ? rawData : JSON.stringify(rawData || '');
+  } catch {
+    return false;
+  }
+  data = data.toLowerCase();
+  return [
+    'form-submit', 'form_submit', 'formsubmit',
+    'form-success', 'form_success', 'formsuccess',
+    'form_submitted', 'formsubmitted', 'form submitted',
+    'set-sticky-contact', 'onformsubmit',
+  ].some(k => data.includes(k));
+}
+
 /**
  * Attach to window in a useEffect. Listens for form submission events from
- * the LeadConnector iframe and fires GA4 + GAds conversion events.
+ * the LeadConnector iframe and fires GA4 + GAds conversion events, then
+ * redirects to /thank-you. Hardened: matches any LeadConnector subdomain,
+ * recognizes both object and string payloads, and fires at most once.
  */
 export function createFormSubmitListener(source: string) {
+  let fired = false;
+
   return function handleMessage(e: MessageEvent) {
-    // Accept messages from LeadConnector domains
-    const allowedOrigins = ['https://api.leadconnectorhq.com', 'https://link.msgsndr.com'];
-    if (!allowedOrigins.some(o => (e.origin || '').startsWith(o))) return;
+    if (fired) return;
+    if (!isLeadConnectorOrigin(e.origin || '')) return;
+    if (!isLeadSubmitMessage(e.data)) return;
 
-    const data = typeof e.data === 'string' ? e.data : JSON.stringify(e.data || '');
-    const isSubmit = data.includes('form-submit') || data.includes('form-success')
-      || data.includes('form_submitted') || data.includes('formSubmitted')
-      || data.includes('set-sticky-contact');
-
-    if (isSubmit) {
-      trackLead(source);
-      // Log for debugging
-      if (typeof console !== 'undefined') {
-        console.log(`[Found It] Lead conversion fired — source: ${source}`);
-      }
-      
-      // Redirect to dedicated thank you page for foolproof Google Ads tracking
-      window.location.href = '/thank-you';
+    fired = true;
+    trackLead(source);
+    if (typeof console !== 'undefined') {
+      console.log(`[Found It] Lead conversion fired — source: ${source}`);
     }
+
+    // Redirect to dedicated thank you page for foolproof Google Ads tracking.
+    // Small delay so the conversion beacon has time to leave the page.
+    window.setTimeout(() => {
+      window.location.href = '/thank-you';
+    }, 150);
   };
 }
 
