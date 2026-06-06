@@ -63,6 +63,15 @@ const differentiators = [
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
 
+const staff = [
+  { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
+  { name: 'Reece Roberts', role: 'Head of Search & GEO', image: '/reese-roberts.jpeg' },
+  { name: 'Thomas Dombrowski', role: 'Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
+  { name: 'Jason Albright', role: 'Web Development', image: '/jason-albright.jpeg' },
+  { name: 'Bethany Hernandez', role: 'Google Ads', image: '/bethany-hernandez.jpeg' },
+  { name: 'Megan Sanguinetti', role: 'Social Media', image: '/megan-sanguinetti.jpeg' },
+];
+
 export default function HomePage() {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -327,23 +336,37 @@ export default function HomePage() {
               </Link>
             </motion.div>
 
-            {/* Photo */}
+            {/* Staff collage */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease }}
-              className="relative rounded-3xl overflow-hidden border border-border/20 shadow-2xl shadow-black/30"
+              className="grid grid-cols-3 gap-3"
             >
-              <Image
-                src="/team-meeting.png"
-                alt="The Found It Marketing team meeting at their office in Alexandria, Louisiana"
-                width={1023}
-                height={471}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#020202]/40 via-transparent to-transparent pointer-events-none" />
+              {staff.map((member, i) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease }}
+                  className="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-border/20 bg-card/30"
+                >
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} — ${member.role}, Found It Marketing`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: member.objectPosition || 'center' }}
+                    sizes="(max-width: 1024px) 30vw, 16vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-2.5 pt-6">
+                    <p className="text-[11px] font-black uppercase italic tracking-tighter text-white leading-none">{member.name}</p>
+                    <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-primary mt-1">{member.role}</p>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
