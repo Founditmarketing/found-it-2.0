@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -275,6 +276,11 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          REVIEWS — animated marquee of real client reviews
+      ═══════════════════════════════════════════ */}
+      <ReviewMarquee />
 
       {/* ═══════════════════════════════════════════
           BOTTOM CTA
