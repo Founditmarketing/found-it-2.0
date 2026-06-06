@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { LakeCharlesWebDesignContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Lake Charles Web Design | Websites That Win Bids',
@@ -27,35 +27,28 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema({
-  description: 'Custom web design for industrial and commercial businesses in Southwest Louisiana.',
+const serviceSchema = buildServiceSchema({
+  name: 'Web Design Services',
+  serviceType: 'Web Design',
+  description: 'Custom web design for industrial and commercial businesses in Lake Charles and Southwest Louisiana.',
+  url: '/lp/lake-charles/web-design',
   areaServed: [
-    { '@type': 'City', name: 'Lake Charles', containedInPlace: { '@type': 'State', name: 'Louisiana' } },
-    { '@type': 'State', name: 'Louisiana' },
-    { '@type': 'Country', name: 'United States' },
+    { type: 'City', name: 'Lake Charles' },
+    { type: 'AdministrativeArea', name: 'Lake Charles MSA' },
+    { type: 'State', name: 'Louisiana' },
   ],
 });
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Web Design Services',
-  description: 'Custom web design for industrial and commercial businesses in Lake Charles and Southwest Louisiana.',
-  provider: { '@type': 'Organization', name: 'Found It Marketing', url: 'https://founditmarketing.com' },
-  areaServed: [
-    { '@type': 'City', name: 'Lake Charles' },
-    { '@type': 'AdministrativeArea', name: 'Lake Charles MSA' },
-    { '@type': 'State', name: 'Louisiana' },
-  ],
-  serviceType: 'Web Design',
-};
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Lake Charles Web Design', url: '/lp/lake-charles/web-design' },
+]);
 
 export default function LakeCharlesWebDesignLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <LakeCharlesWebDesignContent />
     </>
   );

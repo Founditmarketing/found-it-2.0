@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import HomePage from './client';
-import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
 
 export const metadata: Metadata = {
   title: 'Found It Marketing | More Customers for Local Businesses',
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <LocalBusinessSchema />
       <HomePage />
     </main>
   );

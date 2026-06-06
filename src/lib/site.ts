@@ -1,0 +1,157 @@
+/* ─── Single Source of Truth: Business Identity ───
+   Centralizes NAP, founder, socials, services, and entity @id constants so the
+   structured-data knowledge graph, metadata, llms.txt, and sitemap all stay
+   consistent. Consistency of these facts is what AI/answer engines reward. */
+
+import { phoneTel } from './phone';
+
+export const SITE_URL = 'https://founditmarketing.com';
+
+/** Stable @id anchors for the entity knowledge graph (one node per concept). */
+export const ENTITY_IDS = {
+  organization: `${SITE_URL}/#organization`,
+  localBusiness: `${SITE_URL}/#localbusiness`,
+  website: `${SITE_URL}/#website`,
+  founder: `${SITE_URL}/#trevor-ruby`,
+  logo: `${SITE_URL}/#logo`,
+} as const;
+
+export const BUSINESS = {
+  name: 'Found It Marketing',
+  legalName: 'Found It Marketing LLC',
+  tagline: 'Building Digital Empires',
+  description:
+    'Digital marketing agency in Alexandria, Louisiana specializing in Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO) for local businesses. No long-term contracts; clients own their accounts, code, and data.',
+  url: SITE_URL,
+  logo: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image.png`,
+  email: 'trevor@founditmarketing.com',
+  /** Secondary inbox kept for reference / contactPoint coverage. */
+  altEmail: 'john@founditmarketing.com',
+  telephone: `+1${phoneTel}`,
+  priceRange: '$$$',
+  foundingYear: '2013',
+  address: {
+    streetAddress: '3803 Rue Left Bank',
+    addressLocality: 'Alexandria',
+    addressRegion: 'LA',
+    postalCode: '71303',
+    addressCountry: 'US',
+  },
+  geo: {
+    latitude: 31.2829,
+    longitude: -92.4812,
+  },
+} as const;
+
+export const FOUNDER = {
+  name: 'Trevor Ruby',
+  jobTitle: 'Founder',
+} as const;
+
+/* ─── Track record / credibility ───
+   Canonical, reusable proof points. Keep these as the single source of truth so
+   stats stay consistent across pages (inconsistent numbers lower entity trust).
+   Phrased conservatively from confirmed facts; sharpen with exact figures. */
+export const TRACK_RECORD = {
+  yearsInBusiness: '13+',
+  adSpendManaged: 'Millions',
+  adSpendManagedLong: 'millions of dollars in managed ad spend',
+  socialAccountsManaged: 'Hundreds',
+  socialAccountsManagedLong: 'hundreds of local businesses',
+  statesServed: '48',
+  googleRating: '4.9',
+} as const;
+
+/** Social / authoritative profiles — used for sameAs entity reconciliation. */
+export const SAME_AS = [
+  'https://www.facebook.com/founditmarketing',
+  'https://www.instagram.com/founditmarketing',
+  'https://www.linkedin.com/company/founditmarketing',
+  'https://twitter.com/founditagency',
+  'https://www.youtube.com/@founditmarketing',
+] as const;
+
+/** Topics the brand is an authority on — strengthens entity understanding for LLMs. */
+export const KNOWS_ABOUT = [
+  'Google Ads Management',
+  'Pay-Per-Click Advertising (PPC)',
+  'Search Engine Optimization (SEO)',
+  'Generative Engine Optimization (GEO)',
+  'AI Search Optimization',
+  'Local SEO',
+  'Conversion Rate Optimization',
+  'Web Design and Development',
+  'Social Media Management',
+  'Marketing Automation',
+] as const;
+
+export interface ServiceArea {
+  type: 'City' | 'AdministrativeArea' | 'State';
+  name: string;
+  sameAs?: string;
+}
+
+export const AREA_SERVED: ServiceArea[] = [
+  { type: 'City', name: 'Alexandria', sameAs: 'https://en.wikipedia.org/wiki/Alexandria,_Louisiana' },
+  { type: 'City', name: 'Pineville', sameAs: 'https://en.wikipedia.org/wiki/Pineville,_Louisiana' },
+  { type: 'City', name: 'Lake Charles', sameAs: 'https://en.wikipedia.org/wiki/Lake_Charles,_Louisiana' },
+  { type: 'AdministrativeArea', name: 'Central Louisiana', sameAs: 'https://en.wikipedia.org/wiki/Central_Louisiana' },
+  { type: 'State', name: 'Louisiana', sameAs: 'https://en.wikipedia.org/wiki/Louisiana' },
+  { type: 'State', name: 'Mississippi' },
+  { type: 'State', name: 'Texas' },
+  { type: 'State', name: 'Arkansas' },
+];
+
+export interface ServiceDef {
+  name: string;
+  slug: string;
+  serviceType: string;
+  description: string;
+}
+
+/** Canonical service catalog — referenced by Service schema + sitemap + llms.txt. */
+export const SERVICES: ServiceDef[] = [
+  {
+    name: 'Google Ads Management',
+    slug: 'lp/google-ads-management',
+    serviceType: 'PPC Management',
+    description:
+      'Google Ads management for local service businesses with weekly optimization, real conversion tracking, and transparent reporting. No contracts.',
+  },
+  {
+    name: 'Web Design & Development',
+    slug: 'lp/web-design',
+    serviceType: 'Web Design',
+    description:
+      'Custom, conversion-focused websites built on Next.js — fast, mobile-first, and engineered to turn visitors into calls. Clients own the code.',
+  },
+  {
+    name: 'AI Search Optimization (GEO)',
+    slug: 'lp/ai-search-seo',
+    serviceType: 'Generative Engine Optimization',
+    description:
+      'Generative Engine Optimization to get your business recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data.',
+  },
+  {
+    name: 'Social Media Management',
+    slug: 'lp/social-media-management',
+    serviceType: 'Social Media Marketing',
+    description:
+      'Done-for-you social media content and strategy. We create it, you approve it — real content that builds authority and drives leads.',
+  },
+  {
+    name: 'Custom App Development',
+    slug: 'lp/app-development',
+    serviceType: 'Mobile App Development',
+    description:
+      'Native-feeling iOS and Android app development with in-person blueprinting and fixed-price timelines. Clients own 100% of the codebase.',
+  },
+  {
+    name: 'AI Marketing Automation',
+    slug: 'lp/ai-marketing',
+    serviceType: 'Marketing Automation',
+    description:
+      'Custom AI systems for lead generation, instant follow-up, and automated appointment setting with AI voice and text agents.',
+  },
+];

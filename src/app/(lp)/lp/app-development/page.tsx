@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { AppDevelopmentLPContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Custom App Development | Built Locally',
@@ -33,20 +33,23 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema({
-  description: 'Custom app development agency. Mobile and web applications built locally.',
-  areaServed: [
-    { '@type': 'State', name: 'Louisiana' },
-    { '@type': 'State', name: 'Texas' },
-    { '@type': 'Country', name: 'United States' },
-  ],
+const serviceSchema = buildServiceSchema({
+  name: 'Custom App Development',
+  serviceType: 'Mobile App Development',
+  description: 'Custom mobile and web application development built by a local team. Fixed timelines, and clients own the code.',
+  url: '/lp/app-development',
 });
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'App Development', url: '/lp/app-development' },
+]);
 
 export default function AppDevelopmentLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <AppDevelopmentLPContent />
     </>
   );

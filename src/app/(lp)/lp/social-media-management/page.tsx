@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SocialMediaLPContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Social Media Management | Content That Gets Calls, Not Just Likes',
@@ -32,13 +32,23 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema({ priceRange: '$$' });
+const serviceSchema = buildServiceSchema({
+  name: 'Social Media Management',
+  serviceType: 'Social Media Marketing',
+  description: 'Done-for-you social media management for local businesses: content creation, strategy, and reporting focused on calls and leads.',
+  url: '/lp/social-media-management',
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Social Media Management', url: '/lp/social-media-management' },
+]);
 
 export default function SocialMediaLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <SocialMediaLPContent />
     </>
   );

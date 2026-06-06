@@ -15,8 +15,8 @@ export const blogPosts: Post[] = [
         title: 'Stop Fearing AI. Start Weaponizing It.',
         date: '2025-01-15',
         excerpt: 'The companies terrified of AI replacing them will be replaced by the companies weaponizing it to dominate their markets. Here is how you turn Generative AI into your unfair advantage.',
-        author: 'The Architect',
-        authorImage: 'https://picsum.photos/seed/architect/40/40',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
         image: '/images/blog/weaponize-ai.png',
         content: `
 <p>There is a dangerous, pervasive fear echoing through boardrooms across the country: <em>"Is AI going to replace us?"</em></p>
@@ -51,8 +51,8 @@ export const blogPosts: Post[] = [
         title: 'The Future is Answer Engines: An Intro to GEO',
         date: '2024-07-29',
         excerpt: 'Search is evolving. Learn why Generative Engine Optimization (GEO) is the key to staying visible in the age of AI, turning your brand into the definitive answer.',
-        author: 'Jane Doe',
-        authorImage: 'https://picsum.photos/seed/author1/40/40',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
         image: '/images/blog/intro-to-geo.png',
         content: `
 <p>For two decades, Search Engine Optimization (SEO) has been the undisputed king of digital marketing. But the kingdom is changing. The rise of AI-powered "answer engines" like Google's AI Overviews and Perplexity is rewriting the rules of online visibility. Welcome to the era of Generative Engine Optimization (GEO).</p>
@@ -68,8 +68,8 @@ export const blogPosts: Post[] = [
         title: '5 Common PPC Mistakes Costing You Money',
         date: '2024-07-22',
         excerpt: 'Are your ad campaigns underperforming? You might be making one of these five common—and costly—PPC mistakes that we see every day.',
-        author: 'John Smith',
-        authorImage: 'https://picsum.photos/seed/author2/40/40',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
         image: '/images/blog/common-ppc-mistakes.png',
         content: `
 <p>Pay-Per-Click (PPC) advertising can be a powerful driver of growth, but it's also an easy place to waste your budget. After auditing hundreds of ad accounts, we've seen the same mistakes time and time again. Here are the top five to avoid:</p>
@@ -90,8 +90,8 @@ export const blogPosts: Post[] = [
         title: 'Dominating the Map Pack: Your Guide to Local SEO',
         date: '2024-07-15',
         excerpt: 'For local businesses, the Google Map Pack is the most valuable real estate online. Learn the key strategies to secure your spot and drive high-intent customers to your door.',
-        author: 'Jane Doe',
-        authorImage: 'https://picsum.photos/seed/author1/40/40',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
         image: '/images/blog/local-seo-dominance.png',
         content: `
 <p>If you run a local business, you know that visibility in your immediate area is everything. While national SEO is important, winning the local search game—specifically, the Google Map Pack—is what drives foot traffic and phone calls. Here's how to do it.</p>
@@ -110,8 +110,8 @@ export const blogPosts: Post[] = [
         title: 'Content is King, But AI is the Kingmaker',
         date: '2024-07-08',
         excerpt: 'Generative AI like Google Gemini is changing how content is created and consumed. Discover how to adapt your content strategy to thrive in the new age of AI-driven search.',
-        author: 'John Smith',
-        authorImage: 'https://picsum.photos/seed/author2/40/40',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
         image: '/images/blog/ai-content-strategy.png',
         content: `
 <p>Content has always been the foundation of digital marketing. But the rise of powerful generative AI models like Google Gemini means the way we create and strategize content must evolve. AI is no longer just a tool; it's a collaborator and a new kind of audience.</p>
@@ -121,6 +121,70 @@ export const blogPosts: Post[] = [
 <p>Struggling with writer's block? Use AI to brainstorm blog post ideas, generate outlines, and even write first drafts. The key is to use it as a starting point. An expert human must always refine, edit, and add unique insights to the AI-generated content to ensure it meets quality standards and reflects your brand's voice.</p>
 <h3>Optimize for "The Answer"</h3>
 <p>The goal is no longer just to rank, but to be the source of the answer in an AI overview. Structure your content with clear headings, bulleted lists, and concise answers to common questions. Use schema markup to give AI explicit clues about your content's meaning. Think of it as spoon-feeding the AI exactly what it needs to see you as the most authoritative source.</p>
+        `,
+    },
+    {
+        slug: 'local-business-social-media-budget',
+        title: 'How Much Should a Local Business Spend on Social Media?',
+        date: '2026-05-20',
+        excerpt: 'A straight answer on social media budgets for local businesses — how to split spend between content and paid ads, and how to tell if it is actually working.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/common-ppc-mistakes.png',
+        content: `
+<p>It is the first question almost every local business owner asks us: "What should I actually be spending on social media?" After more than 13 years in marketing and millions of dollars in managed ad spend across hundreds of local businesses, here is the honest, non-salesy answer.</p>
+<h3>Separate the Two Budgets</h3>
+<p>Social media spending really has two buckets, and confusing them is where most businesses go wrong:</p>
+<ol>
+<li><strong>Management and content</strong> — the cost of strategy, graphics, copy, video, scheduling, and reporting. This is the engine that keeps consistent, on-brand content going out.</li>
+<li><strong>Paid ad spend</strong> — the money that goes directly to Facebook, Instagram, or TikTok to put your offers in front of nearby customers.</li>
+</ol>
+<p>A common mistake is paying for ads with no content engine behind them, or posting organically with no budget to amplify what works. The two compound when run together.</p>
+<h3>What Local Businesses Typically Invest</h3>
+<p>Most local businesses we work with spend less on professional social media management than they would on a single part-time hire — and get a far more predictable output. On the paid side, even a modest, well-targeted local ad budget can outperform a much larger budget that is spread thin or pointed at the wrong audience.</p>
+<h3>How to Know If It Is Working</h3>
+<p>Ignore likes and follower counts as your primary scorecard. Track the metrics that pay your bills: phone calls, form fills, booked appointments, and walk-ins. If your social spend is not moving those over a 90-day window, the strategy — not the budget — is usually the problem.</p>
+<p>Want a budget built around your specific market? See our <a href="/social-media-management">social media management</a> service or <a href="/contact">talk to Trevor</a> for a free strategy session.</p>
+        `,
+    },
+    {
+        slug: 'organic-vs-paid-social-local-business',
+        title: 'Organic vs. Paid Social: What Local Businesses Actually Need',
+        date: '2026-05-27',
+        excerpt: 'Organic content builds trust; paid social drives speed. Here is how local businesses should combine the two instead of picking one.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/ai-content-strategy.png',
+        content: `
+<p>One of the most common debates we hear from local business owners is whether to focus on organic social media or paid ads. The honest answer, after managing social for hundreds of local businesses, is that this is the wrong question. You need both — and they do different jobs.</p>
+<h3>What Organic Social Does Well</h3>
+<p>Organic content — your regular posts, reels, and stories — builds trust and authority over time. It shows prospects you are active, legitimate, and good at what you do. It is also what people check after they have heard about you, right before they decide to call. Organic is the foundation, but it is slow and its reach is limited by the platforms.</p>
+<h3>What Paid Social Does Well</h3>
+<p>Paid social is speed and precision. With the right targeting, you can put a specific offer in front of people in your exact service area, today. It is the fastest way to generate leads from social, but if you point ads at a weak profile or a bad landing experience, you just pay to lose money faster.</p>
+<h3>How to Combine Them</h3>
+<p>The pattern that works for local businesses: build a steady stream of organic content so your profile looks credible, identify the posts that get real engagement, then amplify those proven winners with paid budget targeted to your local market. You let organic tell you what resonates, then pay to scale it.</p>
+<p>This is exactly how we run our <a href="/social-media-management">social media management</a> program. If you want it built for your business, <a href="/contact">book a free strategy session</a>.</p>
+        `,
+    },
+    {
+        slug: 'social-media-content-engine',
+        title: 'What a Real Social Media Content Engine Looks Like',
+        date: '2026-06-03',
+        excerpt: 'Random posting fails. A content engine — themes, formats, and a calendar built to convert — is what actually drives calls. Here is how to build one.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/local-seo-dominance.png',
+        content: `
+<p>Most local businesses do not have a social media problem — they have a consistency problem. They post when they remember to, run out of ideas, and quit before anything compounds. The fix is not "post more." It is building a content engine: a repeatable system that produces on-brand content without depending on inspiration.</p>
+<h3>1. Define Your Content Pillars</h3>
+<p>Pick three to five recurring themes that map to what your customers care about — for example: behind-the-scenes, customer results, education, offers, and team/culture. Every post fits a pillar, so you are never staring at a blank page.</p>
+<h3>2. Standardize Your Formats</h3>
+<p>Turn each pillar into repeatable formats: a weekly tip reel, a monthly customer spotlight, a seasonal promotion graphic. Formats make production fast and keep your feed coherent instead of random.</p>
+<h3>3. Run It On a Calendar</h3>
+<p>Map formats to a calendar so posting is decided in advance, not in the moment. Consistency is the single biggest predictor of social results we see across the hundreds of businesses we manage.</p>
+<h3>4. Amplify and Measure</h3>
+<p>Track which posts actually drive calls and bookings, put paid budget behind the winners, and feed those learnings back into the calendar. Over time the engine gets smarter and cheaper to run.</p>
+<p>If building and running that engine yourself sounds like a full-time job, that is because it is. See how our <a href="/social-media-management">social media management</a> service does it for you, or <a href="/contact">reach out to Trevor</a>.</p>
         `,
     }
 ];

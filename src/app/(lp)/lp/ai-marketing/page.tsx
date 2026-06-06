@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { AIMarketingLPContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'AI Marketing Automation | Built For You Locally',
@@ -36,20 +36,23 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema({
-  description: 'AI marketing automation agency. Local team building custom AI sales pipelines.',
-  areaServed: [
-    { '@type': 'State', name: 'Louisiana' },
-    { '@type': 'State', name: 'Texas' },
-    { '@type': 'Country', name: 'United States' },
-  ],
+const serviceSchema = buildServiceSchema({
+  name: 'AI Marketing Automation',
+  serviceType: 'Marketing Automation',
+  description: 'Custom AI marketing automation built by a local team: instant lead follow-up, appointment setting, content, and ad optimization.',
+  url: '/lp/ai-marketing',
 });
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'AI Marketing Automation', url: '/lp/ai-marketing' },
+]);
 
 export default function AIMarketingLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <AIMarketingLPContent />
     </>
   );

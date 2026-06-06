@@ -46,27 +46,32 @@ export function trackLead(source: string) {
 }
 
 /**
- * Fires the Google Ads "Form Submit - Thank You Page" conversion on the
- * dedicated /thank-you page load. No-op until GADS_THANKYOU_SEND_TO is set,
- * so it never records to the wrong conversion action.
+ * Thank-you page tracking.
+ *
+ * The Google Ads "Form Submit - Thank You Page" action is set up as a page-load
+ * conversion with a URL rule on /thank-you (Google tag config method), so it
+ * records automatically from the site-wide gtag config — no label or event
+ * snippet is needed here. The redirect to /thank-you uses a full page load,
+ * which re-fires gtag config so the URL rule matches (SPA navigation would not).
+ *
+ * This function additionally fires a GA4 event for funnel visibility. It will
+ * ALSO fire a labeled Google Ads conversion only if you later switch that action
+ * to an event-snippet method and set NEXT_PUBLIC_GADS_THANKYOU_SEND_TO — which
+ * is more reliable than URL rules but is optional.
  */
 export function trackThankYouConversion() {
   if (typeof window === 'undefined') return;
 
-  // GA4 page-level event for funnel visibility (safe, label-independent)
+  // GA4 page-level event for funnel visibility (label-independent).
   fire('thank_you_view', { event_category: 'conversion', event_label: 'thank_you_page', value: 800.0 });
 
+  // Optional: only fires if an event-snippet label has been configured.
   if (window.gtag && GADS_THANKYOU_SEND_TO) {
     window.gtag('event', 'conversion', {
       'send_to': GADS_THANKYOU_SEND_TO,
       'value': 800.0,
       'currency': 'USD',
     });
-    if (typeof console !== 'undefined') {
-      console.log('[Found It] Thank-you page conversion fired');
-    }
-  } else if (typeof console !== 'undefined' && !GADS_THANKYOU_SEND_TO) {
-    console.warn('[Found It] Thank-you conversion NOT fired: GADS_THANKYOU_SEND_TO is not set.');
   }
 }
 

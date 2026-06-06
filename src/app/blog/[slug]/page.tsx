@@ -1,8 +1,38 @@
+import { Metadata } from 'next';
 import { blogPosts } from '@/lib/blog-posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = blogPosts.find((p) => p.slug === params.slug);
+  if (!post) return {};
+
+  const url = `/blog/${post.slug}`;
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      url,
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [{ url: post.image, width: 1200, height: 600, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
 
 export default function PostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find((p) => p.slug === params.slug);
@@ -13,8 +43,25 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   const relatedPosts = blogPosts.filter((p) => p.slug !== params.slug).slice(0, 2);
 
+  const articleSchema = buildArticleSchema({
+    title: post.title,
+    description: post.excerpt,
+    url: `/blog/${post.slug}`,
+    image: post.image,
+    datePublished: post.date,
+    authorName: post.author,
+  });
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
+
   return (
     <main className="bg-background text-foreground py-24 lg:py-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         <div className="max-w-3xl mx-auto px-6">
             <header className="mb-12 text-center">
                 <Link href="/blog" className="text-primary hover:underline font-bold mb-6 inline-block">&larr; All Articles</Link>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { LakeCharlesGoogleAdsContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Lake Charles Google Ads Management | More Leads in 60 Days',
@@ -27,35 +27,28 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema({
-  description: 'Google Ads management for industrial and commercial businesses in Southwest Louisiana.',
+const serviceSchema = buildServiceSchema({
+  name: 'Google Ads Management',
+  serviceType: 'PPC Management',
+  description: 'Google Ads management for industrial and commercial businesses in Lake Charles and Southwest Louisiana.',
+  url: '/lp/lake-charles/google-ads-management',
   areaServed: [
-    { '@type': 'City', name: 'Lake Charles', containedInPlace: { '@type': 'State', name: 'Louisiana' } },
-    { '@type': 'State', name: 'Louisiana' },
-    { '@type': 'Country', name: 'United States' },
+    { type: 'City', name: 'Lake Charles' },
+    { type: 'AdministrativeArea', name: 'Lake Charles MSA' },
+    { type: 'State', name: 'Louisiana' },
   ],
 });
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Google Ads Management',
-  description: 'Google Ads management for industrial and commercial businesses in Lake Charles and Southwest Louisiana.',
-  provider: { '@type': 'Organization', name: 'Found It Marketing', url: 'https://founditmarketing.com' },
-  areaServed: [
-    { '@type': 'City', name: 'Lake Charles' },
-    { '@type': 'AdministrativeArea', name: 'Lake Charles MSA' },
-    { '@type': 'State', name: 'Louisiana' },
-  ],
-  serviceType: 'PPC Management',
-};
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Lake Charles Google Ads Management', url: '/lp/lake-charles/google-ads-management' },
+]);
 
 export default function LakeCharlesGoogleAdsLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <LakeCharlesGoogleAdsContent />
     </>
   );

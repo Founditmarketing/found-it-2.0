@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { AISearchSEOContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'AI Search Optimization | Show Up When AI Recommends Your Industry',
@@ -28,18 +28,30 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema();
-
 const serviceSchema = [
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'AI Search Optimization (GEO)', description: 'Make your business visible in ChatGPT, Perplexity, Google AI Overviews, and Gemini.', provider: { '@type': 'Organization', name: 'Found It Marketing' }, areaServed: { '@type': 'Country', name: 'United States' } },
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'Local SEO', description: 'Google Business Profile optimization, local citations, and review management.', provider: { '@type': 'Organization', name: 'Found It Marketing' }, areaServed: { '@type': 'Country', name: 'United States' } },
+  buildServiceSchema({
+    name: 'AI Search Optimization (GEO)',
+    serviceType: 'Generative Engine Optimization',
+    description: 'Make your business visible in ChatGPT, Perplexity, Google AI Overviews, and Gemini.',
+    url: '/lp/ai-search-seo',
+  }),
+  buildServiceSchema({
+    name: 'Local SEO',
+    serviceType: 'Local SEO',
+    description: 'Google Business Profile optimization, local citations, and review management.',
+    url: '/lp/ai-search-seo',
+  }),
 ];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'AI Search Optimization', url: '/lp/ai-search-seo' },
+]);
 
 export default function AISearchSEOPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {serviceSchema.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}

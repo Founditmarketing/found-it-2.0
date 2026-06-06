@@ -27,7 +27,7 @@ export function Footer() {
               <li><Link href="/lp/google-ads-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Google Ads</Link></li>
               <li><Link href="/lp/web-design" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Web Design</Link></li>
               <li><Link href="/lp/ai-search-seo" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">AI Search / SEO</Link></li>
-              <li><Link href="/lp/social-media-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Social Media</Link></li>
+              <li><Link href="/social-media-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Social Media</Link></li>
             </ul>
           </div>
 

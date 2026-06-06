@@ -78,7 +78,7 @@ export const metadata: Metadata = {
 import { MetaPixel } from '@/components/analytics/MetaPixel';
 import { GoogleTag } from '@/components/analytics/GoogleTag';
 import { GoogleTagManager } from '@/components/analytics/GoogleTagManager';
-import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema';
+import { SiteSchema } from '@/components/seo/SiteSchema';
 
 export default function RootLayout({
   children,
@@ -97,7 +97,7 @@ export default function RootLayout({
         <GoogleTagManager />
         <MetaPixel />
         <GoogleTag />
-        <LocalBusinessSchema />
+        <SiteSchema />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { GoogleAdsLPContent } from './content';
-import { buildFAQSchema, buildLocalBusinessSchema } from '@/lib/schema';
+import { buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Google Ads Management | Get More Leads in 60 Days',
@@ -35,24 +35,23 @@ const faqItems = [
 ];
 
 const faqSchema = buildFAQSchema(faqItems);
-const localBusinessSchema = buildLocalBusinessSchema();
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const serviceSchema = buildServiceSchema({
   name: 'Google Ads Management',
-  description: 'Google Ads management for local service businesses. Weekly optimization, conversion tracking, transparent reporting.',
-  provider: { '@type': 'Organization', name: 'Found It Marketing', url: 'https://founditmarketing.com' },
-  areaServed: { '@type': 'Country', name: 'United States' },
   serviceType: 'PPC Management',
-};
+  description: 'Google Ads management for local service businesses. Weekly optimization, conversion tracking, transparent reporting.',
+  url: '/lp/google-ads-management',
+});
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Google Ads Management', url: '/lp/google-ads-management' },
+]);
 
 export default function GoogleAdsLP() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <GoogleAdsLPContent />
     </>
   );

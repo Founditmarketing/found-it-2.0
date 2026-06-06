@@ -1,48 +1,70 @@
 # Found It Marketing
 
-> Digital Marketing Agency in Alexandria, Louisiana building digital empires through Generative Engine Optimization (GEO) and high-velocity paid acquisition.
+> Digital marketing agency in Alexandria, Louisiana that builds digital empires for local businesses through Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
 
 ## Identity
 - **Name**: Found It Marketing
-- **Location**: Alexandria, LA (Central Louisiana)
+- **Founder**: Trevor Ruby
+- **Location**: 3803 Rue Left Bank, Alexandria, LA 71303 (Central Louisiana)
 - **Tagline**: Building Digital Empires
 - **Phone**: +1-337-525-9650
-- **Email**: john@founditmarketing.com
+- **Email**: trevor@founditmarketing.com (primary), john@founditmarketing.com
 - **Website**: https://founditmarketing.com
+- **Founded**: 2013
 
 ## Core Services
 
-### Generative Engine Optimization (GEO)
-- Optimization for AI-driven search engines (Google SGE, ChatGPT, Perplexity).
-- Focus on answer engine optimization, entity authority, and structured data dominance.
-- Beyond traditional SEO: targeting the "Zero Click" future.
-
-### High-Velocity Paid Acquisition (PPC)
-- Aggressive, data-driven ad scaling.
+### Google Ads Management (PPC)
+- Weekly optimization, real conversion tracking, and transparent reporting for local service businesses.
 - Platforms: Google Ads, Meta Ads (Facebook/Instagram), YouTube Ads.
-- Focus on ROAS (Return on Ad Spend) and rapid market capture.
+- Focus on cost-per-lead, lead quality, and Return on Ad Spend (ROAS). Free audit. No contracts.
 
 ### Web Design & Development
-- "Silent Luxury" aesthetic: High-end, minimalist, impact-driven design.
-- Technologies: Next.js, React, Tailwind CSS, Framer Motion.
-- Performance-first: 100/100 Core Web Vitals focus.
+- Custom, conversion-focused websites built on Next.js, React, and Tailwind CSS.
+- Mobile-first, fast-loading (Core Web Vitals focus), and engineered to turn visitors into calls.
+- Clients own the code, domain, and hosting. Typical launch in 2 weeks.
+
+### AI Search Optimization / Generative Engine Optimization (GEO)
+- Get recommended by ChatGPT, Perplexity, Google AI Overviews, and Gemini.
+- Entity authority, answer-engine optimization, structured-data dominance, and local SEO.
+- Targeting the "zero-click" future where AI synthesizes the answer.
+
+### Social Media Management
+- Done-for-you content and strategy. We create it, you approve it.
+- Real content that builds authority and drives leads, measured by calls and bookings, not vanity metrics.
 
 ### Custom App Development
-- Native-feeling iOS and Android mobile app development.
-- In-person blueprinting and guaranteed fixed-price timelines.
+- Native-feeling iOS and Android apps with in-person blueprinting and fixed-price timelines.
 - Clients own 100% of the codebase and intellectual property.
-- "We come to your office" local strategy across Louisiana and East Texas.
 
 ### AI Marketing Automation
-- Custom AI systems for lead generation and rapid follow-up.
-- Automated appointment setting with AI voice and text agents.
-- Local 'done-for-you' implementation; no software subscriptions or tech skills required for the client.
+- Custom AI systems for lead generation, instant follow-up, and automated appointment setting via AI voice and text agents.
+- Local, done-for-you implementation. No software subscriptions or tech skills required.
 
 ## Service Areas
-- Alexandria, LA
-- Pineville, LA
+- Alexandria, LA and Pineville, LA
+- Lake Charles, LA (Southwest Louisiana)
 - Central Louisiana (CenLa)
-- Statewide & National Capability
+- Louisiana, Mississippi, East Texas, and Southern Arkansas (in-person)
+- Statewide and national capability (remote)
+
+## Why Found It Marketing
+- You own everything: your accounts, your code, your data.
+- No long-term contracts. Month-to-month. Cancel anytime.
+- A senior strategist on every account. No hand-offs to interns.
+- Real local team in Alexandria, LA with a real phone number.
+
+## Key Pages
+- [Google Ads Management](https://founditmarketing.com/lp/google-ads-management): PPC management with weekly optimization and a free audit.
+- [Web Design](https://founditmarketing.com/lp/web-design): Custom, conversion-focused websites you own.
+- [AI Search Optimization (GEO)](https://founditmarketing.com/lp/ai-search-seo): Get recommended by ChatGPT, Perplexity, and Google AI.
+- [Social Media Management](https://founditmarketing.com/lp/social-media-management): Done-for-you content and strategy.
+- [App Development](https://founditmarketing.com/lp/app-development): Custom iOS/Android apps; you own the code.
+- [AI Marketing Automation](https://founditmarketing.com/lp/ai-marketing): AI lead follow-up and appointment setting.
+- [About](https://founditmarketing.com/about): Who we are and how we work.
+- [Pricing](https://founditmarketing.com/pricing): Transparent, flat pricing.
+- [Contact](https://founditmarketing.com/contact): Call Trevor for a free 15-minute strategy session.
+- [Blog](https://founditmarketing.com/blog): Articles on GEO, SEO, PPC, and AI marketing.
 
 ## Mission
 To help businesses stop competing and start dominating their market by leveraging the latest shifts in AI and digital marketing technology.
