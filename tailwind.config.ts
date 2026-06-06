@@ -92,6 +92,21 @@ const config = {
                     '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                     '100%': { transform: 'translate(0px, 0px) scale(1)' },
                 },
+                'drift-1': {
+                    '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                    '33%': { transform: 'translate(18vw, 12vh) scale(1.2)' },
+                    '66%': { transform: 'translate(-12vw, 8vh) scale(0.85)' },
+                },
+                'drift-2': {
+                    '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                    '33%': { transform: 'translate(-15vw, 14vh) scale(0.9)' },
+                    '66%': { transform: 'translate(12vw, -10vh) scale(1.18)' },
+                },
+                'drift-3': {
+                    '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                    '33%': { transform: 'translate(11vw, -13vh) scale(1.1)' },
+                    '66%': { transform: 'translate(-18vw, -6vh) scale(0.92)' },
+                },
                 'fade-in-up': {
                     '0%': { opacity: '0', transform: 'translateY(20px)' },
                     '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -115,6 +130,9 @@ const config = {
                 scan: 'scan 3s ease-in-out infinite',
                 'bounce-dot': 'bounce-dot 2s ease-in-out infinite',
                 blob: 'blob 7s infinite',
+                'drift-1': 'drift-1 22s ease-in-out infinite',
+                'drift-2': 'drift-2 28s ease-in-out infinite',
+                'drift-3': 'drift-3 25s ease-in-out infinite',
                 'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'reveal-up': 'reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'reveal-up-sm': 'reveal-up-sm 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
