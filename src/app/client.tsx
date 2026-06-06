@@ -105,9 +105,9 @@ export default function HomePage() {
 
               {/* Headline */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                We Help Local Businesses{' '}
+                Be the Business{' '}
                 <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
-                  Get More Customers.
+                  AI Recommends.
                 </span>
               </h1>
 
