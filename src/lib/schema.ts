@@ -70,7 +70,7 @@ export function buildEntityGraph() {
         address: postalAddress,
         areaServed: areaServedNodes(),
         knowsAbout: [...KNOWS_ABOUT],
-        award: `${AWARD.full} (${AWARD.year})`,
+        award: `${AWARD.full} — ${AWARD.issuer}, ${AWARD.year}`,
         sameAs: [...SAME_AS],
         contactPoint: [
           {

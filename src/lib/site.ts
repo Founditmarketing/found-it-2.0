@@ -68,9 +68,11 @@ export const TRACK_RECORD = {
    it more credible to people and to AI/answer engines). */
 export const AWARD = {
   /** Short label for badges/chips. */
-  label: "Region's Fastest-Growing Company",
+  label: 'CLEDA Highest Traded Revenue',
   /** Full award name for schema.org `award`. */
-  full: 'Fastest-Growing Company in the Region',
+  full: 'Highest Traded Revenue Award',
+  /** Issuing organization. */
+  issuer: 'Central Louisiana Economic Development Alliance (CLEDA)',
   year: '2026',
 } as const;
 
