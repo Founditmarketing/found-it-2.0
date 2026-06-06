@@ -30,8 +30,13 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/solutions', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/platform', priority: 0.7, changeFrequency: 'monthly' },
 
-  // Service / topic hubs
+  // Service authority pillars (organic / GEO)
+  { path: '/google-ads-management', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/web-design', priority: 0.8, changeFrequency: 'weekly' },
+  { path: '/ai-search-optimization', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/social-media-management', priority: 0.8, changeFrequency: 'weekly' },
+
+  // Service / topic hubs
   { path: '/seo', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/ppc', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/web-development', priority: 0.7, changeFrequency: 'monthly' },

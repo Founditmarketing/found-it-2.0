@@ -24,9 +24,9 @@ export function Footer() {
           <div>
             <h4 className="font-black text-[10px] uppercase tracking-[0.4em] text-primary mb-5 opacity-60">Services</h4>
             <ul className="space-y-3">
-              <li><Link href="/lp/google-ads-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Google Ads</Link></li>
-              <li><Link href="/lp/web-design" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Web Design</Link></li>
-              <li><Link href="/lp/ai-search-seo" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">AI Search / SEO</Link></li>
+              <li><Link href="/google-ads-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Google Ads</Link></li>
+              <li><Link href="/web-design" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Web Design</Link></li>
+              <li><Link href="/ai-search-optimization" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">AI Search / SEO</Link></li>
               <li><Link href="/social-media-management" className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium">Social Media</Link></li>
             </ul>
           </div>
