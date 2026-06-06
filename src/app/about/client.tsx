@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Phone, MapPin } from 'lucide-react';
+import { Check, ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { AWARD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -56,6 +57,14 @@ export default function AboutPage() {
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             Found It Marketing is a digital marketing agency based in Alexandria, Louisiana. We do Google Ads, web design, SEO, and AI search optimization for local businesses across the country. No fluff, no jargon, no long-term contracts.
           </p>
+
+          {/* Award trust chip */}
+          <div className="mt-8 inline-flex items-center gap-3 bg-amber-400/10 border border-amber-400/25 rounded-2xl px-5 py-3">
+            <Trophy className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
+            <span className="text-sm font-bold text-foreground leading-tight">
+              {AWARD.year} {AWARD.full} <span className="text-muted-foreground font-medium">— {AWARD.issuer}</span>
+            </span>
+          </div>
         </motion.div>
 
         {/* Stats */}

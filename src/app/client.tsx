@@ -1,12 +1,13 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2 } from 'lucide-react';
+import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
+import { AWARD } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -88,9 +89,19 @@ export default function HomePage() {
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
               {/* Eyebrow */}
-              <p className="opacity-0 animate-reveal-up-sm delay-100 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-8">
+              <p className="opacity-0 animate-reveal-up-sm delay-100 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-5">
                 Found It Marketing — Alexandria, LA
               </p>
+
+              {/* Award trust chip */}
+              <div className="opacity-0 animate-reveal-up-sm delay-100 flex justify-center mb-8">
+                <span className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-full px-4 py-1.5">
+                  <Trophy className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-amber-300">
+                    {AWARD.year} · {AWARD.label} Award
+                  </span>
+                </span>
+              </div>
 
               {/* Headline */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
