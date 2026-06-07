@@ -12,16 +12,16 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const stats = [
   { value: '13+', label: 'Years in Business' },
-  { value: '100+', label: 'Clients Served' },
+  { value: '$2.3B+', label: 'Client Revenue Generated' },
   { value: '48', label: 'States Reached' },
   { value: '0', label: 'Long-Term Contracts' },
 ];
 
 const services = [
-  { name: 'Google Ads Management', desc: 'Weekly optimization, real conversion tracking, transparent reporting.', href: '/lp/google-ads-management' },
-  { name: 'Custom Web Design', desc: 'Fast, mobile-first websites that turn visitors into calls. You own everything.', href: '/lp/web-design' },
-  { name: 'AI Search Optimization', desc: 'Get recommended by ChatGPT, Perplexity, and Google AI.', href: '/lp/ai-search-seo' },
-  { name: 'Social Media Management', desc: 'Real content, real strategy. We create it, you approve it.', href: '/lp/social-media-management' },
+  { name: 'Google Ads Management', desc: 'Weekly optimization, real conversion tracking, transparent reporting.', href: '/google-ads-management' },
+  { name: 'Custom Web Design', desc: 'Fast, mobile-first websites that turn visitors into calls. You own everything.', href: '/web-design' },
+  { name: 'AI Search Optimization', desc: 'Get recommended by ChatGPT, Perplexity, and Google AI.', href: '/ai-search-optimization' },
+  { name: 'Social Media Management', desc: 'Real content, real strategy. We create it, you approve it.', href: '/social-media-management' },
 ];
 
 const differentiators = [
@@ -49,13 +49,13 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: ease as any }}
           className="mb-20"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">About Us</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Our Story</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            We Help Local Businesses{' '}
-            <span className="text-primary">Get More Customers.</span>
+            The Agency We Wished Existed —{' '}
+            <span className="text-primary">So We Built It.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Marketing is a digital marketing agency based in Alexandria, Louisiana. We do Google Ads, web design, SEO, and AI search optimization for local businesses across the country. No fluff, no jargon, no long-term contracts.
+            Found It Marketing is a digital marketing agency in Alexandria, Louisiana. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over 13+ years it has generated more than $2.3 billion for the businesses we work with.
           </p>
 
           {/* Award trust chip */}
@@ -64,6 +64,38 @@ export default function AboutPage() {
             <span className="text-sm font-bold text-foreground leading-tight">
               {AWARD.year} {AWARD.full} <span className="text-muted-foreground font-medium">— {AWARD.issuer}</span>
             </span>
+          </div>
+        </motion.div>
+
+        {/* A Note From Trevor */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-20"
+        >
+          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+            A Note From Trevor
+          </h2>
+          <div className="bg-card/10 border border-border/20 rounded-[2rem] p-8 lg:p-10 border-l-4 border-l-primary">
+            <div className="space-y-5 text-base lg:text-lg text-muted-foreground font-medium leading-relaxed">
+              <p>
+                I started Found It Marketing because I was tired of watching good local businesses get burned by agencies. Long contracts that trapped them. Junior account managers learning on their dime. Ad accounts and websites held hostage the moment they tried to leave.
+              </p>
+              <p>
+                So we built the opposite. At Found It, <span className="text-foreground font-bold">you own everything</span> — your ad accounts, your code, your data. There are no long-term contracts; we earn your business every single month by getting results. A senior strategist works on your account, not an intern Googling answers. And because we&apos;re based right here in Alexandria, we&apos;ll actually drive to your office and sit across the table from you.
+              </p>
+              <p>
+                That approach has taken us a long way. Over 13+ years we&apos;ve managed millions in ad spend and generated more than <span className="text-foreground font-bold">$2.3 billion in revenue</span> for our clients — including scaling a single local lot into a volume dealer across 48 states. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
+              </p>
+              <p>
+                But the thing I&apos;m proudest of isn&apos;t a number. It&apos;s that our clients stay because they want to — not because a contract makes them. That&apos;s the whole point.
+              </p>
+            </div>
+            <p className="mt-6 text-sm font-black uppercase italic tracking-tighter text-primary">
+              — Trevor Ruby, Founder
+            </p>
           </div>
         </motion.div>
 
@@ -173,7 +205,7 @@ export default function AboutPage() {
             No pitch. No pressure. Just a conversation about your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/lp/google-ads-management#lp-form">
+            <Link href="/contact">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Book a Free Call
               </LiquidButton>
