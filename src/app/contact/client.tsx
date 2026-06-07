@@ -43,10 +43,10 @@ export default function ContactClient() {
           <p className="text-sm text-muted-foreground font-medium mb-6">Pick a service page below and fill out the form. Trevor will call you back — usually within 2 hours.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { label: 'Google Ads Audit', href: '/lp/google-ads-management#lp-form' },
-              { label: 'Web Design Concept', href: '/lp/web-design#lp-form' },
-              { label: 'AI Search Audit', href: '/lp/ai-search-seo#lp-form' },
-              { label: 'Social Media Plan', href: '/lp/social-media-management#lp-form' },
+              { label: 'Google Ads Audit', href: '/google-ads-management#lead-form' },
+              { label: 'Web Design Concept', href: '/web-design#lead-form' },
+              { label: 'AI Search Audit', href: '/ai-search-optimization#lead-form' },
+              { label: 'Social Media Plan', href: '/social-media-management#lead-form' },
             ].map((item, i) => (
               <Link key={i} href={item.href} className="group flex items-center justify-between bg-card/10 border border-border/15 rounded-xl px-5 py-4 hover:border-primary/25 transition-all">
                 <span className="text-sm font-bold text-foreground">{item.label}</span>

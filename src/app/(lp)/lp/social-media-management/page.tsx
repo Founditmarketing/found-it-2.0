@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Social media management for local businesses. Free 30-day content plan.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/social-media-management' },
+  alternates: { canonical: '/social-media-management' },
 };
 
 const faqItems = [

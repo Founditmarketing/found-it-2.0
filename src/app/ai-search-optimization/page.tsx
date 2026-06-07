@@ -5,7 +5,7 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'AI Search Optimization & SEO (GEO) for Local Businesses',
   description:
-    'Generative Engine Optimization (GEO) and SEO from a team with 13+ years in marketing. Get recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data. Based in Alexandria, LA.',
+    'Generative Engine Optimization (GEO) and SEO from a team with 13+ years in marketing. Get recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data. Alexandria, LA.',
   alternates: { canonical: '/ai-search-optimization' },
   openGraph: {
     title: 'AI Search Optimization & SEO (GEO) | Found It Marketing',
@@ -29,14 +29,19 @@ const data: PillarData = {
   headlineAccent: 'Recommends Your Industry.',
   intro:
     `Search is shifting from blue links to AI answers. Found It Marketing combines traditional SEO with Generative Engine Optimization (GEO) so your business is the one ChatGPT, Perplexity, and Google AI Overviews recommend. With ${TRACK_RECORD.yearsInBusiness} years in marketing, we build the entity authority and structured data that AI engines trust.`,
-  ctaHref: '/lp/ai-search-seo#lp-form',
-  ctaLabel: 'Get a Free Visibility Audit',
+  ctaLabel: 'Get My Free Visibility Audit',
+  formSource: 'service_ai_search',
+  formPageSlug: 'ai-search-optimization',
+  formHeading: 'Get Your Free AI Visibility Audit',
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
     { value: TRACK_RECORD.adSpendManaged, label: 'In Managed Ad Spend' },
-    { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
+    { value: '$2.3B+', label: 'Client Revenue Generated' },
     { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
+  definitionHeading: 'What Is GEO (Generative Engine Optimization)?',
+  definition:
+    'Generative Engine Optimization (GEO) is the practice of structuring your digital presence so AI answer engines — ChatGPT, Perplexity, Google AI Overviews, and Gemini — recommend your business when people ask for one. Where traditional SEO competes for a ranked list of links, GEO competes to be the single synthesized answer. It relies on entity authority, a clean structured-data knowledge graph, consistent citations, and genuinely useful content the models can trust and cite.',
   includedHeading: 'What AI Search Optimization Includes',
   included: [
     { title: 'AI Visibility Audit', detail: 'We show you exactly where AI engines recommend you today — and where your competitors are winning instead.' },
@@ -55,16 +60,35 @@ const data: PillarData = {
     { step: '03', title: 'Author', detail: 'We build topical-authority content that demonstrates expertise on the topics you want to own.' },
     { step: '04', title: 'Track', detail: 'We monitor AI mentions and organic visibility monthly and refine the strategy.' },
   ],
+  audienceHeading: 'Who Should Invest in GEO Now',
+  audience: [
+    'Businesses whose customers research on ChatGPT or Google AI',
+    'Companies losing visibility as AI Overviews replace blue links',
+    'Local businesses fighting aggregators in the map pack',
+    'Brands that rank on Google but are invisible to AI',
+    'Early movers who want to own their category before competitors',
+    'Anyone who wants measurable AI + organic visibility reporting',
+  ],
   chipsHeading: 'Where We Make You Visible',
   chips: ['Google AI Overviews', 'ChatGPT', 'Perplexity', 'Gemini', 'Google Maps', 'Bing / Copilot'],
+  mistakesHeading: 'Why Most Businesses Are Invisible to AI',
+  mistakes: [
+    { title: 'No structured data', detail: 'Without a clean schema/knowledge graph, AI cannot confidently say who you are or what you do. We fix the foundation first.' },
+    { title: 'Inconsistent name, address, phone', detail: 'Conflicting business details across the web lower the trust AI places in your entity. We reconcile them.' },
+    { title: 'Thin, sales-only content', detail: 'AI cites genuinely useful, authoritative content. We build topical depth on the subjects you want to own.' },
+    { title: 'Treating AI search like 2015 SEO', detail: 'Ranking #1 on Google no longer guarantees AI recommends you. The playbook is different — and we run both.' },
+  ],
+  pricingHeading: 'What to Expect',
+  pricing:
+    'GEO and SEO are monthly programs scoped to your market and competition, with simple flat pricing and no setup fees that lock you in. Most clients see initial AI mentions within 60 to 90 days and consistent multi-platform visibility in 4 to 6 months. You keep all the work — content, schema, and citations — if you ever leave.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience and a GEO-first approach.`,
+    '2026 CLEDA Highest Traded Revenue Award winner.',
     'We handle classic local SEO and the new AI visibility layer at the same time.',
     'You keep all the work — content, schema, citations — if you ever leave.',
     'No long-term contracts. Month-to-month. Cancel anytime.',
     'Monthly reporting you can actually read, not vanity metrics.',
-    'Local to Alexandria, LA, serving businesses across 48 states.',
   ],
   faqHeading: 'AI Search & SEO FAQ',
   faq: [
@@ -79,8 +103,8 @@ const data: PillarData = {
     { title: 'Stop Fearing AI. Start Weaponizing It.', href: '/blog/weaponize-ai' },
     { title: 'Content is King, But AI is the Kingmaker', href: '/blog/ai-content-strategy' },
   ],
-  finalCtaHeadline: 'Win the Answer, Not Just the Ranking.',
-  finalCtaSub: 'Get a free AI visibility audit. 15 minutes with Trevor — see where AI sends your customers today.',
+  finalCtaHeadline: 'Get a Free AI Visibility Audit',
+  finalCtaSub: 'See exactly where AI sends your customers today — and where you are invisible. No pitch, no obligation.',
 };
 
 export default function AISearchOptimizationPillar() {

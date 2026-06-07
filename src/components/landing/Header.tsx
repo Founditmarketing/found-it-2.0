@@ -8,11 +8,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { phoneHref as centralPhoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import * as React from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -26,12 +26,12 @@ const navLinks = [
     icon: TrendingUp,
     description: 'What we do for your business',
     sublinks: [
-      { title: 'Google Ads', href: '/lp/google-ads-management', tag: null },
-      { title: 'Web Design', href: '/lp/web-design', tag: null },
-      { title: 'App Development', href: '/lp/app-development', tag: 'NEW' },
-      { title: 'AI Marketing', href: '/lp/ai-marketing', tag: 'NEW' },
-      { title: 'AI Search / SEO', href: '/lp/ai-search-seo', tag: null },
-      { title: 'Social Media', href: '/lp/social-media-management', tag: null },
+      { title: 'Google Ads', href: '/google-ads-management', tag: null },
+      { title: 'Web Design', href: '/web-design', tag: null },
+      { title: 'App Development', href: '/app-development', tag: 'NEW' },
+      { title: 'AI Marketing', href: '/ai-marketing', tag: 'NEW' },
+      { title: 'AI Search / SEO', href: '/ai-search-optimization', tag: null },
+      { title: 'Social Media', href: '/social-media-management', tag: null },
     ],
   },
   {
@@ -66,6 +66,18 @@ const navLinks = [
       { title: 'Blog', href: '/blog', tag: null },
     ],
   },
+];
+
+/* ───── Secret menu: AdWords landing pages (off public nav) ───── */
+const SECRET_LPS = [
+  { title: 'Google Ads', href: '/lp/google-ads-management' },
+  { title: 'Web Design', href: '/lp/web-design' },
+  { title: 'AI Search / SEO', href: '/lp/ai-search-seo' },
+  { title: 'Social Media', href: '/lp/social-media-management' },
+  { title: 'App Development', href: '/lp/app-development' },
+  { title: 'AI Marketing', href: '/lp/ai-marketing' },
+  { title: 'Lake Charles — Google Ads', href: '/lp/lake-charles/google-ads-management' },
+  { title: 'Lake Charles — Web Design', href: '/lp/lake-charles/web-design' },
 ];
 
 /* ───────────────────────────── ANIMATION CONFIG ───────────────────── */
@@ -286,13 +298,25 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const router = useRouter();
+  const [secretMenuOpen, setSecretMenuOpen] = React.useState(false);
+  const [copiedHref, setCopiedHref] = React.useState<string | null>(null);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const handlePressStart = () => {
     timerRef.current = setTimeout(() => {
-      router.push('/comprehensive-marketing');
+      setSecretMenuOpen(true);
     }, 3000);
+  };
+
+  const copyUrl = (href: string) => {
+    const url = `https://founditmarketing.com${href}`;
+    try {
+      navigator.clipboard?.writeText(url);
+      setCopiedHref(href);
+      setTimeout(() => setCopiedHref(null), 1500);
+    } catch {
+      /* clipboard unavailable */
+    }
   };
 
   const handlePressEnd = () => {
@@ -315,13 +339,16 @@ export function Header() {
 
   // Escape key to close menu
   React.useEffect(() => {
-    if (!mobileMenuOpen) return;
+    if (!mobileMenuOpen && !secretMenuOpen) return;
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        setSecretMenuOpen(false);
+      }
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, secretMenuOpen]);
 
   // Focus trap: keep Tab within the menu panel
   React.useEffect(() => {
@@ -592,6 +619,95 @@ export function Header() {
                   </span>
                 </div>
               </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* ═══════════════════════════════════════════════════════════════ */}
+      {/*  SECRET MENU — hidden AdWords landing pages (hold logo 3s)       */}
+      {/* ═══════════════════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {secretMenuOpen && (
+          <>
+            <motion.div
+              key="secret-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-[70] bg-black/80 backdrop-blur-md"
+              onClick={() => setSecretMenuOpen(false)}
+            />
+            <motion.div
+              key="secret-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Campaign landing pages"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease }}
+              className="fixed left-1/2 top-1/2 z-[71] w-[calc(100%-2rem)] max-w-[440px] -translate-x-1/2 -translate-y-1/2 bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/[0.07] to-transparent pointer-events-none" />
+              <div className="relative z-10 flex items-center justify-between px-6 pt-6 pb-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <Lock className="w-4 h-4 text-primary" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-black uppercase italic tracking-tighter text-foreground leading-none">Campaign Pages</p>
+                    <p className="text-[10px] text-muted-foreground font-medium mt-1">Internal — AdWords landing pages</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSecretMenuOpen(false)}
+                  className="w-9 h-9 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-4 h-4 text-muted-foreground" />
+                </button>
+              </div>
+
+              <div className="relative z-10 px-4 pb-5 max-h-[60vh] overflow-y-auto no-scrollbar space-y-1.5">
+                {SECRET_LPS.map((lp) => (
+                  <div
+                    key={lp.href}
+                    className="group flex items-center gap-2 rounded-xl border border-transparent hover:border-primary/20 hover:bg-white/5 transition-all px-3 py-2.5"
+                  >
+                    <Link
+                      href={lp.href}
+                      target="_blank"
+                      onClick={() => setSecretMenuOpen(false)}
+                      className="flex-1 min-w-0"
+                    >
+                      <p className="text-sm font-bold text-foreground truncate">{lp.title}</p>
+                      <p className="text-[11px] text-muted-foreground/60 font-mono truncate">{lp.href}</p>
+                    </Link>
+                    <button
+                      onClick={() => copyUrl(lp.href)}
+                      className="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg bg-white/5 hover:bg-primary/15 transition-colors"
+                      aria-label={`Copy ${lp.title} URL`}
+                    >
+                      {copiedHref === lp.href ? (
+                        <Check className="w-3.5 h-3.5 text-primary" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      )}
+                    </button>
+                    <Link
+                      href={lp.href}
+                      target="_blank"
+                      onClick={() => setSecretMenuOpen(false)}
+                      className="w-8 h-8 shrink-0 flex items-center justify-center rounded-lg bg-white/5 hover:bg-primary/15 transition-colors"
+                      aria-label={`Open ${lp.title}`}
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </>
         )}

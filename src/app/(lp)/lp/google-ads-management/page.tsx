@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/google-ads-management' },
+  alternates: { canonical: '/google-ads-management' },
 };
 
 const faqItems = [

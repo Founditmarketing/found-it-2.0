@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Custom mobile and web apps built by a local team. You own the code.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/app-development' },
+  alternates: { canonical: '/app-development' },
 };
 
 const faqItems = [

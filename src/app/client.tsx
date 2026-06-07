@@ -20,7 +20,7 @@ const services = [
   {
     name: 'Google Ads',
     result: 'Get more leads from your ad spend — or stop paying us.',
-    href: '/lp/google-ads-management',
+    href: '/google-ads-management',
     cta: 'Get a Free Audit',
     icon: Megaphone,
     accent: 'from-orange-500/20 to-amber-500/5',
@@ -28,7 +28,7 @@ const services = [
   {
     name: 'Web Design',
     result: 'A website that makes your phone ring. Live in 2 weeks or less.',
-    href: '/lp/web-design',
+    href: '/web-design',
     cta: 'Get a Free Concept Call',
     icon: Globe,
     accent: 'from-blue-500/20 to-cyan-500/5',
@@ -36,7 +36,7 @@ const services = [
   {
     name: 'AI Search',
     result: 'Show up when ChatGPT and Google AI recommend your industry.',
-    href: '/lp/ai-search-seo',
+    href: '/ai-search-optimization',
     cta: 'Get a Free AI Audit',
     icon: Cpu,
     accent: 'from-violet-500/20 to-purple-500/5',
@@ -44,7 +44,7 @@ const services = [
   {
     name: 'Social Media',
     result: 'Content that gets calls, not just likes. We create it all.',
-    href: '/lp/social-media-management',
+    href: '/social-media-management',
     cta: 'Get a Free Content Plan',
     icon: Share2,
     accent: 'from-emerald-500/20 to-teal-500/5',
@@ -403,7 +403,7 @@ export default function HomePage() {
               No pitch. No pressure. Just a straight conversation about what would actually work for your business.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link href="/lp/google-ads-management#lp-form">
+              <Link href="/contact">
                 <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                   Book a Free Call
                 </LiquidButton>

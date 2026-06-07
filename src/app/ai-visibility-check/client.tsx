@@ -26,7 +26,7 @@ export default function AIVisibilityClient() {
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed mb-10">
             Your customers are asking ChatGPT, Perplexity, and Google AI who to hire. We&apos;ll check if you&apos;re being recommended — for free.
           </p>
-          <Link href="/lp/ai-search-seo#lp-form">
+          <Link href="/ai-search-optimization#lead-form">
             <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
               Get My Free AI Visibility Audit
             </LiquidButton>
@@ -61,7 +61,7 @@ export default function AIVisibilityClient() {
             Find Out Now.{' '}<span className="text-primary">Free.</span>
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <Link href="/lp/ai-search-seo#lp-form">
+            <Link href="/ai-search-optimization#lead-form">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">Get My AI Audit</LiquidButton>
             </Link>
             <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>

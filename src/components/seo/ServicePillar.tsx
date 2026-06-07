@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib/schema';
 import { BUSINESS } from '@/lib/site';
+import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -15,15 +16,25 @@ export interface PillarData {
   headline: string;
   headlineAccent: string;
   intro: string;
-  /** Primary CTA destination (usually the matching ad LP form anchor) */
-  ctaHref: string;
+  /** Primary CTA label (scrolls to the embedded form by default) */
   ctaLabel: string;
+  /** CTA destination (defaults to the embedded form anchor) */
+  ctaHref?: string;
+  /** Attribution for the embedded lead form */
+  formSource: string;
+  formPageSlug: string;
   stats: { value: string; label: string }[];
+  /** Answer-first definition block (great for AI Overviews). */
+  definitionHeading: string;
+  definition: string;
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
   approachIntro?: string;
   approach: { step: string; title: string; detail: string }[];
+  /** Who it's for. */
+  audienceHeading?: string;
+  audience?: string[];
   chipsHeading: string;
   chips: string[];
   result?: {
@@ -31,16 +42,24 @@ export interface PillarData {
     stats: { value: string; label: string }[];
     narrative: string;
   };
+  /** Common mistakes / what we fix. */
+  mistakesHeading?: string;
+  mistakes?: { title: string; detail: string }[];
+  /** Pricing / what to expect. */
+  pricingHeading?: string;
+  pricing?: string;
   whyUsHeading: string;
   whyUs: string[];
   faqHeading: string;
   faq: { question: string; answer: string }[];
   relatedReading?: { title: string; href: string }[];
+  formHeading: string;
   finalCtaHeadline: string;
   finalCtaSub: string;
 }
 
 export function ServicePillar({ data }: { data: PillarData }) {
+  const ctaHref = data.ctaHref || '#lead-form';
   const serviceSchema = buildServiceSchema({
     name: data.name,
     serviceType: data.serviceType,
@@ -72,7 +91,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
           <span className="text-foreground">{data.name}</span>
         </nav>
 
-        <header className="mb-16">
+        {/* Hero */}
+        <header className="mb-14">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">{data.eyebrow}</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             {data.headline}{' '}
@@ -82,7 +102,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.intro}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-            <Link href={data.ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+            <Link href={ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
               {data.ctaLabel}
             </Link>
             <Link href="/contact" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
@@ -91,7 +111,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </header>
 
-        <section aria-label="Track record" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-20">
+        {/* Stats */}
+        <section aria-label="Track record" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
           {data.stats.map((s) => (
             <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
               <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
@@ -100,7 +121,18 @@ export function ServicePillar({ data }: { data: PillarData }) {
           ))}
         </section>
 
-        <section className="mb-20">
+        {/* Definition — answer-first for AI Overviews */}
+        <section className="mb-16">
+          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+            {data.definitionHeading}
+          </h2>
+          <div className="border-l-4 border-primary pl-6">
+            <p className="text-lg text-muted-foreground font-medium leading-relaxed">{data.definition}</p>
+          </div>
+        </section>
+
+        {/* What's included */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.includedHeading}
           </h2>
@@ -114,7 +146,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
-        <section className="mb-20">
+        {/* Approach */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.approachHeading}
           </h2>
@@ -134,7 +167,25 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
-        <section className="mb-20">
+        {/* Who it's for */}
+        {data.audience && data.audience.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+              {data.audienceHeading || "Who It's For"}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {data.audience.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">✓</span>
+                  <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Chips */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
             {data.chipsHeading}
           </h2>
@@ -147,8 +198,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
+        {/* Result */}
         {data.result && (
-          <section className="mb-20">
+          <section className="mb-16">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
               {data.result.headline}
             </h2>
@@ -166,7 +218,37 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </section>
         )}
 
-        <section className="mb-20">
+        {/* Common mistakes */}
+        {data.mistakes && data.mistakes.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+              {data.mistakesHeading || 'Common Mistakes We Fix'}
+            </h2>
+            <div className="space-y-4">
+              {data.mistakes.map((m) => (
+                <div key={m.title} className="bg-card/10 border border-border/20 rounded-2xl p-6">
+                  <h3 className="text-sm font-black uppercase italic tracking-tighter text-foreground mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{m.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Pricing / what to expect */}
+        {data.pricing && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+              {data.pricingHeading || 'What to Expect'}
+            </h2>
+            <div className="bg-card/15 border border-border/20 rounded-2xl p-6 lg:p-8">
+              <p className="text-base text-muted-foreground font-medium leading-relaxed">{data.pricing}</p>
+            </div>
+          </section>
+        )}
+
+        {/* Why us */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.whyUsHeading}
           </h2>
@@ -180,7 +262,27 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
-        <section className="mb-20">
+        {/* Lead form */}
+        <section id="lead-form" className="mb-16 scroll-mt-28">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+                {data.finalCtaHeadline}
+              </h2>
+              <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">{data.finalCtaSub}</p>
+              <p className="text-sm text-muted-foreground">
+                Prefer to talk? Call{' '}
+                <a href={`tel:${BUSINESS.telephone}`} className="text-primary font-bold">{BUSINESS.telephone}</a>{' '}
+                or{' '}
+                <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
+              </p>
+            </div>
+            <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.faqHeading}
           </h2>
@@ -194,8 +296,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
+        {/* Related reading */}
         {data.relatedReading && data.relatedReading.length > 0 && (
-          <section className="mb-20">
+          <section>
             <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-6">Keep Reading</h2>
             <ul className="space-y-3">
               {data.relatedReading.map((r) => (
@@ -206,19 +309,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </ul>
           </section>
         )}
-
-        <section className="text-center border-t border-border/10 pt-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            {data.finalCtaHeadline}
-          </h2>
-          <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">{data.finalCtaSub}</p>
-          <Link href={data.ctaHref} className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-            {data.ctaLabel}
-          </Link>
-          <p className="text-sm text-muted-foreground mt-6">
-            Or call <a href={`tel:${BUSINESS.telephone}`} className="text-primary font-bold">{BUSINESS.telephone}</a>
-          </p>
-        </section>
 
       </div>
     </main>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/ai-search-seo' },
+  alternates: { canonical: '/ai-search-optimization' },
 };
 
 const faqItems = [

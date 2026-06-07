@@ -15,28 +15,28 @@ const services = [
     price: 'Custom Quote',
     features: ['Weekly optimization', 'Real conversion tracking', 'Transparent reporting dashboard', 'You own your ad account'],
     cta: 'Get a Free Audit',
-    href: '/lp/google-ads-management',
+    href: '/google-ads-management',
   },
   {
     name: 'Custom Web Design',
     price: 'Custom Quote',
     features: ['Custom design — no templates', 'Mobile-first, fast-loading', '60 days free post-launch support', 'You own the code and domain'],
     cta: 'Get a Free Concept Call',
-    href: '/lp/web-design',
+    href: '/web-design',
   },
   {
     name: 'AI Search Optimization',
     price: 'Custom Quote',
     features: ['ChatGPT, Perplexity, Google AI', 'Monthly visibility tracking', 'Schema + entity optimization', 'Competitive AI audit'],
     cta: 'Get a Free AI Audit',
-    href: '/lp/ai-search-seo',
+    href: '/ai-search-optimization',
   },
   {
     name: 'Social Media Management',
     price: 'Custom Quote',
     features: ['We create all content', 'You approve before posting', 'Paid + organic strategy', 'Monthly performance reports'],
     cta: 'Get a Free Content Plan',
-    href: '/lp/social-media-management',
+    href: '/social-media-management',
   },
 ];
 
@@ -139,7 +139,7 @@ export default function PricingClient() {
             15-minute call. No pitch. He&apos;ll tell you what makes sense for your business and budget.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/lp/google-ads-management#lp-form">
+            <Link href="/contact">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Book a Free Call
               </LiquidButton>

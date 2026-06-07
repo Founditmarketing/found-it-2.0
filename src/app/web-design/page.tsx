@@ -5,7 +5,7 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Web Design & Development for Local Businesses',
   description:
-    'Custom, conversion-focused web design built on Next.js by a team with 13+ years in marketing. Fast, mobile-first websites that turn visitors into calls — and you own the code. Based in Alexandria, LA, serving 48 states.',
+    'Custom, conversion-focused web design built on Next.js by a team with 13+ years in marketing. Fast, mobile-first websites that turn visitors into calls — and you own the code. Alexandria, LA, serving 48 states.',
   alternates: { canonical: '/web-design' },
   openGraph: {
     title: 'Web Design & Development for Local Businesses | Found It Marketing',
@@ -29,14 +29,19 @@ const data: PillarData = {
   headlineAccent: 'Into Phone Calls.',
   intro:
     `Found It Marketing builds custom, conversion-focused websites on modern technology — not slow, templated themes. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind every build, we design for one outcome: turning visitors into calls and booked appointments. And you own everything: the code, the domain, and the hosting.`,
-  ctaHref: '/lp/web-design#lp-form',
-  ctaLabel: 'Get a Free Concept Call',
+  ctaLabel: 'Get My Free Concept Call',
+  formSource: 'service_web_design',
+  formPageSlug: 'web-design',
+  formHeading: 'Get Your Free Concept Call',
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
     { value: '2 Wk', label: 'Typical Launch' },
-    { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
+    { value: '$2.3B+', label: 'Client Revenue Generated' },
     { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
+  definitionHeading: 'What Makes a Website "Convert"?',
+  definition:
+    'A converting website is one engineered to turn visitors into customers — not just to look pretty. That means it loads fast (every second of delay costs roughly 7% of conversions), works flawlessly on mobile where most local searches happen, makes the next step obvious, and removes friction from contacting you. We build on Next.js with conversion architecture baked into every page, plus the technical SEO foundation that helps the site get found in the first place.',
   includedHeading: 'What Every Build Includes',
   included: [
     { title: 'Custom Design', detail: 'A site designed around your brand and your customers — never a recycled template four competitors also use.' },
@@ -53,6 +58,15 @@ const data: PillarData = {
     { step: '03', title: 'Build', detail: 'We develop a fast, mobile-first site with technical SEO and tracking baked in.' },
     { step: '04', title: 'Launch & Optimize', detail: 'We launch on a firm timeline and include 60 days of post-launch optimization.' },
   ],
+  audienceHeading: "Who This Is For",
+  audience: [
+    'Businesses with a slow, dated, or non-converting website',
+    'Companies running ads to a page that does not convert',
+    'Owners who want to own their code and not be held hostage',
+    'Service businesses that need to rank and get found locally',
+    'Brands that look identical to every competitor in their market',
+    'Anyone who wants a site live in about 2 weeks',
+  ],
   chipsHeading: 'Built With Modern Technology',
   chips: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Structured Data / SEO', 'Core Web Vitals'],
   result: {
@@ -65,14 +79,24 @@ const data: PillarData = {
     narrative:
       'One firm was running ads to a WordPress site that loaded in 6+ seconds with an intake form buried three clicks deep. We rebuilt from scratch on Next.js with a conversion-first architecture and a streamlined intake flow. Within 90 days, qualified intake tripled and cost per acquisition dropped 44%.',
   },
+  mistakesHeading: 'Why Most Local Websites Fail',
+  mistakes: [
+    { title: 'Slow load times', detail: 'Template-heavy sites often load in 5+ seconds on mobile, bleeding conversions and hurting SEO. We build for speed.' },
+    { title: 'Buried calls to action', detail: 'If the phone number and form are hard to find, visitors leave. We make the next step obvious on every screen.' },
+    { title: 'Looks like everyone else', detail: 'A premium theme four competitors also use does not build trust. We design something distinctly yours.' },
+    { title: 'No technical SEO', detail: 'A beautiful site nobody can find is worthless. Every build ships with clean structure and schema.' },
+  ],
+  pricingHeading: 'What It Costs',
+  pricing:
+    'Most local business websites land in a clear, flat range we quote up front based on what you actually need — no hourly surprises, no scope-creep invoices. Larger custom builds with advanced integrations cost more. You will know the full price before you commit, and 60 days of post-launch optimization is included.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience informing every design decision.`,
+    '2026 CLEDA Highest Traded Revenue Award winner.',
     'You own the code, domain, and hosting — no lock-in, no hostage situations.',
     'Conversion-first design: built to generate leads, not just win design awards.',
     'Firm launch timelines — if we miss the date we promise, we take $500 off the invoice.',
     '60 days of free post-launch optimization included.',
-    'Local to Alexandria, LA — we will sit down with you in person.',
   ],
   faqHeading: 'Web Design FAQ',
   faq: [
@@ -85,8 +109,8 @@ const data: PillarData = {
   relatedReading: [
     { title: 'Dominating the Map Pack: Your Guide to Local SEO', href: '/blog/local-seo-dominance' },
   ],
-  finalCtaHeadline: 'Get a Website That Pays for Itself.',
-  finalCtaSub: 'Book a free concept call. 15 minutes with Trevor — no pitch, just ideas for your site.',
+  finalCtaHeadline: 'Get a Free Concept Call',
+  finalCtaSub: 'Tell us about your business and we will show you how a faster, conversion-focused site could grow it. No pitch, no obligation.',
 };
 
 export default function WebDesignPillar() {

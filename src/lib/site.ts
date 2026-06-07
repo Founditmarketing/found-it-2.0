@@ -127,42 +127,42 @@ export interface ServiceDef {
 export const SERVICES: ServiceDef[] = [
   {
     name: 'Google Ads Management',
-    slug: 'lp/google-ads-management',
+    slug: 'google-ads-management',
     serviceType: 'PPC Management',
     description:
       'Google Ads management for local service businesses with weekly optimization, real conversion tracking, and transparent reporting. No contracts.',
   },
   {
     name: 'Web Design & Development',
-    slug: 'lp/web-design',
+    slug: 'web-design',
     serviceType: 'Web Design',
     description:
       'Custom, conversion-focused websites built on Next.js — fast, mobile-first, and engineered to turn visitors into calls. Clients own the code.',
   },
   {
     name: 'AI Search Optimization (GEO)',
-    slug: 'lp/ai-search-seo',
+    slug: 'ai-search-optimization',
     serviceType: 'Generative Engine Optimization',
     description:
       'Generative Engine Optimization to get your business recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data.',
   },
   {
     name: 'Social Media Management',
-    slug: 'lp/social-media-management',
+    slug: 'social-media-management',
     serviceType: 'Social Media Marketing',
     description:
       'Done-for-you social media content and strategy. We create it, you approve it — real content that builds authority and drives leads.',
   },
   {
     name: 'Custom App Development',
-    slug: 'lp/app-development',
+    slug: 'app-development',
     serviceType: 'Mobile App Development',
     description:
       'Native-feeling iOS and Android app development with in-person blueprinting and fixed-price timelines. Clients own 100% of the codebase.',
   },
   {
     name: 'AI Marketing Automation',
-    slug: 'lp/ai-marketing',
+    slug: 'ai-marketing',
     serviceType: 'Marketing Automation',
     description:
       'Custom AI systems for lead generation, instant follow-up, and automated appointment setting with AI voice and text agents.',

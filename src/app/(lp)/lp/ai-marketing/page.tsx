@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Automate your marketing with custom AI systems built by a local team.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/ai-marketing' },
+  alternates: { canonical: '/ai-marketing' },
 };
 
 const faqItems = [

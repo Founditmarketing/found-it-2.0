@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Custom websites that turn visitors into calls. Live in 2 weeks or less.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/lp/web-design' },
+  alternates: { canonical: '/web-design' },
 };
 
 const faqItems = [

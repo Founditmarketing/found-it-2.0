@@ -11,15 +11,15 @@ const abs = (path: string) => `${SITE_URL}${path === '/' ? '' : path}`;
 const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFreq }[] = [
   { path: '/', priority: 1.0, changeFrequency: 'weekly' },
 
-  // Primary service landing pages (highest conversion intent)
-  { path: '/lp/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/web-design', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/ai-search-seo', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/social-media-management', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/app-development', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/ai-marketing', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/lp/lake-charles/google-ads-management', priority: 0.85, changeFrequency: 'weekly' },
-  { path: '/lp/lake-charles/web-design', priority: 0.85, changeFrequency: 'weekly' },
+  // AdWords landing pages (paid traffic; canonical to the public service pages)
+  { path: '/lp/google-ads-management', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/web-design', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/ai-search-seo', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/social-media-management', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/app-development', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/ai-marketing', priority: 0.4, changeFrequency: 'weekly' },
+  { path: '/lp/lake-charles/google-ads-management', priority: 0.5, changeFrequency: 'weekly' },
+  { path: '/lp/lake-charles/web-design', priority: 0.5, changeFrequency: 'weekly' },
 
   // Core informational pages
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
@@ -30,11 +30,13 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/solutions', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/platform', priority: 0.7, changeFrequency: 'monthly' },
 
-  // Service authority pillars (organic / GEO)
-  { path: '/google-ads-management', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/web-design', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/ai-search-optimization', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/social-media-management', priority: 0.8, changeFrequency: 'weekly' },
+  // Service authority pillars (organic / GEO) — primary public service pages
+  { path: '/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/web-design', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/ai-search-optimization', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/social-media-management', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/app-development', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/ai-marketing', priority: 0.9, changeFrequency: 'weekly' },
 
   // Service / topic hubs
   { path: '/seo', priority: 0.7, changeFrequency: 'monthly' },
