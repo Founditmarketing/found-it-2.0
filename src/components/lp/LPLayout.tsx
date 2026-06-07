@@ -5,6 +5,7 @@ import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { trackCallClick, trackStickyCTAClick } from '@/lib/analytics';
 import { phoneHref, CALLRAIL_CLASS } from '@/lib/phone';
+import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 
 interface LPLayoutProps {
   children: React.ReactNode;
@@ -15,10 +16,9 @@ interface LPLayoutProps {
 export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLayoutProps) {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* ─── Ambient Background Blobs ─── */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="blur-blob w-[600px] h-[600px] bg-primary/20 -top-48 -left-48" />
-        <div className="blur-blob w-[500px] h-[500px] bg-primary/10 bottom-24 right-[-200px]" />
+      {/* ─── Interactive liquid-light orbs ─── */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <LiquidOrbs />
       </div>
 
       {/* ─── Content ─── */}

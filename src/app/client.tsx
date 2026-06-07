@@ -8,7 +8,6 @@ import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
-import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 import { AWARD } from '@/lib/site';
 import { staff } from '@/lib/team';
 
@@ -77,8 +76,6 @@ export default function HomePage() {
           HERO
       ═══════════════════════════════════════════ */}
       <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden">
-        {/* Interactive liquid-light orbs — hero only, reacts to the cursor */}
-        <LiquidOrbs className="z-0" />
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
