@@ -94,10 +94,10 @@ export default function HomePage() {
               </p>
 
               {/* Award trust chip */}
-              <div className="opacity-0 animate-reveal-up-sm delay-100 flex justify-center mb-8">
-                <span className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-full px-4 py-1.5">
-                  <Trophy className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-amber-300">
+              <div className="opacity-0 animate-reveal-up-sm delay-100 flex justify-center mb-8 px-6">
+                <span className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-2xl px-4 py-2 max-w-full">
+                  <Trophy className="w-3.5 h-3.5 text-amber-400 shrink-0" aria-hidden="true" />
+                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] text-amber-300 leading-snug text-center">
                     {AWARD.year} · {AWARD.label} Award
                   </span>
                 </span>
