@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -95,18 +95,6 @@ export function LakeCharlesGoogleAdsContent() {
         narrative="They were spending $4,200/month with no idea what was working. We rebuilt their campaigns around their highest-margin services, set up call tracking from first ring to signed contract, and cut the wasted keywords. 90 days later: $42K/month in new revenue."
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="Just 90 minutes up"
-        headingAccent="the interstate."
-        body="We're in Alexandria, so we'll drive to Lake Charles, sit down at your shop, and walk through your numbers in person. You get a real local team that understands Southwest Louisiana industry, not a call center."
-        founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
-        orientation="portrait"
-        ctaText="Get My Free Audit"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -123,6 +111,8 @@ export function LakeCharlesGoogleAdsContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free Audit" />
 
       <LPFormSection
         heading="Get Your Free Audit"

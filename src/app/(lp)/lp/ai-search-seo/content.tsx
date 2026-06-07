@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -98,19 +98,6 @@ export function AISearchSEOContent() {
         narrative="This business wasn't showing up in any AI search results. We rebuilt their content structure, added schema markup, got them into the directories AI engines pull from, and optimized for the question formats AI uses. 90 days later: recommended on ChatGPT, Perplexity, Google AI Overviews, and Gemini."
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="A real team behind"
-        headingAccent="your visibility."
-        body="AI search is new, confusing, and full of agencies selling smoke. We'll sit down at your office, run a live scan in front of you, and explain exactly what's happening in plain English. No jargon, no smoke."
-        founderName="Trevor Ruby"
-        videoSrc="/seo-intro-web.mp4"
-        poster="/seo-intro-poster.jpg"
-        orientation="portrait"
-        portraitRatio="9 / 16"
-        ctaText="Get My Free AI Audit"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -131,6 +118,8 @@ export function AISearchSEOContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free AI Audit" />
 
       <LPFormSection
         heading="Get My Free AI Audit"

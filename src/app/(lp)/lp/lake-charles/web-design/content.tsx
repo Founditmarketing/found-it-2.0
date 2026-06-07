@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -96,18 +96,6 @@ export function LakeCharlesWebDesignContent() {
         narrative="They came to us with a site that looked dated and didn't convert. We rebuilt on a modern stack with real specs, a finance calculator, and conversion-optimized forms. Within 60 days, inquiry volume tripled and average deal size increased 40%."
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="Just 90 minutes up"
-        headingAccent="the interstate."
-        body="We're in Alexandria, which means we'll drive to Lake Charles, sit down at your shop, and design your site with you in person. You get a real local team that knows Southwest Louisiana, not a faceless vendor on a screen."
-        founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
-        orientation="portrait"
-        ctaText="Get a Free Concept Call"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -128,6 +116,8 @@ export function LakeCharlesWebDesignContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get a Free Concept Call" />
 
       <LPFormSection
         heading="See Your Site Reimagined"

@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -119,6 +119,8 @@ export function WebDesignLPContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free Mockup Review" />
 
       <LPFormSection
         heading="Get My Free Mockup Review"

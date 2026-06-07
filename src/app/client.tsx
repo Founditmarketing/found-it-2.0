@@ -9,6 +9,7 @@ import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 import { AWARD } from '@/lib/site';
+import { staff } from '@/lib/team';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -61,15 +62,6 @@ const differentiators = [
   { title: 'No contracts.', detail: 'Month-to-month options on everything.' },
   { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
-];
-
-const staff = [
-  { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
-  { name: 'Reece Roberts', role: 'Head of Search & GEO', image: '/reese-roberts.jpeg' },
-  { name: 'Thomas Dombrowski', role: 'Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
-  { name: 'Jason Albright', role: 'Web Development', image: '/jason-albright.jpeg' },
-  { name: 'Bethany Hernandez', role: 'Google Ads', image: '/bethany-hernandez.jpeg' },
-  { name: 'Megan Sanguinetti', role: 'Social Media', image: '/megan-sanguinetti.jpeg' },
 ];
 
 export default function HomePage() {

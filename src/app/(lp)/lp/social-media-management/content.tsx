@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -98,19 +98,6 @@ export function SocialMediaLPContent() {
         narrative="They were posting phone photos with generic captions. We built a real content strategy: behind-the-scenes kitchen content, seasonal menu highlights, and targeted Instagram ads within 15 miles. 90 days later, Friday and Saturday nights are packed."
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="Real content, made by"
-        headingAccent="real people here."
-        body="No generic stock posts pumped out by a stranger overseas. We'll come to your office, learn your voice, and build a content plan that sounds like you and books real calls."
-        founderName="Trevor Ruby"
-        videoSrc="/social-intro-web.mp4"
-        poster="/social-intro-poster.jpg"
-        orientation="portrait"
-        portraitRatio="9 / 16"
-        ctaText="Get My Free Strategy Session"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -131,6 +118,8 @@ export function SocialMediaLPContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free Strategy Session" />
 
       <LPFormSection
         heading="Get My Free Strategy Session"

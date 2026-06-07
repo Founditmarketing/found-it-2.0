@@ -3,11 +3,11 @@
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
 import { SocialProof } from '@/components/lp/SocialProof';
-import { FounderVideo } from '@/components/lp/FounderVideo';
 import { AIAutomationGrid } from '@/components/lp/AIAutomationGrid';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
+import { TeamCollageSection } from '@/components/lp/TeamCollageSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import Link from 'next/link';
@@ -66,18 +66,6 @@ export function AIMarketingLPContent() {
 
       <AIAutomationGrid />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="We're not a SaaS company."
-        headingAccent="We're your neighbors."
-        body="Most AI marketing is a faceless app you have to figure out yourself. We're different — we drive to your office, map your pipeline in person, and build the system for you. You get a real local team, not a login screen."
-        founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
-        orientation="portrait"
-        ctaText="Get My Free AI Demo"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -126,6 +114,8 @@ export function AIMarketingLPContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free AI Demo" />
 
       <LPFormSection
         heading="Get My Free AI Demo"

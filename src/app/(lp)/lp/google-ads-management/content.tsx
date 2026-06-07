@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -98,18 +98,6 @@ export function GoogleAdsLPContent() {
         narrative="They were spending $4,200/month with no idea what was working. We rebuilt their campaigns around their best services, set up real call tracking, and cut the junk keywords. 90 days later: $42K/month in new revenue. 10x return."
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="No call center."
-        headingAccent="Just Trevor and the team."
-        body="When you call about your campaigns, you reach the same local team that built them. We'll drive to your office, sit down across the table, and show you exactly where your budget is going and what we'd change."
-        founderName="Trevor Ruby"
-        videoSrc="/founder-intro-web.mp4"
-        poster="/founder-intro-poster.jpg"
-        orientation="portrait"
-        ctaText="Get My Free Ad Audit"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -130,6 +118,8 @@ export function GoogleAdsLPContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free Ad Audit" />
 
       <LPFormSection
         heading="Get My Free Ad Audit"

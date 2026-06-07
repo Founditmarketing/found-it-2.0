@@ -3,10 +3,10 @@
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
 import { SocialProof } from '@/components/lp/SocialProof';
-import { FounderVideo } from '@/components/lp/FounderVideo';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
+import { TeamCollageSection } from '@/components/lp/TeamCollageSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import Link from 'next/link';
@@ -60,19 +60,6 @@ export function AppDevelopmentLPContent() {
         ]}
       />
 
-      <FounderVideo
-        eyebrow="Meet Your Local Team"
-        heading="No time zones."
-        headingAccent="No language barriers."
-        body="Building an app with an overseas shop usually means midnight calls and missed expectations. We'll come to your office, whiteboard the whole build with you, and stay reachable through launch and beyond."
-        founderName="Trevor Ruby"
-        videoSrc="/app-intro-web.mp4"
-        poster="/app-intro-poster.jpg"
-        orientation="portrait"
-        portraitRatio="9 / 16"
-        ctaText="Get My Free App Blueprint"
-      />
-
       <ObjectionBullets
         bullets={[
           {
@@ -110,6 +97,8 @@ export function AppDevelopmentLPContent() {
           },
         ]}
       />
+
+      <TeamCollageSection ctaLabel="Get My Free App Blueprint" />
 
       <LPFormSection
         heading="Get My Free App Blueprint"
