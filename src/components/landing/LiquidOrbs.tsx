@@ -51,13 +51,17 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
     if (!ctx) return;
     const c = ctx; // non-null alias
 
-    const reduce =
-      typeof window.matchMedia === 'function' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mq = typeof window.matchMedia === 'function' ? window.matchMedia.bind(window) : null;
+    const reduce = mq ? mq('(prefers-reduced-motion: reduce)').matches : false;
+    // Only react to the cursor on real pointer devices. On touch (iPhone/iPad)
+    // pointermove fires during scroll, so cursor-chase is disabled there.
+    const interactive = mq ? mq('(hover: hover) and (pointer: fine)').matches : false;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     let w = 0;
     let h = 0;
+    let prevW = 0;
+    let prevH = 0;
     let t = 0;
     let raf = 0;
     let visible = true;
@@ -66,8 +70,22 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
 
     const resize = () => {
       const rect = parent.getBoundingClientRect();
-      w = Math.max(1, rect.width);
-      h = Math.max(1, rect.height);
+      const nw = Math.max(1, rect.width);
+      const nh = Math.max(1, rect.height);
+      // Rescale existing orbs instead of re-initializing, so iOS address-bar
+      // resize during scroll never teleports them.
+      if (prevW > 0 && prevH > 0 && orbs.length) {
+        const sx = nw / prevW;
+        const sy = nh / prevH;
+        for (const o of orbs) {
+          o.x *= sx;
+          o.y *= sy;
+        }
+      }
+      w = nw;
+      h = nh;
+      prevW = nw;
+      prevH = nh;
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       canvas.style.width = `${w}px`;
@@ -167,6 +185,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
     };
 
     const onMove = (e: PointerEvent) => {
+      if (e.pointerType === 'touch') return;
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -189,7 +208,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       cancelAnimationFrame(resizeRaf);
       resizeRaf = requestAnimationFrame(() => {
         resize();
-        init();
         if (reduce) render();
       });
     });
@@ -210,7 +228,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       else start();
     };
 
-    window.addEventListener('pointermove', onMove, { passive: true });
+    if (interactive) window.addEventListener('pointermove', onMove, { passive: true });
     document.addEventListener('visibilitychange', onVis);
 
     if (!reduce) start();
@@ -220,7 +238,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       cancelAnimationFrame(resizeRaf);
       ro.disconnect();
       io.disconnect();
-      window.removeEventListener('pointermove', onMove);
+      if (interactive) window.removeEventListener('pointermove', onMove);
       document.removeEventListener('visibilitychange', onVis);
     };
   }, [intensity]);
