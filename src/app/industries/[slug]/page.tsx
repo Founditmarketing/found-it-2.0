@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import IndustryPageClient from './client';
 import { industries } from './data';
-import { buildServiceSchema, buildBreadcrumbSchema } from '@/lib/schema';
+import { buildServiceSchema, buildBreadcrumbSchema, buildFAQSchema } from '@/lib/schema';
 
 export async function generateStaticParams() {
   return Object.keys(industries).map((slug) => ({ slug }));
@@ -17,15 +17,23 @@ export async function generateMetadata({
   if (!data) return {};
 
   const url = `/industries/${data.slug}`;
+  const title = `${data.name} Marketing | Found It Marketing`;
   return {
     title: `${data.name} Marketing`,
-    description: data.subline,
+    description: data.metaDescription,
     alternates: { canonical: url },
     openGraph: {
-      title: `${data.name} Marketing`,
-      description: data.subline,
+      title,
+      description: data.metaDescription,
       type: 'website',
       url,
+      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: data.metaDescription,
+      images: ['/og-image.png'],
     },
   };
 }
@@ -50,10 +58,13 @@ export default function IndustryPage({
     { name: `${data.name} Marketing`, url: `/industries/${data.slug}` },
   ]);
 
+  const faqSchema = buildFAQSchema(data.faqs);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <IndustryPageClient data={data} />
     </>
   );
