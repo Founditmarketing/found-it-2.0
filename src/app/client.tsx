@@ -129,7 +129,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-2.5 bg-primary/10 border border-primary/20 rounded-full px-5 py-2.5">
                   <TrendingUp className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span className="text-sm sm:text-base font-bold text-white">
-                    <span className="text-primary font-black italic">$2.3B+</span> generated in client revenue impact
+                    <span className="text-primary font-black italic">$2.3B+</span> generated in client revenue
                   </span>
                 </span>
               </div>
