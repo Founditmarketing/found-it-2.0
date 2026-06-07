@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy } from 'lucide-react';
+import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -113,16 +113,26 @@ export default function HomePage() {
 
               {/* Headline */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                Be the Business{' '}
+                We Help Local Businesses{' '}
                 <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
-                  AI Recommends.
+                  Get More Customers.
                 </span>
               </h1>
 
               {/* Subheadline */}
-              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
                 Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
               </p>
+
+              {/* Revenue impact proof */}
+              <div className="opacity-0 animate-reveal-up-sm delay-300 flex justify-center mb-10">
+                <span className="inline-flex items-center gap-2.5 bg-primary/10 border border-primary/20 rounded-full px-5 py-2.5">
+                  <TrendingUp className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                  <span className="text-sm sm:text-base font-bold text-white">
+                    <span className="text-primary font-black italic">$2.3B+</span> generated in client revenue impact
+                  </span>
+                </span>
+              </div>
 
               {/* CTA cluster */}
               <div className="opacity-0 animate-reveal-up-sm delay-400 flex flex-col items-center gap-5">
