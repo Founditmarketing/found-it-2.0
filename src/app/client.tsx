@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,8 +9,20 @@ import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
+import { InstantAudit } from '@/components/landing/InstantAudit';
+import { RoasChart } from '@/components/landing/RoasChart';
 import { AWARD } from '@/lib/site';
 import { staff } from '@/lib/team';
+
+/* Personalization: industry from ad-campaign param, city from edge geo cookie. */
+const INDUSTRY_NAMES: Record<string, string> = {
+  medical: 'Medical Practices',
+  contractors: 'Contractors',
+  dealerships: 'Dealerships',
+  retail: 'Retail Stores',
+  realtors: 'Real Estate Agents',
+  lawyers: 'Law Firms',
+};
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -68,6 +81,30 @@ export default function HomePage() {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, 80]);
+  const [showChart, setShowChart] = useState(false);
+  const [city, setCity] = useState<string | null>(null);
+  const [industry, setIndustry] = useState<string | null>(null);
+
+  useEffect(() => {
+    // City from the edge geo cookie set by middleware
+    const m = document.cookie.match(/(?:^|;\s*)fi_city=([^;]+)/);
+    if (m) {
+      try { setCity(decodeURIComponent(m[1])); } catch { /* ignore */ }
+    }
+    // Industry from campaign URL param (?industry=medical)
+    const param = new URLSearchParams(window.location.search).get('industry');
+    if (param && INDUSTRY_NAMES[param.toLowerCase()]) {
+      setIndustry(INDUSTRY_NAMES[param.toLowerCase()]);
+    }
+  }, []);
+
+  const audienceLine = industry && city
+    ? `${city} ${industry}`
+    : industry
+      ? `Local ${industry}`
+      : city
+        ? `${city} Businesses`
+        : 'Local Businesses';
 
   return (
     <div className="bg-transparent text-foreground relative overflow-hidden">
@@ -97,9 +134,21 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Headline */}
+              {/* Headline (personalized by city/industry when known) */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                We Help Local Businesses{' '}
+                We Help{' '}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={audienceLine}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.45, ease }}
+                    className="inline-block"
+                  >
+                    {audienceLine}
+                  </motion.span>
+                </AnimatePresence>{' '}
                 <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
                   Get More Customers.
                 </span>
@@ -120,19 +169,17 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* CTA cluster */}
-              <div className="opacity-0 animate-reveal-up-sm delay-400 flex flex-col items-center gap-5">
-                <Link href="#services">
-                  <LiquidButton className="px-12 sm:px-16 h-16 sm:h-[72px] text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                    See What We Do
-                  </LiquidButton>
-                </Link>
-                <div className="flex items-center gap-6">
+              {/* Instant audit bar */}
+              <div className="opacity-0 animate-reveal-up-sm delay-400">
+                <InstantAudit />
+                <div className="flex items-center justify-center gap-6 mt-6">
+                  <Link href="#services" className="text-xs font-black uppercase italic tracking-tighter text-white/50 hover:text-primary transition-colors">
+                    See What We Do ↓
+                  </Link>
+                  <span className="text-white/10 text-xs">|</span>
                   <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-white/40 hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
                     <Phone className="w-4 h-4" /> {phoneDisplay}
                   </a>
-                  <span className="text-white/10 text-xs">|</span>
-                  <span className="text-xs text-white/25 font-medium">Free audit on every service</span>
                 </div>
               </div>
             </div>
@@ -271,16 +318,29 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.5, ease }}
-                    className="bg-gradient-to-b from-primary/[0.06] to-primary/[0.02] border border-primary/10 rounded-2xl p-5 text-center hover:border-primary/20 transition-colors duration-300"
+                    onMouseEnter={i === 0 ? () => setShowChart(true) : undefined}
+                    onClick={i === 0 ? () => setShowChart((s) => !s) : undefined}
+                    className={`bg-gradient-to-b from-primary/[0.06] to-primary/[0.02] border rounded-2xl p-5 text-center transition-colors duration-300 ${
+                      i === 0
+                        ? `cursor-pointer ${showChart ? 'border-primary/40' : 'border-primary/10 hover:border-primary/30'}`
+                        : 'border-primary/10 hover:border-primary/20'
+                    }`}
                   >
                     <p className="text-3xl lg:text-4xl font-black text-primary italic tracking-tighter drop-shadow-[0_0_15px_rgba(249,115,22,0.1)]">
                       {point.value}
                     </p>
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground/50 mt-1.5 mb-2.5">{point.label}</p>
                     <p className="text-[11px] text-muted-foreground/70 font-medium leading-relaxed">{point.detail}</p>
+                    {i === 0 && (
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/60 mt-2">
+                        {showChart ? 'Charted below' : 'Hover to chart it'}
+                      </p>
+                    )}
                   </motion.div>
                 ))}
               </div>
+
+              <AnimatePresence>{showChart && <RoasChart />}</AnimatePresence>
 
               <div className="mt-8 text-center">
                 <Link href="/case-studies" className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:gap-3 transition-all duration-300 group">

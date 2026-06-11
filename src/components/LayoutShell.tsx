@@ -6,6 +6,7 @@ import { Footer } from '@/components/landing/Footer';
 import { ClientBackground } from '@/components/landing/ClientBackground';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import { Toaster } from '@/components/ui/toaster';
+import { TrevorConcierge } from '@/components/concierge/TrevorConcierge';
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -32,6 +33,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <div className="relative z-10 bg-background/95">
         <Footer />
       </div>
+      <TrevorConcierge />
       <Toaster />
     </SmoothScrollProvider>
   );
