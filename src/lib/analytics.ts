@@ -85,6 +85,13 @@ export function trackCalendlyOpen() {
 
 export function trackExitIntent() {
   fire('exit_intent_capture', { event_category: 'conversion', event_label: 'exit_intent' });
+
+  // Google Ads "Exit Intent Capture" action expects this specific label.
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-17848789749/JUtjCM6G0K4cEPXV-75C',
+    });
+  }
 }
 
 export function trackCTAClick(ctaName: string) {
