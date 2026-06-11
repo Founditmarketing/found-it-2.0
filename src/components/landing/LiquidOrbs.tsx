@@ -91,7 +91,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
 
     const init = () => {
       orbs.length = 0;
-      const count = w < 640 ? 5 : 6;
+      const count = w < 640 ? 4 : 5;
       const base = Math.min(Math.max(w, h), 1100);
       for (let i = 0; i < count; i++) {
         orbs.push({
@@ -127,7 +127,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       c.globalCompositeOperation = 'lighter';
       for (const o of orbs) {
         const pr = o.r * (1 + Math.sin(t * 0.015 * o.pulseFreq + o.phase) * 0.08);
-        drawOrb(o.x, o.y, pr, o.color, 0.22);
+        drawOrb(o.x, o.y, pr, o.color, 0.18);
       }
       c.globalCompositeOperation = 'source-over';
     };
