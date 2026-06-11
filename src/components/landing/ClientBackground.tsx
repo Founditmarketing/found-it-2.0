@@ -4,7 +4,7 @@ import { LiquidOrbs } from './LiquidOrbs';
 
 export function ClientBackground() {
     return (
-        <div data-fancy className="fixed inset-0 z-0 bg-[#020202] pointer-events-none overflow-hidden">
+        <div className="fixed inset-0 z-0 bg-[#020202] pointer-events-none overflow-hidden">
             {/* Interactive liquid-light orbs (reacts to the cursor) */}
             <LiquidOrbs />
 

@@ -13,7 +13,6 @@ import Link from 'next/link';
 import { phoneHref as centralPhoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
-import { ThemeSwitcher } from '../ThemeSwitcher';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -479,7 +478,6 @@ export function Header() {
 
             {/* ─── Desktop Actions ─── */}
             <div className="hidden lg:flex items-center gap-4 2xl:gap-6">
-              <ThemeSwitcher forceWhite={true} />
               <Button
                 variant="ghost"
                 className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
@@ -611,9 +609,8 @@ export function Header() {
                   {mounted ? phoneNumber : '...'}
                 </a>
 
-                {/* Theme + Copyright */}
-                <div className="flex items-center justify-between pt-1">
-                  <ThemeSwitcher forceWhite={false} />
+                {/* Copyright */}
+                <div className="flex items-center justify-center pt-1">
                   <span className="text-[9px] text-muted-foreground/40 font-mono uppercase tracking-widest">
                     © {new Date().getFullYear()} Found It
                   </span>
