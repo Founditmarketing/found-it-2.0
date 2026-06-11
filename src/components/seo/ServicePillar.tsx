@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib/schema';
 import { BUSINESS } from '@/lib/site';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
+import { ExitIntent } from '@/components/lp/ExitIntent';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -311,6 +312,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
       </div>
+
+      {/* Exit-intent offer (desktop, once per session) */}
+      <ExitIntent ctaHref="#lead-form" />
     </main>
   );
 }

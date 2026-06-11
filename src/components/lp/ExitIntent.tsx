@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
-import { X, Download, ArrowRight } from 'lucide-react';
+import { X, Download, Zap, ArrowRight } from 'lucide-react';
 import { trackExitIntent } from '@/lib/analytics';
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -11,14 +11,20 @@ interface ExitIntentProps {
   headline?: string;
   subheadline?: string;
   ctaLabel?: string;
+  /** Where the CTA scrolls/links to (e.g. '#lp-form', '#lead-form', '/contact'). */
+  ctaHref?: string;
+  /** Optional lead-magnet card; omitted = generic free-audit framing. */
   magnetTitle?: string;
+  magnetSub?: string;
 }
 
 export function ExitIntent({
   headline = "Wait — before you go.",
-  subheadline = "Download our free guide and make sure you ask the right questions before hiring any web designer.",
-  ctaLabel = "Download the Free Guide",
-  magnetTitle = "The Founder's Guide to Choosing a Web Designer",
+  subheadline = "Get a free audit first. We'll show you exactly what we'd fix, and you keep the findings either way — no pitch, no obligation.",
+  ctaLabel = 'Get My Free Audit',
+  ctaHref = '#lp-form',
+  magnetTitle,
+  magnetSub,
 }: ExitIntentProps) {
   const [show, setShow] = useState(false);
   const [hasShown, setHasShown] = useState(false);
@@ -102,7 +108,11 @@ export function ExitIntent({
               <div className="p-8 sm:p-10 text-center">
                 {/* Icon */}
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                  <Download className="w-8 h-8 text-primary" />
+                  {magnetTitle ? (
+                    <Download className="w-8 h-8 text-primary" />
+                  ) : (
+                    <Zap className="w-8 h-8 text-primary" />
+                  )}
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter mb-3 text-foreground">
@@ -113,22 +123,22 @@ export function ExitIntent({
                   {subheadline}
                 </p>
 
-                {/* Lead magnet card */}
-                <div className="bg-card/30 border border-border/20 rounded-2xl p-5 mb-6 text-left">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-2">
-                    Free Download
-                  </p>
-                  <p className="font-black text-foreground italic tracking-tight leading-snug">
-                    {magnetTitle}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    10 Questions to Ask Before You Sign Anything
-                  </p>
-                </div>
+                {/* Lead magnet card (optional) */}
+                {magnetTitle && (
+                  <div className="bg-card/30 border border-border/20 rounded-2xl p-5 mb-6 text-left">
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-2">
+                      Free Download
+                    </p>
+                    <p className="font-black text-foreground italic tracking-tight leading-snug">
+                      {magnetTitle}
+                    </p>
+                    {magnetSub && <p className="text-xs text-muted-foreground mt-1">{magnetSub}</p>}
+                  </div>
+                )}
 
                 {/* CTA */}
                 <a
-                  href="#lp-form"
+                  href={ctaHref}
                   onClick={() => setShow(false)}
                   className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-4 rounded-xl text-sm hover:shadow-lg hover:shadow-primary/20 transition-shadow"
                 >
