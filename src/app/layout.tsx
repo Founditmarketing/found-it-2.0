@@ -3,7 +3,6 @@ import './globals.css';
 import { Inter, Outfit } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { CustomCursor } from '@/components/ui/CustomCursor';
 import { LayoutShell } from '@/components/LayoutShell';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });

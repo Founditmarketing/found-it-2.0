@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 
-/* Interactive liquid-light orbs.
-   Orange plasma blobs wander on smooth wandering paths and flow toward the
-   pointer, blending additively so overlaps brighten like liquid light.
-   Canvas-based and GPU-friendly: capped DPR, paused when the tab is hidden or
-   the canvas is off-screen, and a static frame for prefers-reduced-motion.
-   Sizes to its parent, so use inside a positioned (fixed/relative) container. */
+/* Ambient liquid-light orbs.
+   Orange plasma blobs wander on smooth paths, blending additively so overlaps
+   brighten like liquid light. Deliberately NOT cursor-reactive (visitors found
+   the follow-glow annoying). Canvas-based and GPU-friendly: capped DPR, paused
+   when the tab is hidden or the canvas is off-screen, and a static frame for
+   prefers-reduced-motion. Sizes to its parent. */
 
 interface Orb {
   x: number;
@@ -53,9 +53,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
 
     const mq = typeof window.matchMedia === 'function' ? window.matchMedia.bind(window) : null;
     const reduce = mq ? mq('(prefers-reduced-motion: reduce)').matches : false;
-    // Only react to the cursor on real pointer devices. On touch (iPhone/iPad)
-    // pointermove fires during scroll, so cursor-chase is disabled there.
-    const interactive = mq ? mq('(hover: hover) and (pointer: fine)').matches : false;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     let w = 0;
@@ -66,7 +63,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
     let raf = 0;
     let visible = true;
     const orbs: Orb[] = [];
-    const pointer = { x: 0, y: 0, tx: 0, ty: 0, active: false };
 
     const resize = () => {
       const rect = parent.getBoundingClientRect();
@@ -133,31 +129,17 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
         const pr = o.r * (1 + Math.sin(t * 0.015 * o.pulseFreq + o.phase) * 0.08);
         drawOrb(o.x, o.y, pr, o.color, 0.22);
       }
-      if (pointer.active) {
-        drawOrb(pointer.x, pointer.y, Math.min(w, h) * 0.16, [255, 122, 26], 0.14);
-      }
       c.globalCompositeOperation = 'source-over';
     };
 
     const step = () => {
       t += 1;
-      pointer.x += (pointer.tx - pointer.x) * 0.12;
-      pointer.y += (pointer.ty - pointer.y) * 0.12;
 
       for (const o of orbs) {
         // smooth wandering force (no jitter)
         o.phase += 0.0025 * o.driftFreq;
         o.vx += Math.cos(o.phase) * 0.012;
         o.vy += Math.sin(o.phase * 0.8 + 1.7) * 0.012;
-
-        if (pointer.active) {
-          const dx = pointer.x - o.x;
-          const dy = pointer.y - o.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          const pull = Math.min(0.06, 12000 / (dist * dist));
-          o.vx += (dx / dist) * pull;
-          o.vy += (dy / dist) * pull;
-        }
 
         o.x += o.vx;
         o.y += o.vy;
@@ -182,21 +164,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
     const stop = () => {
       if (raf) cancelAnimationFrame(raf);
       raf = 0;
-    };
-
-    const onMove = (e: PointerEvent) => {
-      if (e.pointerType === 'touch') return;
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      pointer.tx = x;
-      pointer.ty = y;
-      const inside = x >= 0 && y >= 0 && x <= w && y <= h;
-      if (inside && !pointer.active) {
-        pointer.x = x;
-        pointer.y = y;
-      }
-      pointer.active = inside;
     };
 
     resize();
@@ -228,7 +195,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       else start();
     };
 
-    if (interactive) window.addEventListener('pointermove', onMove, { passive: true });
     document.addEventListener('visibilitychange', onVis);
 
     if (!reduce) start();
@@ -238,7 +204,6 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       cancelAnimationFrame(resizeRaf);
       ro.disconnect();
       io.disconnect();
-      if (interactive) window.removeEventListener('pointermove', onMove);
       document.removeEventListener('visibilitychange', onVis);
     };
   }, [intensity]);
