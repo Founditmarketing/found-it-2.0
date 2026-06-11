@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
@@ -13,16 +13,7 @@ import { InstantAudit } from '@/components/landing/InstantAudit';
 import { RoasChart } from '@/components/landing/RoasChart';
 import { AWARD } from '@/lib/site';
 import { staff } from '@/lib/team';
-
-/* Personalization: industry from ad-campaign param, city from edge geo cookie. */
-const INDUSTRY_NAMES: Record<string, string> = {
-  medical: 'Medical Practices',
-  contractors: 'Contractors',
-  dealerships: 'Dealerships',
-  retail: 'Retail Stores',
-  realtors: 'Real Estate Agents',
-  lawyers: 'Law Firms',
-};
+import { usePersonalization } from '@/lib/personalization';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -82,21 +73,7 @@ export default function HomePage() {
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, 80]);
   const [showChart, setShowChart] = useState(false);
-  const [city, setCity] = useState<string | null>(null);
-  const [industry, setIndustry] = useState<string | null>(null);
-
-  useEffect(() => {
-    // City from the edge geo cookie set by middleware
-    const m = document.cookie.match(/(?:^|;\s*)fi_city=([^;]+)/);
-    if (m) {
-      try { setCity(decodeURIComponent(m[1])); } catch { /* ignore */ }
-    }
-    // Industry from campaign URL param (?industry=medical)
-    const param = new URLSearchParams(window.location.search).get('industry');
-    if (param && INDUSTRY_NAMES[param.toLowerCase()]) {
-      setIndustry(INDUSTRY_NAMES[param.toLowerCase()]);
-    }
-  }, []);
+  const { city, industry } = usePersonalization();
 
   const audienceLine = industry && city
     ? `${city} ${industry}`

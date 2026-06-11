@@ -19,4 +19,15 @@ export function middleware(req: NextRequest) {
   return res;
 }
 
-export const config = { matcher: ['/'] };
+export const config = {
+  matcher: [
+    '/',
+    '/google-ads-management',
+    '/web-design',
+    '/ai-search-optimization',
+    '/social-media-management',
+    '/app-development',
+    '/ai-marketing',
+    '/lp/:path*',
+  ],
+};

@@ -3,6 +3,8 @@ import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib
 import { BUSINESS } from '@/lib/site';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { ExitIntent } from '@/components/lp/ExitIntent';
+import { InstantAudit } from '@/components/landing/InstantAudit';
+import { PersonalizedChip } from '@/components/PersonalizedChip';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -94,7 +96,10 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Hero */}
         <header className="mb-14">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">{data.eyebrow}</p>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-60">{data.eyebrow}</p>
+            <PersonalizedChip />
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             {data.headline}{' '}
             <span className="text-primary">{data.headlineAccent}</span>
@@ -111,6 +116,14 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </Link>
           </div>
         </header>
+
+        {/* Instant site scan */}
+        <section aria-label="Free instant site scan" className="mb-16">
+          <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-muted-foreground/50 mb-4">
+            Free 10-Second Site Scan
+          </p>
+          <InstantAudit />
+        </section>
 
         {/* Stats */}
         <section aria-label="Track record" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">

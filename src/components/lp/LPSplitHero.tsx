@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Zap, Trophy, type LucideIcon } from 'lucide-react';
+import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { AWARD } from '@/lib/site';
+import { usePersonalization } from '@/lib/personalization';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -45,6 +46,9 @@ export function LPSplitHero({
   formSource,
   formPageSlug,
 }: LPSplitHeroProps) {
+  const { city, industry } = usePersonalization();
+  const badgeText = city ? `100% Local — Serving ${city}` : badge;
+
   return (
     <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 lg:pb-24">
       <div className="max-w-[1440px] mx-auto px-6 w-full">
@@ -61,7 +65,15 @@ export function LPSplitHero({
                 <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
                   <MapPin className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
                   <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-                    {badge}
+                    {badgeText}
+                  </span>
+                </div>
+              )}
+              {industry && (
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
+                  <Target className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                    Built for {industry}
                   </span>
                 </div>
               )}
