@@ -71,10 +71,14 @@ const differentiators = [
 /* Rotating hero outcomes — each must complete "We Help [audience] ___" */
 const OUTCOMES = [
   'Get More Customers.',
+  'Run Converting Ads.',
   'Grow Their Brand.',
   'Own Beautiful Websites.',
+  'Automate Their CRM.',
   'Dominate Google.',
+  'Get On Top of Social.',
   'Get Found by AI.',
+  'Manage Social Media.',
   'Make the Phone Ring.',
 ];
 
