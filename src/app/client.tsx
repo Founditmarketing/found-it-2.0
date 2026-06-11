@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -68,6 +68,48 @@ const differentiators = [
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
 
+/* Rotating hero outcomes — each must complete "We Help [audience] ___" */
+const OUTCOMES = [
+  'Get More Customers.',
+  'Grow Their Brand.',
+  'Own Beautiful Websites.',
+  'Dominate Google.',
+  'Get Found by AI.',
+  'Make the Phone Ring.',
+];
+
+function RotatingOutcome() {
+  const [i, setI] = useState(0);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(() => {
+      if (!document.hidden) setI((v) => (v + 1) % OUTCOMES.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [reduce]);
+
+  return (
+    <span className="block relative text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
+      {/* widest phrase reserves the line height/width to prevent layout shift */}
+      <span className="invisible" aria-hidden="true">Own Beautiful Websites.</span>
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={i}
+          initial={{ y: '0.7em', opacity: 0, filter: 'blur(6px)' }}
+          animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+          exit={{ y: '-0.7em', opacity: 0, filter: 'blur(6px)' }}
+          transition={{ duration: 0.55, ease }}
+          className="absolute inset-x-0 top-0"
+        >
+          {OUTCOMES[i]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
+
 export default function HomePage() {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -121,9 +163,7 @@ export default function HomePage() {
                     {audienceLine}
                   </motion.span>
                 </AnimatePresence>{' '}
-                <span className="text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
-                  Get More Customers.
-                </span>
+                <RotatingOutcome />
               </h1>
 
               {/* Subheadline */}
