@@ -96,11 +96,6 @@ export default function HomePage() {
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
-              {/* Eyebrow */}
-              <p className="opacity-0 animate-reveal-up-sm delay-100 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] mb-5">
-                Found It Marketing — Alexandria, LA
-              </p>
-
               {/* Award trust chip */}
               <div className="opacity-0 animate-reveal-up-sm delay-100 flex justify-center mb-8 px-6">
                 <span className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-2xl px-4 py-2 max-w-full">
