@@ -118,6 +118,9 @@ export default function HomePage() {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, 80]);
+  // Once the user runs the instant audit, stop fading the hero on scroll so the
+  // results stay readable while they scroll through them.
+  const [auditActive, setAuditActive] = useState(false);
   const [showChart, setShowChart] = useState(false);
   const { city, industry } = usePersonalization();
 
@@ -139,7 +142,7 @@ export default function HomePage() {
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
+        <motion.div style={{ opacity: auditActive ? 1 : heroOpacity, y: auditActive ? 0 : heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
               {/* Award trust chip */}
@@ -187,7 +190,7 @@ export default function HomePage() {
 
               {/* Instant audit bar */}
               <div className="opacity-0 animate-reveal-up-sm delay-400">
-                <InstantAudit />
+                <InstantAudit onStateChange={(s) => setAuditActive(s !== 'idle')} />
                 <div className="flex items-center justify-center gap-6 mt-6">
                   <Link href="#services" className="text-xs font-black uppercase italic tracking-tighter text-white/50 hover:text-primary transition-colors">
                     See What We Do ↓

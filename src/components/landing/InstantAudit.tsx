@@ -9,6 +9,8 @@ import { trackCallClick, trackAuditRequest } from '@/lib/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
+type AuditState = 'idle' | 'scanning' | 'done' | 'error';
+
 interface CheckResult { label: string; pass: boolean; detail: string }
 interface AuditResult {
   url: string;
@@ -84,11 +86,21 @@ function ScoreRing({ score, color }: { score: number; color: string }) {
   );
 }
 
-export function InstantAudit() {
+interface InstantAuditProps {
+  /** Notifies the parent when the audit starts/finishes (e.g. to pause hero fade-out effects). */
+  onStateChange?: (state: AuditState) => void;
+}
+
+export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
   const [url, setUrl] = useState('');
-  const [state, setState] = useState<'idle' | 'scanning' | 'done' | 'error'>('idle');
+  const [state, setStateRaw] = useState<AuditState>('idle');
   const [error, setError] = useState('');
   const [result, setResult] = useState<AuditResult | null>(null);
+
+  const setState = (s: AuditState) => {
+    setStateRaw(s);
+    onStateChange?.(s);
+  };
 
   const run = async () => {
     const value = url.trim();
