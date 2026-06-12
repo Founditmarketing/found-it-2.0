@@ -12,10 +12,12 @@ const checkSchema = z.object({
   label: z.string().max(120),
   pass: z.boolean(),
   detail: z.string().max(300),
+  impact: z.string().max(300).optional(),
 });
 
 const reportSchema = z.object({
   email: z.string().email().max(254),
+  phone: z.string().max(40).optional(),
   hp: z.string().max(200).optional(),
   result: z.object({
     url: z.string().max(500),
@@ -46,6 +48,7 @@ function reportHtml(data: z.infer<typeof reportSchema>['result']): string {
               <td style="padding:8px 10px;border-bottom:1px solid #f1f1f1">
                 <strong style="font-size:14px;color:#111">${escapeHtml(c.label)}</strong><br/>
                 <span style="font-size:12px;color:#666">${escapeHtml(c.detail)}</span>
+                ${!c.pass && c.impact ? `<br/><span style="font-size:12px;color:#b45309">⚠ ${escapeHtml(c.impact)}</span>` : ''}
               </td>
             </tr>`
         )
@@ -86,7 +89,7 @@ export async function POST(req: Request) {
     if (!parsed.success) {
       return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
     }
-    const { email, hp, result } = parsed.data;
+    const { email, phone, hp, result } = parsed.data;
     if (hp) return NextResponse.json({ ok: true });
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -104,10 +107,11 @@ export async function POST(req: Request) {
       resend.emails.send({
         from: 'Found It Marketing <contact@founditmarketing.com>',
         to: ['trevor@founditmarketing.com'],
-        subject: `Audit Lead: ${email} scanned ${result.url} (${result.score}/100)`,
+        subject: `Audit Lead: ${email} scanned ${result.url} (${result.score}/100)${phone ? ' — left a text number' : ''}`,
         html: `
           <h1 style="margin:0 0 12px">Instant Audit Lead</h1>
           <p style="margin:4px 0"><strong>Email:</strong> ${escapeHtml(email)}</p>
+          ${phone ? `<p style="margin:4px 0"><strong>Mobile (asked for a text):</strong> ${escapeHtml(phone)}</p>` : ''}
           <p style="margin:4px 0"><strong>Site:</strong> ${escapeHtml(result.url)}</p>
           <p style="margin:4px 0"><strong>Score:</strong> ${result.score}/100 (${result.grade})</p>
           <p style="margin:4px 0"><strong>Failing checks:</strong> ${failed.length ? escapeHtml(failed.join(', ')) : 'None'}</p>

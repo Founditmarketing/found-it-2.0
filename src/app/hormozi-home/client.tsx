@@ -73,7 +73,7 @@ export default function HormoziHome() {
               <span className="text-primary">Get More Customers.</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white/70 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-              Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
+              Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just a direct line to a senior strategist.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
               <Link href="#services">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useReducedMotion } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,6 +17,8 @@ import { usePersonalization } from '@/lib/personalization';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+const clamp01 = (v: number) => Math.min(Math.max(v, 0), 1);
 
 /* ─── Data ─── */
 
@@ -116,12 +118,37 @@ function RotatingOutcome() {
 
 export default function HomePage() {
   const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const heroY = useTransform(scrollY, [0, 500], [0, 80]);
+  // The hero fade-on-scroll is a desktop-only flourish. On touch devices the
+  // on-screen keyboard scrolls the page while you type into the audit bar, and
+  // the audit report is taller than the screen — fading on scroll turns both
+  // into unreadable ghosts over the black background. The pin is routed through
+  // a MotionValue (instead of conditionally swapping the style prop) so it
+  // always wins, even mid-scroll.
+  const heroPin = useMotionValue(1); // 1 = pinned fully visible, 0 = fade with scroll
+  const [fadeCapable, setFadeCapable] = useState(false);
   // Once the user runs the instant audit, stop fading the hero on scroll so the
   // results stay readable while they scroll through them.
   const [auditActive, setAuditActive] = useState(false);
   const [showChart, setShowChart] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
+    const update = () => setFadeCapable(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    heroPin.set(fadeCapable && !auditActive ? 0 : 1);
+  }, [fadeCapable, auditActive, heroPin]);
+
+  const heroOpacity = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
+    pin ? 1 : 1 - clamp01(y / 500)
+  );
+  const heroY = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
+    pin ? 0 : clamp01(y / 500) * 80
+  );
   const { city, industry } = usePersonalization();
 
   const audienceLine = industry && city
@@ -142,7 +169,7 @@ export default function HomePage() {
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
-        <motion.div style={{ opacity: auditActive ? 1 : heroOpacity, y: auditActive ? 0 : heroY }} className="relative z-10 flex-grow flex items-center">
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
               {/* Award trust chip */}
@@ -175,7 +202,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just results you can measure.
+                Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just a direct line to a senior strategist.
               </p>
 
               {/* Revenue impact proof */}
