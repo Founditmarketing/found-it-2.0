@@ -7,6 +7,7 @@ import { ClientBackground } from '@/components/landing/ClientBackground';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import { Toaster } from '@/components/ui/toaster';
 import { TrevorConcierge } from '@/components/concierge/TrevorConcierge';
+import { VoiceIntro } from '@/components/landing/VoiceIntro';
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -34,6 +35,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
         <Footer />
       </div>
       <TrevorConcierge />
+      <VoiceIntro />
       <Toaster />
     </SmoothScrollProvider>
   );
