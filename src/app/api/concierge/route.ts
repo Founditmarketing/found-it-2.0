@@ -1,11 +1,12 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { streamText } from 'ai';
+import { googleAiApiKey } from '@/lib/server/ai-key';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
 
 const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
+  apiKey: googleAiApiKey,
 });
 
 const SYSTEM = `You are "Trevor's assistant" on founditmarketing.com — the digital concierge for Found It Marketing, the agency founded by Trevor Ruby in Alexandria, Louisiana.
@@ -37,7 +38,7 @@ RULES:
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    if (!googleAiApiKey) {
       return new Response('Concierge unavailable', { status: 500 });
     }
     const { messages } = await req.json();

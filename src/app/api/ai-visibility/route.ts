@@ -3,12 +3,13 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { generateText, generateObject } from 'ai';
 import { z } from 'zod';
 import { rateLimit, clientIp } from '@/lib/server/guards';
+import { googleAiApiKey } from '@/lib/server/ai-key';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
 const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
+  apiKey: googleAiApiKey,
 });
 const MODEL = 'gemini-2.5-flash';
 
@@ -43,7 +44,7 @@ const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    if (!googleAiApiKey) {
       return NextResponse.json({ error: 'AI check is temporarily unavailable.' }, { status: 503 });
     }
     if (!rateLimit(`ai-vis:${clientIp(req)}`, 3, 5 * 60_000)) {

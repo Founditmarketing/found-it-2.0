@@ -1,9 +1,10 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { generateText } from 'ai';
 import { NextResponse } from 'next/server';
+import { googleAiApiKey } from '@/lib/server/ai-key';
 
 const google = createGoogleGenerativeAI({
-    apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
+    apiKey: googleAiApiKey,
 });
 
 export async function POST(req: Request) {
@@ -20,8 +21,8 @@ export async function POST(req: Request) {
             );
         }
 
-        if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-            console.error('CRITICAL: GOOGLE_GENERATIVE_AI_API_KEY is missing');
+        if (!googleAiApiKey) {
+            console.error('CRITICAL: Google AI API key is missing');
             return NextResponse.json(
                 { error: 'Server configuration error: missing API key' },
                 { status: 500 }

@@ -14,6 +14,7 @@ import {
 } from '@/ai/schemas/solution-strategist';
 
 import { notifySolutionSubmission } from '@/app/actions/forms';
+import { googleAiApiKey } from '@/lib/server/ai-key';
 
 export async function getSolutionStrategy(
   input: SolutionStrategyInput
@@ -53,9 +54,9 @@ const solutionStrategyFlow = ai.defineFlow(
     outputSchema: SolutionStrategyOutputSchema,
   },
   async (input) => {
-    if (!process.env.GOOGLE_GENAI_API_KEY) {
-      console.error('Critical Error: GOOGLE_GENAI_API_KEY is not set in environment variables.');
-      throw new Error('Server usage error: API Key missing. Please set GOOGLE_GENAI_API_KEY in Vercel.');
+    if (!googleAiApiKey) {
+      console.error('Critical Error: no Google AI API key is set in environment variables.');
+      throw new Error('Server usage error: API Key missing. Please set GOOGLE_GENERATIVE_AI_API_KEY in Vercel.');
     }
 
     try {
