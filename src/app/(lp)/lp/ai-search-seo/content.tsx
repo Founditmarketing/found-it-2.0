@@ -49,7 +49,7 @@ export function AISearchSEOContent() {
       <LPSplitHero
         headline="Get Recommended When AI Picks"
         headlineAccent="Your Industry."
-        subheadline="Your customers are asking ChatGPT, Gemini, and Google AI who to hire. We make sure the answer is you."
+        subheadline="AI search optimization for local businesses: your customers are asking ChatGPT, Gemini, and Google AI who to hire. We make sure the answer is you."
         highlight="We run a live scan of your visibility across every major AI engine, free, at your office."
         highlightIcon={Sparkles}
         stats={[

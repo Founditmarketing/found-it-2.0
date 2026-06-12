@@ -20,6 +20,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/lp/ai-marketing', priority: 0.4, changeFrequency: 'weekly' },
   { path: '/lp/lake-charles/google-ads-management', priority: 0.5, changeFrequency: 'weekly' },
   { path: '/lp/lake-charles/web-design', priority: 0.5, changeFrequency: 'weekly' },
+  { path: '/lp/local-marketing-la-trimetro', priority: 0.5, changeFrequency: 'weekly' },
 
   // Core informational pages
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },

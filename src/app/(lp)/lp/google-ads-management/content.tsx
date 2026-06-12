@@ -49,7 +49,7 @@ export function GoogleAdsLPContent() {
       <LPSplitHero
         headline="Turn Ad Spend Into Customers,"
         headlineAccent="Not Junk Clicks."
-        subheadline="We review your Google Ads, cut the waste, and rebuild around the leads that actually become customers."
+        subheadline="Google Ads management by a senior digital marketing team: we audit your account, cut the wasted spend, and rebuild around the leads that actually become customers."
         highlight="One client turned $4,200/mo in ad spend into $42,000/mo in revenue — a 10x return."
         highlightIcon={TrendingUp}
         stats={[
