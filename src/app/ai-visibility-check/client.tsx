@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { AIVisibilityWidget } from '@/components/lp/AIVisibilityWidget';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -26,13 +27,16 @@ export default function AIVisibilityClient() {
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed mb-10">
             Your customers are asking ChatGPT, Perplexity, and Google AI who to hire. We&apos;ll check if you&apos;re being recommended — for free.
           </p>
-          <Link href="/ai-search-optimization#lead-form">
+          <a href="#ai-widget">
             <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-              Get My Free AI Visibility Audit
+              Run The Free Check Now
             </LiquidButton>
-          </Link>
-          <p className="text-sm text-muted-foreground/50 font-medium mt-4">Takes 2 minutes. We&apos;ll send your report within 24 hours.</p>
+          </a>
+          <p className="text-sm text-muted-foreground/50 font-medium mt-4">Live test, ~20 seconds. No email required to see your results.</p>
         </motion.div>
+
+        {/* Live AI visibility widget */}
+        <AIVisibilityWidget ctaHref="/ai-search-optimization#lead-form" />
 
         {/* What we check */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}

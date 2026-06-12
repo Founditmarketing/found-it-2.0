@@ -123,6 +123,15 @@ export function SecretContactForm() {
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                            {/* Honeypot — invisible to humans, bots auto-fill it and get silently dropped */}
+                            <input
+                                type="text"
+                                name="hp"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                aria-hidden="true"
+                                className="absolute -left-[9999px] top-0 h-px w-px opacity-0"
+                            />
                             <motion.div variants={itemVariants} className="space-y-4">
                                 <Label className="text-foreground font-black uppercase tracking-[0.2em] text-xs opacity-70">
                                     Business Information

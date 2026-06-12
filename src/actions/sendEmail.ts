@@ -1,9 +1,8 @@
 'use server';
 
 import { Resend } from 'resend';
+import { escapeHtml } from '@/lib/server/guards';
 
-// Initialize Resend with API Key
-// Initialize Resend with API Key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData: FormData) {
@@ -14,21 +13,26 @@ export async function sendEmail(formData: FormData) {
     const message = formData.get('message') as string;
     const problem = formData.get('problem') as string;
 
+    // Honeypot field — real users never fill it. Pretend success for bots.
+    if ((formData.get('hp') as string)?.trim()) {
+        return { success: true, data: null };
+    }
+
     try {
         const data = await resend.emails.send({
             from: 'Found It Marketing <contact@founditmarketing.com>',
-            to: ['trevor@founditmarketing.com'], // Replace with client email
+            to: ['trevor@founditmarketing.com'],
             subject: `New Lead: ${name} (${problem})`,
             html: `
         <h1>New Project Inquiry</h1>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Website:</strong> ${website}</p>
-        <p><strong>Revenue:</strong> ${revenue}</p>
-        <p><strong>Problem Area:</strong> ${problem}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Website:</strong> ${escapeHtml(website)}</p>
+        <p><strong>Revenue:</strong> ${escapeHtml(revenue)}</p>
+        <p><strong>Problem Area:</strong> ${escapeHtml(problem)}</p>
         <hr />
         <h3>Message:</h3>
-        <p>${message}</p>
+        <p>${escapeHtml(message).replace(/\n/g, '<br />')}</p>
       `,
         });
 

@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Check, X, Phone, ArrowRight, Loader2 } from 'lucide-react';
+import { Search, Check, X, Phone, ArrowRight, Loader2, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
-import { trackCallClick, trackAuditRequest } from '@/lib/analytics';
+import { trackCallClick, trackAuditRequest, trackLead } from '@/lib/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -58,6 +58,72 @@ function ScanAnimation() {
       />
       <p className="absolute bottom-2 inset-x-0 text-center text-[10px] font-black uppercase tracking-[0.3em] text-primary/80">
         Scanning speed · SEO · tracking
+      </p>
+    </div>
+  );
+}
+
+/** Email-gate under the results: sends the prospect a full report + captures the lead. */
+function EmailReport({ result }: { result: AuditResult }) {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const send = async () => {
+    const value = email.trim();
+    if (!value || status === 'sending') return;
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/instant-audit/report', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: value, result }),
+      });
+      if (!res.ok) throw new Error();
+      trackLead('instant_audit_report');
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'sent') {
+    return (
+      <div className="flex items-center justify-center gap-2 bg-green-500/10 border border-green-500/20 rounded-xl px-4 py-3.5 mb-6">
+        <Check className="w-4 h-4 text-green-500 shrink-0" />
+        <p className="text-sm font-bold text-green-400">Report sent — check your inbox.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-6">
+      <form
+        onSubmit={(e) => { e.preventDefault(); send(); }}
+        className="flex flex-col sm:flex-row items-stretch gap-2 bg-primary/[0.06] border border-primary/20 rounded-xl p-2"
+      >
+        <div className="flex items-center gap-2 flex-1 min-w-0 px-2">
+          <Mail className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@business.com"
+            aria-label="Email address for your full report"
+            className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground/50 font-bold text-sm py-2.5"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={status === 'sending' || !email.trim()}
+          className="shrink-0 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-5 py-3 rounded-lg text-xs disabled:opacity-50 hover:shadow-lg hover:shadow-primary/25 transition-shadow"
+        >
+          {status === 'sending' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Email Me The Full Report'}
+        </button>
+      </form>
+      <p className="text-[11px] text-muted-foreground/50 font-medium mt-2 px-1">
+        {status === 'error'
+          ? <span className="text-red-400 font-bold">Could not send — try again in a moment.</span>
+          : 'Free. No spam — just your full breakdown and what to fix first.'}
       </p>
     </div>
   );
@@ -215,6 +281,8 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
                 </div>
               ))}
             </div>
+
+            <EmailReport result={result} />
 
             <div className="border-t border-border/15 pt-5 flex flex-col sm:flex-row items-center gap-4">
               <p className="text-sm font-black uppercase italic tracking-tighter text-foreground flex-1 text-center sm:text-left">
