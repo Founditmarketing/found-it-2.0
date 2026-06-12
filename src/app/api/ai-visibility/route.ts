@@ -91,7 +91,7 @@ export async function POST(req: Request) {
 
 Below are ${questions.length} Q&A pairs from an AI assistant. For each pair, report:
 - targetMentioned: true if the answer refers to the target business (count close variants of the name as a match)
-- businessesNamed: every distinct real business name mentioned in the answer (not the target's industry or city, only business names)
+- businessesNamed: every distinct real, hireable company named in the answer. EXCLUDE directories, search/review platforms, government bodies, and chambers of commerce (e.g. Google, Google Maps, Yelp, Facebook, BBB, Angi, any Chamber of Commerce) — only actual businesses a customer could hire.
 
 ${questions.map((q, i) => `--- Pair ${i} ---\nQ: ${q}\nA: ${answers[i]}`).join('\n\n')}`,
       temperature: 0,
