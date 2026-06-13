@@ -61,9 +61,9 @@ export function LocalMarketingTriMetroContent() {
 
       <LPSplitHero
         badge="Alexandria · Lake Charles · Cenla"
-        headline="The Marketing Team You Can"
-        headlineAccent="Actually Drive To."
-        subheadline="Google Ads, websites, and SEO for Louisiana businesses — run by a named senior team in Alexandria, not a call center in another time zone. Book a call and meet the people spending your budget."
+        headline="Louisiana's Marketing Team."
+        headlineAccent="Not Another National Agency."
+        subheadline="Google Ads, websites, and SEO for local businesses — run by a named senior team right here in Alexandria, not a call center in another time zone. Book a call and meet the people spending your budget."
         highlight="First strategy session is free — at your office, anywhere in the tri-metro area."
         highlightIcon={Handshake}
         stats={[
