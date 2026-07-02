@@ -4,7 +4,8 @@ import { Play } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 /* Filmed client testimonials — compressed 720p copies in public/videos/.
-   Names match the footage exactly.
+   Names match the lower-thirds in the footage (fuller identities approved
+   by Trevor — stronger proof than first names alone).
    preload="none" + poster means zero video bytes load before a click. */
 const testimonials = [
   {
@@ -15,7 +16,7 @@ const testimonials = [
   },
   {
     id: 'byron',
-    title: 'Byron',
+    title: 'Byron — Red Dirt Tractor Supply',
     src: '/videos/byron-testimonial.mp4',
     poster: '/videos/byron-testimonial-poster.jpg',
   },
@@ -27,7 +28,7 @@ const testimonials = [
   },
   {
     id: 'lecaze',
-    title: 'Lecaze',
+    title: 'Justin Johnson — Lecaze Outdoor',
     src: '/videos/lecaze-testimonial.mp4',
     poster: '/videos/lecaze-testimonial-poster.jpg',
   },
