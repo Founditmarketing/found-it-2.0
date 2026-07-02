@@ -50,8 +50,8 @@ function DashboardMockup() {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-primary/60">Google Ads Dashboard</p>
-            <p className="text-xs text-muted-foreground/40 font-mono mt-0.5">Last 30 days</p>
+            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-primary">Google Ads Dashboard</p>
+            <p className="text-xs text-faint font-mono mt-0.5">Last 30 days</p>
           </div>
           <div className="flex gap-1">
             <div className="w-2 h-2 rounded-full bg-emerald-500/60" />
@@ -95,7 +95,7 @@ function DashboardMockup() {
               transition={{ delay: 1.6 + i * 0.1, duration: 0.5, ease }}
               className="bg-white/[0.03] border border-white/5 rounded-lg p-2 text-center"
             >
-              <p className="text-[9px] text-muted-foreground/40 font-bold uppercase">{s.label}</p>
+              <p className="text-[9px] text-faint font-bold uppercase">{s.label}</p>
               <p className="text-sm font-black text-foreground tracking-tight">{s.value}</p>
               <p className="text-[9px] font-bold text-emerald-400/80">{s.change}</p>
             </motion.div>
@@ -112,7 +112,7 @@ function DashboardMockup() {
           className="absolute bg-background/90 backdrop-blur-xl border border-primary/20 rounded-xl px-3 py-2 shadow-lg shadow-primary/5"
           style={{ left: m.x, top: m.y }}
         >
-          <p className="text-[8px] font-bold text-primary/60 uppercase">{m.label}</p>
+          <p className="text-[8px] font-bold text-primary uppercase">{m.label}</p>
           <p className="text-sm font-black text-foreground tracking-tight">{m.value}</p>
         </motion.div>
       ))}
@@ -143,7 +143,7 @@ export function GoogleAdsHero() {
                 </motion.h1>
               </div>
               <motion.p variants={fadeRise} className="text-base sm:text-lg md:text-xl text-white/70 font-medium mb-8 leading-relaxed max-w-xl">
-                We manage Google Ads for 250+ businesses across Louisiana, Texas, and beyond. Transparent reporting, weekly optimization, no long-term contracts. Talk to Trevor.
+                We manage Google Ads for local service businesses across Louisiana, Texas, and beyond. Transparent reporting, weekly optimization, no long-term contracts. Talk to Trevor.
               </motion.p>
               <motion.div variants={fadeRise}>
                 <Link href="#lp-form" className="w-full sm:w-auto inline-block">

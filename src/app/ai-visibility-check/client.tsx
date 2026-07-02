@@ -20,7 +20,7 @@ export default function AIVisibilityClient() {
       <div className="max-w-[800px] mx-auto px-6 relative z-10">
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-16">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">AI Visibility</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">AI Visibility</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             Does AI Recommend{' '}<span className="text-primary">Your Business?</span>
           </h1>
@@ -32,7 +32,7 @@ export default function AIVisibilityClient() {
               Run The Free Check Now
             </LiquidButton>
           </a>
-          <p className="text-sm text-muted-foreground/50 font-medium mt-4">Live test, ~20 seconds. No email required to see your results.</p>
+          <p className="text-sm text-faint font-medium mt-4">Live test, ~20 seconds. No email required to see your results.</p>
         </motion.div>
 
         {/* Live AI visibility widget */}

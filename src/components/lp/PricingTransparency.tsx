@@ -20,7 +20,7 @@ export function PricingTransparency() {
               <DollarSign className="w-8 h-8 text-primary" />
             </div>
 
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Investment</p>
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Investment</p>
 
             <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] mb-8 text-foreground">
               Transparent Pricing
@@ -33,12 +33,12 @@ export function PricingTransparency() {
               </div>
 
               <div className="bg-card/20 border border-border/20 rounded-2xl p-6">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-primary/60 mb-2">What&apos;s Included</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">What&apos;s Included</p>
                 <p className="text-foreground font-medium">Design, development, copywriting collaboration, launch, and <span className="text-primary font-bold">60 days of post-launch optimization</span>.</p>
               </div>
 
               <div className="bg-card/20 border border-border/20 rounded-2xl p-6">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-primary/60 mb-2">Ongoing Support</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Ongoing Support</p>
                 <p className="text-foreground font-medium">Monthly maintenance plans from <span className="text-primary font-bold">$250/mo</span> — includes content updates, security patches, and performance monitoring.</p>
               </div>
             </div>

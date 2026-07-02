@@ -260,7 +260,7 @@ export function GeoSimulatorSection() {
                   </p>
                 </div>
                 <div className="p-3 bg-muted/70 rounded">
-                  <p className="text-muted-foreground/50 text-xs">
+                  <p className="text-faint text-xs">
                     www.forbes.com/reviews
                   </p>
                   <p className="text-blue-400 text-sm font-medium">
@@ -269,7 +269,7 @@ export function GeoSimulatorSection() {
                   </p>
                 </div>
                 <div className="p-3 bg-muted/70 rounded">
-                  <p className="text-muted-foreground/50 text-xs">
+                  <p className="text-faint text-xs">
                     www.yourcompetitor.com
                   </p>
                   <p className="text-blue-400 text-sm font-medium">
@@ -277,7 +277,7 @@ export function GeoSimulatorSection() {
                   </p>
                 </div>
                 <div className="p-3 bg-muted/70 rounded opacity-50">
-                  <p className="text-muted-foreground/50 text-xs">
+                  <p className="text-faint text-xs">
                     www.random-listicle.net
                   </p>
                   <p className="text-blue-400 text-sm font-medium">

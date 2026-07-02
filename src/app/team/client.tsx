@@ -4,6 +4,7 @@ import { TextScramble } from '@/components/ui/TextScramble';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { User } from 'lucide-react';
+import { BUSINESS } from '@/lib/site';
 
 const teamMembers = [
   {
@@ -51,13 +52,13 @@ export default function TeamPage() {
         <div className="lg:grid lg:grid-cols-12 gap-12 mb-32 items-end">
           <div className="lg:col-span-8">
             <h1 className="text-oversized leading-[0.85] mb-8">
-              <TextScramble text="The Architects." delay={200} /><br />
+              <TextScramble text="Meet the Team." delay={200} /><br />
               <span className="text-primary">
-                <TextScramble text="Behind the Empire." delay={800} />
+                <TextScramble text="No Interns. No Handoffs." delay={800} />
               </span>
             </h1>
             <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
-              Algorithms don't build empires alone. Meet the specialized minds who engineer the data, train the models, and drive the revenue. 
+              These are the people who actually work on your account. When you call, one of them picks up — the same person running your ads or building your site. That's the whole pitch.
             </p>
           </div>
           <div className="hidden lg:block lg:col-span-4">
@@ -66,7 +67,7 @@ export default function TeamPage() {
                 TEAM SIZE
               </span>
               <p className="text-muted-foreground text-lg uppercase tracking-widest font-bold">
-                20+ Specialists
+                {teamMembers.length} Senior Specialists
               </p>
             </div>
           </div>
@@ -93,7 +94,7 @@ export default function TeamPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 ) : (
-                  <User className="w-1/3 h-1/3 text-muted-foreground/30 transition-transform duration-700 group-hover:scale-110" />
+                  <User className="w-1/3 h-1/3 text-faint transition-transform duration-700 group-hover:scale-110" />
                 )}
               </div>
               <div className="flex-1 flex flex-col justify-end text-center lg:text-left">
@@ -112,16 +113,16 @@ export default function TeamPage() {
           <div className="bg-card border border-border/50 p-12 lg:p-24 rounded-[4rem] text-center max-w-5xl mx-auto overflow-hidden relative shadow-2xl">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
             <h2 className="text-4xl lg:text-6xl font-black italic uppercase tracking-tighter mb-8 max-w-2xl mx-auto leading-tight">
-              Join the Vanguard of <span className="text-primary">Search.</span>
+              Think You Belong <span className="text-primary">Here?</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 max-w-xl mx-auto font-medium">
-              We're always looking for elite talent to join our Alexandria headquarters. If you speak data fluently, we want to talk.
+              We're a small senior team, and we like it that way. But if you're serious about this work and you're in (or near) Alexandria, introduce yourself.
             </p>
-            <a 
-              href="/contact" 
+            <a
+              href={`mailto:${BUSINESS.email}`}
               className="inline-flex items-center justify-center bg-primary text-primary-foreground font-black uppercase italic tracking-[0.2em] px-12 py-6 rounded-full hover:scale-105 transition-transform"
             >
-              View Open Positions
+              Email Trevor
             </a>
           </div>
         </div>

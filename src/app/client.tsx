@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useReducedMotion } from 'framer-motion';
 import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -10,10 +11,18 @@ import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 import { InstantAudit } from '@/components/landing/InstantAudit';
-import { RoasChart } from '@/components/landing/RoasChart';
-import { AWARD } from '@/lib/site';
+import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
+import { AWARD, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
 import { usePersonalization } from '@/lib/personalization';
+
+/* The ROAS chart only appears after a hover/tap on the first proof card, so
+   lazy-load it client-side — this keeps recharts (~100KB+) out of the initial
+   homepage bundle entirely. */
+const RoasChart = dynamic(
+  () => import('@/components/landing/RoasChart').then((m) => m.RoasChart),
+  { ssr: false }
+);
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -201,17 +210,20 @@ export default function HomePage() {
               </h1>
 
               {/* Subheadline */}
-              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
                 Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just a direct line to a senior strategist.
               </p>
 
-              {/* Revenue impact proof */}
-              <div className="opacity-0 animate-reveal-up-sm delay-300 flex justify-center mb-10">
+              {/* Revenue impact proof — canonical claim + methodology, always together */}
+              <div className="opacity-0 animate-reveal-up-sm delay-300 flex flex-col items-center gap-2.5 mb-10">
                 <span className="inline-flex items-center gap-2.5 bg-primary/10 border border-primary/20 rounded-full px-5 py-2.5">
                   <TrendingUp className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span className="text-sm sm:text-base font-bold text-white">
-                    <span className="text-primary font-black italic">$2.3B+</span> generated in client revenue
+                    <span className="text-primary font-black italic">{REVENUE_CLAIM.figure}</span> {REVENUE_CLAIM.label}
                   </span>
+                </span>
+                <span className="text-[11px] text-white/80 font-medium leading-snug max-w-md px-4">
+                  {REVENUE_CLAIM.methodology}
                 </span>
               </div>
 
@@ -219,11 +231,11 @@ export default function HomePage() {
               <div className="opacity-0 animate-reveal-up-sm delay-400">
                 <InstantAudit onStateChange={(s) => setAuditActive(s !== 'idle')} />
                 <div className="flex items-center justify-center gap-6 mt-6">
-                  <Link href="#services" className="text-xs font-black uppercase italic tracking-tighter text-white/50 hover:text-primary transition-colors">
+                  <Link href="#services" className="text-xs font-black uppercase italic tracking-tighter text-white/80 hover:text-primary transition-colors">
                     See What We Do ↓
                   </Link>
                   <span className="text-white/10 text-xs">|</span>
-                  <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-white/40 hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
+                  <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-white/80 hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
                     <Phone className="w-4 h-4" /> {phoneDisplay}
                   </a>
                 </div>
@@ -347,7 +359,7 @@ export default function HomePage() {
           >
             {/* Card header */}
             <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-7 lg:px-10 py-5 border-b border-border/10">
-              <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] opacity-60">Real Results</p>
+              <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] opacity-80">Real Results</p>
             </div>
 
             <div className="p-7 lg:p-10">
@@ -375,10 +387,10 @@ export default function HomePage() {
                     <p className="text-3xl lg:text-4xl font-black text-primary italic tracking-tighter drop-shadow-[0_0_15px_rgba(249,115,22,0.1)]">
                       {point.value}
                     </p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground/50 mt-1.5 mb-2.5">{point.label}</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-faint mt-1.5 mb-2.5">{point.label}</p>
                     <p className="text-[11px] text-muted-foreground/70 font-medium leading-relaxed">{point.detail}</p>
                     {i === 0 && (
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/60 mt-2">
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary mt-2">
                         {showChart ? 'Charted below' : 'Hover to chart it'}
                       </p>
                     )}
@@ -397,6 +409,13 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          PORTFOLIO STRIP — real client builds, links to /web-design#portfolio
+      ═══════════════════════════════════════════ */}
+      <div className="max-w-[1000px] mx-auto px-6">
+        <PortfolioStrip />
+      </div>
 
       {/* ═══════════════════════════════════════════
           MEET THE TEAM — trust band with real team photo
@@ -421,8 +440,8 @@ export default function HomePage() {
               </p>
               <div className="space-y-4 mb-8">
                 {[
-                  '13+ years in business, millions in managed ad spend',
-                  '2026 CLEDA Highest Traded Revenue Award winner',
+                  `${TRACK_RECORD.yearsInBusiness} years in business, ${TRACK_RECORD.adSpendManagedLong}`,
+                  `${AWARD.year} ${AWARD.label} Award winner`,
                   'A senior strategist on every account',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">

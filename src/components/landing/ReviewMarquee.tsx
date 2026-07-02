@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react';
 import { reviews, type Review } from '@/lib/reviews';
+import { TRACK_RECORD, LINKS } from '@/lib/site';
 
 function ReviewCard({ review }: { review: Review }) {
   return (
@@ -11,7 +12,7 @@ function ReviewCard({ review }: { review: Review }) {
           ))}
         </div>
         {/* Google glyph */}
-        <span aria-hidden className="text-[11px] font-black tracking-tight text-muted-foreground/50">
+        <span aria-hidden className="text-[11px] font-black tracking-tight text-faint">
           <span className="text-[#4285F4]">G</span>
           <span className="text-[#EA4335]">o</span>
           <span className="text-[#FBBC05]">o</span>
@@ -50,6 +51,20 @@ export function ReviewMarquee() {
   const rowOne = reviews.slice(0, mid);
   const rowTwo = reviews.slice(mid);
 
+  // Config-gated: the rating links out only once the GBP review URL is set in site.ts.
+  const googleReviewUrl: string = LINKS.googleBusinessProfile;
+
+  const ratingBadge = (
+    <>
+      <div className="flex gap-0.5">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} className="w-5 h-5 text-primary fill-primary drop-shadow-[0_0_8px_rgba(255,85,0,0.5)]" />
+        ))}
+      </div>
+      <span className="text-sm text-muted-foreground font-bold">{TRACK_RECORD.googleRating} on Google</span>
+    </>
+  );
+
   return (
     <section className="relative py-16 lg:py-28 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-6 mb-12 text-center">
@@ -57,14 +72,19 @@ export function ReviewMarquee() {
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-4">
           What Our Clients Say
         </h2>
-        <div className="flex items-center justify-center gap-2">
-          <div className="flex gap-0.5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-primary fill-primary drop-shadow-[0_0_8px_rgba(255,85,0,0.5)]" />
-            ))}
-          </div>
-          <span className="text-sm text-muted-foreground font-bold">5.0 on Google</span>
-        </div>
+        {googleReviewUrl ? (
+          <a
+            href={googleReviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Read our Google reviews — rated ${TRACK_RECORD.googleRating} out of 5`}
+            className="inline-flex items-center justify-center gap-2 hover:opacity-80 transition-opacity"
+          >
+            {ratingBadge}
+          </a>
+        ) : (
+          <div className="flex items-center justify-center gap-2">{ratingBadge}</div>
+        )}
       </div>
 
       {/* Edge-faded marquee track; hover anywhere to pause both rows */}

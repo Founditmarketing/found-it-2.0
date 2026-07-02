@@ -19,7 +19,7 @@ export function GEOPricing({ businessName }: GEOPricingProps) {
     <section className="relative py-20 lg:py-32">
       <div className="max-w-[1100px] mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: ease as any }} className="text-center mb-16">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Investment</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Investment</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">
             Transparent Pricing
           </h2>
@@ -34,8 +34,8 @@ export function GEOPricing({ businessName }: GEOPricingProps) {
               <Search className="w-6 h-6 text-blue-400" />
             </div>
             <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">Local SEO</h3>
-            <p className="text-4xl font-black text-foreground italic tracking-tighter mb-1">$1,200<span className="text-lg text-muted-foreground/60">/mo</span></p>
-            <p className="text-xs text-muted-foreground/60 font-bold mb-6">Starting at</p>
+            <p className="text-4xl font-black text-foreground italic tracking-tighter mb-1">$1,200<span className="text-lg text-faint">/mo</span></p>
+            <p className="text-xs text-faint font-bold mb-6">Starting at</p>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed">Google Business Profile, local citations, review management, and local content strategy.</p>
           </motion.div>
 
@@ -47,8 +47,8 @@ export function GEOPricing({ businessName }: GEOPricingProps) {
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">AI Search (GEO)</h3>
-            <p className="text-4xl font-black text-foreground italic tracking-tighter mb-1">$1,800<span className="text-lg text-muted-foreground/60">/mo</span></p>
-            <p className="text-xs text-muted-foreground/60 font-bold mb-6">Starting at</p>
+            <p className="text-4xl font-black text-foreground italic tracking-tighter mb-1">$1,800<span className="text-lg text-faint">/mo</span></p>
+            <p className="text-xs text-faint font-bold mb-6">Starting at</p>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed">Entity optimization, AI-citable content, structured data, and multi-platform AI visibility.</p>
           </motion.div>
 
@@ -61,8 +61,8 @@ export function GEOPricing({ businessName }: GEOPricingProps) {
               <Zap className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">SEO + GEO Bundle</h3>
-            <p className="text-4xl font-black text-primary italic tracking-tighter mb-1">$2,500<span className="text-lg text-muted-foreground/60">/mo</span></p>
-            <p className="text-xs text-muted-foreground/60 font-bold mb-6">Combined</p>
+            <p className="text-4xl font-black text-primary italic tracking-tighter mb-1">$2,500<span className="text-lg text-faint">/mo</span></p>
+            <p className="text-xs text-faint font-bold mb-6">Combined</p>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed">Complete local domination — traditional search + AI search. Most clients choose this.</p>
           </motion.div>
         </div>

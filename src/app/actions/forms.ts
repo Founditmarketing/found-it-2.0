@@ -4,12 +4,12 @@ import { sendEmail } from '@/actions/sendEmail';
 import { z } from 'zod';
 
 const contactFormSchema = z.object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
-    email: z.string().email('Invalid email address'),
-    website: z.string().url('Invalid website URL').optional().or(z.literal('')),
-    revenue: z.string().optional(),
-    message: z.string().min(1, 'Message is required'),
-    problem: z.string().optional(),
+    name: z.string().min(2, 'Name must be at least 2 characters').max(200),
+    email: z.string().email('Invalid email address').max(320),
+    website: z.string().url('Invalid website URL').max(500).optional().or(z.literal('')),
+    revenue: z.string().max(100).optional(),
+    message: z.string().min(1, 'Message is required').max(5000),
+    problem: z.string().max(200).optional(),
 });
 
 export async function submitContactForm(formData: FormData) {
@@ -74,15 +74,15 @@ export async function notifyFeasibilitySubmission(concept: string, score: number
 }
 
 const secretFormSchema = z.object({
-    businessName: z.string().min(2, 'Business Name is required'),
-    industry: z.string().min(2, 'Industry is required'),
-    name: z.string().min(2, 'Name is required'),
-    email: z.string().email('Invalid email address'),
-    phone: z.string().min(7, 'Phone number is required'),
-    state: z.string().min(2, 'State is required'),
-    jobsPerMonth: z.string(),
-    averageJobWorth: z.string(),
-    urgency: z.string(),
+    businessName: z.string().min(2, 'Business Name is required').max(200),
+    industry: z.string().min(2, 'Industry is required').max(200),
+    name: z.string().min(2, 'Name is required').max(200),
+    email: z.string().email('Invalid email address').max(320),
+    phone: z.string().min(7, 'Phone number is required').max(30),
+    state: z.string().min(2, 'State is required').max(50),
+    jobsPerMonth: z.string().max(50),
+    averageJobWorth: z.string().max(50),
+    urgency: z.string().max(10),
 });
 
 export async function submitSecretForm(formData: FormData) {

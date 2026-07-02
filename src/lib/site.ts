@@ -63,6 +63,29 @@ export const TRACK_RECORD = {
   googleRating: '4.9',
 } as const;
 
+/* ─── Client-revenue claim ───
+   ONE figure, everywhere, always with the methodology line nearby. Never pair
+   it with ad-spend numbers in a way that implies it all came from ads.
+   TODO(Trevor): confirm the figure or swap in the number you can document. */
+export const REVENUE_CLAIM = {
+  figure: '$2.3B+',
+  label: 'generated in client revenue',
+  methodology: 'Total tracked client revenue across all services — ads, web, SEO, and organic — since 2013.',
+} as const;
+
+/** The honest, attributed version of the 48-states stat. Never use the bare
+    "we operate in 48 states" framing — it is one client's shipping footprint. */
+export const STATES_CLAIM = 'Scaled one client to customers in 48 states.';
+
+/* ─── Config-gated links ───
+   Each renders on the site only when non-empty. Paste the real URL to enable. */
+export const LINKS = {
+  /** Calendly/booking URL — enables "pick a time" embeds on /contact and /thank-you. */
+  bookingCalendar: '',
+  /** Google Business Profile review link — makes the star rating clickable/verifiable. */
+  googleBusinessProfile: '',
+} as const;
+
 /* ─── Award / recognition ───
    Update the exact award name, issuer, and year when confirmed (specifics make
    it more credible to people and to AI/answer engines). */
@@ -115,6 +138,16 @@ export const AREA_SERVED: ServiceArea[] = [
   { type: 'State', name: 'Texas' },
   { type: 'State', name: 'Arkansas' },
 ];
+
+/** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */
+export const SERVICE_SHORT_LABELS: Record<string, string> = {
+  'google-ads-management': 'Google Ads',
+  'web-design': 'Web Design',
+  'ai-search-optimization': 'AI Search / SEO',
+  'social-media-management': 'Social Media',
+  'app-development': 'App Development',
+  'ai-marketing': 'AI Marketing',
+};
 
 export interface ServiceDef {
   name: string;

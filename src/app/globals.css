@@ -84,10 +84,6 @@
     @apply bg-background text-foreground relative;
   }
 
-  body {
-    @apply bg-background text-foreground relative;
-  }
-
   h1,
   h2,
   h3,
@@ -115,30 +111,46 @@
     @apply bg-card/40 backdrop-blur-md border border-border/50 shadow-2xl shadow-black/5;
   }
 
-  .prose {
-    @apply text-gray-800;
-  }
-
-  .prose h3 {
-    @apply text-3xl font-bold my-6 text-black;
-  }
-
-  .prose p {
-    @apply mb-6 leading-relaxed;
-  }
-
-  .prose ul {
-    @apply list-disc list-inside mb-6 pl-4 space-y-2;
-  }
-
-  .prose li {
-    @apply pl-2;
-  }
-
+  /* Article typography comes from @tailwindcss/typography (prose-invert on the
+     dark theme). Only brand accents live here — forcing text colors in this
+     layer is what made blog posts render black-on-black. */
   .prose a {
     @apply text-primary hover:underline;
   }
+
+  /* ── CONTRAST FLOOR: 4.5:1 (WCAG AA) ─────────────────────────────────────
+     All informational text — eyebrows, micro-labels, helper text, footer
+     links, timestamps — must measure at least 4.5:1 against its background.
+     On the pure-black dark theme that means text may never be darker than
+     ~hsl(0 0% 46%) (#757575 ≈ 4.6:1).
+
+     Tailwind opacity modifiers on text colors are the main way this floor
+     gets broken, because alpha over black multiplies straight down.
+     Measured on the dark theme:
+       text-muted-foreground/40 ≈ 2.1:1  FAIL
+       text-muted-foreground/50 ≈ 2.7:1  FAIL
+       text-muted-foreground/60 ≈ 3.4:1  FAIL
+       text-primary/40          ≈ 1.9:1  FAIL
+       text-primary/60          ≈ 3.0:1  FAIL
+       text-white/40            ≈ 2.6:1  FAIL
+       text-muted-foreground    ≈ 8.3:1  PASS (dark theme, full opacity)
+       text-primary             ≈ 7.2:1  PASS (on black)
+
+     Rule of thumb: for de-emphasized text use full-opacity
+     text-muted-foreground or the .text-faint utility (defined below) — never
+     an alpha modifier below /90 on a text color. Opacity modifiers are fine
+     for decorative, non-text elements (borders, gradients, dividers, icons
+     that repeat an adjacent label). Also: no informational text below 11px. */
 }
+
+/* ─── Utility: quietest text allowed (see contrast-floor note above) ───
+   Dark theme: #999 ≈ 7.4:1 on black; light theme: #6b6b6b ≈ 5.3:1 on
+   white — both above the 4.5:1 floor while still reading as secondary.
+   Use this instead of text-muted-foreground/NN alpha modifiers.
+   Unlayered on purpose: always emitted, and declared after the utilities
+   layer so it wins ties against text-color utilities. */
+.text-faint { color: hsl(0 0% 42%); }
+.dark .text-faint { color: hsl(0 0% 60%); }
 
 /* ─── Utility: hide scrollbar ─── */
 .no-scrollbar::-webkit-scrollbar { display: none; }

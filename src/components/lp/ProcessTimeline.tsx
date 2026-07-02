@@ -16,7 +16,7 @@ export function ProcessTimeline() {
     <section className="relative py-20 lg:py-32 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: ease as any }} className="text-center mb-16 lg:mb-24">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">The Timeline</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">The Timeline</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">Concept to Launch</h2>
         </motion.div>
 
@@ -34,7 +34,7 @@ export function ProcessTimeline() {
                 <div className="w-[104px] h-[104px] rounded-full bg-background border-2 border-primary/30 flex items-center justify-center mb-6 shadow-lg shadow-primary/5">
                   <span className="text-3xl font-black text-primary italic tracking-tighter">0{i + 1}</span>
                 </div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-2">{step.week}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">{step.week}</p>
                 <h3 className="text-lg font-black uppercase italic tracking-tighter mb-3 text-foreground">{step.title}</h3>
                 <p className="text-sm text-muted-foreground font-medium leading-relaxed">{step.description}</p>
               </motion.div>
@@ -53,7 +53,7 @@ export function ProcessTimeline() {
                 <div className="absolute -left-8 top-0 w-8 h-8 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center">
                   <span className="text-xs font-black text-primary">0{i + 1}</span>
                 </div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-1">{step.week}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-1">{step.week}</p>
                 <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">{step.title}</h3>
                 <p className="text-sm text-muted-foreground font-medium leading-relaxed">{step.description}</p>
               </motion.div>

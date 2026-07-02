@@ -7,8 +7,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { Clock } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -50,9 +55,9 @@ export function LakeCharlesWebDesignContent() {
         highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
         highlightIcon={Clock}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical build' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get a Free Concept Call"
         formSource="lp_web_design_lc"
@@ -63,25 +68,15 @@ export function LakeCharlesWebDesignContent() {
         heading="Southwest Louisiana owners"
         headingAccent="who trust us."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical time to launch' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'Great website rework and marketing for Area Wide Paving.',
-            name: 'Boo Wilkerson',
-            business: 'Area Wide Paving',
-          },
-          {
-            quote: 'Website came out great, actually better than I imagined! The process from start to finish was easy and smooth.',
-            name: 'Justin Morgan',
-          },
-          {
-            quote: 'He moves fast, communicates well, and delivers results. Their design and marketing have helped our business grow significantly.',
-            name: 'Creighton Harmon',
-          },
+          { quote: quoteBy('Boo Wilkerson'), name: 'Boo Wilkerson', business: 'Area Wide Paving' },
+          { quote: quoteBy('Justin Morgan'), name: 'Justin Morgan' },
+          { quote: quoteBy('Creighton Harmon'), name: 'Creighton Harmon' },
         ]}
       />
 

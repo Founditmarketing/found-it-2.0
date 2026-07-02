@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD } from '@/lib/site';
+import { TRACK_RECORD, REVENUE_CLAIM } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Google Ads Management for Local Businesses',
   description:
-    'Google Ads management from a team with 13+ years in marketing and millions in managed ad spend. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Alexandria, LA, serving 48 states.',
+    'Google Ads management from a team with 13+ years in marketing and millions in managed ad spend. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Based in Alexandria, LA.',
   alternates: { canonical: '/google-ads-management' },
   openGraph: {
     title: 'Google Ads Management for Local Businesses | Found It Marketing',
@@ -28,7 +28,7 @@ const data: PillarData = {
   headline: 'Google Ads That Make the Phone Ring,',
   headlineAccent: 'Not Just Burn Budget.',
   intro:
-    `Found It Marketing has managed marketing campaigns for ${TRACK_RECORD.yearsInBusiness} years and overseen ${TRACK_RECORD.adSpendManagedLong} — generating $2.3B+ in client revenue. We run Google Ads for local service businesses with weekly hands-on optimization, real conversion tracking, and reporting you can actually read. You own your account and data, always.`,
+    `Found It Marketing has managed marketing campaigns for ${TRACK_RECORD.yearsInBusiness} years and overseen ${TRACK_RECORD.adSpendManagedLong}. Across everything we do — ads, web, SEO, and organic — our clients have generated ${REVENUE_CLAIM.figure} in tracked revenue. We run Google Ads for local service businesses with weekly hands-on optimization, real conversion tracking, and reporting you can actually read. You own your account and data, always.`,
   ctaLabel: 'Get My Free Ad Audit',
   formSource: 'service_google_ads',
   formPageSlug: 'google-ads-management',
@@ -36,7 +36,7 @@ const data: PillarData = {
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
     { value: TRACK_RECORD.adSpendManaged, label: 'In Managed Ad Spend' },
-    { value: '$2.3B+', label: 'Client Revenue Generated' },
+    { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
     { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
   definitionHeading: 'What Is Google Ads Management?',

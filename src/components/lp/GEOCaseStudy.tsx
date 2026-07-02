@@ -13,7 +13,7 @@ export function GEOCaseStudy() {
           className="bg-card/15 backdrop-blur-2xl border border-border/20 rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl"
         >
           <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-8 lg:px-14 py-6 border-b border-border/10">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-60">Featured Case Study</p>
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">Featured Case Study</p>
           </div>
           <div className="p-8 lg:p-14 space-y-10">
             <h3 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground">
@@ -27,7 +27,7 @@ export function GEOCaseStudy() {
                   <AlertCircle className="w-4 h-4" /> Before GEO
                 </p>
                 <div className="bg-black/30 rounded-xl p-4 font-mono text-sm text-white/70 space-y-2 border border-white/5">
-                  <p className="text-white/40 text-xs">ChatGPT response:</p>
+                  <p className="text-white/80 text-xs">ChatGPT response:</p>
                   <p>&quot;Here are some well-regarded dermatology practices in Louisiana: <span className="text-white/30">[3 competitors listed, client not mentioned]</span>&quot;</p>
                 </div>
                 <p className="mt-3 text-xs text-red-400/60 font-bold">Not mentioned in any AI search results</p>
@@ -37,7 +37,7 @@ export function GEOCaseStudy() {
                   <CheckCircle2 className="w-4 h-4" /> After GEO (90 Days)
                 </p>
                 <div className="bg-black/30 rounded-xl p-4 font-mono text-sm text-white/70 space-y-2 border border-primary/10">
-                  <p className="text-white/40 text-xs">ChatGPT response:</p>
+                  <p className="text-white/80 text-xs">ChatGPT response:</p>
                   <p>&quot;One highly recommended option is <span className="text-primary font-bold">[Client Practice]</span>, known for their advanced treatments and excellent patient reviews...&quot;</p>
                 </div>
                 <p className="mt-3 text-xs text-primary/80 font-bold">Cited in 4 of 5 AI search queries</p>
@@ -55,7 +55,7 @@ export function GEOCaseStudy() {
                   className="bg-primary/5 border border-primary/10 rounded-2xl p-4 lg:p-6 text-center"
                 >
                   <p className="text-2xl lg:text-4xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 mt-1">{stat.label}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-faint mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

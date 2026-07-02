@@ -124,7 +124,7 @@ function ContactSectionInner() {
             <div className="lg:sticky lg:top-48">
               <div className="bg-card/30 backdrop-blur-xl border border-border/50 p-8 lg:p-12 rounded-[2rem] lg:rounded-[4rem] shadow-2xl overflow-hidden relative group">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <h3 className="text-primary font-mono text-xl font-black uppercase tracking-[0.3em] mb-8 opacity-60">
+                <h3 className="text-primary font-mono text-xl font-black uppercase tracking-[0.3em] mb-8 opacity-80">
                   Response Protocol
                 </h3>
                 <div className="space-y-10 relative z-10">

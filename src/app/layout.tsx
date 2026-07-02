@@ -30,9 +30,6 @@ export const metadata: Metadata = {
     'real estate marketing',
     'Found It Marketing',
   ],
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

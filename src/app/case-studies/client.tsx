@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
+import { VideoTestimonials } from '@/components/portfolio/VideoTestimonials';
+import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
@@ -116,7 +118,7 @@ export default function CaseStudiesPage() {
           transition={{ duration: 0.8, ease: ease as any }}
           className="mb-16"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Case Studies</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Case Studies</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             Real Results.{' '}
             <span className="text-primary">Real Businesses.</span>
@@ -140,7 +142,7 @@ export default function CaseStudiesPage() {
               {/* Header */}
               <div className="px-6 lg:px-8 py-4 border-b border-border/10 flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-primary/60">{study.industry}</span>
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{study.industry}</span>
                   <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{study.client}</h3>
                 </div>
                 <p className="text-xs text-muted-foreground font-bold italic hidden sm:block max-w-[200px] text-right">{study.result}</p>
@@ -153,7 +155,7 @@ export default function CaseStudiesPage() {
                   {study.stats.map((stat, j) => (
                     <div key={j} className="bg-primary/5 border border-primary/10 rounded-xl px-4 py-3 text-center min-w-[100px]">
                       <p className="text-xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                      <p className="text-[9px] font-black uppercase tracking-[0.15em] text-muted-foreground/60">{stat.label}</p>
+                      <p className="text-[9px] font-black uppercase tracking-[0.15em] text-faint">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -161,6 +163,12 @@ export default function CaseStudiesPage() {
             </motion.div>
           ))}
         </div>
+
+        {/* Filmed client testimonials — click-to-play, no video bytes until pressed */}
+        <VideoTestimonials />
+
+        {/* Proof strip: real client builds, links to the /web-design portfolio */}
+        <PortfolioStrip />
 
         {/* CTA */}
         <motion.div
@@ -178,7 +186,7 @@ export default function CaseStudiesPage() {
             Talk to Trevor. 15 minutes. He&apos;ll tell you exactly what he&apos;d do for your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/lp/google-ads-management#lp-form">
+            <Link href="/contact">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Book a Free Call
               </LiquidButton>

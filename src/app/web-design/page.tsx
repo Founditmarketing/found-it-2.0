@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD } from '@/lib/site';
+import { PortfolioGallery } from '@/components/portfolio/PortfolioGallery';
+import { TRACK_RECORD, AWARD } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Web Design & Development for Local Businesses',
   description:
-    'Custom, conversion-focused web design built on Next.js by a team with 13+ years in marketing. Fast, mobile-first websites that turn visitors into calls — and you own the code. Alexandria, LA, serving 48 states.',
+    'Custom, conversion-focused web design built on Next.js by a team with 13+ years in marketing. Fast, mobile-first websites that turn visitors into calls — and you own the code. Alexandria, Louisiana — see 12 live client builds.',
   alternates: { canonical: '/web-design' },
   openGraph: {
     title: 'Web Design & Development for Local Businesses | Found It Marketing',
@@ -28,7 +29,7 @@ const data: PillarData = {
   headline: 'Websites That Turn Visitors',
   headlineAccent: 'Into Phone Calls.',
   intro:
-    `Found It Marketing builds custom, conversion-focused websites on modern technology — not slow, templated themes. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind every build, we design for one outcome: turning visitors into calls and booked appointments. And you own everything: the code, the domain, and the hosting.`,
+    `Found It Marketing builds custom, conversion-focused websites on modern technology — not slow, templated themes. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind every build, we design for one outcome: turning visitors into calls and booked appointments. And you own everything: the code, the domain, and the hosting. The proof is on this page — 12 live client sites you can click into right now.`,
   ctaLabel: 'Get My Free Concept Call',
   formSource: 'service_web_design',
   formPageSlug: 'web-design',
@@ -36,8 +37,8 @@ const data: PillarData = {
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
     { value: '2 Wk', label: 'Typical Launch' },
-    { value: '$2.3B+', label: 'Client Revenue Generated' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
+    { value: TRACK_RECORD.googleRating, label: 'Google Rating' },
+    { value: '12', label: 'Live Builds Below' },
   ],
   definitionHeading: 'What Makes a Website "Convert"?',
   definition:
@@ -92,7 +93,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience informing every design decision.`,
-    '2026 CLEDA Highest Traded Revenue Award winner.',
+    `${AWARD.year} ${AWARD.label} Award winner.`,
     'You own the code, domain, and hosting — no lock-in, no hostage situations.',
     'Conversion-first design: built to generate leads, not just win design awards.',
     'Firm launch timelines — if we miss the date we promise, we take $500 off the invoice.',
@@ -114,5 +115,10 @@ const data: PillarData = {
 };
 
 export default function WebDesignPillar() {
-  return <ServicePillar data={data} />;
+  return (
+    <>
+      <ServicePillar data={data} />
+      <PortfolioGallery />
+    </>
+  );
 }

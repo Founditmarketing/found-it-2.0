@@ -24,9 +24,10 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
 
   return (
     <SmoothScrollProvider>
-      <div className="relative z-20">
-        <Header />
-      </div>
+      {/* No wrapper: a z-indexed wrapper creates a stacking context that caps
+          the fixed header AND its mobile menu (z-[160]) at the wrapper's level,
+          letting the z-40 chat launcher paint over the open menu. */}
+      <Header />
       <ClientBackground />
       <div className="relative z-10 flex flex-col min-h-screen">
         {children}

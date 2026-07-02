@@ -3,7 +3,7 @@ import ContactClient from './client';
 
 export const metadata: Metadata = {
   title: 'Contact | Call Trevor',
-  description: 'Book a free 15-minute call or reach us directly. Alexandria, LA. No pitch, no commitment.',
+  description: 'Call Trevor directly or send a message — he calls back, usually within 2 hours. Alexandria, LA. No pitch, no commitment.',
 };
 
 export default function ContactPage() {

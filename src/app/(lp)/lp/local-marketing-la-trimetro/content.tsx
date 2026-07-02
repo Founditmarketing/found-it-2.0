@@ -8,8 +8,13 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { MapPin, Handshake } from 'lucide-react';
 import { staff } from '@/lib/team';
+import { AWARD, TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -67,9 +72,9 @@ export function LocalMarketingTriMetroContent() {
         highlight="First strategy session is free — at your office, anywhere in the tri-metro area."
         highlightIcon={Handshake}
         stats={[
-          { value: '13+', label: 'Years in Louisiana' },
-          { value: '250+', label: 'Local businesses' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in Louisiana' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Book My Free Strategy Call"
         formSource="lp_local_trimetro"
@@ -80,24 +85,15 @@ export function LocalMarketingTriMetroContent() {
         heading="Louisiana owners,"
         headingAccent="not logos on a slide deck."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years in business' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '2026', label: 'CLEDA award winner' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in business' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: AWARD.year, label: 'CLEDA award winner' },
         ]}
         testimonials={[
-          {
-            quote: 'Excellent marketing company. Several reasons, but number 1 is results. Trevor got my phone ringing.',
-            name: 'David Roshto',
-          },
-          {
-            quote: 'The guys over at Found It Marketing are great — they come to me directly to make sure I\u2019m taken care of and issues are solved.',
-            name: 'Sky',
-          },
-          {
-            quote: 'Great customer service. So many more clients, and the website looks amazing. Thank you Trevor and the team!',
-            name: 'Santos Mendez',
-          },
+          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
+          { quote: quoteBy('Sky'), name: 'Sky' },
+          { quote: quoteBy('Santos Mendez'), name: 'Santos Mendez' },
         ]}
       />
 

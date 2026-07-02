@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { TRACK_RECORD } from '@/lib/site';
 
 const liquidEasing = [0.16, 1, 0.3, 1] as const;
 
@@ -9,10 +10,10 @@ interface TrustBarProps {
 }
 
 const defaultStats = [
-  { value: '250+', label: 'Campaigns Managed' },
-  { value: '13+', label: 'Years in Business' },
-  { value: '4.9★', label: 'Client Satisfaction' },
-  { value: '48', label: 'States Served' },
+  { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
+  { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
+  { value: `${TRACK_RECORD.googleRating}★`, label: 'Google Rating' },
+  { value: '0', label: 'Long-Term Contracts' },
 ];
 
 export function TrustBar({ stats = defaultStats }: TrustBarProps) {
@@ -38,7 +39,7 @@ export function TrustBar({ stats = defaultStats }: TrustBarProps) {
               <p className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary italic tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(249,115,22,0.15)] group-hover:drop-shadow-[0_0_30px_rgba(249,115,22,0.3)] transition-all duration-500">
                 {stat.value}
               </p>
-              <p className="mt-2 text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-muted-foreground/60">
+              <p className="mt-2 text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-faint">
                 {stat.label}
               </p>
             </motion.div>

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib/schema';
-import { BUSINESS } from '@/lib/site';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { ExitIntent } from '@/components/lp/ExitIntent';
 import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
+import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
+import { REVENUE_CLAIM, STATES_CLAIM, TRACK_RECORD } from '@/lib/site';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -63,6 +64,24 @@ export interface PillarData {
 
 export function ServicePillar({ data }: { data: PillarData }) {
   const ctaHref = data.ctaHref || '#lead-form';
+
+  /* ── Stat-bar truth pass ──
+     Normalize the numbers every pillar shows to the canonical constants:
+     - The revenue figure always comes from REVENUE_CLAIM and always carries
+       its methodology line (never imply it all came from ad spend).
+     - The bare "states we operate in" framing is banned — the 48 is one
+       client's shipping footprint, so it renders attributed via STATES_CLAIM. */
+  const stats = data.stats.map((s) => {
+    if (s.value.includes('2.3B') || s.value === REVENUE_CLAIM.figure) {
+      return { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated*' };
+    }
+    if (/states/i.test(s.label)) {
+      return { value: TRACK_RECORD.statesServed, label: 'States Reached†' };
+    }
+    return s;
+  });
+  const hasRevenueStat = stats.some((s) => s.value === REVENUE_CLAIM.figure);
+  const hasStatesStat = stats.some((s) => s.label === 'States Reached†');
   const serviceSchema = buildServiceSchema({
     name: data.name,
     serviceType: data.serviceType,
@@ -88,16 +107,16 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
 
-        <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
+        <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-faint">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-          <span className="mx-2 text-muted-foreground/30">/</span>
+          <span className="mx-2 text-faint">/</span>
           <span className="text-foreground">{data.name}</span>
         </nav>
 
         {/* Hero */}
         <header className="mb-14">
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-60">{data.eyebrow}</p>
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
             <PersonalizedChip />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
@@ -119,20 +138,32 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Instant site scan */}
         <section aria-label="Free instant site scan" className="mb-16">
-          <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-muted-foreground/50 mb-4">
+          <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-faint mb-4">
             Free 10-Second Site Scan
           </p>
           <InstantAudit />
         </section>
 
         {/* Stats */}
-        <section aria-label="Track record" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
-          {data.stats.map((s) => (
-            <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
-              <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
-              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground/60 mt-1">{s.label}</p>
+        <section aria-label="Track record" className="mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
+                <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          {(hasRevenueStat || hasStatesStat) && (
+            <div className="mt-3 space-y-1 text-center">
+              {hasRevenueStat && (
+                <p className="text-[11px] text-faint font-medium">*{REVENUE_CLAIM.methodology}</p>
+              )}
+              {hasStatesStat && (
+                <p className="text-[11px] text-faint font-medium">†{STATES_CLAIM}</p>
+              )}
             </div>
-          ))}
+          )}
         </section>
 
         {/* Definition — answer-first for AI Overviews */}
@@ -223,7 +254,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 {data.result.stats.map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-2xl sm:text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
-                    <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground/60 mt-1">{s.label}</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -285,8 +316,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">{data.finalCtaSub}</p>
               <p className="text-sm text-muted-foreground">
-                Prefer to talk? Call{' '}
-                <a href={`tel:${BUSINESS.telephone}`} className="text-primary font-bold">{BUSINESS.telephone}</a>{' '}
+                Prefer to talk? Call <TrackedPhoneLink />{' '}
                 or{' '}
                 <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
               </p>

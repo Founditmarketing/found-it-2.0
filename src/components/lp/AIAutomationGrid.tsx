@@ -77,7 +77,7 @@ export function AIAutomationGrid({
           transition={{ duration: 0.8, ease: ease as any }}
           className="text-center mb-12 lg:mb-16 max-w-2xl mx-auto"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             {eyebrow}
           </p>
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-5">

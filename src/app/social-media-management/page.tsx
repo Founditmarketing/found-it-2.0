@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD } from '@/lib/site';
+import { TRACK_RECORD, REVENUE_CLAIM } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Social Media Management for Local Businesses',
@@ -36,7 +36,7 @@ const data: PillarData = {
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
     { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
-    { value: '$2.3B+', label: 'Client Revenue Generated' },
+    { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
     { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
   definitionHeading: 'What Does Social Media Management Actually Do?',

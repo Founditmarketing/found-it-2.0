@@ -9,34 +9,90 @@ import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+/* Fee structures below use only the approved numbers: Ads ($1,500–$5,000/mo
+   typical ad spend + flat management fee; $500-wasted-spend-or-$50-gift-card
+   audit guarantee), web design (flat quote, 60 days free post-launch
+   optimization, maintenance from $250/mo), social (flat monthly), apps (fixed
+   price after a free blueprint, 8–12 weeks), AI automation (flat monthly,
+   live in 1–2 weeks). No invented sticker prices. */
 const services = [
   {
     name: 'Google Ads Management',
-    price: 'Custom Quote',
-    features: ['Weekly optimization', 'Real conversion tracking', 'Transparent reporting dashboard', 'You own your ad account'],
+    price: 'Flat Monthly Fee',
+    note: 'Most local businesses run $1,500–$5,000/mo in ad spend, paid straight to Google. Your management fee is flat, scoped to the account on the free audit.',
+    features: [
+      'Free audit first — if we can’t find $500+ in wasted spend, we send you a $50 gift card',
+      'Weekly optimization',
+      'Real conversion tracking',
+      'You own your ad account',
+    ],
     cta: 'Get a Free Audit',
-    href: '/google-ads-management',
+    detailsHref: '/google-ads-management',
   },
   {
     name: 'Custom Web Design',
-    price: 'Custom Quote',
-    features: ['Custom design — no templates', 'Mobile-first, fast-loading', '60 days free post-launch support', 'You own the code and domain'],
-    cta: 'Get a Free Concept Call',
-    href: '/web-design',
+    price: 'Flat Project Quote',
+    note: 'One flat build price up front — no hourly billing. You see the full number before we write a line of code.',
+    features: [
+      'Custom design — no templates',
+      '60 days free post-launch optimization',
+      'Maintenance from $250/month after launch',
+      'You own the code and domain',
+    ],
+    cta: 'Get a Flat Quote',
+    detailsHref: '/web-design',
   },
   {
     name: 'AI Search Optimization',
-    price: 'Custom Quote',
-    features: ['ChatGPT, Perplexity, Google AI', 'Monthly visibility tracking', 'Schema + entity optimization', 'Competitive AI audit'],
+    price: 'Flat Monthly Fee',
+    note: 'Scoped up front after your free AI visibility audit — the fee doesn’t move once it’s in writing.',
+    features: [
+      'ChatGPT, Perplexity, Google AI',
+      'Monthly visibility tracking',
+      'Schema + entity optimization',
+      'Competitive AI audit',
+    ],
     cta: 'Get a Free AI Audit',
-    href: '/ai-search-optimization',
+    detailsHref: '/ai-search-optimization',
   },
   {
     name: 'Social Media Management',
-    price: 'Custom Quote',
-    features: ['We create all content', 'You approve before posting', 'Paid + organic strategy', 'Monthly performance reports'],
-    cta: 'Get a Free Content Plan',
-    href: '/social-media-management',
+    price: 'Flat Monthly Fee',
+    note: 'One simple monthly price scoped to your platforms and volume — usually less than a part-time hire.',
+    features: [
+      'We create all content',
+      'You approve before posting',
+      'Paid + organic strategy',
+      'Monthly performance reports',
+    ],
+    cta: 'Get a Flat Quote',
+    detailsHref: '/social-media-management',
+  },
+  {
+    name: 'Custom App Development',
+    price: 'Fixed Project Price',
+    note: 'Fixed price after a free blueprint session — typically 8 to 12 weeks to launch.',
+    features: [
+      'Free blueprint before you spend a dime',
+      'Fixed price — no hourly creep',
+      'Typically 8–12 weeks to launch',
+      'You own 100% of the codebase',
+    ],
+    cta: 'Book a Free Blueprint',
+    detailsHref: '/app-development',
+  },
+  {
+    name: 'AI Marketing Automation',
+    price: 'Flat Monthly Fee',
+    note: 'Scoped at a free demo. Live in 1 to 2 weeks.',
+    features: [
+      'Instant lead follow-up',
+      'AI voice + text agents',
+      'Automated appointment setting',
+      'Free demo before you commit',
+    ],
+    cta: 'Book a Free Demo',
+    detailsHref: '/ai-marketing',
   },
 ];
 
@@ -47,27 +103,39 @@ export default function PricingClient() {
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
       </div>
-      <div className="max-w-[1000px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1100px] mx-auto px-6 relative z-10">
 
         {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Pricing</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Pricing</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            Know Exactly What{' '}
-            <span className="text-primary">You&apos;re Paying For.</span>
+            One Flat Fee.{' '}
+            <span className="text-primary">Scoped Up Front.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            Flat fees. No hidden costs. No long-term contracts. Month-to-month on everything. Cancel anytime.
+            Every service is a flat fee you see in writing before you pay a dime. No hourly billing. No hidden costs. No long-term contracts. Month-to-month on everything.
+          </p>
+        </motion.div>
+
+        {/* Why no sticker prices — the honest explainer */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: ease as any }}
+          className="max-w-2xl mx-auto text-center mb-14"
+        >
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed">
+            <span className="text-foreground font-bold">Why no price tags?</span> Because the right number depends on your market and your goals — a plumber in Alexandria doesn&apos;t pay what a law firm in Baton Rouge pays. We scope it on a free call, you get the exact flat fee in writing, and it doesn&apos;t change.
           </p>
         </motion.div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((svc, i) => (
             <motion.div
               key={i}
@@ -77,8 +145,9 @@ export default function PricingClient() {
               transition={{ delay: i * 0.08, duration: 0.6, ease: ease as any }}
               className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8 flex flex-col"
             >
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary/60 mb-2">{svc.name}</p>
-              <p className="text-2xl lg:text-3xl font-black text-foreground italic tracking-tighter mb-5">{svc.price}</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">{svc.name}</p>
+              <p className="text-2xl font-black text-foreground italic tracking-tighter mb-3">{svc.price}</p>
+              <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5">{svc.note}</p>
               <div className="space-y-3 flex-grow mb-6">
                 {svc.features.map((f, j) => (
                   <div key={j} className="flex items-start gap-3">
@@ -87,12 +156,18 @@ export default function PricingClient() {
                   </div>
                 ))}
               </div>
-              <Link href={svc.href}>
+              <Link href="/contact">
                 <motion.div whileTap={{ scale: 0.97 }}
                   className="w-full text-center font-black uppercase italic tracking-tighter py-3.5 rounded-xl text-sm bg-card/30 border border-border/20 text-foreground hover:border-primary/30 hover:text-primary transition-all flex items-center justify-center gap-2"
                 >
                   {svc.cta} <ArrowRight className="w-4 h-4" />
                 </motion.div>
+              </Link>
+              <Link
+                href={svc.detailsHref}
+                className="mt-3 text-center text-xs font-bold text-muted-foreground hover:text-primary transition-colors"
+              >
+                Service details →
               </Link>
             </motion.div>
           ))}
@@ -110,10 +185,11 @@ export default function PricingClient() {
           <div className="space-y-3">
             {[
               'No setup fees on ads management.',
-              'Web design is a one-time build cost. Maintenance plans start at $250/mo after launch.',
+              'Google Ads audit guarantee: if we can’t find at least $500 in wasted spend, we send you a $50 gift card.',
+              'Web design is a one-time build cost with 60 days of free post-launch optimization. Maintenance plans start at $250/mo.',
               'You pay ad spend directly to Google — we never mark it up or bundle it.',
+              'Apps are fixed-price after a free blueprint — typically 8 to 12 weeks to launch.',
               'Month-to-month on all services. Cancel with 30 days notice.',
-              'Custom quotes available for multi-service bundles.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-primary text-xs font-black mt-0.5">•</span>
@@ -136,7 +212,7 @@ export default function PricingClient() {
             <span className="text-primary">Ask Trevor.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            15-minute call. No pitch. He&apos;ll tell you what makes sense for your business and budget.
+            15-minute call. No pitch. He&apos;ll tell you what makes sense for your business and budget — and give you the exact flat number.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact">

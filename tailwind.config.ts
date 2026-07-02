@@ -123,6 +123,16 @@ const config = {
                     '0%': { opacity: '0' },
                     '100%': { opacity: '1' },
                 },
+                /* Header entrance — pure CSS so site chrome paints without JS. */
+                'header-in': {
+                    '0%': { opacity: '0', transform: 'translateY(-15px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                /* Floating-widget entrance (chat launcher) — CSS, not framer. */
+                'pop-in': {
+                    '0%': { opacity: '0', transform: 'scale(0.9)' },
+                    '100%': { opacity: '1', transform: 'scale(1)' },
+                },
                 marquee: {
                     '0%': { transform: 'translateX(0)' },
                     '100%': { transform: 'translateX(-50%)' },
@@ -145,6 +155,8 @@ const config = {
                 'reveal-up': 'reveal-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'reveal-up-sm': 'reveal-up-sm 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'fade-in': 'fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                'header-in': 'header-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both',
+                'pop-in': 'pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both',
                 marquee: 'marquee 50s linear infinite',
                 'marquee-reverse': 'marquee-reverse 50s linear infinite',
             },
@@ -152,6 +164,7 @@ const config = {
     },
     plugins: [
         require("tailwindcss-animate"),
+        require("@tailwindcss/typography"),
         function ({ addUtilities }: any) {
             const newUtilities = {
                 '.animation-delay-2000': {

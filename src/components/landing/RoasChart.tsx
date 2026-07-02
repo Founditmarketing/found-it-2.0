@@ -46,7 +46,7 @@ export function RoasChart() {
           <p className="text-xs font-black uppercase tracking-[0.25em] text-primary/80">
             The 10x Trajectory — scrub it
           </p>
-          <p className="text-[10px] text-muted-foreground/50 font-medium">
+          <p className="text-[10px] text-faint font-medium">
             Illustrative monthly curve of a real client outcome
           </p>
         </div>

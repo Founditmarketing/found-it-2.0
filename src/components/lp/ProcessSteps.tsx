@@ -51,7 +51,7 @@ export function ProcessSteps({
           transition={{ duration: 0.8, ease: ease as any }}
           className="text-center mb-16 lg:mb-24"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             The Process
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">

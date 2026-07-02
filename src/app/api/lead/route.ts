@@ -33,15 +33,18 @@ const FIELD_LABELS: Record<string, string> = {
 
 export async function POST(req: Request) {
   try {
-    if (!rateLimit(`lead:${clientIp(req)}`, 6, 60_000)) {
-      return NextResponse.json({ error: 'Too many requests.' }, { status: 429 });
-    }
-
     const parsed = leadSchema.safeParse(await req.json());
     if (!parsed.success) {
       return NextResponse.json({ error: 'Invalid lead payload.' }, { status: 400 });
     }
     const lead = parsed.data;
+
+    // Automatic scan captures get their own budget — they must never drain the
+    // bucket a real human needs for the contact/chat/local lead forms.
+    const bucket = lead.source === 'instant-audit-scan' ? 'lead-scan' : 'lead';
+    if (!rateLimit(`${bucket}:${clientIp(req)}`, 6, 60_000)) {
+      return NextResponse.json({ error: 'Too many requests.' }, { status: 429 });
+    }
 
     // Honeypot tripped — swallow silently so bots think it worked.
     if (lead.hp) return NextResponse.json({ ok: true });

@@ -28,9 +28,9 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
 
         {/* ── Breadcrumb ── */}
-        <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">
+        <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-faint">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-          <span className="mx-2 text-muted-foreground/30">/</span>
+          <span className="mx-2 text-faint">/</span>
           <span className="text-foreground">{data.name} Marketing</span>
         </nav>
 
@@ -41,7 +41,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           transition={{ duration: 0.8, ease }}
           className="mb-16"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">{data.name} Marketing</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">{data.name} Marketing</p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             {data.headline.split('.')[0]}
             {data.headline.includes('.') && <span className="text-primary">.{data.headline.split('.').slice(1).join('.')}</span>}
@@ -58,7 +58,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             <div className="flex items-center gap-4">
               <div className="bg-primary/10 border border-primary/15 rounded-xl px-4 py-2 text-center">
                 <p className="text-2xl font-black text-primary italic tracking-tighter">{data.heroStat.value}</p>
-                <p className="text-[9px] font-black uppercase tracking-[0.15em] text-muted-foreground/50">{data.heroStat.label}</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.15em] text-faint">{data.heroStat.label}</p>
               </div>
             </div>
           </div>

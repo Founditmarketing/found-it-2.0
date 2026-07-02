@@ -116,7 +116,7 @@ function PortfolioCard({
   onClick: () => void;
 }) {
   const gradient = gradients[index % gradients.length];
-  const badgeColor = verticalColors[item.vertical] || 'bg-white/10 text-white/60 border-white/20';
+  const badgeColor = verticalColors[item.vertical] || 'bg-white/10 text-white/80 border-white/20';
 
   return (
     <button
@@ -156,7 +156,7 @@ function CaseStudyModal({
   onClose: () => void;
 }) {
   const gradient = gradients[index % gradients.length];
-  const badgeColor = verticalColors[item.vertical] || 'bg-white/10 text-white/60 border-white/20';
+  const badgeColor = verticalColors[item.vertical] || 'bg-white/10 text-white/80 border-white/20';
 
   return (
     <>
@@ -202,7 +202,7 @@ function CaseStudyModal({
 
           {/* Results */}
           <div>
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary/60 mb-4">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary mb-4">
               Key Results
             </h4>
             <div className="space-y-3">
@@ -259,7 +259,7 @@ export function PortfolioMarquee({
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease }}
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-3 opacity-60">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-3 opacity-80">
             Our Work
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">

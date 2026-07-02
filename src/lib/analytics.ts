@@ -21,13 +21,14 @@ const GADS_CONVERSION_ID = process.env.NEXT_PUBLIC_GADS_CONVERSION_ID || '';
 const GADS_THANKYOU_SEND_TO = process.env.NEXT_PUBLIC_GADS_THANKYOU_SEND_TO || '';
 
 /* ─── Core Fire ─── */
+/* GA4 event only. Google Ads conversions are NEVER fired here — engagement
+   events (clicks, popup views, opens) polluting Ads conversion data steers
+   Smart Bidding toward non-leads. Ads conversions fire only from the explicit
+   lead-submission helpers below. */
 function fire(eventName: string, params?: Record<string, any>) {
   if (typeof window === 'undefined') return;
   if (window.gtag) {
     window.gtag('event', eventName, { ...(GA4_ID ? { send_to: GA4_ID } : {}), ...params });
-  }
-  if (window.gtag && GADS_CONVERSION_ID) {
-    window.gtag('event', 'conversion', { send_to: GADS_CONVERSION_ID, event_category: eventName, ...params });
   }
 }
 
@@ -83,15 +84,22 @@ export function trackCalendlyOpen() {
   fire('calendly_open', { event_category: 'engagement', event_label: 'calendly_embed' });
 }
 
-export function trackExitIntent() {
-  fire('exit_intent_capture', { event_category: 'conversion', event_label: 'exit_intent' });
+/**
+ * Popup DISPLAY is an engagement event, not a conversion. The old behavior
+ * fired the Google Ads "Exit Intent Capture" conversion (AW-17848789749/
+ * JUtjCM6G0K4cEPXV-75C) the moment the popup appeared — counting every
+ * desktop visitor who moused toward the tab bar as a conversion and polluting
+ * Smart Bidding. Real conversions fire from trackLead() on actual submission.
+ * Action item (Google Ads account): remove/repurpose that conversion action,
+ * or mark it a secondary action so it stops feeding bidding.
+ */
+export function trackExitIntentShown() {
+  fire('exit_intent_shown', { event_category: 'engagement', event_label: 'exit_intent' });
+}
 
-  // Google Ads "Exit Intent Capture" action expects this specific label.
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': 'AW-17848789749/JUtjCM6G0K4cEPXV-75C',
-    });
-  }
+/** User clicked the popup CTA — still engagement, not a lead. */
+export function trackExitIntentCTA() {
+  fire('exit_intent_cta_click', { event_category: 'engagement', event_label: 'exit_intent' });
 }
 
 export function trackCTAClick(ctaName: string) {

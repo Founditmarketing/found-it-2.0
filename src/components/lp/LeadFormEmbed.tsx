@@ -80,7 +80,7 @@ export function LeadFormEmbed({
         <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
       </div>
       {privacyNote && (
-        <p className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground/60 font-medium">
+        <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
           <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
           {privacyNote}
         </p>

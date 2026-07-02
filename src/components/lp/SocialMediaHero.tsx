@@ -30,7 +30,7 @@ function PhoneMockup() {
       <div className="bg-black/80 rounded-[2.5rem] p-3 border border-white/10 shadow-2xl">
         <div className="bg-background rounded-[2rem] overflow-hidden">
           {/* Status bar */}
-          <div className="flex justify-between items-center px-5 py-2 text-[10px] text-white/40 font-bold">
+          <div className="flex justify-between items-center px-5 py-2 text-[10px] text-white/80 font-bold">
             <span>9:41</span>
             <div className="w-20 h-5 bg-black rounded-full" />
             <span>●●●</span>
@@ -44,17 +44,17 @@ function PhoneMockup() {
           <motion.div key={activePost} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}
             className={`h-[220px] bg-gradient-to-br ${post.gradient} flex items-center justify-center`}
           >
-            <span className="text-white/60 text-sm font-black italic">Client Content</span>
+            <span className="text-white/80 text-sm font-black italic">Client Content</span>
           </motion.div>
           {/* Actions */}
           <div className="px-4 py-3 space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex gap-4">
                 <Heart className="w-5 h-5 text-red-400 fill-red-400" />
-                <MessageCircle className="w-5 h-5 text-white/60" />
-                <Send className="w-5 h-5 text-white/60" />
+                <MessageCircle className="w-5 h-5 text-white/80" />
+                <Send className="w-5 h-5 text-white/80" />
               </div>
-              <Bookmark className="w-5 h-5 text-white/60" />
+              <Bookmark className="w-5 h-5 text-white/80" />
             </div>
             <p className="text-xs font-bold text-white/80">{post.likes} likes</p>
           </div>
@@ -88,7 +88,7 @@ export function SocialMediaHero() {
                 </motion.h1>
               </div>
               <motion.p variants={fadeRise} className="text-base sm:text-lg text-white/70 font-medium mb-8 leading-relaxed max-w-xl">
-                Organic content, paid ads, and full-stack social strategy. We manage social for 100+ businesses across Louisiana and Texas.
+                Organic content, paid ads, and full-stack social strategy. We manage social for hundreds of local businesses across Louisiana and Texas.
               </motion.p>
               <motion.div variants={fadeRise}>
                 <Link href="#lp-form" className="w-full sm:w-auto inline-block">

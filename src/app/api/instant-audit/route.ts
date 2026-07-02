@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { rateLimit, clientIp } from '@/lib/server/guards';
 
 export const runtime = 'nodejs';
 export const maxDuration = 15;
@@ -26,10 +27,63 @@ function isSafeHostname(host: string): boolean {
   return true;
 }
 
+const MAX_HOPS = 3;
+const MAX_BYTES = 500_000;
+
+/**
+ * Fetch with redirects followed MANUALLY so every hop is re-validated against
+ * the private-network blocklist — redirect:'follow' would let a public URL
+ * bounce the request to localhost/private ranges (SSRF).
+ */
+async function safeFetch(startUrl: URL): Promise<{ res: Response; finalUrl: string } | null> {
+  let current = startUrl;
+  for (let hop = 0; hop <= MAX_HOPS; hop++) {
+    if (!/^https?:$/.test(current.protocol) || !isSafeHostname(current.hostname)) return null;
+    const res = await fetch(current.toString(), {
+      redirect: 'manual',
+      signal: AbortSignal.timeout(6500),
+      headers: {
+        'user-agent': 'Mozilla/5.0 (compatible; FoundItAuditBot/1.0; +https://founditmarketing.com)',
+        accept: 'text/html,application/xhtml+xml',
+      },
+    });
+    if (res.status >= 300 && res.status < 400) {
+      const loc = res.headers.get('location');
+      if (!loc) return null;
+      try { current = new URL(loc, current); } catch { return null; }
+      continue;
+    }
+    return { res, finalUrl: current.toString() };
+  }
+  return null;
+}
+
+/** Read at most maxBytes from the response body, then cancel the stream. */
+async function readCapped(res: Response, maxBytes: number): Promise<{ text: string; bytes: number }> {
+  const reader = res.body?.getReader();
+  if (!reader) return { text: '', bytes: 0 };
+  const chunks: Buffer[] = [];
+  let total = 0;
+  while (total < maxBytes) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(Buffer.from(value));
+    total += value.byteLength;
+  }
+  try { await reader.cancel(); } catch { /* already done */ }
+  return { text: Buffer.concat(chunks).toString('utf8'), bytes: total };
+}
+
 export async function POST(req: Request) {
   try {
+    // Free tool that makes outbound fetches — throttle per IP.
+    const ip = clientIp(req);
+    if (!rateLimit(`audit:${ip}`, 6, 60_000) || !rateLimit(`audit-day:${ip}`, 60, 86_400_000)) {
+      return NextResponse.json({ error: 'Too many scans. Try again in a minute.' }, { status: 429 });
+    }
+
     const { url } = await req.json();
-    if (!url || typeof url !== 'string') {
+    if (!url || typeof url !== 'string' || url.length > 500) {
       return NextResponse.json({ error: 'Missing URL' }, { status: 400 });
     }
 
@@ -44,27 +98,24 @@ export async function POST(req: Request) {
     }
 
     const started = Date.now();
-    let res: Response;
+    let fetched: { res: Response; finalUrl: string } | null;
     try {
-      res = await fetch(target.toString(), {
-        redirect: 'follow',
-        signal: AbortSignal.timeout(6500),
-        headers: {
-          'user-agent': 'Mozilla/5.0 (compatible; FoundItAuditBot/1.0; +https://founditmarketing.com)',
-          accept: 'text/html,application/xhtml+xml',
-        },
-      });
+      fetched = await safeFetch(target);
     } catch {
+      fetched = null;
+    }
+    if (!fetched) {
       return NextResponse.json(
         { error: 'We could not reach that site. Check the URL and try again.' },
         { status: 422 }
       );
     }
+    const { res } = fetched;
     const ttfbMs = Date.now() - started;
-    const raw = await res.text();
+    const { text: raw, bytes } = await readCapped(res, MAX_BYTES);
     const html = raw.slice(0, 400_000);
     const totalMs = Date.now() - started;
-    const sizeKB = Math.round(Buffer.byteLength(raw, 'utf8') / 1024);
+    const sizeKB = Math.round(bytes / 1024);
     const lower = html.toLowerCase();
 
     const pick = (re: RegExp) => {
@@ -78,7 +129,7 @@ export async function POST(req: Request) {
     const hasViewport = /name=["']viewport["']/i.test(html);
     const hasSchema = /application\/ld\+json/i.test(html);
     const hasOg = /property=["']og:title["']/i.test(html);
-    const isHttps = res.url ? res.url.startsWith('https://') : target.protocol === 'https:';
+    const isHttps = fetched.finalUrl.startsWith('https://');
 
     const hasGtag = lower.includes('googletagmanager.com/gtag') || lower.includes('gtag(');
     const hasGtm = lower.includes('googletagmanager.com/gtm.js') || /gtm-[a-z0-9]+/i.test(html);
@@ -170,7 +221,9 @@ export async function POST(req: Request) {
     const grade: 'green' | 'yellow' | 'red' = score >= 75 ? 'green' : score >= 45 ? 'yellow' : 'red';
 
     return NextResponse.json({
-      url: res.url || target.toString(),
+      // Clamped to the report endpoint's 500-char schema cap so a long
+      // redirect chain can't make the emailed-report submission fail.
+      url: fetched.finalUrl.slice(0, 500),
       scannedMs: totalMs,
       score,
       grade,

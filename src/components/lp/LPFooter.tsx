@@ -26,7 +26,7 @@ export function LPFooter() {
           </Link>
 
           {/* Legal */}
-          <div className="flex items-center gap-6 text-[9px] font-mono uppercase tracking-[0.4em] text-muted-foreground/40">
+          <div className="flex items-center gap-6 text-[9px] font-mono uppercase tracking-[0.4em] text-faint">
             <span>© {new Date().getFullYear()} Found It Marketing</span>
             <Link
               href="/privacy-policy"

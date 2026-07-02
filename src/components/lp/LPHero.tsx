@@ -152,8 +152,8 @@ export function LPHero({
               className="flex flex-wrap items-center gap-6 mt-8"
             >
               {badges.map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 text-white/50 text-sm">
-                  <badge.icon className="w-4 h-4 text-primary/60" />
+                <div key={i} className="flex items-center gap-2 text-white/80 text-sm">
+                  <badge.icon className="w-4 h-4 text-primary" />
                   <span className="font-bold uppercase tracking-wider text-xs">{badge.text}</span>
                 </div>
               ))}

@@ -1,21 +1,30 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const MotionButton = motion.button as any;
+const MotionSpan = motion.span as any;
 
 interface LiquidButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
 }
 
-export function LiquidButton({ children, className, type = "button", ...props }: LiquidButtonProps) {
+export function LiquidButton({ children, className, type = "button", onClick, disabled, ...props }: LiquidButtonProps) {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const buttonRef = useRef<HTMLElement>(null);
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Nearly every call site wraps this component in a <Link>/<a> purely for
+    // styling. Nesting a real <button> inside an anchor is invalid HTML and
+    // creates a double tab stop, so when the component has no button behavior
+    // of its own (no submit, no click handler, no disabled state) render a
+    // <span> and let the surrounding link provide the semantics and focus.
+    const isRealButton = type === 'submit' || Boolean(onClick) || disabled !== undefined;
+    const Tag = isRealButton ? MotionButton : MotionSpan;
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
         if (!buttonRef.current) return;
         const rect = buttonRef.current.getBoundingClientRect();
         setPosition({
@@ -25,8 +34,8 @@ export function LiquidButton({ children, className, type = "button", ...props }:
     };
 
     return (
-        <MotionButton
-            type={type}
+        <Tag
+            {...(isRealButton ? { type, onClick, disabled } : {})}
             ref={buttonRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
@@ -58,6 +67,6 @@ export function LiquidButton({ children, className, type = "button", ...props }:
                     mass: 0.5
                 }}
             />
-        </MotionButton>
+        </Tag>
     );
 }

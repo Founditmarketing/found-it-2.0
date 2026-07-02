@@ -106,7 +106,7 @@ function HumanLayerGate({ result, city }: { result: AuditResult; city: string | 
 
   if (status === 'sent') {
     return (
-      <div className="flex items-center justify-center gap-2 bg-green-500/10 border border-green-500/20 rounded-xl px-4 py-3.5 mb-6 text-center">
+      <div role="status" className="flex items-center justify-center gap-2 bg-green-500/10 border border-green-500/20 rounded-xl px-4 py-3.5 mb-6 text-center">
         <Check className="w-4 h-4 text-green-500 shrink-0" />
         <p className="text-sm font-bold text-green-400">
           On the way — check your inbox.{phone.trim() ? ' Trevor will text you what he finds in your market.' : ' Trevor eyeballs every scan by hand.'}
@@ -145,7 +145,7 @@ function HumanLayerGate({ result, city }: { result: AuditResult; city: string | 
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@business.com"
             aria-label="Email address for your full report"
-            className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground/50 font-bold text-sm py-2.5"
+            className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground font-bold text-base md:text-sm py-2.5"
           />
         </div>
         <div className="flex items-center gap-2 sm:w-[180px] bg-white/[0.04] border border-border/25 rounded-xl px-3 focus-within:border-primary/50 transition-colors">
@@ -157,7 +157,7 @@ function HumanLayerGate({ result, city }: { result: AuditResult; city: string | 
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Mobile (optional)"
             aria-label="Mobile number for a personal text from Trevor (optional)"
-            className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground/50 font-bold text-sm py-2.5"
+            className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground font-bold text-base md:text-sm py-2.5"
           />
         </div>
         <button
@@ -168,9 +168,9 @@ function HumanLayerGate({ result, city }: { result: AuditResult; city: string | 
           {status === 'sending' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Send My Full Breakdown'}
         </button>
       </form>
-      <p className="text-[11px] text-muted-foreground/50 font-medium px-5 sm:px-6 pb-4">
+      <p className="text-[11px] text-faint font-medium px-5 sm:px-6 pb-4">
         {status === 'error'
-          ? <span className="text-red-400 font-bold">Could not send — try again in a moment.</span>
+          ? <span role="alert" className="text-red-400 font-bold">Could not send — try again in a moment.</span>
           : 'Free. No spam, no drip campaign — one report, one personal follow-up.'}
       </p>
     </div>
@@ -194,7 +194,7 @@ function ScoreRing({ score, color }: { score: number; color: string }) {
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-3xl font-black italic tracking-tighter" style={{ color }}>{score}</span>
-        <span className="text-[8px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">/ 100</span>
+        <span className="text-[8px] font-black uppercase tracking-[0.2em] text-faint">/ 100</span>
       </div>
     </div>
   );
@@ -211,6 +211,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
   const [error, setError] = useState('');
   const [result, setResult] = useState<AuditResult | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const capturedDomains = useRef(new Set<string>());
   const { city } = usePersonalization();
 
   const setState = (s: AuditState) => {
@@ -227,6 +228,18 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
     setError('');
     setResult(null);
     trackAuditRequest('instant_audit_hero');
+    // Whoever scans a site almost always owns it — capture the domain as a lead
+    // even if they never leave an email. Fire-and-forget; never blocks the scan.
+    // Deduped per domain so retries after errors don't re-email Trevor.
+    const domain = value.toLowerCase().replace(/^https?:\/\//, '').split('/')[0];
+    if (!capturedDomains.current.has(domain)) {
+      capturedDomains.current.add(domain);
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ source: 'instant-audit-scan', website: value.slice(0, 300) }),
+      }).catch(() => {});
+    }
     const startedAt = Date.now();
     try {
       const res = await fetch('/api/instant-audit', {
@@ -271,7 +284,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
           onChange={(e) => setUrl(e.target.value)}
           placeholder="yourwebsite.com"
           aria-label="Your website URL"
-          className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground/50 font-bold text-base py-3"
+          className="flex-1 min-w-0 bg-transparent outline-none text-foreground placeholder:text-muted-foreground font-bold text-base py-3"
         />
         <button
           type="submit"
@@ -281,7 +294,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
           {state === 'scanning' ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Scan Free<ArrowRight className="w-4 h-4 hidden sm:block" /></>}
         </button>
       </form>
-      <p className="text-center text-xs text-muted-foreground/50 font-medium mt-3">
+      <p className="text-center text-xs text-faint font-medium mt-3">
         Enter your URL. See what your competitors already know about your site — in seconds.
       </p>
 
@@ -293,7 +306,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
         )}
 
         {state === 'error' && (
-          <motion.p key="err" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mt-4 text-center text-sm font-bold text-red-400">
+          <motion.p key="err" role="alert" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="mt-4 text-center text-sm font-bold text-red-400">
             {error}
           </motion.p>
         )}
@@ -304,6 +317,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
           return (
           <motion.div
             key="result"
+            role="status"
             initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -313,7 +327,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
             <div className="flex items-center gap-5 mb-6">
               <ScoreRing score={localized.score} color={GRADE[localized.grade].color} />
               <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/50 truncate">{localized.url}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-faint truncate">{localized.url}</p>
                 <p className="text-xl sm:text-2xl font-black uppercase italic tracking-tighter" style={{ color: GRADE[localized.grade].color }}>
                   {GRADE[localized.grade].label}
                 </p>

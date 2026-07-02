@@ -148,7 +148,7 @@ export function LeadMagnetSection() {
                           onChange={(e) =>
                             setFormData({ ...formData, name: e.target.value })
                           }
-                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/40 font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         />
                       </div>
 
@@ -165,7 +165,7 @@ export function LeadMagnetSection() {
                           onChange={(e) =>
                             setFormData({ ...formData, email: e.target.value })
                           }
-                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/40 font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         />
                       </div>
 
@@ -181,7 +181,7 @@ export function LeadMagnetSection() {
                           onChange={(e) =>
                             setFormData({ ...formData, phone: e.target.value })
                           }
-                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground/40 font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                          className="w-full bg-card border border-border/50 rounded-xl px-5 py-4 text-foreground placeholder:text-muted-foreground font-medium hover:border-primary/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         />
                       </div>
                     </div>

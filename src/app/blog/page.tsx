@@ -2,8 +2,9 @@ import { BlogList } from '@/components/blog/BlogList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'The Archives',
-    description: "Unapologetic insights into Generative Engine Optimization, High-Velocity Acquisition, and dominating the AI Search landscape.",
+    title: 'Marketing Insights for Louisiana Businesses',
+    description: "No-BS marketing advice for Louisiana business owners: Google Ads, SEO, AI search (GEO), web design, and social media strategies that make the phone ring.",
+    alternates: { canonical: '/blog' },
 };
 
 export default function BlogPage() {

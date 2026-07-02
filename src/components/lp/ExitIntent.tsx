@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
 import { X, Download, Zap, ArrowRight } from 'lucide-react';
-import { trackExitIntent } from '@/lib/analytics';
+import { trackExitIntentShown, trackExitIntentCTA } from '@/lib/analytics';
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -33,7 +33,7 @@ export function ExitIntent({
     if (hasShown) return;
     setShow(true);
     setHasShown(true);
-    trackExitIntent();
+    trackExitIntentShown();
     try {
       sessionStorage.setItem('fi_exit_shown', 'true');
     } catch {}
@@ -126,7 +126,7 @@ export function ExitIntent({
                 {/* Lead magnet card (optional) */}
                 {magnetTitle && (
                   <div className="bg-card/30 border border-border/20 rounded-2xl p-5 mb-6 text-left">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60 mb-2">
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">
                       Free Download
                     </p>
                     <p className="font-black text-foreground italic tracking-tight leading-snug">
@@ -139,14 +139,14 @@ export function ExitIntent({
                 {/* CTA */}
                 <a
                   href={ctaHref}
-                  onClick={() => setShow(false)}
+                  onClick={() => { trackExitIntentCTA(); setShow(false); }}
                   className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-4 rounded-xl text-sm hover:shadow-lg hover:shadow-primary/20 transition-shadow"
                 >
                   {ctaLabel}
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
-                <p className="text-[10px] text-muted-foreground/40 mt-4 uppercase tracking-widest">
+                <p className="text-[10px] text-faint mt-4 uppercase tracking-widest">
                   No spam. Instant access.
                 </p>
               </div>

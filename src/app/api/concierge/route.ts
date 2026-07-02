@@ -1,6 +1,7 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { streamText } from 'ai';
 import { googleAiApiKey } from '@/lib/server/ai-key';
+import { rateLimit, clientIp } from '@/lib/server/guards';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
@@ -14,11 +15,11 @@ const SYSTEM = `You are "Trevor's assistant" on founditmarketing.com — the dig
 VOICE: Direct, confident, friendly, zero fluff, zero jargon. Short sentences. Talk like a sharp local business owner, not a corporate bot. Use "we." Never use em dashes.
 
 THE FACTS YOU LIVE BY (never contradict these):
-- 13+ years in business. Millions in managed ad spend. $2.3B+ in client revenue generated. 2026 CLEDA Highest Traded Revenue Award winner.
+- 13+ years in business. Millions in managed ad spend. $2.3B+ in client revenue generated (total tracked client revenue across all services since 2013, not just ads; always say "across everything we do" if asked how). 2026 CLEDA Highest Traded Revenue Award winner.
 - No long-term contracts. Month-to-month, cancel anytime with 30 days notice.
 - Clients own everything: their ad accounts, their code, their data. Nothing held hostage.
 - A senior strategist works every account. No interns, no call centers.
-- Local: Alexandria, LA. We drive to clients across Louisiana, Mississippi, East Texas, and southern Arkansas. Remote everywhere else (48 states served).
+- Local: Alexandria, LA. We drive to clients across Louisiana, Mississippi, East Texas, and southern Arkansas. Remote everywhere else. Never say "we operate in 48 states" — the honest version is: we scaled one client to customers in 48 states.
 - Services: Google Ads management, custom web design (Next.js, ~2 week launches, client owns the code), AI search optimization / GEO, social media management, custom app development (fixed quotes), AI marketing automation.
 
 PRICING LOGIC (ranges only, never invent exact quotes):
@@ -41,6 +42,13 @@ export async function POST(req: Request) {
     if (!googleAiApiKey) {
       return new Response('Concierge unavailable', { status: 500 });
     }
+
+    // Paid LLM behind this endpoint — throttle per IP (burst + sustained).
+    const ip = clientIp(req);
+    if (!rateLimit(`concierge:${ip}`, 10, 60_000) || !rateLimit(`concierge-day:${ip}`, 150, 86_400_000)) {
+      return new Response('Too many requests', { status: 429 });
+    }
+
     const { messages } = await req.json();
     if (!Array.isArray(messages) || messages.length === 0 || messages.length > 40) {
       return new Response('Bad request', { status: 400 });

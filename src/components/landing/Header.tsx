@@ -8,9 +8,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Cpu, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { phoneHref as centralPhoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { trackCallClick } from '@/lib/analytics';
+import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -18,20 +20,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 /* ───────────────────────────── NAV DATA ───────────────────────────── */
 
-const navLinks = [
+interface NavSublink {
+  title: string;
+  href: string;
+  tag: string | null;
+}
+
+interface NavLink {
+  title: string;
+  href: string;
+  icon: LucideIcon;
+  description: string;
+  sublinks?: NavSublink[];
+}
+
+/** Short nav labels for the canonical service pillars (keyed by slug).
+    The set + order come from SERVICES in site.ts — same list the footer uses. */
+const serviceSublinks: NavSublink[] = SERVICES.map((s) => ({
+  title: SERVICE_SHORT_LABELS[s.slug] ?? s.name,
+  href: `/${s.slug}`,
+  tag: s.slug === 'app-development' || s.slug === 'ai-marketing' ? 'NEW' : null,
+}));
+
+const navLinks: NavLink[] = [
   {
     title: 'Services',
     href: '/#services',
     icon: TrendingUp,
     description: 'What we do for your business',
-    sublinks: [
-      { title: 'Google Ads', href: '/google-ads-management', tag: null },
-      { title: 'Web Design', href: '/web-design', tag: null },
-      { title: 'App Development', href: '/app-development', tag: 'NEW' },
-      { title: 'AI Marketing', href: '/ai-marketing', tag: 'NEW' },
-      { title: 'AI Search / SEO', href: '/ai-search-optimization', tag: null },
-      { title: 'Social Media', href: '/social-media-management', tag: null },
-    ],
+    sublinks: serviceSublinks,
   },
   {
     title: 'Industries',
@@ -54,6 +71,12 @@ const navLinks = [
     description: 'Real results for real businesses',
   },
   {
+    title: 'Pricing',
+    href: '/pricing',
+    icon: BadgeDollarSign,
+    description: 'What it costs. No games.',
+  },
+  {
     title: 'About',
     href: '#',
     icon: Users,
@@ -61,7 +84,6 @@ const navLinks = [
     sublinks: [
       { title: 'About Us', href: '/about', tag: null },
       { title: 'The Team', href: '/team', tag: null },
-      { title: 'Pricing', href: '/pricing', tag: null },
       { title: 'Blog', href: '/blog', tag: null },
     ],
   },
@@ -273,7 +295,7 @@ function MobileNavItem({
                   >
                     <span className="text-sm font-bold">{sublink.title}</span>
                     {sublink.tag && (
-                      <span className="text-[9px] uppercase tracking-widest font-black text-primary/60 bg-primary/10 px-2 py-0.5 rounded-full">
+                      <span className="text-[9px] uppercase tracking-widest font-black text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                         {sublink.tag}
                       </span>
                     )}
@@ -295,7 +317,6 @@ function MobileNavItem({
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [mounted, setMounted] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [secretMenuOpen, setSecretMenuOpen] = React.useState(false);
   const [copiedHref, setCopiedHref] = React.useState<string | null>(null);
@@ -328,7 +349,6 @@ export function Header() {
   const menuPanelRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -402,17 +422,12 @@ export function Header() {
     };
   }, [mobileMenuOpen]);
 
-  const phoneNumber = phoneDisplay;
-  const phoneHref = centralPhoneHref;
-
   return (
     <>
-      <motion.header
-        initial={{ y: -15, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      {/* CSS entrance (not framer-motion) so the header paints even before JS loads */}
+      <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid',
+          'fixed inset-x-0 top-0 z-50 w-full animate-header-in transition-all duration-700 ease-liquid',
           isScrolled
             ? 'h-16 lg:h-20 bg-black/80 backdrop-blur-xl border-b border-border/40'
             : 'h-20 lg:h-24 bg-transparent'
@@ -483,9 +498,9 @@ export function Header() {
                 className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
                 asChild
               >
-                <a href={mounted ? phoneHref : '#'} className={CALLRAIL_CLASS}>
+                <a href={phoneHref} onClick={() => trackCallClick()} className={CALLRAIL_CLASS}>
                   <Phone className="mr-2 h-4 w-4" />
-                  {mounted ? phoneNumber : '...'}
+                  {phoneDisplay}
                 </a>
               </Button>
               <Link href="/contact" className="hidden lg:block">
@@ -495,19 +510,32 @@ export function Header() {
               </Link>
             </div>
 
-            {/* ─── Mobile Hamburger ─── */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden relative z-[60] w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-nav-panel"
-            >
-              <HamburgerIcon isOpen={mobileMenuOpen} />
-            </button>
+            {/* ─── Mobile: tap-to-call + Hamburger ─── */}
+            <div className="lg:hidden relative z-[60] flex items-center gap-1">
+              <a
+                href={phoneHref}
+                onClick={() => trackCallClick()}
+                aria-label={`Call Found It Marketing at ${phoneDisplay}`}
+                className={cn(
+                  'w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95',
+                  CALLRAIL_CLASS
+                )}
+              >
+                <Phone className="w-5 h-5 text-primary" />
+              </a>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav-panel"
+              >
+                <HamburgerIcon isOpen={mobileMenuOpen} />
+              </button>
+            </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/*  MOBILE MENU — Full-screen immersive experience              */}
@@ -523,7 +551,7 @@ export function Header() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[160] bg-black/60 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -539,7 +567,7 @@ export function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed inset-y-0 right-0 z-[56] w-full max-w-[380px] bg-background/95 backdrop-blur-2xl border-l border-border/20 shadow-2xl shadow-black/50 lg:hidden flex flex-col"
+              className="fixed inset-y-0 right-0 z-[161] w-full max-w-[380px] bg-background/95 backdrop-blur-2xl border-l border-border/20 shadow-2xl shadow-black/50 lg:hidden flex flex-col"
             >
               {/* Decorative gradient */}
               <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/[0.06] to-transparent pointer-events-none" />
@@ -601,17 +629,20 @@ export function Header() {
 
                 {/* Phone */}
                 <a
-                  href={mounted ? phoneHref : '#'}
-                  onClick={() => setMobileMenuOpen(false)}
+                  href={phoneHref}
+                  onClick={() => {
+                    trackCallClick();
+                    setMobileMenuOpen(false);
+                  }}
                   className={`w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px] ${CALLRAIL_CLASS}`}
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  {mounted ? phoneNumber : '...'}
+                  {phoneDisplay}
                 </a>
 
                 {/* Copyright */}
                 <div className="flex items-center justify-center pt-1">
-                  <span className="text-[9px] text-muted-foreground/40 font-mono uppercase tracking-widest">
+                  <span className="text-[9px] text-faint font-mono uppercase tracking-widest">
                     © {new Date().getFullYear()} Found It
                   </span>
                 </div>
@@ -633,7 +664,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-[70] bg-black/80 backdrop-blur-md"
+              className="fixed inset-0 z-[170] bg-black/80 backdrop-blur-md"
               onClick={() => setSecretMenuOpen(false)}
             />
             <motion.div
@@ -645,7 +676,7 @@ export function Header() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease }}
-              className="fixed left-1/2 top-1/2 z-[71] w-[calc(100%-2rem)] max-w-[440px] -translate-x-1/2 -translate-y-1/2 bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
+              className="fixed left-1/2 top-1/2 z-[171] w-[calc(100%-2rem)] max-w-[440px] -translate-x-1/2 -translate-y-1/2 bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/[0.07] to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between px-6 pt-6 pb-4">
@@ -680,7 +711,7 @@ export function Header() {
                       className="flex-1 min-w-0"
                     >
                       <p className="text-sm font-bold text-foreground truncate">{lp.title}</p>
-                      <p className="text-[11px] text-muted-foreground/60 font-mono truncate">{lp.href}</p>
+                      <p className="text-[11px] text-faint font-mono truncate">{lp.href}</p>
                     </Link>
                     <button
                       onClick={() => copyUrl(lp.href)}

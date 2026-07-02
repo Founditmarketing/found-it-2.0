@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -30,10 +31,10 @@ interface SocialProofProps {
 }
 
 const defaultStats: StatBand[] = [
-  { value: '250+', label: 'Local businesses served' },
+  { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
   { value: '<5 sec', label: 'Lead follow-up speed' },
-  { value: '4.9★', label: 'Average client rating' },
-  { value: '46', label: 'States we operate in' },
+  { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+  { value: TRACK_RECORD.yearsInBusiness, label: 'Years in business' },
 ];
 
 function initials(name: string) {
@@ -87,7 +88,7 @@ export function SocialProof({
           transition={{ duration: 0.8, ease: ease as any }}
           className="text-center mb-12 lg:mb-16"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             {eyebrow}
           </p>
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground">
@@ -112,7 +113,7 @@ export function SocialProof({
               <p className="text-3xl lg:text-4xl font-black text-primary italic tracking-tighter leading-none">
                 {stat.value}
               </p>
-              <p className="text-[10px] lg:text-xs font-black uppercase tracking-[0.12em] text-muted-foreground/60 mt-2">
+              <p className="text-[10px] lg:text-xs font-black uppercase tracking-[0.12em] text-faint mt-2">
                 {stat.label}
               </p>
             </div>

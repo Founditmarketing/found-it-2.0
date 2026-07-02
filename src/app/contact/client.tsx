@@ -1,32 +1,39 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { LiquidButton } from '@/components/ui/LiquidButton';
+import { Phone, Mail, MapPin, Clock, CalendarCheck } from 'lucide-react';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { BUSINESS, LINKS } from '@/lib/site';
+import { ContactForm } from './ContactForm';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
+/** Config-gated booking calendar — renders only when a URL is set in site.ts. */
+const bookingUrl: string = LINKS.bookingCalendar;
+
+const fullAddress = `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}, ${BUSINESS.address.addressRegion} ${BUSINESS.address.postalCode}`;
+
 const contactMethods = [
   { icon: Phone, label: 'Call Trevor directly', value: phoneDisplay, href: phoneHref, onClick: () => trackCallClick(), className: CALLRAIL_CLASS },
-  { icon: Mail, label: 'Email', value: 'trevor@founditmarketing.com', href: 'mailto:trevor@founditmarketing.com' },
-  { icon: MapPin, label: 'Location', value: 'Alexandria, Louisiana' },
+  { icon: Mail, label: 'Email', value: BUSINESS.email, href: `mailto:${BUSINESS.email}` },
+  { icon: MapPin, label: 'Office', value: fullAddress },
   { icon: Clock, label: 'Response time', value: 'Usually within 2 hours' },
 ];
 
 export default function ContactClient() {
+  // NOTE: no Calendly listener here — GoogleTag registers one globally in the
+  // root layout; a second registration would double-count every booking.
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
       </div>
-      <div className="max-w-[800px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1080px] mx-auto px-6 relative z-10">
 
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-16">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Contact</p>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-12">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Contact</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
           </h1>
@@ -35,47 +42,73 @@ export default function ContactClient() {
           </p>
         </motion.div>
 
-        {/* Book a call CTA */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}
-          className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-8 lg:p-10 text-center mb-10"
+        {/* Prominent tap-to-call strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6, ease }}
+          className="mb-10"
         >
-          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-3">Fastest Way to Reach Us</h2>
-          <p className="text-sm text-muted-foreground font-medium mb-6">Pick a service page below and fill out the form. Trevor will call you back — usually within 2 hours.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {[
-              { label: 'Google Ads Audit', href: '/google-ads-management#lead-form' },
-              { label: 'Web Design Concept', href: '/web-design#lead-form' },
-              { label: 'AI Search Audit', href: '/ai-search-optimization#lead-form' },
-              { label: 'Social Media Plan', href: '/social-media-management#lead-form' },
-            ].map((item, i) => (
-              <Link key={i} href={item.href} className="group flex items-center justify-between bg-card/10 border border-border/15 rounded-xl px-5 py-4 hover:border-primary/25 transition-all">
-                <span className="text-sm font-bold text-foreground">{item.label}</span>
-                <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
-            ))}
-          </div>
+          <a
+            href={phoneHref}
+            onClick={() => trackCallClick()}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 bg-primary text-primary-foreground rounded-2xl px-6 py-5 shadow-2xl shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all ${CALLRAIL_CLASS}`}
+          >
+            <span className="flex items-center gap-2 text-sm font-black uppercase italic tracking-tighter">
+              <Phone className="w-5 h-5" aria-hidden="true" /> Fastest: Call Trevor Now
+            </span>
+            <span className="text-2xl font-black tracking-tight">{phoneDisplay}</span>
+          </a>
         </motion.div>
 
-        {/* Direct contact */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.6, ease }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16"
-        >
-          {contactMethods.map((method, i) => (
-            <div key={i} className="bg-card/10 border border-border/15 rounded-2xl p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <method.icon className="w-4 h-4 text-primary" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">{method.label}</span>
+        {/* Form + direct contact */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6 mb-16 items-start">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}>
+            <ContactForm />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.6, ease }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"
+          >
+            {contactMethods.map((method, i) => (
+              <div key={i} className="bg-card/10 border border-border/15 rounded-2xl p-5">
+                <div className="flex items-center gap-3 mb-2">
+                  <method.icon className="w-4 h-4 text-primary" aria-hidden="true" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint">{method.label}</span>
+                </div>
+                {method.href ? (
+                  <a href={method.href} onClick={method.onClick} className={`text-foreground font-bold text-sm hover:text-primary transition-colors ${method.className || ''}`}>
+                    {method.value}
+                  </a>
+                ) : (
+                  <p className="text-foreground font-bold text-sm">{method.value}</p>
+                )}
               </div>
-              {method.href ? (
-                <a href={method.href} onClick={method.onClick} className={`text-foreground font-bold text-sm hover:text-primary transition-colors ${method.className || ''}`}>
-                  {method.value}
-                </a>
-              ) : (
-                <p className="text-foreground font-bold text-sm">{method.value}</p>
-              )}
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Booking calendar — renders only when LINKS.bookingCalendar is set */}
+        {bookingUrl && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }}
+            className="mb-16"
+            aria-label="Book a call"
+          >
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <CalendarCheck className="w-5 h-5 text-primary" aria-hidden="true" />
+              <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground text-center">
+                Prefer to Pick a Time? Book It Here.
+              </h2>
             </div>
-          ))}
-        </motion.div>
+            <div className="bg-card/10 backdrop-blur-xl border border-border/20 rounded-2xl overflow-hidden">
+              <iframe
+                src={bookingUrl}
+                title="Book a free 15-minute call"
+                className="w-full min-h-[660px] border-0"
+              />
+            </div>
+          </motion.section>
+        )}
 
       </div>
     </main>

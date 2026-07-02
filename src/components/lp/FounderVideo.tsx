@@ -107,7 +107,7 @@ export function FounderVideo({
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: ease as any }}
           >
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
               {eyebrow}
             </p>
             <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">

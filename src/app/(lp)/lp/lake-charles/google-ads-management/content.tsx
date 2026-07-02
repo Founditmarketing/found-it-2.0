@@ -7,8 +7,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { ShieldCheck } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -50,9 +55,9 @@ export function LakeCharlesGoogleAdsContent() {
         highlight="We'll find at least $500 in wasted spend on your free review, or we send you a $50 gift card."
         highlightIcon={ShieldCheck}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '10x', label: 'Best client ROAS' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free Audit"
         formSource="lp_google_ads_lc"
@@ -63,24 +68,15 @@ export function LakeCharlesGoogleAdsContent() {
         heading="Southwest Louisiana owners,"
         headingAccent="real phone calls."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years running ads' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years running ads' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'Excellent marketing company. Several reasons, but number 1 is results. Trevor got my phone ringing.',
-            name: 'David Roshto',
-          },
-          {
-            quote: 'Great people to work with. If you want the best targeted marketing team, choose Found It. A+ knowledge on how to grow your small business.',
-            name: 'William Whiddon',
-          },
-          {
-            quote: 'Great customer service. So many more clients, and the website looks amazing. Thank you Trevor and the team!',
-            name: 'Santos Mendez',
-          },
+          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
+          { quote: quoteBy('William Whiddon'), name: 'William Whiddon' },
+          { quote: quoteBy('Santos Mendez'), name: 'Santos Mendez' },
         ]}
       />
 

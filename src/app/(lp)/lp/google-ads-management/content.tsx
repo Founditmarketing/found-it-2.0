@@ -3,12 +3,18 @@
 import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
+import { VideoTestimonials } from '@/components/portfolio/VideoTestimonials';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { TrendingUp } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -17,7 +23,7 @@ const faqItems = [
   },
   {
     question: 'How fast will I see results?',
-    answer: "Most clients see leads in the first week. Real optimization, where your cost per lead drops and lead quality climbs, takes about 60 days. Anyone promising overnight results is either lying or burning your budget.",
+    answer: "Most clients see leads in the first week. Real optimization, where your cost per lead drops and lead quality climbs, takes about 60 to 90 days. Anyone promising overnight results is either lying or burning your budget.",
   },
   {
     question: "What's the catch with the free audit?",
@@ -53,9 +59,9 @@ export function GoogleAdsLPContent() {
         highlight="One client turned $4,200/mo in ad spend into $42,000/mo in revenue — a 10x return."
         highlightIcon={TrendingUp}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '10x', label: 'Best client ROAS' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free Ad Audit"
         formSource="lp_google_ads"
@@ -66,26 +72,22 @@ export function GoogleAdsLPContent() {
         heading="Real owners,"
         headingAccent="real phone calls."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years running ads' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years running ads' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'Excellent marketing company. Several reasons, but number 1 is results. Trevor got my phone ringing.',
-            name: 'David Roshto',
-          },
-          {
-            quote: 'Trevor is fast and efficient, available any time of the day, and genuinely invested in the marketing that performs for the business.',
-            name: 'Emanuele Romiti',
-          },
-          {
-            quote: 'Great people to work with. If you want the best targeted marketing team, choose Found It. A+ knowledge on how to grow your small business.',
-            name: 'William Whiddon',
-          },
+          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
+          { quote: quoteBy('Emanuele Romiti'), name: 'Emanuele Romiti' },
+          { quote: quoteBy('William Whiddon'), name: 'William Whiddon' },
         ]}
       />
+
+      {/* Filmed client testimonials — click-to-play, zero video bytes until pressed */}
+      <div className="max-w-[1200px] mx-auto px-6">
+        <VideoTestimonials />
+      </div>
 
       <ProofBlock
         headline="One Client Turned $4,200/mo Into"
@@ -102,7 +104,7 @@ export function GoogleAdsLPContent() {
         bullets={[
           {
             title: 'See Wasted Spend in Week One.',
-            detail: "Most clients find money leaking in the very first audit. Real optimization kicks in by day 60.",
+            detail: "Most clients find money leaking in the very first audit. Real optimization kicks in over the first 60 to 90 days.",
           },
           {
             title: 'You Own Your Ad Account.',

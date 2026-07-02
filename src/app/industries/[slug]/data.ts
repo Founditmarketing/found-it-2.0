@@ -24,7 +24,7 @@ export const industries: Record<string, IndustryData> = {
     name: 'Medical / Healthcare',
     slug: 'medical',
     metaDescription:
-      'Digital marketing for medical practices and healthcare providers: AI search optimization, Google Maps dominance, and websites that book appointments. 13+ years, $2.3B+ in client revenue. Free healthcare audit.',
+      'Digital marketing for medical practices and healthcare providers: AI search optimization, Google Maps dominance, and websites that book appointments. 13+ years, $2.3B+ in client revenue across all services. Free healthcare audit.',
     headline: 'Patients Are Choosing Online. Are They Finding You?',
     subline:
       'Patients search Google and ask ChatGPT before they book. If they don\'t find your practice first, they book with someone else.',

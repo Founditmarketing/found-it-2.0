@@ -7,8 +7,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { Clock } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -53,9 +58,9 @@ export function WebDesignLPContent() {
         highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
         highlightIcon={Clock}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical build' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free Mockup Review"
         formSource="lp_web_design"
@@ -66,25 +71,15 @@ export function WebDesignLPContent() {
         heading="Sites that owners"
         headingAccent="are proud to share."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical time to launch' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'Website came out great, actually better than I imagined! The process from start to finish was easy and smooth.',
-            name: 'Justin Morgan',
-          },
-          {
-            quote: 'Professional, responsive, and they truly listened to our vision. They delivered quality work and helped bring our ideas to life. Highly recommend!',
-            name: 'Angela',
-          },
-          {
-            quote: 'Great website rework and marketing for Area Wide Paving.',
-            name: 'Boo Wilkerson',
-            business: 'Area Wide Paving',
-          },
+          { quote: quoteBy('Justin Morgan'), name: 'Justin Morgan' },
+          { quote: quoteBy('Angela'), name: 'Angela' },
+          { quote: quoteBy('Boo Wilkerson'), name: 'Boo Wilkerson', business: 'Area Wide Paving' },
         ]}
       />
 

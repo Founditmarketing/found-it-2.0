@@ -14,6 +14,11 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
 import { Zap } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 export function AIMarketingLPContent() {
   return (
@@ -27,9 +32,9 @@ export function AIMarketingLPContent() {
         highlight="Every new lead gets a reply in under 5 seconds — 24/7, even while you sleep."
         highlightIcon={Zap}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '<5 sec', label: 'Lead reply speed' },
-          { value: '4.9★', label: 'Client rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free AI Demo"
         formSource="lp_ai_marketing"
@@ -40,27 +45,15 @@ export function AIMarketingLPContent() {
         heading="Local businesses"
         headingAccent="trust us to run their pipeline."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '<5 sec', label: 'Lead follow-up speed' },
-          { value: '4.9★', label: 'Average client rating' },
-          { value: '46', label: 'States we operate in' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote:
-              'Excellent marketing company. Several reasons — but number 1 is results. Trevor got my phone ringing.',
-            name: 'David Roshto',
-          },
-          {
-            quote:
-              'The guys over at Found It Marketing are great — they come to me directly to make sure I\u2019m taken care of and issues are solved.',
-            name: 'Sky',
-          },
-          {
-            quote:
-              'After only a week, they absolutely earned a five-star review. So glad to have this team managing my marketing — extremely responsive, with a great app that makes communication seamless.',
-            name: 'Smith Lake Rentals & Sales',
-          },
+          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
+          { quote: quoteBy('Sky'), name: 'Sky' },
+          { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
         ]}
       />
 

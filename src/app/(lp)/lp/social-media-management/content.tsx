@@ -7,8 +7,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { MessageSquare } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -53,9 +58,9 @@ export function SocialMediaLPContent() {
         highlight="We create every post and ad. You just approve, and we report on calls, not likes."
         highlightIcon={MessageSquare}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '3x', label: 'Best client growth' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free Strategy Session"
         formSource="lp_social"
@@ -66,24 +71,15 @@ export function SocialMediaLPContent() {
         heading="Content that owners"
         headingAccent="actually see results from."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years in marketing' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in marketing' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'He moves fast, communicates well, and delivers results. Their marketing and design have helped our business grow significantly.',
-            name: 'Creighton Harmon',
-          },
-          {
-            quote: 'The Found It team is great to work with, and the website and videos are professional!',
-            name: 'Donald Ruby',
-          },
-          {
-            quote: 'Absolutely amazing company to work with. They laid out all of the steps from point A to B, set realistic expectations, and communicated well.',
-            name: "Everything's Albright",
-          },
+          { quote: quoteBy('Creighton Harmon'), name: 'Creighton Harmon' },
+          { quote: quoteBy('Donald Ruby'), name: 'Donald Ruby' },
+          { quote: quoteBy("Everything's Albright"), name: "Everything's Albright" },
         ]}
       />
 

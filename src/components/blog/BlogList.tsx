@@ -1,19 +1,25 @@
-'use client';
-
 import { blogPosts } from '@/lib/blog-posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from './ClientSideFormattedDate';
-import { motion } from 'framer-motion';
-import { TextScramble } from '@/components/ui/TextScramble';
 
+/**
+ * Server-rendered blog listing.
+ *
+ * Deliberately NOT a client component: the previous version shipped the
+ * featured post at opacity 0 (framer-motion initial state) and scrambled the
+ * headline with JS, so the page looked blank until hydration — and stayed
+ * blank without JavaScript. Entrance motion now uses the pure-CSS
+ * `animate-fade-in-up` keyframes (fill-mode forwards, visible end state),
+ * which play without JS and degrade to fully visible content.
+ */
 export function BlogList() {
   if (!blogPosts || blogPosts.length === 0) {
     return (
       <div className="text-center py-24">
         <h2 className="text-4xl font-black italic tracking-tighter">No intelligence yet.</h2>
-        <p className="text-muted-foreground mt-4 text-xl">The archives are currently empty.</p>
+        <p className="text-muted-foreground mt-4 text-xl">Nothing published — check back soon.</p>
       </div>
     );
   }
@@ -25,27 +31,20 @@ export function BlogList() {
     <div className="space-y-16 lg:space-y-32">
         <div className="mb-20">
             <h1 className="text-oversized leading-[0.85] mb-8">
-                <TextScramble text="The" delay={100} /><br />
-                <span className="text-primary">
-                <TextScramble text="Archives." delay={400} />
-                </span>
+                Marketing Insights<br />
+                <span className="text-primary">For Louisiana Businesses.</span>
             </h1>
             <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
-                Unapologetic insights into Generative Engine Optimization, scaling revenue, and weaponizing AI against your competition.
+                Unapologetic takes on Google Ads, SEO, AI search, and web design — for business owners who want the phone to ring, not a marketing lecture.
             </p>
         </div>
 
       {/* Featured Post */}
-      <motion.article 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative"
-      >
+      <article className="group relative animate-fade-in-up">
         <Link href={`/blog/${featuredPost.slug}`}>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center bg-card/10 backdrop-blur-2xl border border-border/20 p-6 lg:p-12 rounded-[3rem] shadow-2xl hover:border-primary/40 transition-colors duration-500 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
-            
+
             <div className="overflow-hidden rounded-[2rem] relative z-10 w-full h-[300px] lg:h-[500px]">
               <Image
                 src={featuredPost.image}
@@ -56,7 +55,7 @@ export function BlogList() {
                 priority
               />
             </div>
-            
+
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6 text-xs lg:text-sm uppercase tracking-[0.3em]">
                 <p className="text-primary font-black bg-primary/10 px-4 py-2 rounded-full border border-primary/20">Featured Intel</p>
@@ -80,7 +79,7 @@ export function BlogList() {
             </div>
           </div>
         </Link>
-      </motion.article>
+      </article>
 
       <div className="pt-8">
         <h2 className="text-4xl font-black mb-16 uppercase italic tracking-tighter flex items-center gap-6">
@@ -88,14 +87,10 @@ export function BlogList() {
             Tactical Briefings
         </h2>
         {otherPosts.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {otherPosts.map((post, index) => (
-              <motion.article 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 animate-fade-in-up">
+            {otherPosts.map((post) => (
+              <article
                 key={post.slug}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="bg-card/30 backdrop-blur-xl border border-border/20 rounded-[2.5rem] flex flex-col group hover:border-primary/40 transition-all duration-500 shadow-xl overflow-hidden relative"
               >
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -125,7 +120,7 @@ export function BlogList() {
                       </Link>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         )}

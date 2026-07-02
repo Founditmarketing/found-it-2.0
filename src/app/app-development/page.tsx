@@ -5,7 +5,7 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Custom App Development for Local Businesses',
   description:
-    'Custom mobile and web app development from a local team with 13+ years in marketing. Native-feeling iOS and Android apps, fixed timelines, and you own 100% of the code. Alexandria, LA, serving 48 states.',
+    'Custom mobile and web app development from a local team with 13+ years in marketing. Native-feeling iOS and Android apps, fixed timelines, and you own 100% of the code. Based in Alexandria, LA.',
   alternates: { canonical: '/app-development' },
   openGraph: {
     title: 'Custom App Development for Local Businesses | Found It Marketing',

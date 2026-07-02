@@ -62,7 +62,16 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
   const hpRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = useCallback(async () => {
-    if (!businessName.trim() || !city.trim() || !industry) return;
+    // Trim + mirror the server limits (min 2, max 120/80) so a valid attempt
+    // never dies as an unexplained "Invalid request."
+    const name = businessName.trim().slice(0, 120);
+    const cityValue = city.trim().slice(0, 80);
+    if (!name || !cityValue || !industry) return;
+    if (name.length < 2 || cityValue.length < 2) {
+      setErrorMsg('Business name and city each need at least 2 characters.');
+      setPhase('error');
+      return;
+    }
     const hp = hpRef.current?.value || '';
 
     // Fire GA4 event
@@ -70,8 +79,8 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
       window.gtag('event', 'audit_request', {
         event_category: 'conversion',
         event_label: 'ai_visibility_audit',
-        business_name: businessName,
-        city,
+        business_name: name,
+        city: cityValue,
         industry,
       });
     }
@@ -80,13 +89,13 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
     fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ businessName, city, industry, source: 'ai-visibility-widget', hp }),
+      body: JSON.stringify({ businessName: name, city: cityValue, industry, source: 'ai-visibility-widget', hp }),
     }).catch(() => {});
 
-    onBusinessNameCaptured?.(businessName);
+    onBusinessNameCaptured?.(name);
 
     const steps = [
-      `Asking AI: best ${industry.toLowerCase()} in ${city}...`,
+      `Asking AI: best ${industry.toLowerCase()} in ${cityValue}...`,
       'Asking AI: who would you recommend...',
       'Asking AI: who should I contact...',
       'Analyzing responses for your business...',
@@ -107,7 +116,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
       const res = await fetch('/api/ai-visibility', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ businessName, city, industry, hp }),
+        body: JSON.stringify({ businessName: name, city: cityValue, industry, hp }),
       });
       const data = await res.json();
       // Let the scan animation play for at least 4s so it reads as a real scan.
@@ -150,7 +159,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
           <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-6 lg:px-8 py-5 border-b border-border/10 flex items-center gap-3">
             <Search className="w-5 h-5 text-primary" />
             <p className="font-black uppercase italic tracking-tighter text-sm text-foreground">AI Visibility Check</p>
-            <span className="ml-auto text-[9px] font-black uppercase tracking-[0.2em] text-primary/60 bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Live Test</span>
+            <span className="ml-auto text-[9px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Live Test</span>
           </div>
 
           <div className="p-6 lg:p-8">
@@ -162,18 +171,18 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
                   <input ref={hpRef} type="text" name="hp" tabIndex={-1} autoComplete="off" aria-hidden="true"
                     className="absolute -left-[9999px] top-0 h-px w-px opacity-0" />
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-1.5 block">Business Name</label>
-                    <input type="text" value={businessName} onChange={(e) => setBusinessName(e.target.value)} placeholder="e.g. Smith & Associates Law"
-                      className="w-full bg-white/5 border border-border/30 rounded-xl px-4 py-3.5 text-foreground font-medium placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all" />
+                    <label htmlFor="ai-visibility-business" className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-1.5 block">Business Name</label>
+                    <input id="ai-visibility-business" type="text" value={businessName} onChange={(e) => setBusinessName(e.target.value)} maxLength={120} placeholder="e.g. Smith & Associates Law"
+                      className="w-full bg-white/5 border border-border/30 rounded-xl px-4 py-3.5 text-foreground font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all" />
                   </div>
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-1.5 block">City</label>
-                    <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Alexandria, LA"
-                      className="w-full bg-white/5 border border-border/30 rounded-xl px-4 py-3.5 text-foreground font-medium placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all" />
+                    <label htmlFor="ai-visibility-city" className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-1.5 block">City</label>
+                    <input id="ai-visibility-city" type="text" value={city} onChange={(e) => setCity(e.target.value)} maxLength={80} placeholder="e.g. Alexandria, LA"
+                      className="w-full bg-white/5 border border-border/30 rounded-xl px-4 py-3.5 text-foreground font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all" />
                   </div>
                   <div>
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-1.5 block">Industry</label>
-                    <select value={industry} onChange={(e) => setIndustry(e.target.value)}
+                    <label htmlFor="ai-visibility-industry" className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-1.5 block">Industry</label>
+                    <select id="ai-visibility-industry" value={industry} onChange={(e) => setIndustry(e.target.value)}
                       className="w-full bg-white/5 border border-border/30 rounded-xl px-4 py-3.5 text-foreground font-medium focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all appearance-none cursor-pointer"
                     >
                       <option value="" className="bg-background">Select your industry</option>
@@ -185,7 +194,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
                   >
                     <Search className="w-4 h-4" /> Check My AI Visibility
                   </button>
-                  <p className="text-[11px] text-muted-foreground/40 font-medium text-center">
+                  <p className="text-[11px] text-faint font-medium text-center">
                     Runs a live test: we ask Google&apos;s AI real customer questions and check if it names your business.
                   </p>
                 </motion.div>
@@ -201,16 +210,16 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
                     {scanSteps.map((text, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: i <= scanIndex ? 1 : 0.2, x: 0 }}
                         transition={{ delay: i * 0.1, duration: 0.4 }}
-                        className={`flex items-center gap-3 justify-center ${i <= scanIndex ? 'text-foreground' : 'text-muted-foreground/30'}`}
+                        className={`flex items-center gap-3 justify-center ${i <= scanIndex ? 'text-foreground' : 'text-faint'}`}
                       >
-                        <Sparkles className="w-4 h-4 text-primary/60 shrink-0" />
+                        <Sparkles className="w-4 h-4 text-primary shrink-0" />
                         <span className="font-bold text-sm">{text}</span>
                         {i < scanIndex && <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />}
                         {i === scanIndex && <Loader2 className="w-4 h-4 text-primary animate-spin shrink-0" />}
                       </motion.div>
                     ))}
                   </div>
-                  <p className="text-xs text-muted-foreground/40 uppercase tracking-widest font-black">
+                  <p className="text-xs text-faint uppercase tracking-widest font-black">
                     Live-testing {businessName}...
                   </p>
                 </motion.div>
@@ -218,7 +227,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
 
               {/* ─── ERROR PHASE ─── */}
               {phase === 'error' && (
-                <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-6 text-center space-y-6">
+                <motion.div key="error" role="alert" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-6 text-center space-y-6">
                   <AlertCircle className="w-10 h-10 text-yellow-400 mx-auto" />
                   <p className="text-sm font-bold text-foreground max-w-sm mx-auto">{errorMsg}</p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -236,11 +245,11 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
 
               {/* ─── RESULTS PHASE ─── */}
               {phase === 'results' && result && (
-                <motion.div key="results" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: ease as any }} className="space-y-4">
+                <motion.div key="results" role="status" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: ease as any }} className="space-y-4">
                   <div className="text-center mb-6">
                     <p className={`text-xs font-black uppercase tracking-[0.3em] mb-2 ${verdict.color}`}>{verdict.eyebrow}</p>
                     <p className="text-lg font-black text-foreground italic">{verdict.headline(result.businessName)}</p>
-                    <p className="text-xs text-muted-foreground/60 font-medium mt-2">
+                    <p className="text-xs text-faint font-medium mt-2">
                       Mentioned in {result.mentionedCount} of {result.total} live AI queries for {result.city}
                     </p>
                   </div>
@@ -269,7 +278,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
 
                   {result.competitors.length > 0 && (
                     <div className="bg-white/[0.03] border border-border/20 rounded-xl px-4 py-3.5">
-                      <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/50 mb-2">Who AI recommends in your market</p>
+                      <p className="text-[10px] font-black uppercase tracking-[0.25em] text-faint mb-2">Who AI recommends in your market</p>
                       <div className="flex flex-wrap gap-2">
                         {result.competitors.map((c) => (
                           <span key={c} className="text-xs font-bold text-foreground/80 bg-white/5 border border-border/20 rounded-full px-3 py-1">{c}</span>
@@ -278,7 +287,7 @@ export function AIVisibilityWidget({ onBusinessNameCaptured, ctaHref = '#lp-form
                     </div>
                   )}
 
-                  <p className="text-[10px] text-muted-foreground/40 font-medium text-center">
+                  <p className="text-[10px] text-faint font-medium text-center">
                     Live test against Google&apos;s Gemini — the AI behind Google&apos;s AI answers. ChatGPT &amp; Perplexity results included in the full audit.
                   </p>
 

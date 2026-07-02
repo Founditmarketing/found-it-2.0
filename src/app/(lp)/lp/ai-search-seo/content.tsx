@@ -7,8 +7,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { Sparkles } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 const faqItems = [
   {
@@ -53,9 +58,9 @@ export function AISearchSEOContent() {
         highlight="We run a live scan of your visibility across every major AI engine, free, at your office."
         highlightIcon={Sparkles}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '4', label: 'AI engines tracked' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free AI Audit"
         formSource="lp_ai_seo"
@@ -66,24 +71,15 @@ export function AISearchSEOContent() {
         heading="Owners who went from invisible"
         headingAccent="to found."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years doing SEO' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years doing SEO' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: "Trevor convinced me to sign up when I didn't even know what SEO was, and he put my business at the top of Google. He did exactly what he said he would do.",
-            name: 'A. C.',
-          },
-          {
-            quote: 'These guys really know their SEO, and they handle everything: websites, Google, and Facebook. Very affordable for the quality of work. Highly recommend.',
-            name: 'Ironclad',
-          },
-          {
-            quote: 'A game-changer for my business. They took the time to understand my goals, my industry, and my customers, and built something that fit, not a cookie-cutter solution.',
-            name: 'Reddirt Mahindra',
-          },
+          { quote: quoteBy('A. C.'), name: 'A. C.' },
+          { quote: quoteBy('Ironclad'), name: 'Ironclad' },
+          { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
         ]}
       />
 

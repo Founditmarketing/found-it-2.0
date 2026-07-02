@@ -93,7 +93,7 @@ export function ServicesSection() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8"
           >
-            <span className="text-primary font-mono text-sm font-black uppercase tracking-[0.4em] mb-6 block opacity-60">
+            <span className="text-primary font-mono text-sm font-black uppercase tracking-[0.4em] mb-6 block opacity-80">
               Our GEO Framework
             </span>
             <h2 className="text-foreground text-oversized mb-8">

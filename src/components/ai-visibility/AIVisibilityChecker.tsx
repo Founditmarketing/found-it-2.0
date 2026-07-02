@@ -124,7 +124,7 @@ export function AIVisibilityChecker() {
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                       required
-                      className="h-16 lg:h-24 text-xl lg:text-3xl font-black uppercase italic tracking-tighter bg-background/50 border-primary/10 focus:border-primary/50 transition-all rounded-[1.5rem] lg:rounded-[2rem] text-center placeholder:text-muted-foreground/30 px-6 lg:px-10 shadow-inner"
+                      className="h-16 lg:h-24 text-xl lg:text-3xl font-black uppercase italic tracking-tighter bg-background/50 border-primary/10 focus:border-primary/50 transition-all rounded-[1.5rem] lg:rounded-[2rem] text-center placeholder:text-muted-foreground px-6 lg:px-10 shadow-inner"
                     />
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-transparent rounded-[2.2rem] opacity-0 group-focus-within:opacity-100 transition-opacity blur-lg pointer-events-none" />
                   </div>
@@ -157,7 +157,7 @@ export function AIVisibilityChecker() {
             className="relative bg-black rounded-[2.5rem] lg:rounded-[4rem] border border-primary/20 p-12 lg:p-24 overflow-hidden min-h-[400px] lg:min-h-[600px] flex flex-col items-center justify-center text-center shadow-[0_0_100px_rgba(249,115,22,0.1)]"
           >
             {/* Background Data Stream Effect */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none font-mono text-[12px] leading-tight text-primary/50 overflow-hidden select-none">
+            <div className="absolute inset-0 opacity-20 pointer-events-none font-mono text-[12px] leading-tight text-primary overflow-hidden select-none">
               {Array.from({ length: 60 }).map((_, i) => (
                 <div key={i} className="whitespace-nowrap flex gap-4" style={{ transform: `translateX(${Math.sin(i) * 50}px)` }}>
                   <span className="animate-pulse" style={{ animationDelay: `${i * 0.05}s` }}>
@@ -179,7 +179,7 @@ export function AIVisibilityChecker() {
             <div className="relative z-10 flex flex-col items-center">
               <div className="relative mb-12">
                 <Loader2 className="h-32 w-32 text-primary animate-spin" strokeWidth={0.5} />
-                <Activity className="absolute inset-0 m-auto h-12 w-12 text-primary/50 animate-pulse" />
+                <Activity className="absolute inset-0 m-auto h-12 w-12 text-primary animate-pulse" />
               </div>
               <h3 className="text-3xl lg:text-7xl font-black text-white uppercase italic tracking-tighter mb-4 lg:mb-8 leading-none">
                 Analyzing<br />Authority Nodes

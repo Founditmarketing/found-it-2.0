@@ -36,7 +36,7 @@ export function ProofBlock({
         >
           {/* Eyebrow */}
           <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-6 lg:px-10 py-4 border-b border-border/10">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-60">Proof</p>
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">Proof</p>
           </div>
 
           <div className="p-6 lg:p-10 space-y-8">
@@ -58,7 +58,7 @@ export function ProofBlock({
                   className="bg-primary/5 border border-primary/10 rounded-xl p-3 lg:p-5 text-center"
                 >
                   <p className="text-xl lg:text-3xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                  <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground/60 mt-1">{stat.label}</p>
+                  <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -70,7 +70,7 @@ export function ProofBlock({
 
             {/* Disclaimer */}
             {disclaimer && (
-              <p className="text-xs text-muted-foreground/40 italic">{disclaimer}</p>
+              <p className="text-xs text-faint italic">{disclaimer}</p>
             )}
           </div>
         </motion.div>

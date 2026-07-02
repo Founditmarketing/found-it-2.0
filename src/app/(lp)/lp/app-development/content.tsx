@@ -13,6 +13,11 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
+import { TRACK_RECORD } from '@/lib/site';
+import { reviews } from '@/lib/reviews';
+
+/** Verbatim Google-review text from the canonical source — never paraphrase. */
+const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 export function AppDevelopmentLPContent() {
   return (
@@ -26,9 +31,9 @@ export function AppDevelopmentLPContent() {
         highlight="You get a fixed price and a guaranteed delivery date before you sign anything."
         highlightIcon={ShieldCheck}
         stats={[
-          { value: '250+', label: 'Local businesses' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: 'iOS+Android', label: 'Native build' },
-          { value: '4.9★', label: 'Google rating' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Get My Free App Blueprint"
         formSource="lp_app_development"
@@ -39,24 +44,15 @@ export function AppDevelopmentLPContent() {
         heading="Builds owners"
         headingAccent="can count on."
         stats={[
-          { value: '250+', label: 'Local businesses served' },
-          { value: '13+', label: 'Years building software' },
-          { value: '4.9★', label: 'Average Google rating' },
-          { value: '48', label: 'States we operate in' },
+          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
+          { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years building software' },
+          { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
+          { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          {
-            quote: 'Extremely responsive, and they use a great app that makes collaboration and communication seamless. So glad to have this team.',
-            name: 'Smith Lake Rentals & Sales',
-          },
-          {
-            quote: "They stand out in every way. They take the time to understand your business, your goals, and what will actually move the needle.",
-            name: 'Tyler Griffin',
-          },
-          {
-            quote: "Been working with them for years. Anytime we need something, they're right on it.",
-            name: 'Cory Chandler',
-          },
+          { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
+          { quote: quoteBy('Tyler Griffin'), name: 'Tyler Griffin' },
+          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
         ]}
       />
 

@@ -86,7 +86,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       <article className="max-w-3xl mx-auto px-6">
         <div
-          className="prose dark:prose-invert prose-lg max-w-none mx-auto"
+          className="prose dark:prose-invert prose-lg max-w-none mx-auto prose-headings:font-heading prose-headings:text-foreground prose-a:text-primary prose-a:font-semibold prose-strong:text-foreground"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>

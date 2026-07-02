@@ -120,7 +120,7 @@ export function LPSplitHero({
                     <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter leading-none">
                       {stat.value}
                     </p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/40 mt-1.5">
+                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/80 mt-1.5">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -131,7 +131,7 @@ export function LPSplitHero({
             <a
               href={phoneHref}
               onClick={() => trackCallClick()}
-              className={`inline-flex items-center gap-3 text-white/60 hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
+              className={`inline-flex items-center gap-3 text-white/80 hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
             >
               <span className="w-10 h-10 rounded-xl bg-white/[0.04] border border-border/20 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                 <Phone className="w-4 h-4 text-primary" aria-hidden="true" />

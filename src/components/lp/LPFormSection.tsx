@@ -77,7 +77,7 @@ export function LPFormSection({
         >
           {/* Left — Copy & Benefits */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
               Free Strategy Session
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] mb-6 text-foreground">
@@ -108,7 +108,7 @@ export function LPFormSection({
 
             {/* Phone fallback */}
             <div className="bg-card/20 backdrop-blur-xl border border-border/20 rounded-2xl p-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground/60 font-black mb-3">
+              <p className="text-xs uppercase tracking-[0.3em] text-faint font-black mb-3">
                 Prefer to talk?
               </p>
               <a

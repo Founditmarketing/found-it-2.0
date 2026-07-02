@@ -6,14 +6,14 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
-import { AWARD } from '@/lib/site';
+import { AWARD, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const stats = [
-  { value: '13+', label: 'Years in Business' },
-  { value: '$2.3B+', label: 'Client Revenue Generated' },
-  { value: '48', label: 'States Reached' },
+  { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
+  { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
+  { value: TRACK_RECORD.googleRating, label: 'Rating on Google' },
   { value: '0', label: 'Long-Term Contracts' },
 ];
 
@@ -49,13 +49,16 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: ease as any }}
           className="mb-20"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-60">Our Story</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Our Story</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             The Agency We Wished Existed —{' '}
             <span className="text-primary">So We Built It.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Marketing is a digital marketing agency in Alexandria, Louisiana. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over 13+ years it has generated more than $2.3 billion for the businesses we work with.
+            Found It Marketing is a digital marketing agency in Alexandria, Louisiana. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over {TRACK_RECORD.yearsInBusiness} years, our clients have generated <span className="text-foreground font-bold">{REVENUE_CLAIM.figure}</span> in revenue.
+          </p>
+          <p className="mt-3 text-sm text-faint font-medium max-w-2xl">
+            {REVENUE_CLAIM.methodology}
           </p>
 
           {/* Award trust chip */}
@@ -87,7 +90,7 @@ export default function AboutPage() {
                 So we built the opposite. At Found It, <span className="text-foreground font-bold">you own everything</span> — your ad accounts, your code, your data. There are no long-term contracts; we earn your business every single month by getting results. A senior strategist works on your account, not an intern Googling answers. And because we&apos;re based right here in Alexandria, we&apos;ll actually drive to your office and sit across the table from you.
               </p>
               <p>
-                That approach has taken us a long way. Over 13+ years we&apos;ve managed millions in ad spend and generated more than <span className="text-foreground font-bold">$2.3 billion in revenue</span> for our clients — including scaling a single local lot into a volume dealer across 48 states. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
+                That approach has taken us a long way. Over {TRACK_RECORD.yearsInBusiness} years, our clients have generated more than <span className="text-foreground font-bold">{REVENUE_CLAIM.figure} in tracked revenue</span> across everything we do — ads, web, SEO, and organic — including scaling one client from a single local lot into a volume dealer with customers in 48 states. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
               </p>
               <p>
                 But the thing I&apos;m proudest of isn&apos;t a number. It&apos;s that our clients stay because they want to — not because a contract makes them. That&apos;s the whole point.
@@ -105,14 +108,19 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-20"
+          className="mb-20"
         >
-          {stats.map((stat, i) => (
-            <div key={i} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
-              <p className="text-3xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground/60 mt-1">{stat.label}</p>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {stats.map((stat, i) => (
+              <div key={i} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
+                <p className="text-3xl font-black text-primary italic tracking-tighter">{stat.value}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-faint font-medium text-center">
+            {REVENUE_CLAIM.methodology}
+          </p>
         </motion.div>
 
         {/* How We're Different */}

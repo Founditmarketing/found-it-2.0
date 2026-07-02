@@ -7,20 +7,14 @@ type ChangeFreq = MetadataRoute.Sitemap[number]['changeFrequency'];
 
 const abs = (path: string) => `${SITE_URL}${path === '/' ? '' : path}`;
 
-/** Static routes with intent-weighted priority. Excludes noindex/redirect pages. */
+/** Static routes with intent-weighted priority.
+    ONLY indexable, self-canonical pages belong here. Excluded on purpose:
+    - redirect routes (/seo /ppc /web-development /websites /marketing
+      /comprehensive-marketing /solutions /platform /feasibility-study
+      /free-proposal) — a sitemap of redirects is Search Console noise
+    - /lp/* paid landing pages — they canonicalize to the service pillars */
 const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFreq }[] = [
   { path: '/', priority: 1.0, changeFrequency: 'weekly' },
-
-  // AdWords landing pages (paid traffic; canonical to the public service pages)
-  { path: '/lp/google-ads-management', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/web-design', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/ai-search-seo', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/social-media-management', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/app-development', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/ai-marketing', priority: 0.4, changeFrequency: 'weekly' },
-  { path: '/lp/lake-charles/google-ads-management', priority: 0.5, changeFrequency: 'weekly' },
-  { path: '/lp/lake-charles/web-design', priority: 0.5, changeFrequency: 'weekly' },
-  { path: '/lp/local-marketing-la-trimetro', priority: 0.5, changeFrequency: 'weekly' },
 
   // Core informational pages
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
@@ -28,8 +22,6 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/solutions', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/platform', priority: 0.7, changeFrequency: 'monthly' },
 
   // Service authority pillars (organic / GEO) — primary public service pages
   { path: '/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
@@ -39,13 +31,6 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/app-development', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/ai-marketing', priority: 0.9, changeFrequency: 'weekly' },
 
-  // Service / topic hubs
-  { path: '/seo', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/ppc', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/web-development', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/marketing', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/comprehensive-marketing', priority: 0.6, changeFrequency: 'monthly' },
-
   // Local / geo pages
   { path: '/marketing-alexandria', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/central-louisiana-web-design', priority: 0.6, changeFrequency: 'monthly' },
@@ -53,8 +38,6 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
 
   // Tools / lead magnets
   { path: '/ai-visibility-check', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/feasibility-study', priority: 0.5, changeFrequency: 'monthly' },
-  { path: '/free-proposal', priority: 0.5, changeFrequency: 'monthly' },
 
   // Blog index
   { path: '/blog', priority: 0.6, changeFrequency: 'weekly' },

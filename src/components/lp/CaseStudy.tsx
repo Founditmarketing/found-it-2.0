@@ -14,7 +14,7 @@ export function CaseStudy() {
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-primary/10 via-amber-500/5 to-transparent px-8 lg:px-14 py-6 border-b border-border/10">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-60">Featured Case Study</p>
+            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">Featured Case Study</p>
           </div>
 
           <div className="p-8 lg:p-14 space-y-10">
@@ -33,7 +33,7 @@ export function CaseStudy() {
                   className="bg-primary/5 border border-primary/10 rounded-2xl p-4 lg:p-6 text-center"
                 >
                   <p className="text-2xl lg:text-4xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60 mt-1">{stat.label}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-faint mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
