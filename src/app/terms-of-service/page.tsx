@@ -3,6 +3,13 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Terms of Service',
     description: 'Terms of Service for Found It Marketing LLC.',
+    alternates: { canonical: '/terms-of-service' },
+    openGraph: {
+        title: 'Terms of Service',
+        description: 'Terms of Service for Found It Marketing LLC.',
+        type: 'website',
+        url: 'https://founditmarketing.com/terms-of-service',
+    },
 };
 
 export default function TermsOfService() {

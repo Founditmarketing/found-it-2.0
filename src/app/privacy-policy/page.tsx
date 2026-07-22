@@ -3,6 +3,13 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Privacy Policy',
     description: 'Privacy Policy and SMS Communications Consent for Found It Marketing LLC.',
+    alternates: { canonical: '/privacy-policy' },
+    openGraph: {
+        title: 'Privacy Policy',
+        description: 'Privacy Policy and SMS Communications Consent for Found It Marketing LLC.',
+        type: 'website',
+        url: 'https://founditmarketing.com/privacy-policy',
+    },
 };
 
 export default function PrivacyPolicy() {

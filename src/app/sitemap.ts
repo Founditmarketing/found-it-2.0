@@ -12,7 +12,12 @@ const abs = (path: string) => `${SITE_URL}${path === '/' ? '' : path}`;
     - redirect routes (/seo /ppc /web-development /websites /marketing
       /comprehensive-marketing /solutions /platform /feasibility-study
       /free-proposal) — a sitemap of redirects is Search Console noise
-    - /lp/* paid landing pages — they canonicalize to the service pillars */
+    - /lp/* paid landing pages that canonicalize to a service pillar page
+      (ai-marketing, ai-search-seo, app-development, google-ads-management,
+      social-media-management, web-design) — indexing the pillar is enough.
+      The /lp/* pages below are NOT duplicates: they canonicalize to
+      themselves and have no organic-pillar counterpart, so they need their
+      own sitemap entries to be discoverable. */
 const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFreq }[] = [
   { path: '/', priority: 1.0, changeFrequency: 'weekly' },
 
@@ -35,6 +40,11 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/marketing-alexandria', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/central-louisiana-web-design', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/pineville-seo', priority: 0.6, changeFrequency: 'monthly' },
+
+  // Self-canonical /lp/* pages with no organic-pillar counterpart
+  { path: '/lp/lake-charles/google-ads-management', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/lp/lake-charles/web-design', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/lp/local-marketing-la-trimetro', priority: 0.6, changeFrequency: 'monthly' },
 
   // Tools / lead magnets
   { path: '/ai-visibility-check', priority: 0.6, changeFrequency: 'monthly' },

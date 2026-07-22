@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://founditmarketing.com',
   },
+  alternates: { canonical: '/' },
 };
 
 export default function Home() {

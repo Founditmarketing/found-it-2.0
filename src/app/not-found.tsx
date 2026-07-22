@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Phone, Search } from 'lucide-react';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  robots: { index: false, follow: true },
+};
 
 const quickLinks = [
   { label: 'Google Ads Management', href: '/google-ads-management' },
