@@ -141,6 +141,7 @@ export const AREA_SERVED: ServiceArea[] = [
 
 /** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */
 export const SERVICE_SHORT_LABELS: Record<string, string> = {
+  'foundit-os': 'Found It OS',
   'google-ads-management': 'Google Ads',
   'web-design': 'Web Design',
   'ai-search-optimization': 'AI Search / SEO',
@@ -158,6 +159,13 @@ export interface ServiceDef {
 
 /** Canonical service catalog — referenced by Service schema + sitemap + llms.txt. */
 export const SERVICES: ServiceDef[] = [
+  {
+    name: 'Found It OS — Custom Business Operating Systems',
+    slug: 'foundit-os',
+    serviceType: 'Custom Business Operating System',
+    description:
+      'Custom operating systems built one business at a time — point of sale, inventory, customers, website, and a built-in AI in a single system clients own outright. Fitted in weeks with zero-downtime, penny-matched migration.',
+  },
   {
     name: 'Google Ads Management',
     slug: 'google-ads-management',

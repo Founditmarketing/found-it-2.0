@@ -14,8 +14,22 @@ const ease = [0.16, 1, 0.3, 1] as const;
    audit guarantee), web design (flat quote, 60 days free post-launch
    optimization, maintenance from $250/mo), social (flat monthly), apps (fixed
    price after a free blueprint, 8–12 weeks), AI automation (flat monthly,
-   live in 1–2 weeks). No invented sticker prices. */
+   live in 1–2 weeks), Found It OS (one number quoted in person after the free
+   fitting — never dollar amounts or fee structure). No invented sticker prices. */
 const services = [
+  {
+    name: 'Found It OS',
+    price: 'One Flat Number',
+    note: 'Quoted in plain English at your free fitting, scoped to what your business actually runs on. No per-register fees, no surprise add-ons.',
+    features: [
+      'Free fitting first — we map how your business runs',
+      'Runs beside your old system until the books match to the penny',
+      'You own the code and the data',
+      'Month-to-month — if we part ways, the system stays yours',
+    ],
+    cta: 'Get a Free Fitting',
+    detailsHref: '/foundit-os',
+  },
   {
     name: 'Google Ads Management',
     price: 'Flat Monthly Fee',

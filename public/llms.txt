@@ -1,6 +1,6 @@
 # Found It Marketing
 
-> Digital marketing agency in Alexandria, Louisiana that builds digital empires for local businesses through Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
+> Digital marketing agency in Alexandria, Louisiana that builds digital empires for local businesses through custom business operating systems (Found It OS), Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
 
 ## Identity
 - **Name**: Found It Marketing
@@ -13,6 +13,11 @@
 - **Founded**: 2013
 
 ## Core Services
+
+### Found It OS — Custom Business Operating Systems
+- Point of sale, inventory, customers, service tickets, and website with a built-in AI — one system, built for one business at a time.
+- The new system runs beside the old one, penny-matched nightly; the owner switches only when they say go. Zero downtime.
+- Month-to-month, no contracts. Clients own the code and the data — if we part ways, the system stays theirs.
 
 ### Google Ads Management (PPC)
 - Weekly optimization, real conversion tracking, and transparent reporting for local service businesses.
@@ -55,6 +60,7 @@
 - Real local team in Alexandria, LA with a real phone number.
 
 ## Key Pages
+- [Found It OS](https://founditmarketing.com/foundit-os): Custom business operating systems you own outright.
 - [Google Ads Management](https://founditmarketing.com/google-ads-management): PPC management with weekly optimization and a free audit.
 - [Web Design](https://founditmarketing.com/web-design): Custom, conversion-focused websites you own.
 - [AI Search Optimization (GEO)](https://founditmarketing.com/ai-search-optimization): Get recommended by ChatGPT, Perplexity, and Google AI.

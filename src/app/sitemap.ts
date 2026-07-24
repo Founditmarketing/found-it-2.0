@@ -29,6 +29,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
 
   // Service authority pillars (organic / GEO) — primary public service pages
+  { path: '/foundit-os', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/web-design', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/ai-search-optimization', priority: 0.9, changeFrequency: 'weekly' },

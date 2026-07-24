@@ -39,7 +39,7 @@ interface NavLink {
 const serviceSublinks: NavSublink[] = SERVICES.map((s) => ({
   title: SERVICE_SHORT_LABELS[s.slug] ?? s.name,
   href: `/${s.slug}`,
-  tag: s.slug === 'app-development' || s.slug === 'ai-marketing' ? 'NEW' : null,
+  tag: s.slug === 'foundit-os' ? 'NEW' : null,
 }));
 
 const navLinks: NavLink[] = [

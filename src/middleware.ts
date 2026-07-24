@@ -20,8 +20,12 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
+  /* Must be updated by hand for every new service pillar — Next.js requires
+     statically analyzable matcher entries, so this list cannot be derived
+     from SERVICES in site.ts. */
   matcher: [
     '/',
+    '/foundit-os',
     '/google-ads-management',
     '/web-design',
     '/ai-search-optimization',
