@@ -1,6 +1,6 @@
 # Found It Marketing
 
-> Digital marketing agency in Alexandria, Louisiana that builds digital empires for local businesses through custom business operating systems (Found It OS), Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
+> Custom AI software and digital marketing company in Alexandria, Louisiana. Flagship: Found It OS — custom AI-powered business operating systems that improve lives and save time, owned outright by the client, $2,200/month plus $2,000 one-time migration & setup, guaranteed love-it-or-your-money-back. Also: Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
 
 ## Identity
 - **Name**: Found It Marketing
@@ -14,9 +14,10 @@
 
 ## Core Services
 
-### Found It OS — Custom Business Operating Systems
-- Point of sale, inventory, customers, service tickets, and website with a built-in AI — one system, built for one business at a time.
+### Found It OS — Custom AI Business Operating Systems (Flagship)
+- Point of sale, inventory, customers, service tickets, and website with a built-in AI — one system, built for one business at a time, designed to improve lives and save time.
 - The new system runs beside the old one, penny-matched nightly; the owner switches only when they say go. Zero downtime.
+- Pricing: $2,200/month plus a one-time $2,000 migration & setup. Guaranteed: love it or your money back.
 - Month-to-month, no contracts. Clients own the code and the data — if we part ways, the system stays theirs.
 
 ### Google Ads Management (PPC)
@@ -60,7 +61,7 @@
 - Real local team in Alexandria, LA with a real phone number.
 
 ## Key Pages
-- [Found It OS](https://founditmarketing.com/foundit-os): Custom business operating systems you own outright.
+- [Found It OS](https://founditmarketing.com/foundit-os): Custom AI business operating systems you own outright — $2,200/mo + $2,000 setup, love it or your money back.
 - [Google Ads Management](https://founditmarketing.com/google-ads-management): PPC management with weekly optimization and a free audit.
 - [Web Design](https://founditmarketing.com/web-design): Custom, conversion-focused websites you own.
 - [AI Search Optimization (GEO)](https://founditmarketing.com/ai-search-optimization): Get recommended by ChatGPT, Perplexity, and Google AI.

@@ -112,7 +112,7 @@ export function buildEntityGraph() {
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Digital Marketing Services',
+          name: 'Custom AI Software & Digital Marketing Services',
           itemListElement: SERVICES.map((s) => ({
             '@type': 'Offer',
             itemOffered: {
@@ -164,6 +164,17 @@ export function buildFAQSchema(items: FAQItemData[]) {
   };
 }
 
+/** A machine-readable price line for a Service node (only Found It OS has one). */
+export interface ServiceOffer {
+  /** Numeric price, e.g. 2200 (derived from OS_PRICING, never hand-typed). */
+  price: number;
+  priceCurrency: string;
+  /** UN/CEFACT unit code, e.g. 'MON' for per-month. Omit for one-time fees. */
+  unitCode?: string;
+  /** Label for the line item, e.g. OS_PRICING.setupLabel. */
+  name?: string;
+}
+
 /**
  * Build a Service node linked to the shared Organization entity via @id.
  * @see https://schema.org/Service
@@ -175,6 +186,7 @@ export function buildServiceSchema(opts: {
   serviceType?: string;
   areaServed?: ServiceArea[];
   image?: string;
+  offers?: ServiceOffer[];
 }) {
   return {
     '@context': 'https://schema.org',
@@ -186,6 +198,22 @@ export function buildServiceSchema(opts: {
     provider: { '@id': ENTITY_IDS.organization },
     areaServed: areaServedNodes(opts.areaServed),
     ...(opts.image ? { image: opts.image } : {}),
+    ...(opts.offers?.length
+      ? {
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: opts.offers[0].priceCurrency,
+            availability: 'https://schema.org/InStock',
+            priceSpecification: opts.offers.map((o) => ({
+              '@type': 'UnitPriceSpecification',
+              price: o.price,
+              priceCurrency: o.priceCurrency,
+              ...(o.unitCode ? { unitCode: o.unitCode } : {}),
+              ...(o.name ? { name: o.name } : {}),
+            })),
+          },
+        }
+      : {}),
   };
 }
 

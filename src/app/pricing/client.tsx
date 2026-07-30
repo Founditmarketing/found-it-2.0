@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -14,18 +15,19 @@ const ease = [0.16, 1, 0.3, 1] as const;
    audit guarantee), web design (flat quote, 60 days free post-launch
    optimization, maintenance from $250/mo), social (flat monthly), apps (fixed
    price after a free blueprint, 8–12 weeks), AI automation (flat monthly,
-   live in 1–2 weeks), Found It OS (one number quoted in person after the free
-   fitting — never dollar amounts or fee structure). No invented sticker prices. */
+   live in 1–2 weeks), Found It OS ($2,200/mo + $2,000 one-time migration &
+   setup, love-it-or-your-money-back — the site's ONLY sticker price, from
+   OS_PRICING in site.ts). No other invented sticker prices. */
 const services = [
   {
     name: 'Found It OS',
-    price: 'One Flat Number',
-    note: 'Quoted in plain English at your free fitting, scoped to what your business actually runs on. No per-register fees, no surprise add-ons.',
+    price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
+    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. Guaranteed — ${OS_PRICING.guarantee}`,
     features: [
       'Free fitting first — we map how your business runs',
       'Runs beside your old system until the books match to the penny',
-      'You own the code and the data',
-      'Month-to-month — if we part ways, the system stays yours',
+      'You own the code and the data — if we part ways, the system stays yours',
+      'Month-to-month — no contracts',
     ],
     cta: 'Get a Free Fitting',
     detailsHref: '/foundit-os',
@@ -144,25 +146,31 @@ export default function PricingClient() {
           className="max-w-2xl mx-auto text-center mb-14"
         >
           <p className="text-sm text-muted-foreground font-medium leading-relaxed">
-            <span className="text-foreground font-bold">Why no price tags?</span> Because the right number depends on your market and your goals — a plumber in Alexandria doesn&apos;t pay what a law firm in Baton Rouge pays. We scope it on a free call, you get the exact flat fee in writing, and it doesn&apos;t change.
+            <span className="text-foreground font-bold">Why no price tags on marketing?</span> Because the right number depends on your market and your goals — a plumber in Alexandria doesn&apos;t pay what a law firm in Baton Rouge pays. We scope it on a free call, you get the exact flat fee in writing, and it doesn&apos;t change. The one exception: <span className="text-foreground font-bold">Found It OS has its price printed below</span> — same number for everybody.
           </p>
         </motion.div>
 
         {/* Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {services.map((svc, i) => (
+          {services.map((svc, i) => {
+            const flagship = svc.name === 'Found It OS';
+            return (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6, ease: ease as any }}
-              className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8 flex flex-col"
+              className={`backdrop-blur-xl rounded-2xl p-6 lg:p-8 flex flex-col ${
+                flagship
+                  ? 'md:col-span-2 lg:col-span-3 bg-card/20 border border-primary/25 shadow-2xl shadow-primary/10'
+                  : 'bg-card/15 border border-border/20'
+              }`}
             >
               <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">{svc.name}</p>
               <p className="text-2xl font-black text-foreground italic tracking-tighter mb-3">{svc.price}</p>
               <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5">{svc.note}</p>
-              <div className="space-y-3 flex-grow mb-6">
+              <div className={flagship ? 'grid gap-3 md:grid-cols-2 flex-grow mb-6' : 'space-y-3 flex-grow mb-6'}>
                 {svc.features.map((f, j) => (
                   <div key={j} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -184,7 +192,8 @@ export default function PricingClient() {
                 Service details →
               </Link>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Fine Print */}

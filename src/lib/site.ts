@@ -21,7 +21,7 @@ export const BUSINESS = {
   legalName: 'Found It Marketing LLC',
   tagline: 'Building Digital Empires',
   description:
-    'Digital marketing agency in Alexandria, Louisiana specializing in Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO) for local businesses. No long-term contracts; clients own their accounts, code, and data.',
+    'Custom AI software and digital marketing company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems that improve lives and save time, owned outright by the client — plus Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO) for local businesses. No long-term contracts; clients own their accounts, code, and data.',
   url: SITE_URL,
   logo: `${SITE_URL}/og-image.png`,
   image: `${SITE_URL}/og-image.png`,
@@ -77,6 +77,20 @@ export const REVENUE_CLAIM = {
     "we operate in 48 states" framing — it is one client's shipping footprint. */
 export const STATES_CLAIM = 'Scaled one client to customers in 48 states.';
 
+/* ─── Found It OS pricing + guarantee ───
+   The ONLY service with a public sticker price, set by Trevor 2026-07-30.
+   Single source of truth — homepage, /foundit-os, /pricing all render from
+   here so the number can never drift. public/llms.txt is static: update it
+   by hand if these change. */
+export const OS_PRICING = {
+  monthly: '$2,200',
+  monthlyLabel: 'per month',
+  setup: '$2,000',
+  setupLabel: 'one-time migration & setup',
+  /** The guarantee, verbatim. Plain statement — no invented fine print. */
+  guarantee: 'Love it or your money back.',
+} as const;
+
 /* ─── Config-gated links ───
    Each renders on the site only when non-empty. Paste the real URL to enable. */
 export const LINKS = {
@@ -110,6 +124,9 @@ export const SAME_AS = [
 
 /** Topics the brand is an authority on — strengthens entity understanding for LLMs. */
 export const KNOWS_ABOUT = [
+  'Custom AI Software',
+  'Business Operating Systems',
+  'Custom Software Development',
   'Google Ads Management',
   'Pay-Per-Click Advertising (PPC)',
   'Search Engine Optimization (SEO)',

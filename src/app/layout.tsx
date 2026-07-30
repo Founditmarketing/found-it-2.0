@@ -11,11 +11,15 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 export const metadata: Metadata = {
   metadataBase: new URL('https://founditmarketing.com'),
   title: {
-    default: 'Found It Marketing | Google Ads, Web Design & SEO | Alexandria, LA',
+    default: 'Found It Marketing | Custom AI Software, Google Ads & Web Design | Alexandria, LA',
     template: '%s | Found It Marketing'
   },
-  description: "Google Ads, web design, SEO, and AI search optimization for local businesses. No contracts, no interns. Senior strategists who get results. Based in Alexandria, LA.",
+  description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, SEO, and AI search optimization for local businesses. No contracts. You own everything. Based in Alexandria, LA.",
   keywords: [
+    'custom AI software',
+    'custom business operating system',
+    'Found It OS',
+    'custom software Alexandria LA',
     'Google Ads management',
     'web design Alexandria LA',
     'SEO agency Louisiana',
@@ -35,21 +39,21 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://founditmarketing.com',
     siteName: 'Found It Marketing',
-    title: 'Found It Marketing | Google Ads, Web Design & SEO',
-    description: "Google Ads, web design, SEO, and AI search optimization for local businesses. No contracts. Senior strategists. Real results.",
+    title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
+    description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Found It Marketing — Google Ads, Web Design & SEO',
+        alt: 'Found It Marketing — Custom AI Software, Google Ads & Web Design',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Found It Marketing | Google Ads, Web Design & SEO',
-    description: "Google Ads, web design, SEO, and AI search optimization for local businesses. No contracts. Senior strategists. Real results.",
+    title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
+    description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
     images: ['/og-image.png'],
   },
   robots: {

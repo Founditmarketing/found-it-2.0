@@ -129,8 +129,8 @@ export default function PrivacyPolicy() {
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
                         <div className="font-semibold text-foreground">
                             <p>Found It Marketing LLC</p>
-                            <p>Phone: (678) 431-0705</p>
-                            <p>Email: <a href="mailto:info@founditmarketing.com" className="text-primary hover:underline">info@founditmarketing.com</a></p>
+                            <p>Phone: (337) 525-9650</p>
+                            <p>Email: <a href="mailto:trevor@founditmarketing.com" className="text-primary hover:underline">trevor@founditmarketing.com</a></p>
                             <p>Website: <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
                         </div>
                     </div>

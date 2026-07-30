@@ -12,13 +12,13 @@ import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
-import { AWARD, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
+import { AWARD, OS_PRICING, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
 import { usePersonalization } from '@/lib/personalization';
 
-/* The ROAS chart only appears after a hover/tap on the first proof card, so
-   lazy-load it client-side — this keeps recharts (~100KB+) out of the initial
-   homepage bundle entirely. */
+/* The ROAS chart only appears after a hover/tap on the ROAS proof card (second
+   tile), so lazy-load it client-side — this keeps recharts (~100KB+) out of the
+   initial homepage bundle entirely. */
 const RoasChart = dynamic(
   () => import('@/components/landing/RoasChart').then((m) => m.RoasChart),
   { ssr: false }
@@ -67,30 +67,27 @@ const services = [
 ];
 
 const proofPoints = [
+  { value: '7', label: 'OS Installs Sold', detail: 'Real local businesses running or being fitted now' },
   { value: '10x', label: 'ROAS', detail: '$4.2K/mo spend → $42K/mo revenue' },
   { value: '3x', label: 'Calls', detail: 'Tripled qualified calls in 90 days' },
   { value: '#1', label: 'AI Rec', detail: 'Only recommendation in ChatGPT' },
-  { value: '750', label: 'Calls', detail: '750 organic calls in 5 months' },
 ];
 
 const differentiators = [
-  { title: 'No contracts.', detail: 'Month-to-month options on everything.' },
-  { title: 'You own everything.', detail: 'Your ad accounts, your code, your data. Nothing held hostage.' },
+  { title: OS_PRICING.guarantee, detail: 'Every Found It OS install is guaranteed: if you don’t love your system, you get your money back. And everything we do is month-to-month, no contracts.' },
+  { title: 'You own everything.', detail: 'Your software, your ad accounts, your code, your data. Nothing held hostage.' },
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
 
-/* Rotating hero outcomes — each must complete "We Help [audience] ___" */
+/* Rotating hero outcomes — each must complete "We Help [audience] ___".
+   Software-weighted 4:2, marketing last, so every loop restart lands back on software. */
 const OUTCOMES = [
+  'Own Their Software.',
+  'Get Their Time Back.',
+  'Run Their Whole Business.',
+  'Automate the Busywork.',
   'Get More Customers.',
-  'Run Converting Ads.',
-  'Grow Their Brand.',
-  'Own Beautiful Websites.',
-  'Automate Their CRM.',
   'Dominate Google.',
-  'Get On Top of Social.',
-  'Get Found by AI.',
-  'Manage Social Media.',
-  'Make the Phone Ring.',
 ];
 
 function RotatingOutcome() {
@@ -108,7 +105,7 @@ function RotatingOutcome() {
   return (
     <span className="block relative text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
       {/* widest phrase reserves the line height/width to prevent layout shift */}
-      <span className="invisible" aria-hidden="true">Own Beautiful Websites.</span>
+      <span className="invisible" aria-hidden="true">Run Their Whole Business.</span>
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={i}
@@ -211,7 +208,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Google Ads. Web design. SEO. AI search. No contracts, no jargon, no interns on your account. Just a direct line to a senior strategist.
+                Custom AI software fitted to your business — built to improve your life and save you time. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span> Backed by the same local team behind your ads, website, and AI search.
               </p>
 
               {/* Revenue impact proof — canonical claim + methodology, always together */}
@@ -231,8 +228,8 @@ export default function HomePage() {
               <div className="opacity-0 animate-reveal-up-sm delay-400">
                 <InstantAudit onStateChange={(s) => setAuditActive(s !== 'idle')} />
                 <div className="flex items-center justify-center gap-6 mt-6">
-                  <Link href="#services" className="text-xs font-black uppercase italic tracking-tighter text-white/80 hover:text-primary transition-colors">
-                    See What We Do ↓
+                  <Link href="#foundit-os" className="text-xs font-black uppercase italic tracking-tighter text-white/80 hover:text-primary transition-colors">
+                    Meet Found It OS ↓
                   </Link>
                   <span className="text-white/10 text-xs">|</span>
                   <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-white/80 hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
@@ -258,6 +255,64 @@ export default function HomePage() {
             `}</style>
             <div className="w-1 h-2 bg-primary/40 rounded-full animate-scroll-bounce" />
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          FLAGSHIP — Found It OS, the site's primary offer
+      ═══════════════════════════════════════════ */}
+      <section id="foundit-os" className="relative py-12 lg:py-20 scroll-mt-20">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+            className="relative bg-card/10 backdrop-blur-xl border border-primary/20 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
+            <div className="relative z-10 p-8 lg:p-12">
+              <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-80">The Flagship · Found It OS</p>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-5">
+                One System Runs Your Whole Business —{' '}
+                <span className="text-primary">And You Own It.</span>
+              </h2>
+              <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
+                The register, the inventory, the customers, the website, and an AI that knows all of it — custom-built around how your business actually runs. It proves itself beside your old system, matched to the penny, before anything switches.
+              </p>
+
+              {/* The whole price, printed */}
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-3">
+                The Whole Price, Printed — Same Number for Everybody
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-4">
+                <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
+                  <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.monthly}<span className="text-sm text-muted-foreground font-bold not-italic"> {OS_PRICING.monthlyLabel}</span></p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">Month-to-Month · No Contracts</p>
+                </div>
+                <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
+                  <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.setup}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{OS_PRICING.setupLabel}</p>
+                </div>
+                <div className="flex-1 bg-primary/10 border border-primary/25 rounded-2xl px-6 py-4">
+                  <p className="text-lg lg:text-xl font-black text-foreground italic tracking-tighter leading-tight">{OS_PRICING.guarantee}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">Guaranteed</p>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground/80 font-medium leading-relaxed mb-8 max-w-2xl">
+                A traditional custom software shop quotes $50,000–$150,000 and takes 3–6 months. Seven installs sold — real local businesses running or being fitted right now.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/foundit-os" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                  See Found It OS <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+                <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
+                  Get a Free Fitting
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -304,12 +359,12 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-14"
           >
-            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">Services</p>
+            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">The Marketing Engine</p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
               What We Do
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Four services. Each one comes with a free audit so you can see what we&apos;d do — before you spend a dollar.
+              It starts with your own software — and the marketing engine to grow it. Every service comes with a free first step, before you spend a dollar.
             </p>
           </motion.div>
 
@@ -376,10 +431,10 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.5, ease }}
-                    onMouseEnter={i === 0 ? () => setShowChart(true) : undefined}
-                    onClick={i === 0 ? () => setShowChart((s) => !s) : undefined}
+                    onMouseEnter={i === 1 ? () => setShowChart(true) : undefined}
+                    onClick={i === 1 ? () => setShowChart((s) => !s) : undefined}
                     className={`bg-gradient-to-b from-primary/[0.06] to-primary/[0.02] border rounded-2xl p-5 text-center transition-colors duration-300 ${
-                      i === 0
+                      i === 1
                         ? `cursor-pointer ${showChart ? 'border-primary/40' : 'border-primary/10 hover:border-primary/30'}`
                         : 'border-primary/10 hover:border-primary/20'
                     }`}
@@ -389,7 +444,7 @@ export default function HomePage() {
                     </p>
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-faint mt-1.5 mb-2.5">{point.label}</p>
                     <p className="text-[11px] text-muted-foreground/70 font-medium leading-relaxed">{point.detail}</p>
-                    {i === 0 && (
+                    {i === 1 && (
                       <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary mt-2">
                         {showChart ? 'Charted below' : 'Hover to chart it'}
                       </p>
@@ -436,7 +491,7 @@ export default function HomePage() {
                 <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">Real Local Team.</span>
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
-                When you call about your campaigns, you reach the same senior team that built them — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
+                When you call about your system or your campaigns, you reach the same senior team that built them — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
               </p>
               <div className="space-y-4 mb-8">
                 {[

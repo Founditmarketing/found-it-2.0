@@ -18,7 +18,7 @@ export default function TermsOfService() {
             <div className="max-w-4xl mx-auto space-y-12">
                 <div className="space-y-4">
                     <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">📄 Terms of Service</h1>
-                    <p className="text-muted-foreground">Effective Date: April 15, 2026</p>
+                    <p className="text-muted-foreground">Effective Date: July 30, 2026</p>
                     <p className="text-lg leading-relaxed text-muted-foreground mt-4">
                         Welcome to Found It Marketing LLC ("Company," "we," "our," or "us"). By accessing or using our website, services, or communication channels (including SMS), you agree to the following Terms of Service.
                     </p>
@@ -40,8 +40,10 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">2. Services Provided</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>Found It Marketing LLC provides digital marketing services, which may include:</p>
+                        <p>Found It Marketing LLC provides custom software and digital marketing services, which may include:</p>
                         <ul className="list-disc pl-6 space-y-2">
+                            <li>Custom AI software and business operating systems (Found It OS)</li>
+                            <li>Custom web and mobile app development</li>
                             <li>Website design and development</li>
                             <li>Search engine optimization (SEO)</li>
                             <li>Paid advertising management</li>
@@ -58,7 +60,7 @@ export default function TermsOfService() {
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Payment terms will be outlined in your agreement or invoice</li>
                             <li>Late payments may result in service interruption</li>
-                            <li>All fees are non-refundable unless otherwise stated in writing</li>
+                            <li>Except where a guarantee published or provided in writing by the Company applies, fees are non-refundable</li>
                         </ul>
                     </div>
                 </section>
@@ -66,8 +68,8 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">4. Intellectual Property</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>All content, branding, and materials created by Found It Marketing LLC remain the property of the Company unless otherwise agreed upon in writing.</p>
-                        <p>Clients are granted a limited, non-exclusive license to use deliverables for business purposes.</p>
+                        <p>For custom software and development deliverables — including Found It OS, websites, and apps — the client owns the code and the data. If the engagement ends, the system stays with the client.</p>
+                        <p>Found It Marketing LLC retains ownership of its own name, branding, and pre-existing internal tools and processes.</p>
                     </div>
                 </section>
 
@@ -114,7 +116,7 @@ export default function TermsOfService() {
                             <li>Loss of revenue, leads, or business opportunities</li>
                             <li>Results from marketing campaigns, as outcomes may vary</li>
                         </ul>
-                        <p>All services are provided "as is" without guarantees of specific results.</p>
+                        <p>Except for the Found It OS guarantee ("Love it or your money back."), all services are provided "as is" without guarantees of specific results. The terms of that guarantee are set out in your service agreement.</p>
                     </div>
                 </section>
 
@@ -163,8 +165,8 @@ export default function TermsOfService() {
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
                         <div className="font-semibold text-foreground">
                             <p>Found It Marketing LLC</p>
-                            <p>📞 (678) 431-0705</p>
-                            <p>📧 <a href="mailto:info@founditmarketing.com" className="text-primary hover:underline">info@founditmarketing.com</a></p>
+                            <p>📞 (337) 525-9650</p>
+                            <p>📧 <a href="mailto:trevor@founditmarketing.com" className="text-primary hover:underline">trevor@founditmarketing.com</a></p>
                             <p>🌐 <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
                         </div>
                     </div>

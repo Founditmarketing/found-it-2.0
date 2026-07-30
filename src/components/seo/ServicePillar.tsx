@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib/schema';
+import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { ExitIntent } from '@/components/lp/ExitIntent';
 import { InstantAudit } from '@/components/landing/InstantAudit';
@@ -16,6 +16,8 @@ export interface PillarData {
   serviceType: string;
   /** Plain-text description for Service schema */
   schemaDescription: string;
+  /** Optional machine-readable pricing for the Service JSON-LD. Only Found It OS has a public sticker price. */
+  offers?: ServiceOffer[];
   eyebrow: string;
   headline: string;
   headlineAccent: string;
@@ -87,6 +89,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
     serviceType: data.serviceType,
     description: data.schemaDescription,
     url: data.slug,
+    offers: data.offers,
   });
   const faqSchema = buildFAQSchema(data.faq);
   const breadcrumbSchema = buildBreadcrumbSchema([

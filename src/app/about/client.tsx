@@ -18,6 +18,7 @@ const stats = [
 ];
 
 const services = [
+  { name: 'Found It OS — Custom AI Software', desc: 'One system that runs your whole business. You own the code and the data.', href: '/foundit-os' },
   { name: 'Google Ads Management', desc: 'Weekly optimization, real conversion tracking, transparent reporting.', href: '/google-ads-management' },
   { name: 'Custom Web Design', desc: 'Fast, mobile-first websites that turn visitors into calls. You own everything.', href: '/web-design' },
   { name: 'AI Search Optimization', desc: 'Get recommended by ChatGPT, Perplexity, and Google AI.', href: '/ai-search-optimization' },
@@ -55,7 +56,7 @@ export default function AboutPage() {
             <span className="text-primary">So We Built It.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Marketing is a digital marketing agency in Alexandria, Louisiana. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over {TRACK_RECORD.yearsInBusiness} years, our clients have generated <span className="text-foreground font-bold">{REVENUE_CLAIM.figure}</span> in revenue.
+            Found It Marketing is a custom AI software and digital marketing company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over {TRACK_RECORD.yearsInBusiness} years, our clients have generated <span className="text-foreground font-bold">{REVENUE_CLAIM.figure}</span> in revenue.
           </p>
           <p className="mt-3 text-sm text-faint font-medium max-w-2xl">
             {REVENUE_CLAIM.methodology}
