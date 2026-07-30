@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useReducedMotion } from 'framer-motion';
-import { Check, ArrowRight, Phone, Megaphone, Globe, Cpu, Share2, Trophy, TrendingUp } from 'lucide-react';
+import { Check, ArrowRight, Phone, Layers, Smartphone, Bot, Globe, Trophy, TrendingUp } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,43 +31,52 @@ const clamp01 = (v: number) => Math.min(Math.max(v, 0), 1);
 
 /* ─── Data ─── */
 
+/* The 90%: custom AI software. Marketing lives in the slim band below the grid. */
 const services = [
   {
-    name: 'Google Ads',
-    result: 'Get more leads from your ad spend — or stop paying us.',
-    href: '/google-ads-management',
-    cta: 'Get a Free Audit',
-    icon: Megaphone,
+    name: 'Business Operating Systems',
+    result: 'One system runs the register, the inventory, the customers, and the website — and you own it.',
+    href: '/foundit-os',
+    cta: 'Get a Free Fitting',
+    icon: Layers,
     accent: 'from-orange-500/20 to-amber-500/5',
   },
   {
-    name: 'Web Design',
-    result: 'A website that makes your phone ring. Live in 2 weeks or less.',
-    href: '/web-design',
-    cta: 'Get a Free Concept Call',
-    icon: Globe,
-    accent: 'from-blue-500/20 to-cyan-500/5',
-  },
-  {
-    name: 'AI Search',
-    result: 'Show up when ChatGPT and Google AI recommend your industry.',
-    href: '/ai-search-optimization',
-    cta: 'Get a Free AI Audit',
-    icon: Cpu,
+    name: 'AI That Knows Your Business',
+    result: 'A built-in AI that answers from your own books, in plain English — who bought what, what is running low, who has not been in.',
+    href: '/foundit-os',
+    cta: 'See It Inside Found It OS',
+    icon: Bot,
     accent: 'from-violet-500/20 to-purple-500/5',
   },
   {
-    name: 'Social Media',
-    result: 'Content that gets calls, not just likes. We create it all.',
-    href: '/social-media-management',
-    cta: 'Get a Free Content Plan',
-    icon: Share2,
+    name: 'Custom Apps',
+    result: 'iOS, Android, and web apps blueprinted in person — fixed price, and you own the code.',
+    href: '/app-development',
+    cta: 'Get a Free App Blueprint',
+    icon: Smartphone,
+    accent: 'from-blue-500/20 to-cyan-500/5',
+  },
+  {
+    name: 'Websites, Wired In',
+    result: 'Conversion-first websites you own — built to wire straight into your system, live in 2 weeks or less.',
+    href: '/web-design',
+    cta: 'Get a Free Concept Call',
+    icon: Globe,
     accent: 'from-emerald-500/20 to-teal-500/5',
   },
 ];
 
+/* The 10%: the marketing engine, compressed into one row of links. */
+const marketingLinks = [
+  { name: 'Google Ads', href: '/google-ads-management' },
+  { name: 'AI Search', href: '/ai-search-optimization' },
+  { name: 'Social Media', href: '/social-media-management' },
+  { name: 'AI Automation', href: '/ai-marketing' },
+];
+
 const proofPoints = [
-  { value: '7', label: 'OS Installs Sold', detail: 'Real local businesses running or being fitted now' },
+  { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers', detail: 'Real local businesses running or being fitted now' },
   { value: '10x', label: 'ROAS', detail: '$4.2K/mo spend → $42K/mo revenue' },
   { value: '3x', label: 'Calls', detail: 'Tripled qualified calls in 90 days' },
   { value: '#1', label: 'AI Rec', detail: 'Only recommendation in ChatGPT' },
@@ -300,7 +309,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground/80 font-medium leading-relaxed mb-8 max-w-2xl">
-                A traditional custom software shop quotes $50,000–$150,000 and takes 3–6 months. Seven installs sold — real local businesses running or being fitted right now.
+                A traditional custom software shop quotes $50,000–$150,000 and takes 3–6 months. {TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -359,12 +368,12 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-14"
           >
-            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">The Marketing Engine</p>
+            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">90% Software · 10% Marketing</p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
-              What We Do
+              What We Build
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              It starts with your own software — and the marketing engine to grow it. Every service comes with a free first step, before you spend a dollar.
+              We are a custom AI software company. Systems, assistants, apps, and the websites wired into them — built one business at a time, owned by you. Every one starts with a free first step.
             </p>
           </motion.div>
 
@@ -397,6 +406,30 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+
+          {/* The other 10% — the marketing engine, one slim band */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="mt-6 bg-card/5 border border-border/10 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
+          >
+            <div className="shrink-0">
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">The Other 10%</p>
+              <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">The Marketing Engine</p>
+            </div>
+            <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
+              Ads, AI search, and social for the businesses we build for — each one starts with a free audit.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
+              {marketingLinks.map((m) => (
+                <Link key={m.href} href={m.href} className="text-xs text-primary font-bold hover:underline whitespace-nowrap">
+                  {m.name} →
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

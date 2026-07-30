@@ -5,7 +5,7 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Found It OS — Custom Operating Systems for Local Businesses',
   description:
-    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, guaranteed: ${OS_PRICING.guarantee} 7 installs sold. Based in Alexandria, LA.`,
+    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, guaranteed: ${OS_PRICING.guarantee} ${TRACK_RECORD.softwareCustomers} software customers and growing. Based in Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Marketing',
@@ -35,13 +35,13 @@ const data: PillarData = {
   headline: 'Stop Renting Your Software —',
   headlineAccent: 'Own Your Whole System.',
   intro:
-    'Right now a software company controls your register, your inventory, and your customer list — and would hold all three hostage if you tried to leave. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny. Seven local businesses have already said yes.',
+    `Right now a software company controls your register, your inventory, and your customer list — and would hold all three hostage if you tried to leave. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes — and counting.`,
   ctaLabel: 'Get My Free Fitting',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
   formHeading: 'Get Your Free Fitting',
   stats: [
-    { value: '7', label: 'Installs Sold' },
+    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: 'To the ¢', label: 'Matched Every Night' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: '0 Hrs', label: 'Downtime at Switch' },
@@ -167,7 +167,7 @@ const data: PillarData = {
     `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. And it is guaranteed: ${OS_PRICING.guarantee} For comparison, a traditional custom software build runs $50,000 to $150,000, takes 3 to 6 months, and bills 15 to 20% a year in maintenance. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
-    'Seven installs sold — real local businesses running or being fitted right now.',
+    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
     `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours.',

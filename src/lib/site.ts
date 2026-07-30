@@ -55,6 +55,9 @@ export const FOUNDER = {
    Phrased conservatively from confirmed facts; sharpen with exact figures. */
 export const TRACK_RECORD = {
   yearsInBusiness: '13+',
+  /** Found It OS proof point. 12 per Trevor 2026-07-30 (was 7) — update HERE
+      only; every page interpolates it. public/llms.txt is static, sync by hand. */
+  softwareCustomers: '12',
   adSpendManaged: 'Millions',
   adSpendManagedLong: 'millions of dollars in managed ad spend',
   socialAccountsManaged: 'Hundreds',
