@@ -67,6 +67,32 @@ const services = [
   },
 ];
 
+/* Screenshots of shipped systems — captured from the software itself.
+   Files are versioned (…-v1) per the never-overwrite-assets rule. */
+const osScreens = [
+  {
+    src: '/os-screens/tonys-shop-os-v1.png',
+    alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
+    title: 'Tony’s Shop OS',
+    kind: 'European Auto Repair',
+    detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
+  },
+  {
+    src: '/os-screens/lonestar-os-v1.png',
+    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
+    title: 'Lonestar OS',
+    kind: 'Shed Dealer & Builder',
+    detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
+  },
+  {
+    src: '/os-screens/house-system-v1.png',
+    alt: 'The House System register — a ticket rung with three lines and a live total',
+    title: 'The House System',
+    kind: 'Menswear Retail',
+    detail: 'The register that remembers — tickets, clients, inventory, and the books in one place.',
+  },
+];
+
 /* The 10%: the marketing engine, compressed into one row of links. */
 const marketingLinks = [
   { name: 'Google Ads', href: '/google-ads-management' },
@@ -322,6 +348,61 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          OS SCREENS — the software itself, on screen
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-12 lg:py-20">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-12"
+          >
+            <p className="text-primary font-mono text-[10px] font-black uppercase tracking-[0.5em] mb-4 opacity-50">On Screen</p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+              Not Mockups. <span className="text-primary">Screenshots.</span>
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              Straight off the screens of systems we&apos;ve fitted — an auto shop, a shed dealer, a clothier. Every one custom-built, every one owned by the business running it.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+            {osScreens.map((s, i) => (
+              <motion.div
+                key={s.src}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12, duration: 0.7, ease }}
+              >
+                <Link href="/foundit-os" className="group block h-full">
+                  <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30 group-hover:border-primary/30 transition-colors duration-500">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      width={1440}
+                      height={900}
+                      className="w-full h-auto"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="pt-4 px-1">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">{s.title}</p>
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{s.kind}</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1.5">{s.detail}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

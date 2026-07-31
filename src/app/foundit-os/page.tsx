@@ -139,6 +139,32 @@ const data: PillarData = {
     narrative:
       'Before any business switches to Found It OS, the new system has to earn it. It runs beside the register you already trust, and every night the two sets of books go side by side until the difference is zero. Not close. Zero. When they match day after day and you are ready, you give the word. No rip-out weekend. No leap of faith. That is the whole test, and no install skips it.',
   },
+  galleryHeading: 'Not Mockups. Screenshots.',
+  galleryIntro:
+    'Straight off the screens of systems we have fitted — an auto shop, a shed dealer, a clothier. Every one custom-built, every one owned by the business running it.',
+  gallery: [
+    {
+      src: '/os-screens/tonys-shop-os-v1.png',
+      alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
+      title: 'Tony’s Shop OS',
+      kind: 'European Auto Repair',
+      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
+    },
+    {
+      src: '/os-screens/lonestar-os-v1.png',
+      alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
+      title: 'Lonestar OS',
+      kind: 'Shed Dealer & Builder',
+      detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
+    },
+    {
+      src: '/os-screens/house-system-v1.png',
+      alt: 'The House System register — a ticket rung with three lines and a live total',
+      title: 'The House System',
+      kind: 'Menswear Retail',
+      detail: 'The register that remembers — tickets, clients, inventory, and the books in one place.',
+    },
+  ],
   mistakesHeading: 'Why Business Software Usually Goes Wrong',
   mistakes: [
     {

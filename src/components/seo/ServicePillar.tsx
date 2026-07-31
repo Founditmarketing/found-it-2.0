@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
@@ -48,6 +49,10 @@ export interface PillarData {
     stats: { value: string; label: string }[];
     narrative: string;
   };
+  /** Optional screenshot gallery (e.g. Found It OS installs on screen). */
+  galleryHeading?: string;
+  galleryIntro?: string;
+  gallery?: { src: string; alt: string; title: string; kind: string; detail: string }[];
   /** Common mistakes / what we fix. */
   mistakesHeading?: string;
   mistakes?: { title: string; detail: string }[];
@@ -262,6 +267,34 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 ))}
               </div>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">{data.result.narrative}</p>
+            </div>
+          </section>
+        )}
+
+        {/* Screenshot gallery */}
+        {data.gallery && data.gallery.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+              {data.galleryHeading || 'On Screen'}
+            </h2>
+            {data.galleryIntro && (
+              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">{data.galleryIntro}</p>
+            )}
+            <div className="space-y-10">
+              {data.gallery.map((g) => (
+                <figure key={g.src}>
+                  <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30">
+                    <Image src={g.src} alt={g.alt} width={1440} height={900} className="w-full h-auto" sizes="(max-width: 1024px) 100vw, 900px" />
+                  </div>
+                  <figcaption className="pt-3 px-1">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">{g.title}</p>
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{g.kind}</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1">{g.detail}</p>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </section>
         )}
