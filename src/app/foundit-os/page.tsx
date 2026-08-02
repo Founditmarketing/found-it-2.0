@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       `One system for your whole business — fitted to how you actually run it, proven beside your old system, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
     url: 'https://founditmarketing.com/foundit-os',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

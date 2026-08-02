@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Local SEO and AI search optimization for Pineville businesses — Google Business Profile, rankings, reviews, and honest reporting.',
     type: 'website',
     url: 'https://founditmarketing.com/pineville-seo',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };
