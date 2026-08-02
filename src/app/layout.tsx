@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
     images: [
       {
-        url: '/og-image-v2.png',
+        url: '/og-image-v3.png',
         width: 1200,
         height: 630,
         alt: 'Found It Marketing — Custom AI Software, Google Ads & Web Design',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
     description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
-    images: ['/og-image-v2.png'],
+    images: ['/og-image-v3.png'],
   },
   robots: {
     index: true,

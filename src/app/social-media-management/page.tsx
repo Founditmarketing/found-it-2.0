@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'A team with 13+ years in marketing managing social for hundreds of local businesses. Content + paid social that drives calls.',
     type: 'website',
     url: 'https://founditmarketing.com/social-media-management',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Google Ads, web design, SEO, and AI search for Alexandria businesses — from a team headquartered in Alexandria since 2013.',
     type: 'website',
     url: 'https://founditmarketing.com/marketing-alexandria',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

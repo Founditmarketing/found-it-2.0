@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Web design for Lake Charles contractors. Live in 2 weeks or less.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/lake-charles/web-design',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/lake-charles/web-design' },

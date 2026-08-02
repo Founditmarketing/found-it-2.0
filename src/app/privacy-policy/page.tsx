@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         description: 'Privacy Policy and SMS Communications Consent for Found It Marketing LLC.',
         type: 'website',
         url: 'https://founditmarketing.com/privacy-policy',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
     },
 };
 

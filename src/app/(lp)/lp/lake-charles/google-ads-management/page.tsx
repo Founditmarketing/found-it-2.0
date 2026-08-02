@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Google Ads management for Lake Charles businesses. Weekly optimization, no contracts. Free audit.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/lake-charles/google-ads-management',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/lp/lake-charles/google-ads-management' },

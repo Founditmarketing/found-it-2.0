@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Custom AI systems for instant lead follow-up, appointment setting, and content — built for you by a local team.',
     type: 'website',
     url: 'https://founditmarketing.com/ai-marketing',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

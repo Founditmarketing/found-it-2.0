@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Custom websites that turn visitors into calls. Live in 2 weeks or less. Free concept call.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/web-design',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',

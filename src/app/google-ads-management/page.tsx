@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'A team with 13+ years in marketing and millions in managed ad spend. Weekly optimization, conversion tracking, no contracts.',
     type: 'website',
     url: 'https://founditmarketing.com/google-ads-management',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

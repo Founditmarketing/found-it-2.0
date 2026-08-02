@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Get recommended by ChatGPT, Perplexity, and Google AI through entity authority, structured data, and local SEO.',
     type: 'website',
     url: 'https://founditmarketing.com/ai-search-optimization',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

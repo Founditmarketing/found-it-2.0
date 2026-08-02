@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Custom mobile and web apps built by a local team. Fixed timelines, no scope creep, and you own the code. Get your free in-person app blueprint.',
     type: 'website',
     url: 'https://founditmarketing.com/lp/app-development',
-    images: [{ url: '/og-image-v2.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
