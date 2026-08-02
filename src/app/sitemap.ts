@@ -30,6 +30,13 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
 
   // Service authority pillars (organic / GEO) — primary public service pages
   { path: '/foundit-os', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/custom-software', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/custom-software/auto-repair-shops', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/custom-software/shed-builders', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/custom-software/car-dealerships', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/custom-software/contractors', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/custom-software/retail-stores', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/custom-software/home-builders', priority: 0.85, changeFrequency: 'weekly' },
   { path: '/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/web-design', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/ai-search-optimization', priority: 0.9, changeFrequency: 'weekly' },

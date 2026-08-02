@@ -245,6 +245,9 @@ const data: PillarData = {
     },
   ],
   relatedReading: [
+    { title: 'Custom Software by Industry — the full map', href: '/custom-software' },
+    { title: 'Auto Repair Shop Software You Own', href: '/custom-software/auto-repair-shops' },
+    { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
     { title: 'Custom App Development', href: '/app-development' },
     { title: 'Stop Fearing AI. Start Weaponizing It.', href: '/blog/weaponize-ai' },
   ],
