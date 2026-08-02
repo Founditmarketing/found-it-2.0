@@ -3,12 +3,12 @@ import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Auto Repair Shop Software You Own — Tekmetric Alternative',
+  title: 'The AI-Powered Tekmetric Alternative You Own',
   description:
-    `Auto repair shop software you own — work orders, parts board, customer book, AI service desk. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `The AI-powered Tekmetric alternative shops own outright — work orders, parts board, and an AI that answers from your own records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
   alternates: { canonical: '/custom-software/auto-repair-shops' },
   openGraph: {
-    title: 'Auto Repair Shop Software You Own Outright | Found It Marketing',
+    title: 'The AI-Powered Tekmetric Alternative You Own | Found It Marketing',
     description:
       `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
@@ -31,11 +31,11 @@ const data: PillarData = {
   ],
   schemaDescription:
     `Custom shop management software for independent auto repair shops — work orders, the parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
-  eyebrow: 'Found It OS for Auto Shops',
-  headline: 'Auto Repair Shop Software',
-  headlineAccent: 'You Own Outright.',
+  eyebrow: 'Found It OS · The Tekmetric Alternative',
+  headline: 'The AI-Powered',
+  headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
-    `Most shops rent their management system by the month — and the day they stop paying, ten years of work orders and customer history stay locked in someone else's software. We build it the other way. One system fitted to how your shop actually runs — work orders, the parts and waiting board, your customer book, invoicing, and an AI service desk that answers questions from your own records — and you own it, code and data. Your existing records get professionally migrated in, not abandoned, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this page. You'll never rent software that almost fits again.`,
+    `Tekmetric is a capable system — and you will rent it forever, by the month, with your shop's history living in their cloud. We build the other kind: the AI-powered shop system you own. We have already moved a real shop off a Tekmetric-class system — roughly ten years of records professionally migrated — and the AI read every line on the way in, surfacing about $270K in forgotten, unbilled work their old software never showed them. One system fitted to how your shop actually runs — work orders, the parts and waiting board, your customer book, invoicing, and an AI service desk — and you own it, code and data. Nothing switches until the new system has run beside your old one and matched it. The price is published right on this page. You'll never rent software that almost fits again.`,
   ctaLabel: 'Get My Free Fitting',
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
@@ -46,9 +46,9 @@ const data: PillarData = {
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '100%', label: 'Yours — Code & Data' },
   ],
-  definitionHeading: 'What Is Shop Management Software You Own?',
+  definitionHeading: 'What Makes It the AI-Powered Alternative?',
   definition:
-    'It is the same job a rented shop management system does — write the work order, track the parts, ring the invoice, keep the customer book — with one difference that changes everything: at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. Then you can ask it questions in plain English — which customers have not been in this year, what is sitting waiting on parts, what got declined last visit — and it answers from your own books. No per-seat rent forever. No data held hostage if you ever leave.',
+    "It covers every job a Tekmetric-class system does — write the work order, track the parts, ring the invoice, keep the customer book — then adds the two things a rented platform cannot give you. First, it is AI-first: every record in your shop’s history is something you can ask about in plain English, because the AI reads YOUR data, not a template’s. Second, at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. No per-seat rent forever. No data held hostage if you ever leave.",
   includedHeading: 'What a Shop OS Includes',
   included: [
     {
@@ -74,7 +74,7 @@ const data: PillarData = {
     {
       title: 'An AI Service Desk',
       detail:
-        'Ask it questions in plain English — who declined brakes last quarter, which regulars have gone quiet — and it answers from your shop\'s own records.',
+        'The part no rented system matches: ask your shop questions in plain English — who declined brakes last quarter, which regulars have gone quiet, what is sitting unbilled — and it answers from your own records, because it read every one of them during migration.',
     },
     {
       title: 'You Own It',
@@ -126,6 +126,7 @@ const data: PillarData = {
     'Invoicing',
     'AI Service Desk',
     'Your Website',
+    'AI-First Core',
   ],
   result: {
     headline: 'The $270K Parking Lot',
@@ -171,10 +172,15 @@ const data: PillarData = {
     `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays in your shop.',
     'Proven before it ships: the new system runs beside your old one on your real data until the two match.',
-    'A built-in AI that answers questions about your own shop in plain English — declined jobs, quiet regulars, what is waiting on parts.',
+    'AI-first, not AI-added: the system reads your entire migrated history, so the AI answers about YOUR shop — declined jobs, quiet regulars, what is waiting on parts, what is sleeping unbilled.',
   ],
   faqHeading: 'Auto Repair Shop Software FAQ',
   faq: [
+    {
+      question: 'Can you migrate my shop off Tekmetric?',
+      answer:
+        'That is the core of what we do. We have already moved a real shop off a Tekmetric-class system — roughly ten years of customers, vehicles, and work orders professionally migrated in. The old system gets read completely (that full read is how one shop surfaced about $270K in unbilled work), the new system runs beside it on your real data until the two match, and nothing switches until you give the word.',
+    },
     {
       question: 'Is Found It OS a Tekmetric alternative?',
       answer:
@@ -217,7 +223,7 @@ const data: PillarData = {
     { title: 'Custom Software for Car Dealerships', href: '/custom-software/car-dealerships' },
     { title: 'Custom Software for Retail Stores', href: '/custom-software/retail-stores' },
   ],
-  finalCtaHeadline: 'Find Out What Is Sleeping in Your Old System',
+  finalCtaHeadline: 'Put the AI-Powered Alternative in Your Shop',
   finalCtaSub:
     `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. Free, in person if you are local, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
 };
