@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Stop Renting Your Software —',
   headlineAccent: 'Own Your Whole System.',
   intro:
-    `Right now a software company controls your register, your inventory, and your customer list — and would hold all three hostage if you tried to leave. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes — and counting.`,
+    `Right now a software company controls your register, your inventory, and your customer list — and would hold all three hostage if you tried to leave. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes — and counting. You will never rent software that almost fits again.`,
   ctaLabel: 'Get My Free Fitting',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',

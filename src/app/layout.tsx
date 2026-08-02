@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'Found It Marketing | Custom AI Software, Google Ads & Web Design | Alexandria, LA',
     template: '%s | Found It Marketing'
   },
-  description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, SEO, and AI search optimization for local businesses. No contracts. You own everything. Based in Alexandria, LA.",
+  description: "Found It builds custom AI-powered operating systems for real businesses — your records migrated, your team trained, live in days, one published price with a money-back guarantee. Plus Google Ads, web design & AI search. Alexandria, LA.",
   keywords: [
     'custom AI software',
     'custom business operating system',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     url: 'https://founditmarketing.com',
     siteName: 'Found It Marketing',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
+    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Money-back guarantee.",
     images: [
       {
         url: '/og-image-v3.png',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI software that improves your life and saves you time — plus Google Ads, web design, and AI search. No contracts. You own everything.",
+    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Money-back guarantee.",
     images: ['/og-image-v3.png'],
   },
   robots: {

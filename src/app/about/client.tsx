@@ -58,6 +58,9 @@ export default function AboutPage() {
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             Found It Marketing is a custom AI software and digital marketing company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over {TRACK_RECORD.yearsInBusiness} years, our clients have generated <span className="text-foreground font-bold">{REVENUE_CLAIM.figure}</span> in revenue.
           </p>
+          <p className="mt-4 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
+            Today we build those systems for real businesses — the shop, the crew, the yard, the store: your jobs, your registers, your dispatch board, your customer book, with your years of records professionally migrated in, not abandoned. Ask your system a question in plain English and it answers from your own data. Installed in days, not quarters — and unlike everyone else in software, the price is on the website. <span className="text-foreground font-bold">You&rsquo;ll never rent software that almost fits again.</span>
+          </p>
           <p className="mt-3 text-sm text-faint font-medium max-w-2xl">
             {REVENUE_CLAIM.methodology}
           </p>
