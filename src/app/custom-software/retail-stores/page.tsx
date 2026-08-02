@@ -3,14 +3,14 @@ import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Retail POS You Own — Point of Sale for Independent Stores',
+  title: 'The House System — Retail POS You Own',
   description:
-    `A retail POS you own outright — register, inventory, customer history, layaway, and AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `The House System is a retail POS you own outright — register, inventory, customer households, layaway, and Ask the House: AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
   alternates: { canonical: '/custom-software/retail-stores' },
   openGraph: {
-    title: 'Retail POS You Own — Point of Sale for Independent Stores | Found It Marketing',
+    title: 'The House System — Retail POS You Own | Found It Marketing',
     description:
-      `One system for your whole store — register, inventory, customer book, layaway — fitted to how you actually sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `The House System: one system for your whole store — register, inventory, customer book, layaway — fitted to how you actually sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
     url: 'https://founditmarketing.com/custom-software/retail-stores',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -22,20 +22,20 @@ export const metadata: Metadata = {
 const usd = (sticker: string) => Number(sticker.replace(/[^0-9.]/g, ''));
 
 const data: PillarData = {
-  name: 'Custom Software for Retail Stores',
+  name: 'The House System',
   slug: '/custom-software/retail-stores',
-  serviceType: 'Custom Retail Point of Sale System',
+  serviceType: 'Retail Point of Sale Operating System',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `A custom retail point of sale system independent stores own outright — register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Existing records are professionally migrated in, and the new system runs beside the old register until the books match to the penny before anything switches. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
-  eyebrow: 'Found It OS · Retail Stores',
-  headline: 'Stop Renting Your Register —',
-  headlineAccent: 'Own Your Point of Sale.',
+    `The House System is Found It's retail point of sale — a system independent stores own outright: register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Existing records are professionally migrated in, and the new system runs beside the old register until the books match to the penny before anything switches. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+  eyebrow: 'The House System · Retail',
+  headline: 'The House System —',
+  headlineAccent: 'A Register That Remembers.',
   intro:
-    `Your point of sale charges you for every terminal on the counter, and your customer history sits in the processor's cloud — theirs to hold, yours to look at. Found It OS ends that. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes. You'll never rent software that almost fits again.`,
+    `We call it the House System because it thinks the way a real store does — in households, not transactions: the family that has bought from you for three generations is one story, not four hundred scattered receipts. Your current point of sale charges you for every terminal and keeps your customer history in the processor's cloud — theirs to hold, yours to look at. The House System ends that. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes. You'll never rent software that almost fits again.`,
   ctaLabel: 'Get My Free Fitting',
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
@@ -46,9 +46,9 @@ const data: PillarData = {
     { value: 'Est. 1946', label: 'Oldest Store Fitted' },
     { value: '$0', label: 'Per-Terminal Fees' },
   ],
-  definitionHeading: 'What Is a Retail POS You Own?',
+  definitionHeading: 'What Is the House System?',
   definition:
-    'A retail POS you own is a point of sale that is your property — the code, the database, the customer history — instead of a subscription you rent by the terminal. We built one retail core — register, inventory, customer households, layaway and special orders, and an ask-anything AI over the store\'s own history — and we fit it to your store instead of making your store fit it. Your old records come with you: every customer, every ticket, every year of history gets professionally migrated in. Ask the new register a question in plain English and it answers from your own books. And because it is yours, there are no per-terminal fees and no vendor holding your customer list.',
+    'The House System is a point of sale that is your property — the code, the database, the customer history — instead of a subscription you rent by the terminal. We built one retail core — register, inventory, customer households, layaway and special orders, and an ask-anything AI over the store\'s own history — and we fit it to your store instead of making your store fit it. Your old records come with you: every customer, every ticket, every year of history gets professionally migrated in. Ask the new register a question in plain English and it answers from your own books. And because it is yours, there are no per-terminal fees and no vendor holding your customer list.',
   includedHeading: 'What Every Retail Fitting Includes',
   included: [
     {
@@ -72,7 +72,7 @@ const data: PillarData = {
         'Layaway, deposits, and special orders tracked in the system instead of a binder under the counter.',
     },
     {
-      title: 'Ask It Anything',
+      title: 'Ask the House',
       detail:
         'Ask in plain English — who bought this brand last year, what is not moving, who has not been in since spring — and it answers from your own history.',
     },
@@ -127,17 +127,17 @@ const data: PillarData = {
     'Layaway',
     'Special Orders',
     'Nightly Books',
-    'AI Assistant',
+    'Ask the House',
   ],
   result: {
-    headline: 'One Core, Real Stores',
+    headline: 'One House, Many Stores',
     stats: [
       { value: '1', label: 'Retail Core' },
       { value: 'Staging', label: 'Registers in Evaluation' },
       { value: '0', label: 'Forks of the Code' },
     ],
     narrative:
-      'We built the retail core once — register, inventory, customer households, layaway, and the ask-anything AI — then fitted it store by store to real stores: a luxury menswear shop, an appliance and furniture store that has been in business since 1946, among others. One core, multiple fits, zero forks of the codebase. Staging registers are in evaluation right now. And none of those stores switches until the side-by-side numbers earn it — that is the rule, and no install skips it.',
+      'We built the House System core once — register, inventory, customer households, layaway, and Ask the House — then fitted it store by store to real stores: a luxury menswear shop, an appliance and furniture store that has been in business since 1946, among others. One core, multiple fits, zero forks of the codebase. Staging registers are in evaluation right now. And none of those stores switches until the side-by-side numbers earn it — that is the rule, and no install skips it.',
   },
   mistakesHeading: 'Where Retail POS Usually Goes Wrong',
   mistakes: [
@@ -165,22 +165,27 @@ const data: PillarData = {
   pricingHeading: 'What It Costs',
   pricing:
     `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migration means your records come with you, professionally brought in. No per-terminal fees, no processor lock-in, no contracts — month-to-month, and if we ever part ways the system stays yours. Guaranteed: ${OS_PRICING.guarantee} Stores renting Square- or Lightspeed-class systems pay every month forever and own nothing at the end. This is the opposite trade: the same monthly discipline, but the register, the code, and the customer book are yours.`,
-  whyUsHeading: 'Why Stores Choose Found It OS',
+  whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
     `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
-    'One retail core fitted to real stores — menswear, appliances and furniture — without forking the code.',
+    'One House System core fitted to real stores — menswear, appliances and furniture — without forking the code.',
     'You own 100% of the code and the data. Your customer history is your asset, not your processor\'s.',
     'Records professionally migrated in — decades of customers and tickets survive the move.',
     'Proven before it ships: the new register runs beside your old one until the books match to the penny.',
     `${TRACK_RECORD.yearsInBusiness} years building digital products for local businesses — a local Alexandria, LA team you can actually reach.`,
   ],
-  faqHeading: 'Retail POS FAQ',
+  faqHeading: 'House System FAQ',
   faq: [
     {
-      question: 'Is Found It OS an alternative to Square, Clover, or Lightspeed?',
+      question: 'Why is it called the House System?',
       answer:
-        'Yes — for independent stores that want to own their system instead of renting it. Square, Clover, and Lightspeed are capable products, but the deal across that category is the same: you pay every month, and your customer history lives in their cloud. Found It OS is fitted to your store, loaded with your existing records, and owned by you outright — code and data.',
+        'Because it thinks in households, not transactions. A real store knows its people — the family that has furnished three homes with you is one relationship, not four hundred anonymous receipts. The House System keeps the whole house under one roof: the register, the inventory, the customer households, the layaway book — and Ask the House, the AI that answers questions about your own store in plain English.',
+    },
+    {
+      question: 'Is the House System an alternative to Square, Clover, or Lightspeed?',
+      answer:
+        'Yes — for independent stores that want to own their system instead of renting it. Square, Clover, and Lightspeed are capable products, but the deal across that category is the same: you pay every month, and your customer history lives in their cloud. The House System is fitted to your store, loaded with your existing records, and owned by you outright — code and data.',
     },
     {
       question: 'What happens to my customer history?',
@@ -219,7 +224,7 @@ const data: PillarData = {
     { title: 'Custom Software for Auto Repair Shops', href: '/custom-software/auto-repair-shops' },
     { title: 'Custom Software for Car Dealerships', href: '/custom-software/car-dealerships' },
   ],
-  finalCtaHeadline: 'See Your Store on Its Own Register',
+  finalCtaHeadline: 'See Your Store in Its Own House',
   finalCtaSub:
     `Tell us how your store runs today — the POS, the binder, the workarounds — and we will map what your own system would look like, with your history in it. Free, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
 };

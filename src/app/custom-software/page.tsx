@@ -220,7 +220,7 @@ const data: PillarData = {
     { title: 'Custom Software for Shed Builders', href: '/custom-software/shed-builders' },
     { title: 'Custom Software for Car Dealerships', href: '/custom-software/car-dealerships' },
     { title: 'Custom Software for Contractors', href: '/custom-software/contractors' },
-    { title: 'Custom Software for Retail Stores', href: '/custom-software/retail-stores' },
+    { title: 'The House System — Retail POS You Own', href: '/custom-software/retail-stores' },
     { title: 'Custom Software for Home Builders', href: '/custom-software/home-builders' },
   ],
   finalCtaHeadline: 'See What a Fitted System Looks Like',
