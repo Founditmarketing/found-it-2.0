@@ -1,11 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Script from 'next/script';
 import { CheckCircle2, Phone } from 'lucide-react';
-import { trackCallClick, captureUTMs, buildFormSrc, createFormSubmitListener } from '@/lib/analytics';
+import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { useEffect, useState } from 'react';
+import { NativeLeadForm } from '@/components/forms/NativeLeadForm';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -13,9 +12,6 @@ interface LPFormSectionProps {
   heading?: string;
   subheading?: string;
   benefits?: string[];
-  /** GoHighLevel form embed URL */
-  formSrc?: string;
-  formId?: string;
   /** Source tag for attribution (e.g. 'lp_google_ads') */
   source?: string;
   /** Page slug for attribution (e.g. 'google-ads-management') */
@@ -30,41 +26,9 @@ export function LPFormSection({
     'Custom strategy roadmap',
     'Zero obligation — keep the plan either way',
   ],
-  formSrc = 'https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz',
-  formId = 'FXyD279qmIC0yUDrZfYz',
   source = 'lp_general',
   pageSlug = 'general',
 }: LPFormSectionProps) {
-  const [iframeSrc, setIframeSrc] = useState(formSrc);
-
-  useEffect(() => {
-    // Capture UTMs on first load
-    captureUTMs();
-    // Build attributed form URL with source + UTMs
-    setIframeSrc(buildFormSrc(formSrc, source, pageSlug));
-
-    // LeadConnector postMessage listener for conversion tracking
-    const handleMessage = createFormSubmitListener(source);
-    window.addEventListener('message', handleMessage);
-
-    // Debug: log all iframe messages during development
-    if (process.env.NODE_ENV === 'development') {
-      const debugHandler = (e: MessageEvent) => {
-        const origins = ['leadconnectorhq.com', 'msgsndr.com'];
-        if (origins.some(o => (e.origin || '').includes(o))) {
-          console.log('[Found It] iframe message:', e.origin, e.data);
-        }
-      };
-      window.addEventListener('message', debugHandler);
-      return () => {
-        window.removeEventListener('message', handleMessage);
-        window.removeEventListener('message', debugHandler);
-      };
-    }
-
-    return () => window.removeEventListener('message', handleMessage);
-  }, [formSrc, source, pageSlug]);
-
   return (
     <section id="lp-form" className="relative py-20 lg:py-32 scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-6">
@@ -125,36 +89,7 @@ export function LPFormSection({
 
           {/* Right — Form */}
           <div className="lg:col-span-7">
-            <div className="bg-card/10 backdrop-blur-2xl border border-border/20 rounded-[2rem] p-6 lg:p-10 shadow-2xl">
-              <iframe
-                src={iframeSrc}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  borderRadius: '4px',
-                  backgroundColor: 'transparent',
-                }}
-                id={`inline-${formId}`}
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="LP Lead Form"
-                data-height="586"
-                data-layout-iframe-id={`inline-${formId}`}
-                data-form-id={formId}
-                title="Lead Capture Form"
-                className="relative z-10 w-full min-h-[586px]"
-              />
-              <Script
-                src="https://link.msgsndr.com/js/form_embed.js"
-                strategy="lazyOnload"
-              />
-            </div>
+            <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness />
           </div>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Script from 'next/script';
+import { NativeLeadForm } from '@/components/forms/NativeLeadForm';
 import { Suspense } from 'react';
 
 import { useSearchParams } from 'next/navigation';
@@ -97,25 +97,7 @@ function ContactSectionInner() {
           {/* Form Section - Moved to top on mobile, right side on desktop */}
           <motion.div variants={itemVariants} className="lg:col-span-7 w-full order-1 lg:order-2">
             <div className="w-full relative">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/FXyD279qmIC0yUDrZfYz"
-                style={{ width: '100%', height: '100%', border: 'none', borderRadius: '4px', backgroundColor: 'transparent' }}
-                id="inline-FXyD279qmIC0yUDrZfYz"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Form 1"
-                data-height="586"
-                data-layout-iframe-id="inline-FXyD279qmIC0yUDrZfYz"
-                data-form-id="FXyD279qmIC0yUDrZfYz"
-                title="Form 1"
-                className="relative z-10 w-full"
-              />
-              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+              <NativeLeadForm source="contact_section" pageSlug="contact" showBusiness />
             </div>
           </motion.div>
 
