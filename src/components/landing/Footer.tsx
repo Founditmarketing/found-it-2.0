@@ -2,7 +2,7 @@
 
 import { Phone, Mail, MapPin, Star, Facebook, Instagram, Linkedin, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { trackCallClick } from '@/lib/analytics';
 import { BUSINESS, SERVICES, SAME_AS, LINKS, TRACK_RECORD, SERVICE_SHORT_LABELS } from '@/lib/site';
 
@@ -90,14 +90,13 @@ export function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <h4 className={headingClass}>Contact</h4>
             <address className="not-italic space-y-4">
-              <a
-                href={phoneHref}
+              <SafePhone
                 onClick={() => trackCallClick()}
-                className={`flex items-center gap-2 text-foreground hover:text-primary transition-colors font-bold text-sm ${CALLRAIL_CLASS}`}
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-bold text-sm"
               >
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                {phoneDisplay}
-              </a>
+                <SafePhoneText />
+              </SafePhone>
               <a
                 href={`mailto:${BUSINESS.email}`}
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-medium break-all"

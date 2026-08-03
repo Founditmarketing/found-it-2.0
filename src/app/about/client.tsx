@@ -5,7 +5,7 @@ import { Check, ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -222,9 +222,9 @@ export default function AboutPage() {
                 Book a Free Call
               </LiquidButton>
             </Link>
-            <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
-              <Phone className="w-4 h-4" /> {phoneDisplay}
-            </a>
+            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
+              <Phone className="w-4 h-4" /> <SafePhoneText />
+            </SafePhone>
           </div>
         </motion.div>
 

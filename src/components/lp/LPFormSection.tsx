@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Script from 'next/script';
 import { CheckCircle2, Phone } from 'lucide-react';
 import { trackCallClick, captureUTMs, buildFormSrc, createFormSubmitListener } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { useEffect, useState } from 'react';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -111,18 +111,15 @@ export function LPFormSection({
               <p className="text-xs uppercase tracking-[0.3em] text-faint font-black mb-3">
                 Prefer to talk?
               </p>
-              <a
-                href={phoneHref}
+              <SafePhone
                 onClick={() => trackCallClick()}
-                className={`flex items-center gap-4 text-foreground hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
+                className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group"
               >
                 <span className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Phone className="w-5 h-5 text-primary" />
                 </span>
-                <span className="text-2xl font-black italic tracking-tighter">
-                  {phoneDisplay}
-                </span>
-              </a>
+                <SafePhoneText className="text-2xl font-black italic tracking-tighter" />
+              </SafePhone>
             </div>
           </div>
 

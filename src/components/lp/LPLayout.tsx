@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { trackCallClick, trackStickyCTAClick } from '@/lib/analytics';
-import { phoneHref, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone } from '@/components/landing/SafePhone';
 import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 import { ExitIntent } from './ExitIntent';
 
@@ -35,14 +35,13 @@ export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLa
         transition={{ delay: 2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 flex items-center gap-3 safe-bottom"
       >
-        <a
-          href={phoneHref}
+        <SafePhone
           onClick={() => trackCallClick()}
-          className={`flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 border border-border/30 shrink-0 ${CALLRAIL_CLASS}`}
-          aria-label="Call us"
+          className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 border border-border/30 shrink-0"
+          ariaLabel="Call us"
         >
           <Phone className="w-5 h-5 text-primary" />
-        </a>
+        </SafePhone>
         <Link href="#lp-form" className="flex-1" onClick={() => trackStickyCTAClick()}>
           <motion.div
             whileTap={{ scale: 0.97 }}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Phone, Search } from 'lucide-react';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 
 export const metadata: Metadata = {
   title: 'Page Not Found',
@@ -58,9 +58,9 @@ export default function NotFound() {
             >
               <Search className="w-4 h-4" /> Back to Home
             </Link>
-            <a href={phoneHref} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
-              <Phone className="w-4 h-4" /> {phoneDisplay}
-            </a>
+            <SafePhone className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
+              <Phone className="w-4 h-4" /> <SafePhoneText />
+            </SafePhone>
           </div>
         </div>
       </div>

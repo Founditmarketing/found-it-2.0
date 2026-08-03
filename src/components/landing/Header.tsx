@@ -10,7 +10,8 @@ import {
 import { cn } from '@/lib/utils';
 import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { trackCallClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
@@ -513,10 +514,10 @@ export function Header() {
                 className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
                 asChild
               >
-                <a href={phoneHref} onClick={() => trackCallClick()} className={CALLRAIL_CLASS}>
+                <SafePhone onClick={() => trackCallClick()}>
                   <Phone className="mr-2 h-4 w-4" />
-                  {phoneDisplay}
-                </a>
+                  <SafePhoneText />
+                </SafePhone>
               </Button>
               <Link href="/contact" className="hidden lg:block">
                 <LiquidButton className="h-14 px-8 text-xs tracking-[0.2em] magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
@@ -527,17 +528,13 @@ export function Header() {
 
             {/* ─── Mobile: tap-to-call + Hamburger ─── */}
             <div className="lg:hidden relative z-[60] flex items-center gap-1">
-              <a
-                href={phoneHref}
+              <SafePhone
                 onClick={() => trackCallClick()}
-                aria-label={`Call Found It Marketing at ${phoneDisplay}`}
-                className={cn(
-                  'w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95',
-                  CALLRAIL_CLASS
-                )}
+                ariaLabel="Call Found It"
+                className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
               >
                 <Phone className="w-5 h-5 text-primary" />
-              </a>
+              </SafePhone>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
@@ -643,17 +640,16 @@ export function Header() {
                 </Link>
 
                 {/* Phone */}
-                <a
-                  href={phoneHref}
+                <SafePhone
                   onClick={() => {
                     trackCallClick();
                     setMobileMenuOpen(false);
                   }}
-                  className={`w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px] ${CALLRAIL_CLASS}`}
+                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
                 >
                   <Phone className="w-4 h-4 text-primary" />
-                  {phoneDisplay}
-                </a>
+                  <SafePhoneText />
+                </SafePhone>
 
                 {/* Copyright */}
                 <div className="flex items-center justify-center pt-1">

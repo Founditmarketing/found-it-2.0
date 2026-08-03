@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import type { IndustryData } from './data';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -181,7 +181,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               </p>
               <p className="text-sm text-muted-foreground">
                 Prefer to talk? Call{' '}
-                <a href={phoneHref} onClick={() => trackCallClick()} className={`text-primary font-bold ${CALLRAIL_CLASS}`}>{phoneDisplay}</a>{' '}
+                <SafePhone onClick={() => trackCallClick()} className="text-primary font-bold"><SafePhoneText /></SafePhone>{' '}
                 or{' '}
                 <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
               </p>
@@ -231,9 +231,9 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </LiquidButton>
             </Link>
-            <a href={phoneHref} onClick={() => trackCallClick()} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
-              <Phone className="w-4 h-4" /> {phoneDisplay}
-            </a>
+            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
+              <Phone className="w-4 h-4" /> <SafePhoneText />
+            </SafePhone>
           </div>
         </motion.div>
 

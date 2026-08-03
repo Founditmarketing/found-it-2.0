@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, CalendarCheck } from 'lucide-react';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { BUSINESS, LINKS } from '@/lib/site';
 import { ContactForm } from './ContactForm';
 
@@ -15,7 +15,7 @@ const bookingUrl: string = LINKS.bookingCalendar;
 const fullAddress = `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}, ${BUSINESS.address.addressRegion} ${BUSINESS.address.postalCode}`;
 
 const contactMethods = [
-  { icon: Phone, label: 'Call Trevor directly', value: phoneDisplay, href: phoneHref, onClick: () => trackCallClick(), className: CALLRAIL_CLASS },
+  { icon: Phone, label: 'Call Trevor directly', phone: true },
   { icon: Mail, label: 'Email', value: BUSINESS.email, href: `mailto:${BUSINESS.email}` },
   { icon: MapPin, label: 'Office', value: fullAddress },
   { icon: Clock, label: 'Response time', value: 'Usually within 2 hours' },
@@ -47,16 +47,15 @@ export default function ContactClient() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6, ease }}
           className="mb-10"
         >
-          <a
-            href={phoneHref}
+          <SafePhone
             onClick={() => trackCallClick()}
-            className={`flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 bg-primary text-primary-foreground rounded-2xl px-6 py-5 shadow-2xl shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all ${CALLRAIL_CLASS}`}
+            className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 bg-primary text-primary-foreground rounded-2xl px-6 py-5 shadow-2xl shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all"
           >
             <span className="flex items-center gap-2 text-sm font-black uppercase italic tracking-tighter">
               <Phone className="w-5 h-5" aria-hidden="true" /> Fastest: Call Trevor Now
             </span>
-            <span className="text-2xl font-black tracking-tight">{phoneDisplay}</span>
-          </a>
+            <span className="text-2xl font-black tracking-tight"><SafePhoneText /></span>
+          </SafePhone>
         </motion.div>
 
         {/* Form + direct contact */}
@@ -75,8 +74,12 @@ export default function ContactClient() {
                   <method.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint">{method.label}</span>
                 </div>
-                {method.href ? (
-                  <a href={method.href} onClick={method.onClick} className={`text-foreground font-bold text-sm hover:text-primary transition-colors ${method.className || ''}`}>
+                {method.phone ? (
+                  <SafePhone onClick={() => trackCallClick()} className="text-foreground font-bold text-sm hover:text-primary transition-colors">
+                    <SafePhoneText />
+                  </SafePhone>
+                ) : method.href ? (
+                  <a href={method.href} className="text-foreground font-bold text-sm hover:text-primary transition-colors">
                     {method.value}
                   </a>
                 ) : (

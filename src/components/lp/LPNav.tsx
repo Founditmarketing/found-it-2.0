@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { useEffect, useState } from 'react';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -43,17 +43,16 @@ export function LPNav() {
           </Link>
 
           {/* Phone CTA */}
-          <a
-            href={phoneHref}
+          <SafePhone
             onClick={() => trackCallClick()}
-            aria-label={`Call Found It Marketing at ${phoneDisplay}`}
-            className={`flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
+            ariaLabel="Call Found It Marketing"
+            className="flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors group"
           >
-            <span className="hidden sm:inline">{phoneDisplay}</span>
+            <SafePhoneText className="hidden sm:inline" />
             <span className="w-11 h-11 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
               <Phone className="w-5 h-5 text-primary" />
             </span>
-          </a>
+          </SafePhone>
         </div>
       </div>
     </motion.header>

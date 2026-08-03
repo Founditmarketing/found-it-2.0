@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD } from '@/lib/site';
 import { usePersonalization } from '@/lib/personalization';
 
@@ -128,18 +128,17 @@ export function LPSplitHero({
               </div>
             )}
 
-            <a
-              href={phoneHref}
+            <SafePhone
               onClick={() => trackCallClick()}
-              className={`inline-flex items-center gap-3 text-white/80 hover:text-primary transition-colors group ${CALLRAIL_CLASS}`}
+              className="inline-flex items-center gap-3 text-white/80 hover:text-primary transition-colors group"
             >
               <span className="w-10 h-10 rounded-xl bg-white/[0.04] border border-border/20 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                 <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
               </span>
               <span className="text-sm font-bold">
-                Prefer to talk? <span className="text-white font-black italic tracking-tighter">{phoneDisplay}</span>
+                Prefer to talk? <SafePhoneText className="text-white font-black italic tracking-tighter" />
               </span>
-            </a>
+            </SafePhone>
           </motion.div>
 
           {/* ─── Right: Form (above the fold) ─── */}

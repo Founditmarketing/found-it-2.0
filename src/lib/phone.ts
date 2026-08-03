@@ -1,9 +1,11 @@
 /* ─── Centralized Phone Utility ─── */
-/* Reads from NEXT_PUBLIC_JOHN_PHONE, falls back to default.
-   Provides formatted display and tel: link versions.
+/* The number lives HERE (env override via NEXT_PUBLIC_PHONE_OVERRIDE if ever needed).
+   2026-08-03: switched to Trevor's line and deliberately DROPPED the old
+   NEXT_PUBLIC_JOHN_PHONE env read — a stale Vercel env var must not silently
+   override the number the site is supposed to show.
    All phone elements use className="callrail-phone" for CallRail DNI. */
 
-const RAW_PHONE = process.env.NEXT_PUBLIC_JOHN_PHONE || '3375259650';
+const RAW_PHONE = process.env.NEXT_PUBLIC_PHONE_OVERRIDE || '3182800115';
 
 /** Strip to digits only */
 export const phoneTel = RAW_PHONE.replace(/\D/g, '');

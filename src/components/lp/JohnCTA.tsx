@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { trackCallClick } from '@/lib/analytics';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -67,14 +67,13 @@ export function JohnCTA({
                   <ArrowRight className="w-4 h-4" />
                 </motion.div>
               </Link>
-              <a
-                href={phoneHref}
+              <SafePhone
                 onClick={() => trackCallClick()}
-                className={`flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm font-bold"
               >
                 <Phone className="w-4 h-4" />
-                <span>{phoneDisplay}</span>
-              </a>
+                <SafePhoneText />
+              </SafePhone>
             </div>
           </div>
         </motion.div>

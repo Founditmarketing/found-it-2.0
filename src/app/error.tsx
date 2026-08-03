@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, RotateCcw } from 'lucide-react';
-import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
+import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 
 export default function Error({
   error,
@@ -46,9 +46,9 @@ export default function Error({
           <Link href="/" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors">
             Back to home →
           </Link>
-          <a href={phoneHref} className={`flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold ${CALLRAIL_CLASS}`}>
-            <Phone className="w-4 h-4" /> {phoneDisplay}
-          </a>
+          <SafePhone className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
+            <Phone className="w-4 h-4" /> <SafePhoneText />
+          </SafePhone>
         </div>
       </div>
     </main>
