@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, type LucideIcon } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { phoneHref, phoneDisplay, CALLRAIL_CLASS } from '@/lib/phone';
 import { trackCallClick } from '@/lib/analytics';
@@ -43,6 +43,21 @@ const serviceSublinks: NavSublink[] = SERVICES.map((s) => ({
 }));
 
 const navLinks: NavLink[] = [
+  {
+    title: 'Custom Software',
+    href: '/custom-software',
+    icon: Cpu,
+    description: 'AI-powered systems you own, fitted to your business',
+    sublinks: [
+      { title: 'All Industries', href: '/custom-software', tag: 'NEW' },
+      { title: 'Auto Repair — Tekmetric Alt.', href: '/custom-software/auto-repair-shops', tag: null },
+      { title: 'The House System (Retail)', href: '/custom-software/retail-stores', tag: null },
+      { title: 'Contractors & Field Service', href: '/custom-software/contractors', tag: null },
+      { title: 'Car Dealerships', href: '/custom-software/car-dealerships', tag: null },
+      { title: 'Shed Builders', href: '/custom-software/shed-builders', tag: null },
+      { title: 'Home Builders — CoConstruct Alt.', href: '/custom-software/home-builders', tag: null },
+    ],
+  },
   {
     title: 'Services',
     href: '/#services',
