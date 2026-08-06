@@ -139,6 +139,27 @@ const data: PillarData = {
     narrative:
       'We built the House System core once — register, inventory, customer households, layaway, and Ask the House — then fitted it store by store to real stores: a luxury menswear shop, an appliance and furniture store that has been in business since 1946, among others. One core, multiple fits, zero forks of the codebase. Staging registers are in evaluation right now. And none of those stores switches until the side-by-side numbers earn it — that is the rule, and no install skips it.',
   },
+  galleryHeading: 'Not Mockups. Screenshots.',
+  galleryIntro:
+    'Two registers, straight off the screens of the House System itself. Same core, two completely different stores — that is what fitted, not templated, actually looks like.',
+  gallery: [
+    {
+      src: '/os-screens/house-system-v1.png',
+      alt: 'The House System register — a menswear ticket rung with three lines and a live total of $5,041.21',
+      title: 'The Register',
+      kind: 'The House System · Menswear',
+      detail:
+        'A ticket rung: three lines, sizes attached, tax figured, tender ready. The register that remembers — clients, inventory, and the books in one place.',
+    },
+    {
+      src: '/os-screens/matteo-register-v1.png',
+      alt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket totaling $11,130',
+      title: 'The Same House, a Different Store',
+      kind: 'Atelier Edition',
+      detail:
+        'The same core, fitted to a luxury atelier — its own categories, its own tax, its own look. Every install gets its own cut. Fitted, not templated.',
+    },
+  ],
   mistakesHeading: 'Where Retail POS Usually Goes Wrong',
   mistakes: [
     {
