@@ -48,7 +48,7 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is a Business Operating System?',
   definition:
-    'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Off-the-shelf software makes you run your business its way. Found It OS is the opposite: we study how your business actually works, then build the system around it. You get one screen your team actually uses, one customer database instead of paper tickets and memory, and an AI that can answer questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',
+    'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Off-the-shelf software makes you run your business its way. Think of it like a suit: the big platforms sell off the rack — built for everyone, loaded with features you will never use, tight in all the wrong places. Found It OS is made to measure. We study how your business actually works, then build the system around it. You get one screen your team actually uses, one customer database instead of paper tickets and memory, and an AI that can answer questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',
   includedHeading: 'What Every Found It OS Includes',
   included: [
     {
@@ -69,7 +69,7 @@ const data: PillarData = {
     {
       title: 'AI That Knows Your Business',
       detail:
-        'Ask it questions in plain English — who bought what, what is running low, who has not been in lately — and it answers from your own books.',
+        'Ask it questions in plain English — who bought what, what is running low, who has not been in lately — and it answers from your own books. It reads your books; it cannot write them.',
     },
     {
       title: 'Books That Show Their Work',
@@ -100,7 +100,7 @@ const data: PillarData = {
       step: '03',
       title: 'You Say Go',
       detail:
-        'Nothing switches until the numbers have matched day after day and you give the word. The switch itself costs you zero hours of downtime.',
+        'Nothing switches until the numbers have matched day after day and you give the word. We never pull the plug on the old system until you say go — and the switch itself costs you zero hours of downtime.',
     },
     {
       step: '04',
@@ -170,7 +170,7 @@ const data: PillarData = {
     {
       title: 'Renting forever',
       detail:
-        'Big-name POS and software companies charge you rent forever, raise prices when they want, and hold your data if you try to leave. You never own a thing.',
+        'Big-name POS and software companies charge you rent forever, raise prices when they want, and hold your data if you try to leave. You never own a thing — they rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
@@ -236,7 +236,17 @@ const data: PillarData = {
     {
       question: 'You charge monthly too. How is that not renting?',
       answer:
-        'Because you can leave. When you rent software, the company holds your data and dares you to switch. With Found It OS the system is already yours — code and data — so the monthly only covers backups, support, and new features. We have to earn it every single month, because the day we stop earning it, you cancel and keep the whole system. That is the difference ownership makes.',
+        'Because you can leave. When you rent software, the company holds your data and dares you to switch. With Found It OS the system is already yours — code and data — so the monthly only covers backups, support, and new features. We have to earn it every single month, because the day we stop earning it, you cancel and keep the whole system. Our customers stay because they love it, not because they are locked in.',
+    },
+    {
+      question: 'Is it safe? Who can see what?',
+      answer:
+        'Everyone on your team gets their own login, limited to their role — the front desk sees the front desk, the books stay with the owner. The AI can read your books to answer questions; it cannot write to them. And everything is backed up every night. It is your data, period.',
+    },
+    {
+      question: 'My business is too complicated for software. Can you really fit it?',
+      answer:
+        'Complicated is where custom software thrives. Off-the-rack systems break down exactly where your business gets interesting — the weird workflows, the exceptions, the things only you do. Those are the parts we map first at the fitting, and the system gets built around them. Simple businesses barely need us. Complicated ones are why we exist.',
     },
     {
       question: 'Do I need a technical person on staff?',

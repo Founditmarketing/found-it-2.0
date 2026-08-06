@@ -43,7 +43,7 @@ const services = [
   },
   {
     name: 'AI That Knows Your Business',
-    result: 'A built-in AI that answers from your own books, in plain English — who bought what, what is running low, who has not been in.',
+    result: 'A built-in AI that answers from your own books, in plain English — who bought what, what is running low, who has not been in. It reads your books; it can’t write them.',
     href: '/foundit-os',
     cta: 'See It Inside Found It OS',
     icon: Bot,
@@ -109,7 +109,7 @@ const proofPoints = [
 ];
 
 const differentiators = [
-  { title: OS_PRICING.guarantee, detail: 'Every Found It OS install is guaranteed: if you don’t love your system, you get your money back. And everything we do is month-to-month, no contracts.' },
+  { title: OS_PRICING.guarantee, detail: 'Every Found It OS install is guaranteed: if you don’t love your system, you get your money back. Month-to-month, no contracts — our customers stay because they love it, not because they’re locked in.' },
   { title: 'You own everything.', detail: 'Your software, your ad accounts, your code, your data. Nothing held hostage.' },
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
@@ -313,7 +313,8 @@ export default function HomePage() {
                 <span className="text-primary">And You Own It.</span>
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
-                The register, the inventory, the customers, the website, and an AI that knows all of it — custom-built around how your business actually runs. It proves itself beside your old system, matched to the penny, before anything switches.
+                The register, the inventory, the customers, the website, and an AI that knows all of it — custom-built around how your business actually runs. It proves itself beside your old system, matched to the penny, before anything switches.{' '}
+                <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
               </p>
 
               {/* The whole price, printed */}
@@ -575,6 +576,32 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          MANIFESTO — the mission, in the founder's words
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[30vh] bg-primary/[0.04] rounded-full blur-[100px]" />
+        </div>
+        <div className="max-w-[900px] mx-auto px-6 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease }}
+          >
+            <p className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.92] text-foreground">
+              &ldquo;We want to free the world from{' '}
+              <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.15)]">rental software</span>.&rdquo;
+            </p>
+            <p className="mt-5 text-xs font-black uppercase tracking-[0.25em] text-muted-foreground">— Trevor Ruby, Founder</p>
+            <p className="mt-6 text-base lg:text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
+              Off-the-shelf software is off the rack. Yours is made to measure.
+            </p>
           </motion.div>
         </div>
       </section>

@@ -22,7 +22,7 @@ const services = [
   {
     name: 'Found It OS',
     price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
-    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. Guaranteed — ${OS_PRICING.guarantee}`,
+    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. Guaranteed — ${OS_PRICING.guarantee} Our customers stay because they love it, not because they’re locked in.`,
     features: [
       'Free fitting first — we map how your business runs',
       'Runs beside your old system until the books match to the penny',
