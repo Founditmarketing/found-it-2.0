@@ -20,8 +20,8 @@ interface ExitIntentProps {
 
 export function ExitIntent({
   headline = "Wait — before you go.",
-  subheadline = "Get a free audit first. We'll show you exactly what we'd fix, and you keep the findings either way — no pitch, no obligation.",
-  ctaLabel = 'Get My Free Audit',
+  subheadline = "Stop renting your software. Tell us how your business runs, and we'll map the system we'd build if it were ours — you keep the map either way. No pitch, no obligation.",
+  ctaLabel = 'Get My Free Fitting',
   ctaHref = '#lp-form',
   magnetTitle,
   magnetSub,
@@ -147,7 +147,7 @@ export function ExitIntent({
                 </a>
 
                 <p className="text-[10px] text-faint mt-4 uppercase tracking-widest">
-                  No spam. Instant access.
+                  No spam. The map is yours to keep.
                 </p>
               </div>
             </div>
