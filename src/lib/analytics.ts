@@ -4,6 +4,7 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     dataLayer?: any[];
+    fbq?: (...args: any[]) => void;
   }
 }
 
@@ -35,7 +36,7 @@ function fire(eventName: string, params?: Record<string, any>) {
 /* ─── Event Helpers ─── */
 export function trackLead(source: string) {
   fire('lead_submit', { event_category: 'conversion', event_label: source, value: 1 });
-  
+
   // Google Ads specific conversion: Lead Form Submit
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'conversion', {
@@ -43,6 +44,12 @@ export function trackLead(source: string) {
       'value': 800.0,
       'currency': 'USD'
     });
+  }
+
+  // Meta Pixel conversion: form submits ONLY (same no-junk-events discipline
+  // as Google Ads above — Meta optimizes toward whatever we send it).
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'Lead', { content_name: source });
   }
 }
 
