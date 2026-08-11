@@ -13,7 +13,6 @@ import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
-import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
 import { AWARD, OS_PRICING, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
@@ -139,17 +138,11 @@ function RotatingOutcome() {
 
 export default function HomePage() {
   const { scrollY } = useScroll();
-  // The hero fade-on-scroll is a desktop-only flourish. On touch devices the
-  // on-screen keyboard scrolls the page while you type into the audit bar, and
-  // the audit report is taller than the screen — fading on scroll turns both
-  // into unreadable ghosts over the black background. The pin is routed through
-  // a MotionValue (instead of conditionally swapping the style prop) so it
-  // always wins, even mid-scroll.
+  // The hero fade-on-scroll is a desktop-only flourish; touch devices keep the
+  // hero pinned. The pin is routed through a MotionValue (instead of
+  // conditionally swapping the style prop) so it always wins, even mid-scroll.
   const heroPin = useMotionValue(1); // 1 = pinned fully visible, 0 = fade with scroll
   const [fadeCapable, setFadeCapable] = useState(false);
-  // Once the user runs the instant audit, stop fading the hero on scroll so the
-  // results stay readable while they scroll through them.
-  const [auditActive, setAuditActive] = useState(false);
   const [showChart, setShowChart] = useState(false);
 
   useEffect(() => {
@@ -161,8 +154,8 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    heroPin.set(fadeCapable && !auditActive ? 0 : 1);
-  }, [fadeCapable, auditActive, heroPin]);
+    heroPin.set(fadeCapable ? 0 : 1);
+  }, [fadeCapable, heroPin]);
 
   const heroOpacity = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
     pin ? 1 : 1 - clamp01(y / 500)
@@ -239,9 +232,14 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Instant audit bar */}
+              {/* Primary ask — the fitting; the wow lives one scroll down */}
               <div className="opacity-0 animate-reveal-up-sm delay-400">
-                <InstantAudit onStateChange={(s) => setAuditActive(s !== 'idle')} />
+                <Link
+                  href="/foundit-os#lead-form"
+                  className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+                >
+                  Get My Free Fitting
+                </Link>
                 <div className="flex items-center justify-center gap-6 mt-6">
                   <Link href="#foundit-os" className="text-xs font-black uppercase italic tracking-tighter text-white/80 hover:text-primary transition-colors">
                     Meet Found It OS ↓

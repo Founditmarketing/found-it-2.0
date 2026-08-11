@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
-import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { REVENUE_CLAIM, STATES_CLAIM, TRACK_RECORD } from '@/lib/site';
@@ -176,14 +175,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
             />
           </div>
         )}
-
-        {/* Instant site scan */}
-        <section aria-label="Free instant site scan" className="mb-16">
-          <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-faint mb-4">
-            Free 10-Second Site Scan
-          </p>
-          <InstantAudit />
-        </section>
 
         {/* Stats */}
         <section aria-label="Track record" className="mb-16">
