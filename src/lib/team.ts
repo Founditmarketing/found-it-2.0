@@ -14,7 +14,4 @@ export const staff: StaffMember[] = [
   { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
   { name: 'Reece Roberts', role: 'Head of Search & GEO', image: '/reese-roberts.jpeg' },
   { name: 'Thomas Dombrowski', role: 'Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
-  { name: 'Jason Albright', role: 'Web Development', image: '/jason-albright.jpeg' },
-  { name: 'Bethany Hernandez', role: 'Google Ads', image: '/bethany-hernandez.jpeg' },
-  { name: 'Megan Sanguinetti', role: 'Social Media', image: '/megan-sanguinetti.jpeg' },
 ];

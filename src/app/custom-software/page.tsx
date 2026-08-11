@@ -140,6 +140,81 @@ const data: PillarData = {
     narrative:
       'A Louisiana auto shop runs its service desk on a system we fitted — live, on its own migrated records, not sample data. A field service company takes real leads through its system in production every day. Retail stores are being fitted to one shared core — staging registers in evaluation, zero forks — so every store gets every improvement. Shed builders, car dealerships, and home builders are being fitted now. None of these are mockups. They are businesses that own their software.',
   },
+  galleryHeading: 'Not Mockups. Screenshots.',
+  galleryIntro:
+    'Every industry below is a real system off a real screen — an auto shop, a tire shop, a shed dealer, a clothier, a foundation crew, a carpet cleaner, a windmill maker. Desktop and phone. Fitted, not templated, and owned by the business running it.',
+  showcase: [
+    {
+      img: '/os-screens/flywheel-os-today-v1.png',
+      imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+      phone: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
+      title: 'Flywheel OS',
+      kind: 'Tire & Auto Shop',
+      detail:
+        'The whole day on one screen — quotes, invoices, and profit counted live. And in the pocket: type a tire size or snap the sidewall, priced out the door in seconds.',
+    },
+    {
+      img: '/os-screens/tonys-shop-os-v1.png',
+      imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
+      title: 'Tony’s Shop OS',
+      kind: 'European Auto Repair',
+      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
+    },
+    {
+      img: '/os-screens/house-system-v1.png',
+      imgAlt: 'The House System register — a ticket rung with three lines and a live total',
+      phone: '/os-screens/house-system-mobile-register-v1.png',
+      phoneAlt: 'The House System register on a phone — the product rail and an empty ticket ready to ring',
+      title: 'The House System',
+      kind: 'Menswear Retail',
+      detail: 'The register that remembers — tickets, clients, inventory, and the books in one place. It rings from a phone at the counter.',
+    },
+    {
+      img: '/os-screens/brians-foundation-os-v1.png',
+      imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
+      phone: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+      phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
+      title: 'Brian’s Foundation Repair',
+      kind: 'Foundation Contractor',
+      detail:
+        'The estimate book: ramble the job at your phone — Speak It In sorts it into a written estimate, and nothing opens until you approve it.',
+    },
+    {
+      img: '/os-screens/lonestar-os-v1.png',
+      imgAlt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
+      title: 'Lonestar OS',
+      kind: 'Shed Dealer & Builder',
+      detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
+    },
+    {
+      img: '/os-screens/procarpet-os-v1.png',
+      imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
+      phone: '/os-screens/procarpet-os-mobile-estimates-v1.png',
+      phoneAlt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
+      title: 'Pro Carpet OS',
+      kind: 'Carpet & Duct Cleaning',
+      detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
+    },
+    {
+      img: '/os-screens/matteo-register-v1.png',
+      imgAlt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket totaling $11,130',
+      phone: '/os-screens/matteo-register-mobile-v1.png',
+      phoneAlt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
+      title: 'The Same House, a Different Store',
+      kind: 'Atelier Edition',
+      detail: 'The same retail core, fitted to a luxury atelier — its own categories, its own tax, its own look. Fitted, not templated.',
+    },
+    {
+      img: '/os-screens/ecw-field-os-v1.png',
+      imgAlt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
+      phone: '/os-screens/ecw-field-os-mobile-v1.png',
+      phoneAlt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
+      title: 'Field OS',
+      kind: 'Windmill Manufacturer',
+      detail: 'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
+    },
+  ],
   mistakesHeading: 'Why Off-the-Shelf Software Goes Wrong',
   mistakes: [
     {

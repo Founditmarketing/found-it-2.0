@@ -24,7 +24,7 @@ const data: PillarData = {
   slug: '/web-design',
   serviceType: 'Web Design',
   schemaDescription:
-    'Custom, conversion-focused web design and development built on Next.js. Fast, mobile-first websites engineered to generate leads, with full client ownership of the code. Backed by 13+ years in marketing.',
+    'Custom, conversion-focused web design and development built on Next.js. Fast, mobile-first websites engineered to generate leads, with full client ownership of the code. Built to wire straight into the system that runs your business.',
   eyebrow: 'Web Design & Development',
   headline: 'Websites That Turn Visitors',
   headlineAccent: 'Into Phone Calls.',

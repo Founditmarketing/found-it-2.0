@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
-import { ExitIntent } from '@/components/lp/ExitIntent';
 import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
@@ -507,7 +506,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
       </div>
 
       {/* Exit-intent offer (desktop, once per session) */}
-      <ExitIntent ctaHref="#lead-form" />
     </main>
   );
 }

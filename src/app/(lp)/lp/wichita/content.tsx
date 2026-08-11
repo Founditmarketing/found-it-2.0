@@ -109,8 +109,8 @@ export function WichitaLPContent() {
       <LPSplitHero
         headline="Wichita: We'll Come Walk Your Operation."
         headlineAccent="Free."
-        subheadline="An AI business system built around how you actually run — jobs, estimates, invoices, scheduling — and you own it outright. The walkthrough is where it starts: Tom shows up at your shop, looks at your operation, and shows you exactly what yours would answer."
-        highlight={'Ask it “who owes me money right now?” — you get the list, from your own books.'}
+        subheadline="All those subscriptions you're paying that were never made for you? One app instead — jobs, estimates, invoices, scheduling, the books — fitted to how you actually run, and you own it outright. Tom shows up at your shop, walks your operation with you, and shows you exactly what yours would answer."
+        highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
@@ -146,24 +146,23 @@ export function WichitaLPContent() {
       <ObjectionBullets
         bullets={[
           {
-            title: 'You Own It. Code And Data — 100%.',
-            detail:
-              'Every other software company rents you a seat and keeps the keys. We build the system, hand you the code and the data, and you own them outright. Nobody rents you your own business back.',
+            title: '“This Seems Too Good To Be True.”',
+            detail: `Exactly right — it is. The catch is it comes with us: Tom at your shop in person, a public price, and a one-sentence guarantee — ${OS_PRICING.guarantee} No fine print, because it doesn't need any.`,
           },
           {
-            title: 'Nothing Switches Until It Matches To The Penny.',
+            title: '“What If It Breaks? We Depend On This.”',
             detail:
-              'Your new system runs BESIDE your current software, checked against it nightly, until the numbers match to the penny and you say go. You never bet the shop on a cutover.',
+              'Your new system runs BESIDE your current software, penny-matched against it every night. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
-            title: `Month-To-Month. ${OS_PRICING.guarantee}`,
+            title: '“Wait — There’s A Monthly Fee? I Thought I Owned It.”',
             detail:
-              "No long-term contracts, no lock-in. The guarantee is one sentence with no fine print, because it doesn't need any.",
+              "You do own it — the code and the data, 100%, and no long-term contracts. The fee is maintenance: security, updates, and new features, like your phone gets. Our customers stay because they love it, not because they're locked in.",
           },
           {
-            title: 'Tom Comes To You.',
+            title: '“Is It Safe? Who Sees My Numbers?”',
             detail:
-              'The walkthrough happens at your shop, on your floor, looking at your real operation — with Tom, our man in Wichita. Not on a Zoom call with a sales rep.',
+              "Everyone gets their own login, limited to their role. The AI can read your books — it can't write to them. Everything is backed up every night. It's your data, period.",
           },
         ]}
       />
@@ -173,20 +172,20 @@ export function WichitaLPContent() {
         steps={[
           {
             number: '01',
-            title: 'Tom Walks Your Operation — Free',
+            title: 'Tom Walks It. We Map It. Free.',
             description:
-              'About an hour at your place. He looks at how the work actually flows — jobs, estimates, invoices, the books — and shows you what a system fitted to your operation would answer. If it’s not for you, you shake hands and you’ve lost nothing.',
+              'About an hour at your place. Tom walks the operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out. You add to it or take away. If it’s not for you, you shake hands and keep the map. You’ve lost nothing.',
           },
           {
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'Built around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'The map becomes your system — built around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. ${OS_PRICING.guarantee}`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. ${OS_PRICING.guarantee}`,
           },
         ]}
       />
@@ -195,11 +194,11 @@ export function WichitaLPContent() {
 
       <LPFormSection
         heading="Book My Free Walkthrough"
-        subheading="Tell us who you are and Tom will call to set a time to come walk your operation. No deck, no pressure — just your shop and straight answers."
+        subheading="Drop your name and number. Tom calls, you pick the time, and he comes to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[
           'Tom comes to your Wichita shop, in person — free',
-          'See what an AI system on YOUR books would answer',
-          `Public pricing: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
+          'You keep the map: the app we’d build if we owned your company — add to it or take away',
+          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,
         ]}
         source="lp_wichita"

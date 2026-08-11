@@ -23,21 +23,6 @@ const teamMembers = [
     image: '/thomas-dombrowski.jpeg',
     objectPosition: 'center 10%',
   },
-  {
-    name: 'Jason Albright',
-    role: 'Director of Web Development',
-    image: '/jason-albright.jpeg',
-  },
-  {
-    name: 'Bethany Hernandez',
-    role: 'Head of Google Ads',
-    image: '/bethany-hernandez.jpeg',
-  },
-  {
-    name: 'Megan Sanguinetti',
-    role: 'Head of Social Media',
-    image: '/megan-sanguinetti.jpeg',
-  }
 ];
 
 export default function TeamPage() {
@@ -58,7 +43,7 @@ export default function TeamPage() {
               </span>
             </h1>
             <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
-              These are the people who actually work on your account. When you call, one of them picks up — the same person running your ads or building your site. That's the whole pitch.
+              These are the people who actually work on your system. When you call, one of them picks up — the same person who built it. That's the whole pitch.
             </p>
           </div>
           <div className="hidden lg:block lg:col-span-4">

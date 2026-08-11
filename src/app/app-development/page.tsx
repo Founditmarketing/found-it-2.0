@@ -23,7 +23,7 @@ const data: PillarData = {
   slug: '/app-development',
   serviceType: 'Mobile App Development',
   schemaDescription:
-    'Custom mobile and web application development built by a local team. Native-feeling iOS and Android apps with in-person blueprinting, fixed-price timelines, and full client ownership of the codebase. Backed by 13+ years in marketing.',
+    'Custom mobile and web application development built by a local team. Native-feeling iOS and Android apps with in-person blueprinting, fixed-price timelines, and full client ownership of the codebase. Built one business at a time in Alexandria, LA.',
   eyebrow: 'Custom App Development',
   headline: 'Custom Apps Built Locally —',
   headlineAccent: 'And You Own the Code.',

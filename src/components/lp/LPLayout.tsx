@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { trackCallClick, trackStickyCTAClick } from '@/lib/analytics';
 import { SafePhone } from '@/components/landing/SafePhone';
 import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
-import { ExitIntent } from './ExitIntent';
 
 interface LPLayoutProps {
   children: React.ReactNode;
@@ -26,7 +25,6 @@ export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLa
       <div className="relative z-10">{children}</div>
 
       {/* ─── Exit-intent offer (desktop, once per session) ─── */}
-      <ExitIntent ctaHref="#lp-form" />
 
       {/* ─── Mobile Sticky CTA Bar ─── */}
       <motion.div

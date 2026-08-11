@@ -339,7 +339,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Custom AI software fitted to how your business actually runs — and you own it outright, code and data. Nobody rents you your own business back. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span>
+                Your whole business on one screen, in your hand — custom AI software fitted to how you actually run, and you own it outright, code and data. Nobody rents you your own business back. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span>
               </p>
 
               {/* Revenue impact proof — canonical claim + methodology, always together */}
