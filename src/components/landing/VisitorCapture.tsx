@@ -68,6 +68,10 @@ export function VisitorCapture() {
     }
   }, [name, contact, hp, pathname]);
 
+  // Ad landing pages have their own sticky CTA bar — one page, one ask.
+  // The pill would sit right on top of it (seen live on /lp/wichita).
+  if (pathname?.startsWith('/lp')) return null;
+
   if (!ready || done) return null;
 
   if (!open) {
