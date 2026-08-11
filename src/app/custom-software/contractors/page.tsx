@@ -141,15 +141,8 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of two fitted systems — a roofing company’s whole book on one board, and a cleaning company’s desk that drafts its own follow-ups. Fitted, not templated.',
+    'Straight off the screen of a fitted system — a cleaning company’s desk that drafts its own follow-ups. Fitted, not templated.',
   gallery: [
-    {
-      src: '/os-screens/krewe-roofer-os-v1.png',
-      alt: 'Krewe OS job board — a roofing pipeline with insurance jobs staged from lead to approved',
-      title: 'Krewe OS',
-      kind: 'Roofing Company',
-      detail: 'The whole book on one board — every job, every stage, the pipeline priced at the top.',
-    },
     {
       src: '/os-screens/procarpet-os-v1.png',
       alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
@@ -160,15 +153,8 @@ const data: PillarData = {
   ],
   mobileHeading: 'The Office, In the Truck',
   mobileIntro:
-    'The same systems on the phone — the board from the driver’s seat, the follow-ups from the job site.',
+    'The same system on the phone — the follow-ups from the job site.',
   mobileShots: [
-    {
-      src: '/os-screens/krewe-roofer-os-mobile-v1.png',
-      alt: 'Krewe OS on a phone — the roofing board with $1.8M on the line and new leads priced',
-      title: 'The Board, From the Truck',
-      kind: 'Krewe OS',
-      detail: '$1.8M on the line, every lead named and priced — from the driver’s seat.',
-    },
     {
       src: '/os-screens/procarpet-os-mobile-v1.png',
       alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',

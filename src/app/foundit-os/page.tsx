@@ -141,7 +141,7 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a roofer, a carpet cleaner. Every one custom-built, every one owned by the business running it.',
+    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a carpet cleaner. Every one custom-built, every one owned by the business running it.',
   gallery: [
     {
       src: '/os-screens/tonys-shop-os-v1.png',
@@ -172,13 +172,6 @@ const data: PillarData = {
       detail: 'The whole day on one screen — quotes, invoices, and profit counted live, with nothing aging quietly in a corner.',
     },
     {
-      src: '/os-screens/krewe-roofer-os-v1.png',
-      alt: 'Krewe OS job board — a roofing pipeline with insurance jobs staged from lead to approved',
-      title: 'Krewe OS',
-      kind: 'Roofing Company',
-      detail: 'The whole book on one board — every job, every stage, the pipeline priced at the top.',
-    },
-    {
       src: '/os-screens/procarpet-os-v1.png',
       alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
       title: 'Pro Carpet OS',
@@ -196,13 +189,6 @@ const data: PillarData = {
       title: 'The 30-Second Quote',
       kind: 'Flywheel OS',
       detail: 'Type the size or snap the sidewall — the answer from your pocket.',
-    },
-    {
-      src: '/os-screens/krewe-roofer-os-mobile-v1.png',
-      alt: 'Krewe OS on a phone — the roofing board with $1.8M on the line and new leads priced',
-      title: 'The Board, From the Truck',
-      kind: 'Krewe OS',
-      detail: '$1.8M on the line, every lead named and priced — from the driver’s seat.',
     },
     {
       src: '/os-screens/ecw-field-os-mobile-v1.png',

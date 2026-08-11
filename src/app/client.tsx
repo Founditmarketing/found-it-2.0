@@ -99,13 +99,6 @@ const osScreens = [
     detail: 'Type a tire size — every supplier, every price, out the door in seconds. No customer form first.',
   },
   {
-    src: '/os-screens/krewe-roofer-os-v1.png',
-    alt: 'Krewe OS job board — a roofing pipeline with insurance jobs staged from lead to approved',
-    title: 'Krewe OS',
-    kind: 'Roofing Company',
-    detail: 'The whole book on one board — every job, every stage, the pipeline priced at the top.',
-  },
-  {
     src: '/os-screens/ecw-field-os-v1.png',
     alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
     title: 'Field OS',
@@ -129,13 +122,6 @@ const osPhoneScreens = [
     title: 'The 30-Second Quote',
     kind: 'Flywheel OS',
     detail: 'Type the size or snap the sidewall — the answer from your pocket.',
-  },
-  {
-    src: '/os-screens/krewe-roofer-os-mobile-v1.png',
-    alt: 'Krewe OS on a phone — the roofing board with $1.8M on the line and new leads priced',
-    title: 'The Board, From the Truck',
-    kind: 'Krewe OS',
-    detail: '$1.8M on the line, every lead named and priced — from the driver’s seat.',
   },
   {
     src: '/os-screens/ecw-field-os-mobile-v1.png',
@@ -429,7 +415,7 @@ export default function HomePage() {
               Not Mockups. <span className="text-primary">Screenshots.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a roofer, a windmill maker, a carpet cleaner. Every one custom-built, every one owned by the business running it.
+              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner. Every one custom-built, every one owned by the business running it.
             </p>
           </motion.div>
 
@@ -481,7 +467,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-[900px] mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-[700px] mx-auto">
             {osPhoneScreens.map((s, i) => (
               <motion.div
                 key={s.src}
