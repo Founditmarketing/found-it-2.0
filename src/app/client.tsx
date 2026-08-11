@@ -6,6 +6,7 @@ import { Check, ArrowRight, Phone, Layers, Smartphone, Bot, Globe, Trophy, Trend
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
+import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -328,6 +329,52 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          ASK THE OS — the demo beat, self-serve
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-16 lg:py-24">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+              Ask It. <span className="text-primary">It Answers.</span>
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              Every Found It OS ships with an AI that reads your books. This one is running a demo book — tap a question. Yours would answer from <span className="text-white font-bold">yours</span>.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease }}
+          >
+            <AskTheOS />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mt-8"
+          >
+            <Link
+              href="/foundit-os#lead-form"
+              className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+            >
+              Get Yours Answering — Free Fitting
+            </Link>
+          </motion.p>
         </div>
       </section>
 
