@@ -7,6 +7,7 @@ import { InstantAudit } from '@/components/landing/InstantAudit';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { REVENUE_CLAIM, STATES_CLAIM, TRACK_RECORD } from '@/lib/site';
+import { OsRail } from '@/components/os/OsRail';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -160,6 +161,23 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </header>
 
+        {/* The floor, page-sized: this system's captures drift past right under
+            the hero. Tapping any frame jumps to the full stages below. */}
+        {data.showcase && data.showcase.length > 0 && (
+          <div className="relative left-1/2 -translate-x-1/2 w-screen mb-16">
+            <OsRail
+              href="#screens"
+              size="sm"
+              items={data.showcase.flatMap((s) => [
+                { src: s.img, alt: s.imgAlt, title: s.title, kind: s.kind },
+                ...(s.phone
+                  ? [{ src: s.phone, alt: s.phoneAlt || '', title: s.title, kind: s.kind, portrait: true }]
+                  : []),
+              ])}
+            />
+          </div>
+        )}
+
         {/* Instant site scan */}
         <section aria-label="Free instant site scan" className="mb-16">
           <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-faint mb-4">
@@ -289,7 +307,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Integrated evidence stages — desktop capture + overlapping phone twin */}
         {data.showcase && data.showcase.length > 0 && (
-          <section className="mb-16">
+          <section id="screens" className="mb-16 scroll-mt-28">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
               {data.galleryHeading || 'Not Mockups. Screenshots.'}
             </h2>

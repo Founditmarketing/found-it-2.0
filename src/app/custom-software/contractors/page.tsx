@@ -137,12 +137,22 @@ const data: PillarData = {
       { value: 'Annual', label: 'Service Reminders Working' },
     ],
     narrative:
-      'This is not a mockup. A specialty outdoor-equipment service company runs its whole field operation on a system we fitted: every job, every customer, and annual service reminders so recurring revenue stops slipping through the cracks. When a customer fills out the form on their public website, that lead lands directly on the desk inside the system — no inbox, no copy-paste, no lost slip of paper. A fitting is underway right now for a foundation contractor.',
+      'This is not a mockup. A specialty outdoor-equipment service company runs its whole field operation on a system we fitted: every job, every customer, and annual service reminders so recurring revenue stops slipping through the cracks. When a customer fills out the form on their public website, that lead lands directly on the desk inside the system — no inbox, no copy-paste, no lost slip of paper. A fitting is underway right now for Brian’s Foundation Repair, a Missouri foundation contractor.',
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of fitted field systems — a cleaning company’s desk that drafts its own follow-ups, and a service book that rides to the job. Desktop and phone. Fitted, not templated.',
+    'Straight off the screens of fitted field systems — a foundation crew’s estimate book that writes itself when you talk, a cleaning company’s desk that drafts its own follow-ups, and a service book that rides to the job. Desktop and phone. Fitted, not templated.',
   showcase: [
+    {
+      img: '/os-screens/brians-foundation-os-v1.png',
+      imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
+      phone: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+      phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
+      title: 'Brian’s Foundation Repair',
+      kind: 'Foundation Contractor',
+      detail:
+        'The estimate book: ramble the job at your phone — Speak It In sorts it into a written estimate, and nothing opens until you approve it. A paper-and-pencil operation, on its own system.',
+    },
     {
       img: '/os-screens/procarpet-os-v1.png',
       imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',

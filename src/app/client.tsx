@@ -119,6 +119,12 @@ const railDesktops = [
     title: 'Field OS',
     kind: 'Windmill Manufacturer',
   },
+  {
+    src: '/os-screens/brians-foundation-os-v1.png',
+    alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
+    title: 'Brian’s Foundation',
+    kind: 'Foundation Contractor',
+  },
 ];
 
 const railPhones = [
@@ -170,6 +176,18 @@ const railPhones = [
     title: 'The Week',
     kind: 'Pro Carpet OS',
   },
+  {
+    src: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+    alt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
+    title: 'Speak It In',
+    kind: 'Brian’s Foundation',
+  },
+  {
+    src: '/os-screens/brians-foundation-mobile-today-v1.png',
+    alt: 'Brian’s Foundation Repair OS on a phone — the day’s collected, tickets, and jobs due',
+    title: 'The Day',
+    kind: 'Brian’s Foundation',
+  },
 ];
 
 /* The 10%: the marketing engine, compressed into one row of links. */
@@ -182,9 +200,9 @@ const marketingLinks = [
 
 const proofPoints = [
   { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers', detail: 'Real local businesses running or being fitted now' },
-  { value: '10x', label: 'ROAS', detail: '$4.2K/mo spend → $42K/mo revenue' },
-  { value: '3x', label: 'Calls', detail: 'Tripled qualified calls in 90 days' },
-  { value: '#1', label: 'AI Rec', detail: 'Only recommendation in ChatGPT' },
+  { value: '100%', label: 'Owned', detail: 'The code and the data are the client’s — always' },
+  { value: '$0.00', label: 'The Penny Test', detail: 'New system runs beside the old one until the books match' },
+  { value: '0', label: 'Contracts', detail: 'Month-to-month — the system earns it every month' },
 ];
 
 const differentiators = [
@@ -194,14 +212,13 @@ const differentiators = [
 ];
 
 /* Rotating hero outcomes — each must complete "We Help [audience] ___".
-   Software-weighted 4:2, marketing last, so every loop restart lands back on software. */
+   All software, all doctrine — the marketing lines are gone on purpose. */
 const OUTCOMES = [
   'Own Their Software.',
-  'Get Their Time Back.',
   'Run Their Whole Business.',
+  'Fire Their Rented Software.',
   'Automate the Busywork.',
-  'Get More Customers.',
-  'Dominate Google.',
+  'Get Their Time Back.',
 ];
 
 function RotatingOutcome() {
@@ -219,7 +236,7 @@ function RotatingOutcome() {
   return (
     <span className="block relative text-primary drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]">
       {/* widest phrase reserves the line height/width to prevent layout shift */}
-      <span className="invisible" aria-hidden="true">Run Their Whole Business.</span>
+      <span className="invisible" aria-hidden="true">Fire Their Rented Software.</span>
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={i}
@@ -322,7 +339,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Custom AI software fitted to your business — built to improve your life and save you time. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span> Backed by the same local team behind your ads, website, and AI search.
+                Custom AI software fitted to how your business actually runs — and you own it outright, code and data. Nobody rents you your own business back. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span>
               </p>
 
               {/* Revenue impact proof — canonical claim + methodology, always together */}
@@ -448,7 +465,7 @@ export default function HomePage() {
               Not Mockups. <span className="text-primary">Screenshots.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner. Every one custom-built, every one owned by the business running it.
+              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner, a foundation crew. Every one custom-built, every one owned by the business running it.
             </p>
           </motion.div>
 

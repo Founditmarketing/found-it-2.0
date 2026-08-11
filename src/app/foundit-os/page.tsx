@@ -141,7 +141,7 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner. Desktop and phone, because every Found It OS ships with the pocket version built in. Every one custom-built, every one owned by the business running it.',
+    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner, a foundation crew. Desktop and phone, because every Found It OS ships with the pocket version built in. Every one custom-built, every one owned by the business running it.',
   showcase: [
     {
       img: '/os-screens/flywheel-os-today-v1.png',
@@ -193,6 +193,16 @@ const data: PillarData = {
       title: 'Field OS',
       kind: 'Windmill Manufacturer',
       detail: 'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
+    },
+    {
+      img: '/os-screens/brians-foundation-os-v1.png',
+      imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
+      phone: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+      phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
+      title: 'Brian’s Foundation Repair',
+      kind: 'Foundation Contractor',
+      detail:
+        'The estimate book: ramble the job at your phone — Speak It In sorts it into a written estimate, and nothing opens until you approve it. A paper-and-pencil operation, on its own system.',
     },
   ],
   mistakesHeading: 'Why Business Software Usually Goes Wrong',
