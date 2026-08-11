@@ -138,6 +138,44 @@ const data: PillarData = {
     narrative:
       'We fitted a complete shop operating system for one Louisiana auto shop — work orders, the parts and waiting board, customer book, invoicing, an AI service desk — running on their real migrated data, roughly ten years of records. During that migration, the system surfaced about $270,000 in forgotten and unbilled work sitting in their old system. The shop called it the parking lot. It had been there the whole time; the old software just never showed it. That is the honest case for a professional migration: it can pay for itself before the new system even goes live. What is sleeping in your old system?',
   },
+  galleryHeading: 'Not Mockups. Screenshots.',
+  galleryIntro:
+    'Straight off the screens of Flywheel OS — a tire and auto shop system: the whole day on one board, and a tire quote priced out the door in seconds. Fitted, not templated.',
+  gallery: [
+    {
+      src: '/os-screens/flywheel-os-today-v1.png',
+      alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+      title: 'Flywheel OS',
+      kind: 'Tire & Auto Shop',
+      detail: 'The whole day on one screen — quotes, invoices, and profit counted live, with nothing aging quietly in a corner.',
+    },
+    {
+      src: '/os-screens/flywheel-os-quote-v1.png',
+      alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
+      title: 'The Quote Screen',
+      kind: 'Flywheel OS · Tire & Auto Shop',
+      detail: 'Type a tire size — every supplier, every price, out the door in seconds. No customer form first.',
+    },
+  ],
+  mobileHeading: 'The Counter, In a Pocket',
+  mobileIntro:
+    'The same system on the phone — a quote from the parking lot, the board from behind the counter.',
+  mobileShots: [
+    {
+      src: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
+      title: 'The 30-Second Quote',
+      kind: 'Flywheel OS',
+      detail: 'Type the size or snap the sidewall — the answer from your pocket.',
+    },
+    {
+      src: '/os-screens/flywheel-os-mobile-board-v1.png',
+      alt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board and win-back cards',
+      title: 'The Board',
+      kind: 'Flywheel OS',
+      detail: 'Fourteen open orders and every dollar on the board — from anywhere in the shop.',
+    },
+  ],
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',
   mistakes: [
     {

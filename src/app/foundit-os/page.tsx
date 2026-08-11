@@ -141,7 +141,7 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of systems we have fitted — an auto shop, a shed dealer, a clothier. Every one custom-built, every one owned by the business running it.',
+    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a roofer, a carpet cleaner. Every one custom-built, every one owned by the business running it.',
   gallery: [
     {
       src: '/os-screens/tonys-shop-os-v1.png',
@@ -163,6 +163,60 @@ const data: PillarData = {
       title: 'The House System',
       kind: 'Menswear Retail',
       detail: 'The register that remembers — tickets, clients, inventory, and the books in one place.',
+    },
+    {
+      src: '/os-screens/flywheel-os-today-v1.png',
+      alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+      title: 'Flywheel OS',
+      kind: 'Tire & Auto Shop',
+      detail: 'The whole day on one screen — quotes, invoices, and profit counted live, with nothing aging quietly in a corner.',
+    },
+    {
+      src: '/os-screens/krewe-roofer-os-v1.png',
+      alt: 'Krewe OS job board — a roofing pipeline with insurance jobs staged from lead to approved',
+      title: 'Krewe OS',
+      kind: 'Roofing Company',
+      detail: 'The whole book on one board — every job, every stage, the pipeline priced at the top.',
+    },
+    {
+      src: '/os-screens/procarpet-os-v1.png',
+      alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
+      title: 'Pro Carpet OS',
+      kind: 'Carpet & Duct Cleaning',
+      detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
+    },
+  ],
+  mobileHeading: 'In the Truck. In the Pocket.',
+  mobileIntro:
+    'The same systems, off the desk — because the job doesn’t happen at a desk. Every Found It OS ships with the phone version built in.',
+  mobileShots: [
+    {
+      src: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
+      title: 'The 30-Second Quote',
+      kind: 'Flywheel OS',
+      detail: 'Type the size or snap the sidewall — the answer from your pocket.',
+    },
+    {
+      src: '/os-screens/krewe-roofer-os-mobile-v1.png',
+      alt: 'Krewe OS on a phone — the roofing board with $1.8M on the line and new leads priced',
+      title: 'The Board, From the Truck',
+      kind: 'Krewe OS',
+      detail: '$1.8M on the line, every lead named and priced — from the driver’s seat.',
+    },
+    {
+      src: '/os-screens/ecw-field-os-mobile-v1.png',
+      alt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
+      title: 'The Service Book',
+      kind: 'Field OS',
+      detail: 'Every due service priced, one tap to draft the text — in the field.',
+    },
+    {
+      src: '/os-screens/procarpet-os-mobile-v1.png',
+      alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
+      title: 'The Desk in a Pocket',
+      kind: 'Pro Carpet OS',
+      detail: 'Collected, waiting, in play — and the follow-ups ready for your thumb.',
     },
   ],
   mistakesHeading: 'Why Business Software Usually Goes Wrong',

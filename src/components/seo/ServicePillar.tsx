@@ -53,6 +53,10 @@ export interface PillarData {
   galleryHeading?: string;
   galleryIntro?: string;
   gallery?: { src: string; alt: string; title: string; kind: string; detail: string }[];
+  /** Optional phone captures — portrait shots of the same systems on mobile. */
+  mobileHeading?: string;
+  mobileIntro?: string;
+  mobileShots?: { src: string; alt: string; title: string; kind: string; detail: string }[];
   /** Common mistakes / what we fix. */
   mistakesHeading?: string;
   mistakes?: { title: string; detail: string }[];
@@ -292,6 +296,32 @@ export function ServicePillar({ data }: { data: PillarData }) {
                       <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{g.kind}</p>
                     </div>
                     <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1">{g.detail}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Phone captures */}
+        {data.mobileShots && data.mobileShots.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+              {data.mobileHeading || 'In the Truck. In the Pocket.'}
+            </h2>
+            {data.mobileIntro && (
+              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">{data.mobileIntro}</p>
+            )}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              {data.mobileShots.map((g) => (
+                <figure key={g.src}>
+                  <div className="rounded-[1.75rem] overflow-hidden border border-border/25 bg-card/10 shadow-2xl shadow-black/40">
+                    <Image src={g.src} alt={g.alt} width={780} height={1688} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 220px" />
+                  </div>
+                  <figcaption className="pt-3 px-1 text-center">
+                    <p className="text-xs font-black uppercase italic tracking-tighter text-foreground">{g.title}</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5">{g.kind}</p>
+                    <p className="text-[11px] text-muted-foreground font-medium leading-relaxed mt-1">{g.detail}</p>
                   </figcaption>
                 </figure>
               ))}

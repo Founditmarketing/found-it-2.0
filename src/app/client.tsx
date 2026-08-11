@@ -91,6 +91,66 @@ const osScreens = [
     kind: 'Menswear Retail',
     detail: 'The register that remembers — tickets, clients, inventory, and the books in one place.',
   },
+  {
+    src: '/os-screens/flywheel-os-quote-v1.png',
+    alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
+    title: 'Flywheel OS',
+    kind: 'Tire & Auto Shop',
+    detail: 'Type a tire size — every supplier, every price, out the door in seconds. No customer form first.',
+  },
+  {
+    src: '/os-screens/krewe-roofer-os-v1.png',
+    alt: 'Krewe OS job board — a roofing pipeline with insurance jobs staged from lead to approved',
+    title: 'Krewe OS',
+    kind: 'Roofing Company',
+    detail: 'The whole book on one board — every job, every stage, the pipeline priced at the top.',
+  },
+  {
+    src: '/os-screens/ecw-field-os-v1.png',
+    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
+    title: 'Field OS',
+    kind: 'Windmill Manufacturer',
+    detail: 'The service book that follows up — due services surface themselves, you approve the text.',
+  },
+  {
+    src: '/os-screens/procarpet-os-v1.png',
+    alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
+    title: 'Pro Carpet OS',
+    kind: 'Carpet & Duct Cleaning',
+    detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
+  },
+];
+
+/* Phone captures of the same systems — the OS off the desk, in the pocket. */
+const osPhoneScreens = [
+  {
+    src: '/os-screens/flywheel-os-mobile-quick-v1.png',
+    alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
+    title: 'The 30-Second Quote',
+    kind: 'Flywheel OS',
+    detail: 'Type the size or snap the sidewall — the answer from your pocket.',
+  },
+  {
+    src: '/os-screens/krewe-roofer-os-mobile-v1.png',
+    alt: 'Krewe OS on a phone — the roofing board with $1.8M on the line and new leads priced',
+    title: 'The Board, From the Truck',
+    kind: 'Krewe OS',
+    detail: '$1.8M on the line, every lead named and priced — from the driver’s seat.',
+  },
+  {
+    src: '/os-screens/ecw-field-os-mobile-v1.png',
+    alt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
+    title: 'The Service Book',
+    kind: 'Field OS',
+    detail: 'Every due service priced, one tap to draft the text — in the field.',
+  },
+  {
+    src: '/os-screens/procarpet-os-mobile-v1.png',
+    alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
+    title: 'The Desk in a Pocket',
+    kind: 'Pro Carpet OS',
+    detail: 'Collected, waiting, in play — and the follow-ups ready for your thumb.',
+  },
 ];
 
 /* The 10%: the marketing engine, compressed into one row of links. */
@@ -369,7 +429,7 @@ export default function HomePage() {
               Not Mockups. <span className="text-primary">Screenshots.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — an auto shop, a shed dealer, a clothier. Every one custom-built, every one owned by the business running it.
+              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a roofer, a windmill maker, a carpet cleaner. Every one custom-built, every one owned by the business running it.
             </p>
           </motion.div>
 
@@ -399,6 +459,52 @@ export default function HomePage() {
                       <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{s.kind}</p>
                     </div>
                     <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1.5">{s.detail}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Phone captures — the same systems, off the desk */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mt-20 mb-10"
+          >
+            <h3 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
+              In the Truck. <span className="text-primary">In the Pocket.</span>
+            </h3>
+            <p className="text-muted-foreground font-medium text-base max-w-xl mx-auto leading-relaxed">
+              The same systems, off the desk — because the job doesn&apos;t happen at a desk.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-[900px] mx-auto">
+            {osPhoneScreens.map((s, i) => (
+              <motion.div
+                key={s.src}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.7, ease }}
+              >
+                <Link href="/foundit-os" className="group block h-full">
+                  <div className="rounded-[1.75rem] overflow-hidden border border-border/25 bg-card/10 shadow-2xl shadow-black/40 group-hover:border-primary/30 transition-colors duration-500">
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      width={780}
+                      height={1688}
+                      className="w-full h-auto"
+                      sizes="(max-width: 1024px) 50vw, 220px"
+                    />
+                  </div>
+                  <div className="pt-3 px-1 text-center">
+                    <p className="text-xs font-black uppercase italic tracking-tighter text-foreground">{s.title}</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5">{s.kind}</p>
+                    <p className="text-[11px] text-muted-foreground font-medium leading-relaxed mt-1">{s.detail}</p>
                   </div>
                 </Link>
               </motion.div>
