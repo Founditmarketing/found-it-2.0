@@ -9,6 +9,7 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
+import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 import { reviews } from '@/lib/reviews';
@@ -21,54 +22,6 @@ const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ??
    guarantee rendered from OS_PRICING only. The local promise is Tom at your
    shop; the build team behind him is the same one behind every screen on
    the rail below. */
-
-const railShots = [
-  {
-    src: '/os-screens/flywheel-os-today-v1.png',
-    alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles",
-    title: 'Flywheel OS',
-    kind: 'Tire & Auto Shop',
-  },
-  {
-    src: '/os-screens/flywheel-os-mobile-quick-v1.png',
-    alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-    title: 'The 30-Second Quote',
-    kind: 'Flywheel OS',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-    title: 'Tony’s Shop OS',
-    kind: 'European Auto Repair',
-  },
-  {
-    src: '/os-screens/brians-foundation-mobile-estimates-v1.png',
-    alt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
-    title: 'Speak It In',
-    kind: 'Brian’s Foundation',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-    title: 'Lonestar OS',
-    kind: 'Shed Dealer & Builder',
-  },
-  {
-    src: '/os-screens/procarpet-os-mobile-estimates-v1.png',
-    alt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
-    title: 'The Ladder',
-    kind: 'Pro Carpet OS',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/house-system-v1.png',
-    alt: 'The House System register — a ticket rung with three lines and a live total',
-    title: 'The House System',
-    kind: 'Menswear Retail',
-  },
-];
 
 const faqItems = [
   {
@@ -122,9 +75,10 @@ export function WichitaLPContent() {
         formPageSlug="wichita"
       />
 
-      {/* Not mockups — the systems themselves, drifting past */}
-      <div className="py-6">
-        <OsRail items={railShots} href="#lp-form" size="sm" />
+      {/* Not mockups — the systems themselves, drifting past both ways */}
+      <div className="py-6 space-y-5">
+        <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
+        <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
       </div>
 
       <SocialProof

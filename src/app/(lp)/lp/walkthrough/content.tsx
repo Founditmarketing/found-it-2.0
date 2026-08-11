@@ -8,6 +8,8 @@ import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
+import { OsRail } from '@/components/os/OsRail';
+import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 import { reviews } from '@/lib/reviews';
@@ -67,6 +69,12 @@ export function WalkthroughLPContent() {
         formSource="lp_walkthrough"
         formPageSlug="walkthrough"
       />
+
+      {/* Not mockups — the systems themselves, drifting past both ways */}
+      <div className="py-6 space-y-5">
+        <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
+        <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
+      </div>
 
       <SocialProof
         heading="Local owners"

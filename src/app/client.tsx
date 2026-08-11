@@ -5,6 +5,8 @@ import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useRe
 import { Check, ArrowRight, Phone, Layers, Smartphone, Bot, Globe, Trophy, TrendingUp } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { OsRail } from '@/components/os/OsRail';
+import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
@@ -68,127 +70,8 @@ const services = [
 ];
 
 /* THE FLOOR — every shipped system drifting past on two counter-rotating
-   rails: desktops one way, phones the other. Captured from the software
-   itself; files are versioned (…-v1) per the never-overwrite-assets rule. */
-const railDesktops = [
-  {
-    src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-    title: 'Tony’s Shop OS',
-    kind: 'European Auto Repair',
-  },
-  {
-    src: '/os-screens/flywheel-os-quote-v1.png',
-    alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
-    title: 'Flywheel OS',
-    kind: 'Tire & Auto Shop',
-  },
-  {
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-    title: 'Lonestar OS',
-    kind: 'Shed Dealer & Builder',
-  },
-  {
-    src: '/os-screens/house-system-v1.png',
-    alt: 'The House System register — a ticket rung with three lines and a live total',
-    title: 'The House System',
-    kind: 'Menswear Retail',
-  },
-  {
-    src: '/os-screens/procarpet-os-v1.png',
-    alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
-    title: 'Pro Carpet OS',
-    kind: 'Carpet & Duct Cleaning',
-  },
-  {
-    src: '/os-screens/flywheel-os-today-v1.png',
-    alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-    title: 'Flywheel OS',
-    kind: 'Tire & Auto Shop',
-  },
-  {
-    src: '/os-screens/matteo-register-v1.png',
-    alt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket',
-    title: 'The House System',
-    kind: 'Atelier Edition',
-  },
-  {
-    src: '/os-screens/ecw-field-os-v1.png',
-    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-    title: 'Field OS',
-    kind: 'Windmill Manufacturer',
-  },
-  {
-    src: '/os-screens/brians-foundation-os-v1.png',
-    alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-    title: 'Brian’s Foundation',
-    kind: 'Foundation Contractor',
-  },
-];
-
-const railPhones = [
-  {
-    src: '/os-screens/flywheel-os-mobile-quick-v1.png',
-    alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-    title: 'The 30-Second Quote',
-    kind: 'Flywheel OS',
-  },
-  {
-    src: '/os-screens/house-system-mobile-register-v1.png',
-    alt: 'The House System register on a phone — the product rail and an empty ticket ready to ring',
-    title: 'The Register',
-    kind: 'The House System',
-  },
-  {
-    src: '/os-screens/procarpet-os-mobile-estimates-v1.png',
-    alt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
-    title: 'The Ladder',
-    kind: 'Pro Carpet OS',
-  },
-  {
-    src: '/os-screens/ecw-field-os-mobile-v1.png',
-    alt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
-    title: 'The Service Book',
-    kind: 'Field OS',
-  },
-  {
-    src: '/os-screens/matteo-register-mobile-v1.png',
-    alt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
-    title: 'The Atelier',
-    kind: 'The House System',
-  },
-  {
-    src: '/os-screens/flywheel-os-mobile-board-v1.png',
-    alt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board',
-    title: 'The Board',
-    kind: 'Flywheel OS',
-  },
-  {
-    src: '/os-screens/procarpet-os-mobile-v1.png',
-    alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
-    title: 'The Desk',
-    kind: 'Pro Carpet OS',
-  },
-  {
-    src: '/os-screens/procarpet-os-mobile-schedule-v1.png',
-    alt: 'Pro Carpet OS schedule on a phone — the week’s jobs with the next one highlighted',
-    title: 'The Week',
-    kind: 'Pro Carpet OS',
-  },
-  {
-    src: '/os-screens/brians-foundation-mobile-estimates-v1.png',
-    alt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
-    title: 'Speak It In',
-    kind: 'Brian’s Foundation',
-  },
-  {
-    src: '/os-screens/brians-foundation-mobile-today-v1.png',
-    alt: 'Brian’s Foundation Repair OS on a phone — the day’s collected, tickets, and jobs due',
-    title: 'The Day',
-    kind: 'Brian’s Foundation',
-  },
-];
+   rails: desktops one way, phones the other. Rail data lives in
+   src/lib/os-screens.ts (shared with the LP rails). */
 
 /* The 10%: the marketing engine, compressed into one row of links. */
 const marketingLinks = [
@@ -481,76 +364,8 @@ export default function HomePage() {
           transition={{ duration: 1, ease }}
           className="space-y-6 lg:space-y-8"
         >
-          <div className="rail-row">
-            <div className="rail-track rail-track--left gap-5 lg:gap-6 pr-5 lg:pr-6">
-              {[...railDesktops, ...railDesktops].map((s, i) => {
-                const dup = i >= railDesktops.length;
-                return (
-                  <Link
-                    key={`${s.src}-${i}`}
-                    href="/foundit-os"
-                    aria-hidden={dup || undefined}
-                    tabIndex={dup ? -1 : undefined}
-                    className="group block shrink-0"
-                  >
-                    <div className="rounded-xl overflow-hidden border border-border/25 bg-card/20 shadow-2xl shadow-black/50 transition-colors duration-500 group-hover:border-primary/50">
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-black/60 border-b border-border/15">
-                        <span className="w-2 h-2 rounded-full bg-white/15" />
-                        <span className="w-2 h-2 rounded-full bg-white/15" />
-                        <span className="w-2 h-2 rounded-full bg-white/15" />
-                      </div>
-                      {/* eslint-disable-next-line @next/next/no-img-element -- 16 rail
-                          frames render twice for the loop; the optimizer would fan out
-                          32 requests for what the browser caches as 16 plain files */}
-                      <img
-                        src={s.src}
-                        alt={dup ? '' : s.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-[200px] sm:h-[240px] lg:h-[300px] w-auto max-w-none"
-                      />
-                      <div className="flex items-center justify-between gap-3 px-3 py-2.5 bg-black/60 border-t border-border/15">
-                        <span className="chip">{s.title}</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint whitespace-nowrap">{s.kind}</span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="rail-row">
-            <div className="rail-track rail-track--right gap-5 lg:gap-6 pr-5 lg:pr-6">
-              {[...railPhones, ...railPhones].map((s, i) => {
-                const dup = i >= railPhones.length;
-                return (
-                  <Link
-                    key={`${s.src}-${i}`}
-                    href="/foundit-os"
-                    aria-hidden={dup || undefined}
-                    tabIndex={dup ? -1 : undefined}
-                    className="group block shrink-0"
-                  >
-                    <div className="rounded-[1.4rem] overflow-hidden border border-border/25 bg-card/20 shadow-2xl shadow-black/50 transition-colors duration-500 group-hover:border-primary/50">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={s.src}
-                        alt={dup ? '' : s.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-[240px] sm:h-[280px] lg:h-[320px] w-auto max-w-none"
-                      />
-                      <div className="flex items-center justify-between gap-2 px-3 py-2.5 bg-black/60 border-t border-border/15">
-                        <span className="chip">{s.title}</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint whitespace-nowrap">{s.kind}</span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+          <OsRail items={railDesktops} dir="left" href="/foundit-os" size="md" />
+          <OsRail items={railPhones} dir="right" href="/foundit-os" size="md" />
         </motion.div>
       </section>
 
