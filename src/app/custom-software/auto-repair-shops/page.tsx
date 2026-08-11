@@ -140,40 +140,34 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of Flywheel OS — a tire and auto shop system: the whole day on one board, and a tire quote priced out the door in seconds. Fitted, not templated.',
-  gallery: [
+    'Straight off the screens of shop systems we have fitted — the day on one board, a tire quote priced out the door in seconds, and the parking lot that surfaced $270K. Desktop and phone. Fitted, not templated.',
+  showcase: [
     {
-      src: '/os-screens/flywheel-os-today-v1.png',
-      alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+      img: '/os-screens/flywheel-os-today-v1.png',
+      imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+      phone: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
       title: 'Flywheel OS',
       kind: 'Tire & Auto Shop',
-      detail: 'The whole day on one screen — quotes, invoices, and profit counted live, with nothing aging quietly in a corner.',
+      detail:
+        'The whole day on one screen — quotes, invoices, and profit counted live. And in the pocket: type the size or snap the sidewall, the 30-second answer from the parking lot.',
     },
     {
-      src: '/os-screens/flywheel-os-quote-v1.png',
-      alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
+      img: '/os-screens/flywheel-os-quote-v1.png',
+      imgAlt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
+      phone: '/os-screens/flywheel-os-mobile-board-v1.png',
+      phoneAlt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board and win-back cards',
       title: 'The Quote Screen',
       kind: 'Flywheel OS · Tire & Auto Shop',
-      detail: 'Type a tire size — every supplier, every price, out the door in seconds. No customer form first.',
-    },
-  ],
-  mobileHeading: 'The Counter, In a Pocket',
-  mobileIntro:
-    'The same system on the phone — a quote from the parking lot, the board from behind the counter.',
-  mobileShots: [
-    {
-      src: '/os-screens/flywheel-os-mobile-quick-v1.png',
-      alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-      title: 'The 30-Second Quote',
-      kind: 'Flywheel OS',
-      detail: 'Type the size or snap the sidewall — the answer from your pocket.',
+      detail:
+        'Type a tire size — every supplier, every price, out the door in seconds. No customer form first. The board rides along: every open order and every dollar, from anywhere in the shop.',
     },
     {
-      src: '/os-screens/flywheel-os-mobile-board-v1.png',
-      alt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board and win-back cards',
-      title: 'The Board',
-      kind: 'Flywheel OS',
-      detail: 'Fourteen open orders and every dollar on the board — from anywhere in the shop.',
+      img: '/os-screens/tonys-shop-os-v1.png',
+      imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
+      title: 'Tony’s Shop OS',
+      kind: 'European Auto Repair',
+      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text. This is the system that surfaced ~$270K in forgotten work.',
     },
   ],
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',

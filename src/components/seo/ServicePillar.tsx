@@ -57,6 +57,18 @@ export interface PillarData {
   mobileHeading?: string;
   mobileIntro?: string;
   mobileShots?: { src: string; alt: string; title: string; kind: string; detail: string }[];
+  /** Integrated evidence stages: a desktop capture in browser chrome with its
+      phone twin overlapping the corner. Supersedes gallery + mobileShots on
+      pages that use it; reuses galleryHeading/galleryIntro for its header. */
+  showcase?: {
+    img: string;
+    imgAlt: string;
+    phone?: string;
+    phoneAlt?: string;
+    title: string;
+    kind: string;
+    detail: string;
+  }[];
   /** Common mistakes / what we fix. */
   mistakesHeading?: string;
   mistakes?: { title: string; detail: string }[];
@@ -271,6 +283,60 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 ))}
               </div>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">{data.result.narrative}</p>
+            </div>
+          </section>
+        )}
+
+        {/* Integrated evidence stages — desktop capture + overlapping phone twin */}
+        {data.showcase && data.showcase.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+              {data.galleryHeading || 'Not Mockups. Screenshots.'}
+            </h2>
+            {data.galleryIntro && (
+              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-10">{data.galleryIntro}</p>
+            )}
+            <div className="space-y-14 lg:space-y-20">
+              {data.showcase.map((s, i) => {
+                const phoneRight = i % 2 === 0;
+                return (
+                  <figure key={s.img} className="group">
+                    <div
+                      className={
+                        s.phone
+                          ? `relative pb-12 sm:pb-16 ${phoneRight ? 'pr-8 sm:pr-14' : 'pl-8 sm:pl-14'}`
+                          : 'relative'
+                      }
+                    >
+                      <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30">
+                        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-black/50 border-b border-border/15">
+                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                          <span className="ml-3 text-[10px] font-mono uppercase tracking-[0.3em] text-faint">{s.kind}</span>
+                        </div>
+                        <Image src={s.img} alt={s.imgAlt} width={1440} height={900} className="w-full h-auto" sizes="(max-width: 1024px) 100vw, 900px" />
+                      </div>
+                      {s.phone && (
+                        <div
+                          className={`absolute bottom-0 w-[30%] max-w-[210px] min-w-[120px] overflow-hidden rounded-[1.4rem] border border-border/40 bg-card/20 shadow-2xl shadow-black/60 transition-transform duration-500 group-hover:-translate-y-2 ${
+                            phoneRight ? 'right-0 rotate-2' : 'left-0 -rotate-2'
+                          }`}
+                        >
+                          <Image src={s.phone} alt={s.phoneAlt || ''} width={780} height={1688} className="w-full h-auto" sizes="(max-width: 640px) 30vw, 210px" />
+                        </div>
+                      )}
+                    </div>
+                    <figcaption className={`pt-5 ${s.phone && !phoneRight ? 'sm:pl-14' : ''}`}>
+                      <div className="flex items-baseline gap-3 flex-wrap">
+                        <span className="chip">{s.title}</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{s.kind}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-2 max-w-2xl">{s.detail}</p>
+                    </figcaption>
+                  </figure>
+                );
+              })}
             </div>
           </section>
         )}

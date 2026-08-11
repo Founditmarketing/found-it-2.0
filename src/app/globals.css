@@ -155,3 +155,48 @@
 /* ─── Utility: hide scrollbar ─── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── The floor: drifting evidence rail (homepage screenshots) ───
+   Two rows of shipped-system captures drift in opposite directions.
+   The track holds its content twice; -50% loops seamlessly. Hover a row
+   to pause it. Reduced motion swaps the drift for manual scroll. */
+@keyframes rail-drift-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes rail-drift-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.rail-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+.rail-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.rail-track--left  { animation: rail-drift-left 110s linear infinite; }
+.rail-track--right { animation: rail-drift-right 128s linear infinite; }
+.rail-row:hover .rail-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .rail-track { animation: none !important; }
+  .rail-row { overflow-x: auto; }
+}
+
+/* ─── Chip: the brand mark for a named system — orange fill, black text ─── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  color: #000;
+  padding: 2px 10px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}

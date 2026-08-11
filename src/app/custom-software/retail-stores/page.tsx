@@ -141,23 +141,27 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Two registers, straight off the screens of the House System itself. Same core, two completely different stores — that is what fitted, not templated, actually looks like.',
-  gallery: [
+    'Two registers, straight off the screens of the House System itself — on the counter and in the pocket. Same core, two completely different stores — that is what fitted, not templated, actually looks like.',
+  showcase: [
     {
-      src: '/os-screens/house-system-v1.png',
-      alt: 'The House System register — a menswear ticket rung with three lines and a live total of $5,041.21',
+      img: '/os-screens/house-system-v1.png',
+      imgAlt: 'The House System register — a menswear ticket rung with three lines and a live total of $5,041.21',
+      phone: '/os-screens/house-system-mobile-register-v1.png',
+      phoneAlt: 'The House System register on a phone — the product rail and an empty ticket ready to ring',
       title: 'The Register',
       kind: 'The House System · Menswear',
       detail:
-        'A ticket rung: three lines, sizes attached, tax figured, tender ready. The register that remembers — clients, inventory, and the books in one place.',
+        'A ticket rung: three lines, sizes attached, tax figured, tender ready. The register that remembers — clients, inventory, and the books in one place. And it rings from a phone at the counter.',
     },
     {
-      src: '/os-screens/matteo-register-v1.png',
-      alt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket totaling $11,130',
+      img: '/os-screens/matteo-register-v1.png',
+      imgAlt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket totaling $11,130',
+      phone: '/os-screens/matteo-register-mobile-v1.png',
+      phoneAlt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
       title: 'The Same House, a Different Store',
       kind: 'Atelier Edition',
       detail:
-        'The same core, fitted to a luxury atelier — its own categories, its own tax, its own look. Every install gets its own cut. Fitted, not templated.',
+        'The same core, fitted to a luxury atelier — its own categories, its own tax, its own look, down to the phone in the fitter’s hand. Every install gets its own cut. Fitted, not templated.',
     },
   ],
   mistakesHeading: 'Where Retail POS Usually Goes Wrong',

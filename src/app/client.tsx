@@ -67,75 +67,108 @@ const services = [
   },
 ];
 
-/* Screenshots of shipped systems — captured from the software itself.
-   Files are versioned (…-v1) per the never-overwrite-assets rule. */
-const osScreens = [
+/* THE FLOOR — every shipped system drifting past on two counter-rotating
+   rails: desktops one way, phones the other. Captured from the software
+   itself; files are versioned (…-v1) per the never-overwrite-assets rule. */
+const railDesktops = [
   {
     src: '/os-screens/tonys-shop-os-v1.png',
     alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
     title: 'Tony’s Shop OS',
     kind: 'European Auto Repair',
-    detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
-  },
-  {
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-    title: 'Lonestar OS',
-    kind: 'Shed Dealer & Builder',
-    detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
-  },
-  {
-    src: '/os-screens/house-system-v1.png',
-    alt: 'The House System register — a ticket rung with three lines and a live total',
-    title: 'The House System',
-    kind: 'Menswear Retail',
-    detail: 'The register that remembers — tickets, clients, inventory, and the books in one place.',
   },
   {
     src: '/os-screens/flywheel-os-quote-v1.png',
     alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
     title: 'Flywheel OS',
     kind: 'Tire & Auto Shop',
-    detail: 'Type a tire size — every supplier, every price, out the door in seconds. No customer form first.',
   },
   {
-    src: '/os-screens/ecw-field-os-v1.png',
-    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-    title: 'Field OS',
-    kind: 'Windmill Manufacturer',
-    detail: 'The service book that follows up — due services surface themselves, you approve the text.',
+    src: '/os-screens/lonestar-os-v1.png',
+    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
+    title: 'Lonestar OS',
+    kind: 'Shed Dealer & Builder',
+  },
+  {
+    src: '/os-screens/house-system-v1.png',
+    alt: 'The House System register — a ticket rung with three lines and a live total',
+    title: 'The House System',
+    kind: 'Menswear Retail',
   },
   {
     src: '/os-screens/procarpet-os-v1.png',
     alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
     title: 'Pro Carpet OS',
     kind: 'Carpet & Duct Cleaning',
-    detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
+  },
+  {
+    src: '/os-screens/flywheel-os-today-v1.png',
+    alt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
+    title: 'Flywheel OS',
+    kind: 'Tire & Auto Shop',
+  },
+  {
+    src: '/os-screens/matteo-register-v1.png',
+    alt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket',
+    title: 'The House System',
+    kind: 'Atelier Edition',
+  },
+  {
+    src: '/os-screens/ecw-field-os-v1.png',
+    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
+    title: 'Field OS',
+    kind: 'Windmill Manufacturer',
   },
 ];
 
-/* Phone captures of the same systems — the OS off the desk, in the pocket. */
-const osPhoneScreens = [
+const railPhones = [
   {
     src: '/os-screens/flywheel-os-mobile-quick-v1.png',
     alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
     title: 'The 30-Second Quote',
     kind: 'Flywheel OS',
-    detail: 'Type the size or snap the sidewall — the answer from your pocket.',
+  },
+  {
+    src: '/os-screens/house-system-mobile-register-v1.png',
+    alt: 'The House System register on a phone — the product rail and an empty ticket ready to ring',
+    title: 'The Register',
+    kind: 'The House System',
+  },
+  {
+    src: '/os-screens/procarpet-os-mobile-estimates-v1.png',
+    alt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
+    title: 'The Ladder',
+    kind: 'Pro Carpet OS',
   },
   {
     src: '/os-screens/ecw-field-os-mobile-v1.png',
     alt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
     title: 'The Service Book',
     kind: 'Field OS',
-    detail: 'Every due service priced, one tap to draft the text — in the field.',
+  },
+  {
+    src: '/os-screens/matteo-register-mobile-v1.png',
+    alt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
+    title: 'The Atelier',
+    kind: 'The House System',
+  },
+  {
+    src: '/os-screens/flywheel-os-mobile-board-v1.png',
+    alt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board',
+    title: 'The Board',
+    kind: 'Flywheel OS',
   },
   {
     src: '/os-screens/procarpet-os-mobile-v1.png',
     alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
-    title: 'The Desk in a Pocket',
+    title: 'The Desk',
     kind: 'Pro Carpet OS',
-    detail: 'Collected, waiting, in play — and the follow-ups ready for your thumb.',
+  },
+  {
+    src: '/os-screens/procarpet-os-mobile-schedule-v1.png',
+    alt: 'Pro Carpet OS schedule on a phone — the week’s jobs with the next one highlighted',
+    title: 'The Week',
+    kind: 'Pro Carpet OS',
   },
 ];
 
@@ -419,84 +452,89 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
-            {osScreens.map((s, i) => (
-              <motion.div
-                key={s.src}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.7, ease }}
-              >
-                <Link href="/foundit-os" className="group block h-full">
-                  <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30 group-hover:border-primary/30 transition-colors duration-500">
-                    <Image
-                      src={s.src}
-                      alt={s.alt}
-                      width={1440}
-                      height={900}
-                      className="w-full h-auto"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
-                  </div>
-                  <div className="pt-4 px-1">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">{s.title}</p>
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{s.kind}</p>
-                    </div>
-                    <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1.5">{s.detail}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Phone captures — the same systems, off the desk */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="text-center mt-20 mb-10"
-          >
-            <h3 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
-              In the Truck. <span className="text-primary">In the Pocket.</span>
-            </h3>
-            <p className="text-muted-foreground font-medium text-base max-w-xl mx-auto leading-relaxed">
-              The same systems, off the desk — because the job doesn&apos;t happen at a desk.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 max-w-[700px] mx-auto">
-            {osPhoneScreens.map((s, i) => (
-              <motion.div
-                key={s.src}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.7, ease }}
-              >
-                <Link href="/foundit-os" className="group block h-full">
-                  <div className="rounded-[1.75rem] overflow-hidden border border-border/25 bg-card/10 shadow-2xl shadow-black/40 group-hover:border-primary/30 transition-colors duration-500">
-                    <Image
-                      src={s.src}
-                      alt={s.alt}
-                      width={780}
-                      height={1688}
-                      className="w-full h-auto"
-                      sizes="(max-width: 1024px) 50vw, 220px"
-                    />
-                  </div>
-                  <div className="pt-3 px-1 text-center">
-                    <p className="text-xs font-black uppercase italic tracking-tighter text-foreground">{s.title}</p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5">{s.kind}</p>
-                    <p className="text-[11px] text-muted-foreground font-medium leading-relaxed mt-1">{s.detail}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
         </div>
+
+        {/* THE FLOOR — full-bleed evidence rails. Desktops drift left in
+            browser chrome; phones drift right in bezels. Hover pauses a row;
+            reduced motion swaps the drift for manual scroll. */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease }}
+          className="space-y-6 lg:space-y-8"
+        >
+          <div className="rail-row">
+            <div className="rail-track rail-track--left gap-5 lg:gap-6 pr-5 lg:pr-6">
+              {[...railDesktops, ...railDesktops].map((s, i) => {
+                const dup = i >= railDesktops.length;
+                return (
+                  <Link
+                    key={`${s.src}-${i}`}
+                    href="/foundit-os"
+                    aria-hidden={dup || undefined}
+                    tabIndex={dup ? -1 : undefined}
+                    className="group block shrink-0"
+                  >
+                    <div className="rounded-xl overflow-hidden border border-border/25 bg-card/20 shadow-2xl shadow-black/50 transition-colors duration-500 group-hover:border-primary/50">
+                      <div className="flex items-center gap-1.5 px-3 py-2 bg-black/60 border-b border-border/15">
+                        <span className="w-2 h-2 rounded-full bg-white/15" />
+                        <span className="w-2 h-2 rounded-full bg-white/15" />
+                        <span className="w-2 h-2 rounded-full bg-white/15" />
+                      </div>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- 16 rail
+                          frames render twice for the loop; the optimizer would fan out
+                          32 requests for what the browser caches as 16 plain files */}
+                      <img
+                        src={s.src}
+                        alt={dup ? '' : s.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[200px] sm:h-[240px] lg:h-[300px] w-auto max-w-none"
+                      />
+                      <div className="flex items-center justify-between gap-3 px-3 py-2.5 bg-black/60 border-t border-border/15">
+                        <span className="chip">{s.title}</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint whitespace-nowrap">{s.kind}</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="rail-row">
+            <div className="rail-track rail-track--right gap-5 lg:gap-6 pr-5 lg:pr-6">
+              {[...railPhones, ...railPhones].map((s, i) => {
+                const dup = i >= railPhones.length;
+                return (
+                  <Link
+                    key={`${s.src}-${i}`}
+                    href="/foundit-os"
+                    aria-hidden={dup || undefined}
+                    tabIndex={dup ? -1 : undefined}
+                    className="group block shrink-0"
+                  >
+                    <div className="rounded-[1.4rem] overflow-hidden border border-border/25 bg-card/20 shadow-2xl shadow-black/50 transition-colors duration-500 group-hover:border-primary/50">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={s.src}
+                        alt={dup ? '' : s.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[240px] sm:h-[280px] lg:h-[320px] w-auto max-w-none"
+                      />
+                      <div className="flex items-center justify-between gap-2 px-3 py-2.5 bg-black/60 border-t border-border/15">
+                        <span className="chip">{s.title}</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint whitespace-nowrap">{s.kind}</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ═══════════════════════════════════════════

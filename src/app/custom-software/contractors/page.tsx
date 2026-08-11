@@ -141,26 +141,27 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screen of a fitted system — a cleaning company’s desk that drafts its own follow-ups. Fitted, not templated.',
-  gallery: [
+    'Straight off the screens of fitted field systems — a cleaning company’s desk that drafts its own follow-ups, and a service book that rides to the job. Desktop and phone. Fitted, not templated.',
+  showcase: [
     {
-      src: '/os-screens/procarpet-os-v1.png',
-      alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
+      img: '/os-screens/procarpet-os-v1.png',
+      imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
+      phone: '/os-screens/procarpet-os-mobile-v1.png',
+      phoneAlt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
       title: 'Pro Carpet OS',
       kind: 'Carpet & Duct Cleaning',
-      detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
+      detail:
+        'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it. The whole desk rides in the truck: collected, waiting, in play, ready for your thumb.',
     },
-  ],
-  mobileHeading: 'The Office, In the Truck',
-  mobileIntro:
-    'The same system on the phone — the follow-ups from the job site.',
-  mobileShots: [
     {
-      src: '/os-screens/procarpet-os-mobile-v1.png',
-      alt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
-      title: 'The Desk in a Pocket',
-      kind: 'Pro Carpet OS',
-      detail: 'Collected, waiting, in play — and the follow-ups ready for your thumb.',
+      img: '/os-screens/ecw-field-os-v1.png',
+      imgAlt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
+      phone: '/os-screens/ecw-field-os-mobile-v1.png',
+      phoneAlt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
+      title: 'Field OS',
+      kind: 'Windmill Manufacturer',
+      detail:
+        'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
     },
   ],
   mistakesHeading: 'Why Contractor Software Usually Goes Wrong',
