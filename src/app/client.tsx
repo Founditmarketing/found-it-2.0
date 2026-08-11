@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useReducedMotion } from 'framer-motion';
-import { Check, ArrowRight, Phone, Layers, Smartphone, Bot, Globe, Trophy, TrendingUp } from 'lucide-react';
+import { Check, ArrowRight, Phone, Layers, Smartphone, Bot, Trophy, TrendingUp } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
@@ -58,14 +58,6 @@ const services = [
     cta: 'Get a Free App Blueprint',
     icon: Smartphone,
     accent: 'from-blue-500/20 to-cyan-500/5',
-  },
-  {
-    name: 'Websites, Wired In',
-    result: 'Conversion-first websites you own — built to wire straight into your system, live in 2 weeks or less.',
-    href: '/web-design',
-    cta: 'Get a Free Concept Call',
-    icon: Globe,
-    accent: 'from-emerald-500/20 to-teal-500/5',
   },
 ];
 
@@ -443,7 +435,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SERVICES — 4 premium cards with icons
+          SERVICES — 3 premium cards with icons
       ═══════════════════════════════════════════ */}
       <section id="services" className="relative py-16 lg:py-28 scroll-mt-20">
         {/* Section glow */}
@@ -466,7 +458,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {services.map((svc, i) => (
               <motion.div
                 key={i}
