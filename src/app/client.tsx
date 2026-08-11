@@ -13,7 +13,6 @@ import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
-import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
 import { AWARD, OS_PRICING, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
 import { usePersonalization } from '@/lib/personalization';
@@ -606,13 +605,6 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PORTFOLIO STRIP — real client builds, links to /web-design#portfolio
-      ═══════════════════════════════════════════ */}
-      <div className="max-w-[1000px] mx-auto px-6">
-        <PortfolioStrip />
-      </div>
-
-      {/* ═══════════════════════════════════════════
           MEET THE TEAM — trust band with real team photo
       ═══════════════════════════════════════════ */}
       <section className="relative py-16 lg:py-28">
@@ -631,7 +623,7 @@ export default function HomePage() {
                 <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">Real Local Team.</span>
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
-                When you call about your system or your campaigns, you reach the same senior team that built them — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
+                When you call about your system, you reach the same senior team that built it — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
               </p>
               <div className="space-y-4 mb-8">
                 {[
