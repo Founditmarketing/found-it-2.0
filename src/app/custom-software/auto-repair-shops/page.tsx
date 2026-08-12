@@ -145,7 +145,7 @@ const data: PillarData = {
     {
       img: '/os-screens/flywheel-os-today-v1.png',
       imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-      phone: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      phone: '/os-screens/flywheel-os-mobile-quick-v2.png',
       phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
       title: 'Flywheel OS',
       kind: 'Tire & Auto Shop',
@@ -155,7 +155,7 @@ const data: PillarData = {
     {
       img: '/os-screens/flywheel-os-quote-v1.png',
       imgAlt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
-      phone: '/os-screens/flywheel-os-mobile-board-v1.png',
+      phone: '/os-screens/flywheel-os-mobile-board-v2.png',
       phoneAlt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board and win-back cards',
       title: 'The Quote Screen',
       kind: 'Flywheel OS · Tire & Auto Shop',
