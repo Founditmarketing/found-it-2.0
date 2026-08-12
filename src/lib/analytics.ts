@@ -1,5 +1,7 @@
 /* ─── LP Conversion Tracking & UTM Helpers ─── */
 
+import { fireGadsLeadConversion } from '@/lib/gtag';
+
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
@@ -45,6 +47,10 @@ export function trackLead(source: string) {
       'currency': 'USD'
     });
   }
+
+  // Campaign-specific Google Ads conversion seam (vertical keyword LPs).
+  // No-ops unless NEXT_PUBLIC_GADS_ID is configured — see lib/gtag.ts.
+  fireGadsLeadConversion(source);
 
   // Meta Pixel conversion: form submits ONLY (same no-junk-events discipline
   // as Google Ads above — Meta optimizes toward whatever we send it).

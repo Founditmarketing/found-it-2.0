@@ -6,6 +6,17 @@
 
 import type { OsRailItem } from '@/components/os/OsRail';
 
+/** Reorder a rail so vertical-relevant captures drift past first (keyword LPs
+    message-match their proof: an auto-shop searcher should meet the shop
+    systems before the atelier register). Keeps the full set — breadth is
+    still the point — just leads with the matches. */
+export function railLeading(
+  items: OsRailItem[],
+  match: (s: OsRailItem) => boolean
+): OsRailItem[] {
+  return [...items.filter(match), ...items.filter((s) => !match(s))];
+}
+
 export const railDesktops: OsRailItem[] = [
   {
     src: '/os-screens/tonys-shop-os-v1.png',
