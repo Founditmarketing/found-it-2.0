@@ -7,15 +7,30 @@ import { LiquidButton } from '@/components/ui/LiquidButton';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
+import { OsRail } from '@/components/os/OsRail';
+import { railDesktops, railPhones } from '@/lib/os-screens';
 import type { IndustryData } from './data';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const services = [
+/* The 10%: marketing, one slim band near the bottom — never primary. */
+const marketingLinks = [
   { label: 'Google Ads', href: '/google-ads-management' },
-  { label: 'Web Design', href: '/web-design' },
   { label: 'AI Search / SEO', href: '/ai-search-optimization' },
   { label: 'Social Media', href: '/social-media-management' },
+];
+
+/* Where an industry has a dedicated system page, send readers there. */
+const PILLAR_LINKS: Record<string, { label: string; href: string }> = {
+  contractors: { label: 'See the contractor systems on screen', href: '/custom-software/contractors' },
+  retail: { label: 'See the House System on screen', href: '/custom-software/retail-stores' },
+  dealerships: { label: 'See the dealership system', href: '/custom-software/car-dealerships' },
+};
+
+/* One mixed evidence rail: desktops and phones interleaved. */
+const railMix = [
+  ...railDesktops.flatMap((d, i) => (railPhones[i] ? [d, railPhones[i]] : [d])),
+  ...railPhones.slice(railDesktops.length),
 ];
 
 export default function IndustryPageClient({ data }: { data: IndustryData }) {
@@ -31,7 +46,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
         <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-faint">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <span className="mx-2 text-faint">/</span>
-          <span className="text-foreground">{data.name} Marketing</span>
+          <span className="text-foreground">{data.name} Software</span>
         </nav>
 
         {/* ── Hero ── */}
@@ -41,7 +56,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           transition={{ duration: 0.8, ease }}
           className="mb-16"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">{data.name} Marketing</p>
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Custom Software · {data.name}</p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             {data.headline.split('.')[0]}
             {data.headline.includes('.') && <span className="text-primary">.{data.headline.split('.').slice(1).join('.')}</span>}
@@ -62,6 +77,17 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* ── The stable, drifting past — not mockups, screenshots ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease }}
+          className="relative left-1/2 -translate-x-1/2 w-screen mb-16"
+        >
+          <OsRail items={railMix} href={PILLAR_LINKS[data.slug]?.href || '/custom-software'} size="sm" />
         </motion.div>
 
         {/* ── Definition (answer-first) ── */}
@@ -141,7 +167,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           </div>
         </motion.div>
 
-        {/* ── Services ── */}
+        {/* ── Pillar deep-link + the 10% marketing band ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,16 +175,30 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           transition={{ duration: 0.6, ease }}
           className="mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
-            Services for {data.name} Businesses
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {services.map((svc, i) => (
-              <Link key={i} href={svc.href} className="group flex items-center justify-between bg-card/10 border border-border/15 rounded-xl px-5 py-4 hover:border-primary/25 transition-all">
-                <span className="text-sm font-bold text-foreground">{svc.label}</span>
-                <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
-            ))}
+          {PILLAR_LINKS[data.slug] && (
+            <Link
+              href={PILLAR_LINKS[data.slug].href}
+              className="group flex items-center justify-between bg-card/15 border border-primary/25 rounded-2xl px-6 py-5 mb-6 hover:border-primary/50 transition-colors"
+            >
+              <span className="text-sm font-black uppercase italic tracking-tighter text-foreground">{PILLAR_LINKS[data.slug].label}</span>
+              <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          )}
+          <div className="bg-card/5 border border-border/10 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <div className="shrink-0">
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">The Other 10%</p>
+              <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">Marketing, When You Want It</p>
+            </div>
+            <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
+              When you want customers on top of the system, the same team runs the ads and the AI search.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
+              {marketingLinks.map((m) => (
+                <Link key={m.href} href={m.href} className="text-xs text-primary font-bold hover:underline whitespace-nowrap">
+                  {m.label} →
+                </Link>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -177,7 +217,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
-                Tell us about your {data.name.toLowerCase()} business and we will show you exactly where you are losing customers online — and how to fix it. No pitch, no obligation.
+                Tell us how your business runs today — the software, the paper, the workarounds — and we will map the system we would build if it were ours. You keep the map either way. No pitch, no obligation.
               </p>
               <p className="text-sm text-muted-foreground">
                 Prefer to talk? Call{' '}
@@ -199,7 +239,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           className="mb-16"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-8">
-            {data.name} Marketing FAQ
+            {data.name} Software FAQ
           </h2>
           <div className="space-y-8">
             {data.faqs.map((f) => (
@@ -223,7 +263,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            Free audit for {data.name.toLowerCase()} businesses. No pitch, no commitment.
+            A free fitting for {data.name.toLowerCase()} businesses — we walk your operation and map the system. No pitch, no commitment.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#lead-form">

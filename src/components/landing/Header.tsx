@@ -70,7 +70,7 @@ const navLinks: NavLink[] = [
     title: 'Industries',
     href: '#',
     icon: Building2,
-    description: 'Vertical-specific strategies',
+    description: 'Custom systems, industry by industry',
     sublinks: [
       { title: 'Medical / Healthcare', href: '/industries/medical', tag: null },
       { title: 'Contractors', href: '/industries/contractors', tag: null },

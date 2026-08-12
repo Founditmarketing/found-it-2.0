@@ -17,9 +17,9 @@ export async function generateMetadata({
   if (!data) return {};
 
   const url = `/industries/${data.slug}`;
-  const title = `${data.name} Marketing | Found It Marketing`;
+  const title = `${data.name} Software | Found It Software`;
   return {
-    title: `${data.name} Marketing`,
+    title: `${data.name} Software`,
     description: data.metaDescription,
     alternates: { canonical: url },
     openGraph: {
@@ -47,15 +47,15 @@ export default function IndustryPage({
   if (!data) return notFound();
 
   const serviceSchema = buildServiceSchema({
-    name: `${data.name} Marketing`,
-    serviceType: 'Digital Marketing',
+    name: `${data.name} Software`,
+    serviceType: 'Custom Business Software',
     description: data.subline,
     url: `/industries/${data.slug}`,
   });
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: `${data.name} Marketing`, url: `/industries/${data.slug}` },
+    { name: `${data.name} Software`, url: `/industries/${data.slug}` },
   ]);
 
   const faqSchema = buildFAQSchema(data.faqs);
