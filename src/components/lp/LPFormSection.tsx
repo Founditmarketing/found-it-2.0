@@ -16,6 +16,15 @@ interface LPFormSectionProps {
   source?: string;
   /** Page slug for attribution (e.g. 'google-ads-management') */
   pageSlug?: string;
+  /** Tiny kicker above the heading. The default is marketing vocabulary —
+   *  software LPs must override it ('Free Walkthrough'), because 'strategy
+   *  session' is the exact salesman identity that audience was burned by. */
+  kicker?: string;
+  /** Submit-button label passed through to the form. */
+  ctaLabel?: string;
+  /** On mobile, render the form ABOVE the copy so a deep-link lands on
+   *  inputs, not on a benefits essay. */
+  mobileFormFirst?: boolean;
 }
 
 export function LPFormSection({
@@ -28,9 +37,14 @@ export function LPFormSection({
   ],
   source = 'lp_general',
   pageSlug = 'general',
+  kicker = 'Free Strategy Session',
+  ctaLabel,
+  mobileFormFirst = false,
 }: LPFormSectionProps) {
   return (
-    <section id="lp-form" className="relative py-20 lg:py-32 scroll-mt-20">
+    // lp-form-bottom: the hero form owns #lp-form now — this section used
+    // to steal the anchor and teleport visitors seven screens down.
+    <section id="lp-form-bottom" className="relative py-20 lg:py-32 scroll-mt-20">
       <div className="max-w-[1440px] mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
@@ -40,9 +54,9 @@ export function LPFormSection({
           className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start"
         >
           {/* Left — Copy & Benefits */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+          <div className={`lg:col-span-5 lg:sticky lg:top-32 ${mobileFormFirst ? 'order-2 lg:order-none' : ''}`}>
             <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-              Free Strategy Session
+              {kicker}
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] mb-6 text-foreground">
               {heading}
@@ -88,8 +102,8 @@ export function LPFormSection({
           </div>
 
           {/* Right — Form */}
-          <div className="lg:col-span-7">
-            <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness />
+          <div className={`lg:col-span-7 ${mobileFormFirst ? 'order-1 lg:order-none' : ''}`}>
+            <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} />
           </div>
         </motion.div>
       </div>

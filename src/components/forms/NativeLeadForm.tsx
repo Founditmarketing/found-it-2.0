@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { CheckCircle2, AlertTriangle, Loader2, Send, ShieldCheck } from 'lucide-react';
-import { trackLead, captureUTMs, getStoredUTMs } from '@/lib/analytics';
+import { CheckCircle2, AlertTriangle, Loader2, Send, ShieldCheck, Plus } from 'lucide-react';
+import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
@@ -28,6 +28,12 @@ export interface NativeLeadFormProps {
   privacyNote?: string;
   /** Show the optional "Business" field (useful on service/LP pages). */
   showBusiness?: boolean;
+  /** Name + phone + button only; optional fields collapse behind a toggle.
+   *  A five-field wall suppresses form STARTS — perceived effort is priced
+   *  before the first tap, and the promise is only ever name + number. */
+  compact?: boolean;
+  /** Success-state line — say what happens next in the page's own promise. */
+  successNote?: string;
   className?: string;
 }
 
@@ -47,11 +53,15 @@ export function NativeLeadForm({
   ctaLabel = 'Get My Call Back',
   privacyNote = 'Free & no obligation. We reply within 2 hours — and never sell your info.',
   showBusiness = false,
+  compact = false,
+  successNote = 'Trevor will call you back — usually within 2 hours.',
   className = '',
 }: NativeLeadFormProps) {
   const uid = useId();
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [showDetails, setShowDetails] = useState(!compact);
+  const [started, setStarted] = useState(false);
   const [fields, setFields] = useState({
     name: '',
     phone: '',
@@ -145,9 +155,7 @@ export function NativeLeadForm({
         <h3 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
           Got It.
         </h3>
-        <p className="text-sm text-muted-foreground font-medium">
-          Trevor will call you back — usually within 2 hours.
-        </p>
+        <p className="text-sm text-muted-foreground font-medium">{successNote}</p>
       </div>
     );
   }
@@ -157,6 +165,15 @@ export function NativeLeadForm({
       <form
         onSubmit={handleSubmit}
         noValidate
+        data-lead-form
+        onFocusCapture={() => {
+          // The funnel's missing middle: clicks and submits were measured,
+          // the death in between wasn't. Fires once per form instance.
+          if (!started) {
+            setStarted(true);
+            trackFormStart(source);
+          }
+        }}
         className="relative bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
       >
         {heading && (
@@ -206,6 +223,18 @@ export function NativeLeadForm({
           </div>
         </div>
 
+        {!showDetails && (
+          <button
+            type="button"
+            onClick={() => setShowDetails(true)}
+            className="mb-6 inline-flex items-center gap-1.5 text-sm font-bold text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Plus className="w-3.5 h-3.5" aria-hidden="true" /> Add a note or email (optional)
+          </button>
+        )}
+
+        {showDetails && (
+        <>
         <div className={showBusiness ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4' : 'mb-4'}>
           <div>
             <label htmlFor={`${uid}-email`} className={labelClass}>
@@ -251,14 +280,16 @@ export function NativeLeadForm({
           <textarea
             id={`${uid}-message`}
             name="message"
-            rows={4}
+            rows={compact ? 2 : 4}
             maxLength={4000}
             value={fields.message}
             onChange={update('message')}
             placeholder="Tell us how your business runs today — the software, the paper, the workarounds."
-            className={`${inputClass} resize-y min-h-[110px]`}
+            className={`${inputClass} resize-y ${compact ? 'min-h-[64px]' : 'min-h-[110px]'}`}
           />
         </div>
+        </>
+        )}
 
         {/* Honeypot — humans never see this; bots fill it and get silently dropped.
             Deliberately meaningless name: a field named "company" gets filled by

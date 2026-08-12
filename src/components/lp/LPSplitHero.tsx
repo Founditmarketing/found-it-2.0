@@ -31,7 +31,27 @@ interface LPSplitHeroProps {
   formHeading: string;
   formSource: string;
   formPageSlug: string;
+  /** Line under the form heading — what happens after the tap. */
+  formSubheading?: string;
+  /** Submit-button label — repeat the page's promise verbatim. */
+  formCtaLabel?: string;
+  /** Name + phone only; optional fields collapse behind a toggle. */
+  formCompact?: boolean;
+  /** Success-state line. */
+  formSuccessNote?: string;
+  /** Reassurance line under the button — put the guarantee HERE. */
+  formPrivacyNote?: string;
+  /** Render a primary CTA + call/text line in the pitch column, so the
+   *  first screen has something to DO before any scrolling happens. */
+  inlineCta?: boolean;
 }
+
+/** Only markets we actually serve get named in the badge — a geolocation
+ *  cookie naming some other town reads as a lie on the first line. */
+const SERVED_CITIES = new Set([
+  'Alexandria', 'Pineville', 'Boyce', 'Ball', 'Woodworth', 'Lecompte',
+  'Wichita', 'Derby', 'Andover', 'Newton', 'Haysville',
+]);
 
 export function LPSplitHero({
   badge = '100% Local — We Come To You',
@@ -45,9 +65,16 @@ export function LPSplitHero({
   formHeading,
   formSource,
   formPageSlug,
+  formSubheading,
+  formCtaLabel,
+  formCompact = false,
+  formSuccessNote,
+  formPrivacyNote,
+  inlineCta = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
-  const badgeText = city ? `100% Local — Serving ${city}` : badge;
+  const badgeText =
+    city && SERVED_CITIES.has(city) ? `100% Local — Serving ${city}` : badge;
 
   return (
     <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 lg:pb-24">
@@ -107,6 +134,26 @@ export function LPSplitHero({
               </div>
             )}
 
+            {/* The first screen must have something to DO — on mobile the
+                form is a full swipe away, and the swipe-back decision
+                happens before the sticky bar even animates in. */}
+            {inlineCta && (
+              <div className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3">
+                <a
+                  href="#lp-form"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
+                >
+                  {formHeading} →
+                </a>
+                <a
+                  href="sms:+13182800115"
+                  className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white/80 hover:text-primary transition-colors py-2"
+                >
+                  or text Trevor: (318) 280-0115
+                </a>
+              </div>
+            )}
+
             {stats.length > 0 && (
               <div className="grid grid-cols-3 gap-3 max-w-md mb-8">
                 {stats.map((stat, i) => (
@@ -141,14 +188,27 @@ export function LPSplitHero({
             </SafePhone>
           </motion.div>
 
-          {/* ─── Right: Form (above the fold) ─── */}
+          {/* ─── Right: Form (above the fold) ───
+              The id lives HERE, on the nearest real form — the sticky bar
+              and every #lp-form link used to teleport seven screens down
+              to the bottom section while this form sat one swipe away. */}
           <motion.div
+            id="lp-form"
             initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 1, delay: 0.2, ease }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 scroll-mt-24"
           >
-            <LeadFormEmbed heading={formHeading} source={formSource} pageSlug={formPageSlug} />
+            <LeadFormEmbed
+              heading={formHeading}
+              source={formSource}
+              pageSlug={formPageSlug}
+              subheading={formSubheading}
+              ctaLabel={formCtaLabel}
+              compact={formCompact}
+              successNote={formSuccessNote}
+              {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
+            />
           </motion.div>
         </div>
       </div>

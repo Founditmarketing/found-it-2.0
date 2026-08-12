@@ -93,6 +93,15 @@ export function trackCallClick() {
   fire('call_click', { event_category: 'engagement', event_label: 'phone_call' });
 }
 
+/**
+ * First focus on a lead form — the funnel's missing middle. Clicks were
+ * measurable and submits were measurable; the death in between was not.
+ * Fired once per form instance, segmented by source tag.
+ */
+export function trackFormStart(source: string) {
+  fire('form_start', { event_category: 'engagement', event_label: source });
+}
+
 export function trackCalendlyOpen() {
   fire('calendly_open', { event_category: 'engagement', event_label: 'calendly_embed' });
 }

@@ -9,6 +9,14 @@ interface LeadFormEmbedProps {
   pageSlug?: string;
   /** Optional small heading rendered above the form */
   heading?: string;
+  /** Optional line under the heading — what happens after the tap. */
+  subheading?: string;
+  /** Submit button label — should repeat the page's promise verbatim. */
+  ctaLabel?: string;
+  /** Name + phone only; the optional fields collapse behind a toggle. */
+  compact?: boolean;
+  /** Success-state line — what actually happens after the tap. */
+  successNote?: string;
   /** Optional privacy / anti-spam reassurance line under the form */
   privacyNote?: string;
   className?: string;
@@ -26,6 +34,10 @@ export function LeadFormEmbed({
   source = 'lp_general',
   pageSlug = 'general',
   heading,
+  subheading,
+  ctaLabel,
+  compact = false,
+  successNote,
   privacyNote = 'Free & no obligation. We reply within 2 hours — and never sell your info.',
   className = '',
 }: LeadFormEmbedProps) {
@@ -34,6 +46,10 @@ export function LeadFormEmbed({
       source={source}
       pageSlug={pageSlug}
       heading={heading}
+      subheading={subheading}
+      ctaLabel={ctaLabel}
+      compact={compact}
+      successNote={successNote}
       privacyNote={privacyNote}
       showBusiness
       className={className}

@@ -59,17 +59,24 @@ export function WalkthroughLPContent() {
       <LPSplitHero
         headline="We'll Come Walk Your Operation."
         headlineAccent="Free."
-        subheadline="All those subscriptions you're paying that were never made for you? One app instead — jobs, estimates, invoices, scheduling, the books — fitted to how you actually run, and you own it outright. We show up at your shop, walk your operation with you, and show you exactly what yours would answer."
+        subheadline="Seven subscriptions that were never made for you — replaced by one app you own outright: jobs, estimates, invoices, the books."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
+        showAward={false}
+        inlineCta
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: '0', label: 'Long-term contracts' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Book My Free Walkthrough"
-        formSource="lp_walkthrough"
+        formSource="lp_walkthrough_hero"
         formPageSlug="walkthrough"
+        formSubheading="We call, you pick the time, we come to your shop — about an hour. Nothing to cancel."
+        formCtaLabel="Book My Free Walkthrough"
+        formCompact
+        formSuccessNote="Done. One quick call to pick the day — you choose the time, we come to you."
+        formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
       />
 
       {/* Not mockups — the systems themselves, drifting past both ways */}
@@ -113,11 +120,11 @@ export function WalkthroughLPContent() {
           { value: '100%', label: 'Yours — code and data' },
           { value: '0', label: 'Long-term contracts' },
         ]}
-        testimonials={[
-          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
-          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
-          { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
-        ]}
+        // Only quotes with zero marketing-era vocabulary: a skeptic scrolling
+        // for the catch must not find "excellent marketing company" inside a
+        // software page's own proof. TJ/Cory/Justin SYSTEM quotes replace
+        // these the day Trevor collects them — verbatim only, never edited.
+        testimonials={[{ quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' }]}
       />
 
       <ObjectionBullets
@@ -171,6 +178,9 @@ export function WalkthroughLPContent() {
 
       <LPFormSection
         heading="Book My Free Walkthrough"
+        kicker="Free Walkthrough"
+        ctaLabel="Book My Free Walkthrough"
+        mobileFormFirst
         subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[
           'We come to your shop, in person — free',
@@ -178,7 +188,7 @@ export function WalkthroughLPContent() {
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,
         ]}
-        source="lp_walkthrough"
+        source="lp_walkthrough_footer"
         pageSlug="walkthrough"
       />
 

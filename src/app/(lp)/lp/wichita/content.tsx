@@ -64,17 +64,24 @@ export function WichitaLPContent() {
       <LPSplitHero
         headline="Wichita: We'll Come Walk Your Operation."
         headlineAccent="Free."
-        subheadline="All those subscriptions you're paying that were never made for you? One app instead — jobs, estimates, invoices, scheduling, the books — fitted to how you actually run, and you own it outright. Tom shows up at your shop, walks your operation with you, and shows you exactly what yours would answer."
+        subheadline="Seven subscriptions that were never made for you — replaced by one app you own outright: jobs, estimates, invoices, the books."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
+        showAward={false}
+        inlineCta
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: '0', label: 'Long-term contracts' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Book My Free Walkthrough"
-        formSource="lp_wichita"
+        formSource="lp_wichita_hero"
         formPageSlug="wichita"
+        formSubheading="Tom calls, you pick the time, he comes to your shop — about an hour. Nothing to cancel."
+        formCtaLabel="Book My Free Walkthrough"
+        formCompact
+        formSuccessNote="Done. One quick call to pick the day — you choose the time, Tom comes to you."
+        formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
       />
 
       {/* Not mockups — the systems themselves, drifting past both ways */}
@@ -118,11 +125,7 @@ export function WichitaLPContent() {
           { value: '100%', label: 'Yours — code and data' },
           { value: '0', label: 'Long-term contracts' },
         ]}
-        testimonials={[
-          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
-          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
-          { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
-        ]}
+        testimonials={[{ quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' }]}
       />
 
       <ObjectionBullets
@@ -176,6 +179,9 @@ export function WichitaLPContent() {
 
       <LPFormSection
         heading="Book My Free Walkthrough"
+        kicker="Free Walkthrough"
+        ctaLabel="Book My Free Walkthrough"
+        mobileFormFirst
         subheading="Drop your name and number. Tom calls, you pick the time, and he comes to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[
           'Tom comes to your Wichita shop, in person — free',
@@ -183,7 +189,7 @@ export function WichitaLPContent() {
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,
         ]}
-        source="lp_wichita"
+        source="lp_wichita_footer"
         pageSlug="wichita"
       />
 
