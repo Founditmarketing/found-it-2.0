@@ -62,6 +62,9 @@ interface LPSplitHeroProps {
   bookingLabel?: string;
   /** Line that demotes the form to the fallback under the booking button. */
   bookingFallbackNote?: string;
+  /** Booking-only: hide the lead form entirely so the booking button is the
+   *  single CTA. Also drops the "leave your number" fallback line. */
+  bookingOnly?: boolean;
 }
 
 /** Only markets we actually serve get named in the badge — a geolocation
@@ -95,6 +98,7 @@ export function LPSplitHero({
   bookingUrl = BOOKING_URL,
   bookingLabel = 'Book My Free Zoom Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
+  bookingOnly = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
   const bookingLive = showBooking && isBookingUrl(bookingUrl);
@@ -244,20 +248,22 @@ export function LPSplitHero({
                 source={formSource}
                 label={bookingLabel}
                 bookingUrl={bookingUrl}
-                fallbackNote={bookingFallbackNote}
+                fallbackNote={bookingOnly ? '' : bookingFallbackNote}
               />
             )}
 
-            <LeadFormEmbed
-              heading={formHeading}
-              source={formSource}
-              pageSlug={formPageSlug}
-              subheading={formSubheading}
-              ctaLabel={formCtaLabel}
-              compact={formCompact}
-              successNote={formSuccessNote}
-              {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
-            />
+            {!bookingOnly && (
+              <LeadFormEmbed
+                heading={formHeading}
+                source={formSource}
+                pageSlug={formPageSlug}
+                subheading={formSubheading}
+                ctaLabel={formCtaLabel}
+                compact={formCompact}
+                successNote={formSuccessNote}
+                {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
+              />
+            )}
 
             {/* "What happens next" — kills the time-delay unknown at the
                 point of commitment: three concrete beats, then the

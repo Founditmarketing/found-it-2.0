@@ -36,6 +36,8 @@ interface LPFormSectionProps {
   bookingLabel?: string;
   /** Line that demotes the form to the fallback under the booking button. */
   bookingFallbackNote?: string;
+  /** Booking-only: hide the lead form so the booking button is the single CTA. */
+  bookingOnly?: boolean;
 }
 
 export function LPFormSection({
@@ -55,6 +57,7 @@ export function LPFormSection({
   bookingUrl = BOOKING_URL,
   bookingLabel = 'Book My Free Zoom Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
+  bookingOnly = false,
 }: LPFormSectionProps) {
   return (
     // lp-form-bottom: the hero form owns #lp-form now — this section used
@@ -125,10 +128,12 @@ export function LPFormSection({
                 source={source}
                 label={bookingLabel}
                 bookingUrl={bookingUrl}
-                fallbackNote={bookingFallbackNote}
+                fallbackNote={bookingOnly ? '' : bookingFallbackNote}
               />
             )}
-            <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} />
+            {!bookingOnly && (
+              <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} />
+            )}
           </div>
         </motion.div>
       </div>

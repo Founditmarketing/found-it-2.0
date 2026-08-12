@@ -72,8 +72,8 @@ export function WichitaLPContent() {
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
-        inlineCta
         showBooking
+        bookingOnly
         bookingUrl={BOOKING_URL}
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
@@ -195,8 +195,9 @@ export function WichitaLPContent() {
         ctaLabel="Call Me To Set It Up"
         mobileFormFirst
         showBooking
+        bookingOnly
         bookingUrl={BOOKING_URL}
-        subheading="Book a free Zoom call and Tom will map the software we'd build for your Wichita business — live, on the call. You keep the map either way, hire us or don't. Prefer Tom set it up? Just leave your number below."
+        subheading="Book a free Zoom call and Tom will map the software we'd build for your Wichita business — live, on the call. You keep the map either way, hire us or don't."
         benefits={[
           'A free 30-minute Zoom with Tom — we map your business live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
