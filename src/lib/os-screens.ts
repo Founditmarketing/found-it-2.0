@@ -65,7 +65,7 @@ export const railDesktops: OsRailItem[] = [
 
 export const railPhones: OsRailItem[] = [
   {
-    src: '/os-screens/flywheel-os-mobile-quick-v1.png',
+    src: '/os-screens/flywheel-os-mobile-quick-v2.png',
     alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
     title: 'The 30-Second Quote',
     kind: 'Flywheel OS',
@@ -100,7 +100,7 @@ export const railPhones: OsRailItem[] = [
     portrait: true,
   },
   {
-    src: '/os-screens/flywheel-os-mobile-board-v1.png',
+    src: '/os-screens/flywheel-os-mobile-board-v2.png',
     alt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board',
     title: 'The Board',
     kind: 'Flywheel OS',

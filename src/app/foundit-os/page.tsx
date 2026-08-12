@@ -146,7 +146,7 @@ const data: PillarData = {
     {
       img: '/os-screens/flywheel-os-today-v1.png',
       imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-      phone: '/os-screens/flywheel-os-mobile-quick-v1.png',
+      phone: '/os-screens/flywheel-os-mobile-quick-v2.png',
       phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
       title: 'Flywheel OS',
       kind: 'Tire & Auto Shop',
