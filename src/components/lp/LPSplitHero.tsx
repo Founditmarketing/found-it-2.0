@@ -44,6 +44,11 @@ interface LPSplitHeroProps {
   /** Render a primary CTA + call/text line in the pitch column, so the
    *  first screen has something to DO before any scrolling happens. */
   inlineCta?: boolean;
+  /** "What happens next" — 3 short lines rendered right under the form,
+   *  so the time-delay question is answered at the exact point of commitment. */
+  nextSteps?: string[];
+  /** One doctrine line under the steps (e.g. runs-beside-your-old-system). */
+  nextStepsNote?: string;
 }
 
 /** Only markets we actually serve get named in the badge — a geolocation
@@ -71,6 +76,8 @@ export function LPSplitHero({
   formSuccessNote,
   formPrivacyNote,
   inlineCta = false,
+  nextSteps,
+  nextStepsNote,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
   const badgeText =
@@ -209,6 +216,35 @@ export function LPSplitHero({
               successNote={formSuccessNote}
               {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
             />
+
+            {/* "What happens next" — kills the time-delay unknown at the
+                point of commitment: three concrete beats, then the
+                runs-beside-your-old-system doctrine so nobody pictures a
+                day-one rip-out. */}
+            {nextSteps && nextSteps.length > 0 && (
+              <div className="mt-5 bg-white/[0.03] border border-border/20 rounded-2xl p-5">
+                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-3.5">
+                  What happens next
+                </p>
+                <ol className="space-y-3">
+                  {nextSteps.map((step, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-md bg-primary text-primary-foreground font-black text-xs flex items-center justify-center shrink-0 mt-[1px]">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm font-bold text-white/85 leading-snug">
+                        {step}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                {nextStepsNote && (
+                  <p className="mt-4 pt-4 border-t border-border/20 text-xs text-white/60 font-medium leading-relaxed">
+                    {nextStepsNote}
+                  </p>
+                )}
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

@@ -62,9 +62,9 @@ export function WichitaLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="Wichita: We'll Come Walk Your Operation."
-        headlineAccent="Free."
-        subheadline="Seven subscriptions that were never made for you — replaced by one app you own outright: jobs, estimates, invoices, the books."
+        headline="Wichita: One System That Runs The Whole Shop."
+        headlineAccent="You Own It."
+        subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. Tom will come walk your operation and map it with you. Free."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -82,6 +82,12 @@ export function WichitaLPContent() {
         formCompact
         formSuccessNote="Done. One quick call to pick the day — you choose the time, Tom comes to you."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
+        nextSteps={[
+          'Book it. Tom calls, you pick the time.',
+          'Tom walks your shop with you. About an hour, free.',
+          "You get the map either way — hire us or don't.",
+        ]}
+        nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
 
       {/* Not mockups — the systems themselves, drifting past both ways */}
@@ -117,8 +123,8 @@ export function WichitaLPContent() {
       </section>
 
       <SocialProof
-        heading="Local owners"
-        headingAccent="run their whole operation on it."
+        heading={`${TRACK_RECORD.softwareCustomers}+ shops and businesses`}
+        headingAccent="run on systems we built."
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: OS_PRICING.monthly, label: 'Flat, public price' },

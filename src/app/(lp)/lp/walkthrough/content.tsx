@@ -20,10 +20,12 @@ import { reviews } from '@/lib/reviews';
 const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 /* Ad-traffic landing page for the Found It OS VSL campaign.
-   Every ad in the batch closes on the same sentence — "tap below and we'll
-   come walk your operation free" — so the hero repeats that offer verbatim.
-   Claims here stay inside the doctrine: own the code and data, parallel run
-   penny-matched, month-to-month, guarantee rendered from OS_PRICING only. */
+   Hormozi pass 2: the H1 names the dream outcome (one system, you own it);
+   the ad's closing offer — "tap below and we'll come walk your operation
+   free" — lives verbatim-adjacent in the subheadline and the CTA label, so
+   message match with the ads holds. Claims stay inside the doctrine: own
+   the code and data, parallel run penny-matched, month-to-month, guarantee
+   rendered from OS_PRICING only. */
 
 const faqItems = [
   {
@@ -57,9 +59,9 @@ export function WalkthroughLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="We'll Come Walk Your Operation."
-        headlineAccent="Free."
-        subheadline="Seven subscriptions that were never made for you — replaced by one app you own outright: jobs, estimates, invoices, the books."
+        headline="One System That Runs The Whole Shop."
+        headlineAccent="You Own It."
+        subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. We'll come walk your operation and map it with you. Free."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -77,6 +79,12 @@ export function WalkthroughLPContent() {
         formCompact
         formSuccessNote="Done. One quick call to pick the day — you choose the time, we come to you."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
+        nextSteps={[
+          'Book it. We call, you pick the time.',
+          'We walk your shop with you. About an hour, free.',
+          "You get the map either way — hire us or don't.",
+        ]}
+        nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
 
       {/* Not mockups — the systems themselves, drifting past both ways */}
@@ -112,8 +120,8 @@ export function WalkthroughLPContent() {
       </section>
 
       <SocialProof
-        heading="Local owners"
-        headingAccent="run their whole operation on it."
+        heading={`${TRACK_RECORD.softwareCustomers}+ shops and businesses`}
+        headingAccent="run on systems we built."
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: OS_PRICING.monthly, label: 'Flat, public price' },
