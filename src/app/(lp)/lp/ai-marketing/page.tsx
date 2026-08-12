@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Automate your lead generation, follow-ups, and content with custom AI systems built by a local team. Book your free in-person demo.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/ai-marketing',
+    url: 'https://www.founditsoftware.com/lp/ai-marketing',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {

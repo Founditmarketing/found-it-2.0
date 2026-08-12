@@ -43,7 +43,7 @@ async function safeFetch(startUrl: URL): Promise<{ res: Response; finalUrl: stri
       redirect: 'manual',
       signal: AbortSignal.timeout(6500),
       headers: {
-        'user-agent': 'Mozilla/5.0 (compatible; FoundItAuditBot/1.0; +https://founditmarketing.com)',
+        'user-agent': 'Mozilla/5.0 (compatible; FoundItAuditBot/1.0; +https://www.founditsoftware.com)',
         accept: 'text/html,application/xhtml+xml',
       },
     });

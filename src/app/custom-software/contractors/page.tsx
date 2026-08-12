@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       `One system for your whole field operation — fitted to how your crews actually run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
-    url: 'https://founditmarketing.com/custom-software/contractors',
+    url: 'https://www.founditsoftware.com/custom-software/contractors',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

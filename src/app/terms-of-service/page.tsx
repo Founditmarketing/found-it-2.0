@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: 'Terms of Service',
         description: 'Terms of Service for Found It Marketing LLC.',
         type: 'website',
-        url: 'https://founditmarketing.com/terms-of-service',
+        url: 'https://www.founditsoftware.com/terms-of-service',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
     },
 };
@@ -150,7 +150,7 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">11. Privacy Policy</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>Your use of our services is also governed by our Privacy Policy:<br/>👉 <a href="https://founditmarketing.com/privacy-policy" className="text-primary hover:underline">https://founditmarketing.com/privacy-policy</a></p>
+                        <p>Your use of our services is also governed by our Privacy Policy:<br/>👉 <a href="https://www.founditsoftware.com/privacy-policy" className="text-primary hover:underline">https://www.founditsoftware.com/privacy-policy</a></p>
                     </div>
                 </section>
 
@@ -168,7 +168,7 @@ export default function TermsOfService() {
                             <p>Found It Marketing LLC</p>
                             <p>📞 (337) 525-9650</p>
                             <p>📧 <a href="mailto:trevor@founditmarketing.com" className="text-primary hover:underline">trevor@founditmarketing.com</a></p>
-                            <p>🌐 <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
+                            <p>🌐 <a href="https://www.founditsoftware.com" className="text-primary hover:underline">https://www.founditsoftware.com</a></p>
                         </div>
                     </div>
                 </section>

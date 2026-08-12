@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Found It Marketing | Custom AI Software for Local Businesses',
     description: `Custom AI software that improves your life and saves you time. ${OS_PRICING.guarantee} ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}.`,
     type: 'website',
-    url: 'https://founditmarketing.com',
+    url: 'https://www.founditsoftware.com',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   alternates: { canonical: '/' },

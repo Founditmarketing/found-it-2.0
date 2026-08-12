@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://founditmarketing.com'),
+  metadataBase: new URL('https://www.founditsoftware.com'),
   title: {
     default: 'Found It Marketing | Custom AI Software, Google Ads & Web Design | Alexandria, LA',
     template: '%s | Found It Marketing'
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://founditmarketing.com',
+    url: 'https://www.founditsoftware.com',
     siteName: 'Found It Marketing',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
     description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Money-back guarantee.",

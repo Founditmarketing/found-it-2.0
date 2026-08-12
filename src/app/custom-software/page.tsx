@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records professionally migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
-    url: 'https://founditmarketing.com/custom-software',
+    url: 'https://www.founditsoftware.com/custom-software',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

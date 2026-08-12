@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Google Ads management that gets results. Weekly optimization, no contracts. Free audit.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/google-ads-management',
+    url: 'https://www.founditsoftware.com/lp/google-ads-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {

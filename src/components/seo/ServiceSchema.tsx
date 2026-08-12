@@ -15,7 +15,7 @@ export function ServiceSchema({ name, description, url, image }: ServiceSchemaPr
         "provider": {
             "@type": "LocalBusiness",
             "name": "Found It Marketing",
-            "url": "https://founditmarketing.com"
+            "url": "https://www.founditsoftware.com"
         },
         "areaServed": {
             "@type": "City",

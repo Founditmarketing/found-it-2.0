@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own — draws, selections, change orders, sub scheduling — before it goes dark. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
-    url: 'https://founditmarketing.com/custom-software/home-builders',
+    url: 'https://www.founditsoftware.com/custom-software/home-builders',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

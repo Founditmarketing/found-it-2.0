@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       'Mobile-first, conversion-focused websites for Cenla businesses. Built fast, built to make the phone ring, owned by you.',
     type: 'website',
-    url: 'https://founditmarketing.com/central-louisiana-web-design',
+    url: 'https://www.founditsoftware.com/central-louisiana-web-design',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

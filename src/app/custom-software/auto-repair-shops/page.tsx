@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
-    url: 'https://founditmarketing.com/custom-software/auto-repair-shops',
+    url: 'https://www.founditsoftware.com/custom-software/auto-repair-shops',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

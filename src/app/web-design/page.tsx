@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       'Custom, conversion-focused websites built on Next.js. Fast, mobile-first, and you own the code.',
     type: 'website',
-    url: 'https://founditmarketing.com/web-design',
+    url: 'https://www.founditsoftware.com/web-design',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

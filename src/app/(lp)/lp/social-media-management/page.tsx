@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Social Media Management | Content That Gets Calls',
     description: 'Social media management for local businesses. Free 30-day content plan.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/social-media-management',
+    url: 'https://www.founditsoftware.com/lp/social-media-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {

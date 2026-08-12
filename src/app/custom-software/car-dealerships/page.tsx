@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       `One system for the whole lot — inventory, website, sales desk, service department, and rentals — fitted to how you actually run it, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
     type: 'website',
-    url: 'https://founditmarketing.com/custom-software/car-dealerships',
+    url: 'https://www.founditsoftware.com/custom-software/car-dealerships',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

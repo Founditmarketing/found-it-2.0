@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Google Ads, web design, and SEO from a named senior team in Alexandria, LA. No contracts. Free in-person strategy call.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/local-marketing-la-trimetro',
+    url: 'https://www.founditsoftware.com/lp/local-marketing-la-trimetro',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

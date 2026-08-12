@@ -25,4 +25,4 @@ Allow: /
 User-agent: Omgilibot
 Allow: /
 
-Sitemap: https://founditmarketing.com/sitemap.xml
+Sitemap: https://www.founditsoftware.com/sitemap.xml

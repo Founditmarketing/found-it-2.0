@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       'Native-feeling iOS and Android apps built by a local team. Fixed timelines, and you own the code.',
     type: 'website',
-    url: 'https://founditmarketing.com/app-development',
+    url: 'https://www.founditsoftware.com/app-development',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

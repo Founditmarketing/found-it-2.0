@@ -75,7 +75,7 @@ function reportHtml(data: z.infer<typeof reportSchema>['result']): string {
         <a href="${SITE_URL}/contact" style="display:inline-block;color:#ff5500;font-weight:bold;text-decoration:none;padding:12px 0;font-size:14px">Book a free call →</a>
       </p>
     </div>
-    <p style="font-size:11px;color:#999;margin-top:24px">Found It Marketing · Alexandria, Louisiana · You received this because you requested a scan report at founditmarketing.com</p>
+    <p style="font-size:11px;color:#999;margin-top:24px">Found It Marketing · Alexandria, Louisiana · You received this because you requested a scan report at founditsoftware.com</p>
   </div>`;
 }
 

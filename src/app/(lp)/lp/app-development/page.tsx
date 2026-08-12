@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       'Custom mobile and web apps built by a local team. Fixed timelines, no scope creep, and you own the code. Get your free in-person app blueprint.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/app-development',
+    url: 'https://www.founditsoftware.com/lp/app-development',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   twitter: {

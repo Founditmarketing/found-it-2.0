@@ -345,7 +345,7 @@ export function Header() {
   };
 
   const copyUrl = (href: string) => {
-    const url = `https://founditmarketing.com${href}`;
+    const url = `https://www.founditsoftware.com${href}`;
     try {
       navigator.clipboard?.writeText(url);
       setCopiedHref(href);

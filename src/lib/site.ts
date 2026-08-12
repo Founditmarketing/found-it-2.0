@@ -5,7 +5,7 @@
 
 import { phoneTel } from './phone';
 
-export const SITE_URL = 'https://founditmarketing.com';
+export const SITE_URL = 'https://www.founditsoftware.com';
 
 /** Stable @id anchors for the entity knowledge graph (one node per concept). */
 export const ENTITY_IDS = {

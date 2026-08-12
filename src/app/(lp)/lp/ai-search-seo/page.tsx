@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'AI Search Optimization | Show Up When AI Recommends',
     description: 'Make sure your business is the answer when customers ask AI. Free visibility audit.',
     type: 'website',
-    url: 'https://founditmarketing.com/lp/ai-search-seo',
+    url: 'https://www.founditsoftware.com/lp/ai-search-seo',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },

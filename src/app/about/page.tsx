@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'About Found It Marketing | Custom AI Software & Marketing, 13+ Years',
     description: 'Custom AI software and digital marketing company in Alexandria, LA. Builders of Found It OS, plus Google Ads, web design, SEO, and AI search. 13+ years. No contracts.',
     type: 'website',
-    url: 'https://founditmarketing.com/about',
+    url: 'https://www.founditsoftware.com/about',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
   },
 };

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: 'Privacy Policy',
         description: 'Privacy Policy and SMS Communications Consent for Found It Marketing LLC.',
         type: 'website',
-        url: 'https://founditmarketing.com/privacy-policy',
+        url: 'https://www.founditsoftware.com/privacy-policy',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
     },
 };
@@ -132,7 +132,7 @@ export default function PrivacyPolicy() {
                             <p>Found It Marketing LLC</p>
                             <p>Phone: (337) 525-9650</p>
                             <p>Email: <a href="mailto:trevor@founditmarketing.com" className="text-primary hover:underline">trevor@founditmarketing.com</a></p>
-                            <p>Website: <a href="https://founditmarketing.com" className="text-primary hover:underline">https://founditmarketing.com</a></p>
+                            <p>Website: <a href="https://www.founditsoftware.com" className="text-primary hover:underline">https://www.founditsoftware.com</a></p>
                         </div>
                     </div>
                 </section>
