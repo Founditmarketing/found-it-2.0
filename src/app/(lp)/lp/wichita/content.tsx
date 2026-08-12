@@ -9,6 +9,7 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
+import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
@@ -80,6 +81,32 @@ export function WichitaLPContent() {
         <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
         <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
       </div>
+
+      {/* The ad's hook, made touchable: the demo the visitor can run
+          themselves before ever giving up a phone number. */}
+      <section className="py-14 lg:py-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+              Ask It. <span className="text-primary">It Answers.</span>
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              The ad said &ldquo;who owes me money right now?&rdquo; — here&rsquo;s that exact thing.
+              This one runs a demo book. Tap a question. Yours would answer from{' '}
+              <span className="text-white font-bold">your own books</span>.
+            </p>
+          </div>
+          <AskTheOS />
+          <p className="text-center mt-8">
+            <a
+              href="#lp-form"
+              className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
+            >
+              Want yours to answer? Book the free walkthrough →
+            </a>
+          </p>
+        </div>
+      </section>
 
       <SocialProof
         heading="Local owners"

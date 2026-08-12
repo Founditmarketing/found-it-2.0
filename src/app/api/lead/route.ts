@@ -68,7 +68,10 @@ export async function POST(req: Request) {
     const who = lead.businessName || lead.name || lead.email || 'Unknown';
     await resend.emails.send({
       from: 'Found It Marketing <contact@founditmarketing.com>',
-      to: ['trevor@founditmarketing.com'],
+      // Both inboxes on purpose: founditmarketing is the official book,
+      // gmail is the one that buzzes the phone — a lead should never wait
+      // on which inbox happens to be open.
+      to: ['trevor@founditmarketing.com', 'trevorruby@gmail.com'],
       subject: `New Lead: ${who} (${lead.source})`,
       html: `
         <h1 style="margin:0 0 12px">New Website Lead</h1>
