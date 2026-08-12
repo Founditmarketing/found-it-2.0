@@ -5,6 +5,8 @@ import { CheckCircle2, Phone } from 'lucide-react';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { NativeLeadForm } from '@/components/forms/NativeLeadForm';
+import { BookingCta } from './BookingCta';
+import { BOOKING_URL } from '@/lib/booking';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -25,6 +27,15 @@ interface LPFormSectionProps {
   /** On mobile, render the form ABOVE the copy so a deep-link lands on
    *  inputs, not on a benefits essay. */
   mobileFormFirst?: boolean;
+  /** OPT-IN hybrid booking CTA above the form. Off by default so every other
+   *  LP sharing this section is untouched. */
+  showBooking?: boolean;
+  /** Booking URL for the hybrid CTA. Defaults to the shared BOOKING_URL. */
+  bookingUrl?: string;
+  /** Booking button label — keep it message-matched. */
+  bookingLabel?: string;
+  /** Line that demotes the form to the fallback under the booking button. */
+  bookingFallbackNote?: string;
 }
 
 export function LPFormSection({
@@ -40,6 +51,10 @@ export function LPFormSection({
   kicker = 'Free Strategy Session',
   ctaLabel,
   mobileFormFirst = false,
+  showBooking = false,
+  bookingUrl = BOOKING_URL,
+  bookingLabel = 'Book My Free Zoom Call',
+  bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
 }: LPFormSectionProps) {
   return (
     // lp-form-bottom: the hero form owns #lp-form now — this section used
@@ -103,6 +118,16 @@ export function LPFormSection({
 
           {/* Right — Form */}
           <div className={`lg:col-span-7 ${mobileFormFirst ? 'order-1 lg:order-none' : ''}`}>
+            {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
+                form demoted to the leave-your-number fallback. Opt-in. */}
+            {showBooking && (
+              <BookingCta
+                source={source}
+                label={bookingLabel}
+                bookingUrl={bookingUrl}
+                fallbackNote={bookingFallbackNote}
+              />
+            )}
             <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} />
           </div>
         </motion.div>

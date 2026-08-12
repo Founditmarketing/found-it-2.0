@@ -14,24 +14,27 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
+import { BOOKING_URL } from '@/lib/booking';
 import { reviews } from '@/lib/reviews';
 
 /** Verbatim Google-review text from the canonical source — never paraphrase. */
 const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 /* Ad-traffic landing page for the Found It OS VSL campaign.
-   Hormozi pass 2: the H1 names the dream outcome (one system, you own it);
-   the ad's closing offer — "tap below and we'll come walk your operation
-   free" — lives verbatim-adjacent in the subheadline and the CTA label, so
-   message match with the ads holds. Claims stay inside the doctrine: own
-   the code and data, parallel run penny-matched, month-to-month, guarantee
-   rendered from OS_PRICING only. */
+   Offer: a free Zoom call where we map the software we'd build for the
+   visitor's business — live and screen-shared. The H1 stays outcome-first
+   (one system, you own it); the CTA and subhead say Zoom + software map.
+   Hybrid booking: the primary "Book my free Zoom call" button opens the
+   calendar when BOOKING_URL is set (src/lib/booking.ts), else it gracefully
+   falls back to the leave-your-number form directly under it. Claims stay
+   inside the doctrine: own the code and data, parallel run penny-matched,
+   month-to-month, guarantee rendered from OS_PRICING only. */
 
 const faqItems = [
   {
-    question: 'What actually happens on the walkthrough?',
+    question: 'What actually happens on the call?',
     answer:
-      "Exactly what the ad says. We come to your shop, walk your operation with you, and show you what a system built around how you run would answer — questions like “who owes me money right now?” answered from your own books. It takes about an hour. No deck, no Zoom link, no obligation.",
+      "It's a free Zoom call, about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map either way. No deck, no obligation.",
   },
   {
     question: 'What does it cost?',
@@ -55,34 +58,36 @@ const faqItems = [
 
 export function WalkthroughLPContent() {
   return (
-    <LPLayout ctaLabel="Book My Free Walkthrough">
+    <LPLayout ctaLabel="Book My Free Zoom Call" bookingUrl={BOOKING_URL}>
       <LPNav />
 
       <LPSplitHero
         headline="One System That Runs The Whole Shop."
         headlineAccent="You Own It."
-        subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. We'll come walk your operation and map it with you. Free."
+        subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. Book a free Zoom call and we'll map the software we'd build for your business, live on the call. You keep the map either way, hire us or don't."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
         inlineCta
+        showBooking
+        bookingUrl={BOOKING_URL}
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: '0', label: 'Long-term contracts' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
-        formHeading="Book My Free Walkthrough"
+        formHeading="Book My Free Zoom Call"
         formSource="lp_walkthrough_hero"
         formPageSlug="walkthrough"
-        formSubheading="We call, you pick the time, we come to your shop — about an hour. Nothing to cancel."
-        formCtaLabel="Book My Free Walkthrough"
+        formSubheading="Prefer we set it up for you? Leave your name and number — we call, you pick a time for a 30-minute Zoom. Nothing to cancel."
+        formCtaLabel="Call Me To Set It Up"
         formCompact
-        formSuccessNote="Done. One quick call to pick the day — you choose the time, we come to you."
+        formSuccessNote="Done. One quick call to pick the time for your Zoom — you choose, we map your business live."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
         nextSteps={[
-          'Book it. We call, you pick the time.',
-          'We walk your shop with you. About an hour, free.',
-          "You get the map either way — hire us or don't.",
+          'Book the call — pick a time that works.',
+          'We map your business on a 30-minute Zoom, screen-shared.',
+          "You keep the map. Hire us or don't.",
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -113,7 +118,7 @@ export function WalkthroughLPContent() {
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Book the free walkthrough →
+              Want yours to answer? Book the free Zoom call →
             </a>
           </p>
         </div>
@@ -139,7 +144,7 @@ export function WalkthroughLPContent() {
         bullets={[
           {
             title: '“This Seems Too Good To Be True.”',
-            detail: `Exactly right — it is. The catch is it comes with us: a real person at your shop, a public price, and a one-sentence guarantee — ${OS_PRICING.guarantee} No fine print, because it doesn't need any.`,
+            detail: `Exactly right — it is. The catch is it comes with us: a real person on a Zoom with you, a public price, and a one-sentence guarantee — ${OS_PRICING.guarantee} No fine print, because it doesn't need any.`,
           },
           {
             title: '“What If It Breaks? We Depend On This.”',
@@ -160,13 +165,13 @@ export function WalkthroughLPContent() {
       />
 
       <ProcessSteps
-        heading="How The Walkthrough Works"
+        heading="How The Free Zoom Call Works"
         steps={[
           {
             number: '01',
-            title: 'We Walk It. We Map It. Free.',
+            title: 'We Map It. Live. Free.',
             description:
-              'About an hour at your place. We walk the operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out. You add to it or take away. If it’s not for you, we shake hands and you keep the map. You’ve lost nothing.',
+              'About 30 minutes on Zoom, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map. You’ve lost nothing.',
           },
           {
             number: '02',
@@ -185,13 +190,15 @@ export function WalkthroughLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Book My Free Walkthrough"
-        kicker="Free Walkthrough"
-        ctaLabel="Book My Free Walkthrough"
+        heading="Book My Free Zoom Call"
+        kicker="Free Zoom Call"
+        ctaLabel="Call Me To Set It Up"
         mobileFormFirst
-        subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
+        showBooking
+        bookingUrl={BOOKING_URL}
+        subheading="Book a free Zoom call and we'll map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't. Prefer we set it up? Just leave your number below."
         benefits={[
-          'We come to your shop, in person — free',
+          'A free 30-minute Zoom — we map your business live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,

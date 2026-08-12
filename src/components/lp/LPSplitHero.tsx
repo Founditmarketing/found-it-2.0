@@ -3,7 +3,9 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
-import { trackCallClick } from '@/lib/analytics';
+import { BookingCta } from './BookingCta';
+import { trackCallClick, trackBookingClick } from '@/lib/analytics';
+import { BOOKING_URL, isBookingUrl } from '@/lib/booking';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD } from '@/lib/site';
 import { usePersonalization } from '@/lib/personalization';
@@ -49,6 +51,17 @@ interface LPSplitHeroProps {
   nextSteps?: string[];
   /** One doctrine line under the steps (e.g. runs-beside-your-old-system). */
   nextStepsNote?: string;
+  /** OPT-IN hybrid booking CTA. Off by default so every other LP that shares
+   *  this hero is untouched. When true, a primary "Book my free Zoom call"
+   *  button sits above the form (and drives the inline CTA), opening
+   *  bookingUrl in a new tab when set, else scrolling to the form. */
+  showBooking?: boolean;
+  /** Booking URL for the hybrid CTA. Defaults to the shared BOOKING_URL. */
+  bookingUrl?: string;
+  /** Booking button label — keep it message-matched. */
+  bookingLabel?: string;
+  /** Line that demotes the form to the fallback under the booking button. */
+  bookingFallbackNote?: string;
 }
 
 /** Only markets we actually serve get named in the badge — a geolocation
@@ -78,8 +91,13 @@ export function LPSplitHero({
   inlineCta = false,
   nextSteps,
   nextStepsNote,
+  showBooking = false,
+  bookingUrl = BOOKING_URL,
+  bookingLabel = 'Book My Free Zoom Call',
+  bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
+  const bookingLive = showBooking && isBookingUrl(bookingUrl);
   const badgeText =
     city && SERVED_CITIES.has(city) ? `100% Local — Serving ${city}` : badge;
 
@@ -146,12 +164,24 @@ export function LPSplitHero({
                 happens before the sticky bar even animates in. */}
             {inlineCta && (
               <div className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3">
-                <a
-                  href="#lp-form"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
-                >
-                  {formHeading} →
-                </a>
+                {bookingLive ? (
+                  <a
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackBookingClick(formSource)}
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
+                  >
+                    {formHeading} →
+                  </a>
+                ) : (
+                  <a
+                    href="#lp-form"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
+                  >
+                    {formHeading} →
+                  </a>
+                )}
                 <a
                   href="sms:+13182800115"
                   className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white/80 hover:text-primary transition-colors py-2"
@@ -206,6 +236,18 @@ export function LPSplitHero({
             transition={{ duration: 1, delay: 0.2, ease }}
             className="lg:col-span-5 scroll-mt-24"
           >
+            {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
+                form demoted to the leave-your-number fallback directly under
+                it. Opt-in — off for every other LP sharing this hero. */}
+            {showBooking && (
+              <BookingCta
+                source={formSource}
+                label={bookingLabel}
+                bookingUrl={bookingUrl}
+                fallbackNote={bookingFallbackNote}
+              />
+            )}
+
             <LeadFormEmbed
               heading={formHeading}
               source={formSource}

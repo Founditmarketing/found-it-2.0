@@ -107,6 +107,16 @@ export function trackCalendlyOpen() {
 }
 
 /**
+ * Primary "Book my free Zoom call" button click — the calendar path of the
+ * hybrid CTA. Engagement only (never a conversion): the real lead fires from
+ * trackLead() on form submit or from the Calendly listener on a booked event,
+ * so this never pollutes Smart Bidding. Segmented by CTA source.
+ */
+export function trackBookingClick(source: string) {
+  fire('booking_click', { event_category: 'engagement', event_label: source });
+}
+
+/**
  * Popup DISPLAY is an engagement event, not a conversion. The old behavior
  * fired the Google Ads "Exit Intent Capture" conversion (AW-17848789749/
  * JUtjCM6G0K4cEPXV-75C) the moment the popup appeared — counting every

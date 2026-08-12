@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick, trackStickyCTAClick } from '@/lib/analytics';
+import { trackCallClick, trackStickyCTAClick, trackBookingClick } from '@/lib/analytics';
+import { isBookingUrl } from '@/lib/booking';
 import { SafePhone } from '@/components/landing/SafePhone';
 import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 
@@ -12,9 +13,19 @@ interface LPLayoutProps {
   children: React.ReactNode;
   /** Page-level headline for the sticky bar CTA */
   ctaLabel?: string;
+  /** OPT-IN: pass the shared BOOKING_URL from a Zoom-offer LP so the sticky bar
+   *  button opens the booking calendar in a new tab (once the URL is set)
+   *  instead of scrolling to the form. Defaults to empty so every other LP
+   *  keeps its scroll-to-form behavior, untouched. */
+  bookingUrl?: string;
 }
 
-export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLayoutProps) {
+export function LPLayout({
+  children,
+  ctaLabel = 'Get Your Free Proposal',
+  bookingUrl = '',
+}: LPLayoutProps) {
+  const bookingLive = isBookingUrl(bookingUrl);
   // The sticky bar gets out of the way whenever a real form is on screen:
   // two near-identical orange buttons stacked in thumb range at the moment
   // of conversion is how mis-taps and hesitation happen — and the bar was
@@ -66,15 +77,36 @@ export function LPLayout({ children, ctaLabel = 'Get Your Free Proposal' }: LPLa
         >
           <Phone className="w-5 h-5 text-primary" />
         </SafePhone>
-        <Link href="#lp-form" className="flex-1" onClick={() => trackStickyCTAClick()}>
-          <motion.div
-            whileTap={{ scale: 0.97 }}
-            className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+        {bookingLive ? (
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1"
+            onClick={() => {
+              trackStickyCTAClick();
+              trackBookingClick('sticky_bar');
+            }}
           >
-            {ctaLabel}
-            <ArrowRight className="w-4 h-4" />
-          </motion.div>
-        </Link>
+            <motion.div
+              whileTap={{ scale: 0.97 }}
+              className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+            >
+              {ctaLabel}
+              <ArrowRight className="w-4 h-4" />
+            </motion.div>
+          </a>
+        ) : (
+          <Link href="#lp-form" className="flex-1" onClick={() => trackStickyCTAClick()}>
+            <motion.div
+              whileTap={{ scale: 0.97 }}
+              className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+            >
+              {ctaLabel}
+              <ArrowRight className="w-4 h-4" />
+            </motion.div>
+          </Link>
+        )}
       </motion.div>
     </div>
   );
