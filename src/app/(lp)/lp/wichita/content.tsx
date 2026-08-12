@@ -6,6 +6,7 @@ import { SocialProof } from '@/components/lp/SocialProof';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
+import { DigDeeper } from '@/components/lp/DigDeeper';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
@@ -185,6 +186,8 @@ export function WichitaLPContent() {
         source="lp_wichita"
         pageSlug="wichita"
       />
+
+      <DigDeeper />
     </LPLayout>
   );
 }
