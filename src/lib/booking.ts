@@ -9,7 +9,7 @@
  * Zoom call" button on the LP heroes, footers, and sticky bars from
  * scroll-to-form to open-the-calendar (new tab). No other edit needed.
  */
-export const BOOKING_URL = '';
+export const BOOKING_URL = 'https://calendar.app.google/pcUVZFQWssyiSv5L6';
 
 /**
  * True only for a real, non-empty http(s) booking link. Guards the
