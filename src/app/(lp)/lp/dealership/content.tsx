@@ -98,7 +98,7 @@ export function DealershipLPContent() {
           { value: '0', label: 'Long-term contracts' },
         ]}
         testimonials={[
-          { quote: quoteBy('Byron'), name: 'Byron', business: 'National equipment dealer' },
+          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
           { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
           { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
         ]}
