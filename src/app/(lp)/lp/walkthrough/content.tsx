@@ -62,14 +62,18 @@ export function WalkthroughLPContent() {
     <LPLayout ctaLabel="Get My Free Software Map" bookingUrl={BOOKING_URL}>
       <LPNav />
 
-      {/* The hero answers the ad, then bridges to the bigger idea — never
-          the reverse. Stats row = the Edwards audit, not generic badges. */}
+      {/* The hero IS the ad's question — an uninterrupted thought from click
+          to page (Version B of the 8/13 headline test; Version A "Your
+          Business Should Be Able To Answer You" is reserved for brand pages).
+          Stats row = the Edwards audit, not generic badges. NOTE: the real,
+          sanctioned figure is $195,882.75 — never add invoice counts or any
+          other detail to it. */}
       <LPSplitHero
-        badge="Local Team — In Person Or On Zoom"
-        headline="Know Who Owes You Money."
-        headlineAccent="Instantly."
-        subheadline="And that's just the beginning. We build one system around the way your business already runs — customers, jobs, estimates, invoices, receivables, the books — so you can ask your business a question and actually get an answer. Free 30-minute software map, no obligation. You keep the map either way, hire us or don't."
-        highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
+        badge="Custom Software Built Around Your Business"
+        headline="Who Owes You Money"
+        headlineAccent="Right Now?"
+        subheadline="Could your current software answer that in five seconds? Ours can — one roofer's system surfaced $195,882.75 sitting in open receivables. And that's only one question. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way your business actually works. And you own it. Free 30-minute software map; you keep the map either way, hire us or don't."
+        highlight={'Ask it “who owes me money right now?” — names and amounts, in seconds, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
         showBooking

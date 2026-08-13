@@ -5,13 +5,13 @@ import { WalkthroughLPContent } from './content';
    noindex on purpose: this page exists to pay off the ad's closing line
    ("tap below and we'll come walk your operation free"), not to rank. */
 export const metadata: Metadata = {
-  title: { absolute: 'Know Who Owes You Money — Instantly | Found It Software' },
+  title: { absolute: 'Who Owes You Money Right Now? | Found It Software' },
   description:
-    "Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business — and show what it would answer from your own books. You keep the map either way.",
+    "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business. You keep the map either way.",
   openGraph: {
-    title: 'Know Who Owes You Money — Instantly | Found It Software',
+    title: 'Who Owes You Money Right Now? | Found It Software',
     description:
-      "Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business — and show what it would answer from your own books. You keep the map either way.",
+      "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business. You keep the map either way.",
     type: 'website',
     url: 'https://founditsoftware.com/lp/walkthrough',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
