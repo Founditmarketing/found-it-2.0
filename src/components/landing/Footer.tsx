@@ -3,7 +3,7 @@
 import { Phone, Mail, MapPin, Star, Facebook, Instagram, Linkedin, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick } from '@/lib/analytics';
+import { trackCallClick, trackGuideCTAClick } from '@/lib/analytics';
 import { BUSINESS, SERVICES, SAME_AS, LINKS, TRACK_RECORD, SERVICE_SHORT_LABELS } from '@/lib/site';
 
 /** Short footer labels for the canonical service pillars (keyed by slug).
@@ -83,6 +83,15 @@ export function Footer() {
             <h4 className={`${headingClass} mt-8`}>Free Tools</h4>
             <ul className="space-y-3">
               <li><Link href="/ai-visibility-check" className={linkClass}>AI Visibility Check</Link></li>
+              <li>
+                <Link
+                  href="/guide"
+                  onClick={() => trackGuideCTAClick('footer_tools')}
+                  className={linkClass}
+                >
+                  Free Guide: What Do I Get? (PDF)
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -128,6 +137,13 @@ export function Footer() {
               )}
               <Link href="/contact" className="block text-sm text-primary font-bold hover:underline">
                 Book a Free Call →
+              </Link>
+              <Link
+                href="/guide"
+                onClick={() => trackGuideCTAClick('footer_contact')}
+                className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold"
+              >
+                Download The Free Guide →
               </Link>
             </address>
           </div>

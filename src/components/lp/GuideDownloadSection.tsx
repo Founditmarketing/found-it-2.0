@@ -27,6 +27,11 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 interface GuideDownloadSectionProps {
   /** LP slug for attribution, e.g. 'auto-shop' — becomes part of the source tag. */
   page: string;
+  /**
+   * Full source-tag override for non-LP surfaces (e.g. 'guide_page' on /guide).
+   * When omitted, the tag stays the LP default: `${GUIDE_SOURCE_PREFIX}_${page}`.
+   */
+  source?: string;
 }
 
 /**
@@ -39,9 +44,9 @@ interface GuideDownloadSectionProps {
  * immediately, then routes to /lp/thanks (which re-offers the file and points
  * at the one next step — the free software map call).
  */
-export function GuideDownloadSection({ page }: GuideDownloadSectionProps) {
+export function GuideDownloadSection({ page, source: sourceOverride }: GuideDownloadSectionProps) {
   const uid = useId();
-  const source = `${GUIDE_SOURCE_PREFIX}_${page}`;
+  const source = sourceOverride ?? `${GUIDE_SOURCE_PREFIX}_${page}`;
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [started, setStarted] = useState(false);

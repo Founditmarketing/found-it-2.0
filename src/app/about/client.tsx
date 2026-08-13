@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
+import { GuideCta } from '@/components/GuideCta';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
@@ -217,11 +218,12 @@ export default function AboutPage() {
             No pitch. No pressure. Just a conversation about your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
-              <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
+            <Link href="/contact" className="w-full sm:w-auto max-w-sm">
+              <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Book a Free Call
               </LiquidButton>
             </Link>
+            <GuideCta location="about_cta" className="max-w-sm sm:max-w-none" />
             <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
               <Phone className="w-4 h-4" /> <SafePhoneText />
             </SafePhone>

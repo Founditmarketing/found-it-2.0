@@ -8,11 +8,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, type LucideIcon } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { CALLRAIL_CLASS } from '@/lib/phone';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick } from '@/lib/analytics';
+import { trackCallClick, trackGuideCTAClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
@@ -509,6 +509,15 @@ export function Header() {
 
             {/* ─── Desktop Actions ─── */}
             <div className="hidden lg:flex items-center gap-4 2xl:gap-6">
+              {/* Paired secondary: the gated guide — the lighter ask beside the call */}
+              <Link
+                href="/guide"
+                onClick={() => trackGuideCTAClick('header_desktop')}
+                className="flex items-center gap-1.5 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors"
+              >
+                <Download className="w-4 h-4 text-primary" aria-hidden="true" />
+                Free Guide
+              </Link>
               <Button
                 variant="ghost"
                 className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
@@ -637,6 +646,19 @@ export function Header() {
                     Book a Free Call
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
+                </Link>
+
+                {/* Paired secondary: the gated guide */}
+                <Link
+                  href="/guide"
+                  onClick={() => {
+                    trackGuideCTAClick('header_mobile');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
+                >
+                  <Download className="w-4 h-4 text-primary" aria-hidden="true" />
+                  Download The Free Guide
                 </Link>
 
                 {/* Phone */}

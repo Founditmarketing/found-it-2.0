@@ -153,6 +153,16 @@ export function trackCTAClick(ctaName: string) {
   fire('cta_click', { event_category: 'engagement', event_label: ctaName });
 }
 
+/**
+ * Sitewide "Download The Free Guide" CTA click → /guide. Engagement ONLY —
+ * never an Ads/Meta conversion (the guide form submit already converts via
+ * trackLead()). Segmented by location tag so GA4 can tell which surface pulls:
+ * 'home_hero', 'pillar_hero_foundit-os', 'header_desktop', 'footer', etc.
+ */
+export function trackGuideCTAClick(location: string) {
+  fire('guide_cta_click', { event_category: 'engagement', event_label: location });
+}
+
 export function trackAuditRequest(source: string) {
   fire('audit_request', { event_category: 'conversion', event_label: source, value: 1 });
 }
