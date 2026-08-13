@@ -2,12 +2,9 @@
 
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
-import { SocialProof } from '@/components/lp/SocialProof';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
-import { GuideDownloadSection } from '@/components/lp/GuideDownloadSection';
-import { DigDeeper } from '@/components/lp/DigDeeper';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
@@ -17,20 +14,22 @@ import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
-import { reviews } from '@/lib/reviews';
 
-/** Verbatim Google-review text from the canonical source — never paraphrase. */
-const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
-
-/* Ad-traffic landing page for the Found It OS VSL campaign.
-   Offer: a free Zoom call where we map the software we'd build for the
-   visitor's business — live and screen-shared. The H1 stays outcome-first
-   (one system, you own it); the CTA and subhead say Zoom + software map.
-   Hybrid booking: the primary "Book my free Zoom call" button opens the
-   calendar when BOOKING_URL is set (src/lib/booking.ts), else it gracefully
-   falls back to the leave-your-number form directly under it. Claims stay
-   inside the doctrine: own the code and data, parallel run penny-matched,
-   month-to-month, guarantee rendered from OS_PRICING only. */
+/* Ad-traffic landing page for the Found It OS VSL campaign — restructured
+   8/13 per conversion audit: the page now CONTINUES the ad's conversation
+   instead of restarting it. Architecture (in order):
+     ad promise ("who owes me money?") → hero answers it → Edwards Roofing
+     proof w/ real numbers → the touchable demo → the bigger one-system
+     reveal → founder → risk reversal → pricing → one CTA.
+   One conversion goal: the free software map (Zoom is the delivery
+   mechanism, not the product). Removed from this page: marketing-era
+   Google reviews (software buyers ask "who uses THIS software"), the PDF
+   lead magnet, and DigDeeper exit links — one path, fewer doors.
+   Claims stay inside the doctrine: own the code and data, parallel run
+   penny-matched, month-to-month, guarantee rendered from OS_PRICING only.
+   The only numbers allowed: $2,200/$2,000 (OS_PRICING), the 12+ count
+   (TRACK_RECORD), 30-minute call, and Cory Edwards' audited figures
+   ($195,882.75 receivables / $19,000 error) already sanctioned on-page. */
 
 const faqItems = [
   {
@@ -60,61 +59,60 @@ const faqItems = [
 
 export function WalkthroughLPContent() {
   return (
-    <LPLayout ctaLabel="Book My Free Zoom Call" bookingUrl={BOOKING_URL}>
+    <LPLayout ctaLabel="Get My Free Software Map" bookingUrl={BOOKING_URL}>
       <LPNav />
 
+      {/* The hero answers the ad, then bridges to the bigger idea — never
+          the reverse. Stats row = the Edwards audit, not generic badges. */}
       <LPSplitHero
-        headline="Stop Renting Your Software."
-        headlineAccent="Own It Outright."
-        subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. Book a free Zoom call and we'll map the software we'd build for your business, live on the call. You keep the map either way, hire us or don't."
+        badge="Local Team — In Person Or On Zoom"
+        headline="Know Who Owes You Money."
+        headlineAccent="Instantly."
+        subheadline="And that's just the beginning. We build one system around the way your business already runs — customers, jobs, estimates, invoices, receivables, the books — so you can ask your business a question and actually get an answer. Free 30-minute software map, no obligation. You keep the map either way, hire us or don't."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}
         showAward={false}
         showBooking
         bookingOnly
         voiceAgent
+        bookingLabel="Show Me What Mine Would Look Like"
         bookingUrl={BOOKING_URL}
         stats={[
+          { value: '$195,882.75', label: 'Receivables one roofer surfaced' },
+          { value: '$19,000', label: 'Bookkeeping error caught' },
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-          { value: '0', label: 'Long-term contracts' },
-          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
-        formHeading="Book My Free Zoom Call"
+        formHeading="Show Me What Mine Would Look Like"
         formSource="lp_walkthrough_hero"
         formPageSlug="walkthrough"
-        formSubheading="Prefer we set it up for you? Leave your name and number — we call, you pick a time for a 30-minute Zoom. Nothing to cancel."
-        formCtaLabel="Call Me To Set It Up"
+        formSubheading="Name and number — we call, you pick the time for a 30-minute Zoom. Nothing to cancel."
+        formCtaLabel="Show Me What Mine Would Look Like"
         formCompact
-        formSuccessNote="Done. One quick call to pick the time for your Zoom — you choose, we map your business live."
+        formSuccessNote="Done. One quick call to pick your time — 30 minutes, and you leave with the map of your business."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
         nextSteps={[
-          'Book the call — pick a time that works.',
-          'We map your business on a 30-minute Zoom, screen-shared.',
+          'Grab a time — 30 minutes, on Zoom.',
+          "We map the software we'd build for your business, live, screen-shared.",
           "You keep the map. Hire us or don't.",
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
 
-      {/* Not mockups — the systems themselves, drifting past both ways */}
-      <div className="py-6 space-y-5">
-        <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
-        <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
-      </div>
-
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
+      {/* Proof directly under the hero — a named local business and numbers
+          too specific to be invented. Specificity beats skepticism. */}
       <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free Zoom call below — you leave with a map either way."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Book My Free Zoom Call"
+        eyebrow="Real Local Business. Real Numbers."
+        heading="The Biggest Roofer In Cenla"
+        headingAccent="Owns His Whole System."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        videoSrc="/cory-ownership-v2.mp4"
+        poster="/cory-ownership-poster-v2.jpg"
+        ctaText="Show Me What Mine Would Look Like"
         ctaHref="#lp-form"
       />
 
-      {/* The ad's hook, made touchable: the demo the visitor can run
-          themselves before ever giving up a phone number. */}
+      {/* The ad's hook, made touchable: the exact answer the click promised,
+          runnable before anyone gives up a phone number. */}
       <section className="py-14 lg:py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
@@ -122,8 +120,8 @@ export function WalkthroughLPContent() {
               Ask It. <span className="text-primary">It Answers.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              The ad said &ldquo;who owes me money right now?&rdquo; — here&rsquo;s that exact thing.
-              This one runs a demo book. Tap a question. Yours would answer from{' '}
+              You clicked for &ldquo;who owes me money right now?&rdquo; — here&rsquo;s that exact
+              thing. This one runs a demo book. Tap a question. Yours would answer from{' '}
               <span className="text-white font-bold">your own books</span>.
             </p>
           </div>
@@ -133,49 +131,55 @@ export function WalkthroughLPContent() {
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Book the free Zoom call →
+              Want yours to answer? Get your free software map →
             </a>
           </p>
         </div>
       </section>
 
+      {/* The reveal: not another app — THE app. The rail is the proof that
+          it exists: real systems from real local businesses, not mockups. */}
+      <section className="pt-14 lg:pt-20 pb-6">
+        <div className="max-w-4xl mx-auto px-4 text-center mb-10">
+          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
+            The Bigger Idea
+          </p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+            This Isn&rsquo;t Another App. It&rsquo;s <span className="text-primary">The App.</span>
+          </h2>
+          <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+            Customers → estimates → jobs → invoices → the books — one system, built around your
+            business, and you own it: the code and the data.{' '}
+            <span className="text-white font-bold">
+              {TRACK_RECORD.softwareCustomers}+ local businesses
+            </span>{' '}
+            run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
+            themselves:
+          </p>
+        </div>
+        <div className="space-y-5">
+          <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
+          <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
+        </div>
+      </section>
 
-      {/* A real client, on camera — the ownership doctrine in a customer's mouth. */}
+      {/* The face behind the ad — 27-sec one-take from Trevor. */}
       <FounderVideo
-        eyebrow="Hear It From A Client"
-        heading="The Biggest Roofer In Cenla"
-        headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
-        videoSrc="/cory-ownership-v2.mp4"
-        poster="/cory-ownership-poster-v2.jpg"
-        ctaText="Get A Free Software Map"
+        eyebrow="Meet The Developer"
+        heading="27 Seconds From"
+        headingAccent="The Guy Who Builds It."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        videoSrc="/founder-intro-v2.mp4"
+        poster="/founder-intro-poster-v2.jpg"
+        ctaText="Show Me What Mine Would Look Like"
         ctaHref="#lp-form"
-      />
-
-      <SocialProof
-        heading={`${TRACK_RECORD.softwareCustomers}+ shops and businesses`}
-        headingAccent="run on systems we built."
-        stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-          { value: OS_PRICING.monthly, label: 'Flat, public price' },
-          { value: '100%', label: 'Yours — code and data' },
-          { value: '0', label: 'Long-term contracts' },
-        ]}
-        // Marketing-era Google reviews allowed per Trevor 8/12 — verbatim only,
-        // never edited. SYSTEM quotes from TJ/Cory/Justin replace these the day
-        // Trevor collects them.
-        testimonials={[
-          { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
-          { quote: quoteBy('Byron'), name: 'Byron' },
-          { quote: quoteBy('Tyler Griffin'), name: 'Tyler Griffin' },
-        ]}
       />
 
       <ObjectionBullets
         bullets={[
           {
-            title: '“This Seems Too Good To Be True.”',
-            detail: `Exactly right — it is. The catch is it comes with us: a real person on a Zoom with you, a public price, and a one-sentence guarantee — ${OS_PRICING.guarantee} No fine print, because it doesn't need any.`,
+            title: '“Okay — What’s The Catch?”',
+            detail: `There isn't a long-term contract. You own the code and the data. The monthly fee pays for building, hosting, securing, and improving the system. And if you don't love it: ${OS_PRICING.guarantee}`,
           },
           {
             title: '“What If It Breaks? We Depend On This.”',
@@ -196,7 +200,7 @@ export function WalkthroughLPContent() {
       />
 
       <ProcessSteps
-        heading="How The Free Zoom Call Works"
+        heading="How The Free Software Map Works"
         steps={[
           {
             number: '01',
@@ -220,19 +224,16 @@ export function WalkthroughLPContent() {
 
       <FAQSection items={faqItems} />
 
-      {/* The lighter ask — "What Do I Get?" gated PDF for visitors not ready
-          to book. Distinct source tag keeps guide leads separate. */}
-      <GuideDownloadSection page="walkthrough" />
-
       <LPFormSection
-        heading="Book My Free Zoom Call"
-        kicker="Free Zoom Call"
-        ctaLabel="Call Me To Set It Up"
+        heading="Let's Map Your Business. Free."
+        kicker="Free Software Map"
+        ctaLabel="Show Me What Mine Would Look Like"
         mobileFormFirst
         showBooking
         bookingOnly
+        bookingLabel="Show Me What Mine Would Look Like"
         bookingUrl={BOOKING_URL}
-        subheading="Book a free Zoom call and we'll map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
+        subheading="30 minutes on Zoom, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
         benefits={[
           'A free 30-minute Zoom — we map your business live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
@@ -242,8 +243,6 @@ export function WalkthroughLPContent() {
         source="lp_walkthrough_footer"
         pageSlug="walkthrough"
       />
-
-      <DigDeeper />
     </LPLayout>
   );
 }
