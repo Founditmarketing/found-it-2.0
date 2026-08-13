@@ -118,15 +118,14 @@ export async function POST(req: Request) {
             input: {
               // Live "you said" captions in the widget.
               transcription: { model: 'gpt-4o-mini-transcribe' },
-              // Field-tested 8/13: default VAD tripped on background noise —
-              // phantom interruptions mid-sentence. Higher threshold, longer
-              // silence window, and mic noise reduction calm her down.
+              // Field-tested 8/13, round 2: volume-based VAD was unfixable in
+              // real rooms (0.5 heard ghosts, 0.85 went deaf). Semantic VAD
+              // decides turns from what's being SAID — noise-robust by design.
+              // eagerness=low: she waits until the caller actually finishes.
               noise_reduction: { type: 'near_field' },
               turn_detection: {
-                type: 'server_vad',
-                threshold: 0.85,
-                prefix_padding_ms: 300,
-                silence_duration_ms: 750,
+                type: 'semantic_vad',
+                eagerness: 'low',
               },
             },
             output: { voice: REALTIME_VOICE },
