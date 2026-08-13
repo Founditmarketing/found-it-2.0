@@ -111,10 +111,10 @@ export function RoofingLPContent() {
         heading="The Biggest Roofer In Cenla"
         headingAccent="Owns His Whole System."
         body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
-        videoSrc="/cory-ownership-v2.mp4"
-        poster="/cory-ownership-poster-v2.jpg"
+        videoSrc="/cory-ownership-v3.mp4"
+        poster="/cory-ownership-poster-v3.jpg"
         founderName="Cory Edwards"
-        captionText="Watch the 26-sec clip"
+        captionText="Watch the 20-sec clip"
         ctaText="Get A Free Software Map"
         ctaHref="#lp-form"
       />
