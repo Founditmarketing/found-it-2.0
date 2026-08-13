@@ -118,6 +118,16 @@ export async function POST(req: Request) {
             input: {
               // Live "you said" captions in the widget.
               transcription: { model: 'gpt-4o-mini-transcribe' },
+              // Field-tested 8/13: default VAD tripped on background noise —
+              // phantom interruptions mid-sentence. Higher threshold, longer
+              // silence window, and mic noise reduction calm her down.
+              noise_reduction: { type: 'near_field' },
+              turn_detection: {
+                type: 'server_vad',
+                threshold: 0.85,
+                prefix_padding_ms: 300,
+                silence_duration_ms: 750,
+              },
             },
             output: { voice: REALTIME_VOICE },
           },
