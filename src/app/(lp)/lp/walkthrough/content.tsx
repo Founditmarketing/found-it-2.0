@@ -72,8 +72,8 @@ export function WalkthroughLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can — one roofer's system surfaced $195,882.75 sitting in open receivables. And that's only one question. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way your business actually works. And you own it. Free 30-minute software map; you keep the map either way, hire us or don't."
-        highlight={'Ask it “who owes me money right now?” — names and amounts, in seconds, from your own books.'}
+        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Free 30-minute software map; you keep the map either way, hire us or don't."
+        highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
         showBooking
