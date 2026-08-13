@@ -24,6 +24,8 @@ interface FounderVideoProps {
   ctaText?: string;
   ctaHref?: string;
   founderName?: string;
+  /** Poster caption after the name — keep it truthful to the actual clip length. */
+  captionText?: string;
 }
 
 export function FounderVideo({
@@ -38,6 +40,7 @@ export function FounderVideo({
   ctaText = 'Book Your Free In-Person AI Demo',
   ctaHref = '#lp-form',
   founderName = 'Trevor Ruby',
+  captionText = 'Watch the 27-sec intro',
 }: FounderVideoProps) {
   const [playing, setPlaying] = useState(false);
   const isYouTubeOrVimeo = !!videoSrc && /youtube|vimeo/.test(videoSrc);
@@ -93,7 +96,7 @@ export function FounderVideo({
                 <span className="absolute bottom-5 left-5 right-5 flex items-center gap-2 text-left">
                   <MapPin className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span className="text-sm font-bold text-white">
-                    {founderName} · {videoSrc ? 'Watch the 27-sec intro' : 'Video walkthrough coming soon'}
+                    {founderName} · {videoSrc ? captionText : 'Video walkthrough coming soon'}
                   </span>
                 </span>
               </button>
