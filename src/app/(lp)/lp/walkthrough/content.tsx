@@ -106,10 +106,8 @@ export function WalkthroughLPContent() {
         heading="55 Seconds From"
         headingAccent="The Guy Who Builds It."
         body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free Zoom call below — you leave with a map either way."
-        videoSrc="/founder-intro-v1.mp4"
-        poster="/founder-intro-poster-v1.jpg"
-        orientation="portrait"
-        portraitRatio="9 / 16"
+        videoSrc="/founder-intro-v2.mp4"
+        poster="/founder-intro-poster-v2.jpg"
         ctaText="Book My Free Zoom Call"
         ctaHref="#lp-form"
       />
