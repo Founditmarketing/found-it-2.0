@@ -122,10 +122,16 @@ export async function POST(req: Request) {
               // real rooms (0.5 heard ghosts, 0.85 went deaf). Semantic VAD
               // decides turns from what's being SAID — noise-robust by design.
               // eagerness=low: she waits until the caller actually finishes.
-              noise_reduction: { type: 'near_field' },
+              // Round 3: far_field scrubs room noise harder than near_field,
+              // and interrupt_response:false means noise (or anything) can
+              // never cut her off mid-sentence — she always finishes, then
+              // listens. Barge-in is the price; her answers are 2-3 sentences
+              // so the wait is short.
+              noise_reduction: { type: 'far_field' },
               turn_detection: {
                 type: 'semantic_vad',
                 eagerness: 'low',
+                interrupt_response: false,
               },
             },
             output: { voice: REALTIME_VOICE },
