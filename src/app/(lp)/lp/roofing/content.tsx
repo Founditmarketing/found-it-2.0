@@ -7,6 +7,7 @@ import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
+import { GuideDownloadSection } from '@/components/lp/GuideDownloadSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { OsRail } from '@/components/os/OsRail';
@@ -169,6 +170,10 @@ export function RoofingLPContent() {
       />
 
       <FAQSection items={faqItems} />
+
+      {/* The lighter ask — "What Do I Get?" gated PDF for visitors not ready
+          to book. Distinct source tag keeps guide leads separate. */}
+      <GuideDownloadSection page="roofing" />
 
       <LPFormSection
         heading="Get A Free Software Map"

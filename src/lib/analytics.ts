@@ -94,6 +94,21 @@ export function trackCallClick() {
 }
 
 /**
+ * /lp/thanks (guide funnel) page view — GA4 funnel visibility ONLY. The guide
+ * lead conversion already fired from trackLead() at submit time; firing
+ * anything toward Ads/Meta here would double-count. This page is deliberately
+ * NOT /thank-you, so the Ads URL-rule conversion can never match it.
+ */
+export function trackGuideThanksView() {
+  fire('guide_thanks_view', { event_category: 'engagement', event_label: 'lp_guide_thanks' });
+}
+
+/** Manual "open the PDF" click on /lp/thanks — engagement, never a conversion. */
+export function trackGuidePdfOpen(source: string) {
+  fire('guide_pdf_open', { event_category: 'engagement', event_label: source });
+}
+
+/**
  * First focus on a lead form — the funnel's missing middle. Clicks were
  * measurable and submits were measurable; the death in between was not.
  * Fired once per form instance, segmented by source tag.

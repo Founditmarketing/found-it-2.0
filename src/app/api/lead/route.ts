@@ -66,15 +66,19 @@ export async function POST(req: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const who = lead.businessName || lead.name || lead.email || 'Unknown';
+    // Guide downloads ride the same hardened pipe but must be tellable at a
+    // glance in the inbox — a PDF grab is a lighter intent than a walkthrough
+    // or map request, and the follow-up call is a different conversation.
+    const isGuideDownload = lead.source.startsWith('lp_guide_download');
     await resend.emails.send({
       from: 'Found It Marketing <contact@founditmarketing.com>',
       // Both inboxes on purpose: founditmarketing is the official book,
       // gmail is the one that buzzes the phone — a lead should never wait
       // on which inbox happens to be open.
       to: ['trevor@founditmarketing.com', 'trevorruby@gmail.com'],
-      subject: `New Lead: ${who} (${lead.source})`,
+      subject: `${isGuideDownload ? 'Guide Download' : 'New Lead'}: ${who} (${lead.source})`,
       html: `
-        <h1 style="margin:0 0 12px">New Website Lead</h1>
+        <h1 style="margin:0 0 12px">${isGuideDownload ? 'New Guide Download' : 'New Website Lead'}</h1>
         <p style="margin:4px 0"><strong>Source:</strong> ${escapeHtml(lead.source)}</p>
         ${rows}
       `,
