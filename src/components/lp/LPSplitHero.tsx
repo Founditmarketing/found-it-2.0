@@ -116,27 +116,29 @@ export function LPSplitHero({
             transition={{ duration: 0.8, ease }}
             className="lg:col-span-7"
           >
+            {/* Quiet trust row — orange belongs to the offer word and the
+                submit button; everything up here whispers. */}
             <div className="flex flex-wrap items-center gap-2 mb-6">
               {badge && (
-                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-white/50" aria-hidden="true" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">
                     {badgeText}
                   </span>
                 </div>
               )}
               {industry && (
-                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
-                  <Target className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5">
+                  <Target className="w-3.5 h-3.5 text-white/50" aria-hidden="true" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">
                     Built for {industry}
                   </span>
                 </div>
               )}
               {showAward && (
-                <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/25 rounded-2xl px-4 py-1.5 max-w-full">
-                  <Trophy className="w-3.5 h-3.5 text-amber-400 shrink-0" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] text-amber-300 leading-snug">
+                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5 max-w-full">
+                  <Trophy className="w-3.5 h-3.5 text-white/50 shrink-0" aria-hidden="true" />
+                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] text-white/70 leading-snug">
                     {AWARD.year} · {AWARD.label}
                   </span>
                 </div>
@@ -153,9 +155,9 @@ export function LPSplitHero({
             </p>
 
             {highlight && (
-              <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-primary/20 rounded-xl px-4 py-3 mb-8">
-                <span className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center shrink-0">
-                  <HighlightIcon className="w-5 h-5 text-primary" aria-hidden="true" />
+              <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-border/20 rounded-xl px-4 py-3 mb-8">
+                <span className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center shrink-0">
+                  <HighlightIcon className="w-5 h-5 text-white/70" aria-hidden="true" />
                 </span>
                 <span className="text-sm sm:text-base font-bold text-white leading-tight">
                   {highlight}
@@ -196,19 +198,19 @@ export function LPSplitHero({
             )}
 
             {stats.length > 0 && (
-              <div className="grid grid-cols-3 gap-3 max-w-md mb-8">
+              <div className="flex max-w-md mb-8 divide-x divide-border/15">
                 {stats.map((stat, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, scale: 0.92 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.5, ease }}
-                    className="bg-primary/5 border border-primary/10 rounded-xl p-3 text-center"
+                    className={`flex-1 ${i === 0 ? 'pr-5' : 'px-5'}`}
                   >
-                    <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter leading-none">
+                    <p className="text-xl lg:text-2xl font-black text-white italic tracking-tighter leading-none">
                       {stat.value}
                     </p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/80 mt-1.5">
+                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-faint mt-1.5">
                       {stat.label}
                     </p>
                   </motion.div>
@@ -220,8 +222,8 @@ export function LPSplitHero({
               onClick={() => trackCallClick()}
               className="inline-flex items-center gap-3 text-white/80 hover:text-primary transition-colors group"
             >
-              <span className="w-10 h-10 rounded-xl bg-white/[0.04] border border-border/20 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
-                <Phone className="w-4 h-4 text-primary" aria-hidden="true" />
+              <span className="w-10 h-10 rounded-xl bg-white/[0.04] border border-border/20 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
+                <Phone className="w-4 h-4 text-white/70" aria-hidden="true" />
               </span>
               <span className="text-sm font-bold">
                 Prefer to talk? <SafePhoneText className="text-white font-black italic tracking-tighter" />
