@@ -377,22 +377,8 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
               </span>
             </div>
 
-            {captions.length > 0 && (
-              <div
-                ref={captionsBoxRef}
-                className="mt-4 max-h-36 overflow-y-auto rounded-xl bg-black/30 border border-border/20 p-3 space-y-2"
-                aria-live="polite"
-              >
-                {captions.map((line, i) => (
-                  <p key={i} className="text-[13px] leading-snug font-medium">
-                    <span className={`font-black uppercase text-[10px] tracking-[0.15em] mr-2 ${line.role === 'ai' ? 'text-primary' : 'text-white/45'}`}>
-                      {line.role === 'ai' ? 'Her' : 'You'}
-                    </span>
-                    <span className={line.role === 'ai' ? 'text-white/90' : 'text-white/60'}>{line.text}</span>
-                  </p>
-                ))}
-              </div>
-            )}
+            {/* Voice only, by design (Trevor 8/13): no on-screen transcript —
+                the captions state still drives the speaking indicator. */}
 
             <button
               type="button"
