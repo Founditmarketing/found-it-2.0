@@ -104,6 +104,19 @@ export function RoofingLPContent() {
         ctaHref="#lp-form"
       />
 
+
+      {/* A real client, on camera — the ownership doctrine in a customer's mouth. */}
+      <FounderVideo
+        eyebrow="Hear It From A Client"
+        heading="The Biggest Roofer In Cenla"
+        headingAccent="Owns His Whole System."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        videoSrc="/cory-ownership-v1.mp4"
+        poster="/cory-ownership-poster-v1.jpg"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
+      />
+
       <SocialProof
         heading="Local contractors"
         headingAccent="run their whole operation on it."
