@@ -9,6 +9,7 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { DigDeeper } from '@/components/lp/DigDeeper';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
+import { FounderVideo } from '@/components/lp/FounderVideo';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
@@ -101,6 +102,20 @@ export function WichitaLPContent() {
         <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
         <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
       </div>
+
+      {/* The face behind the build team — 55-sec one-take from Trevor, captions burned in. */}
+      <FounderVideo
+        eyebrow="Meet The Developer"
+        heading="55 Seconds From"
+        headingAccent="The Guy Who Builds It."
+        body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        videoSrc="/founder-intro-v1.mp4"
+        poster="/founder-intro-poster-v1.jpg"
+        orientation="portrait"
+        portraitRatio="9 / 16"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
+      />
 
       {/* The ad's hook, made touchable: the demo the visitor can run
           themselves before ever giving up a phone number. */}

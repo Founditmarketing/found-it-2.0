@@ -8,6 +8,7 @@ import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
+import { FounderVideo } from '@/components/lp/FounderVideo';
 import { OsRail } from '@/components/os/OsRail';
 import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
 import { Wrench } from 'lucide-react';
@@ -57,7 +58,7 @@ const faqItems = [
 
 export function AutoShopLPContent() {
   return (
-    <LPLayout ctaLabel="Book My Free Shop Walkthrough">
+    <LPLayout ctaLabel="Get A Free Software Map">
       <LPNav />
 
       <LPSplitHero
@@ -71,7 +72,7 @@ export function AutoShopLPContent() {
           { value: '$0', label: 'Per-seat fees, ever' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
-        formHeading="Book My Free Shop Walkthrough"
+        formHeading="Get A Free Software Map"
         formSource="lp_auto_shop"
         formPageSlug="auto-shop"
       />
@@ -81,6 +82,20 @@ export function AutoShopLPContent() {
         <OsRail items={shopDesktops} dir="left" href="#lp-form" size="sm" />
         <OsRail items={shopPhones} dir="right" href="#lp-form" size="sm" />
       </div>
+
+      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      <FounderVideo
+        eyebrow="Meet The Developer"
+        heading="55 Seconds From"
+        headingAccent="The Guy Who Builds It."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the shop-software subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free walkthrough below."
+        videoSrc="/founder-intro-v1.mp4"
+        poster="/founder-intro-poster-v1.jpg"
+        orientation="portrait"
+        portraitRatio="9 / 16"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
+      />
 
       <SocialProof
         heading="Local owners"
@@ -148,7 +163,7 @@ export function AutoShopLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Book My Free Shop Walkthrough"
+        heading="Get A Free Software Map"
         subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[
           'We come to your shop, in person — free',

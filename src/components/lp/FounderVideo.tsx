@@ -93,7 +93,7 @@ export function FounderVideo({
                 <span className="absolute bottom-5 left-5 right-5 flex items-center gap-2 text-left">
                   <MapPin className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span className="text-sm font-bold text-white">
-                    {founderName} · {videoSrc ? 'Watch the 60-sec intro' : 'Video walkthrough coming soon'}
+                    {founderName} · {videoSrc ? 'Watch the 55-sec intro' : 'Video walkthrough coming soon'}
                   </span>
                 </span>
               </button>

@@ -7,6 +7,7 @@ import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { DigDeeper } from '@/components/lp/DigDeeper';
+import { FounderVideo } from '@/components/lp/FounderVideo';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
@@ -97,6 +98,20 @@ export function WalkthroughLPContent() {
         <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
         <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
       </div>
+
+      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      <FounderVideo
+        eyebrow="Meet The Developer"
+        heading="55 Seconds From"
+        headingAccent="The Guy Who Builds It."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free Zoom call below — you leave with a map either way."
+        videoSrc="/founder-intro-v1.mp4"
+        poster="/founder-intro-poster-v1.jpg"
+        orientation="portrait"
+        portraitRatio="9 / 16"
+        ctaText="Book My Free Zoom Call"
+        ctaHref="#lp-form"
+      />
 
       {/* The ad's hook, made touchable: the demo the visitor can run
           themselves before ever giving up a phone number. */}

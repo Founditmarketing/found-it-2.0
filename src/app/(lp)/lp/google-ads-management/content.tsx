@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection, FounderVideo } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { VideoTestimonials } from '@/components/portfolio/VideoTestimonials';
@@ -66,6 +66,20 @@ export function GoogleAdsLPContent() {
         formHeading="Get My Free Ad Audit"
         formSource="lp_google_ads"
         formPageSlug="google-ads-management"
+      />
+
+      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      <FounderVideo
+        eyebrow="Meet The Developer"
+        heading="55 Seconds From"
+        headingAccent="The Guy Who Builds It."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        videoSrc="/founder-intro-v1.mp4"
+        poster="/founder-intro-poster-v1.jpg"
+        orientation="portrait"
+        portraitRatio="9 / 16"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
       />
 
       <SocialProof
