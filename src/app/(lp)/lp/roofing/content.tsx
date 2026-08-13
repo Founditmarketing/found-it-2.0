@@ -70,8 +70,8 @@ export function RoofingLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="Roofing Business Software"
-        headlineAccent="That Ties Out To The Penny."
+        headline="Where'd The Job Money Go?"
+        headlineAccent="Roofing Software That Knows."
         subheadline="Right now your job money lives in an estimate app, an invoice app, a card reader, and a book nobody fully trusts. This is one ledger instead — every dollar tied to a job, every job tied to the book, checkable to the cent. Fitted to how your crews actually run, and you own it outright."
         highlight={'We audited one Louisiana roofing company’s book to the cent — and surfaced about $19,000 in bookkeeping errors the old software hid.'}
         highlightIcon={Scale}

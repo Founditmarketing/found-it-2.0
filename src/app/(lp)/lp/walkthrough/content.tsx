@@ -64,8 +64,8 @@ export function WalkthroughLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="One System That Runs The Whole Shop."
-        headlineAccent="You Own It."
+        headline="Stop Renting Your Software."
+        headlineAccent="Own It Outright."
         subheadline="Seven subscriptions that were never made for you, replaced by one app built around how you run — jobs, estimates, invoices, the books. Book a free Zoom call and we'll map the software we'd build for your business, live on the call. You keep the map either way, hire us or don't."
         highlight={'Ask it “who owes me money right now?” — names and amounts, from your own books.'}
         highlightIcon={MessageSquare}

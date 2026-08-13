@@ -69,8 +69,8 @@ export function DealershipLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="Dealership Management Software"
-        headlineAccent="That Won't Sell Below Cost."
+        headline="Quoting 15-Year-Old Prices?"
+        headlineAccent="Dealer Software That Knows Cost."
         subheadline="For equipment, outdoor power, and trailer dealers still quoting off part prices QuickBooks last saw years ago. Your distributor price files load automatically, every part reprices at your margin, and the counter cannot ring a sale below cost. One system — parts, sales, service, the books — fitted to your dealership, and you own it outright."
         highlight={'A distributor price file lands → every part on your shelf reprices at your margin. Automatically.'}
         highlightIcon={ShieldCheck}
