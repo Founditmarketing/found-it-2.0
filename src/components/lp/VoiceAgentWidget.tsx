@@ -457,7 +457,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         )}
 
         <p className="relative mt-3 text-[10px] font-medium text-white/35 leading-snug">
-          Live AI demo — conversations may be recorded. 3-minute limit.
+          Live AI demo — 3-minute limit.
         </p>
       </div>
     </div>
