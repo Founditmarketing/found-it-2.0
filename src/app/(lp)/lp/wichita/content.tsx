@@ -152,7 +152,11 @@ export function WichitaLPContent() {
           { value: '100%', label: 'Yours — code and data' },
           { value: '0', label: 'Long-term contracts' },
         ]}
-        testimonials={[{ quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' }]}
+        testimonials={[
+          { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
+          { quote: quoteBy('Byron'), name: 'Byron' },
+          { quote: quoteBy('Tyler Griffin'), name: 'Tyler Griffin' },
+        ]}
       />
 
       <ObjectionBullets

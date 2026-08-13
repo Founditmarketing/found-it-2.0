@@ -148,11 +148,14 @@ export function WalkthroughLPContent() {
           { value: '100%', label: 'Yours — code and data' },
           { value: '0', label: 'Long-term contracts' },
         ]}
-        // Only quotes with zero marketing-era vocabulary: a skeptic scrolling
-        // for the catch must not find "excellent marketing company" inside a
-        // software page's own proof. TJ/Cory/Justin SYSTEM quotes replace
-        // these the day Trevor collects them — verbatim only, never edited.
-        testimonials={[{ quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' }]}
+        // Marketing-era Google reviews allowed per Trevor 8/12 — verbatim only,
+        // never edited. SYSTEM quotes from TJ/Cory/Justin replace these the day
+        // Trevor collects them.
+        testimonials={[
+          { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
+          { quote: quoteBy('Byron'), name: 'Byron' },
+          { quote: quoteBy('Tyler Griffin'), name: 'Tyler Griffin' },
+        ]}
       />
 
       <ObjectionBullets
