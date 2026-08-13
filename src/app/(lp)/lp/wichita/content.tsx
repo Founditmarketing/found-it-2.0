@@ -103,10 +103,10 @@ export function WichitaLPContent() {
         <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
       </div>
 
-      {/* The face behind the build team — 55-sec one-take from Trevor, captions burned in. */}
+      {/* The face behind the build team — 27-sec one-take from Trevor. */}
       <FounderVideo
         eyebrow="Meet The Developer"
-        heading="55 Seconds From"
+        heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
         body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
         videoSrc="/founder-intro-v2.mp4"

@@ -41,10 +41,10 @@ export function AppDevelopmentLPContent() {
         formPageSlug="app-development"
       />
 
-      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      {/* The face behind the ad — 27-sec one-take from Trevor. */}
       <FounderVideo
         eyebrow="Meet The Developer"
-        heading="55 Seconds From"
+        heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
         body="No sales team, no account manager — you'd be talking to the developer. Custom apps that combine the software you're renting into one new app you own: the code, the data, everything. Press play, then grab the free blueprint below."
         videoSrc="/founder-intro-v2.mp4"

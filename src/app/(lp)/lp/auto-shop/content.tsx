@@ -84,10 +84,10 @@ export function AutoShopLPContent() {
         <OsRail items={shopPhones} dir="right" href="#lp-form" size="sm" />
       </div>
 
-      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      {/* The face behind the ad — 27-sec one-take from Trevor. */}
       <FounderVideo
         eyebrow="Meet The Developer"
-        heading="55 Seconds From"
+        heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
         body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the shop-software subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free walkthrough below."
         videoSrc="/founder-intro-v2.mp4"
