@@ -72,6 +72,7 @@ export function WalkthroughLPContent() {
         showAward={false}
         showBooking
         bookingOnly
+        voiceAgent
         bookingUrl={BOOKING_URL}
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },

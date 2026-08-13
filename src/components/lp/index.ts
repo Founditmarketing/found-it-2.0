@@ -12,6 +12,7 @@ export { PortfolioMarquee } from './PortfolioMarquee';
 export { ExitIntent } from './ExitIntent';
 export { LeadFormEmbed } from './LeadFormEmbed';
 export { LPSplitHero } from './LPSplitHero';
+export { VoiceAgentWidget } from './VoiceAgentWidget';
 export { SocialProof } from './SocialProof';
 export { FounderVideo } from './FounderVideo';
 export { TeamCollageSection } from './TeamCollageSection';

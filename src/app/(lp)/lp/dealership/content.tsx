@@ -74,6 +74,7 @@ export function DealershipLPContent() {
         subheadline="For equipment, outdoor power, and trailer dealers still quoting off part prices QuickBooks last saw years ago. Your distributor price files load automatically, every part reprices at your margin, and the counter cannot ring a sale below cost. One system — parts, sales, service, the books — fitted to your dealership, and you own it outright."
         highlight={'A distributor price file lands → every part on your shelf reprices at your margin. Automatically.'}
         highlightIcon={ShieldCheck}
+        voiceAgent
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: '0', label: 'Below-cost sales allowed' },

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { BookingCta } from './BookingCta';
+import { VoiceAgentWidget } from './VoiceAgentWidget';
 import { trackCallClick, trackBookingClick } from '@/lib/analytics';
 import { BOOKING_URL, isBookingUrl } from '@/lib/booking';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
@@ -65,6 +66,11 @@ interface LPSplitHeroProps {
   /** Booking-only: hide the lead form entirely so the booking button is the
    *  single CTA. Also drops the "leave your number" fallback line. */
   bookingOnly?: boolean;
+  /** OPT-IN: live AI-secretary voice demo as a first-class hero element
+   *  (OS landing pages). Off by default so every other LP sharing this hero
+   *  is untouched. Renders right under the highlight chip — first screen on
+   *  mobile, where the ad traffic lands. */
+  voiceAgent?: boolean;
 }
 
 /** Only markets we actually serve get named in the badge — a geolocation
@@ -99,6 +105,7 @@ export function LPSplitHero({
   bookingLabel = 'Book My Free Zoom Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
   bookingOnly = false,
+  voiceAgent = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
   const bookingLive = showBooking && isBookingUrl(bookingUrl);
@@ -163,6 +170,13 @@ export function LPSplitHero({
                   {highlight}
                 </span>
               </div>
+            )}
+
+            {/* Live voice demo — the product answering for itself, above the
+                fold. Mic permission happens on tap inside the widget, never
+                on load. */}
+            {voiceAgent && (
+              <VoiceAgentWidget pageSlug={formPageSlug} className="mb-8" />
             )}
 
             {/* The first screen must have something to DO — on mobile the

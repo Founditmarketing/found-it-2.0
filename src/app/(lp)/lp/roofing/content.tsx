@@ -75,6 +75,7 @@ export function RoofingLPContent() {
         subheadline="Right now your job money lives in an estimate app, an invoice app, a card reader, and a book nobody fully trusts. This is one ledger instead — every dollar tied to a job, every job tied to the book, checkable to the cent. Fitted to how your crews actually run, and you own it outright."
         highlight={'We audited one Louisiana roofing company’s book to the cent — and surfaced about $19,000 in bookkeeping errors the old software hid.'}
         highlightIcon={Scale}
+        voiceAgent
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: 'To the ¢', label: 'How your book ties out' },
