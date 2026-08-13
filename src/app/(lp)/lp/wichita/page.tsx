@@ -5,13 +5,13 @@ import { WichitaLPContent } from './content';
    territory. noindex on purpose: this page exists to pay off the ads,
    not to rank. */
 export const metadata: Metadata = {
-  title: { absolute: "Wichita: We'll Come Walk Your Operation — Free | Found It Software" },
+  title: { absolute: 'Who Owes You Money Right Now? — Wichita | Found It Software' },
   description:
-    'Book a free in-person walkthrough in Wichita. Tom comes to your shop and shows you what an AI business system you own outright would answer — from your own books.',
+    "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom with Tom, our man in Wichita. You keep the map either way.",
   openGraph: {
-    title: "Wichita: We'll Come Walk Your Operation — Free | Found It Software",
+    title: 'Who Owes You Money Right Now? — Wichita | Found It Software',
     description:
-      'Book a free in-person walkthrough in Wichita. Tom comes to your shop and shows you what an AI business system you own outright would answer — from your own books.',
+      "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom with Tom, our man in Wichita. You keep the map either way.",
     type: 'website',
     url: 'https://founditsoftware.com/lp/wichita',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
