@@ -2,22 +2,16 @@
 
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
-import { SocialProof } from '@/components/lp/SocialProof';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
-import { GuideDownloadSection } from '@/components/lp/GuideDownloadSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { OsRail } from '@/components/os/OsRail';
 import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
 import { ShieldCheck } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
-import { reviews } from '@/lib/reviews';
-
-/** Verbatim Google-review text from the canonical source — never paraphrase. */
-const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 /* Google Ads LP — "dealership management software" keyword theme
    (equipment / outdoor power / trailer dealers, NOT car lots).
@@ -25,7 +19,11 @@ const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ??
    costs frozen years ago, distributor price files never loaded, the
    counter quoting below cost without knowing. The story is the margin
    governor. Pricing renders from OS_PRICING only; the guarantee is
-   verbatim with no invented conditions; no named clients. */
+   verbatim with no invented conditions; Cory Edwards is the one named
+   client (his numbers are sanctioned on-page).
+   Harmonized 8/14 to the ad-page audit structure: Cory's named-numbers
+   proof directly under the hero, no marketing-era reviews, no PDF magnet,
+   public price at the point of commitment. */
 
 /* Dealer-relevant captures drift past first: sales-pipeline + quote screens. */
 const isDealerScreen = (s: { kind: string }) => /dealer|tire/i.test(s.kind);
@@ -83,6 +81,22 @@ export function DealershipLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_dealership"
         formPageSlug="dealership"
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+      />
+
+      {/* Proof directly under the hero — a named local business and numbers
+          too specific to be invented. */}
+      <FounderVideo
+        eyebrow="Real Local Business. Real Numbers."
+        heading="The Biggest Roofer In Cenla"
+        headingAccent="Owns His Whole System."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        videoSrc="/cory-ownership-v3.mp4"
+        poster="/cory-ownership-poster-v3.jpg"
+        founderName="Cory Edwards"
+        captionText="Watch the 20-sec clip"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
       />
 
       {/* Not mockups — the systems themselves, dealer screens leading */}
@@ -101,22 +115,6 @@ export function DealershipLPContent() {
         poster="/founder-intro-poster-v2.jpg"
         ctaText="Get A Free Software Map"
         ctaHref="#lp-form"
-      />
-
-      <SocialProof
-        heading="Dealers"
-        headingAccent="run their whole operation on it."
-        stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-          { value: OS_PRICING.monthly, label: 'Flat, public price' },
-          { value: '100%', label: 'Yours — code and data' },
-          { value: '0', label: 'Long-term contracts' },
-        ]}
-        testimonials={[
-          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
-          { quote: quoteBy('Reddirt Mahindra'), name: 'Reddirt Mahindra' },
-          { quote: quoteBy('Smith Lake Rentals & Sales'), name: 'Smith Lake Rentals & Sales' },
-        ]}
       />
 
       <ObjectionBullets
@@ -168,10 +166,6 @@ export function DealershipLPContent() {
       />
 
       <FAQSection items={faqItems} />
-
-      {/* The lighter ask — "What Do I Get?" gated PDF for visitors not ready
-          to book. Distinct source tag keeps guide leads separate. */}
-      <GuideDownloadSection page="dealership" />
 
       <LPFormSection
         heading="Get A Free Software Map"

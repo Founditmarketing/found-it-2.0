@@ -2,22 +2,16 @@
 
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
-import { SocialProof } from '@/components/lp/SocialProof';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
-import { GuideDownloadSection } from '@/components/lp/GuideDownloadSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { OsRail } from '@/components/os/OsRail';
 import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
 import { Scale } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
-import { reviews } from '@/lib/reviews';
-
-/** Verbatim Google-review text from the canonical source — never paraphrase. */
-const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 /* Google Ads LP — "roofing business software" / roofing CRM alternative.
    Message match: the searcher's pain is job money scattered across an
@@ -84,6 +78,22 @@ export function RoofingLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_roofing"
         formPageSlug="roofing"
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+      />
+
+      {/* Proof directly under the hero — he's a ROOFER on the roofing page:
+          the strongest possible match of proof to visitor. */}
+      <FounderVideo
+        eyebrow="Real Local Roofer. Real Numbers."
+        heading="The Biggest Roofer In Cenla"
+        headingAccent="Owns His Whole System."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        videoSrc="/cory-ownership-v3.mp4"
+        poster="/cory-ownership-poster-v3.jpg"
+        founderName="Cory Edwards"
+        captionText="Watch the 20-sec clip"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
       />
 
       {/* Not mockups — the systems themselves, trade-contractor screens leading */}
@@ -102,37 +112,6 @@ export function RoofingLPContent() {
         poster="/founder-intro-poster-v2.jpg"
         ctaText="Get A Free Software Map"
         ctaHref="#lp-form"
-      />
-
-
-      {/* A real client, on camera — the ownership doctrine in a customer's mouth. */}
-      <FounderVideo
-        eyebrow="Hear It From A Client"
-        heading="The Biggest Roofer In Cenla"
-        headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
-        videoSrc="/cory-ownership-v3.mp4"
-        poster="/cory-ownership-poster-v3.jpg"
-        founderName="Cory Edwards"
-        captionText="Watch the 20-sec clip"
-        ctaText="Get A Free Software Map"
-        ctaHref="#lp-form"
-      />
-
-      <SocialProof
-        heading="Local contractors"
-        headingAccent="run their whole operation on it."
-        stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-          { value: OS_PRICING.monthly, label: 'Flat, public price' },
-          { value: '100%', label: 'Yours — code and data' },
-          { value: '0', label: 'Long-term contracts' },
-        ]}
-        testimonials={[
-          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
-          { quote: quoteBy("Everything's Albright"), name: "Everything's Albright" },
-          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
-        ]}
       />
 
       <ObjectionBullets
@@ -184,10 +163,6 @@ export function RoofingLPContent() {
       />
 
       <FAQSection items={faqItems} />
-
-      {/* The lighter ask — "What Do I Get?" gated PDF for visitors not ready
-          to book. Distinct source tag keeps guide leads separate. */}
-      <GuideDownloadSection page="roofing" />
 
       <LPFormSection
         heading="Get A Free Software Map"
