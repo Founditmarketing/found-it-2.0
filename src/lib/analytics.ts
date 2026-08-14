@@ -94,6 +94,21 @@ export function trackCallClick() {
 }
 
 /**
+ * /lp/thanks (guide funnel) page view — GA4 funnel visibility ONLY. The guide
+ * lead conversion already fired from trackLead() at submit time; firing
+ * anything toward Ads/Meta here would double-count. This page is deliberately
+ * NOT /thank-you, so the Ads URL-rule conversion can never match it.
+ */
+export function trackGuideThanksView() {
+  fire('guide_thanks_view', { event_category: 'engagement', event_label: 'lp_guide_thanks' });
+}
+
+/** Manual "open the PDF" click on /lp/thanks — engagement, never a conversion. */
+export function trackGuidePdfOpen(source: string) {
+  fire('guide_pdf_open', { event_category: 'engagement', event_label: source });
+}
+
+/**
  * First focus on a lead form — the funnel's missing middle. Clicks were
  * measurable and submits were measurable; the death in between was not.
  * Fired once per form instance, segmented by source tag.
@@ -138,12 +153,57 @@ export function trackCTAClick(ctaName: string) {
   fire('cta_click', { event_category: 'engagement', event_label: ctaName });
 }
 
+/**
+ * Sitewide "Download The Free Guide" CTA click → /guide. Engagement ONLY —
+ * never an Ads/Meta conversion (the guide form submit already converts via
+ * trackLead()). Segmented by location tag so GA4 can tell which surface pulls:
+ * 'home_hero', 'pillar_hero_foundit-os', 'header_desktop', 'footer', etc.
+ */
+export function trackGuideCTAClick(location: string) {
+  fire('guide_cta_click', { event_category: 'engagement', event_label: location });
+}
+
 export function trackAuditRequest(source: string) {
   fire('audit_request', { event_category: 'conversion', event_label: source, value: 1 });
 }
 
 export function trackStickyCTAClick() {
   fire('sticky_cta_click', { event_category: 'engagement', event_label: 'mobile_sticky_bar' });
+}
+
+/** Video play clicks (founder / client clips) — engagement, segmented by clip path. */
+export function trackVideoPlay(label: string) {
+  fire('video_play', { event_category: 'engagement', event_label: label });
+}
+
+/** AskTheOS demo question taps — the ad-promise moment, segmented by question id. */
+export function trackDemoTap(questionId: string) {
+  fire('demo_tap', { event_category: 'engagement', event_label: questionId });
+}
+
+/**
+ * Scroll-depth milestones (25/50/75/100), fired once each per page view.
+ * Returns a cleanup function for useEffect. Engagement only — answers
+ * "did they even SEE the proof section?" when clicks don't happen.
+ */
+export function initScrollDepth(pageLabel: string): () => void {
+  if (typeof window === 'undefined') return () => {};
+  const fired = new Set<number>();
+  const onScroll = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = (window.scrollY / max) * 100;
+    for (const m of [25, 50, 75, 100]) {
+      if (pct >= m && !fired.has(m)) {
+        fired.add(m);
+        fire('scroll_depth', { event_category: 'engagement', event_label: pageLabel, value: m });
+      }
+    }
+    if (fired.size === 4) window.removeEventListener('scroll', onScroll);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  return () => window.removeEventListener('scroll', onScroll);
 }
 
 /* ─── UTM Persistence ─── */

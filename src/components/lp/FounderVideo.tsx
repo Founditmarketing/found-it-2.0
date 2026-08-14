@@ -5,6 +5,7 @@ import { Play, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { useState } from 'react';
+import { trackVideoPlay } from '@/lib/analytics';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -24,6 +25,10 @@ interface FounderVideoProps {
   ctaText?: string;
   ctaHref?: string;
   founderName?: string;
+  /** Poster caption after the name — keep it truthful to the actual clip length. */
+  captionText?: string;
+  /** Quiet secondary link under the CTA — e.g. the deep case-study artifact. */
+  secondaryLink?: { label: string; href: string };
 }
 
 export function FounderVideo({
@@ -38,6 +43,8 @@ export function FounderVideo({
   ctaText = 'Book Your Free In-Person AI Demo',
   ctaHref = '#lp-form',
   founderName = 'Trevor Ruby',
+  captionText = 'Watch the 27-sec intro',
+  secondaryLink,
 }: FounderVideoProps) {
   const [playing, setPlaying] = useState(false);
   const isYouTubeOrVimeo = !!videoSrc && /youtube|vimeo/.test(videoSrc);
@@ -74,7 +81,11 @@ export function FounderVideo({
             ) : (
               <button
                 type="button"
-                onClick={() => videoSrc && setPlaying(true)}
+                onClick={() => {
+                  if (!videoSrc) return;
+                  trackVideoPlay(videoSrc);
+                  setPlaying(true);
+                }}
                 className="group absolute inset-0 w-full h-full cursor-pointer"
                 aria-label={videoSrc ? 'Play founder introduction video' : 'Founder video coming soon'}
               >
@@ -93,7 +104,7 @@ export function FounderVideo({
                 <span className="absolute bottom-5 left-5 right-5 flex items-center gap-2 text-left">
                   <MapPin className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
                   <span className="text-sm font-bold text-white">
-                    {founderName} · {videoSrc ? 'Watch the 55-sec intro' : 'Video walkthrough coming soon'}
+                    {founderName} · {videoSrc ? captionText : 'Video walkthrough coming soon'}
                   </span>
                 </span>
               </button>
@@ -122,6 +133,16 @@ export function FounderVideo({
                 {ctaText}
               </LiquidButton>
             </Link>
+            {secondaryLink && (
+              <p className="mt-4">
+                <Link
+                  href={secondaryLink.href}
+                  className="text-sm font-bold text-white/60 hover:text-primary transition-colors"
+                >
+                  {secondaryLink.label} →
+                </Link>
+              </p>
+            )}
           </motion.div>
         </div>
       </div>

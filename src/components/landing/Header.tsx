@@ -8,11 +8,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, type LucideIcon } from 'lucide-react';
+import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { CALLRAIL_CLASS } from '@/lib/phone';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick } from '@/lib/analytics';
+import { trackCallClick, trackGuideCTAClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
@@ -35,19 +35,28 @@ interface NavLink {
   sublinks?: NavSublink[];
 }
 
-/** Short nav labels for the canonical service pillars (keyed by slug).
-    The set + order come from SERVICES in site.ts — same list the footer uses. */
-const serviceSublinks: NavSublink[] = SERVICES.map((s) => ({
+/** Marketing services only — software is the company, not a line item in a
+    Services dropdown. Found It OS stands at the top level; the marketing
+    pillars live under a dropdown that says what it is by its name. */
+const marketingSublinks: NavSublink[] = SERVICES.filter(
+  (s) => !['foundit-os', 'app-development'].includes(s.slug)
+).map((s) => ({
   title: SERVICE_SHORT_LABELS[s.slug] ?? s.name,
   href: `/${s.slug}`,
-  tag: s.slug === 'foundit-os' ? 'NEW' : null,
+  tag: null,
 }));
 
 const navLinks: NavLink[] = [
   {
+    title: 'Found It OS',
+    href: '/foundit-os',
+    icon: Cpu,
+    description: 'One system that runs the whole business — you own it',
+  },
+  {
     title: 'Custom Software',
     href: '/custom-software',
-    icon: Cpu,
+    icon: Building2,
     description: 'AI-powered systems you own, fitted to your business',
     sublinks: [
       { title: 'All Industries', href: '/custom-software', tag: 'NEW' },
@@ -57,34 +66,24 @@ const navLinks: NavLink[] = [
       { title: 'Car Dealerships', href: '/custom-software/car-dealerships', tag: null },
       { title: 'Shed Builders', href: '/custom-software/shed-builders', tag: null },
       { title: 'Home Builders — CoConstruct Alt.', href: '/custom-software/home-builders', tag: null },
-    ],
-  },
-  {
-    title: 'Services',
-    href: '/#services',
-    icon: TrendingUp,
-    description: 'What we do for your business',
-    sublinks: serviceSublinks,
-  },
-  {
-    title: 'Industries',
-    href: '#',
-    icon: Building2,
-    description: 'Custom systems, industry by industry',
-    sublinks: [
+      { title: 'App Development', href: '/app-development', tag: null },
       { title: 'Medical / Healthcare', href: '/industries/medical', tag: null },
-      { title: 'Contractors', href: '/industries/contractors', tag: null },
-      { title: 'Dealerships', href: '/industries/dealerships', tag: null },
-      { title: 'Retail / Stores', href: '/industries/retail', tag: null },
       { title: 'Real Estate', href: '/industries/realtors', tag: null },
       { title: 'Lawyers', href: '/industries/lawyers', tag: null },
     ],
   },
   {
+    title: 'Marketing',
+    href: '/#services',
+    icon: TrendingUp,
+    description: 'Ads, websites, and getting found',
+    sublinks: marketingSublinks,
+  },
+  {
     title: 'Case Studies',
     href: '/case-studies',
     icon: Globe,
-    description: 'Real results for real businesses',
+    description: 'The systems we built, the businesses that own them',
   },
   {
     title: 'Pricing',
@@ -454,7 +453,7 @@ export function Header() {
             {/* ─── Logo ─── */}
             <Link
               href="/"
-              className="font-black text-3xl tracking-tighter group relative select-none text-white z-[60]"
+              className="font-black text-3xl tracking-tighter group relative select-none text-white z-[60] shrink-0 whitespace-nowrap"
               onMouseDown={handlePressStart}
               onMouseUp={handlePressEnd}
               onMouseLeave={handlePressEnd}
@@ -467,15 +466,19 @@ export function Header() {
               </motion.span>
             </Link>
 
-            {/* ─── Desktop Nav ─── */}
-            <nav className="hidden lg:flex items-center gap-4 2xl:gap-8">
+            {/* ─── Desktop Nav ───
+                xl, not lg: the full row (6 links + guide + phone + CTA) needs
+                ~1250px. Between 1024–1279px — odd monitors, or a laptop at
+                125–150% zoom — the row crushed and clipped; those visitors now
+                get the mobile menu, which handles any width and any zoom. */}
+            <nav className="hidden xl:flex items-center gap-3 2xl:gap-8">
               {navLinks.map((link) =>
                 link.sublinks ? (
                   <DropdownMenu key={link.title}>
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm transition-colors group relative text-white hover:text-white hover:bg-white/10"
+                        className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm whitespace-nowrap px-2 2xl:px-4 transition-colors group relative text-white hover:text-white hover:bg-white/10"
                       >
                         {link.title} <ChevronDown className="h-4 w-4" />
                       </Button>
@@ -498,7 +501,7 @@ export function Header() {
                   <Link
                     key={link.title}
                     href={link.href}
-                    className="font-black uppercase italic tracking-tighter text-sm transition-colors relative group py-2 text-white hover:text-primary"
+                    className="font-black uppercase italic tracking-tighter text-sm whitespace-nowrap transition-colors relative group py-2 text-white hover:text-primary"
                   >
                     {link.title}
                     <motion.span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
@@ -508,10 +511,21 @@ export function Header() {
             </nav>
 
             {/* ─── Desktop Actions ─── */}
-            <div className="hidden lg:flex items-center gap-4 2xl:gap-6">
+            <div className="hidden xl:flex items-center gap-3 2xl:gap-6">
+              {/* Paired secondary: the gated guide — the lighter ask beside the
+                  call. 2xl only: at exactly-xl widths it was the straw that
+                  broke the row; it stays one tap away in the mobile menu. */}
+              <Link
+                href="/guide"
+                onClick={() => trackGuideCTAClick('header_desktop')}
+                className="hidden 2xl:flex items-center gap-1.5 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors"
+              >
+                <Download className="w-4 h-4 text-primary" aria-hidden="true" />
+                Free Guide
+              </Link>
               <Button
                 variant="ghost"
-                className="font-black uppercase italic tracking-tighter h-11 transition-colors text-white hover:text-primary hover:bg-transparent"
+                className="font-black uppercase italic tracking-tighter h-11 whitespace-nowrap px-2 2xl:px-4 transition-colors text-white hover:text-primary hover:bg-transparent"
                 asChild
               >
                 <SafePhone onClick={() => trackCallClick()}>
@@ -519,15 +533,15 @@ export function Header() {
                   <SafePhoneText />
                 </SafePhone>
               </Button>
-              <Link href="/contact" className="hidden lg:block">
-                <LiquidButton className="h-14 px-8 text-xs tracking-[0.2em] magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
+              <Link href="/contact" className="block shrink-0">
+                <LiquidButton className="h-14 px-5 2xl:px-8 text-xs tracking-[0.2em] whitespace-nowrap magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
                   Book a Free Call
                 </LiquidButton>
               </Link>
             </div>
 
-            {/* ─── Mobile: tap-to-call + Hamburger ─── */}
-            <div className="lg:hidden relative z-[60] flex items-center gap-1">
+            {/* ─── Mobile / narrow / zoomed: tap-to-call + Hamburger ─── */}
+            <div className="xl:hidden relative z-[60] flex items-center gap-1">
               <SafePhone
                 onClick={() => trackCallClick()}
                 ariaLabel="Call Found It"
@@ -563,7 +577,7 @@ export function Header() {
               animate="open"
               exit="closed"
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[160] bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[160] bg-black/60 backdrop-blur-sm xl:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -579,7 +593,7 @@ export function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed inset-y-0 right-0 z-[161] w-full max-w-[380px] bg-background/95 backdrop-blur-2xl border-l border-border/20 shadow-2xl shadow-black/50 lg:hidden flex flex-col"
+              className="fixed inset-y-0 right-0 z-[161] w-full max-w-[380px] bg-background/95 backdrop-blur-2xl border-l border-border/20 shadow-2xl shadow-black/50 xl:hidden flex flex-col"
             >
               {/* Decorative gradient */}
               <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/[0.06] to-transparent pointer-events-none" />
@@ -637,6 +651,19 @@ export function Header() {
                     Book a Free Call
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
+                </Link>
+
+                {/* Paired secondary: the gated guide */}
+                <Link
+                  href="/guide"
+                  onClick={() => {
+                    trackGuideCTAClick('header_mobile');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
+                >
+                  <Download className="w-4 h-4 text-primary" aria-hidden="true" />
+                  Download The Free Guide
                 </Link>
 
                 {/* Phone */}

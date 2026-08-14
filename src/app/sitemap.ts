@@ -56,6 +56,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
 
   // Tools / lead magnets
   { path: '/ai-visibility-check', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/guide', priority: 0.6, changeFrequency: 'monthly' },
 
   // Blog index
   { path: '/blog', priority: 0.6, changeFrequency: 'weekly' },

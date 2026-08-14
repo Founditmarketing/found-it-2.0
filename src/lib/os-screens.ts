@@ -67,7 +67,7 @@ export const railDesktops: OsRailItem[] = [
     kind: 'Windmill Manufacturer',
   },
   {
-    src: '/os-screens/brians-foundation-os-v1.png',
+    src: '/os-screens/brians-foundation-os-v2.png',
     alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
     title: 'Brian’s Foundation',
     kind: 'Foundation Contractor',
@@ -132,14 +132,14 @@ export const railPhones: OsRailItem[] = [
     portrait: true,
   },
   {
-    src: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+    src: '/os-screens/brians-foundation-mobile-estimates-v2.png',
     alt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
     title: 'Speak It In',
     kind: 'Brian’s Foundation',
     portrait: true,
   },
   {
-    src: '/os-screens/brians-foundation-mobile-today-v1.png',
+    src: '/os-screens/brians-foundation-mobile-today-v2.png',
     alt: 'Brian’s Foundation Repair OS on a phone — the day’s collected, tickets, and jobs due',
     title: 'The Day',
     kind: 'Brian’s Foundation',

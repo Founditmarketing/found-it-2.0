@@ -9,6 +9,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
+import { trackDemoTap } from '@/lib/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -135,7 +136,10 @@ export function AskTheOS() {
             return (
               <button
                 key={a.id}
-                onClick={() => ask(a.id)}
+                onClick={() => {
+                  trackDemoTap(a.id);
+                  ask(a.id);
+                }}
                 aria-pressed={on}
                 className={`rounded-full px-4 py-2 text-xs sm:text-[13px] font-black uppercase tracking-tight transition-colors duration-300 ${
                   on

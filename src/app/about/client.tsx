@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
+import { GuideCta } from '@/components/GuideCta';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
@@ -29,10 +30,10 @@ const differentiators = [
   'You own everything — your accounts, your code, your data.',
   'No long-term contracts. Month-to-month. Cancel anytime.',
   'Senior strategist on every account. No hand-offs to interns.',
-  'Based in Alexandria, LA. Real people, real phone number.',
+  'Based in Alexandria, LA — with a team presence in Wichita, KS. Real people, real phone number.',
 ];
 
-const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas'];
+const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas', 'Wichita, Kansas'];
 
 export default function AboutPage() {
   return (
@@ -162,7 +163,7 @@ export default function AboutPage() {
             Where We Work
           </h2>
           <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
-            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, or up into southern Arkansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, we deliver the same senior-level work remotely.
+            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, up into southern Arkansas, or around Wichita, Kansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, we deliver the same senior-level work remotely.
           </p>
           <div className="flex flex-wrap gap-3">
             {serviceArea.map((region, i) => (
@@ -217,11 +218,12 @@ export default function AboutPage() {
             No pitch. No pressure. Just a conversation about your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
-              <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
+            <Link href="/contact" className="w-full sm:w-auto max-w-sm">
+              <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Book a Free Call
               </LiquidButton>
             </Link>
+            <GuideCta location="about_cta" className="max-w-sm sm:max-w-none" />
             <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
               <Phone className="w-4 h-4" /> <SafePhoneText />
             </SafePhone>

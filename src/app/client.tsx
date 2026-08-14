@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
+import { GuideCta } from '@/components/GuideCta';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -223,14 +224,18 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Primary ask — the fitting; the wow lives one scroll down */}
+              {/* Primary ask — the fitting; the guide rides beside it as the
+                  lighter second door. Stacked full-width on mobile. */}
               <div className="opacity-0 animate-reveal-up-sm delay-400">
-                <Link
-                  href="/foundit-os#lead-form"
-                  className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-                >
-                  Get My Free Fitting
-                </Link>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 max-w-sm sm:max-w-none mx-auto">
+                  <Link
+                    href="/foundit-os#lead-form"
+                    className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+                  >
+                    Get My Free Fitting
+                  </Link>
+                  <GuideCta location="home_hero" />
+                </div>
                 <div className="flex items-center justify-center gap-6 mt-6">
                   <Link href="#foundit-os" className="text-xs font-black uppercase italic tracking-tighter text-white/80 hover:text-primary transition-colors">
                     Meet Found It OS ↓
@@ -308,13 +313,14 @@ export default function HomePage() {
                 A traditional custom software shop quotes $50,000–$150,000 and takes 3–6 months. {TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
                 <Link href="/foundit-os" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
                   See Found It OS <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
                 <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
                   Get a Free Fitting
                 </Link>
+                <GuideCta location="home_flagship" />
               </div>
             </div>
           </motion.div>
@@ -350,12 +356,12 @@ export default function HomePage() {
             <AskTheOS />
           </motion.div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="text-center mt-8"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-8 max-w-sm sm:max-w-none mx-auto"
           >
             <Link
               href="/foundit-os#lead-form"
@@ -363,7 +369,8 @@ export default function HomePage() {
             >
               Get Yours Answering — Free Fitting
             </Link>
-          </motion.p>
+            <GuideCta location="home_askos" />
+          </motion.div>
         </div>
       </section>
 
@@ -709,11 +716,12 @@ export default function HomePage() {
               No pitch. No pressure. Just a straight conversation about what would actually work for your business.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link href="/contact">
-                <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
+              <Link href="/contact" className="w-full sm:w-auto max-w-sm">
+                <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                   Book a Free Call
                 </LiquidButton>
               </Link>
+              <GuideCta location="home_bottom" className="max-w-sm sm:max-w-none h-16" />
               <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
                 <Phone className="w-4 h-4" /> <SafePhoneText />
               </SafePhone>

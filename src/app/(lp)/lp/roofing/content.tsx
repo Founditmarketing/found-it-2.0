@@ -2,7 +2,6 @@
 
 import { LPLayout } from '@/components/lp/LPLayout';
 import { LPSplitHero } from '@/components/lp/LPSplitHero';
-import { SocialProof } from '@/components/lp/SocialProof';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProcessSteps } from '@/components/lp/ProcessSteps';
 import { LPFormSection } from '@/components/lp/LPFormSection';
@@ -13,10 +12,6 @@ import { OsRail } from '@/components/os/OsRail';
 import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
 import { Scale } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
-import { reviews } from '@/lib/reviews';
-
-/** Verbatim Google-review text from the canonical source — never paraphrase. */
-const quoteBy = (name: string) => reviews.find((r) => r.name === name)?.quote ?? '';
 
 /* Google Ads LP — "roofing business software" / roofing CRM alternative.
    Message match: the searcher's pain is job money scattered across an
@@ -69,11 +64,12 @@ export function RoofingLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="Roofing Business Software"
-        headlineAccent="That Ties Out To The Penny."
+        headline="Where'd The Job Money Go?"
+        headlineAccent="Roofing Software That Knows."
         subheadline="Right now your job money lives in an estimate app, an invoice app, a card reader, and a book nobody fully trusts. This is one ledger instead — every dollar tied to a job, every job tied to the book, checkable to the cent. Fitted to how your crews actually run, and you own it outright."
         highlight={'We audited one Louisiana roofing company’s book to the cent — and surfaced about $19,000 in bookkeeping errors the old software hid.'}
         highlightIcon={Scale}
+        voiceAgent
         stats={[
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
           { value: 'To the ¢', label: 'How your book ties out' },
@@ -82,6 +78,23 @@ export function RoofingLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_roofing"
         formPageSlug="roofing"
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+      />
+
+      {/* Proof directly under the hero — he's a ROOFER on the roofing page:
+          the strongest possible match of proof to visitor. */}
+      <FounderVideo
+        eyebrow="Real Local Roofer. Real Numbers."
+        heading="The Biggest Roofer In Cenla"
+        headingAccent="Owns His Whole System."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        videoSrc="/cory-ownership-v3.mp4"
+        poster="/cory-ownership-poster-v3.jpg"
+        founderName="Cory Edwards"
+        captionText="Watch the 20-sec clip"
+        ctaText="Get A Free Software Map"
+        ctaHref="#lp-form"
+        secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
       {/* Not mockups — the systems themselves, trade-contractor screens leading */}
@@ -90,34 +103,16 @@ export function RoofingLPContent() {
         <OsRail items={tradePhones} dir="right" href="#lp-form" size="sm" />
       </div>
 
-      {/* The face behind the ad — 55-sec one-take from Trevor, captions burned in. */}
+      {/* The face behind the ad — 27-sec one-take from Trevor. */}
       <FounderVideo
         eyebrow="Meet The Developer"
-        heading="55 Seconds From"
+        heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
         body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the scatter of subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free walkthrough below."
-        videoSrc="/founder-intro-v1.mp4"
-        poster="/founder-intro-poster-v1.jpg"
-        orientation="portrait"
-        portraitRatio="9 / 16"
+        videoSrc="/founder-intro-v2.mp4"
+        poster="/founder-intro-poster-v2.jpg"
         ctaText="Get A Free Software Map"
         ctaHref="#lp-form"
-      />
-
-      <SocialProof
-        heading="Local contractors"
-        headingAccent="run their whole operation on it."
-        stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-          { value: OS_PRICING.monthly, label: 'Flat, public price' },
-          { value: '100%', label: 'Yours — code and data' },
-          { value: '0', label: 'Long-term contracts' },
-        ]}
-        testimonials={[
-          { quote: quoteBy('Cory Chandler'), name: 'Cory Chandler' },
-          { quote: quoteBy("Everything's Albright"), name: "Everything's Albright" },
-          { quote: quoteBy('David Roshto'), name: 'David Roshto' },
-        ]}
       />
 
       <ObjectionBullets

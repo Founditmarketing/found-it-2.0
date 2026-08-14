@@ -2,8 +2,8 @@ import { BlogList } from '@/components/blog/BlogList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Marketing Insights for Louisiana Businesses',
-    description: "No-BS marketing advice for Louisiana business owners: Google Ads, SEO, AI search (GEO), web design, and social media strategies that make the phone ring.",
+    title: 'Plain-English Notes for Business Owners',
+    description: "Software, AI, and getting found — written the way we'd say it across your counter. Notes for business owners from Found It Software in Alexandria, Louisiana.",
     alternates: { canonical: '/blog' },
 };
 

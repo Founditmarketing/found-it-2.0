@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const quickLinks = [
-  { label: 'Google Ads Management', href: '/google-ads-management' },
-  { label: 'Web Design', href: '/web-design' },
-  { label: 'AI Search Optimization', href: '/ai-search-optimization' },
+  { label: 'Found It OS — One System, You Own It', href: '/foundit-os' },
+  { label: 'Custom Software', href: '/custom-software' },
+  { label: 'Pricing — Public, Flat', href: '/pricing' },
   { label: 'Case Studies', href: '/case-studies' },
 ];
 
@@ -29,12 +29,13 @@ export default function NotFound() {
         </p>
 
         <h1 className="opacity-0 animate-reveal-up delay-200 text-5xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-          We Find Customers.{' '}
-          <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">Not This Page.</span>
+          This Page Isn&apos;t{' '}
+          <span className="text-primary drop-shadow-[0_0_25px_rgba(249,115,22,0.12)]">In The System.</span>
         </h1>
 
         <p className="opacity-0 animate-reveal-up-sm delay-300 text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed mb-10">
-          The page you&apos;re looking for moved, changed, or never existed. Here&apos;s where to go instead.
+          It moved, changed, or never existed. What does exist: one custom system that runs your
+          whole business — and you own it, code and data.
         </p>
 
         <div className="opacity-0 animate-reveal-up-sm delay-400">

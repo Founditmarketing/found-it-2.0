@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
+import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { REVENUE_CLAIM, STATES_CLAIM, TRACK_RECORD } from '@/lib/site';
@@ -149,13 +150,14 @@ export function ServicePillar({ data }: { data: PillarData }) {
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             {data.intro}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-10">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mt-10">
             <Link href={ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
               {data.ctaLabel}
             </Link>
             <Link href="/contact" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
               Talk to Trevor
             </Link>
+            <GuideCta location={`pillar_hero_${data.formPageSlug}`} />
           </div>
         </header>
 
@@ -459,6 +461,13 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 Prefer to talk? Call <TrackedPhoneLink />{' '}
                 or{' '}
                 <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
+              </p>
+              <p className="mt-3">
+                <GuideCta
+                  variant="link"
+                  location={`pillar_leadform_${data.formPageSlug}`}
+                  label="Not ready yet? Download the free guide — What Do I Get?"
+                />
               </p>
             </div>
             <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />
