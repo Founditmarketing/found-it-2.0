@@ -116,13 +116,12 @@ export function LPSplitHero({
     <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 lg:pb-24">
       <div className="max-w-[1440px] mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* ─── Left: Pitch ─── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
-            className="lg:col-span-7"
-          >
+          {/* ─── Left: Pitch ───
+              No JS-gated entrance here: this column IS the mobile LCP element,
+              and a framer-motion opacity-0 start left the whole pitch invisible
+              until hydration (~10s LCP on throttled mobile). Above-the-fold
+              content renders visible; motion polish lives below the fold. */}
+          <div className="lg:col-span-7">
             {/* Quiet trust row — orange belongs to the offer word and the
                 submit button; everything up here whispers. */}
             <div className="flex flex-wrap items-center gap-2 mb-6">
@@ -243,19 +242,15 @@ export function LPSplitHero({
                 Prefer to talk? <SafePhoneText className="text-white font-black italic tracking-tighter" />
               </span>
             </SafePhone>
-          </motion.div>
+          </div>
 
           {/* ─── Right: Form (above the fold) ───
               The id lives HERE, on the nearest real form — the sticky bar
               and every #lp-form link used to teleport seven screens down
               to the bottom section while this form sat one swipe away. */}
-          <motion.div
-            id="lp-form"
-            initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 1, delay: 0.2, ease }}
-            className="lg:col-span-5 scroll-mt-24"
-          >
+          {/* Same rule as the pitch column: the form is the conversion element —
+              it renders visible immediately, never behind hydration. */}
+          <div id="lp-form" className="lg:col-span-5 scroll-mt-24">
             {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
                 form demoted to the leave-your-number fallback directly under
                 it. Opt-in — off for every other LP sharing this hero. */}
@@ -309,7 +304,7 @@ export function LPSplitHero({
                 )}
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
