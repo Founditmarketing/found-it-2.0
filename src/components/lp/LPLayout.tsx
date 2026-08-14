@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick, trackStickyCTAClick, trackBookingClick } from '@/lib/analytics';
+import { trackCallClick, trackStickyCTAClick, trackBookingClick, initScrollDepth } from '@/lib/analytics';
 import { isBookingUrl } from '@/lib/booking';
 import { SafePhone } from '@/components/landing/SafePhone';
 import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
@@ -48,6 +48,9 @@ export function LPLayout({
     forms.forEach((f) => io.observe(f));
     return () => io.disconnect();
   }, []);
+
+  // Scroll-depth funnel events, labeled by path so every LP segments cleanly.
+  useEffect(() => initScrollDepth(window.location.pathname), []);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">

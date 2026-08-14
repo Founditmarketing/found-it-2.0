@@ -171,6 +171,41 @@ export function trackStickyCTAClick() {
   fire('sticky_cta_click', { event_category: 'engagement', event_label: 'mobile_sticky_bar' });
 }
 
+/** Video play clicks (founder / client clips) — engagement, segmented by clip path. */
+export function trackVideoPlay(label: string) {
+  fire('video_play', { event_category: 'engagement', event_label: label });
+}
+
+/** AskTheOS demo question taps — the ad-promise moment, segmented by question id. */
+export function trackDemoTap(questionId: string) {
+  fire('demo_tap', { event_category: 'engagement', event_label: questionId });
+}
+
+/**
+ * Scroll-depth milestones (25/50/75/100), fired once each per page view.
+ * Returns a cleanup function for useEffect. Engagement only — answers
+ * "did they even SEE the proof section?" when clicks don't happen.
+ */
+export function initScrollDepth(pageLabel: string): () => void {
+  if (typeof window === 'undefined') return () => {};
+  const fired = new Set<number>();
+  const onScroll = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = (window.scrollY / max) * 100;
+    for (const m of [25, 50, 75, 100]) {
+      if (pct >= m && !fired.has(m)) {
+        fired.add(m);
+        fire('scroll_depth', { event_category: 'engagement', event_label: pageLabel, value: m });
+      }
+    }
+    if (fired.size === 4) window.removeEventListener('scroll', onScroll);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  return () => window.removeEventListener('scroll', onScroll);
+}
+
 /* ─── UTM Persistence ─── */
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const;
 const UTM_STORAGE_KEY = 'fi_utm_params';

@@ -5,6 +5,7 @@ import { Play, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { useState } from 'react';
+import { trackVideoPlay } from '@/lib/analytics';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -77,7 +78,11 @@ export function FounderVideo({
             ) : (
               <button
                 type="button"
-                onClick={() => videoSrc && setPlaying(true)}
+                onClick={() => {
+                  if (!videoSrc) return;
+                  trackVideoPlay(videoSrc);
+                  setPlaying(true);
+                }}
                 className="group absolute inset-0 w-full h-full cursor-pointer"
                 aria-label={videoSrc ? 'Play founder introduction video' : 'Founder video coming soon'}
               >
