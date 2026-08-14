@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export type OsRailItem = {
@@ -59,13 +60,17 @@ export function OsRail({
                     <span className="w-2 h-2 rounded-full bg-white/15" />
                   </div>
                 )}
-                {/* eslint-disable-next-line @next/next/no-img-element -- rail frames
-                    render twice for the CSS loop; plain files cache once each */}
-                <img
+                {/* next/image so the 1MB+ source PNGs ship as rail-sized WebP
+                    from the Vercel optimizer — the raw captures were the
+                    heaviest bytes on the ad LPs. width/height only reserve
+                    layout; the CSS fixed-height/auto-width keeps the real
+                    aspect. Duplicate loop frames share one cached URL. */}
+                <Image
                   src={s.src}
                   alt={dup ? '' : s.alt}
-                  loading="lazy"
-                  decoding="async"
+                  width={s.portrait ? 320 : 800}
+                  height={s.portrait ? 640 : 500}
+                  quality={70}
                   className={`w-auto max-w-none ${s.portrait ? phoneH : deskH}`}
                 />
                 <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/60 border-t border-border/15">
