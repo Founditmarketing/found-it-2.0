@@ -7,11 +7,11 @@ import { WalkthroughLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Who Owes You Money Right Now? | Found It Software' },
   description:
-    "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business. You keep the map either way.",
+    "Could your current software answer that in five seconds? Get a free software map: 30 minutes screen-shared, we map the one system we'd build around your business. You keep the map either way.",
   openGraph: {
     title: 'Who Owes You Money Right Now? | Found It Software',
     description:
-      "Could your current software answer that in five seconds? Get a free software map: 30 minutes on Zoom, we map the one system we'd build around your business. You keep the map either way.",
+      "Could your current software answer that in five seconds? Get a free software map: 30 minutes screen-shared, we map the one system we'd build around your business. You keep the map either way.",
     type: 'website',
     url: 'https://founditsoftware.com/lp/walkthrough',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
