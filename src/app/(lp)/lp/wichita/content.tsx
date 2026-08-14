@@ -76,7 +76,7 @@ export function WichitaLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Free 30-minute software map with Tom, our man in Wichita; you keep the map either way, hire us or don't."
+        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you, free — you keep the map either way, hire us or don't."
         highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -89,17 +89,17 @@ export function WichitaLPContent() {
           { value: '$19,000', label: 'Bookkeeping error caught' },
           { value: TRACK_RECORD.softwareCustomers, label: 'Businesses running it' },
         ]}
-        formHeading="Show Me What Mine Would Look Like"
+        formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading="Name and number — that's it. Tom calls you back, you pick the time, and he maps your business on a free 30-minute video call."
-        formCtaLabel="Show Me What Mine Would Look Like"
+        formSubheading="Name and number — that's it. Tom maps the software we'd build for your business, free, and walks you through it. You keep the map, hire us or don't."
+        formCtaLabel="Get My Free Software Map"
         formCompact
-        formSuccessNote="Done. One quick call to pick your time — 30 minutes with Tom, and you leave with the map of your business."
+        formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
         nextSteps={[
           'Drop your name and number — nothing to book, nothing to cancel.',
-          'Tom calls you back, you pick the time. 30 minutes, screen-shared.',
+          'Tom calls you back and maps your business with you — live, screen-shared.',
           "You keep the map. Hire us or don't.",
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
@@ -116,7 +116,7 @@ export function WichitaLPContent() {
         poster="/cory-ownership-poster-v3.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Show Me What Mine Would Look Like"
+        ctaText="Get My Free Software Map"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -204,7 +204,7 @@ export function WichitaLPContent() {
         body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
         videoSrc="/founder-intro-v2.mp4"
         poster="/founder-intro-poster-v2.jpg"
-        ctaText="Show Me What Mine Would Look Like"
+        ctaText="Get My Free Software Map"
         ctaHref="#lp-form"
       />
 
@@ -260,15 +260,15 @@ export function WichitaLPContent() {
       <LPFormSection
         heading="Let's Map Your Business. Free."
         kicker="Free Software Map"
-        ctaLabel="Show Me What Mine Would Look Like"
+        ctaLabel="Get My Free Software Map"
         mobileFormFirst
         showBooking
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="30 minutes on a video call with Tom, screen-shared. He maps the software we'd build for your Wichita business — live, on the call. You keep the map either way, hire us or don't."
+        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared, free. You keep the map either way, hire us or don't."
         benefits={[
-          'A free 30-minute video call with Tom — your business mapped live, screen-shared',
+          'Tom maps your business with you — live, screen-shared, free',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,
