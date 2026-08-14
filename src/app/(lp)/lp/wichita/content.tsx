@@ -87,6 +87,7 @@ export function WichitaLPContent() {
           { value: '$19,000', label: 'Bookkeeping error caught' },
           { value: TRACK_RECORD.softwareCustomers, label: 'Businesses running it' },
         ]}
+        ctaFootnote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
         formHeading="Show Me What Mine Would Look Like"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"

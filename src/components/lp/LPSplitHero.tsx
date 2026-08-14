@@ -63,6 +63,9 @@ interface LPSplitHeroProps {
   /** Booking-only: hide the lead form entirely so the booking button is the
    *  single CTA. Also drops the "leave your number" fallback line. */
   bookingOnly?: boolean;
+  /** Public price + guarantee, rendered directly under the CTA button — the
+   *  point of commitment is exactly where the no-surprises promise belongs. */
+  ctaFootnote?: string;
   /** OPT-IN: live AI-secretary voice demo as a first-class hero element
    *  (OS landing pages). Off by default so every other LP sharing this hero
    *  is untouched. Renders right under the highlight chip — first screen on
@@ -102,6 +105,7 @@ export function LPSplitHero({
   bookingLabel = 'Book My Free Zoom Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
   bookingOnly = false,
+  ctaFootnote,
   voiceAgent = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
@@ -274,6 +278,14 @@ export function LPSplitHero({
                 bookingUrl={bookingUrl}
                 fallbackNote={bookingOnly ? '' : bookingFallbackNote}
               />
+            )}
+
+            {/* The public price lives at the point of commitment — nobody
+                should tap a "free" button wondering what the catch costs. */}
+            {showBooking && ctaFootnote && (
+              <p className="mt-3 text-center text-[13px] font-bold text-white/70 leading-snug [text-wrap:balance]">
+                {ctaFootnote}
+              </p>
             )}
 
             {!bookingOnly && (
