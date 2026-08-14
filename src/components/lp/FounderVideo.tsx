@@ -79,7 +79,7 @@ export function FounderVideo({
                 aria-label={videoSrc ? 'Play founder introduction video' : 'Founder video coming soon'}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={poster} alt={founderName} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={poster} alt={founderName} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
                 {/* Play button */}
