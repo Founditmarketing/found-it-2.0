@@ -195,9 +195,9 @@ const data: PillarData = {
       detail: 'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
     },
     {
-      img: '/os-screens/brians-foundation-os-v1.png',
+      img: '/os-screens/brians-foundation-os-v2.png',
       imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-      phone: '/os-screens/brians-foundation-mobile-estimates-v1.png',
+      phone: '/os-screens/brians-foundation-mobile-estimates-v2.png',
       phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
       title: 'Brian’s Foundation Repair',
       kind: 'Foundation Contractor',
