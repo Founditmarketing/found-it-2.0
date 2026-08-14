@@ -131,6 +131,13 @@ export function TrevorConcierge() {
   // user sent another message.
   const [offerLatched, setOfferLatched] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Focus the input on open, but only where focusing doesn't shove a software
+  // keyboard over the panel (phones get tap-to-focus instead).
+  useEffect(() => {
+    if (open && window.matchMedia('(hover: hover)').matches) inputRef.current?.focus();
+  }, [open]);
 
   const userCount = messages.filter((m) => m.role === 'user').length;
   useEffect(() => {
@@ -170,6 +177,18 @@ export function TrevorConcierge() {
         setMessages((m) => {
           const copy = [...m];
           copy[copy.length - 1] = { role: 'assistant', content: acc };
+          return copy;
+        });
+      }
+      // A stream that ends with nothing (upstream filter, dropped connection)
+      // would otherwise leave a "…" bubble sitting there forever.
+      if (!acc.trim()) {
+        setMessages((m) => {
+          const copy = [...m];
+          copy[copy.length - 1] = {
+            role: 'assistant',
+            content: `Good one. That's honestly better answered on a quick call — Trevor's at ${phoneDisplay}.`,
+          };
           return copy;
         });
       }
@@ -314,6 +333,7 @@ export function TrevorConcierge() {
               className="flex items-center gap-2 p-3 border-t border-border/20"
             >
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask anything…"
