@@ -18,8 +18,8 @@ export function BlogList() {
   if (!blogPosts || blogPosts.length === 0) {
     return (
       <div className="text-center py-24">
-        <h2 className="text-4xl font-black italic tracking-tighter">No intelligence yet.</h2>
-        <p className="text-muted-foreground mt-4 text-xl">Nothing published — check back soon.</p>
+        <h2 className="text-4xl font-black italic tracking-tighter">Nothing here yet.</h2>
+        <p className="text-muted-foreground mt-4 text-xl">First post is coming — check back soon.</p>
       </div>
     );
   }
@@ -31,11 +31,12 @@ export function BlogList() {
     <div className="space-y-16 lg:space-y-32">
         <div className="mb-20">
             <h1 className="text-oversized leading-[0.85] mb-8">
-                Marketing Insights<br />
-                <span className="text-primary">For Louisiana Businesses.</span>
+                Plain-English Notes<br />
+                <span className="text-primary">For Business Owners.</span>
             </h1>
-            <p className="text-2xl md:text-4xl text-muted-foreground max-w-4xl border-l-[12px] border-primary pl-10 font-medium italic">
-                Unapologetic takes on Google Ads, SEO, AI search, and web design — for business owners who want the phone to ring, not a marketing lecture.
+            <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl font-medium leading-snug">
+                Software, AI, and getting found — written the way we&apos;d say it across your
+                counter. No lectures, no jargon, nothing you need a marketing degree to use.
             </p>
         </div>
 
@@ -58,7 +59,7 @@ export function BlogList() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6 text-xs lg:text-sm uppercase tracking-[0.3em]">
-                <p className="text-primary font-black bg-primary/10 px-4 py-2 rounded-full border border-primary/20">Featured Intel</p>
+                <p className="text-primary font-black bg-primary/10 px-4 py-2 rounded-full border border-primary/20">Latest</p>
                 <time dateTime={featuredPost.date} className="text-muted-foreground font-mono font-bold">
                   <ClientSideFormattedDate dateString={featuredPost.date} />
                 </time>
@@ -71,7 +72,7 @@ export function BlogList() {
               </p>
               <div className="inline-flex flex-col">
                 <div className="flex items-center font-black text-primary uppercase tracking-[0.2em] text-sm lg:text-base">
-                    Access Intelligence
+                    Read The Post
                     <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
                 <div className="h-[2px] w-0 bg-primary mt-2 group-hover:w-full transition-all duration-500 ease-out" />
@@ -82,9 +83,8 @@ export function BlogList() {
       </article>
 
       <div className="pt-8">
-        <h2 className="text-4xl font-black mb-16 uppercase italic tracking-tighter flex items-center gap-6">
-            <span className="bg-primary/20 text-primary w-16 h-16 rounded-full flex items-center justify-center border border-primary/30 shrink-0">↓</span>
-            Tactical Briefings
+        <h2 className="text-4xl font-black mb-16 uppercase italic tracking-tighter">
+            More Posts
         </h2>
         {otherPosts.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 animate-fade-in-up">
@@ -116,7 +116,7 @@ export function BlogList() {
                   </h2>
                   <div className="mt-8 pt-6 border-t border-border/40">
                       <Link href={`/blog/${post.slug}`} className="text-xs font-black text-muted-foreground uppercase tracking-[0.2em] flex items-center group-hover:text-primary transition-colors">
-                          Read Briefing <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                          Read The Post <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                       </Link>
                   </div>
                 </div>
