@@ -63,6 +63,11 @@ interface LPSplitHeroProps {
   /** Booking-only: hide the lead form entirely so the booking button is the
    *  single CTA. Also drops the "leave your number" fallback line. */
   bookingOnly?: boolean;
+  /** Form-first hybrid: the lead form is the PRIMARY conversion and the
+   *  booking button renders quietly UNDER it for hot visitors. Cold ad
+   *  traffic won't commit to a 30-minute call as step one — but it will
+   *  leave a name and number. Ignored when bookingOnly is set. */
+  bookingSecondary?: boolean;
   /** Public price + guarantee, rendered directly under the CTA button — the
    *  point of commitment is exactly where the no-surprises promise belongs. */
   ctaFootnote?: string;
@@ -102,14 +107,18 @@ export function LPSplitHero({
   nextStepsNote,
   showBooking = false,
   bookingUrl = BOOKING_URL,
-  bookingLabel = 'Book My Free Zoom Call',
+  bookingLabel = 'Book My Free Video Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
   bookingOnly = false,
+  bookingSecondary = false,
   ctaFootnote,
   voiceAgent = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
   const bookingLive = showBooking && isBookingUrl(bookingUrl);
+  // bookingOnly wins over bookingSecondary (as the prop doc promises) — the
+  // raw flags combined would otherwise render a hero with no CTA and no form.
+  const secondaryBooking = bookingSecondary && !bookingOnly;
   const badgeText =
     city && SERVED_CITIES.has(city) ? `100% Local — Serving ${city}` : badge;
 
@@ -271,7 +280,7 @@ export function LPSplitHero({
             {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
                 form demoted to the leave-your-number fallback directly under
                 it. Opt-in — off for every other LP sharing this hero. */}
-            {showBooking && (
+            {showBooking && !secondaryBooking && (
               <BookingCta
                 source={formSource}
                 label={bookingLabel}
@@ -282,7 +291,7 @@ export function LPSplitHero({
 
             {/* The public price lives at the point of commitment — nobody
                 should tap a "free" button wondering what the catch costs. */}
-            {showBooking && ctaFootnote && (
+            {showBooking && !secondaryBooking && ctaFootnote && (
               <p className="mt-3 text-center text-[13px] font-bold text-white/70 leading-snug [text-wrap:balance]">
                 {ctaFootnote}
               </p>
@@ -299,6 +308,22 @@ export function LPSplitHero({
                 successNote={formSuccessNote}
                 {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
               />
+            )}
+
+            {/* Hot-visitor shortcut: the calendar under the form, quiet. */}
+            {showBooking && secondaryBooking && (
+              <div className="mt-4">
+                <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
+                  Ready now? Skip the call-back —
+                </p>
+                <BookingCta
+                  secondary
+                  source={formSource}
+                  label={bookingLabel}
+                  bookingUrl={bookingUrl}
+                  fallbackNote=""
+                />
+              </div>
             )}
 
             {/* "What happens next" — kills the time-delay unknown at the

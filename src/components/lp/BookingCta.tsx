@@ -15,11 +15,18 @@ interface BookingCtaProps {
   fallbackHref?: string;
   /** The line that demotes the form to a fallback. Pass '' to hide it. */
   fallbackNote?: string;
+  /** Quiet outline styling for when the FORM is the primary conversion and
+   *  this button is the hot-visitor shortcut under it. Orange keeps its one
+   *  job on the page: the submit button. */
+  secondary?: boolean;
   className?: string;
 }
 
-const buttonClass =
+const primaryButtonClass =
   'w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20';
+
+const secondaryButtonClass =
+  'w-full inline-flex items-center justify-center gap-2 bg-white/[0.04] border border-border/30 text-white/85 font-black uppercase italic tracking-tighter text-sm py-3.5 px-6 rounded-xl hover:border-primary/40 hover:text-white active:scale-[0.99] transition-all';
 
 /**
  * The hybrid booking CTA: a primary "Book my free Zoom call" button, then a
@@ -35,13 +42,15 @@ const buttonClass =
  */
 export function BookingCta({
   source,
-  label = 'Book My Free Zoom Call',
+  label = 'Book My Free Video Call',
   bookingUrl = BOOKING_URL,
   fallbackHref = '#lp-form',
   fallbackNote = "Or just leave your number and we'll call you to set it up.",
+  secondary = false,
   className = '',
 }: BookingCtaProps) {
   const hasUrl = isBookingUrl(bookingUrl);
+  const buttonClass = secondary ? secondaryButtonClass : primaryButtonClass;
 
   return (
     <div className={className}>

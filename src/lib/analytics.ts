@@ -91,6 +91,12 @@ export function trackThankYouConversion() {
 
 export function trackCallClick() {
   fire('call_click', { event_category: 'engagement', event_label: 'phone_call' });
+
+  // Meta standard Contact event — phone taps were invisible to the pixel,
+  // so call-heavy campaigns read as zero-signal in Ads Manager.
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'Contact');
+  }
 }
 
 /**
@@ -129,6 +135,15 @@ export function trackCalendlyOpen() {
  */
 export function trackBookingClick(source: string) {
   fire('booking_click', { event_category: 'engagement', event_label: source });
+
+  // Meta standard Schedule event. The actual booking happens on Google's
+  // domain where no pixel can live, so the CTA click is the last signal Meta
+  // can ever see on this path — without it the calendar funnel is invisible
+  // and delivery optimizes on nothing. Google Ads stays untouched (the
+  // no-junk-events rule protects Smart Bidding, not Meta's event set).
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', 'Schedule', { content_name: source });
+  }
 }
 
 /**

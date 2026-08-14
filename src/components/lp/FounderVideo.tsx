@@ -5,7 +5,7 @@ import { Play, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { useState } from 'react';
-import { trackVideoPlay } from '@/lib/analytics';
+import { trackVideoPlay, trackCTAClick } from '@/lib/analytics';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -137,6 +137,9 @@ export function FounderVideo({
               <p className="mt-4">
                 <Link
                   href={secondaryLink.href}
+                  // The one link that leaves a paid LP — an untracked exit
+                  // reads as a bounce in every funnel report.
+                  onClick={() => trackCTAClick(`lp_exit_link:${secondaryLink.href}`)}
                   className="text-sm font-bold text-white/60 hover:text-primary transition-colors"
                 >
                   {secondaryLink.label} →

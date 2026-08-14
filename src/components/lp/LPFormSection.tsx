@@ -38,6 +38,8 @@ interface LPFormSectionProps {
   bookingFallbackNote?: string;
   /** Booking-only: hide the lead form so the booking button is the single CTA. */
   bookingOnly?: boolean;
+  /** Form-first hybrid: form primary, booking button quiet underneath. */
+  bookingSecondary?: boolean;
 }
 
 export function LPFormSection({
@@ -55,10 +57,14 @@ export function LPFormSection({
   mobileFormFirst = false,
   showBooking = false,
   bookingUrl = BOOKING_URL,
-  bookingLabel = 'Book My Free Zoom Call',
+  bookingLabel = 'Book My Free Video Call',
   bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
   bookingOnly = false,
+  bookingSecondary = false,
 }: LPFormSectionProps) {
+  // bookingOnly wins over bookingSecondary — combined raw flags would render
+  // a section with no CTA and no form (same guard as LPSplitHero).
+  const secondaryBooking = bookingSecondary && !bookingOnly;
   return (
     // lp-form-bottom: the hero form owns #lp-form now — this section used
     // to steal the anchor and teleport visitors seven screens down.
@@ -121,9 +127,9 @@ export function LPFormSection({
 
           {/* Right — Form */}
           <div className={`lg:col-span-7 ${mobileFormFirst ? 'order-1 lg:order-none' : ''}`}>
-            {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
-                form demoted to the leave-your-number fallback. Opt-in. */}
-            {showBooking && (
+            {/* Hybrid CTA: booking button above the form (legacy) or quietly
+                under it when the form is the primary conversion. Opt-in. */}
+            {showBooking && !secondaryBooking && (
               <BookingCta
                 source={source}
                 label={bookingLabel}
@@ -133,6 +139,20 @@ export function LPFormSection({
             )}
             {!bookingOnly && (
               <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} />
+            )}
+            {showBooking && secondaryBooking && (
+              <div className="mt-4">
+                <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
+                  Ready now? Skip the call-back —
+                </p>
+                <BookingCta
+                  secondary
+                  source={source}
+                  label={bookingLabel}
+                  bookingUrl={bookingUrl}
+                  fallbackNote=""
+                />
+              </div>
             )}
           </div>
         </motion.div>
