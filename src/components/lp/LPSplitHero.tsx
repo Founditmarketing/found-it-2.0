@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { BookingCta } from './BookingCta';
@@ -10,8 +9,6 @@ import { BOOKING_URL, isBookingUrl } from '@/lib/booking';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD } from '@/lib/site';
 import { usePersonalization } from '@/lib/personalization';
-
-const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 interface StatChip {
   value: string;
@@ -112,70 +109,61 @@ export function LPSplitHero({
   const badgeText =
     city && SERVED_CITIES.has(city) ? `100% Local — Serving ${city}` : badge;
 
+  // The subheadline's first sentence is the challenge line — it gets the
+  // strong voice; the rest of the paragraph settles under the demo. Copy
+  // arrives as one prop and ships verbatim, only the hierarchy is authored.
+  const splitAt = subheadline.search(/[.?!]\s/);
+  const subLead = splitAt > -1 ? subheadline.slice(0, splitAt + 1) : subheadline;
+  const subRest = splitAt > -1 ? subheadline.slice(splitAt + 1).trim() : '';
+
   return (
-    <section className="relative overflow-hidden pt-28 lg:pt-36 pb-16 lg:pb-24">
+    <section className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-36 pb-16 lg:pb-24">
+      {/* One authored atmosphere moment: a slow warm bloom behind the
+          question, not another bordered box in the stack. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 left-[-10%] w-[70vw] max-w-[900px] aspect-square rounded-full bg-primary/[0.07] blur-[130px]"
+      />
       <div className="max-w-[1440px] mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* ─── Left: Pitch ───
               No JS-gated entrance here: this column IS the mobile LCP element,
               and a framer-motion opacity-0 start left the whole pitch invisible
               until hydration (~10s LCP on throttled mobile). Above-the-fold
-              content renders visible; motion polish lives below the fold. */}
-          <div className="lg:col-span-7">
-            {/* Quiet trust row — orange belongs to the offer word and the
-                submit button; everything up here whispers. */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
-              {badge && (
-                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-white/50" aria-hidden="true" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">
-                    {badgeText}
-                  </span>
-                </div>
-              )}
-              {industry && (
-                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5">
-                  <Target className="w-3.5 h-3.5 text-white/50" aria-hidden="true" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">
-                    Built for {industry}
-                  </span>
-                </div>
-              )}
-              {showAward && (
-                <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-border/20 rounded-full px-4 py-1.5 max-w-full">
-                  <Trophy className="w-3.5 h-3.5 text-white/50 shrink-0" aria-hidden="true" />
-                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.12em] sm:tracking-[0.2em] text-white/70 leading-snug">
-                    {AWARD.year} · {AWARD.label}
-                  </span>
-                </div>
-              )}
-            </div>
-
-            <h1 className="text-[9vw] sm:text-[6.5vw] lg:text-[3.4vw] leading-[0.98] tracking-tight font-black font-heading uppercase italic text-white mb-5">
+              content renders visible; motion polish lives below the fold.
+              Order is the narrative on every viewport: the question, the
+              challenge line, then HER — the live answer — before anything
+              else asks for a scroll. */}
+          <div className="lg:col-span-7 min-w-0">
+            <h1 className="text-[11vw] sm:text-[6.5vw] lg:text-[3.6vw] leading-[0.95] tracking-tight font-black font-heading uppercase italic text-white [text-wrap:balance] mb-4 lg:mb-5">
               {headline}{' '}
-              <span className="text-primary">{headlineAccent}</span>
+              <span className="text-primary drop-shadow-[0_0_30px_rgba(255,85,0,0.25)]">{headlineAccent}</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/70 font-medium mb-6 max-w-xl leading-relaxed">
-              {subheadline}
+            <p className="text-lg sm:text-2xl font-bold text-white/95 tracking-tight mb-5 max-w-xl leading-snug [text-wrap:balance]">
+              {subLead}
             </p>
 
-            {highlight && (
-              <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-border/20 rounded-xl px-4 py-3 mb-8">
-                <span className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center shrink-0">
-                  <HighlightIcon className="w-5 h-5 text-white/70" aria-hidden="true" />
-                </span>
-                <span className="text-sm sm:text-base font-bold text-white leading-tight">
-                  {highlight}
-                </span>
-              </div>
+            {/* Live voice demo — she IS the answer to the headline, so she
+                sits directly under it: first screen on every phone. Mic
+                permission happens on tap inside the widget, never on load. */}
+            {voiceAgent && (
+              <VoiceAgentWidget pageSlug={formPageSlug} className="mb-6" />
             )}
 
-            {/* Live voice demo — the product answering for itself, above the
-                fold. Mic permission happens on tap inside the widget, never
-                on load. */}
-            {voiceAgent && (
-              <VoiceAgentWidget pageSlug={formPageSlug} className="mb-8" />
+            {subRest && (
+              <p className="text-[15px] sm:text-base text-white/60 font-medium mb-6 max-w-xl leading-relaxed">
+                {subRest}
+              </p>
+            )}
+
+            {highlight && (
+              <div className="flex items-start gap-3 mb-7 max-w-xl">
+                <HighlightIcon className="w-4 h-4 text-primary shrink-0 mt-[3px]" aria-hidden="true" />
+                <p className="text-sm sm:text-[15px] font-bold text-white/85 leading-snug">
+                  {highlight}
+                </p>
+              </div>
             )}
 
             {/* The first screen must have something to DO — on mobile the
@@ -211,22 +199,16 @@ export function LPSplitHero({
             )}
 
             {stats.length > 0 && (
-              <div className="flex max-w-md mb-8 divide-x divide-border/15">
+              <div className="flex max-w-md mb-7 divide-x divide-border/15">
                 {stats.map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.5, ease }}
-                    className={`flex-1 ${i === 0 ? 'pr-5' : 'px-5'}`}
-                  >
-                    <p className="text-xl lg:text-2xl font-black text-white italic tracking-tighter leading-none">
+                  <div key={i} className={`flex-1 min-w-0 ${i === 0 ? 'pr-3 sm:pr-5' : 'px-3 sm:px-5'}`}>
+                    <p className="text-base sm:text-xl lg:text-2xl font-black text-white italic tracking-tighter leading-none tabular-nums">
                       {stat.value}
                     </p>
                     <p className="text-[9px] font-black uppercase tracking-[0.12em] text-faint mt-1.5">
                       {stat.label}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             )}
@@ -242,6 +224,37 @@ export function LPSplitHero({
                 Prefer to talk? <SafePhoneText className="text-white font-black italic tracking-tighter" />
               </span>
             </SafePhone>
+
+            {/* Trust facts as one quiet line — chips read as decoration, a
+                sentence reads as fact. Same data the old badge row carried. */}
+            {(badge || industry || showAward) && (
+              <p className="mt-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-black uppercase tracking-[0.18em] text-white/40">
+                {badge && (
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3" aria-hidden="true" />
+                    {badgeText}
+                  </span>
+                )}
+                {industry && (
+                  <>
+                    <span aria-hidden="true" className="text-white/20">·</span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <Target className="w-3 h-3" aria-hidden="true" />
+                      Built for {industry}
+                    </span>
+                  </>
+                )}
+                {showAward && (
+                  <>
+                    <span aria-hidden="true" className="text-white/20">·</span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <Trophy className="w-3 h-3" aria-hidden="true" />
+                      {AWARD.year} · {AWARD.label}
+                    </span>
+                  </>
+                )}
+              </p>
+            )}
           </div>
 
           {/* ─── Right: Form (above the fold) ───
@@ -250,7 +263,7 @@ export function LPSplitHero({
               to the bottom section while this form sat one swipe away. */}
           {/* Same rule as the pitch column: the form is the conversion element —
               it renders visible immediately, never behind hydration. */}
-          <div id="lp-form" className="lg:col-span-5 scroll-mt-24">
+          <div id="lp-form" className="lg:col-span-5 min-w-0 scroll-mt-24">
             {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
                 form demoted to the leave-your-number fallback directly under
                 it. Opt-in — off for every other LP sharing this hero. */}
