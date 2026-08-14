@@ -166,6 +166,7 @@ export function RoofingLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
+        kicker="Free Software Map"
         heading="Get A Free Software Map"
         subheading="Drop your name and number. We call, you pick the time, and we come to you — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[

@@ -1,13 +1,23 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { Header } from '@/components/landing/Header';
 import { Footer } from '@/components/landing/Footer';
 import { ClientBackground } from '@/components/landing/ClientBackground';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import { Toaster } from '@/components/ui/toaster';
-import { TrevorConcierge } from '@/components/concierge/TrevorConcierge';
-import { VoiceIntro } from '@/components/landing/VoiceIntro';
+
+// Floating widgets stay invisible for the first 1–2s by design, so their JS
+// has no business in the initial bundle — load the chunks after hydration.
+const TrevorConcierge = dynamic(
+  () => import('@/components/concierge/TrevorConcierge').then((m) => m.TrevorConcierge),
+  { ssr: false }
+);
+const VoiceIntro = dynamic(
+  () => import('@/components/landing/VoiceIntro').then((m) => m.VoiceIntro),
+  { ssr: false }
+);
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

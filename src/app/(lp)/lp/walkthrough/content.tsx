@@ -10,6 +10,7 @@ import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
+import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
@@ -21,10 +22,17 @@ import { BOOKING_URL } from '@/lib/booking';
      ad promise ("who owes me money?") → hero answers it → Edwards Roofing
      proof w/ real numbers → the touchable demo → the bigger one-system
      reveal → founder → risk reversal → pricing → one CTA.
-   One conversion goal: the free software map (Zoom is the delivery
-   mechanism, not the product). Removed from this page: marketing-era
-   Google reviews (software buyers ask "who uses THIS software"), the PDF
-   lead magnet, and DigDeeper exit links — one path, fewer doors.
+   One conversion goal: the free software map. Re-plumbed 8/14 per the
+   conversion audit: the NAME+PHONE FORM is the primary conversion on the
+   whole page (cold social traffic won't book a 30-minute call as step
+   one), the calendar is the quiet hot-visitor shortcut under it, and the
+   AI secretary moved out of the hero — up there she out-competed the form
+   while capturing nothing; down in the demo section she closes and takes
+   a message. "Zoom" no longer appears: the booking page delivers Google
+   Meet, so the copy says "video call" and stays true at the worst moment.
+   Removed from this page: marketing-era Google reviews (software buyers
+   ask "who uses THIS software"), the PDF lead magnet, and DigDeeper exit
+   links — one path, fewer doors.
    Claims stay inside the doctrine: own the code and data, parallel run
    penny-matched, month-to-month, guarantee rendered from OS_PRICING only.
    The only numbers allowed: $2,200/$2,000 (OS_PRICING), the 12+ count
@@ -35,7 +43,7 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a free Zoom call, about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map either way. No deck, no obligation.",
+      "It's a free video call — we send the link — about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map either way. No deck, no obligation.",
   },
   {
     question: 'What does it cost?',
@@ -59,7 +67,9 @@ const faqItems = [
 
 export function WalkthroughLPContent() {
   return (
-    <LPLayout ctaLabel="Get My Free Software Map" bookingUrl={BOOKING_URL}>
+    // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
+    // hero FORM now — the form is the primary conversion (8/14 audit).
+    <LPLayout ctaLabel="Get My Free Software Map">
       <LPNav />
 
       {/* The hero IS the ad's question — an uninterrupted thought from click
@@ -77,32 +87,30 @@ export function WalkthroughLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Free 30-minute software map; you keep the map either way, hire us or don't."
+        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and we'll map yours for you, free — you keep the map either way, hire us or don't."
         highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
         showBooking
-        bookingOnly
-        voiceAgent
-        bookingLabel="Show Me What Mine Would Look Like"
+        bookingSecondary
+        bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
         stats={[
           { value: '$195,882.75', label: 'Receivables one roofer surfaced' },
           { value: '$19,000', label: 'Bookkeeping error caught' },
           { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
         ]}
-        ctaFootnote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
-        formHeading="Show Me What Mine Would Look Like"
+        formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_walkthrough_hero"
         formPageSlug="walkthrough"
-        formSubheading="Name and number — we call, you pick the time for a 30-minute Zoom. Nothing to cancel."
-        formCtaLabel="Show Me What Mine Would Look Like"
+        formSubheading="Name and number — that's it. We map the software we'd build for your business, free, and walk you through it. You keep the map, hire us or don't."
+        formCtaLabel="Get My Free Software Map"
         formCompact
-        formSuccessNote="Done. One quick call to pick your time — 30 minutes, and you leave with the map of your business."
+        formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."
         formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
         nextSteps={[
-          'Grab a time — 30 minutes, on Zoom.',
-          "We map the software we'd build for your business, live, screen-shared.",
+          'Drop your name and number — nothing to book, nothing to cancel.',
+          'We call you back and map your business with you — live, screen-shared.',
           "You keep the map. Hire us or don't.",
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
@@ -119,10 +127,33 @@ export function WalkthroughLPContent() {
         poster="/cory-ownership-poster-v3.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Show Me What Mine Would Look Like"
+        ctaText="Get My Free Software Map"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
+
+      {/* The mirror — make them say "that's my company" before any mechanism
+          talk. Six places → one system (8/14 audit). */}
+      <section className="py-14 lg:py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-6">
+            How Many Places Does Your Business{' '}
+            <span className="text-primary">Live Right Now?</span>
+          </h2>
+          <p className="text-lg sm:text-xl font-bold text-white/90 leading-relaxed mb-5 [text-wrap:balance]">
+            Estimates over here. Jobs somewhere else. Invoices in QuickBooks. Customer history in
+            somebody&rsquo;s head. Follow-ups buried in text messages.
+          </p>
+          <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
+            We replace the mess with one system —{' '}
+            <span className="text-white font-bold">
+              customers → estimates → jobs → invoices → payments → the books
+            </span>{' '}
+            — built around how you already run. And unlike the software you&rsquo;re renting now,{' '}
+            <span className="text-white font-bold">you own it</span>.
+          </p>
+        </div>
+      </section>
 
       {/* The ad's hook, made touchable: the exact answer the click promised,
           runnable before anyone gives up a phone number. */}
@@ -139,7 +170,21 @@ export function WalkthroughLPContent() {
             </p>
           </div>
           <AskTheOS />
-          <p className="text-center mt-8">
+
+          {/* HER — same demo, out loud. Moved here from the hero (8/14 audit):
+              above the fold she was the most tappable thing on the page while
+              capturing nothing; down here she closes — she takes a message
+              mid-call, and if the clock beats her the widget asks for the
+              number itself. */}
+          <div className="mt-12 max-w-xl mx-auto">
+            <p className="text-center text-sm sm:text-base font-bold text-white/80 mb-4 [text-wrap:balance]">
+              Rather talk than tap? Every system comes with an AI secretary —{' '}
+              <span className="text-primary">try ours live.</span>
+            </p>
+            <VoiceAgentWidget pageSlug="walkthrough" />
+          </div>
+
+          <p className="text-center mt-10">
             <a
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
@@ -184,7 +229,7 @@ export function WalkthroughLPContent() {
         body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
         videoSrc="/founder-intro-v2.mp4"
         poster="/founder-intro-poster-v2.jpg"
-        ctaText="Show Me What Mine Would Look Like"
+        ctaText="Get My Free Software Map"
         ctaHref="#lp-form"
       />
 
@@ -219,7 +264,7 @@ export function WalkthroughLPContent() {
             number: '01',
             title: 'We Map It. Live. Free.',
             description:
-              'About 30 minutes on Zoom, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map. You’ve lost nothing.',
+              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map. You’ve lost nothing.',
           },
           {
             number: '02',
@@ -240,15 +285,15 @@ export function WalkthroughLPContent() {
       <LPFormSection
         heading="Let's Map Your Business. Free."
         kicker="Free Software Map"
-        ctaLabel="Show Me What Mine Would Look Like"
+        ctaLabel="Get My Free Software Map"
         mobileFormFirst
         showBooking
-        bookingOnly
-        bookingLabel="Show Me What Mine Would Look Like"
+        bookingSecondary
+        bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="30 minutes on Zoom, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
+        subheading="We map the software we'd build for your business — with you, live, screen-shared, free. You keep the map either way, hire us or don't."
         benefits={[
-          'A free 30-minute Zoom — we map your business live, screen-shared',
+          'We map your business with you — live, screen-shared, free',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. ${OS_PRICING.guarantee}`,

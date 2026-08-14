@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Mic, MicOff, PhoneOff, ArrowDown } from 'lucide-react';
-import { trackLead, trackCTAClick } from '@/lib/analytics';
+import { trackLead, trackCTAClick, getStoredUTMs } from '@/lib/analytics';
 import { REALTIME_CALLS_URL, VOICE_SESSION_MAX_SECONDS, voiceLeadSource } from '@/lib/voice';
 
 /* ─── Live AI-secretary voice demo — the hero widget ───
@@ -61,6 +61,16 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const [endReason, setEndReason] = useState<'user' | 'time' | 'error'>('user');
   const [answerCard, setAnswerCard] = useState<AnswerCard | null>(null);
   const [idleLine, setIdleLine] = useState(0);
+  // After-call capture: she's a secretary — if the call ends before she got
+  // the number, the card takes the message instead of saying goodbye.
+  const [afterName, setAfterName] = useState('');
+  const [afterPhone, setAfterPhone] = useState('');
+  const [afterStatus, setAfterStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  // State mirror of the ref: a capture_lead POST that resolves AFTER the
+  // session ends must re-render the ended card into its saved state, or it
+  // keeps soliciting a number the system already has (duplicate lead +
+  // duplicate ad conversions). Never reset between sessions on a page view.
+  const [leadSaved, setLeadSaved] = useState(false);
 
   const pcRef = useRef<RTCPeerConnection | null>(null);
   const dcRef = useRef<RTCDataChannel | null>(null);
@@ -74,6 +84,16 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   phaseRef.current = phase;
 
   const source = voiceLeadSource(pageSlug);
+
+  /** Same attribution trail NativeLeadForm appends — widget leads from paid
+   *  traffic were arriving with no campaign context beyond the source tag. */
+  const utmTrail = () => {
+    const parts = [
+      `Page: ${pageSlug}`,
+      ...Object.entries(getStoredUTMs()).map(([k, v]) => `${k}: ${v}`),
+    ];
+    return parts.join(' · ');
+  };
 
   /* ─── Teardown ─── */
   const cleanup = useCallback(() => {
@@ -172,7 +192,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
           email: /^\S+@\S+\.\S+$/.test(email) ? email : '',
           businessName: s(a.businessName, 200),
           industry: s(a.industry, 120),
-          message: `${notes}${badEmailNote} — captured live by the AI voice secretary demo.`.slice(0, 4000),
+          message: `${notes}${badEmailNote} — captured live by the AI voice secretary demo.\n\n— ${utmTrail()}`.slice(0, 4000),
         };
         const res = await fetch('/api/lead', {
           method: 'POST',
@@ -181,6 +201,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         });
         if (res.ok) {
           leadCountRef.current += 1;
+          setLeadSaved(true);
           trackLead(source);
           const body = await res.json().catch(() => ({}));
           result = body?.confirmationEmailed
@@ -197,6 +218,33 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         item: { type: 'function_call_output', call_id: callId, output: JSON.stringify(result) },
       }));
       dc.send(JSON.stringify({ type: 'response.create' }));
+    }
+  };
+
+  /* ─── After-call capture: the message she didn't get to take ─── */
+  const submitAfterLead = async () => {
+    const name = afterName.trim();
+    const phone = afterPhone.trim();
+    if (!name || !phone || afterStatus === 'sending' || afterStatus === 'sent') return;
+    setAfterStatus('sending');
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source,
+          name: name.slice(0, 200),
+          phone: phone.slice(0, 40),
+          message: `Number left in the widget right after the AI voice secretary demo ended.\n\n— ${utmTrail()}`.slice(0, 4000),
+        }),
+      });
+      if (!res.ok) throw new Error('lead_failed');
+      leadCountRef.current += 1;
+      setLeadSaved(true);
+      trackLead(source);
+      setAfterStatus('sent');
+    } catch {
+      setAfterStatus('error');
     }
   };
 
@@ -284,6 +332,10 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     setCaptions([]);
     setAnswerCard(null);
     setSecondsLeft(VOICE_SESSION_MAX_SECONDS);
+    // A stale error alert must not haunt the next call's ended card; a
+    // 'sent' status (and leadSaved) survives on purpose — one page view,
+    // one lead, no duplicate asks. The per-call ≥3 cap resets below.
+    setAfterStatus((s) => (s === 'error' ? 'idle' : s));
     leadCountRef.current = 0;
     trackCTAClick(`voice_agent_start_${pageSlug}`);
 
@@ -481,21 +533,86 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
             <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
               {endReason === 'time' ? 'That’s the 3-minute demo.' : 'Thanks for trying her out.'}
             </p>
-            <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              She lives inside every system Trevor builds — yours could answer calls like that.
-            </p>
-            <div className="mt-3.5 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                onClick={start}
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
-              >
-                <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk again
-              </button>
-              <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
-                Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
-              </a>
-            </div>
+
+            {/* She's a secretary: if the clock (or the caller) beat her to the
+                number, the card takes the message. Demo players are the
+                warmest traffic on the page — never wave them goodbye. */}
+            {!leadSaved && afterStatus !== 'sent' ? (
+              <>
+                <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
+                  Want Trevor to call you back about your business? Leave your number — she&rsquo;ll
+                  pass it along.
+                </p>
+                <form
+                  onSubmit={(e) => { e.preventDefault(); void submitAfterLead(); }}
+                  className="mt-3.5 flex flex-col sm:flex-row gap-2"
+                >
+                  <input
+                    value={afterName}
+                    onChange={(e) => setAfterName(e.target.value)}
+                    placeholder="Your name"
+                    aria-label="Your name"
+                    autoComplete="name"
+                    maxLength={200}
+                    className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
+                  />
+                  <input
+                    value={afterPhone}
+                    onChange={(e) => setAfterPhone(e.target.value)}
+                    placeholder="Phone number"
+                    aria-label="Phone number"
+                    type="tel"
+                    autoComplete="tel"
+                    maxLength={40}
+                    className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    disabled={afterStatus === 'sending' || !afterName.trim() || !afterPhone.trim()}
+                    className="shrink-0 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity"
+                  >
+                    {afterStatus === 'sending' ? 'Sending…' : 'Call me back'}
+                  </button>
+                </form>
+                {afterStatus === 'error' && (
+                  <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
+                    Could not send — use the form on this page instead.
+                  </p>
+                )}
+                <div className="mt-3 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={start}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+                  >
+                    <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk to her again
+                  </button>
+                  <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+                    Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
+                  {leadSaved
+                    ? 'Got it — Trevor will reach out, usually within 2 hours during the day.'
+                    : 'She lives inside every system Trevor builds — yours could answer calls like that.'}
+                </p>
+                <div className="mt-3.5 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={start}
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
+                  >
+                    <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk again
+                  </button>
+                  <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
+                    Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         )}
 

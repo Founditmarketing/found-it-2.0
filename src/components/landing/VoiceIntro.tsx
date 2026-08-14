@@ -13,6 +13,9 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
  *  file into /public/audio/ and the widget appears on the next page load. */
 const SOURCES = ['/audio/trevor-intro.mp3', '/audio/trevor-intro.m4a', '/audio/trevor-intro.wav'];
 const DISMISS_KEY = 'fi_voice_intro_dismissed';
+/** Probe result cache ('' = no recording found) so the three HEAD requests run
+ *  once per session, not on every hard page load. */
+const PROBE_KEY = 'fi_voice_intro_src';
 
 function formatTime(secs: number): string | null {
   if (!isFinite(secs) || secs <= 0) return null;
@@ -41,18 +44,29 @@ export function VoiceIntro() {
 
     let cancelled = false;
     (async () => {
+      try {
+        const cached = sessionStorage.getItem(PROBE_KEY);
+        if (cached !== null) {
+          if (cached) setSrc(cached);
+          return;
+        }
+      } catch {
+        /* private mode — probe as usual */
+      }
       for (const candidate of SOURCES) {
         try {
           const res = await fetch(candidate, { method: 'HEAD' });
           if (cancelled) return;
           if (res.ok) {
             setSrc(candidate);
+            try { sessionStorage.setItem(PROBE_KEY, candidate); } catch { /* ignore */ }
             return;
           }
         } catch {
           /* try the next format */
         }
       }
+      try { sessionStorage.setItem(PROBE_KEY, ''); } catch { /* ignore */ }
     })();
 
     const timer = setTimeout(() => setEntranceDone(true), 2200);
