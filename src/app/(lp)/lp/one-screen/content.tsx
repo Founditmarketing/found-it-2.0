@@ -16,8 +16,10 @@ export function OneScreenLPContent() {
       hero={{
         headline: 'Your Whole Business.',
         headlineAccent: 'One Screen.',
+        // LPSplitHero promotes the FIRST sentence to the big challenge line —
+        // it must be a full line, never a one-word list item ("Customers.").
         subheadline:
-          "Customers. Estimates. Jobs. Invoices. Who's paid, who hasn't, what needs attention today — one custom system built around the way you actually run, in your pocket, and you can just ask it questions in plain English. And you own it. Sign up below and we'll map yours for you, free — you keep the map either way, hire us or don't.",
+          "How many programs does it take to run your business today? Ours takes one screen: customers, estimates, jobs, invoices, who's paid, who hasn't, what needs attention today — one custom system built around the way you actually run, in your pocket, and you can just ask it questions in plain English. And you own it. Sign up below and we'll map yours for you, free — you keep the map either way, hire us or don't.",
         highlightIcon: Smartphone,
       }}
     />
