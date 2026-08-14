@@ -209,6 +209,11 @@
   animation: va-bar 0.9s ease-in-out infinite;
   transform-origin: center;
 }
+/* Voice agent: idle-line rotation + show_answer card entrance. */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @media (prefers-reduced-motion: reduce) {
   .va-bar { animation: none; }
 }

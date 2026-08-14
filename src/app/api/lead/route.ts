@@ -84,7 +84,30 @@ export async function POST(req: Request) {
       `,
     });
 
-    return NextResponse.json({ ok: true });
+    // Speed-to-lead, made visible: leads that come with an email get an
+    // instant confirmation while they're still on the page (the voice
+    // secretary tells them to check their inbox mid-call). Best-effort —
+    // a failure here never fails the lead itself.
+    let confirmationEmailed = false;
+    if (lead.email && !isGuideDownload) {
+      try {
+        const first = escapeHtml((lead.name || '').trim().split(/\s+/)[0] || 'there');
+        await resend.emails.send({
+          from: 'Found It Software <contact@founditmarketing.com>',
+          to: [lead.email],
+          subject: 'Got it — Trevor’s on it',
+          html: `
+            <p style="margin:0 0 12px">Hey ${first},</p>
+            <p style="margin:0 0 12px">Your info just landed with Found It Software — Trevor will reach out shortly, usually within 2 hours during the day.</p>
+            <p style="margin:0 0 12px">On the call: a free 30-minute software map — the app we&rsquo;d build if we owned your company. You keep the map either way, hire us or don&rsquo;t.</p>
+            <p style="margin:0">— Found It Software, Alexandria LA</p>
+          `,
+        });
+        confirmationEmailed = true;
+      } catch { /* best-effort only */ }
+    }
+
+    return NextResponse.json({ ok: true, confirmationEmailed });
   } catch {
     return NextResponse.json({ error: 'Failed to capture lead.' }, { status: 500 });
   }

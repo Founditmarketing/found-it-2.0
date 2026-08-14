@@ -26,6 +26,20 @@ interface CaptionLine {
   open?: boolean;
 }
 
+/** Card she pushes to the screen via the show_answer tool while speaking. */
+interface AnswerCard {
+  heading: string;
+  rows: { label: string; value: string }[];
+  note?: string;
+}
+
+/** Idle-state rotator — the widget sells itself before the tap. */
+const IDLE_LINES = [
+  'Tap the mic and just talk — she answers out loud.',
+  'Ask her: “who owes me money right now?”',
+  'She’s the same secretary Trevor can build into your business.',
+];
+
 interface VoiceAgentWidgetProps {
   /** LP slug for lead attribution, e.g. 'auto-shop' → voice_agent_auto-shop */
   pageSlug: string;
@@ -45,6 +59,8 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const [youTalking, setYouTalking] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(VOICE_SESSION_MAX_SECONDS);
   const [endReason, setEndReason] = useState<'user' | 'time' | 'error'>('user');
+  const [answerCard, setAnswerCard] = useState<AnswerCard | null>(null);
+  const [idleLine, setIdleLine] = useState(0);
 
   const pcRef = useRef<RTCPeerConnection | null>(null);
   const dcRef = useRef<RTCDataChannel | null>(null);
@@ -97,6 +113,14 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     const box = captionsBoxRef.current;
     if (box) box.scrollTop = box.scrollHeight;
   }, [captions]);
+
+  // Idle state breathes: cycle the invitation line so the card reads alive
+  // before anyone taps. Stops the moment the phase changes.
+  useEffect(() => {
+    if (phase !== 'idle') return;
+    const t = setInterval(() => setIdleLine((i) => (i + 1) % IDLE_LINES.length), 3800);
+    return () => clearInterval(t);
+  }, [phase]);
 
   /* ─── Caption helpers ─── */
   const pushYou = (text: string) => {
@@ -158,8 +182,43 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         if (res.ok) {
           leadCountRef.current += 1;
           trackLead(source);
-          result = { status: 'saved', message: 'Lead saved. Tell them Trevor will reach out shortly.' };
+          const body = await res.json().catch(() => ({}));
+          result = body?.confirmationEmailed
+            ? { status: 'saved', message: 'Lead saved AND a confirmation email just landed in their inbox — tell them to check it, then that Trevor will reach out shortly.' }
+            : { status: 'saved', message: 'Lead saved. Tell them Trevor will reach out shortly.' };
         }
+      }
+    } catch { /* keep error result */ }
+
+    const dc = dcRef.current;
+    if (dc && dc.readyState === 'open') {
+      dc.send(JSON.stringify({
+        type: 'conversation.item.create',
+        item: { type: 'function_call_output', call_id: callId, output: JSON.stringify(result) },
+      }));
+      dc.send(JSON.stringify({ type: 'response.create' }));
+    }
+  };
+
+  /* ─── The show_answer tool — render her card, acknowledge, let her roll ─── */
+  const handleShowAnswer = (callId: string, rawArgs: string) => {
+    let result = { status: 'error' };
+    try {
+      const a = JSON.parse(rawArgs || '{}') as Record<string, unknown>;
+      const heading = typeof a.heading === 'string' ? a.heading.slice(0, 80) : '';
+      const rows = Array.isArray(a.rows)
+        ? a.rows
+            .filter((r: any) => r && typeof r.label === 'string' && typeof r.value === 'string')
+            .slice(0, 4)
+            .map((r: any) => ({ label: r.label.slice(0, 60), value: r.value.slice(0, 60) }))
+        : [];
+      if (heading && rows.length) {
+        setAnswerCard({
+          heading,
+          rows,
+          note: typeof a.note === 'string' ? a.note.slice(0, 90) : undefined,
+        });
+        result = { status: 'shown' };
       }
     } catch { /* keep error result */ }
 
@@ -205,6 +264,8 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         for (const item of outputs) {
           if (item?.type === 'function_call' && item?.name === 'capture_lead') {
             void handleCaptureLead(item.call_id, item.arguments);
+          } else if (item?.type === 'function_call' && item?.name === 'show_answer') {
+            handleShowAnswer(item.call_id, item.arguments);
           }
         }
         break;
@@ -221,6 +282,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     sessionActive = true;
     setPhase('connecting');
     setCaptions([]);
+    setAnswerCard(null);
     setSecondsLeft(VOICE_SESSION_MAX_SECONDS);
     leadCountRef.current = 0;
     trackCTAClick(`voice_agent_start_${pageSlug}`);
@@ -340,8 +402,11 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
                   <span className="text-[10px] font-black uppercase tracking-[0.15em] text-black">Live</span>
                 </span>
               </span>
-              <span className="block text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-                Tap the mic and just talk — she answers out loud. She&apos;s the same secretary Trevor can build into your business.
+              <span
+                key={idleLine}
+                className="block text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug animate-[fadeIn_0.6s_ease]"
+              >
+                {IDLE_LINES[idleLine]}
               </span>
             </span>
           </button>
@@ -379,6 +444,26 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
 
             {/* Voice only, by design (Trevor 8/13): no on-screen transcript —
                 the captions state still drives the speaking indicator. */}
+
+            {/* Her show_answer card — the page reacting to her voice. */}
+            {answerCard && (
+              <div className="mt-4 rounded-xl border border-primary/30 bg-primary/[0.06] p-4 animate-[fadeIn_0.4s_ease]">
+                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
+                  {answerCard.heading}
+                </p>
+                <div className="space-y-1.5">
+                  {answerCard.rows.map((r, i) => (
+                    <div key={i} className="flex items-baseline justify-between gap-4">
+                      <span className="text-[13px] font-medium text-white/70">{r.label}</span>
+                      <span className="text-[13px] font-black tabular-nums text-white">{r.value}</span>
+                    </div>
+                  ))}
+                </div>
+                {answerCard.note && (
+                  <p className="mt-2.5 text-[10px] font-medium text-white/40">{answerCard.note}</p>
+                )}
+              </div>
+            )}
 
             <button
               type="button"
