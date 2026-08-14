@@ -27,6 +27,8 @@ interface FounderVideoProps {
   founderName?: string;
   /** Poster caption after the name — keep it truthful to the actual clip length. */
   captionText?: string;
+  /** Quiet secondary link under the CTA — e.g. the deep case-study artifact. */
+  secondaryLink?: { label: string; href: string };
 }
 
 export function FounderVideo({
@@ -42,6 +44,7 @@ export function FounderVideo({
   ctaHref = '#lp-form',
   founderName = 'Trevor Ruby',
   captionText = 'Watch the 27-sec intro',
+  secondaryLink,
 }: FounderVideoProps) {
   const [playing, setPlaying] = useState(false);
   const isYouTubeOrVimeo = !!videoSrc && /youtube|vimeo/.test(videoSrc);
@@ -130,6 +133,16 @@ export function FounderVideo({
                 {ctaText}
               </LiquidButton>
             </Link>
+            {secondaryLink && (
+              <p className="mt-4">
+                <Link
+                  href={secondaryLink.href}
+                  className="text-sm font-bold text-white/60 hover:text-primary transition-colors"
+                >
+                  {secondaryLink.label} →
+                </Link>
+              </p>
+            )}
           </motion.div>
         </div>
       </div>

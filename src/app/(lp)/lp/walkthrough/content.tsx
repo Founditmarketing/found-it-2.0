@@ -63,11 +63,16 @@ export function WalkthroughLPContent() {
       <LPNav />
 
       {/* The hero IS the ad's question — an uninterrupted thought from click
-          to page (Version B of the 8/13 headline test; Version A "Your
-          Business Should Be Able To Answer You" is reserved for brand pages).
-          Stats row = the Edwards audit, not generic badges. NOTE: the real,
-          sanctioned figure is $195,882.75 — never add invoice counts or any
-          other detail to it. */}
+          to page (Version B of the 8/13 headline test). Stats row = the
+          Edwards audit, not generic badges. NOTE: the real, sanctioned figure
+          is $195,882.75 — never add invoice counts or any other detail to it.
+
+          A/B STATUS (closed 8/14 pending traffic): Version B ships alone
+          until the campaign has ~500 clicks per variant to read. To run the
+          test, swap ONLY these two lines to Version A and tag events:
+            headline="Your Business Should Be Able To"
+            headlineAccent="Answer You."
+          Keep the subheadline; it works under both. */}
       <LPSplitHero
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
@@ -116,6 +121,7 @@ export function WalkthroughLPContent() {
         captionText="Watch the 20-sec clip"
         ctaText="Show Me What Mine Would Look Like"
         ctaHref="#lp-form"
+        secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
       {/* The ad's hook, made touchable: the exact answer the click promised,

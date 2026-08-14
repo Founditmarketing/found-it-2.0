@@ -117,6 +117,7 @@ export function WichitaLPContent() {
         captionText="Watch the 20-sec clip"
         ctaText="Show Me What Mine Would Look Like"
         ctaHref="#lp-form"
+        secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
       {/* The ad's hook, made touchable: the exact answer the click promised,

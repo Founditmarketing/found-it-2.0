@@ -90,6 +90,7 @@ export function AutoShopLPContent() {
         captionText="Watch the 20-sec clip"
         ctaText="Get A Free Software Map"
         ctaHref="#lp-form"
+        secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
       {/* Not mockups — the systems themselves, shop screens leading */}
