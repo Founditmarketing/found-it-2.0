@@ -69,7 +69,7 @@ const apps: AppStudy[] = [
   {
     title: 'Brian’s Foundation',
     trade: 'Foundation Contractor',
-    src: '/os-screens/brians-foundation-os-v1.png',
+    src: '/os-screens/brians-foundation-os-v2.png',
     alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
     line: 'Speak It In: talk the job in and the system sorts it — the estimate book runs every job from out-the-door to booked.',
   },

@@ -67,7 +67,7 @@ export const railDesktops: OsRailItem[] = [
     kind: 'Windmill Manufacturer',
   },
   {
-    src: '/os-screens/brians-foundation-os-v1.png',
+    src: '/os-screens/brians-foundation-os-v2.png',
     alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
     title: 'Brian’s Foundation',
     kind: 'Foundation Contractor',
