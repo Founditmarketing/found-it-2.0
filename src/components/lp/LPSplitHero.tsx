@@ -137,7 +137,11 @@ export function LPSplitHero({
         className="pointer-events-none absolute -top-24 left-[-10%] w-[70vw] max-w-[900px] aspect-square rounded-full bg-primary/[0.07] blur-[130px]"
       />
       <div className="max-w-[1440px] mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        {/* items-start, not items-center: the pitch column got shorter as the
+            8/14-15 restraint passes removed its filler (stats, phone, voice
+            widget) — centering a short column against the tall form column
+            floated the headline into a void on desktop. */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* ─── Left: Pitch ───
               No JS-gated entrance here: this column IS the mobile LCP element,
               and a framer-motion opacity-0 start left the whole pitch invisible
