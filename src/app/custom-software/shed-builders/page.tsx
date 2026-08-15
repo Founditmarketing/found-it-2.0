@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Shed Builder Software You Own — ShedSuite Alternative',
   description:
-    `Custom shed builder software you own outright — orders, dealer lots, build queue, delivery, rent-to-own. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `Custom shed builder software you own outright — orders, dealer lots, build queue, delivery, rent-to-own. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/shed-builders' },
   openGraph: {
     title: 'Shed Builder Software You Own Outright | Found It Marketing',
     description:
-      `One system for your whole yard — orders, dealer lots, build queue, delivery, and rent-to-own, fitted to how you actually run and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `One system for your whole yard — orders, dealer lots, build queue, delivery, and rent-to-own, fitted to how you actually run and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/shed-builders',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom operating system for shed builders and portable building dealers — orders, dealer lots, build queue, delivery scheduling, and rent-to-own tracking in one system the business owns outright. Built as an alternative to renting ShedSuite-class software with per-unit fees. Records are professionally migrated in, and nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `Custom operating system for shed builders and portable building dealers — orders, dealer lots, build queue, delivery scheduling, and rent-to-own tracking in one system the business owns outright. Built as an alternative to renting ShedSuite-class software with per-unit fees. Records are professionally migrated in, and nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Found It OS · Shed Builders',
   headline: 'Stop Paying Rent on',
   headlineAccent: 'Every Building You Sell.',
@@ -165,12 +165,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit fees, no per-lot fees, no charge that grows because you sold more buildings. Month-to-month, no contracts — and if we ever part ways, the system stays yours, code and data. Guaranteed: ${OS_PRICING.guarantee} Compare that to renting software that takes a toll on every unit and holds your records if you try to leave.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit fees, no per-lot fees, no charge that grows because you sold more buildings. Month-to-month, no contracts — and if we ever part ways, the system stays yours, code and data. One job: ${OS_PRICING.promise} Compare that to renting software that takes a toll on every unit and holds your records if you try to leave.`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We have already built this for the shed industry — a full operating system fitted to a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours and keeps running.',
     'Your records come with you — orders, lots, RTO contracts, customer history — professionally migrated in, not abandoned.',
     'Proven before it ships: the new system runs beside your old one until the two match, and you say go.',
@@ -222,7 +222,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Yard on Its Own OS',
   finalCtaSub:
-    `Tell us how your operation runs today — the order binder, the build sheets, the lot calls, the RTO spreadsheet — and we will map what your own operating system would look like. Free, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your operation runs today — the order binder, the build sheets, the lot calls, the RTO spreadsheet — and we will map what your own operating system would look like. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function ShedBuildersPillar() {

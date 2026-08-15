@@ -20,7 +20,8 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    the cent that surfaced ~$19k of bookkeeping errors. The client stays
    anonymous per content law ("a Louisiana roofing company") — never a
    name, never a number we can't stand behind. Pricing renders from
-   OS_PRICING only; the guarantee is verbatim with no invented conditions. */
+   OS_PRICING only; the money-back guarantee was retired 8/14 — the offer
+   line is OS_PRICING.promise, verbatim. */
 
 /* Trade-contractor captures drift past first: foundation, carpet, field ops. */
 const isTradeScreen = (s: { kind: string }) => /contractor|carpet|windmill/i.test(s.kind);
@@ -40,7 +41,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat — office and every crew included. Month-to-month. ${OS_PRICING.guarantee}`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat — office and every crew included. Month-to-month — cancel anytime, and the system stays yours.`,
   },
   {
     question: 'Do I have to drop my current CRM on day one?',
@@ -53,8 +54,9 @@ const faqItems = [
       'Yes. The code and the data are yours, 100% — every job, every customer, every dollar of history. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
-    question: "What if I don't love it?",
-    answer: `${OS_PRICING.guarantee} That's the entire guarantee — no fine print to read, because there isn't any.`,
+    question: "What if it doesn't work out?",
+    answer:
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
   },
 ];
 
@@ -78,7 +80,7 @@ export function RoofingLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_roofing"
         formPageSlug="roofing"
-        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
       {/* Proof directly under the hero — he's a ROOFER on the roofing page:
@@ -158,7 +160,7 @@ export function RoofingLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. ${OS_PRICING.guarantee}`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
           },
         ]}
       />
@@ -173,7 +175,7 @@ export function RoofingLPContent() {
           'We come to your shop or site, in person — free',
           'You keep the map: the app we’d build if we owned your roofing company',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — office and crews included`,
-          `Month-to-month. ${OS_PRICING.guarantee}`,
+          `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_roofing"
         pageSlug="roofing"

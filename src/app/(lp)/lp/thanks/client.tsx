@@ -80,7 +80,7 @@ export default function GuideThanksClient() {
             <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-6">
               Page 4 of the guide is the fitting — here&apos;s step one. About 30 minutes: we map
               the app we&apos;d build if we owned your business, live. You keep the map, hire us
-              or don&apos;t. {OS_PRICING.guarantee}
+              or don&apos;t. One job: {OS_PRICING.promise}
             </p>
             {bookingLive ? (
               <a
@@ -107,7 +107,7 @@ export default function GuideThanksClient() {
           </div>
 
           <p className="text-xs text-faint font-medium">
-            Free &amp; no obligation. Month-to-month. {OS_PRICING.guarantee}
+            Free &amp; no obligation. Month-to-month — cancel anytime, and the system stays yours.
           </p>
         </motion.div>
       </div>

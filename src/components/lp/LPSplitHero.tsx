@@ -21,7 +21,7 @@ interface LPSplitHeroProps {
   headline: string;
   headlineAccent: string;
   subheadline: string;
-  /** Surfaced strongest line: a guarantee, outcome, or speed promise. */
+  /** Surfaced strongest line: an outcome, proof point, or speed promise. */
   highlight?: string;
   /** Icon for the highlight chip. */
   highlightIcon?: LucideIcon;
@@ -39,7 +39,8 @@ interface LPSplitHeroProps {
   formCompact?: boolean;
   /** Success-state line. */
   formSuccessNote?: string;
-  /** Reassurance line under the button — put the guarantee HERE. */
+  /** Reassurance line under the button — price, month-to-month, or the
+   *  OS_PRICING.promise line goes HERE (money-back guarantee retired 8/14). */
   formPrivacyNote?: string;
   /** Render a primary CTA + call/text line in the pitch column, so the
    *  first screen has something to DO before any scrolling happens. */
@@ -68,8 +69,8 @@ interface LPSplitHeroProps {
    *  traffic won't commit to a 30-minute call as step one — but it will
    *  leave a name and number. Ignored when bookingOnly is set. */
   bookingSecondary?: boolean;
-  /** Public price + guarantee, rendered directly under the CTA button — the
-   *  point of commitment is exactly where the no-surprises promise belongs. */
+  /** Public price + reassurance, rendered directly under the CTA button — the
+   *  point of commitment is exactly where the no-surprises line belongs. */
   ctaFootnote?: string;
   /** OPT-IN: live AI-secretary voice demo as a first-class hero element
    *  (OS landing pages). Off by default so every other LP sharing this hero

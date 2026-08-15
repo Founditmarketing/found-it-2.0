@@ -117,7 +117,7 @@ export default function TermsOfService() {
                             <li>Loss of revenue, leads, or business opportunities</li>
                             <li>Results from marketing campaigns, as outcomes may vary</li>
                         </ul>
-                        <p>Except for the Found It OS guarantee ("Love it or your money back."), all services are provided "as is" without guarantees of specific results. The terms of that guarantee are set out in your service agreement.</p>
+                        <p>All services are provided "as is" without guarantees of specific results.</p>
                     </div>
                 </section>
 

@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Found It OS — Custom Operating Systems for Local Businesses',
   description:
-    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, guaranteed: ${OS_PRICING.guarantee} ${TRACK_RECORD.softwareCustomers} software customers and growing. Based in Alexandria, LA.`,
+    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, built to simplify the owner's life and make the business more profitable. ${TRACK_RECORD.softwareCustomers} software customers and growing. Based in Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Marketing',
     description:
-      `One system for your whole business — fitted to how you actually run it, proven beside your old system, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `One system for your whole business — fitted to how you actually run it, proven beside your old system, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.promise}`,
     type: 'website',
     url: 'https://www.founditsoftware.com/foundit-os',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS is a custom AI-powered business operating system built one business at a time — point of sale, inventory, customer database, service tickets, website, and a built-in AI assistant in a single system the client owns outright. Fitted in weeks, migrated with zero downtime by running beside the legacy system until the books match to the penny. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `Found It OS is a custom AI-powered business operating system built one business at a time — point of sale, inventory, customer database, service tickets, website, and a built-in AI assistant in a single system the client owns outright. Fitted in weeks, migrated with zero downtime by running beside the legacy system until the books match to the penny. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Found It OS',
   headline: 'Stop Renting Your Software —',
   headlineAccent: 'Own Your Whole System.',
@@ -230,11 +230,11 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. And it is guaranteed: ${OS_PRICING.guarantee} For comparison, a traditional custom software build runs $50,000 to $150,000, takes 3 to 6 months, and bills 15 to 20% a year in maintenance. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} For comparison, a traditional custom software build runs $50,000 to $150,000, takes 3 to 6 months, and bills 15 to 20% a year in maintenance. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    'Month-to-month, no contracts — cancel anytime, and the system has to earn it every month.',
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
     'Proven before it ships: the new system runs beside your old one until the books match to the penny.',
@@ -269,14 +269,14 @@ const data: PillarData = {
         `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-register fees, no surprise add-ons, no contracts. For comparison, a traditional custom software shop quotes $50,000 to $150,000 for the same ownership.`,
     },
     {
-      question: 'What does "love it or your money back" mean?',
+      question: "What if it doesn't work out?",
       answer:
-        'Exactly what it says. If you do not love it, you get your money back. The guarantee exists because the system has to earn its keep every month, not because we expect to write refunds.',
+        "Then you cancel. It is month-to-month — 30 days' notice, no exit fee, no fine print — and you keep the code and the data, so the system keeps running without us. Our customers stay because they love it, not because they're locked in.",
     },
     {
       question: 'You charge monthly too. How is that not renting?',
       answer:
-        'Because you can leave. When you rent software, the company holds your data and dares you to switch. With Found It OS the system is already yours — code and data — so the monthly only covers backups, support, and new features. We have to earn it every single month, because the day we stop earning it, you cancel and keep the whole system. Our customers stay because they love it, not because they are locked in.',
+        'Because you can leave. When you rent software, the company holds your data and dares you to switch. With Found It OS the system is already yours — code and data — so the monthly only covers backups, support, and new features. We have to earn it every single month, because the day we stop earning it, you cancel and keep the whole system.',
     },
     {
       question: 'Is it safe? Who can see what?',
@@ -303,7 +303,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. The system has one job: ${OS_PRICING.promise}`,
 };
 
 export default function FoundItOSPillar() {

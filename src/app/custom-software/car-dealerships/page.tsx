@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Independent Dealership Software You Own Outright | Found It',
   description:
-    `Dealership software you own — inventory, website, service, and rentals in one system, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `Dealership software you own — inventory, website, service, and rentals in one system, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/car-dealerships' },
   openGraph: {
     title: 'Independent Dealership Software You Own Outright | Found It Marketing',
     description:
-      `One system for the whole lot — inventory, website, sales desk, service department, and rentals — fitted to how you actually run it, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `One system for the whole lot — inventory, website, sales desk, service department, and rentals — fitted to how you actually run it, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/car-dealerships',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom dealership software for independent car dealers — inventory, dealership website, sales desk, service department, and rentals in a single system the dealer owns outright, with existing records professionally migrated in. Built one dealership at a time by Found It Marketing in Alexandria, LA. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `Custom dealership software for independent car dealers — inventory, dealership website, sales desk, service department, and rentals in a single system the dealer owns outright, with existing records professionally migrated in. Built one dealership at a time by Found It Marketing in Alexandria, LA. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Custom Software · Car Dealerships',
   headline: 'Stop Renting Your Own',
   headlineAccent: 'Inventory Pages.',
@@ -164,12 +164,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records professionally migrated in, the website, backups, and support — no per-listing fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. Guaranteed: ${OS_PRICING.guarantee} Compare that honestly against what a rented website-and-DMS combo costs your lot over the years — rent that never ends, for software you will never own.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records professionally migrated in, the website, backups, and support — no per-listing fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Compare that honestly against what a rented website-and-DMS combo costs your lot over the years — rent that never ends, for software you will never own.`,
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now — retail sales, a custom service department, and rentals in one system — for a Louisiana independent dealer.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'You own 100% of the code, the data, and the website. If we ever part ways, the system stays yours.',
     'Your records get professionally migrated in — listings, customers, history — not left behind.',
     'Proven before it ships: nothing switches until the new system has run beside your old one and matched it.',
@@ -205,7 +205,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-listing fees, no add-ons, no contracts. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-listing fees, no add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
     },
     {
       question: 'Do I need a technical person on staff?',
@@ -221,7 +221,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Lot on Its Own System',
   finalCtaSub:
-    `Tell us how your dealership runs today — the rented website, the paper tickets, the spreadsheet — and we will map what a system you own would look like. Free, in person if you are local, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your dealership runs today — the rented website, the paper tickets, the spreadsheet — and we will map what a system you own would look like. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function CarDealershipsPillar() {

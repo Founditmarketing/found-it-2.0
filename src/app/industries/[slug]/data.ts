@@ -82,7 +82,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month. No long-term contracts and no fine print. The guarantee is published on the site exactly as we say it across the counter: Love it or your money back.",
+        answer: "One public price, month-to-month. No long-term contracts and no fine print — cancel anytime with 30 days' notice, and the system, code and data, stays yours.",
       },
     ],
     formSource: "industry_medical",
@@ -151,7 +151,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month. No long-term contracts — clients stay because the thing works, not because they're locked in. And the guarantee is published with no fine print: Love it or your money back.",
+        answer: "One public price, month-to-month. No long-term contracts — clients stay because the thing works, not because they're locked in. If it ever stops working for you, cancel with 30 days' notice and keep the system.",
       },
       {
         question: "Do you still do marketing?",
@@ -216,7 +216,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "We run the store on our current system every day. What if the new one breaks?",
-        answer: "We don't pull the plug on the old one. The new system runs beside your current setup, penny-matched nightly, until you trust it — nothing switches until you say go. In one auto-repair migration, that rebuild surfaced about $270K the old software had lost track of. And the guarantee is published on the site with no fine print: \"Love it or your money back.\"",
+        answer: "We don't pull the plug on the old one. The new system runs beside your current setup, penny-matched nightly, until you trust it — nothing switches until you say go. In one auto-repair migration, that rebuild surfaced about $270K the old software had lost track of. And you're never trapped on the other side: month-to-month, cancel anytime, and the system stays yours.",
       },
       {
         question: "Can the AI mess with my books or my deals?",
@@ -289,7 +289,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month, no contracts. The fee covers maintenance, security, backups, and new features — the software itself is yours. And the guarantee is published with no fine print: \"Love it or your money back.\"",
+        answer: "One public price, month-to-month, no contracts. The fee covers maintenance, security, backups, and new features — the software itself is yours. And it has one job: Simplify your life. Make your business more profitable.",
       },
     ],
     formSource: "industry_retail",
@@ -362,7 +362,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month, no long-term contracts. The guarantee is published on the site with no fine print: \"Love it or your money back.\"",
+        answer: "One public price, month-to-month, no long-term contracts. Cancel anytime with 30 days' notice — you keep the code, the data, and a system that keeps running.",
       },
     ],
     formSource: "industry_realtors",
@@ -431,7 +431,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost, and am I locked into a contract?",
-        answer: "One public price, month-to-month. No long-term contracts — clients stay because they love the system, not because they're locked in. The guarantee is published on the site with no fine print: Love it or your money back.",
+        answer: "One public price, month-to-month. No long-term contracts — clients stay because they love the system, not because they're locked in. Cancel anytime with 30 days' notice and the whole thing stays yours.",
       },
       {
         question: "Do you still do marketing for law firms?",

@@ -156,7 +156,7 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
                 'What one custom system replaces — and the industries already running on one',
                 'The money story: the stack you rent every month vs. one flat public price',
                 'How a fitting works: free map visit → runs beside your old system → you own it',
-                `The guarantee, verbatim: “${OS_PRICING.guarantee}” No fine print.`,
+                `The promise it's all built on: “${OS_PRICING.promise}”`,
               ].map((line, i) => (
                 <motion.div
                   key={i}
