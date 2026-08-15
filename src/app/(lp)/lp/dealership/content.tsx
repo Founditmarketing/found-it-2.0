@@ -82,6 +82,7 @@ export function DealershipLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_dealership"
         formPageSlug="dealership"
+        formQualify
         formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
@@ -159,6 +160,7 @@ export function DealershipLPContent() {
 
       <LPFormSection
         kicker="Free Software Map"
+        qualify
         heading="Get A Free Software Map"
         subheading="Drop your name and number. We call, you pick the time, and we come to your dealership — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
         benefits={[
