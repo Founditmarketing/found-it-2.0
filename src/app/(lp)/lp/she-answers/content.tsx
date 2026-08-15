@@ -20,9 +20,9 @@ export function SheAnswersLPContent() {
         headline: 'Your Business Should Answer',
         headlineAccent: 'Every Single Call.',
         subheadline:
-          "Every missed call is a job that called somebody else. Meet the AI secretary we build into every system — she answers, takes the message, and books your callback. She's live on this page right now: tap the mic and talk to her out loud. Then grab the free software map below and see what the rest of your system would look like.",
+          "Every missed call is a job that called somebody else. Meet the AI secretary we build into every system — she answers, takes the message, and books your callback. And in a system we build for you, she schedules the estimates and enters new customers into your database herself. She's live on this page right now: tap the mic and talk to her out loud.",
         highlight:
-          '“She answers, takes the message, and books the callback.” — and she’s the same secretary we can build into your business',
+          '“She answers, schedules the estimate, and enters the customer into the database — herself.” — the secretary we build into your system',
         highlightIcon: Mic,
       }}
     />

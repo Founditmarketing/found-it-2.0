@@ -56,6 +56,7 @@ interface AnswerCard {
 const IDLE_LINES = [
   'Tap the mic and just talk — she answers out loud.',
   'Ask her: “who owes me money right now?”',
+  'In your system she schedules estimates and enters customers — herself.',
   'She’s the same secretary Trevor can build into your business.',
 ];
 

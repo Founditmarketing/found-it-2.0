@@ -182,7 +182,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           {!voiceHero && (
             <div className="mt-12 max-w-xl mx-auto">
               <p className="text-center text-sm sm:text-base font-bold text-white/80 mb-4 [text-wrap:balance]">
-                Rather talk than tap? Every system comes with an AI secretary —{' '}
+                Rather talk than tap? Every system comes with an AI secretary who answers,
+                schedules estimates, and enters customers herself —{' '}
                 <span className="text-primary">try ours live.</span>
               </p>
               <VoiceAgentWidget pageSlug={slug} />
