@@ -12,7 +12,7 @@ import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
-import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
+import { TRACK_RECORD, OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* Wichita, Kansas ad landing page — Tom's territory. Rebuilt 8/13 to the
@@ -89,7 +89,7 @@ export function WichitaLPContent() {
         formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading="Name and number. Tom maps the software we would build for your business and walks you through it. The map is yours."
+        formSubheading={`Name and number. Tom maps the software we would build for your business — ${MAP_VALUE.line}. The map is yours.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."

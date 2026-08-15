@@ -13,7 +13,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
-import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
+import { TRACK_RECORD, OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* One template for every hook-test ad LP (walkthrough architecture, 8/14).
@@ -97,7 +97,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         formHeading="Get A Free Software Map Of Your Business"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading="Name and number. We map the software we would build for your business and walk you through it. The map is yours."
+        formSubheading={`Name and number. We map the software we would build for your business — ${MAP_VALUE.line}. The map is yours.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."

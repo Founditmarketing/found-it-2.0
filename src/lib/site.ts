@@ -69,6 +69,20 @@ export const TRACK_RECORD = {
   googleRating: '4.9',
 } as const;
 
+/* ─── The software map's value anchor ───
+   Trevor 8/14: "we need to tell people how much that free map is worth."
+   RESTRAINT LAW compliance: this is a MARKET-attributed range (what custom
+   shops bill for paid discovery/scoping), never a first-party "a $X value!"
+   sticker — we don't sell the map standalone, so we can't price it ourselves
+   without inventing a number. The range is coherent with the sanctioned
+   $50k–$150k traditional-build comparison (discovery ≈ 3–5% of build).
+   Say it ONCE per page, as fact, at the point of the ask. */
+export const MAP_VALUE = {
+  range: '$1,500 to $5,000',
+  /** The one sentence, reused verbatim so the number can never drift. */
+  line: 'the same scoping work software firms bill $1,500 to $5,000 for',
+} as const;
+
 /* ─── Found It OS pricing + promise ───
    The ONLY service with a public sticker price, set by Trevor 2026-07-30.
    Single source of truth — homepage, /foundit-os, /pricing all render from
