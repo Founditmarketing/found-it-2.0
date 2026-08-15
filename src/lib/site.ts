@@ -19,7 +19,7 @@ export const ENTITY_IDS = {
 export const BUSINESS = {
   name: 'Found It Marketing',
   legalName: 'Found It Marketing LLC',
-  tagline: 'Building Digital Empires',
+  tagline: 'Custom software your business owns.',
   description:
     'Custom AI software and digital marketing company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems that improve lives and save time, owned outright by the client — plus Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO) for local businesses. No long-term contracts; clients own their accounts, code, and data.',
   url: SITE_URL,
@@ -53,32 +53,21 @@ export const FOUNDER = {
    Canonical, reusable proof points. Keep these as the single source of truth so
    stats stay consistent across pages (inconsistent numbers lower entity trust).
    Phrased conservatively from confirmed facts; sharpen with exact figures. */
+/* RESTRAINT LAW (Trevor, 2026-08-14): magnitude words and aggregate claims are
+   RETIRED. Deleted here and everywhere they rendered: adSpendManaged
+   ('Millions'), socialAccountsManaged ('Hundreds'), statesServed ('48'),
+   STATES_CLAIM, and REVENUE_CLAIM ('$2.3B+' — never confirmed; its own TODO
+   admitted as much, and it shipped with a methodology footnote underneath,
+   which is what a number nobody believes looks like).
+   The rule: one figure a stranger can check outranks a billion he cannot.
+   Never reintroduce an unverifiable aggregate. What stays below is countable. */
 export const TRACK_RECORD = {
   yearsInBusiness: '13+',
   /** Found It OS proof point. 12 per Trevor 2026-07-30 (was 7) — update HERE
       only; every page interpolates it. public/llms.txt is static, sync by hand. */
   softwareCustomers: '12',
-  adSpendManaged: 'Millions',
-  adSpendManagedLong: 'millions of dollars in managed ad spend',
-  socialAccountsManaged: 'Hundreds',
-  socialAccountsManagedLong: 'hundreds of local businesses',
-  statesServed: '48',
   googleRating: '4.9',
 } as const;
-
-/* ─── Client-revenue claim ───
-   ONE figure, everywhere, always with the methodology line nearby. Never pair
-   it with ad-spend numbers in a way that implies it all came from ads.
-   TODO(Trevor): confirm the figure or swap in the number you can document. */
-export const REVENUE_CLAIM = {
-  figure: '$2.3B+',
-  label: 'generated in client revenue',
-  methodology: 'Total tracked client revenue across all services — ads, web, SEO, and organic — since 2013.',
-} as const;
-
-/** The honest, attributed version of the 48-states stat. Never use the bare
-    "we operate in 48 states" framing — it is one client's shipping footprint. */
-export const STATES_CLAIM = 'Scaled one client to customers in 48 states.';
 
 /* ─── Found It OS pricing + promise ───
    The ONLY service with a public sticker price, set by Trevor 2026-07-30.

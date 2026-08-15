@@ -33,7 +33,6 @@ export function AIMarketingLPContent() {
         highlight="Every new lead gets a reply in under 5 seconds — 24/7, even while you sleep."
         highlightIcon={Zap}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '<5 sec', label: 'Lead reply speed' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -58,7 +57,6 @@ export function AIMarketingLPContent() {
         heading="Local businesses"
         headingAccent="trust us to run their pipeline."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '<5 sec', label: 'Lead follow-up speed' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

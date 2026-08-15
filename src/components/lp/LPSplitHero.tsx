@@ -4,8 +4,8 @@ import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-reac
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { BookingCta } from './BookingCta';
 import { VoiceAgentWidget } from './VoiceAgentWidget';
-import { trackCallClick, trackBookingClick } from '@/lib/analytics';
-import { BOOKING_URL, isBookingUrl } from '@/lib/booking';
+import { trackCallClick } from '@/lib/analytics';
+import { BOOKING_URL } from '@/lib/booking';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD } from '@/lib/site';
 import { usePersonalization } from '@/lib/personalization';
@@ -16,6 +16,10 @@ interface StatChip {
 }
 
 interface LPSplitHeroProps {
+  /** @deprecated No longer rendered (8/14 audit — the trust line under the
+   *  pitch carries these facts as a sentence). Still accepted so the LP
+   *  pages passing it keep compiling; delete the prop once they are cleaned. */
+  stats?: StatChip[];
   /** Small badge above the headline. */
   badge?: string;
   headline: string;
@@ -25,7 +29,6 @@ interface LPSplitHeroProps {
   highlight?: string;
   /** Icon for the highlight chip. */
   highlightIcon?: LucideIcon;
-  stats?: StatChip[];
   /** Show the award trust chip above the headline. */
   showAward?: boolean;
   formHeading: string;
@@ -42,18 +45,15 @@ interface LPSplitHeroProps {
   /** Reassurance line under the button — price, month-to-month, or the
    *  OS_PRICING.promise line goes HERE (money-back guarantee retired 8/14). */
   formPrivacyNote?: string;
-  /** Render a primary CTA + call/text line in the pitch column, so the
-   *  first screen has something to DO before any scrolling happens. */
-  inlineCta?: boolean;
   /** "What happens next" — 3 short lines rendered right under the form,
    *  so the time-delay question is answered at the exact point of commitment. */
   nextSteps?: string[];
   /** One doctrine line under the steps (e.g. runs-beside-your-old-system). */
   nextStepsNote?: string;
   /** OPT-IN hybrid booking CTA. Off by default so every other LP that shares
-   *  this hero is untouched. When true, a primary "Book my free Zoom call"
-   *  button sits above the form (and drives the inline CTA), opening
-   *  bookingUrl in a new tab when set, else scrolling to the form. */
+   *  this hero is untouched. When true, a primary "book my video call"
+   *  button sits above the form, opening bookingUrl in a new tab when set,
+   *  else scrolling to the form. */
   showBooking?: boolean;
   /** Booking URL for the hybrid CTA. Defaults to the shared BOOKING_URL. */
   bookingUrl?: string;
@@ -93,7 +93,6 @@ export function LPSplitHero({
   subheadline,
   highlight,
   highlightIcon: HighlightIcon = Zap,
-  stats = [],
   showAward = true,
   formHeading,
   formSource,
@@ -103,7 +102,6 @@ export function LPSplitHero({
   formCompact = false,
   formSuccessNote,
   formPrivacyNote,
-  inlineCta = false,
   nextSteps,
   nextStepsNote,
   showBooking = false,
@@ -116,7 +114,6 @@ export function LPSplitHero({
   voiceAgent = false,
 }: LPSplitHeroProps) {
   const { city, industry } = usePersonalization();
-  const bookingLive = showBooking && isBookingUrl(bookingUrl);
   // bookingOnly wins over bookingSecondary (as the prop doc promises) — the
   // raw flags combined would otherwise render a hero with no CTA and no form.
   const secondaryBooking = bookingSecondary && !bookingOnly;
@@ -151,7 +148,7 @@ export function LPSplitHero({
           <div className="lg:col-span-7 min-w-0">
             <h1 className="text-[11vw] sm:text-[6.5vw] lg:text-[3.6vw] leading-[0.95] tracking-tight font-black font-heading uppercase italic text-white [text-wrap:balance] mb-4 lg:mb-5">
               {headline}{' '}
-              <span className="text-primary drop-shadow-[0_0_30px_rgba(255,85,0,0.25)]">{headlineAccent}</span>
+              <span className="text-primary">{headlineAccent}</span>
             </h1>
 
             <p className="text-lg sm:text-2xl font-bold text-white/95 tracking-tight mb-5 max-w-xl leading-snug [text-wrap:balance]">
@@ -177,53 +174,6 @@ export function LPSplitHero({
                 <p className="text-sm sm:text-[15px] font-bold text-white/85 leading-snug">
                   {highlight}
                 </p>
-              </div>
-            )}
-
-            {/* The first screen must have something to DO — on mobile the
-                form is a full swipe away, and the swipe-back decision
-                happens before the sticky bar even animates in. */}
-            {inlineCta && (
-              <div className="mb-8 flex flex-col sm:flex-row sm:items-center gap-3">
-                {bookingLive ? (
-                  <a
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackBookingClick(formSource)}
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
-                  >
-                    {formHeading} →
-                  </a>
-                ) : (
-                  <a
-                    href="#lp-form"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 px-7 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
-                  >
-                    {formHeading} →
-                  </a>
-                )}
-                <a
-                  href="sms:+13182800115"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white/80 hover:text-primary transition-colors py-2"
-                >
-                  or text Trevor: (318) 280-0115
-                </a>
-              </div>
-            )}
-
-            {stats.length > 0 && (
-              <div className="flex max-w-md mb-7 divide-x divide-border/15">
-                {stats.map((stat, i) => (
-                  <div key={i} className={`flex-1 min-w-0 ${i === 0 ? 'pr-3 sm:pr-5' : 'px-3 sm:px-5'}`}>
-                    <p className="text-base sm:text-xl lg:text-2xl font-black text-white italic tracking-tighter leading-none tabular-nums">
-                      {stat.value}
-                    </p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-faint mt-1.5">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
               </div>
             )}
 
@@ -278,7 +228,7 @@ export function LPSplitHero({
           {/* Same rule as the pitch column: the form is the conversion element —
               it renders visible immediately, never behind hydration. */}
           <div id="lp-form" className="lg:col-span-5 min-w-0 scroll-mt-24">
-            {/* Hybrid CTA: primary "Book my free Zoom call" button, then the
+            {/* Hybrid CTA: primary "book my video call" button, then the
                 form demoted to the leave-your-number fallback directly under
                 it. Opt-in — off for every other LP sharing this hero. */}
             {showBooking && !secondaryBooking && (

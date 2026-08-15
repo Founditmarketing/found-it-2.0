@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD, REVENUE_CLAIM } from '@/lib/site';
+import { TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'AI Search Optimization & SEO (GEO) for Local Businesses',
@@ -35,9 +35,7 @@ const data: PillarData = {
   formHeading: 'Get Your Free AI Visibility Audit',
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
-    { value: TRACK_RECORD.adSpendManaged, label: 'In Managed Ad Spend' },
-    { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
+    { value: TRACK_RECORD.googleRating, label: 'Google Rating' },
   ],
   definitionHeading: 'What Is GEO (Generative Engine Optimization)?',
   definition:

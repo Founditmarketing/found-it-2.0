@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'CoConstruct Is Being Retired.',
   headlineAccent: 'Own What Replaces It.',
   intro:
-    `CoConstruct is being retired, and every builder on it has to move somewhere. The only question is whether you land in another rented seat or in a system you own. We are building a builder OS right now — draws, selections, change orders, sub scheduling — where the takeoff line IS the estimate line, and we are fitting it with real builders as we build it. This page is an invitation, not an install count: come in as a design partner, get fitted first, shape the system around how you actually build, and own it outright before CoConstruct goes dark. Your records get professionally migrated in, and nothing switches until the new system runs beside your old one and matches it. You'll never rent software that almost fits again.`,
+    `CoConstruct is being retired, and every builder on it has to move somewhere. The only question is whether you land in another rented seat or in a system you own. We are building a builder OS right now — draws, selections, change orders, sub scheduling — where the takeoff line IS the estimate line, and we are fitting it with real builders as we build it. Come in as a design partner, get fitted first, shape the system around how you actually build, and own it outright before CoConstruct goes dark. Your records get professionally migrated in, and nothing switches until the new system runs beside your old one and matches it.`,
   ctaLabel: 'Get My Design-Partner Fitting',
   formSource: 'service_custom_software_home_builders',
   formPageSlug: 'custom-software-home-builders',
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'Month-to-month, no contracts. You own the code, the data, and the system. If we ever part ways, it stays yours and keeps running.',
+        'You own the code, the data, and the system. If we ever part ways, it stays yours and keeps running.',
     },
   ],
   approachHeading: 'How a Design-Partner Fitting Works',
@@ -137,7 +137,7 @@ const data: PillarData = {
       { value: 'Owned', label: 'Code & Data, Outright' },
     ],
     narrative:
-      'We are not going to show you a fake install count — the builder OS is in fitting with a custom home builder right now, and design partners come in the same door. We map how your jobs actually run, you shape what gets built, and the system takes the shape of your operation while CoConstruct winds down. When it goes dark, you are not scrambling for a seat in someone else’s software — you are running a system that is already yours. And the rule never bends: nothing switches until the new system has run beside your old one and matched it.',
+      'The builder OS is in fitting with a custom home builder right now, and design partners come in the same door. We map how your jobs actually run, you shape what gets built, and the system takes the shape of your operation while CoConstruct winds down. When it goes dark, you are not scrambling for a seat in someone else’s software — you are running a system that is already yours. And the rule never bends: nothing switches until the new system has run beside your old one and matched it.',
   },
   mistakesHeading: 'How Builders Get Burned Switching Software',
   mistakes: [
@@ -164,23 +164,19 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your existing records — jobs, clients, selections, financial history — is part of that setup, not a separate invoice. No per-seat fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most builders. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your existing records — jobs, clients, selections, financial history — is part of that setup, not a separate invoice. No per-seat fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most builders. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Builders Are Talking to Found It',
   whyUs: [
+    'The builder OS is in fitting with a custom home builder today.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted on their own systems right now.`,
-    'Straight answers about what is built: the builder OS is in fitting with a custom home builder today. We recruit design partners — we do not invent install counts.',
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
-    `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
-    'Proven before it ships: the new system runs beside your old one until the two match, and you say go.',
-    'Built-in AI that answers questions about your own jobs in plain English — draws, selections, schedules, all of it.',
+    'You own 100% of the code and the data.',
   ],
   faqHeading: 'Home Builder Software FAQ',
   faq: [
     {
       question: 'Is Found It OS a CoConstruct alternative?',
       answer:
-        'Yes — and an honest one. CoConstruct is being retired, so every builder on it has to move somewhere. Most of the alternatives are another rented seat. This is the other path: a builder OS fitted to how you run jobs — draws, selections, change orders, sub scheduling — that you own outright. It is in fitting with a custom home builder right now, and we are recruiting design-partner builders to shape it before the sunset.',
+        'Yes. CoConstruct is being retired, so every builder on it has to move somewhere. Most of the alternatives are another rented seat. This is the other path: a builder OS fitted to how you run jobs — draws, selections, change orders, sub scheduling — that you own outright. It is in fitting with a custom home builder right now, and we are recruiting design-partner builders to shape it before the sunset.',
     },
     {
       question: 'What happens when CoConstruct shuts down?',
@@ -210,7 +206,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migrating your existing records is part of that setup. That is the whole number: no per-seat fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migrating your existing records is part of that setup. That is the whole number: no per-seat fees and no surprise add-ons.`,
     },
   ],
   relatedReading: [
@@ -221,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Get Fitted Before CoConstruct Goes Dark',
   finalCtaSub:
-    `Tell us how your jobs run today — the takeoffs, the draw schedules, the selection emails, the change orders on sticky notes — and we will map what your own builder OS would look like. Design partners get fitted first and shape what gets built. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your jobs run today — the takeoffs, the draw schedules, the selection emails, the change orders on sticky notes — and we will map what your own builder OS would look like. Design partners get fitted first and shape what gets built.`,
 };
 
 export default function HomeBuildersPillar() {

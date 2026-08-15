@@ -373,7 +373,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
                 </p>
                 {failCount > 0 && (
                   <p className="text-[11px] text-muted-foreground/70 font-medium mt-1">
-                    15-minute screen-share. Trevor walks you through patching them yourself — no pitch, no pressure.
+                    15-minute screen-share. Trevor walks you through patching them yourself.
                   </p>
                 )}
               </div>

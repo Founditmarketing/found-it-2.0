@@ -37,7 +37,6 @@ const data: PillarData = {
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years Building' },
     { value: '8-12 Wk', label: 'Typical Timeline' },
     { value: '100%', label: 'Code You Own' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
   definitionHeading: 'What Goes Into a Custom App?',
   definition:

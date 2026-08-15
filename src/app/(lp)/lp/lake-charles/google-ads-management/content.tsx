@@ -26,7 +26,7 @@ const faqItems = [
   },
   {
     question: "What's the catch with the free audit?",
-    answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. If we can't find at least $500 in wasted spend, we send you a $50 gift card for your time. You keep the findings either way.",
+    answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. You keep the findings either way.",
   },
   {
     question: 'Who actually manages my account?',
@@ -52,10 +52,9 @@ export function LakeCharlesGoogleAdsContent() {
         headline="More Commercial Leads From Google Ads in"
         headlineAccent="Lake Charles."
         subheadline="We run Google Ads for contractors, fabricators, and service businesses across Southwest Louisiana. Real tracking, weekly optimization, no contracts."
-        highlight="We'll find at least $500 in wasted spend on your free review, or we send you a $50 gift card."
+        highlight="We review the account and show you exactly where the budget is leaking."
         highlightIcon={ShieldCheck}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '10x', label: 'Best client ROAS' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -80,7 +79,6 @@ export function LakeCharlesGoogleAdsContent() {
         heading="Southwest Louisiana owners,"
         headingAccent="real phone calls."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years running ads' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

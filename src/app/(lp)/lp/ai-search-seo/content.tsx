@@ -58,7 +58,6 @@ export function AISearchSEOContent() {
         highlight="We run a live scan of your visibility across every major AI engine, free, at your office."
         highlightIcon={Sparkles}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '4', label: 'AI engines tracked' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -83,7 +82,6 @@ export function AISearchSEOContent() {
         heading="Owners who went from invisible"
         headingAccent="to found."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years doing SEO' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

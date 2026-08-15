@@ -98,11 +98,6 @@
     @apply leading-[0.9] tracking-tighter font-black font-heading select-none;
   }
 
-  .text-oversized-ultimate {
-    font-size: clamp(2.5rem, 11vw, 6vw);
-    @apply leading-[0.8] tracking-[-0.04em] font-black font-heading select-none uppercase italic;
-  }
-
   .blur-blob {
     @apply absolute rounded-full blur-[120px] opacity-20 pointer-events-none;
   }

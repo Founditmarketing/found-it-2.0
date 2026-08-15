@@ -226,7 +226,7 @@ function MobileNavItem({
           <div className="flex-1 min-w-0">
             <span
               className={cn(
-                'text-base font-black uppercase italic tracking-tighter block',
+                'text-base font-semibold block',
                 isActive ? 'text-primary' : 'text-foreground'
               )}
             >
@@ -265,7 +265,7 @@ function MobileNavItem({
         <div className="flex-1 min-w-0 text-left">
           <span
             className={cn(
-              'text-base font-black uppercase italic tracking-tighter block',
+              'text-base font-semibold block',
               expanded || isActive ? 'text-primary' : 'text-foreground'
             )}
           >
@@ -478,7 +478,7 @@ export function Header() {
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 font-black uppercase italic tracking-tighter text-sm whitespace-nowrap px-2 2xl:px-4 transition-colors group relative text-white hover:text-white hover:bg-white/10"
+                        className="flex items-center gap-1 font-semibold text-sm whitespace-nowrap px-2 2xl:px-4 transition-colors group relative text-white hover:text-white hover:bg-white/10"
                       >
                         {link.title} <ChevronDown className="h-4 w-4" />
                       </Button>
@@ -501,7 +501,7 @@ export function Header() {
                   <Link
                     key={link.title}
                     href={link.href}
-                    className="font-black uppercase italic tracking-tighter text-sm whitespace-nowrap transition-colors relative group py-2 text-white hover:text-primary"
+                    className="font-semibold text-sm whitespace-nowrap transition-colors relative group py-2 text-white hover:text-primary"
                   >
                     {link.title}
                     <motion.span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
@@ -518,14 +518,14 @@ export function Header() {
               <Link
                 href="/guide"
                 onClick={() => trackGuideCTAClick('header_desktop')}
-                className="hidden 2xl:flex items-center gap-1.5 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors"
+                className="hidden 2xl:flex items-center gap-1.5 font-semibold text-sm text-white hover:text-primary transition-colors"
               >
                 <Download className="w-4 h-4 text-primary" aria-hidden="true" />
                 Free Guide
               </Link>
               <Button
                 variant="ghost"
-                className="font-black uppercase italic tracking-tighter h-11 whitespace-nowrap px-2 2xl:px-4 transition-colors text-white hover:text-primary hover:bg-transparent"
+                className="font-semibold text-sm h-11 whitespace-nowrap px-2 2xl:px-4 transition-colors text-white hover:text-primary hover:bg-transparent"
                 asChild
               >
                 <SafePhone onClick={() => trackCallClick()}>
@@ -646,7 +646,7 @@ export function Header() {
                 >
                   <motion.div
                     whileTap={{ scale: 0.97 }}
-                    className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-4 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+                    className="w-full bg-primary text-primary-foreground font-semibold py-4 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                   >
                     Book a Free Call
                     <ArrowRight className="w-4 h-4" />
@@ -723,7 +723,7 @@ export function Header() {
                     <Lock className="w-4 h-4 text-primary" />
                   </span>
                   <div>
-                    <p className="text-sm font-black uppercase italic tracking-tighter text-foreground leading-none">Campaign Pages</p>
+                    <p className="text-sm font-semibold text-foreground leading-none">Campaign Pages</p>
                     <p className="text-[10px] text-muted-foreground font-medium mt-1">Internal — AdWords landing pages</p>
                   </div>
                 </div>

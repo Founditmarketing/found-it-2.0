@@ -184,7 +184,7 @@ export function BentoGridSection() {
                 <Briefcase className="w-12 h-12 text-primary mb-8" />
                 <h3 className="text-primary text-xs font-black uppercase tracking-[0.5em] mb-4">Case Study: National Scale</h3>
                 <h4 className="text-card-foreground text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-none mb-8">Local Lot to<br />National Powerhouse</h4>
-                <p className="text-muted-foreground text-xl lg:text-2xl mt-4 max-w-4xl font-medium leading-relaxed">This 10-year partnership scaled a local equipment dealer from a single lot to a national volume dealer shipping heavy equipment to 48 states, generating over <span className="text-foreground">$500M in revenue</span>.</p>
+                <p className="text-muted-foreground text-xl lg:text-2xl mt-4 max-w-4xl font-medium leading-relaxed">This 10-year partnership scaled a local equipment dealer from a single lot to a national volume dealer shipping heavy equipment to 48 states.</p>
                 <p className="text-primary mt-12 border-l-4 border-primary pl-8 text-2xl lg:text-3xl italic font-black tracking-tighter">"They turned us into a major volume dealer simply by using their service."</p>
               </div>
               <motion.div

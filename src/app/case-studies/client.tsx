@@ -79,8 +79,6 @@ const apps: AppStudy[] = [
 interface CaseStudy {
   client: string;
   industry: string;
-  result: string;
-  stats: { value: string; label: string }[];
   story: string;
 }
 
@@ -88,71 +86,36 @@ const marketingStudies: CaseStudy[] = [
   {
     client: 'National Equipment Dealer',
     industry: 'Heavy Equipment',
-    result: 'Local lot → shipping to 48 states',
-    stats: [
-      { value: '$500M+', label: 'Revenue Growth' },
-      { value: '48', label: 'States Reached' },
-    ],
     story: 'Started with $5K/month. We built the digital infrastructure — Google Ads, SEO, and a conversion-optimized site — that turned a local dealership into a national volume dealer.',
   },
   {
     client: 'Total Family Solutions',
     industry: 'Healthcare',
-    result: 'Outranked ZocDoc and BetterHelp',
-    stats: [
-      { value: '349%', label: 'Traffic Increase' },
-      { value: 'Top 3', label: 'Map Pack Rank' },
-    ],
     story: 'They were invisible against billion-dollar aggregators. We got them to Top 3 in Maps and outranking ZocDoc, Psychology Today, and BetterHelp for their local market.',
   },
   {
     client: 'Stone Automotive',
     industry: 'Auto Repair',
-    result: '750 calls in 5 months',
-    stats: [
-      { value: '750', label: 'Organic Calls' },
-      { value: '150/mo', label: 'Avg Monthly Calls' },
-    ],
     story: 'Auto shops live and die by the phone. We drove 150+ high-intent calls per month from their Google Business Profile alone — bays full, mechanics busy.',
   },
   {
     client: 'Weiss & Goldring',
     industry: 'Luxury Retail',
-    result: 'The only AI recommendation for luxury suits',
-    stats: [
-      { value: '#1', label: 'AI Recommendation' },
-      { value: 'The Answer', label: 'ChatGPT Position' },
-    ],
     story: "When someone asks ChatGPT or Google AI for luxury suit recommendations, our client isn't on a list — they are the answer. That's AI search optimization.",
   },
   {
     client: "Smoker's Heaven",
     industry: 'Retail',
-    result: '1,169 direction requests in 5 months',
-    stats: [
-      { value: '1,169', label: 'Direction Requests' },
-      { value: '+17.8%', label: 'Y/Y Foot Traffic' },
-    ],
     story: "For retail, clicks don't matter — customers walking through the door matters. We optimized for Google Maps direction requests and drove 7+ new customers to the store daily.",
   },
   {
     client: 'Sniper Off Road',
     industry: 'Automotive',
-    result: '106 calls/month in the off-season',
-    stats: [
-      { value: '106', label: 'Calls/Month' },
-      { value: '#1', label: 'Map Pack Rank' },
-    ],
     story: 'Dominated the local market with Map Pack ownership and a direct pipeline of high-value phone leads. One converted lead pays for the entire year of agency fees.',
   },
   {
     client: 'Futrell Marine',
     industry: 'Marine & Boat Sales',
-    result: '#1 in a market outside their home state',
-    stats: [
-      { value: '#1', label: 'Organic + Maps' },
-      { value: 'Multi-State', label: 'Market Reach' },
-    ],
     story: 'A Louisiana dealer needed to prove they could win outside their home state. We deployed in Rogers, Arkansas and secured #1 organic and Maps — in a market they had zero presence in.',
   },
 ];
@@ -279,23 +242,12 @@ export default function CaseStudiesPage() {
                 transition={{ delay: i * 0.04, duration: 0.6, ease: ease as any }}
                 className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl overflow-hidden"
               >
-                <div className="px-6 lg:px-8 py-4 border-b border-border/10 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{study.industry}</span>
-                    <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{study.client}</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground font-bold italic hidden sm:block max-w-[200px] text-right">{study.result}</p>
+                <div className="px-6 lg:px-8 py-4 border-b border-border/10">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{study.industry}</span>
+                  <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{study.client}</h3>
                 </div>
-                <div className="px-6 lg:px-8 py-6 grid sm:grid-cols-[1fr_auto] gap-6 items-start">
+                <div className="px-6 lg:px-8 py-6">
                   <p className="text-sm text-muted-foreground font-medium leading-relaxed">{study.story}</p>
-                  <div className="flex sm:flex-col gap-4 sm:gap-3">
-                    {study.stats.map((stat, j) => (
-                      <div key={j} className="bg-primary/5 border border-primary/10 rounded-xl px-4 py-3 text-center min-w-[100px]">
-                        <p className="text-xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                        <p className="text-[9px] font-black uppercase tracking-[0.15em] text-faint">{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             ))}

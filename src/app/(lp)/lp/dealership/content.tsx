@@ -58,7 +58,7 @@ const faqItems = [
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
   },
 ];
 
@@ -139,7 +139,7 @@ export function DealershipLPContent() {
           {
             title: '“I’ve Been Burned By Dealer Software Before.”',
             detail:
-              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Leave any month with 30 days' notice and everything is still yours. Our customers stay because they love it, not because they're locked in.",
+              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Leave any month with 30 days' notice and everything is still yours.",
           },
         ]}
       />

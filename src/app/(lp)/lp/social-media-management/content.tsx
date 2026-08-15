@@ -58,7 +58,6 @@ export function SocialMediaLPContent() {
         highlight="We create every post and ad. You just approve, and we report on calls, not likes."
         highlightIcon={MessageSquare}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '3x', label: 'Best client growth' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -83,7 +82,6 @@ export function SocialMediaLPContent() {
         heading="Content that owners"
         headingAccent="actually see results from."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in marketing' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

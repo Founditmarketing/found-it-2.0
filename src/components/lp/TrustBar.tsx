@@ -10,7 +10,6 @@ interface TrustBarProps {
 }
 
 const defaultStats = [
-  { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
   { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
   { value: `${TRACK_RECORD.googleRating}★`, label: 'Google Rating' },
   { value: '0', label: 'Long-Term Contracts' },

@@ -32,7 +32,6 @@ export function AppDevelopmentLPContent() {
         highlight="You get a fixed price and a guaranteed delivery date before you sign anything."
         highlightIcon={ShieldCheck}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: 'iOS+Android', label: 'Native build' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -57,7 +56,6 @@ export function AppDevelopmentLPContent() {
         heading="Builds owners"
         headingAccent="can count on."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years building software' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

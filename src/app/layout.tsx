@@ -4,7 +4,6 @@ import { Inter, Outfit } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LayoutShell } from '@/components/LayoutShell';
-import { VisitorCapture } from '@/components/landing/VisitorCapture';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
@@ -106,10 +105,7 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <LayoutShell>
-            {children}
-            <VisitorCapture />
-          </LayoutShell>
+          <LayoutShell>{children}</LayoutShell>
         </ThemeProvider>
       </body>
     </html>

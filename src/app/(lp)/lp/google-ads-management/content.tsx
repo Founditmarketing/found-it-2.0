@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     question: "What's the catch with the free audit?",
-    answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. If we can't find at least $500 in wasted spend, we send you a $50 gift card for your time. You keep the findings either way.",
+    answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. You keep the findings.",
   },
   {
     question: 'Who actually manages my account?',
@@ -58,11 +58,6 @@ export function GoogleAdsLPContent() {
         subheadline="Google Ads management by a senior digital marketing team: we audit your account, cut the wasted spend, and rebuild around the leads that actually become customers."
         highlight="One client turned $4,200/mo in ad spend into $42,000/mo in revenue — a 10x return."
         highlightIcon={TrendingUp}
-        stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
-          { value: '10x', label: 'Best client ROAS' },
-          { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
-        ]}
         formHeading="Get My Free Ad Audit"
         formSource="lp_google_ads"
         formPageSlug="google-ads-management"
@@ -73,10 +68,10 @@ export function GoogleAdsLPContent() {
         eyebrow="Meet The Developer"
         heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the software map below."
         videoSrc="/founder-intro-v2.mp4"
         poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get A Free Software Map"
+        ctaText="Get A Software Map"
         ctaHref="#lp-form"
       />
 
@@ -84,7 +79,6 @@ export function GoogleAdsLPContent() {
         heading="Real owners,"
         headingAccent="real phone calls."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years running ads' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },
@@ -128,7 +122,7 @@ export function GoogleAdsLPContent() {
           },
           {
             title: '100% Local. We Come To Your Office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here, and we'll gladly drive to you and review your strategy in person.",
+            detail: "Tired of faceless agencies hiding behind a screen? We are based right here, and we'll gladly drive to you and review your strategy in person.",
           },
         ]}
       />
@@ -141,8 +135,7 @@ export function GoogleAdsLPContent() {
         benefits={[
           '5-minute video breakdown of your ad account',
           'Actionable list of wasted spend and junk keywords',
-          'Guaranteed to find $500 in waste, or we send a $50 gift card',
-          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
+          'Local to the area? We will do this in person at your office.',
         ]}
         source="lp_google_ads"
         pageSlug="google-ads-management"
@@ -160,7 +153,7 @@ export function GoogleAdsLPContent() {
               <span className="text-primary">Start Growing.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-lg mx-auto leading-relaxed">
-              Worst case, we send you a $50 Amazon gift card for wasting your time. Best case, you stop wasting money next week.
+              We audit the account, show you what is leaking, and hand you the plan.
             </p>
             <Link href="#lp-form">
               <LiquidButton className="px-12 h-16 text-base sm:text-lg tracking-[0.05em] shadow-2xl shadow-primary/20">

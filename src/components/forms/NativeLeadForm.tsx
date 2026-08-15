@@ -51,7 +51,7 @@ export function NativeLeadForm({
   heading,
   subheading,
   ctaLabel = 'Get My Call Back',
-  privacyNote = 'Free & no obligation. We reply within 2 hours — and never sell your info.',
+  privacyNote = 'We reply within two hours.',
   showBusiness = false,
   compact = false,
   successNote = 'Trevor will call you back — usually within 2 hours.',

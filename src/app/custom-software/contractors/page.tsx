@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'Contractor Job Management —',
   headlineAccent: 'Software You Own Outright.',
   intro:
-    `Right now your office is a truck cab. Jobs live on paper, the customer list lives in somebody's head, and annual service work slips because nobody got a reminder. The software industry's answer is a CRM-class rental built for everyone — which means it fits nobody, least of all your trade. Found It OS is the opposite: one system fitted to how your crews actually run jobs — the job board, the schedule, the customer book, the invoices, the website leads — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new system runs beside the old way and matches it. You'll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `Right now your office is a truck cab. Jobs live on paper, the customer list lives in somebody's head, and annual service work slips because nobody got a reminder. The software industry's answer is a CRM-class rental built for everyone — which means it fits nobody, least of all your trade. Found It OS is the opposite: one system fitted to how your crews actually run jobs — the job board, the schedule, the customer book, the invoices, the website leads — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new system runs beside the old way and matches it.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_contractors',
   formPageSlug: 'custom-software-contractors',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '1', label: 'Field-Service OS Live' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'Month-to-month, no contracts. You own the code, the data, and the system. If we ever part ways, it stays yours and keeps running.',
+        'You own the code, the data, and the system. If we ever part ways, it stays yours and keeps running.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -199,16 +199,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees, no per-user fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most local businesses. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most local businesses. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Contractors Choose Found It OS',
   whyUs: [
-    'A field-service operating system we built is live in production today — jobs, customers, annual service reminders, and real website leads flowing straight into the desk.',
-    'A foundation contractor is in fitting right now — a real engagement, not a promise.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
-    'Your records get professionally migrated in — and nothing switches until the new system runs beside the old way and matches it.',
-    `${TRACK_RECORD.yearsInBusiness} years building digital products for local businesses, from a team in Alexandria, LA you can actually reach.`,
+    'A field-service operating system we built is live in production today.',
+    'A foundation contractor is in fitting now.',
+    'You own 100% of the code and the data.',
   ],
   faqHeading: 'Contractor Software FAQ',
   faq: [
@@ -235,12 +231,12 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-truck fees, no per-user fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-truck fees, no per-user fees, and no surprise add-ons.`,
     },
     {
       question: 'Who owns the system?',
       answer:
-        'You do. The code, the data, the whole system — it is your asset. Month-to-month, no contracts, and if we ever part ways, the system stays yours and keeps running.',
+        'You do. The code, the data, the whole system — it is your asset. If we ever part ways, it stays yours and keeps running.',
     },
     {
       question: 'My crew is not technical. Can they run it?',
@@ -256,7 +252,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Jobs on One Desk',
   finalCtaSub:
-    `Tell us how your operation runs today — the truck cab, the paper, the reminders that never happen — and we will map what your own job management system would look like. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your operation runs today — the truck cab, the paper, the reminders that never happen — and we will map what your own job management system would look like. In person if you are local.`,
 };
 
 export default function ContractorSoftwarePillar() {

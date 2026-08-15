@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'The AI-Powered',
   headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
-    `Tekmetric is a capable system — and you will rent it forever, by the month, with your shop's history living in their cloud. We build the other kind: the AI-powered shop system you own. We have already moved a real shop off a Tekmetric-class system — roughly ten years of records professionally migrated — and the AI read every line on the way in, surfacing about $270K in forgotten, unbilled work their old software never showed them. One system fitted to how your shop actually runs — work orders, the parts and waiting board, your customer book, invoicing, and an AI service desk — and you own it, code and data. Nothing switches until the new system has run beside your old one and matched it. The price is published right on this page. You'll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `Tekmetric is a capable system — and you will rent it forever, by the month, with your shop's history living in their cloud. We build the other kind: the AI-powered shop system you own. We have already moved a real shop off a Tekmetric-class system — roughly ten years of records professionally migrated — and the AI read every line on the way in, surfacing about $270K in forgotten, unbilled work their old software never showed them. One system fitted to how your shop actually runs — work orders, the parts and waiting board, your customer book, invoicing, and an AI service desk — and you own it, code and data. Nothing switches until the new system has run beside your old one and matched it. The price is published right on this page.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: '~$270K', label: 'Unbilled Work Found in One Migration' },
     { value: '~10 Yrs', label: 'of Records Migrated In' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'Month-to-month, no contracts. The code, the data, the whole system is yours. If we ever part ways, it stays in your shop and keeps running.',
+        'The code, the data, the whole system is yours. If we ever part ways, it stays in your shop and keeps running.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -140,7 +140,7 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of shop systems we have fitted — the day on one board, a tire quote priced out the door in seconds, and the parking lot that surfaced $270K. Desktop and phone. Fitted, not templated.',
+    'Straight off the screens of shop systems we have fitted — the day on one board, a tire quote priced out the door in seconds, and the parking lot of declined work. Desktop and phone. Fitted, not templated.',
   showcase: [
     {
       img: '/os-screens/flywheel-os-today-v1.png',
@@ -167,7 +167,7 @@ const data: PillarData = {
       imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
       title: 'Tony’s Shop OS',
       kind: 'European Auto Repair',
-      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text. This is the system that surfaced ~$270K in forgotten work.',
+      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
     },
   ],
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',
@@ -185,7 +185,7 @@ const data: PillarData = {
     {
       title: 'The abandoned back catalog',
       detail:
-        'When shops do switch systems, the old records usually get left behind — and whatever was unbilled, declined, or forgotten in there is gone for good. One Louisiana shop had about $270K sleeping in theirs.',
+        'When shops do switch systems, the old records usually get left behind — and whatever was unbilled, declined, or forgotten in there is gone for good.',
     },
     {
       title: 'Rip-and-replace weekends',
@@ -195,23 +195,19 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and the migration is where your old records get professionally brought in, not abandoned. No per-writer fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Shops renting a monthly management system pay rent forever and own nothing at the end. Here, the monthly covers backups, support, and new features — the system itself is already your asset.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and the migration is where your old records get professionally brought in, not abandoned. No per-writer fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Shops renting a monthly management system pay rent forever and own nothing at the end. Here, the monthly covers backups, support, and new features — the system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
-    'We have already built a complete shop operating system for a real independent auto shop — work orders, parts board, customer book, invoicing, AI service desk — running on roughly ten years of its real migrated records.',
-    'That migration surfaced about $270K in forgotten and unbilled work sitting in the shop\'s old system. Migration is not a chore here; it is where the money hides.',
+    'A complete shop operating system we built runs a real independent auto shop today, on roughly ten years of its migrated records.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays in your shop.',
-    'Proven before it ships: the new system runs beside your old one on your real data until the two match.',
-    'AI-first, not AI-added: the system reads your entire migrated history, so the AI answers about YOUR shop — declined jobs, quiet regulars, what is waiting on parts, what is sleeping unbilled.',
+    'You own 100% of the code and the data.',
   ],
   faqHeading: 'Auto Repair Shop Software FAQ',
   faq: [
     {
       question: 'Can you migrate my shop off Tekmetric?',
       answer:
-        'That is the core of what we do. We have already moved a real shop off a Tekmetric-class system — roughly ten years of customers, vehicles, and work orders professionally migrated in. The old system gets read completely (that full read is how one shop surfaced about $270K in unbilled work), the new system runs beside it on your real data until the two match, and nothing switches until you give the word.',
+        'That is the core of what we do. We have already moved a real shop off a Tekmetric-class system — roughly ten years of customers, vehicles, and work orders professionally migrated in. The old system gets read completely, the new system runs beside it on your real data until the two match, and nothing switches until you give the word.',
     },
     {
       question: 'Is Found It OS a Tekmetric alternative?',
@@ -224,14 +220,9 @@ const data: PillarData = {
         'They get professionally migrated in — customers, vehicles, and history — so day one starts with your shop\'s real past, not an empty screen. In one Louisiana shop\'s migration, that meant roughly ten years of records. Your old system is not abandoned; it is read completely, and everything worth keeping comes with you.',
     },
     {
-      question: 'Is the $270K story real?',
-      answer:
-        'Yes. During one Louisiana shop\'s migration, the system surfaced about $270,000 in forgotten and unbilled work that had been sitting in their old system for years. We are not promising your shop has the same money sleeping in it — but we have seen what a full read of an old system can turn up, and you will know what is in yours before you switch.',
-    },
-    {
       question: 'What does auto repair shop software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-writer fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-writer fees and no surprise add-ons.`,
     },
     {
       question: 'Will my shop go down during the switch?',
@@ -241,7 +232,7 @@ const data: PillarData = {
     {
       question: 'Who owns the system and the data?',
       answer:
-        'You do. The code, the customer book, every work order — it is your asset. It is month-to-month with no contracts, and if we ever part ways, the system stays in your shop and keeps running. That is the opposite of the usual arrangement, where leaving means losing your history.',
+        'You do. The code, the customer book, every work order — it is your asset. If we ever part ways, it stays in your shop and keeps running.',
     },
     {
       question: 'Do I need a computer person on staff?',
@@ -257,7 +248,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Put the AI-Powered Alternative in Your Shop',
   finalCtaSub:
-    `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. In person if you are local.`,
 };
 
 export default function AutoRepairShopSoftwarePillar() {

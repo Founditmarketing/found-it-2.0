@@ -55,7 +55,6 @@ export function LakeCharlesWebDesignContent() {
         highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
         highlightIcon={Clock}
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical build' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
@@ -80,7 +79,6 @@ export function LakeCharlesWebDesignContent() {
         heading="Southwest Louisiana owners"
         headingAccent="who trust us."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: '2 wks', label: 'Typical time to launch' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: '0', label: 'Long-term contracts' },

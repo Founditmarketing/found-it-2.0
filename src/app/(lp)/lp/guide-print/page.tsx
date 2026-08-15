@@ -326,7 +326,7 @@ export default function GuidePrintPage() {
             And if it doesn&apos;t earn its keep: cancel. Month-to-month — the system is still yours.
           </p>
           <p className="font-bold" style={{ fontSize: '8.5pt', marginTop: '4pt' }}>
-            No long-term contract. Our customers stay because they love it, not because they&apos;re locked in.
+            No long-term contract.
           </p>
         </div>
 
@@ -345,7 +345,7 @@ export default function GuidePrintPage() {
           {
             n: '01',
             t: 'The Free Map Visit',
-            d: 'We come to your place (or hop on a Zoom) and walk how the business actually runs — the phones, the paperwork, the money. Then we map the app we\u2019d build if we owned your company. You add to it or take away. You keep the map either way, hire us or don\u2019t.',
+            d: 'We come to your place (or hop on a video call) and walk how the business actually runs — the phones, the paperwork, the money. Then we map the app we\u2019d build if we owned your company. You add to it or take away. You keep the map either way, hire us or don\u2019t.',
           },
           {
             n: '02',

@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD, REVENUE_CLAIM } from '@/lib/site';
+import { TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Google Ads Management for Local Businesses',
   description:
-    'Google Ads management from a team with 13+ years in marketing and millions in managed ad spend. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Based in Alexandria, LA.',
+    'Google Ads management from a team with 13+ years in marketing. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Based in Alexandria, LA.',
   alternates: { canonical: '/google-ads-management' },
   openGraph: {
     title: 'Google Ads Management for Local Businesses | Found It Marketing',
     description:
-      'A team with 13+ years in marketing and millions in managed ad spend. Weekly optimization, conversion tracking, no contracts.',
+      'A team with 13+ years in marketing. Weekly optimization, conversion tracking, no contracts.',
     type: 'website',
     url: 'https://www.founditsoftware.com/google-ads-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -23,21 +23,19 @@ const data: PillarData = {
   slug: '/google-ads-management',
   serviceType: 'PPC Management',
   schemaDescription:
-    'Google Ads management for local service businesses, backed by 13+ years in marketing and millions in managed ad spend. Weekly optimization, conversion tracking, and transparent reporting with no contracts.',
+    'Google Ads management for local service businesses, backed by 13+ years in marketing. Weekly optimization, conversion tracking, and transparent reporting with no contracts.',
   eyebrow: 'Google Ads Management',
   headline: 'Google Ads That Make the Phone Ring,',
   headlineAccent: 'Not Just Burn Budget.',
   intro:
-    `Found It Marketing has managed marketing campaigns for ${TRACK_RECORD.yearsInBusiness} years and overseen ${TRACK_RECORD.adSpendManagedLong}. Across everything we do — ads, web, SEO, and organic — our clients have generated ${REVENUE_CLAIM.figure} in tracked revenue. We run Google Ads for local service businesses with weekly hands-on optimization, real conversion tracking, and reporting you can actually read. You own your account and data, always.`,
+    `Found It Marketing has managed marketing campaigns for ${TRACK_RECORD.yearsInBusiness} years. We run Google Ads for local service businesses with weekly hands-on optimization, real conversion tracking, and reporting you can actually read. You own your account and data, always.`,
   ctaLabel: 'Get My Free Ad Audit',
   formSource: 'service_google_ads',
   formPageSlug: 'google-ads-management',
   formHeading: 'Get Your Free Google Ads Audit',
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
-    { value: TRACK_RECORD.adSpendManaged, label: 'In Managed Ad Spend' },
-    { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
+    { value: TRACK_RECORD.googleRating, label: 'Google Rating' },
   ],
   definitionHeading: 'What Is Google Ads Management?',
   definition:
@@ -53,7 +51,7 @@ const data: PillarData = {
   ],
   approachHeading: 'How We Manage Your Account',
   approachIntro:
-    `After ${TRACK_RECORD.yearsInBusiness} years and ${TRACK_RECORD.adSpendManagedLong}, we have learned that Google Ads is won in the weekly details, not set-and-forget automation.`,
+    `After ${TRACK_RECORD.yearsInBusiness} years, we have learned that Google Ads is won in the weekly details, not set-and-forget automation.`,
   approach: [
     { step: '01', title: 'Audit & Plan', detail: 'We audit your account (or build from scratch), find the leaks, and map a plan with realistic projections.' },
     { step: '02', title: 'Build & Launch', detail: 'We structure campaigns around buyer intent, write the ads, and set up airtight conversion tracking.' },
@@ -93,12 +91,11 @@ const data: PillarData = {
     'Most local businesses invest between $1,500 and $5,000/month in ad spend, plus a flat management fee scoped to your account. The right number depends on what a customer is worth to you and how fast you want to grow — you will get specific projections in your free audit. No long-term contracts; month-to-month, cancel anytime.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
-    `${TRACK_RECORD.yearsInBusiness} years of experience and ${TRACK_RECORD.adSpendManagedLong}.`,
+    `${TRACK_RECORD.yearsInBusiness} years running local ad accounts.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
     'You own your Google Ads account, conversion history, and data — keep everything if you leave.',
     'No long-term contracts. Month-to-month. Cancel anytime.',
     'A senior strategist runs your account every week. No hand-offs to interns.',
-    'Free audit: if we cannot find at least $500 in wasted spend, we send you a $50 gift card for your time.',
   ],
   faqHeading: 'Google Ads Management FAQ',
   faq: [

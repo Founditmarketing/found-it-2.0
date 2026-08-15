@@ -81,7 +81,7 @@ export function LeadMagnetSection() {
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                     </div>
                     <p className="text-muted-foreground text-sm font-medium italic">
-                      <span className="text-foreground font-bold not-italic">$500M+ revenue</span> scaling a local equipment dealer to 48 states
+                      Scaled a local equipment dealer to customers in 48 states
                     </p>
                   </div>
                   <div className="flex items-start gap-4">

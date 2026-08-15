@@ -12,8 +12,7 @@ import { OS_PRICING } from '@/lib/site';
 const ease = [0.16, 1, 0.3, 1] as const;
 
 /* Fee structures below use only the approved numbers: Ads ($1,500–$5,000/mo
-   typical ad spend + flat management fee; $500-wasted-spend-or-$50-gift-card
-   audit guarantee), web design (flat quote, 60 days free post-launch
+   typical ad spend + flat management fee), web design (flat quote, 60 days free post-launch
    optimization, maintenance from $250/mo), social (flat monthly), apps (fixed
    price after a free blueprint, 8–12 weeks), AI automation (flat monthly,
    live in 1–2 weeks), Found It OS ($2,200/mo + $2,000 one-time migration &
@@ -23,14 +22,14 @@ const services = [
   {
     name: 'Found It OS',
     price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
-    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. One job: ${OS_PRICING.promise} Our customers stay because they love it, not because they’re locked in.`,
+    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. One job: ${OS_PRICING.promise}`,
     features: [
       'Free fitting first — we map how your business runs',
       'Runs beside your old system until the books match to the penny',
       'You own the code and the data — if we part ways, the system stays yours',
       'Month-to-month — no contracts',
     ],
-    cta: 'Get a Free Fitting',
+    cta: 'Get a Fitting',
     detailsHref: '/foundit-os',
   },
   {
@@ -38,12 +37,12 @@ const services = [
     price: 'Flat Monthly Fee',
     note: 'Most local businesses run $1,500–$5,000/mo in ad spend, paid straight to Google. Your management fee is flat, scoped to the account on the free audit.',
     features: [
-      'Free audit first — if we can’t find $500+ in wasted spend, we send you a $50 gift card',
+      'Free audit first — we show you where the budget is leaking',
       'Weekly optimization',
       'Real conversion tracking',
       'You own your ad account',
     ],
-    cta: 'Get a Free Audit',
+    cta: 'Get an Audit',
     detailsHref: '/google-ads-management',
   },
   {
@@ -69,7 +68,7 @@ const services = [
       'Schema + entity optimization',
       'Competitive AI audit',
     ],
-    cta: 'Get a Free AI Audit',
+    cta: 'Get an AI Audit',
     detailsHref: '/ai-search-optimization',
   },
   {
@@ -90,12 +89,11 @@ const services = [
     price: 'Fixed Project Price',
     note: 'Fixed price after a free blueprint session — typically 8 to 12 weeks to launch.',
     features: [
-      'Free blueprint before you spend a dime',
       'Fixed price — no hourly creep',
       'Typically 8–12 weeks to launch',
       'You own 100% of the codebase',
     ],
-    cta: 'Book a Free Blueprint',
+    cta: 'Book a Blueprint',
     detailsHref: '/app-development',
   },
   {
@@ -106,9 +104,8 @@ const services = [
       'Instant lead follow-up',
       'AI voice + text agents',
       'Automated appointment setting',
-      'Free demo before you commit',
     ],
-    cta: 'Book a Free Demo',
+    cta: 'Book a Demo',
     detailsHref: '/ai-marketing',
   },
 ];
@@ -127,7 +124,7 @@ export default function PricingClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center mb-10"
+          className="text-center mb-16"
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Pricing</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
@@ -135,19 +132,7 @@ export default function PricingClient() {
             <span className="text-primary">Scoped Up Front.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            Every service is a flat fee you see in writing before you pay a dime. No hourly billing. No hidden costs. No long-term contracts. Month-to-month on everything.
-          </p>
-        </motion.div>
-
-        {/* Why no sticker prices — the honest explainer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6, ease: ease as any }}
-          className="max-w-2xl mx-auto text-center mb-14"
-        >
-          <p className="text-sm text-muted-foreground font-medium leading-relaxed">
-            <span className="text-foreground font-bold">Why no price tags on marketing?</span> Because the right number depends on your market and your goals — a plumber in Alexandria doesn&apos;t pay what a law firm in Baton Rouge pays. We scope it on a free call, you get the exact flat fee in writing, and it doesn&apos;t change. The one exception: <span className="text-foreground font-bold">Found It OS has its price printed below</span> — same number for everybody.
+            Every service is a flat fee, in writing, before you pay. Month-to-month on everything.
           </p>
         </motion.div>
 
@@ -209,11 +194,9 @@ export default function PricingClient() {
           <div className="space-y-3">
             {[
               'No setup fees on ads management.',
-              'Google Ads audit guarantee: if we can’t find at least $500 in wasted spend, we send you a $50 gift card.',
               'Web design is a one-time build cost with 60 days of free post-launch optimization. Maintenance plans start at $250/mo.',
               'You pay ad spend directly to Google — we never mark it up or bundle it.',
               'Apps are fixed-price after a free blueprint — typically 8 to 12 weeks to launch.',
-              'Month-to-month on all services. Cancel with 30 days notice.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-primary text-xs font-black mt-0.5">•</span>
@@ -236,7 +219,7 @@ export default function PricingClient() {
             <span className="text-primary">Ask Trevor.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            15-minute call. No pitch. He&apos;ll tell you what makes sense for your business and budget — and give you the exact flat number.
+            Fifteen minutes. He&apos;ll tell you what makes sense for your business and budget, and give you the exact flat number.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="w-full sm:w-auto max-w-sm">

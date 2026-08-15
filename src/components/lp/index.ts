@@ -9,7 +9,6 @@ export { BenefitsGrid } from './BenefitsGrid';
 export { LPFormSection } from './LPFormSection';
 export { LPFooter } from './LPFooter';
 export { PortfolioMarquee } from './PortfolioMarquee';
-export { ExitIntent } from './ExitIntent';
 export { LeadFormEmbed } from './LeadFormEmbed';
 export { LPSplitHero } from './LPSplitHero';
 export { VoiceAgentWidget } from './VoiceAgentWidget';

@@ -73,7 +73,6 @@ export function LocalMarketingTriMetroContent() {
         highlightIcon={Handshake}
         stats={[
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in Louisiana' },
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
         formHeading="Book My Free Strategy Call"
@@ -97,7 +96,6 @@ export function LocalMarketingTriMetroContent() {
         heading="Louisiana owners,"
         headingAccent="not logos on a slide deck."
         stats={[
-          { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years in business' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
           { value: AWARD.year, label: 'CLEDA award winner' },

@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'Stop Paying Rent on',
   headlineAccent: 'Every Building You Sell.',
   intro:
-    `Most software in the shed world charges per unit — the more buildings you move, the bigger the bill — and your orders, your dealer records, and your RTO contracts live on someone else's servers the whole time. Found It OS is the other way to do it: one system fitted to how your yard actually runs — orders, dealer lots, the build queue, delivery scheduling, rent-to-own tracking — and you own it outright, code and data. We built exactly this for a Texas shed manufacturer replacing a ShedSuite-class system, and nothing switches until the new system has run beside your old one and matched it. You'll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `Most software in the shed world charges per unit — the more buildings you move, the bigger the bill — and your orders, your dealer records, and your RTO contracts live on someone else's servers the whole time. Found It OS is the other way to do it: one system fitted to how your yard actually runs — orders, dealer lots, the build queue, delivery scheduling, rent-to-own tracking — and you own it outright, code and data. We built exactly this for a Texas shed manufacturer replacing a ShedSuite-class system, and nothing switches until the new system has run beside your old one and matched it.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_shed_builders',
   formPageSlug: 'custom-software-shed-builders',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '$0', label: 'Per-Building Fees' },
@@ -106,7 +106,7 @@ const data: PillarData = {
       step: '04',
       title: 'We Stay On',
       detail:
-        'Nightly backups, support you can actually call, and new features as the operation grows. Month-to-month — the system earns its keep or you keep it and cancel.',
+        'Nightly backups, support you can actually call, and new features as the operation grows.',
     },
   ],
   audienceHeading: 'Who This Is For',
@@ -165,16 +165,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit fees, no per-lot fees, no charge that grows because you sold more buildings. Month-to-month, no contracts — and if we ever part ways, the system stays yours, code and data. One job: ${OS_PRICING.promise} Compare that to renting software that takes a toll on every unit and holds your records if you try to leave.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit fees, no per-lot fees, no charge that grows because you sold more buildings. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise} Compare that to renting software that takes a toll on every unit and holds your records if you try to leave.`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We have already built this for the shed industry — a full operating system fitted to a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays yours and keeps running.',
-    'Your records come with you — orders, lots, RTO contracts, customer history — professionally migrated in, not abandoned.',
-    'Proven before it ships: the new system runs beside your old one until the two match, and you say go.',
-    'A built-in AI that answers questions about your own yard in plain English — from your data, not a chatbot script.',
+    'You own 100% of the code and the data.',
   ],
   faqHeading: 'Shed Builder Software FAQ',
   faq: [
@@ -206,12 +202,12 @@ const data: PillarData = {
     {
       question: 'Who owns the system?',
       answer:
-        'You do. The code, the data, the whole system — it is your asset. Month-to-month, no contracts, and if we ever part ways, the system stays yours and keeps running. When you rent shed software, the company holds your order history and your RTO book and dares you to switch. Ownership ends that.',
+        'You do. The code, the data, the whole system — it is your asset. When you rent shed software, the company holds your order history and your RTO book and dares you to switch. Ownership ends that.',
     },
     {
       question: 'Is this in production at a shed company today?',
       answer:
-        'The first shed-industry build — for a Texas manufacturer — has Phase 1 built and verified end-to-end: the full spine from a sold order through dealer lots, the build queue, delivery, and rent-to-own tracking. We say exactly where things stand rather than inflating it, because the same honesty applies to your fitting: nothing switches until the system has proven itself beside your old one.',
+        'The first shed-industry build — for a Texas manufacturer — has Phase 1 built and verified end-to-end: the full spine from a sold order through dealer lots, the build queue, delivery, and rent-to-own tracking. Nothing switches until the system has proven itself beside your old one.',
     },
   ],
   relatedReading: [
@@ -222,7 +218,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Yard on Its Own OS',
   finalCtaSub:
-    `Tell us how your operation runs today — the order binder, the build sheets, the lot calls, the RTO spreadsheet — and we will map what your own operating system would look like. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your operation runs today — the order binder, the build sheets, the lot calls, the RTO spreadsheet — and we will map what your own operating system would look like. In person if you are local.`,
 };
 
 export default function ShedBuildersPillar() {

@@ -5,7 +5,6 @@ import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
-import { REVENUE_CLAIM, STATES_CLAIM, TRACK_RECORD } from '@/lib/site';
 import { OsRail } from '@/components/os/OsRail';
 
 export interface PillarData {
@@ -88,23 +87,6 @@ export interface PillarData {
 export function ServicePillar({ data }: { data: PillarData }) {
   const ctaHref = data.ctaHref || '#lead-form';
 
-  /* ── Stat-bar truth pass ──
-     Normalize the numbers every pillar shows to the canonical constants:
-     - The revenue figure always comes from REVENUE_CLAIM and always carries
-       its methodology line (never imply it all came from ad spend).
-     - The bare "states we operate in" framing is banned — the 48 is one
-       client's shipping footprint, so it renders attributed via STATES_CLAIM. */
-  const stats = data.stats.map((s) => {
-    if (s.value.includes('2.3B') || s.value === REVENUE_CLAIM.figure) {
-      return { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated*' };
-    }
-    if (/states/i.test(s.label)) {
-      return { value: TRACK_RECORD.statesServed, label: 'States Reached†' };
-    }
-    return s;
-  });
-  const hasRevenueStat = stats.some((s) => s.value === REVENUE_CLAIM.figure);
-  const hasStatesStat = stats.some((s) => s.label === 'States Reached†');
   const serviceSchema = buildServiceSchema({
     name: data.name,
     serviceType: data.serviceType,
@@ -181,23 +163,13 @@ export function ServicePillar({ data }: { data: PillarData }) {
         {/* Stats */}
         <section aria-label="Track record" className="mb-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {stats.map((s) => (
+            {data.stats.map((s) => (
               <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
                 <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
                 <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
               </div>
             ))}
           </div>
-          {(hasRevenueStat || hasStatesStat) && (
-            <div className="mt-3 space-y-1 text-center">
-              {hasRevenueStat && (
-                <p className="text-[11px] text-faint font-medium">*{REVENUE_CLAIM.methodology}</p>
-              )}
-              {hasStatesStat && (
-                <p className="text-[11px] text-faint font-medium">†{STATES_CLAIM}</p>
-              )}
-            </div>
-          )}
         </section>
 
         {/* Definition — answer-first for AI Overviews */}
@@ -461,13 +433,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 Prefer to talk? Call <TrackedPhoneLink />{' '}
                 or{' '}
                 <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
-              </p>
-              <p className="mt-3">
-                <GuideCta
-                  variant="link"
-                  location={`pillar_leadform_${data.formPageSlug}`}
-                  label="Not ready yet? Download the free guide — What Do I Get?"
-                />
               </p>
             </div>
             <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />

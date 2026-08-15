@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'Stop Renting Your Own',
   headlineAccent: 'Inventory Pages.',
   intro:
-    `You bought the car. You photographed it. You wrote the description and set the price. Then you pay a software company monthly rent to show it on a website you don't own — and if you ever leave, the site and the listings go with them. Found It OS ends that: one system for the whole lot — inventory, website, sales desk, customer book, and whatever else your dealership runs — fitted to how you actually work, your records migrated in, and owned by you outright. We are building exactly that right now for a Louisiana independent dealer, replacing a rented website-and-DMS combo. You'll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `You bought the car. You photographed it. You wrote the description and set the price. Then you pay a software company monthly rent to show it on a website you don't own — and if you ever leave, the site and the listings go with them. Found It OS ends that: one system for the whole lot — inventory, website, sales desk, customer book, and whatever else your dealership runs — fitted to how you actually work, your records migrated in, and owned by you outright. We are building exactly that right now for a Louisiana independent dealer, replacing a rented website-and-DMS combo.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_car_dealerships',
   formPageSlug: 'custom-software-car-dealerships',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '3', label: 'Departments, One System' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'Month-to-month, no contracts. The code, the data, the website, the system — all yours. If we ever part ways, it stays with you and keeps running.',
+        'The code, the data, the website, the system — all yours. If we ever part ways, it stays with you and keeps running.',
     },
   ],
   approachHeading: 'How a Dealership Fitting Works',
@@ -164,16 +164,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records professionally migrated in, the website, backups, and support — no per-listing fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Compare that honestly against what a rented website-and-DMS combo costs your lot over the years — rent that never ends, for software you will never own.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records professionally migrated in, the website, backups, and support — no per-listing fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Compare that honestly against what a rented website-and-DMS combo costs your lot over the years — rent that never ends, for software you will never own.`,
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now — retail sales, a custom service department, and rentals in one system — for a Louisiana independent dealer.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
-    'You own 100% of the code, the data, and the website. If we ever part ways, the system stays yours.',
-    'Your records get professionally migrated in — listings, customers, history — not left behind.',
-    'Proven before it ships: nothing switches until the new system has run beside your old one and matched it.',
-    `${TRACK_RECORD.yearsInBusiness} years building digital products for local businesses — a local Alexandria, Louisiana team you can actually reach.`,
+    'You own 100% of the code, the data, and the website.',
   ],
   faqHeading: 'Dealership Software FAQ',
   faq: [
@@ -190,7 +186,7 @@ const data: PillarData = {
     {
       question: 'Do I actually own the website and the DMS?',
       answer:
-        'Yes. The code, the data, the website, the image hosting — the whole system is your asset. There are no contracts; it is month-to-month, and if we ever part ways, the system stays with you and keeps running. The monthly fee pays for backups, support, and new features — not for permission to keep your own inventory online.',
+        'Yes. The code, the data, the website, the image hosting — the whole system is your asset. The monthly fee pays for backups, support, and new features — not for permission to keep your own inventory online.',
     },
     {
       question: 'Can it run my service department and rentals too?',
@@ -205,7 +201,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-listing fees, no add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-listing fees and no add-ons.`,
     },
     {
       question: 'Do I need a technical person on staff?',
@@ -221,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Lot on Its Own System',
   finalCtaSub:
-    `Tell us how your dealership runs today — the rented website, the paper tickets, the spreadsheet — and we will map what a system you own would look like. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your dealership runs today — the rented website, the paper tickets, the spreadsheet — and we will map what a system you own would look like. In person if you are local.`,
 };
 
 export default function CarDealershipsPillar() {

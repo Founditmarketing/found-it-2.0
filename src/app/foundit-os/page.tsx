@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'Stop Renting Your Software —',
   headlineAccent: 'Own Your Whole System.',
   intro:
-    `Try to leave the software you rent today and count what you keep: not the register, not the inventory, not your own customer list. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes — and counting. You will never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `Try to leave the software you rent today and count what you keep: not the register, not the inventory, not your own customer list. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: 'To the ¢', label: 'Matched Every Night' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'Month-to-month, no contracts. You own the code, the data, and the system. If we ever part ways, it stays yours.',
+        'You own the code, the data, and the system. If we ever part ways, it stays yours.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -130,14 +130,14 @@ const data: PillarData = {
     'AI Assistant',
   ],
   result: {
-    headline: 'The Penny Test',
+    headline: 'Before Anything Switches',
     stats: [
       { value: '2', label: 'Systems Running Side by Side' },
       { value: 'Nightly', label: 'Books Checked Against Books' },
       { value: '$0.00', label: 'Difference Before You Switch' },
     ],
     narrative:
-      'Before any business switches to Found It OS, the new system has to earn it. It runs beside the register you already trust, and every night the two sets of books go side by side until the difference is zero. Not close. Zero. When they match day after day and you are ready, you give the word. No rip-out weekend. No leap of faith. That is the whole test, and no install skips it.',
+      'Before any business switches to Found It OS, the new system has to earn it. It runs beside the register you already trust, and every night the two sets of books go side by side until the difference is zero. When they match day after day and you are ready, you give the word.',
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
@@ -230,16 +230,14 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} For comparison, a traditional custom software build runs $50,000 to $150,000, takes 3 to 6 months, and bills 15 to 20% a year in maintenance. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    'Month-to-month, no contracts — cancel anytime, and the system has to earn it every month.',
-    `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
+    'You own 100% of the code and the data.',
     'Proven before it ships: the new system runs beside your old one until the books match to the penny.',
     'Built-in AI that answers questions about your own business in plain English.',
-    'A local Alexandria team you can actually reach — 2026 CLEDA Highest Traded Revenue Award winner.',
+    `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
   ],
   faqHeading: 'Found It OS FAQ',
   faq: [
@@ -256,27 +254,27 @@ const data: PillarData = {
     {
       question: 'Who owns the system?',
       answer:
-        'You do. The code, the data, the whole system — it is your asset. There are no contracts; it is month-to-month, and if we ever part ways, the system stays yours and keeps running.',
+        'You do. The code, the data, the whole system — it is your asset. If we ever part ways, it stays yours and keeps running.',
     },
     {
       question: 'How long does a fitting take?',
       answer:
-        'Weeks, not months — not the 3-to-6-month slog a traditional custom shop quotes. You get a firm timeline at your free fitting, and nothing switches until the side-by-side numbers have matched and you give the word.',
+        'Weeks, not months. You get a firm timeline at your fitting, and nothing switches until the side-by-side numbers have matched and you give the word.',
     },
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-register fees, no surprise add-ons, no contracts. For comparison, a traditional custom software shop quotes $50,000 to $150,000 for the same ownership.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-register fees and no surprise add-ons.`,
     },
     {
       question: "What if it doesn't work out?",
       answer:
-        "Then you cancel. It is month-to-month — 30 days' notice, no exit fee, no fine print — and you keep the code and the data, so the system keeps running without us. Our customers stay because they love it, not because they're locked in.",
+        "Then you cancel. Thirty days' notice. You keep the code and the data, and the system keeps running.",
     },
     {
-      question: 'You charge monthly too. How is that not renting?',
+      question: 'What does the monthly cover?',
       answer:
-        'Because you can leave. When you rent software, the company holds your data and dares you to switch. With Found It OS the system is already yours — code and data — so the monthly only covers backups, support, and new features. We have to earn it every single month, because the day we stop earning it, you cancel and keep the whole system.',
+        'Backups, support, and new features. The system and the data are already yours, so the monthly buys upkeep, not access.',
     },
     {
       question: 'Is it safe? Who can see what?',
@@ -303,7 +301,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. The system has one job: ${OS_PRICING.promise}`,
+    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. In person if you are local.`,
 };
 
 export default function FoundItOSPillar() {

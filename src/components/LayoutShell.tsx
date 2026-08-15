@@ -8,17 +8,12 @@ import { ClientBackground } from '@/components/landing/ClientBackground';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
 import { Toaster } from '@/components/ui/toaster';
 
-// Floating widgets stay invisible for the first 1–2s by design, so their JS
-// has no business in the initial bundle — load the chunks after hydration.
+// The concierge stays invisible for the first 1–2s by design, so its JS
+// has no business in the initial bundle — load the chunk after hydration.
 const TrevorConcierge = dynamic(
   () => import('@/components/concierge/TrevorConcierge').then((m) => m.TrevorConcierge),
   { ssr: false }
 );
-const VoiceIntro = dynamic(
-  () => import('@/components/landing/VoiceIntro').then((m) => m.VoiceIntro),
-  { ssr: false }
-);
-
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isLP = pathname.startsWith('/lp');
@@ -46,7 +41,6 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
         <Footer />
       </div>
       <TrevorConcierge />
-      <VoiceIntro />
       <Toaster />
     </SmoothScrollProvider>
   );

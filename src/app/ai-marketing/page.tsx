@@ -28,7 +28,7 @@ const data: PillarData = {
   headline: 'AI That Answers Leads',
   headlineAccent: 'in Under 5 Seconds.',
   intro:
-    `Found It Marketing builds custom AI systems that respond to every lead instantly, book appointments, and keep your pipeline moving 24/7. With ${TRACK_RECORD.yearsInBusiness} years in marketing and ${TRACK_RECORD.adSpendManagedLong} behind us, we build and run the whole system for you — no apps to learn, no subscriptions to juggle.`,
+    `Found It Marketing builds custom AI systems that respond to every lead instantly, book appointments, and keep your pipeline moving 24/7. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind us, we build and run the whole system for you — no apps to learn, no subscriptions to juggle.`,
   ctaLabel: 'Get My Free AI Demo',
   formSource: 'service_ai_marketing',
   formPageSlug: 'ai-marketing',
@@ -37,7 +37,6 @@ const data: PillarData = {
     { value: '<5s', label: 'Lead Response Time' },
     { value: '24/7', label: 'Always On' },
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
   ],
   definitionHeading: 'What Is AI Marketing Automation?',
   definition:
@@ -83,7 +82,7 @@ const data: PillarData = {
     'AI automation is month-to-month with no setup fees that lock you in, and pricing depends on what we build for you. Most systems go live within 1 to 2 weeks. Your customer data stays in your own secure CRM — we never sell or share it, and you own your contacts at all times. Most local businesses spend less on this than on a single part-time hire.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
-    `${TRACK_RECORD.yearsInBusiness} years in marketing and ${TRACK_RECORD.adSpendManagedLong}.`,
+    `${TRACK_RECORD.yearsInBusiness} years in marketing.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
     'Fully done-for-you: we handle the prompts, APIs, and setup.',
     'Your data stays in your own CRM — we never sell or share it.',

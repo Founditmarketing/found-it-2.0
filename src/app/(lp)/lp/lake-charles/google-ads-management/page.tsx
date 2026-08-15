@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const faqItems = [
   { question: 'Do you have experience with industrial and contractor businesses?', answer: "Yes. We manage Google Ads for contractors, oilfield service companies, manufacturers, and industrial suppliers. We know your search terms, and we know how to filter out residential leads when you only want commercial work." },
   { question: 'How much should I spend on Google Ads?', answer: "Most industrial and commercial businesses start between $2,000 and $8,000/month. The right number depends on what a customer is worth to you. You'll get specific projections in the free audit." },
-  { question: "What's the catch with the free audit?", answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. If we can't find at least $500 in wasted spend, we send you a $50 gift card for your time. You keep the findings either way." },
+  { question: "What's the catch with the free audit?", answer: "There isn't one. We review your account, show you where money is leaking, and hand you the plan. You keep the findings either way." },
   { question: 'Who actually manages my account?', answer: "A senior strategist, not an intern. The same person who audits your account is the one optimizing it every week, and you'll know exactly who to call." },
   { question: 'Do I own my ad account and data?', answer: "Yes. We work inside your own Google Ads account. Your campaigns, conversion history, and data are yours, and you keep everything we built if you leave." },
   { question: 'Is there a contract?', answer: "No. Month-to-month, cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in." },

@@ -21,7 +21,7 @@ import { BOOKING_URL } from '@/lib/booking';
      ad promise ("who owes me money?") → hero answers it → Edwards Roofing
      proof w/ real numbers → the touchable demo → the bigger one-system
      reveal → founder → risk reversal → pricing → one CTA.
-   One conversion goal: the free software map (Tom's Zoom is the delivery
+   One conversion goal: the software map (Tom's video call is the delivery
    mechanism, not the product). No marketing-era reviews, no PDF magnet,
    no exit links on this page. The local promise is Tom on the call; the
    build team behind him is the same one behind every screen on the rail.
@@ -37,12 +37,12 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a free video call with Tom — we send the link — about 30 minutes, screen-shared. He maps the software we'd build for your business — jobs, estimates, invoices, the books — and shows you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map either way. No deck, no obligation.",
+      "It's a video call with Tom — we send the link — about 30 minutes, screen-shared. He maps the software we'd build for your business — jobs, estimates, invoices, the books — and shows you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map.",
   },
   {
     question: "Aren't you a Louisiana company?",
     answer:
-      'Found It Software is built in Alexandria, Louisiana — and Tom is our man in Wichita. He runs your free video call and maps your business with you; the team behind him is the same one that built every system on this page.',
+      'Found It Software is built in Alexandria, Louisiana — and Tom is our man in Wichita. He runs your video call and maps your business with you; the team behind him is the same one that built every system on this page.',
   },
   {
     question: 'What does it cost?',
@@ -61,7 +61,7 @@ const faqItems = [
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
   },
 ];
 
@@ -69,7 +69,7 @@ export function WichitaLPContent() {
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM now — the form is the primary conversion (8/14 audit).
-    <LPLayout ctaLabel="Get My Free Software Map">
+    <LPLayout ctaLabel="Get My Software Map">
       <LPNav />
 
       {/* The hero IS the ad's question — an uninterrupted thought from click
@@ -78,7 +78,7 @@ export function WichitaLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you, free — you keep the map either way, hire us or don't."
+        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you — the map is yours."
         highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -86,23 +86,18 @@ export function WichitaLPContent() {
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        stats={[
-          { value: '$195,882.75', label: 'Receivables one roofer surfaced' },
-          { value: '$19,000', label: 'Bookkeeping error caught' },
-          { value: TRACK_RECORD.softwareCustomers, label: 'Businesses running it' },
-        ]}
         formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading="Name and number — that's it. Tom maps the software we'd build for your business, free, and walks you through it. You keep the map, hire us or don't."
-        formCtaLabel="Get My Free Software Map"
+        formSubheading="Name and number. Tom maps the software we would build for your business and walks you through it. The map is yours."
+        formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
-        formPrivacyNote={`One job: ${OS_PRICING.promise} Free & no obligation — we reply within 2 hours.`}
+        formPrivacyNote="We reply within two hours."
         nextSteps={[
-          'Drop your name and number — nothing to book, nothing to cancel.',
+          'Leave your name and number.',
           'Tom calls you back and maps your business with you — live, screen-shared.',
-          "You keep the map. Hire us or don't.",
+          'You keep the map.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -118,7 +113,7 @@ export function WichitaLPContent() {
         poster="/cory-ownership-poster-v3.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Get My Free Software Map"
+        ctaText="Get My Software Map"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -166,7 +161,7 @@ export function WichitaLPContent() {
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Get your free software map →
+              Want yours to answer? Get your software map →
             </a>
           </p>
         </div>
@@ -186,7 +181,7 @@ export function WichitaLPContent() {
             Customers → estimates → jobs → invoices → the books — one system, built around your
             business, and you own it: the code and the data.{' '}
             <span className="text-white font-bold">
-              {TRACK_RECORD.softwareCustomers}+ businesses
+              {TRACK_RECORD.softwareCustomers} businesses
             </span>{' '}
             run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
             themselves:
@@ -203,31 +198,22 @@ export function WichitaLPContent() {
         eyebrow="Meet The Developer"
         heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
-        body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the software map below."
         videoSrc="/founder-intro-v2.mp4"
         poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get My Free Software Map"
+        ctaText="Get My Software Map"
         ctaHref="#lp-form"
       />
 
       <ObjectionBullets
         bullets={[
           {
-            title: '“Okay — What’s The Catch?”',
-            detail: "There isn't a long-term contract. You own the code and the data. The monthly fee pays for building, hosting, securing, and improving the system. And if it stops earning its keep, cancel with 30 days' notice — the system is still yours.",
-          },
-          {
-            title: '“What If It Breaks? We Depend On This.”',
+            title: 'Your old system stays plugged in',
             detail:
               'Your new system runs BESIDE your current software, penny-matched against it every night. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
-            title: '“Wait — There’s A Monthly Fee? I Thought I Owned It.”',
-            detail:
-              "You do own it — the code and the data, 100%, and no long-term contracts. The fee is maintenance: security, updates, and new features, like your phone gets. Our customers stay because they love it, not because they're locked in.",
-          },
-          {
-            title: '“Is It Safe? Who Sees My Numbers?”',
+            title: 'Who sees your numbers',
             detail:
               "Everyone gets their own login, limited to their role. The AI can read your books — it can't write to them. Everything is backed up every night. It's your data, period.",
           },
@@ -235,13 +221,13 @@ export function WichitaLPContent() {
       />
 
       <ProcessSteps
-        heading="How The Free Software Map Works"
+        heading="How The Software Map Works"
         steps={[
           {
             number: '01',
-            title: 'Tom Maps It. Live. Free.',
+            title: 'Tom Maps It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, you shake hands and keep the map. You’ve lost nothing.',
+              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, you shake hands and keep the map.',
           },
           {
             number: '02',
@@ -260,17 +246,17 @@ export function WichitaLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Let's Map Your Business. Free."
-        kicker="Free Software Map"
-        ctaLabel="Get My Free Software Map"
+        heading="Let's Map Your Business."
+        kicker="Software Map"
+        ctaLabel="Get My Software Map"
         mobileFormFirst
         showBooking
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared, free. You keep the map either way, hire us or don't."
+        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared. You keep the map."
         benefits={[
-          'Tom maps your business with you — live, screen-shared, free',
+          'Tom maps your business with you — live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,

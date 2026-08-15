@@ -61,7 +61,7 @@ export default function TermsOfService() {
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Payment terms will be outlined in your agreement or invoice</li>
                             <li>Late payments may result in service interruption</li>
-                            <li>Except where a guarantee published or provided in writing by the Company applies, fees are non-refundable</li>
+                            <li>Fees are non-refundable</li>
                         </ul>
                     </div>
                 </section>
@@ -131,6 +131,9 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">9. Termination</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
+                        {/* The site sells on "cancel anytime with 30 days' notice" — the
+                            terms have to say it too, or the promise isn't backed anywhere. */}
+                        <p>Found It OS engagements are month-to-month. You may cancel at any time with 30 days&apos; written notice. There is no exit fee, and the code and data of your system remain yours.</p>
                         <p>We reserve the right to terminate or suspend services at any time due to:</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Violation of these Terms</li>

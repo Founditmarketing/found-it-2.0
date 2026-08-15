@@ -19,7 +19,7 @@ interface LPFormSectionProps {
   /** Page slug for attribution (e.g. 'google-ads-management') */
   pageSlug?: string;
   /** Tiny kicker above the heading. The default is marketing vocabulary —
-   *  software LPs must override it ('Free Walkthrough'), because 'strategy
+   *  software LPs must override it ('Software Map'), because 'strategy
    *  session' is the exact salesman identity that audience was burned by. */
   kicker?: string;
   /** Submit-button label passed through to the form. */
@@ -43,16 +43,15 @@ interface LPFormSectionProps {
 }
 
 export function LPFormSection({
-  heading = 'Get Your Free Growth Strategy',
+  heading = 'Get Your Growth Plan',
   subheading = "Tell us about your business and we'll deliver a custom growth plan within 24 hours.",
   benefits = [
     'Full competitive analysis',
     'Custom strategy roadmap',
-    'Zero obligation — keep the plan either way',
   ],
   source = 'lp_general',
   pageSlug = 'general',
-  kicker = 'Free Strategy Session',
+  kicker = 'Growth Plan',
   ctaLabel,
   mobileFormFirst = false,
   showBooking = false,

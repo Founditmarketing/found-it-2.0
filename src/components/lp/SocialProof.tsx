@@ -31,7 +31,6 @@ interface SocialProofProps {
 }
 
 const defaultStats: StatBand[] = [
-  { value: TRACK_RECORD.socialAccountsManaged, label: 'Local businesses served' },
   { value: '<5 sec', label: 'Lead follow-up speed' },
   { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
   { value: TRACK_RECORD.yearsInBusiness, label: 'Years in business' },

@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'The House System —',
   headlineAccent: 'A Register That Remembers.',
   intro:
-    `We call it the House System because it thinks the way a real store does — in households, not transactions: the family that has bought from you for three generations is one story, not four hundred scattered receipts. Your current point of sale charges you for every terminal and keeps your customer history in the processor's cloud — theirs to hold, yours to look at. The House System ends that. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes. You'll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `We call it the House System because it thinks the way a real store does — in households, not transactions: the family that has bought from you for three generations is one story, not four hundred scattered receipts. Your current point of sale charges you for every terminal and keeps your customer history in the processor's cloud — theirs to hold, yours to look at. The House System ends that. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '1', label: 'Retail Core — Fitted, Never Forked' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'The code, the data, the customer book — yours. Month-to-month, no contracts. If we ever part ways, the register keeps ringing and it stays yours.',
+        'The code, the data, the customer book — yours. If we ever part ways, the register keeps ringing and it stays yours.',
     },
   ],
   approachHeading: 'How a Retail Fitting Works',
@@ -137,7 +137,7 @@ const data: PillarData = {
       { value: '0', label: 'Forks of the Code' },
     ],
     narrative:
-      'We built the House System core once — register, inventory, customer households, layaway, and Ask the House — then fitted it store by store to real stores: a luxury menswear shop, an appliance and furniture store that has been in business since 1946, among others. One core, multiple fits, zero forks of the codebase. Staging registers are in evaluation right now. And none of those stores switches until the side-by-side numbers earn it — that is the rule, and no install skips it.',
+      'We built the House System core once — register, inventory, customer households, layaway, and Ask the House — then fitted it store by store to real stores: a luxury menswear shop, an appliance and furniture store that has been in business since 1946, among others. One core, multiple fits, zero forks of the codebase. Staging registers are in evaluation right now. None of those stores switches until the side-by-side numbers earn it.',
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
@@ -189,16 +189,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migration means your records come with you, professionally brought in. No per-terminal fees, no processor lock-in, no contracts — month-to-month, and if we ever part ways the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay every month forever and own nothing at the end. This is the opposite trade: the same monthly discipline, but the register, the code, and the customer book are yours.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migration means your records come with you, professionally brought in. No per-terminal fees and no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay every month forever and own nothing at the end. This is the opposite trade: the same monthly discipline, but the register, the code, and the customer book are yours.`,
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'One House System core fitted to real stores — menswear, appliances and furniture — without forking the code.',
+    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
     'You own 100% of the code and the data. Your customer history is your asset, not your processor\'s.',
-    'Records professionally migrated in — decades of customers and tickets survive the move.',
-    'Proven before it ships: the new register runs beside your old one until the books match to the penny.',
-    `${TRACK_RECORD.yearsInBusiness} years building digital products for local businesses — a local Alexandria, LA team you can actually reach.`,
   ],
   faqHeading: 'House System FAQ',
   faq: [
@@ -225,12 +221,12 @@ const data: PillarData = {
     {
       question: 'Has this actually run in a real store?',
       answer:
-        'The retail core has been fitted to real stores — a luxury menswear shop and an appliance and furniture store among them — with staging registers in evaluation now. We will not claim a switch the system has not earned: no store converts until the new register has run beside the old one and matched its books to the penny. That is the standard every install has to pass, including yours.',
+        'The retail core has been fitted to real stores — a luxury menswear shop and an appliance and furniture store among them — with staging registers in evaluation now. No store converts until the new register has run beside the old one and matched its books to the penny.',
     },
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-terminal fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-terminal fees and no surprise add-ons.`,
     },
     {
       question: 'If I stop paying, do I lose my register and my data?',
@@ -251,7 +247,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Store in Its Own House',
   finalCtaSub:
-    `Tell us how your store runs today — the POS, the binder, the workarounds — and we will map what your own system would look like, with your history in it. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your store runs today — the POS, the binder, the workarounds — and we will map what your own system would look like, with your history in it. In person if you are local.`,
 };
 
 export default function RetailStoresPillar() {

@@ -1,19 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
+import { ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { GuideCta } from '@/components/GuideCta';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { trackCallClick } from '@/lib/analytics';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { AWARD, REVENUE_CLAIM, TRACK_RECORD } from '@/lib/site';
+import { AWARD, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const stats = [
   { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
-  { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
   { value: TRACK_RECORD.googleRating, label: 'Rating on Google' },
   { value: '0', label: 'Long-Term Contracts' },
 ];
@@ -24,13 +23,6 @@ const services = [
   { name: 'Custom Web Design', desc: 'Fast, mobile-first websites that turn visitors into calls. You own everything.', href: '/web-design' },
   { name: 'AI Search Optimization', desc: 'Get recommended by ChatGPT, Perplexity, and Google AI.', href: '/ai-search-optimization' },
   { name: 'Social Media Management', desc: 'Real content, real strategy. We create it, you approve it.', href: '/social-media-management' },
-];
-
-const differentiators = [
-  'You own everything — your accounts, your code, your data.',
-  'No long-term contracts. Month-to-month. Cancel anytime.',
-  'Senior strategist on every account. No hand-offs to interns.',
-  'Based in Alexandria, LA — with a team presence in Wichita, KS. Real people, real phone number.',
 ];
 
 const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas', 'Wichita, Kansas'];
@@ -53,17 +45,14 @@ export default function AboutPage() {
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Our Story</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            The Agency We Wished Existed —{' '}
-            <span className="text-primary">So We Built It.</span>
+            We Build the Software.{' '}
+            <span className="text-primary">You Own It.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Marketing is a custom AI software and digital marketing company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite — and over {TRACK_RECORD.yearsInBusiness} years, our clients have generated <span className="text-foreground font-bold">{REVENUE_CLAIM.figure}</span> in revenue.
+            Found It Software is a custom AI software and digital marketing company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite.
           </p>
           <p className="mt-4 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             Today we build those systems for real businesses — the shop, the crew, the yard, the store: your jobs, your registers, your dispatch board, your customer book, with your years of records professionally migrated in, not abandoned. Ask your system a question in plain English and it answers from your own data. Installed in days, not quarters — and unlike everyone else in software, the price is on the website. <span className="text-foreground font-bold">You&rsquo;ll never rent software that almost fits again.</span>
-          </p>
-          <p className="mt-3 text-sm text-faint font-medium max-w-2xl">
-            {REVENUE_CLAIM.methodology}
           </p>
 
           {/* Award trust chip */}
@@ -95,10 +84,10 @@ export default function AboutPage() {
                 So we built the opposite. At Found It, <span className="text-foreground font-bold">you own everything</span> — your ad accounts, your code, your data. There are no long-term contracts; we earn your business every single month by getting results. A senior strategist works on your account, not an intern Googling answers. And because we&apos;re based right here in Alexandria, we&apos;ll actually drive to your office and sit across the table from you.
               </p>
               <p>
-                That approach has taken us a long way. Over {TRACK_RECORD.yearsInBusiness} years, our clients have generated more than <span className="text-foreground font-bold">{REVENUE_CLAIM.figure} in tracked revenue</span> across everything we do — ads, web, SEO, and organic — including scaling one client from a single local lot into a volume dealer with customers in 48 states. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
+                That approach has taken us a long way. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
               </p>
               <p>
-                But the thing I&apos;m proudest of isn&apos;t a number. It&apos;s that our clients stay because they want to — not because a contract makes them. That&apos;s the whole point.
+                But the thing I&apos;m proudest of isn&apos;t an award. It&apos;s that our clients stay because they want to — not because a contract makes them. That&apos;s the whole point.
               </p>
             </div>
             <p className="mt-6 text-sm font-black uppercase italic tracking-tighter text-primary">
@@ -115,37 +104,11 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="mb-20"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {stats.map((stat, i) => (
               <div key={i} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
                 <p className="text-3xl font-black text-primary italic tracking-tighter">{stat.value}</p>
                 <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-3 text-xs text-faint font-medium text-center">
-            {REVENUE_CLAIM.methodology}
-          </p>
-        </motion.div>
-
-        {/* How We're Different */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
-            How We&apos;re Different
-          </h2>
-          <div className="space-y-5">
-            {differentiators.map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="w-4 h-4 text-primary" />
-                </div>
-                <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -215,7 +178,7 @@ export default function AboutPage() {
             <span className="text-primary">15 Minutes.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            No pitch. No pressure. Just a conversation about your business.
+            A conversation about your business.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="w-full sm:w-auto max-w-sm">

@@ -31,7 +31,7 @@ interface GuideCtaProps {
 export function GuideCta({
   location,
   variant = 'outline',
-  label = 'Download The Free Guide',
+  label = 'The Guide',
   className,
 }: GuideCtaProps) {
   const base =
@@ -43,7 +43,7 @@ export function GuideCta({
     <Link
       href="/guide"
       onClick={() => trackGuideCTAClick(location)}
-      aria-label={`Download the free guide — ${GUIDE_TITLE} (PDF)`}
+      aria-label={`Download the guide — ${GUIDE_TITLE} (PDF)`}
       className={cn(base, className)}
     >
       <Download

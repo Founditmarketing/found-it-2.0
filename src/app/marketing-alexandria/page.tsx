@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type FAQItemData } from '@/lib/schema';
-import { TRACK_RECORD, STATES_CLAIM, AWARD, BUSINESS } from '@/lib/site';
+import { AWARD, BUSINESS } from '@/lib/site';
 import { reviews } from '@/lib/reviews';
 import { LocalLeadForm } from '@/components/local/LocalLeadForm';
 import { LocalFAQ } from '@/components/local/LocalFAQ';
@@ -77,13 +77,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Digital Marketing in Alexandria', url: '/marketing-alexandria' },
 ]);
 
-const stats = [
-  { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
-  { value: TRACK_RECORD.googleRating + '★', label: 'Google Rating' },
-  { value: BUSINESS.foundingYear, label: 'Founded in Alexandria' },
-  { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
-];
-
 export default function MarketingAlexandriaPage() {
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-24 relative overflow-hidden">
@@ -132,16 +125,6 @@ export default function MarketingAlexandriaPage() {
             </Link>
           </div>
         </header>
-
-        {/* Stats */}
-        <section aria-label="Track record" className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
-              <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
-              <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
-            </div>
-          ))}
-        </section>
 
         {/* Local reality */}
         <section className="mb-16">
@@ -228,7 +211,6 @@ export default function MarketingAlexandriaPage() {
               'When you call, you talk to the person doing the work. No account-manager relay, no offshore ticket queue.',
               `Month-to-month, always. You own your ad accounts, your website code, and your data — the receipts stay yours.`,
               `${AWARD.issuer} recognized us with the ${AWARD.full} in ${AWARD.year}. The people whose job is growing Cenla's economy put our name on it.`,
-              STATES_CLAIM + " Local roots don't cap what we can build.",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
                 <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">
@@ -261,7 +243,6 @@ export default function MarketingAlexandriaPage() {
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
                 Tell us about your business and we&apos;ll look at your ads, your website, and your Google presence —
                 then tell you straight what&apos;s working, what&apos;s leaking money, and what we&apos;d fix first.
-                No charge, no obligation, no 45-minute pitch.
               </p>
               <p className="text-sm text-muted-foreground">
                 Prefer to talk? Call <TrackedPhoneLink /> — you&apos;ll get a person, not a phone tree.

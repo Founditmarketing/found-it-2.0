@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { TRACK_RECORD, REVENUE_CLAIM } from '@/lib/site';
+import { TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Social Media Management for Local Businesses',
   description:
-    'Done-for-you social media management from a team with 13+ years in marketing and millions in managed ad spend across hundreds of local businesses. Content, strategy, and paid social that drive calls and bookings. Alexandria, LA.',
+    'Done-for-you social media management from a team with 13+ years in marketing. Content, strategy, and paid social that drive calls and bookings. Alexandria, LA.',
   alternates: { canonical: '/social-media-management' },
   openGraph: {
     title: 'Social Media Management for Local Businesses | Found It Marketing',
     description:
-      'A team with 13+ years in marketing managing social for hundreds of local businesses. Content + paid social that drives calls.',
+      'A team with 13+ years in marketing running social for local businesses. Content + paid social that drives calls.',
     type: 'website',
     url: 'https://www.founditsoftware.com/social-media-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -23,21 +23,19 @@ const data: PillarData = {
   slug: '/social-media-management',
   serviceType: 'Social Media Marketing',
   schemaDescription:
-    'Done-for-you social media management for local businesses: content creation, strategy, paid social, and reporting focused on calls and leads — backed by 13+ years in marketing and millions in managed ad spend.',
+    'Done-for-you social media management for local businesses: content creation, strategy, paid social, and reporting focused on calls and leads — backed by 13+ years in marketing.',
   eyebrow: 'Social Media Management',
   headline: 'Social Media That Gets Calls,',
   headlineAccent: 'Not Just Likes.',
   intro:
-    `Found It Marketing has managed marketing for ${TRACK_RECORD.yearsInBusiness} years and creates social media for ${TRACK_RECORD.socialAccountsManagedLong} across ${TRACK_RECORD.statesServed} states. We run a done-for-you content engine — graphics, copy, video, scheduling, and paid social — built to turn scrolls into booked calls. You approve everything; we handle the rest.`,
+    `Found It Marketing has managed marketing for ${TRACK_RECORD.yearsInBusiness} years. We run a done-for-you content engine — graphics, copy, video, scheduling, and paid social — built to turn scrolls into booked calls. You approve everything; we handle the rest.`,
   ctaLabel: 'Get My Free Strategy Session',
   formSource: 'service_social',
   formPageSlug: 'social-media-management',
   formHeading: 'Get Your Free Social Strategy Session',
   stats: [
     { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Marketing' },
-    { value: TRACK_RECORD.socialAccountsManaged, label: 'Local Businesses Served' },
-    { value: REVENUE_CLAIM.figure, label: 'Client Revenue Generated' },
-    { value: TRACK_RECORD.statesServed, label: 'States We Operate In' },
+    { value: TRACK_RECORD.googleRating, label: 'Google Rating' },
   ],
   definitionHeading: 'What Does Social Media Management Actually Do?',
   definition:
@@ -93,9 +91,8 @@ const data: PillarData = {
     'Pricing is simple and flat, scoped to the platforms and posting volume you need, with no setup fees that lock you in. Most local businesses spend less on professional social management than on a single part-time hire. Paid ad budget is separate and set with you. Month-to-month, cancel anytime.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
-    `${TRACK_RECORD.yearsInBusiness} years of marketing experience and ${TRACK_RECORD.adSpendManagedLong}.`,
+    `${TRACK_RECORD.yearsInBusiness} years of marketing experience.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
-    `Trusted with social media for ${TRACK_RECORD.socialAccountsManagedLong} across ${TRACK_RECORD.statesServed} states.`,
     'We create everything; you just approve before it goes live.',
     'We track calls and bookings, not vanity likes.',
     'No long-term contracts. Month-to-month. Cancel anytime.',

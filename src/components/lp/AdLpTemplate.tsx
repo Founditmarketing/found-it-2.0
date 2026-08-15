@@ -20,7 +20,7 @@ import { BOOKING_URL } from '@/lib/booking';
    ONLY the hero copy and the attribution tags vary per page — everything
    after the hero is the audited, reviewed funnel: form-primary conversion,
    Edwards proof, pain mirror, touchable demo + the voice secretary, the
-   rails, founder, risk reversal, price at the FAQ. Adding a new hook to
+   rails, founder, mechanism, price at the FAQ. Adding a new hook to
    test = one thin content.tsx passing hero copy, never a copied page.
    Claims stay inside the doctrine: the money-back guarantee was retired
    8/14 (the offer line is OS_PRICING.promise, verbatim),
@@ -49,7 +49,7 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a free video call — we send the link — about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map either way. No deck, no obligation.",
+      "It's a video call — we send the link — about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map.",
   },
   {
     question: 'What does it cost?',
@@ -68,7 +68,7 @@ const faqItems = [
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
   },
 ];
 
@@ -76,7 +76,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM — the form is the primary conversion (8/14 audit).
-    <LPLayout ctaLabel="Get My Free Software Map">
+    <LPLayout ctaLabel="Get My Software Map">
       <LPNav />
 
       <LPSplitHero
@@ -94,23 +94,18 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        stats={[
-          { value: '$195,882.75', label: 'Receivables one roofer surfaced' },
-          { value: '$19,000', label: 'Bookkeeping error caught' },
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
-        ]}
         formHeading="Get A Free Software Map Of Your Business"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading="Name and number — that's it. We map the software we'd build for your business, free, and walk you through it. You keep the map, hire us or don't."
-        formCtaLabel="Get My Free Software Map"
+        formSubheading="Name and number. We map the software we would build for your business and walk you through it. The map is yours."
+        formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."
-        formPrivacyNote={`One job: ${OS_PRICING.promise} Free & no obligation — we reply within 2 hours.`}
+        formPrivacyNote="We reply within two hours."
         nextSteps={[
-          'Drop your name and number — nothing to book, nothing to cancel.',
+          'Leave your name and number.',
           'We call you back and map your business with you — live, screen-shared.',
-          "You keep the map. Hire us or don't.",
+          'You keep the map.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -126,7 +121,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         poster="/cory-ownership-poster-v3.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Get My Free Software Map"
+        ctaText="Get My Software Map"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -187,7 +182,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Get your free software map →
+              Want yours to answer? Get your software map →
             </a>
           </p>
         </div>
@@ -207,7 +202,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
             Customers → estimates → jobs → invoices → the books — one system, built around your
             business, and you own it: the code and the data.{' '}
             <span className="text-white font-bold">
-              {TRACK_RECORD.softwareCustomers}+ local businesses
+              {TRACK_RECORD.softwareCustomers} local businesses
             </span>{' '}
             run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
             themselves:
@@ -224,31 +219,22 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         eyebrow="Meet The Developer"
         heading="27 Seconds From"
         headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
+        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the software map below."
         videoSrc="/founder-intro-v2.mp4"
         poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get My Free Software Map"
+        ctaText="Get My Software Map"
         ctaHref="#lp-form"
       />
 
       <ObjectionBullets
         bullets={[
           {
-            title: '“Okay — What’s The Catch?”',
-            detail: "There isn't a long-term contract. You own the code and the data. The monthly fee pays for building, hosting, securing, and improving the system. And if it stops earning its keep, cancel with 30 days' notice — the system is still yours.",
-          },
-          {
-            title: '“What If It Breaks? We Depend On This.”',
+            title: 'Your old system stays plugged in',
             detail:
               'Your new system runs BESIDE your current software, penny-matched against it every night. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
-            title: '“Wait — There’s A Monthly Fee? I Thought I Owned It.”',
-            detail:
-              "You do own it — the code and the data, 100%, and no long-term contracts. The fee is maintenance: security, updates, and new features, like your phone gets. Our customers stay because they love it, not because they're locked in.",
-          },
-          {
-            title: '“Is It Safe? Who Sees My Numbers?”',
+            title: 'Who sees your numbers',
             detail:
               "Everyone gets their own login, limited to their role. The AI can read your books — it can't write to them. Everything is backed up every night. It's your data, period.",
           },
@@ -256,13 +242,13 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
       />
 
       <ProcessSteps
-        heading="How The Free Software Map Works"
+        heading="How The Software Map Works"
         steps={[
           {
             number: '01',
-            title: 'We Map It. Live. Free.',
+            title: 'We Map It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map. You’ve lost nothing.',
+              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map.',
           },
           {
             number: '02',
@@ -281,17 +267,17 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Let's Map Your Business. Free."
-        kicker="Free Software Map"
-        ctaLabel="Get My Free Software Map"
+        heading="Let's Map Your Business."
+        kicker="Software Map"
+        ctaLabel="Get My Software Map"
         mobileFormFirst
         showBooking
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="We map the software we'd build for your business — with you, live, screen-shared, free. You keep the map either way, hire us or don't."
+        subheading="We map the software we'd build for your business — with you, live, screen-shared. You keep the map."
         benefits={[
-          'We map your business with you — live, screen-shared, free',
+          'We map your business with you — live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,

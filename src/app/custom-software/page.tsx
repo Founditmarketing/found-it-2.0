@@ -35,11 +35,11 @@ const data: PillarData = {
   headline: 'Built for Your Business —',
   headlineAccent: 'Not for an “Industry.”',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. It installs in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. ${TRACK_RECORD.softwareCustomers} local businesses have already said yes, and the price is published right on this site. You’ll never rent software that almost fits again.`,
-  ctaLabel: 'Get My Free Fitting',
+    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. It installs in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this site.`,
+  ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
-  formHeading: 'Get Your Free Fitting',
+  formHeading: 'Get Fitted',
   stats: [
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '6', label: 'Industries Fitted or In Fitting' },
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It Outright',
       detail:
-        'Month-to-month, no contracts. The code, the data, the whole system is your asset. If we ever part ways, it stays yours and keeps running.',
+        'The code, the data, the whole system is your asset. If we ever part ways, it stays yours and keeps running.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -231,13 +231,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'The Price Is on the Website',
   pricing:
-    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
+    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
-    'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
+    'You own 100% of the code and the data.',
     'Your records get professionally migrated in — and nothing switches until the new system has run beside the old one and matched it.',
     'Built-in AI that answers questions about your own business in plain English.',
     `A local Alexandria team you can actually reach — ${AWARD.year} ${AWARD.label} Award winner.`,
@@ -247,7 +246,7 @@ const data: PillarData = {
     {
       question: 'What does custom business software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market entirely; the point of Found It OS is the same ownership at a price you can read before you ever pick up the phone. Month-to-month — cancel anytime, and the system stays yours.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market entirely; the point of Found It OS is the same ownership at a price you can read before you ever pick up the phone.`,
     },
     {
       question: 'Is this an alternative to Tekmetric, ShedSuite, or Buildertrend?',
@@ -267,7 +266,7 @@ const data: PillarData = {
     {
       question: 'Who owns the software when it’s done?',
       answer:
-        'You do. The code, the data, the whole system — it is your asset. There are no contracts; it is month-to-month, and if we ever part ways, the system stays yours and keeps running. The monthly covers backups, support, and new features — the day we stop earning it, you cancel and keep everything.',
+        'You do. The code, the data, the whole system — it is your asset. The monthly covers backups, support, and new features — the day we stop earning it, you cancel and keep everything.',
     },
     {
       question: 'My business isn’t one of the industries listed. Can you still build for it?',
@@ -277,7 +276,7 @@ const data: PillarData = {
     {
       question: 'What if it doesn’t work out?',
       answer:
-        'The deal is month-to-month — cancel anytime with 30 days’ notice, and you keep the code and the data. The system stays yours and keeps running. Our customers stay because they love it, not because they’re locked in.',
+        'Then you cancel. Thirty days’ notice. You keep the code and the data, and the system keeps running.',
     },
   ],
   relatedReading: [
@@ -291,7 +290,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See What a Fitted System Looks Like',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. The price is already published, and the deal is simple: month-to-month, cancel anytime, and the system stays yours.`,
+    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. In person if you are local.`,
 };
 
 export default function CustomSoftwarePillar() {

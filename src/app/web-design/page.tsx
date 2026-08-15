@@ -29,7 +29,7 @@ const data: PillarData = {
   headline: 'Websites That Turn Visitors',
   headlineAccent: 'Into Phone Calls.',
   intro:
-    `Found It Marketing builds custom, conversion-focused websites on modern technology — not slow, templated themes. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind every build, we design for one outcome: turning visitors into calls and booked appointments. And you own everything: the code, the domain, and the hosting. The proof is on this page — 12 live client sites you can click into right now.`,
+    `Found It Marketing builds custom, conversion-focused websites on modern technology — not slow, templated themes. With ${TRACK_RECORD.yearsInBusiness} years in marketing behind every build, we design for one outcome: turning visitors into calls and booked appointments. And you own everything: the code, the domain, and the hosting.`,
   ctaLabel: 'Get My Free Concept Call',
   formSource: 'service_web_design',
   formPageSlug: 'web-design',
