@@ -89,7 +89,7 @@ export function WichitaLPContent() {
         formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading={`Name and number. Tom maps the software we would build for your business — ${MAP_VALUE.line}. The map is yours.`}
+        formSubheading={`Name and number. Tom maps the software we would build for your business — ${MAP_VALUE.line}. Here, it's yours.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."

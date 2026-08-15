@@ -97,7 +97,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         formHeading="Get A Free Software Map Of Your Business"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading={`Name and number. We map the software we would build for your business — ${MAP_VALUE.line}. The map is yours.`}
+        formSubheading={`Name and number. We map the software we would build for your business — ${MAP_VALUE.line}. Here, it's yours.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."

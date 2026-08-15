@@ -69,18 +69,18 @@ export const TRACK_RECORD = {
   googleRating: '4.9',
 } as const;
 
-/* ─── The software map's value anchor ───
-   Trevor 8/14: "we need to tell people how much that free map is worth."
-   RESTRAINT LAW compliance: this is a MARKET-attributed range (what custom
-   shops bill for paid discovery/scoping), never a first-party "a $X value!"
-   sticker — we don't sell the map standalone, so we can't price it ourselves
-   without inventing a number. The range is coherent with the sanctioned
-   $50k–$150k traditional-build comparison (discovery ≈ 3–5% of build).
-   Say it ONCE per page, as fact, at the point of the ask. */
+/* ─── The software map's published price ───
+   Trevor 8/14: the map is a FIRST-PARTY $2,000 engagement on its own —
+   price-is-public doctrine applied to the map itself. This is a real,
+   honorable offer: if someone hands us $2,000 for just the map, we deliver
+   just the map. It comes free when a fitting starts, which is how the ad
+   funnel gives it away without cheapening it.
+   RESTRAINT LAW: say it ONCE per page, as plain fact, at the point of the
+   ask — never as a "$2,000 VALUE!" starburst. */
 export const MAP_VALUE = {
-  range: '$1,500 to $5,000',
+  standalone: '$2,000',
   /** The one sentence, reused verbatim so the number can never drift. */
-  line: 'the same scoping work software firms bill $1,500 to $5,000 for',
+  line: 'on its own, the map is a $2,000 engagement',
 } as const;
 
 /* ─── Found It OS pricing + promise ───

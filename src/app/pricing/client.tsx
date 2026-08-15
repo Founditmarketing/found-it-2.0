@@ -24,7 +24,7 @@ const services = [
     price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
     note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. One job: ${OS_PRICING.promise}`,
     features: [
-      'Free fitting first — we map how your business runs',
+      'Starts with the software map — a $2,000 engagement on its own, yours before you pay anything',
       'Runs beside your old system until the books match to the penny',
       'You own the code and the data — if we part ways, the system stays yours',
       'Month-to-month — no contracts',
