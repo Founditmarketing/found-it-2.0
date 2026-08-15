@@ -43,6 +43,13 @@ interface AdLpTemplateProps {
   slug: string;
   /** Attribution prefix, e.g. 'lp_walkthrough' → lp_walkthrough_hero/_footer. */
   sourcePrefix: string;
+  /** she-answers hook (8/15): the AI secretary IS the ad's promise, so she
+   *  moves into the hero — first screen on every phone. The mid-page widget
+   *  section is skipped so one page never mounts her twice. The 8/14 audit
+   *  demoted her from heroes when she captured nothing; she captures now
+   *  (capture_lead + after-call form + text fallback), so this is a fair
+   *  re-test scoped to pages that opt in. */
+  voiceHero?: boolean;
 }
 
 const faqItems = [
@@ -72,7 +79,7 @@ const faqItems = [
   },
 ];
 
-export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
+export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: AdLpTemplateProps) {
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM — the form is the primary conversion (8/14 audit).
@@ -107,6 +114,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
         formCompact
         formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."
         formPrivacyNote={`One job: ${OS_PRICING.promise} Free & no obligation — we reply within 2 hours.`}
+        voiceAgent={voiceHero}
         nextSteps={[
           'Drop your name and number — nothing to book, nothing to cancel.',
           'We call you back and map your business with you — live, screen-shared.',
@@ -173,14 +181,17 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
           {/* HER — same demo, out loud. Out of the hero (8/14 audit): above
               the fold she out-competed the form while capturing nothing;
               down here she closes — she takes a message mid-call, and if the
-              clock beats her the widget asks for the number itself. */}
-          <div className="mt-12 max-w-xl mx-auto">
-            <p className="text-center text-sm sm:text-base font-bold text-white/80 mb-4 [text-wrap:balance]">
-              Rather talk than tap? Every system comes with an AI secretary —{' '}
-              <span className="text-primary">try ours live.</span>
-            </p>
-            <VoiceAgentWidget pageSlug={slug} />
-          </div>
+              clock beats her the widget asks for the number itself.
+              (voiceHero pages mount her in the hero instead — never twice.) */}
+          {!voiceHero && (
+            <div className="mt-12 max-w-xl mx-auto">
+              <p className="text-center text-sm sm:text-base font-bold text-white/80 mb-4 [text-wrap:balance]">
+                Rather talk than tap? Every system comes with an AI secretary —{' '}
+                <span className="text-primary">try ours live.</span>
+              </p>
+              <VoiceAgentWidget pageSlug={slug} />
+            </div>
+          )}
 
           <p className="text-center mt-10">
             <a
