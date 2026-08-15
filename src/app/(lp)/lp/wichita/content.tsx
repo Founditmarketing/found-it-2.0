@@ -92,6 +92,7 @@ export function WichitaLPContent() {
         formSubheading={`Name and number. Tom maps the software we would build for your business — ${MAP_VALUE.line}. Here, it's yours.`}
         formCtaLabel="Get My Software Map"
         formCompact
+        formQualify
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
         formPrivacyNote="We reply within two hours."
         nextSteps={[
@@ -236,6 +237,7 @@ export function WichitaLPContent() {
       <LPFormSection
         heading="Let's Map Your Business."
         kicker="Software Map"
+        qualify
         ctaLabel="Get My Software Map"
         mobileFormFirst
         showBooking

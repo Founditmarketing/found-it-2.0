@@ -19,6 +19,8 @@ interface LeadFormEmbedProps {
   successNote?: string;
   /** Optional privacy / anti-spam reassurance line under the form */
   privacyNote?: string;
+  /** Ask the revenue band and gate ad conversions on it (OS funnel only). */
+  qualify?: boolean;
   className?: string;
 }
 
@@ -39,6 +41,7 @@ export function LeadFormEmbed({
   compact = false,
   successNote,
   privacyNote = 'We reply within two hours.',
+  qualify = false,
   className = '',
 }: LeadFormEmbedProps) {
   return (
@@ -51,6 +54,7 @@ export function LeadFormEmbed({
       compact={compact}
       successNote={successNote}
       privacyNote={privacyNote}
+      qualify={qualify}
       showBusiness
       className={className}
     />

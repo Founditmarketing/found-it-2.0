@@ -4,6 +4,7 @@ import { useEffect, useId, useState } from 'react';
 import { CheckCircle2, AlertTriangle, Loader2, Send, ShieldCheck, Plus } from 'lucide-react';
 import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
+import { REVENUE_BANDS } from '@/lib/site';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -34,6 +35,9 @@ export interface NativeLeadFormProps {
   compact?: boolean;
   /** Success-state line — say what happens next in the page's own promise. */
   successNote?: string;
+  /** Ask the revenue band (OS funnel only). Tags the lead in the inbox and
+   *  gates ad-platform conversions: only qualified bands train Meta/Google. */
+  qualify?: boolean;
   className?: string;
 }
 
@@ -55,6 +59,7 @@ export function NativeLeadForm({
   showBusiness = false,
   compact = false,
   successNote = 'Trevor will call you back — usually within 2 hours.',
+  qualify = false,
   className = '',
 }: NativeLeadFormProps) {
   const uid = useId();
@@ -62,6 +67,7 @@ export function NativeLeadForm({
   const [errorMsg, setErrorMsg] = useState('');
   const [showDetails, setShowDetails] = useState(!compact);
   const [started, setStarted] = useState(false);
+  const [revBand, setRevBand] = useState('');
   const [fields, setFields] = useState({
     name: '',
     phone: '',
@@ -92,6 +98,12 @@ export function NativeLeadForm({
       return;
     }
 
+    if (qualify && !revBand) {
+      setStatus('error');
+      setErrorMsg('Pick the closest revenue range — it tells us who to put on your map.');
+      return;
+    }
+
     // Email is optional, but the API rejects malformed non-empty emails —
     // never let a valid name+phone lead die over an optional field.
     const email = fields.email.trim();
@@ -106,8 +118,10 @@ export function NativeLeadForm({
 
     // Attribution rides along in the message body: the lead API has a fixed
     // field set, and this keeps page + campaign context on every notification.
+    const band = REVENUE_BANDS.find((b) => b.label === revBand);
     const utms = getStoredUTMs();
     const trail = [
+      band ? `Revenue: ${band.label}${band.qualified ? '' : ' (BELOW BAR)'}` : '',
       pageSlug ? `Page: ${pageSlug}` : '',
       ...Object.entries(utms).map(([k, v]) => `${k}: ${v}`),
     ].filter(Boolean);
@@ -131,7 +145,7 @@ export function NativeLeadForm({
       });
       if (!res.ok) throw new Error('lead_failed');
 
-      trackLead(source);
+      trackLead(source, band ? { qualified: band.qualified } : undefined);
       setStatus('success');
       // Full page load (not SPA nav) so the /thank-you URL-rule Ads conversion fires.
       window.setTimeout(() => {
@@ -222,6 +236,30 @@ export function NativeLeadForm({
             />
           </div>
         </div>
+
+        {qualify && (
+          <div className="mb-5">
+            <span className={labelClass}>What&apos;s the business doing a year, roughly? *</span>
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Yearly revenue range">
+              {REVENUE_BANDS.map((b) => (
+                <button
+                  key={b.label}
+                  type="button"
+                  role="radio"
+                  aria-checked={revBand === b.label}
+                  onClick={() => setRevBand(b.label)}
+                  className={`rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors text-center ${
+                    revBand === b.label
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-card/20 border-border/20 text-foreground hover:border-primary/40'
+                  }`}
+                >
+                  {b.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {!showDetails && (
           <button

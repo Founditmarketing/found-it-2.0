@@ -69,6 +69,20 @@ export const TRACK_RECORD = {
   googleRating: '4.9',
 } as const;
 
+/* ─── Lead qualification: the revenue bands ───
+   Trevor 8/15: keep unqualified businesses out of the funnel. Mechanism is
+   ASK, don't block — the form takes every lead, tags it with a band, and
+   only QUALIFIED bands fire the Lead conversion to Meta/Google, so the ad
+   algorithms learn to find bigger businesses. Unqualified leads still land
+   in the inbox (marked) for a polite pass. Move the line by flipping the
+   `qualified` booleans — one place, every form follows. */
+export const REVENUE_BANDS = [
+  { label: 'Under $250k / yr', qualified: false },
+  { label: '$250k – $1M / yr', qualified: true },
+  { label: '$1M – $5M / yr', qualified: true },
+  { label: '$5M+ / yr', qualified: true },
+] as const;
+
 /* ─── The software map's published price ───
    Trevor 8/14: the map is a FIRST-PARTY $2,000 engagement on its own —
    price-is-public doctrine applied to the map itself. This is a real,

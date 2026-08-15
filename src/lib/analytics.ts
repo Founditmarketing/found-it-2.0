@@ -36,7 +36,18 @@ function fire(eventName: string, params?: Record<string, any>) {
 }
 
 /* ─── Event Helpers ─── */
-export function trackLead(source: string) {
+/**
+ * Lead conversion. `opts.qualified === false` (revenue band below the bar)
+ * records a GA4 event for funnel visibility but fires NO ad-platform
+ * conversions — Meta and Google Ads must only ever learn from businesses
+ * we'd actually fit. Default is qualified: callers without a band (voice
+ * capture, chat capture) train the algorithms as before.
+ */
+export function trackLead(source: string, opts?: { qualified?: boolean }) {
+  if (opts?.qualified === false) {
+    fire('lead_submit_unqualified', { event_category: 'conversion', event_label: source, value: 0 });
+    return;
+  }
   fire('lead_submit', { event_category: 'conversion', event_label: source, value: 1 });
 
   // Google Ads specific conversion: Lead Form Submit
