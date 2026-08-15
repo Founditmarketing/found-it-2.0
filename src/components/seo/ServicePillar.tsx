@@ -68,6 +68,8 @@ export interface PillarData {
     kind: string;
     detail: string;
   }[];
+  /** Optional demo video — a screen tour of the system, shown high on the page. */
+  demoVideo?: { src: string; poster?: string; heading?: string; sub?: string };
   /** Common mistakes / what we fix. */
   mistakesHeading?: string;
   mistakes?: { title: string; detail: string }[];
@@ -171,6 +173,31 @@ export function ServicePillar({ data }: { data: PillarData }) {
             ))}
           </div>
         </section>
+
+        {/* Demo video — a screen tour of the actual system */}
+        {data.demoVideo && (
+          <section aria-label="Product demo" className="mb-16">
+            {data.demoVideo.heading && (
+              <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-2">
+                {data.demoVideo.heading}
+              </h2>
+            )}
+            {data.demoVideo.sub && (
+              <p className="text-muted-foreground font-medium mb-6 max-w-2xl">{data.demoVideo.sub}</p>
+            )}
+            <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/20 shadow-2xl shadow-primary/5">
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster={data.demoVideo.poster}
+                className="w-full h-auto block"
+              >
+                <source src={data.demoVideo.src} type="video/mp4" />
+              </video>
+            </div>
+          </section>
+        )}
 
         {/* Definition — answer-first for AI Overviews */}
         <section className="mb-16">

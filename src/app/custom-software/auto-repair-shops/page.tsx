@@ -46,6 +46,12 @@ const data: PillarData = {
     { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
     { value: '100%', label: 'Yours — Code & Data' },
   ],
+  demoVideo: {
+    src: '/tonys-os-demo-v2.mp4',
+    poster: '/tonys-os-demo-poster.jpg',
+    heading: 'Look Inside a Real Shop’s System',
+    sub: 'A 35-second tour of Found It OS running a live European auto shop — the money on the board, an AI that answers from the shop’s own records, digital inspections, and the secretary that texts back after hours. Customer names shown are placeholders.',
+  },
   definitionHeading: 'What Makes It the AI-Powered Alternative?',
   definition:
     "It covers every job a Tekmetric-class system does — write the work order, track the parts, ring the invoice, keep the customer book — then adds the two things a rented platform cannot give you. First, it is AI-first: every record in your shop’s history is something you can ask about in plain English, because the AI reads YOUR data, not a template’s. Second, at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. No per-seat rent forever. No data held hostage if you ever leave.",

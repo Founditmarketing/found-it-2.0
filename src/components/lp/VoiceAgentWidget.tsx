@@ -1,9 +1,18 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Mic, MicOff, PhoneOff, ArrowDown } from 'lucide-react';
+import { Mic, MicOff, PhoneOff, ArrowDown, MessageSquare, WifiOff } from 'lucide-react';
 import { trackLead, trackCTAClick, getStoredUTMs } from '@/lib/analytics';
-import { REALTIME_CALLS_URL, VOICE_SESSION_MAX_SECONDS, voiceLeadSource } from '@/lib/voice';
+import {
+  REALTIME_CALLS_URL,
+  VOICE_SESSION_MAX_SECONDS,
+  VOICE_CONNECT_SLOW_MS,
+  VOICE_CONNECT_TIMEOUT_MS,
+  VOICE_DROP_GRACE_MS,
+  voiceLeadSource,
+  voiceProfileFromLocation,
+} from '@/lib/voice';
+import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 /* ─── Live AI-secretary voice demo — the hero widget ───
    Browser-native WebRTC straight to the OpenAI Realtime endpoint using a
@@ -13,11 +22,21 @@ import { REALTIME_CALLS_URL, VOICE_SESSION_MAX_SECONDS, voiceLeadSource } from '
    POSTing the existing /api/lead pipe (source: voice_agent_<page>).
 
    Mobile-first: mic permission is requested on TAP, never on load; the tap
-   target is the full card. If the key is missing, rate limits trip, or
-   anything at all fails, the widget degrades to "line busy" + the page's
-   standard lead form — the LP can never break because of this feature. */
+   target is the full card.
 
-type Phase = 'idle' | 'connecting' | 'live' | 'ended' | 'busy' | 'denied';
+   Field law (two dead sales rooms, 8/14): the widget must NEVER die silently
+   and the presenter must ALWAYS be able to see whether she's hearing them.
+   - A live mic level meter + explicit "I'm listening / she hears you /
+     didn't catch that" states run off local WebAudio analysis — they work
+     even when the network doesn't.
+   - Connecting shows its own state, admits when it's slow, and gives up
+     after VOICE_CONNECT_TIMEOUT_MS into a text-chat fallback with canned
+     demo answers (same demo books, same doctrine) — never a blank stare.
+   - Mic sensitivity is a per-room profile (?room=noisy for sales rooms);
+     tunings live in VOICE_PROFILES in src/lib/voice.ts. */
+
+type Phase = 'idle' | 'connecting' | 'live' | 'ended' | 'busy' | 'denied' | 'fallback';
+type EndReason = 'user' | 'time' | 'error' | 'network';
 
 interface CaptionLine {
   role: 'you' | 'ai';
@@ -40,6 +59,76 @@ const IDLE_LINES = [
   'She’s the same secretary Trevor can build into your business.',
 ];
 
+/* ─── Text-mode fallback: her canned answers when voice can't connect ───
+   Same demo books and doctrine as the session instructions in
+   /api/voice/session (money-back guarantee retired 8/14 — no refund talk,
+   ever). If the demo-book numbers change there, change them HERE too. */
+interface CannedQA {
+  id: string;
+  q: string;
+  say: string;
+  card: AnswerCard;
+}
+
+const CANNED_QA: CannedQA[] = [
+  {
+    id: 'owed',
+    q: 'Who owes me money right now?',
+    say: 'In the demo books, three customers owe $8,325 total — Melancon’s the oldest at 12 days. Your system would answer this from your own books, out loud or on screen.',
+    card: {
+      heading: 'Who owes you money',
+      rows: [
+        { label: 'Melancon — inv 1042, 12 days', value: '$4,850' },
+        { label: 'Broussard — inv 1046, 5 days', value: '$2,300' },
+        { label: 'Richard — inv 1049, 2 days', value: '$1,175' },
+        { label: 'Total outstanding', value: '$8,325' },
+      ],
+      note: 'Demo books — synthetic numbers.',
+    },
+  },
+  {
+    id: 'unbilled',
+    q: 'What’s finished but not invoiced?',
+    say: 'The Dauzat job finished Tuesday and $3,600 still hasn’t been billed — and two estimates worth $8,140 have gone quiet. That’s the money a system catches before it slips.',
+    card: {
+      heading: 'Finished, not yet billed',
+      rows: [
+        { label: 'Dauzat job — finished Tuesday', value: '$3,600' },
+        { label: 'Fontenot estimate — quiet 9 days', value: '$6,200' },
+        { label: 'Guidry estimate — quiet 4 days', value: '$1,940' },
+      ],
+      note: 'Demo books — synthetic numbers.',
+    },
+  },
+  {
+    id: 'price',
+    q: 'What does it cost?',
+    say: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel} — month to month, no long-term contract, and the system is yours. One job: ${OS_PRICING.promise}`,
+    card: {
+      heading: 'The price is public',
+      rows: [
+        { label: 'Monthly', value: `${OS_PRICING.monthly}/mo` },
+        { label: 'Migration & setup', value: OS_PRICING.setup },
+        { label: 'Contract', value: 'Month-to-month' },
+      ],
+      note: OS_PRICING.promise,
+    },
+  },
+  {
+    id: 'own',
+    q: 'Do I actually own it?',
+    say: `Yes — the code and the data, one hundred percent. Nobody should rent you your own business back. ${TRACK_RECORD.softwareCustomers} local businesses run systems they own today, and every new one runs beside the old software, penny-matched, until the owner says go.`,
+    card: {
+      heading: 'You own it',
+      rows: [
+        { label: 'The code', value: 'Yours' },
+        { label: 'Your data', value: 'Yours' },
+        { label: 'Old system stays', value: 'Until you say go' },
+      ],
+    },
+  },
+];
+
 interface VoiceAgentWidgetProps {
   /** LP slug for lead attribution, e.g. 'auto-shop' → voice_agent_auto-shop */
   pageSlug: string;
@@ -52,15 +141,28 @@ let sessionActive = false;
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
+/** Per-bar gain so the level meter reads like a waveform, not a block. */
+const BAR_SHAPE = [0.55, 0.8, 1, 0.7, 0.45];
+
+/** No server "she heard you" event this long after sustained local speech →
+ *  surface "didn't catch that" instead of leaving the presenter guessing. */
+const MISSED_AFTER_MS = 3_500;
+
 export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetProps) {
   const [phase, setPhase] = useState<Phase>('idle');
   const [captions, setCaptions] = useState<CaptionLine[]>([]);
   const [herTalking, setHerTalking] = useState(false);
   const [youTalking, setYouTalking] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(VOICE_SESSION_MAX_SECONDS);
-  const [endReason, setEndReason] = useState<'user' | 'time' | 'error'>('user');
+  const [endReason, setEndReason] = useState<EndReason>('user');
   const [answerCard, setAnswerCard] = useState<AnswerCard | null>(null);
   const [idleLine, setIdleLine] = useState(0);
+  /** Connecting is taking long enough that the UI should say so. */
+  const [connectSlow, setConnectSlow] = useState(false);
+  /** You clearly spoke and she gave no sign of hearing it. */
+  const [missed, setMissed] = useState(false);
+  /** Open canned answer in the text-chat fallback. */
+  const [fallbackQ, setFallbackQ] = useState<CannedQA | null>(null);
   // After-call capture: she's a secretary — if the call ends before she got
   // the number, the card takes the message instead of saying goodbye.
   const [afterName, setAfterName] = useState('');
@@ -82,6 +184,25 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const captionsBoxRef = useRef<HTMLDivElement | null>(null);
   const phaseRef = useRef<Phase>('idle');
   phaseRef.current = phase;
+  // Mirrors for the rAF meter loop + timer callbacks (state is stale there).
+  const herTalkingRef = useRef(false);
+  herTalkingRef.current = herTalking;
+  const youTalkingRef = useRef(false);
+  youTalkingRef.current = youTalking;
+
+  // Level meter + "did she hear you" plumbing.
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const barRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const loudMsRef = useRef(0);
+  const lastServerHeardRef = useRef(0);
+  const missedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Slow-network plumbing.
+  const connectAbortRef = useRef<AbortController | null>(null);
+  const slowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const watchdogRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dropGraceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const source = voiceLeadSource(pageSlug);
 
@@ -95,12 +216,39 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     return parts.join(' · ');
   };
 
+  const clearMissedTimer = () => {
+    if (missedTimerRef.current) { clearTimeout(missedTimerRef.current); missedTimerRef.current = null; }
+  };
+  const clearConnectTimers = () => {
+    if (slowTimerRef.current) { clearTimeout(slowTimerRef.current); slowTimerRef.current = null; }
+    if (watchdogRef.current) { clearTimeout(watchdogRef.current); watchdogRef.current = null; }
+  };
+
   /* ─── Teardown ─── */
   const cleanup = useCallback(() => {
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
     if (talkDecayRef.current) { clearTimeout(talkDecayRef.current); talkDecayRef.current = null; }
+    if (dropGraceRef.current) { clearTimeout(dropGraceRef.current); dropGraceRef.current = null; }
+    clearMissedTimer();
+    clearConnectTimers();
+    connectAbortRef.current?.abort();
+    connectAbortRef.current = null;
+    if (rafRef.current) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
+    analyserRef.current = null;
+    if (audioCtxRef.current) {
+      void audioCtxRef.current.close().catch(() => { /* already closed */ });
+      audioCtxRef.current = null;
+    }
+    if (dcRef.current) {
+      // Detach before closing — a close WE caused must never be mistaken
+      // for a network drop by the onclose handler.
+      dcRef.current.onmessage = null;
+      dcRef.current.onopen = null;
+      dcRef.current.onclose = null;
+    }
     try { dcRef.current?.close(); } catch { /* already closed */ }
     dcRef.current = null;
+    if (pcRef.current) pcRef.current.onconnectionstatechange = null;
     try { pcRef.current?.close(); } catch { /* already closed */ }
     pcRef.current = null;
     micRef.current?.getTracks().forEach((t) => t.stop());
@@ -112,14 +260,22 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     }
     setHerTalking(false);
     setYouTalking(false);
+    setMissed(false);
     sessionActive = false;
   }, []);
 
-  const endSession = useCallback((reason: 'user' | 'time' | 'error') => {
+  const endSession = useCallback((reason: EndReason) => {
+    // 'network' → text-chat fallback (never a silent death);
+    // 'error'   → line busy + the page's real lead path.
+    const next: Phase = reason === 'error' ? 'busy' : reason === 'network' ? 'fallback' : 'ended';
+    // Ref first, synchronously — dc/pc callbacks fire before React re-renders
+    // and must not re-route an intentional end as a network drop.
+    phaseRef.current = next;
     cleanup();
     setEndReason(reason);
-    setPhase(reason === 'error' ? 'busy' : 'ended');
-  }, [cleanup]);
+    setPhase(next);
+    if (reason === 'network') trackCTAClick(`voice_fallback_shown_${pageSlug}`);
+  }, [cleanup, pageSlug]);
 
   // Unmount / navigate away: stop the paid call, release the mic.
   useEffect(() => {
@@ -140,6 +296,51 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     if (phase !== 'idle') return;
     const t = setInterval(() => setIdleLine((i) => (i + 1) % IDLE_LINES.length), 3800);
     return () => clearInterval(t);
+  }, [phase]);
+
+  /* ─── Live mic level meter (WebAudio, fully local) ───
+     Drives the bars via DOM refs at rAF speed — no React re-renders — and
+     doubles as the "she's gone deaf" detector: sustained local speech with
+     zero server speech_started for MISSED_AFTER_MS → "didn't catch that."
+     Because it never touches the network, the presenter can ALWAYS see
+     whether the mic itself is picking them up. */
+  useEffect(() => {
+    if (phase !== 'live') return;
+    const analyser = analyserRef.current;
+    if (!analyser) return;
+    const data = new Uint8Array(analyser.fftSize);
+    let last = performance.now();
+    const tick = (now: number) => {
+      const dt = now - last;
+      last = now;
+      analyser.getByteTimeDomainData(data);
+      let sum = 0;
+      for (let i = 0; i < data.length; i++) {
+        const d = (data[i] - 128) / 128;
+        sum += d * d;
+      }
+      const level = Math.min(1, Math.sqrt(sum / data.length) * 4);
+      for (let i = 0; i < BAR_SHAPE.length; i++) {
+        const el = barRefs.current[i];
+        if (el) el.style.height = `${3 + level * BAR_SHAPE[i] * 13}px`;
+      }
+      // Speech-ish input accumulates; silence decays it twice as fast.
+      if (level > 0.16) loudMsRef.current += dt;
+      else loudMsRef.current = Math.max(0, loudMsRef.current - dt * 2);
+      if (
+        loudMsRef.current > 1200 &&
+        !youTalkingRef.current &&
+        !herTalkingRef.current &&
+        Date.now() - lastServerHeardRef.current > MISSED_AFTER_MS
+      ) {
+        setMissed(true);
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (rafRef.current) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
+    };
   }, [phase]);
 
   /* ─── Caption helpers ─── */
@@ -171,6 +372,14 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     setHerTalking(true);
     if (talkDecayRef.current) clearTimeout(talkDecayRef.current);
     talkDecayRef.current = setTimeout(() => setHerTalking(false), 900);
+  };
+
+  /** Any server sign that she heard/answered → clear the "deaf" flags. */
+  const markServerHeard = () => {
+    lastServerHeardRef.current = Date.now();
+    loudMsRef.current = 0;
+    clearMissedTimer();
+    setMissed(false);
   };
 
   /* ─── The capture_lead tool — the browser is the executor ─── */
@@ -286,22 +495,32 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     try { msg = JSON.parse(raw.data); } catch { return; }
     switch (msg.type) {
       case 'response.output_audio_transcript.delta':
-        if (typeof msg.delta === 'string') { appendAi(msg.delta); markHerTalking(); }
+        if (typeof msg.delta === 'string') { appendAi(msg.delta); markHerTalking(); markServerHeard(); }
         break;
       case 'response.output_audio_transcript.done':
         closeAi();
         break;
       case 'conversation.item.input_audio_transcription.completed':
         if (typeof msg.transcript === 'string') pushYou(msg.transcript);
+        markServerHeard();
         break;
       case 'input_audio_buffer.speech_started':
         setYouTalking(true);
+        markServerHeard();
         break;
       case 'input_audio_buffer.speech_stopped':
         setYouTalking(false);
+        // You finished a turn — if neither your transcript nor her voice
+        // shows up soon, tell the presenter instead of leaving dead air.
+        clearMissedTimer();
+        missedTimerRef.current = setTimeout(() => {
+          missedTimerRef.current = null;
+          if (phaseRef.current === 'live' && !herTalkingRef.current) setMissed(true);
+        }, MISSED_AFTER_MS);
         break;
       case 'output_audio_buffer.started':
         setHerTalking(true);
+        markServerHeard();
         break;
       case 'output_audio_buffer.stopped':
       case 'output_audio_buffer.cleared':
@@ -328,15 +547,21 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const start = async () => {
     if (sessionActive || phaseRef.current === 'connecting' || phaseRef.current === 'live') return;
     sessionActive = true;
+    phaseRef.current = 'connecting';
     setPhase('connecting');
+    setConnectSlow(false);
+    setMissed(false);
     setCaptions([]);
     setAnswerCard(null);
+    setFallbackQ(null);
     setSecondsLeft(VOICE_SESSION_MAX_SECONDS);
     // A stale error alert must not haunt the next call's ended card; a
     // 'sent' status (and leadSaved) survives on purpose — one page view,
     // one lead, no duplicate asks. The per-call ≥3 cap resets below.
     setAfterStatus((s) => (s === 'error' ? 'idle' : s));
     leadCountRef.current = 0;
+    loudMsRef.current = 0;
+    lastServerHeardRef.current = Date.now();
     trackCTAClick(`voice_agent_start_${pageSlug}`);
 
     // 1. Mic — requested on the tap, never on page load.
@@ -345,19 +570,53 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
       mic = await navigator.mediaDevices.getUserMedia({ audio: true });
     } catch {
       sessionActive = false;
+      phaseRef.current = 'denied';
       setPhase('denied');
       return;
     }
     micRef.current = mic;
 
+    // 2. Local level meter — wired before any network work so the presenter
+    // sees the mic is live even if connecting stalls. Progressive: if
+    // WebAudio is unavailable the call still works, the bars just sit flat.
     try {
-      // 2. Ephemeral token from our server — the real key never ships.
-      const sessRes = await fetch('/api/voice/session', { method: 'POST' });
+      const Ctx: typeof AudioContext =
+        window.AudioContext ?? (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const ctx = new Ctx();
+      void ctx.resume().catch(() => { /* resumes on gesture */ });
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      analyser.smoothingTimeConstant = 0.6;
+      ctx.createMediaStreamSource(mic).connect(analyser);
+      audioCtxRef.current = ctx;
+      analyserRef.current = analyser;
+    } catch { /* meter is progressive enhancement */ }
+
+    // 3. Slow-network guardrails: at SLOW_MS the UI admits it's slow, at
+    // TIMEOUT_MS we abort whatever is hanging and fall back to text-chat.
+    const abort = new AbortController();
+    connectAbortRef.current = abort;
+    slowTimerRef.current = setTimeout(() => setConnectSlow(true), VOICE_CONNECT_SLOW_MS);
+    watchdogRef.current = setTimeout(() => {
+      if (phaseRef.current !== 'connecting') return;
+      abort.abort();
+      endSession('network');
+    }, VOICE_CONNECT_TIMEOUT_MS);
+
+    try {
+      // 4. Ephemeral token from our server — the real key never ships. The
+      // room profile (?room=noisy for sales rooms) rides along.
+      const sessRes = await fetch('/api/voice/session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ profile: voiceProfileFromLocation() }),
+        signal: abort.signal,
+      });
       if (!sessRes.ok) throw new Error(`session ${sessRes.status}`);
       const { token } = await sessRes.json();
       if (!token) throw new Error('no token');
 
-      // 3. Native WebRTC to the Realtime endpoint.
+      // 5. Native WebRTC to the Realtime endpoint.
       const pc = new RTCPeerConnection();
       pcRef.current = pc;
 
@@ -371,6 +630,9 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
       dcRef.current = dc;
       dc.onmessage = onServerEvent;
       dc.onopen = () => {
+        if (phaseRef.current !== 'connecting') return; // watchdog already gave up
+        clearConnectTimers();
+        phaseRef.current = 'live';
         setPhase('live');
         // Countdown → hard cap. Instructions have her wrapping up at 2:30.
         const endAt = Date.now() + VOICE_SESSION_MAX_SECONDS * 1000;
@@ -382,13 +644,31 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         // She greets first — the session instructions define the opener.
         dc.send(JSON.stringify({ type: 'response.create' }));
       };
+      // cleanup() detaches this first, so firing here = the OTHER side (or
+      // the network) killed the channel mid-call. That's a drop, not a bye.
       dc.onclose = () => {
-        if (phaseRef.current === 'live') endSession('user');
+        if (phaseRef.current === 'live') endSession('network');
       };
 
       pc.onconnectionstatechange = () => {
-        if (['failed', 'disconnected', 'closed'].includes(pc.connectionState) && phaseRef.current === 'live') {
-          endSession('user');
+        const st = pc.connectionState;
+        if (st === 'connected') {
+          if (dropGraceRef.current) { clearTimeout(dropGraceRef.current); dropGraceRef.current = null; }
+          return;
+        }
+        if (phaseRef.current !== 'live') return; // connecting failures → watchdog
+        if (st === 'failed' || st === 'closed') {
+          endSession('network');
+        } else if (st === 'disconnected' && !dropGraceRef.current) {
+          // WebRTC 'disconnected' can self-heal on flaky wifi — give it a
+          // grace window before declaring the line dead (8/14 nursery: the
+          // agent "went silent" with the card still pretending to be live).
+          dropGraceRef.current = setTimeout(() => {
+            dropGraceRef.current = null;
+            if (phaseRef.current === 'live' && pcRef.current && pcRef.current.connectionState !== 'connected') {
+              endSession('network');
+            }
+          }, VOICE_DROP_GRACE_MS);
         }
       };
 
@@ -398,16 +678,37 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/sdp' },
         body: offer.sdp,
+        signal: abort.signal,
       });
       if (!sdpRes.ok) throw new Error(`sdp ${sdpRes.status}`);
       await pc.setRemoteDescription({ type: 'answer', sdp: await sdpRes.text() });
     } catch (err) {
+      // The watchdog (or the "skip the wait" button) may have already routed
+      // this attempt to the fallback — don't overwrite that with 'busy'.
+      if (phaseRef.current !== 'connecting') return;
       console.warn('[voice-agent] connect failed', err);
       endSession('error');
     }
   };
 
+  /** Connecting bail-out: the presenter shouldn't have to wait out a dead
+   *  network to keep the room's attention. */
+  const skipToText = () => {
+    trackCTAClick(`voice_fallback_skip_${pageSlug}`);
+    endSession('network');
+  };
+
   /* ─── UI ─── */
+  const liveStatus = herTalking && youTalking
+    ? 'She hears you — let her finish…'
+    : herTalking
+    ? 'She’s talking…'
+    : youTalking
+    ? 'She hears you…'
+    : missed
+    ? 'Didn’t catch that — say it again.'
+    : 'I’m listening — just talk.';
+
   const orb = (
     <span className="relative w-16 h-16 shrink-0 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 transition-transform group-hover:scale-105 group-active:scale-95">
       {phase === 'idle' && (
@@ -432,6 +733,42 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         <Mic className="relative w-7 h-7 text-primary-foreground" aria-hidden="true" />
       )}
     </span>
+  );
+
+  /** Shared "leave your number" capture — the ended card and the text-chat
+   *  fallback both take the message the same way. */
+  const afterCaptureForm = (
+    <form
+      onSubmit={(e) => { e.preventDefault(); void submitAfterLead(); }}
+      className="mt-3.5 flex flex-col sm:flex-row gap-2"
+    >
+      <input
+        value={afterName}
+        onChange={(e) => setAfterName(e.target.value)}
+        placeholder="Your name"
+        aria-label="Your name"
+        autoComplete="name"
+        maxLength={200}
+        className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
+      />
+      <input
+        value={afterPhone}
+        onChange={(e) => setAfterPhone(e.target.value)}
+        placeholder="Phone number"
+        aria-label="Phone number"
+        type="tel"
+        autoComplete="tel"
+        maxLength={40}
+        className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
+      />
+      <button
+        type="submit"
+        disabled={afterStatus === 'sending' || !afterName.trim() || !afterPhone.trim()}
+        className="shrink-0 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity"
+      >
+        {afterStatus === 'sending' ? 'Sending…' : 'Call me back'}
+      </button>
+    </form>
   );
 
   return (
@@ -464,14 +801,31 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
           </button>
         )}
 
-        {/* ─── Connecting ─── */}
+        {/* ─── Connecting: honest about slow networks, with an exit ─── */}
         {phase === 'connecting' && (
-          <div className="relative flex items-center gap-4">
-            {orb}
-            <div>
-              <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">Ringing her now…</p>
-              <p className="text-[13px] text-white/60 font-medium mt-1">One second — she picks up fast.</p>
+          <div className="relative">
+            <div className="flex items-center gap-4">
+              {orb}
+              <div>
+                <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white" aria-live="polite">
+                  {connectSlow ? 'Slow connection — still ringing…' : 'Ringing her now…'}
+                </p>
+                <p className="text-[13px] text-white/60 font-medium mt-1">
+                  {connectSlow
+                    ? 'Weak signal takes a few extra seconds. Hang tight — or ask her by text.'
+                    : 'One second — she picks up fast.'}
+                </p>
+              </div>
             </div>
+            {connectSlow && (
+              <button
+                type="button"
+                onClick={skipToText}
+                className="mt-3.5 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-xs font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors animate-[fadeIn_0.4s_ease]"
+              >
+                <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Skip the wait — ask by text
+              </button>
+            )}
           </div>
         )}
 
@@ -481,16 +835,40 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
             <div className="flex items-center gap-4">
               {orb}
               <div className="min-w-0 flex-1">
-                <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
-                  {herTalking ? 'She’s talking…' : youTalking ? 'She’s listening…' : 'On the line — just talk'}
+                <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white" aria-live="polite">
+                  {liveStatus}
                 </p>
-                <p className="text-[12px] text-white/50 font-medium mt-0.5">Live conversation — say anything about your business.</p>
+                <p className="text-[12px] text-white/50 font-medium mt-0.5">
+                  {missed
+                    ? 'Try a little louder, a little closer to the mic.'
+                    : 'Live conversation — say anything about your business.'}
+                </p>
               </div>
               <span
                 className={`text-xs font-black tabular-nums ${secondsLeft <= 30 ? 'text-primary' : 'text-white/50'}`}
                 aria-label="Time remaining"
               >
                 {fmt(secondsLeft)}
+              </span>
+            </div>
+
+            {/* The presenter's glance-check: local mic meter (moves = the mic
+                is picking you up) + the server-confirmed "she hears you". */}
+            <div className="mt-3 flex items-center gap-2.5">
+              <span className="flex items-end gap-[3px] h-4" aria-hidden="true">
+                {BAR_SHAPE.map((_, i) => (
+                  <span
+                    key={i}
+                    ref={(el) => { barRefs.current[i] = el; }}
+                    className={`w-[3px] rounded-full transition-colors duration-200 ${youTalking || missed ? (missed ? 'bg-red-400/80' : 'bg-primary') : 'bg-white/35'}`}
+                    style={{ height: '3px' }}
+                  />
+                ))}
+              </span>
+              <span
+                className={`text-[10px] font-black uppercase tracking-[0.18em] ${missed ? 'text-red-400' : youTalking ? 'text-primary' : 'text-white/40'}`}
+              >
+                {missed ? 'Didn’t catch that' : youTalking ? 'She hears you' : 'Mic live'}
               </span>
             </div>
 
@@ -543,37 +921,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
                   Want Trevor to call you back about your business? Leave your number — she&rsquo;ll
                   pass it along.
                 </p>
-                <form
-                  onSubmit={(e) => { e.preventDefault(); void submitAfterLead(); }}
-                  className="mt-3.5 flex flex-col sm:flex-row gap-2"
-                >
-                  <input
-                    value={afterName}
-                    onChange={(e) => setAfterName(e.target.value)}
-                    placeholder="Your name"
-                    aria-label="Your name"
-                    autoComplete="name"
-                    maxLength={200}
-                    className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
-                  />
-                  <input
-                    value={afterPhone}
-                    onChange={(e) => setAfterPhone(e.target.value)}
-                    placeholder="Phone number"
-                    aria-label="Phone number"
-                    type="tel"
-                    autoComplete="tel"
-                    maxLength={40}
-                    className="flex-1 min-w-0 bg-white/[0.04] border border-border/25 rounded-xl px-3.5 py-2.5 text-base sm:text-sm font-medium text-white placeholder:text-white/40 outline-none focus:border-primary/40 transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    disabled={afterStatus === 'sending' || !afterName.trim() || !afterPhone.trim()}
-                    className="shrink-0 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity"
-                  >
-                    {afterStatus === 'sending' ? 'Sending…' : 'Call me back'}
-                  </button>
-                </form>
+                {afterCaptureForm}
                 {afterStatus === 'error' && (
                   <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
                     Could not send — use the form on this page instead.
@@ -616,21 +964,125 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
           </div>
         )}
 
-        {/* ─── Busy / failed: graceful fallback to the page's real lead path ─── */}
+        {/* ─── Text-chat fallback: she answers by text, canned but true ───
+            Reached when the network is too slow/dropped ('network') or by
+            choice from the busy card. Fully client-side — this mode can
+            never fail, which is the whole point. */}
+        {phase === 'fallback' && (
+          <div className="relative">
+            <p className="flex items-center gap-2 text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
+              {endReason === 'network' && <WifiOff className="w-4 h-4 text-primary" aria-hidden="true" />}
+              {endReason === 'network' ? 'Connection’s too slow for voice.' : 'She’ll answer by text instead.'}
+            </p>
+            <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
+              No problem — same secretary, by text. Tap a question:
+            </p>
+
+            <div className="mt-3.5 flex flex-col gap-2">
+              {CANNED_QA.map((qa) => (
+                <button
+                  key={qa.id}
+                  type="button"
+                  onClick={() => {
+                    setFallbackQ(qa);
+                    trackCTAClick(`voice_fallback_q_${qa.id}_${pageSlug}`);
+                  }}
+                  className={`inline-flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left text-[13px] sm:text-sm font-bold transition-colors ${
+                    fallbackQ?.id === qa.id
+                      ? 'border-primary/50 bg-primary/10 text-white'
+                      : 'border-border/25 bg-white/[0.04] text-white/75 hover:text-white hover:bg-white/[0.08]'
+                  }`}
+                >
+                  <MessageSquare className="w-3.5 h-3.5 shrink-0 text-primary" aria-hidden="true" />
+                  {qa.q}
+                </button>
+              ))}
+            </div>
+
+            {fallbackQ && (
+              <div key={fallbackQ.id} className="mt-4 rounded-xl border border-primary/30 bg-primary/[0.06] p-4 animate-[fadeIn_0.4s_ease]">
+                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
+                  {fallbackQ.card.heading}
+                </p>
+                <div className="space-y-1.5">
+                  {fallbackQ.card.rows.map((r, i) => (
+                    <div key={i} className="flex items-baseline justify-between gap-4">
+                      <span className="text-[13px] font-medium text-white/70">{r.label}</span>
+                      <span className="text-[13px] font-black tabular-nums text-white">{r.value}</span>
+                    </div>
+                  ))}
+                </div>
+                {fallbackQ.card.note && (
+                  <p className="mt-2.5 text-[10px] font-medium text-white/40">{fallbackQ.card.note}</p>
+                )}
+                <p className="mt-3 text-[13px] sm:text-sm text-white/70 font-medium leading-snug">
+                  {fallbackQ.say}
+                </p>
+              </div>
+            )}
+
+            {!leadSaved && afterStatus !== 'sent' ? (
+              <>
+                <p className="mt-4 text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
+                  Rather have Trevor call you? Leave your number — takes ten seconds.
+                </p>
+                {afterCaptureForm}
+                {afterStatus === 'error' && (
+                  <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
+                    Could not send — use the form on this page instead.
+                  </p>
+                )}
+              </>
+            ) : (
+              <p className="mt-4 text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
+                Got it — Trevor will reach out, usually within 2 hours during the day.
+              </p>
+            )}
+
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={start}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+              >
+                <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try the voice line again
+              </button>
+              <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+                Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* ─── Busy / failed: fallback to the page's real lead path ─── */}
         {phase === 'busy' && (
           <div className="relative">
             <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
               She’s helping someone else right now.
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              Leave your info instead — Trevor calls you back himself, usually within 2 hours.
+              Ask her by text below — or leave your info and Trevor calls you back himself, usually
+              within 2 hours.
             </p>
-            <a
-              href="#lp-form"
-              className="mt-3.5 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
-            >
-              Leave my info <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
-            </a>
+            <div className="mt-3.5 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  trackCTAClick(`voice_fallback_open_${pageSlug}`);
+                  setFallbackQ(null);
+                  setPhase('fallback');
+                }}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
+              >
+                <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Ask her by text
+              </button>
+              <a
+                href="#lp-form"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors"
+              >
+                Leave my info <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
+            </div>
           </div>
         )}
 

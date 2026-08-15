@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { rateLimit, clientIp } from '@/lib/server/guards';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
-import { VOICE_SESSION_MAX_SECONDS } from '@/lib/voice';
+import { VOICE_SESSION_MAX_SECONDS, VOICE_PROFILES, type VoiceProfileName } from '@/lib/voice';
 
 export const runtime = 'nodejs';
 export const maxDuration = 15;
@@ -150,6 +150,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Line busy — try again in a few minutes.' }, { status: 429 });
   }
 
+  // Room profile from the widget ('default' | 'noisy'), validated against
+  // VOICE_PROFILES — an unknown or missing body silently means 'default'.
+  let profile: VoiceProfileName = 'default';
+  try {
+    const body = await req.json();
+    if (typeof body?.profile === 'string' && body.profile in VOICE_PROFILES) {
+      profile = body.profile as VoiceProfileName;
+    }
+  } catch { /* no body — default */ }
+  const { noise_reduction, turn_detection } = VOICE_PROFILES[profile];
+
   try {
     const res = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
       method: 'POST',
@@ -167,21 +178,11 @@ export async function POST(req: Request) {
             input: {
               // Live "you said" captions in the widget.
               transcription: { model: 'gpt-4o-mini-transcribe' },
-              // Field-tested 8/13, round 2: volume-based VAD was unfixable in
-              // real rooms (0.5 heard ghosts, 0.85 went deaf). Semantic VAD
-              // decides turns from what's being SAID — noise-robust by design.
-              // eagerness=low: she waits until the caller actually finishes.
-              // Round 3: far_field scrubs room noise harder than near_field,
-              // and interrupt_response:false means noise (or anything) can
-              // never cut her off mid-sentence — she always finishes, then
-              // listens. Barge-in is the price; her answers are 2-3 sentences
-              // so the wait is short.
-              noise_reduction: { type: 'far_field' },
-              turn_detection: {
-                type: 'semantic_vad',
-                eagerness: 'low',
-                interrupt_response: false,
-              },
+              // Sensitivity is per-room, not per-site (8/14 field failures).
+              // The tunings and their history live in VOICE_PROFILES
+              // (src/lib/voice.ts) — change them there only.
+              noise_reduction,
+              turn_detection,
             },
             output: { voice: REALTIME_VOICE },
           },
