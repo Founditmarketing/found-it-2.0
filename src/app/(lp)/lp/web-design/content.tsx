@@ -40,10 +40,6 @@ const faqItems = [
     question: 'What if I need changes after launch?',
     answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts.",
   },
-  {
-    question: 'What happens if you miss the launch date?',
-    answer: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice. We put our money where our timeline is.",
-  },
 ];
 
 export function WebDesignLPContent() {
@@ -55,7 +51,7 @@ export function WebDesignLPContent() {
         headline="Your Website Is Costing You Leads."
         headlineAccent="Let's Fix It."
         subheadline="A fast, modern site that makes your phone ring, built around the way your best customers actually buy."
-        highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
+        highlight="Most builds go live in two weeks from kickoff."
         highlightIcon={Clock}
         stats={[
           { value: '2 wks', label: 'Typical build' },
@@ -107,8 +103,8 @@ export function WebDesignLPContent() {
       <ObjectionBullets
         bullets={[
           {
-            title: 'Live in 2 Weeks or Less, Guaranteed.',
-            detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
+            title: 'Live in Two Weeks.',
+            detail: "Most builds go live two weeks from kickoff. You get the date on the first call and we build to it.",
           },
           {
             title: 'You Own Everything.',

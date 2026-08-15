@@ -23,7 +23,6 @@ const faqItems = [
   { question: 'Do you work with industrial and B2B businesses?', answer: "Yes, it's most of what we do. Trucking, construction, fabrication, oilfield services, manufacturing. We know how to build for procurement managers, not just consumers." },
   { question: 'Who owns the website?', answer: "You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything with you. No lock-in." },
   { question: 'What if I need changes after launch?', answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts." },
-  { question: 'What if you miss the launch date?', answer: "If your site isn't ready on the date we promise, we take $500 off the final invoice. We stand behind our timeline." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);

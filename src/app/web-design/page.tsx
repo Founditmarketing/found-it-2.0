@@ -96,7 +96,7 @@ const data: PillarData = {
     `${AWARD.year} ${AWARD.label} Award winner.`,
     'You own the code, domain, and hosting — no lock-in, no hostage situations.',
     'Conversion-first design: built to generate leads, not just win design awards.',
-    'Firm launch timelines — if we miss the date we promise, we take $500 off the invoice.',
+    'Firm launch timelines — you get the date on the first call.',
     '60 days of free post-launch optimization included.',
   ],
   faqHeading: 'Web Design FAQ',

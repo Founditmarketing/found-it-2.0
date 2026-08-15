@@ -36,10 +36,6 @@ const faqItems = [
     question: 'What if I need changes after launch?',
     answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts.",
   },
-  {
-    question: 'What if you miss the launch date?',
-    answer: "If your site isn't ready on the date we promise, we take $500 off the final invoice. We stand behind our timeline.",
-  },
 ];
 
 export function LakeCharlesWebDesignContent() {
@@ -52,7 +48,7 @@ export function LakeCharlesWebDesignContent() {
         headline="A Website That Wins Bids in"
         headlineAccent="Lake Charles."
         subheadline="Built for contractors, fabricators, and service businesses across Southwest Louisiana. No templates. Mobile-first. You own everything."
-        highlight="Live in 2 weeks or less, or we take $500 off your final invoice."
+        highlight="Most builds go live in two weeks from kickoff."
         highlightIcon={Clock}
         stats={[
           { value: '2 wks', label: 'Typical build' },
@@ -104,8 +100,8 @@ export function LakeCharlesWebDesignContent() {
       <ObjectionBullets
         bullets={[
           {
-            title: 'Live in 2 Weeks or Less, Guaranteed.',
-            detail: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice.",
+            title: 'Live in Two Weeks.',
+            detail: "Most builds go live two weeks from kickoff. You get the date on the first call and we build to it.",
           },
           {
             title: 'You Own Everything.',

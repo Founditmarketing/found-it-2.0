@@ -30,7 +30,6 @@ const faqItems = [
   { question: 'Will my new site actually show up on Google?', answer: "Yes. Every build ships with the technical SEO foundation in place: fast load times, clean structure, mobile-first design, and proper schema. It's built to be found, not just to look good." },
   { question: 'Do you write the content and handle photos?', answer: "We can. We'll write conversion-focused copy and guide your photos (or arrange them). You approve everything before it goes live." },
   { question: 'What if I need changes after launch?', answer: "60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts." },
-  { question: 'What happens if you miss the launch date?', answer: "If your site isn't ready to launch on the date we promise, we take $500 off the final invoice. We put our money where our timeline is." },
 ];
 
 const faqSchema = buildFAQSchema(faqItems);

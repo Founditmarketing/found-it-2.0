@@ -34,7 +34,7 @@ const faqItems: FAQItemData[] = [
   {
     question: 'How fast can you launch my site?',
     answer:
-      'Most builds go live in 2 weeks or less from kickoff. Bigger projects with custom integrations can take longer, but you get a firm date on the first call — and if we miss the launch date we promised, we take $500 off your final invoice.',
+      'Most builds go live in 2 weeks or less from kickoff. Bigger projects with custom integrations can take longer, but you get a firm date on the first call.',
   },
   {
     question: 'Who owns the website when it\'s done?',
@@ -228,7 +228,7 @@ export default function CentralLouisianaWebDesignPage() {
           <div className="space-y-5">
             {[
               'Flat price, quoted up front. You know the full number before you commit to anything.',
-              "Live in 2 weeks or less on most builds — and if we miss the date we promised, we take $500 off the final invoice.",
+              'Live in two weeks on most builds. You get a firm date on the first call.',
               '60 days of free changes and optimization after launch. We stick around to make it perform, not just exist.',
               "We drive to you. Kickoff at your office in Alexandria or Pineville is easy; Marksville, Natchitoches, or Leesville is worth the trip.",
               'Month-to-month after launch if you want ongoing help. No long-term contracts, ever.',
