@@ -1,9 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle2, Phone } from 'lucide-react';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
+import { CheckCircle2 } from 'lucide-react';
 import { NativeLeadForm } from '@/components/forms/NativeLeadForm';
 import { BookingCta } from './BookingCta';
 import { BOOKING_URL } from '@/lib/booking';
@@ -89,7 +87,7 @@ export function LPFormSection({
             </p>
 
             {/* Benefits */}
-            <div className="space-y-5 mb-10">
+            <div className="space-y-5">
               {benefits.map((benefit, i) => (
                 <motion.div
                   key={i}
@@ -105,22 +103,6 @@ export function LPFormSection({
                   <p className="text-foreground font-bold text-sm">{benefit}</p>
                 </motion.div>
               ))}
-            </div>
-
-            {/* Phone fallback */}
-            <div className="bg-card/20 backdrop-blur-xl border border-border/20 rounded-2xl p-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-faint font-black mb-3">
-                Prefer to talk?
-              </p>
-              <SafePhone
-                onClick={() => trackCallClick()}
-                className="flex items-center gap-4 text-foreground hover:text-primary transition-colors group"
-              >
-                <span className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
-                </span>
-                <SafePhoneText className="text-2xl font-black italic tracking-tighter" />
-              </SafePhone>
             </div>
           </div>
 

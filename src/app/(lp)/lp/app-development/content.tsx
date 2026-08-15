@@ -9,7 +9,6 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { TeamCollageSection } from '@/components/lp/TeamCollageSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
-import { FounderVideo } from '@/components/lp/FounderVideo';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
@@ -38,18 +37,6 @@ export function AppDevelopmentLPContent() {
         formHeading="Get My Free App Blueprint"
         formSource="lp_app_development"
         formPageSlug="app-development"
-      />
-
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. Custom apps that combine the software you're renting into one new app you own: the code, the data, everything. Press play, then grab the free blueprint below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get My Free App Blueprint"
-        ctaHref="#lp-form"
       />
 
       <SocialProof

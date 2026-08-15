@@ -1,11 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AIVisibilityWidget } from '@/components/lp/AIVisibilityWidget';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -68,9 +65,6 @@ export default function AIVisibilityClient() {
             <Link href="/ai-search-optimization#lead-form">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">Get My AI Audit</LiquidButton>
             </Link>
-            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-              <Phone className="w-4 h-4" /> <SafePhoneText />
-            </SafePhone>
           </div>
         </motion.div>
 

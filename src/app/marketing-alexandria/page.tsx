@@ -7,7 +7,6 @@ import { LocalLeadForm } from '@/components/local/LocalLeadForm';
 import { LocalFAQ } from '@/components/local/LocalFAQ';
 import { LocalReview } from '@/components/local/LocalReview';
 import { LocalLinkCards } from '@/components/local/LocalLinkCards';
-import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 export const metadata: Metadata = {
   title: 'Digital Marketing in Alexandria, LA | Local Agency Since 2013',
@@ -243,9 +242,6 @@ export default function MarketingAlexandriaPage() {
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
                 Tell us about your business and we&apos;ll look at your ads, your website, and your Google presence —
                 then tell you straight what&apos;s working, what&apos;s leaking money, and what we&apos;d fix first.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Prefer to talk? Call <TrackedPhoneLink /> — you&apos;ll get a person, not a phone tree.
               </p>
             </div>
             <LocalLeadForm

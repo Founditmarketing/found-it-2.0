@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick, trackStickyCTAClick, trackBookingClick, initScrollDepth } from '@/lib/analytics';
+import { trackStickyCTAClick, trackBookingClick, initScrollDepth } from '@/lib/analytics';
 import { isBookingUrl } from '@/lib/booking';
-import { SafePhone } from '@/components/landing/SafePhone';
 import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 
 interface LPLayoutProps {
@@ -71,21 +70,14 @@ export function LPLayout({
         initial={{ y: 100 }}
         animate={{ y: formVisible ? 100 : 0 }}
         transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 flex items-center gap-3 safe-bottom"
+        className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 safe-bottom"
       >
-        <SafePhone
-          onClick={() => trackCallClick()}
-          className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 border border-border/30 shrink-0"
-          ariaLabel="Call us"
-        >
-          <Phone className="w-5 h-5 text-primary" />
-        </SafePhone>
         {bookingLive ? (
           <a
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1"
+            className="block"
             onClick={() => {
               trackStickyCTAClick();
               trackBookingClick('sticky_bar');
@@ -100,7 +92,7 @@ export function LPLayout({
             </motion.div>
           </a>
         ) : (
-          <Link href="#lp-form" className="flex-1" onClick={() => trackStickyCTAClick()}>
+          <Link href="#lp-form" className="block" onClick={() => trackStickyCTAClick()}>
             <motion.div
               whileTap={{ scale: 0.97 }}
               className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-3.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"

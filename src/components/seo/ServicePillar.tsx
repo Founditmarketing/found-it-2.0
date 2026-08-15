@@ -4,7 +4,6 @@ import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type Service
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
-import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { OsRail } from '@/components/os/OsRail';
 
 export interface PillarData {
@@ -457,9 +456,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">{data.finalCtaSub}</p>
               <p className="text-sm text-muted-foreground">
-                Prefer to talk? Call <TrackedPhoneLink />{' '}
-                or{' '}
-                <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
+                Prefer to talk it through?{' '}
+                <Link href="/contact" className="text-primary font-bold hover:underline">Book a call</Link>.
               </p>
             </div>
             <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />

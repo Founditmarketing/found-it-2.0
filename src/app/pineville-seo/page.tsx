@@ -7,7 +7,6 @@ import { LocalLeadForm } from '@/components/local/LocalLeadForm';
 import { LocalFAQ } from '@/components/local/LocalFAQ';
 import { LocalReview } from '@/components/local/LocalReview';
 import { LocalLinkCards } from '@/components/local/LocalLinkCards';
-import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 export const metadata: Metadata = {
   title: 'Pineville, LA SEO Services | Local Search & AI Search',
@@ -234,9 +233,6 @@ export default function PinevilleSeoPage() {
                 We&apos;ll check your rankings, your Google Business Profile, your citations, and what AI search says
                 about your business when Pineville customers ask — then give you a straight answer on what to fix
                 and what it&apos;s worth. Keep the findings either way.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Rather just talk it through? Call <TrackedPhoneLink /> — we&apos;re minutes away.
               </p>
             </div>
             <LocalLeadForm

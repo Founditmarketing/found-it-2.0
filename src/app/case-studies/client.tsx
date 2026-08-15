@@ -1,13 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { VideoTestimonials } from '@/components/portfolio/VideoTestimonials';
 import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -282,9 +280,6 @@ export default function CaseStudiesPage() {
                 Get My Free Software Map
               </LiquidButton>
             </Link>
-            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-              <Phone className="w-4 h-4" /> <SafePhoneText />
-            </SafePhone>
           </div>
         </motion.div>
 

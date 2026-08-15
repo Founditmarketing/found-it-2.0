@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
-import { Check, ArrowRight, Phone, Layers, Smartphone, Bot } from 'lucide-react';
+import { Check, ArrowRight, Layers, Smartphone, Bot } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
@@ -11,8 +11,6 @@ import { GuideCta } from '@/components/GuideCta';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
@@ -588,9 +586,6 @@ export default function HomePage() {
                 </LiquidButton>
               </Link>
               <GuideCta location="home_bottom" className="max-w-sm sm:max-w-none h-16" />
-              <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-                <Phone className="w-4 h-4" /> <SafePhoneText />
-              </SafePhone>
             </div>
           </motion.div>
         </div>

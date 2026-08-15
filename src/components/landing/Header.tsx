@@ -8,11 +8,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Phone, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, type LucideIcon } from 'lucide-react';
+import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { CALLRAIL_CLASS } from '@/lib/phone';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick, trackGuideCTAClick } from '@/lib/analytics';
+import { trackGuideCTAClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
@@ -467,7 +465,7 @@ export function Header() {
             </Link>
 
             {/* ─── Desktop Nav ───
-                xl, not lg: the full row (6 links + guide + phone + CTA) needs
+                xl, not lg: the full row (6 links + guide + CTA) needs
                 ~1250px. Between 1024–1279px — odd monitors, or a laptop at
                 125–150% zoom — the row crushed and clipped; those visitors now
                 get the mobile menu, which handles any width and any zoom. */}
@@ -523,16 +521,6 @@ export function Header() {
                 <Download className="w-4 h-4 text-primary" aria-hidden="true" />
                 Free Guide
               </Link>
-              <Button
-                variant="ghost"
-                className="font-semibold text-sm h-11 whitespace-nowrap px-2 2xl:px-4 transition-colors text-white hover:text-primary hover:bg-transparent"
-                asChild
-              >
-                <SafePhone onClick={() => trackCallClick()}>
-                  <Phone className="mr-2 h-4 w-4" />
-                  <SafePhoneText />
-                </SafePhone>
-              </Button>
               <Link href="/contact" className="block shrink-0">
                 <LiquidButton className="h-14 px-5 2xl:px-8 text-xs tracking-[0.2em] whitespace-nowrap magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
                   Book a Free Call
@@ -540,15 +528,8 @@ export function Header() {
               </Link>
             </div>
 
-            {/* ─── Mobile / narrow / zoomed: tap-to-call + Hamburger ─── */}
-            <div className="xl:hidden relative z-[60] flex items-center gap-1">
-              <SafePhone
-                onClick={() => trackCallClick()}
-                ariaLabel="Call Found It"
-                className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
-              >
-                <Phone className="w-5 h-5 text-primary" />
-              </SafePhone>
+            {/* ─── Mobile / narrow / zoomed: Hamburger ─── */}
+            <div className="xl:hidden relative z-[60] flex items-center">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="w-11 h-11 flex items-center justify-center rounded-xl transition-colors hover:bg-white/10 active:scale-95"
@@ -665,18 +646,6 @@ export function Header() {
                   <Download className="w-4 h-4 text-primary" aria-hidden="true" />
                   Download The Free Guide
                 </Link>
-
-                {/* Phone */}
-                <SafePhone
-                  onClick={() => {
-                    trackCallClick();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
-                >
-                  <Phone className="w-4 h-4 text-primary" />
-                  <SafePhoneText />
-                </SafePhone>
 
                 {/* Copyright */}
                 <div className="flex items-center justify-center pt-1">

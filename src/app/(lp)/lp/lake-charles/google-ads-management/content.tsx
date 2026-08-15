@@ -1,6 +1,6 @@
 'use client';
 
-import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection, FounderVideo } from '@/components/lp';
+import { LPLayout, LPNav, FAQSection, LPFormSection, LPFooter, LPSplitHero, SocialProof, TeamCollageSection } from '@/components/lp';
 import { ObjectionBullets } from '@/components/lp/ObjectionBullets';
 import { ProofBlock } from '@/components/lp/ProofBlock';
 import { motion } from 'framer-motion';
@@ -61,18 +61,6 @@ export function LakeCharlesGoogleAdsContent() {
         formHeading="Get My Free Audit"
         formSource="lp_google_ads_lc"
         formPageSlug="lake-charles-google-ads"
-      />
-
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get A Free Software Map"
-        ctaHref="#lp-form"
       />
 
       <SocialProof

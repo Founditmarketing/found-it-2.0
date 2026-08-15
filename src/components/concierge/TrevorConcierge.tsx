@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Phone, Loader2, Check } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Check } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { phoneDisplay } from '@/lib/phone';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick, trackCTAClick, trackLead } from '@/lib/analytics';
+import { SafePhoneText } from '@/components/landing/SafePhone';
+import { trackCTAClick, trackLead } from '@/lib/analytics';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -250,13 +250,6 @@ export function TrevorConcierge() {
                 <p className="text-sm font-black uppercase italic tracking-tighter text-foreground leading-none">Ask Trevor</p>
                 <p className="text-[10px] text-muted-foreground font-medium mt-1">Instant answers. Real human on the phone.</p>
               </div>
-              <SafePhone
-                onClick={() => trackCallClick()}
-                ariaLabel="Call Found It"
-                className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-colors"
-              >
-                <Phone className="w-4 h-4 text-primary" />
-              </SafePhone>
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close"

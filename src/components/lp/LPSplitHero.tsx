@@ -1,12 +1,10 @@
 'use client';
 
-import { MapPin, Phone, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
+import { MapPin, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
 import { BookingCta } from './BookingCta';
 import { VoiceAgentWidget } from './VoiceAgentWidget';
-import { trackCallClick } from '@/lib/analytics';
 import { BOOKING_URL } from '@/lib/booking';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD } from '@/lib/site';
 import { usePersonalization } from '@/lib/personalization';
 
@@ -176,18 +174,6 @@ export function LPSplitHero({
                 </p>
               </div>
             )}
-
-            <SafePhone
-              onClick={() => trackCallClick()}
-              className="inline-flex items-center gap-3 text-white/80 hover:text-primary transition-colors group"
-            >
-              <span className="w-10 h-10 rounded-xl bg-white/[0.04] border border-border/20 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
-                <Phone className="w-4 h-4 text-white/70" aria-hidden="true" />
-              </span>
-              <span className="text-sm font-bold">
-                Prefer to talk? <SafePhoneText className="text-white font-black italic tracking-tighter" />
-              </span>
-            </SafePhone>
 
             {/* Trust facts as one quiet line — chips read as decoration, a
                 sentence reads as fact. Same data the old badge row carried. */}

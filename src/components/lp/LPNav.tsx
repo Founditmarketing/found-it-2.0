@@ -1,10 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { useEffect, useState } from 'react';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -41,18 +38,6 @@ export function LPNav() {
               <span className="text-primary inline-block animate-bounce-dot">.</span>
             </motion.span>
           </Link>
-
-          {/* Phone CTA */}
-          <SafePhone
-            onClick={() => trackCallClick()}
-            ariaLabel="Call Found It Marketing"
-            className="flex items-center gap-3 font-black uppercase italic tracking-tighter text-sm text-white hover:text-primary transition-colors group"
-          >
-            <SafePhoneText className="hidden sm:inline" />
-            <span className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/[0.04] border border-border/20 group-hover:bg-white/[0.08] transition-colors">
-              <Phone className="w-5 h-5 text-white/70" />
-            </span>
-          </SafePhone>
         </div>
       </div>
     </motion.header>

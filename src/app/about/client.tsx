@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, MapPin, Trophy } from 'lucide-react';
+import { ArrowRight, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { GuideCta } from '@/components/GuideCta';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { AWARD, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -187,9 +185,6 @@ export default function AboutPage() {
               </LiquidButton>
             </Link>
             <GuideCta location="about_cta" className="max-w-sm sm:max-w-none" />
-            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-              <Phone className="w-4 h-4" /> <SafePhoneText />
-            </SafePhone>
           </div>
         </motion.div>
 

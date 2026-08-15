@@ -7,7 +7,6 @@ import { LocalLeadForm } from '@/components/local/LocalLeadForm';
 import { LocalFAQ } from '@/components/local/LocalFAQ';
 import { LocalReview } from '@/components/local/LocalReview';
 import { LocalLinkCards } from '@/components/local/LocalLinkCards';
-import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 export const metadata: Metadata = {
   title: 'Web Design in Central Louisiana | Alexandria, Pineville & Beyond',
@@ -264,9 +263,6 @@ export default function CentralLouisianaWebDesignPage() {
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
                 Tell us about your business and we&apos;ll come back with a teardown of your current site and a real
                 design direction for what it should be — free, and yours to keep even if you never hire us.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Want to skip the form? Call <TrackedPhoneLink /> and talk it through with Trevor.
               </p>
             </div>
             <LocalLeadForm

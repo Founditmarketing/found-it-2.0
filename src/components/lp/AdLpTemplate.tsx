@@ -20,7 +20,7 @@ import { BOOKING_URL } from '@/lib/booking';
    ONLY the hero copy and the attribution tags vary per page — everything
    after the hero is the audited, reviewed funnel: form-primary conversion,
    Edwards proof, pain mirror, touchable demo + the voice secretary, the
-   rails, founder, mechanism, price at the FAQ. Adding a new hook to
+   rails, mechanism, price at the FAQ. Adding a new hook to
    test = one thin content.tsx passing hero copy, never a copied page.
    Claims stay inside the doctrine: the money-back guarantee was retired
    8/14 (the offer line is OS_PRICING.promise, verbatim),
@@ -213,18 +213,6 @@ export function AdLpTemplate({ hero, slug, sourcePrefix }: AdLpTemplateProps) {
           <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
         </div>
       </section>
-
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the software map below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get My Software Map"
-        ctaHref="#lp-form"
-      />
 
       <ObjectionBullets
         bullets={[

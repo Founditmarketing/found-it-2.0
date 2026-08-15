@@ -2,10 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle2, Phone, CalendarCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, CalendarCheck } from 'lucide-react';
 import { useEffect } from 'react';
-import { trackThankYouConversion, trackCallClick, trackCalendlyOpen } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
+import { trackThankYouConversion, trackCalendlyOpen } from '@/lib/analytics';
 import { LINKS } from '@/lib/site';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -45,19 +44,9 @@ export default function ThankYouClient() {
             We&apos;ve got your information. Trevor will call you back — usually within 2 hours.
           </p>
 
-          {/* Next steps: call now, or book a time */}
-          <div className="flex flex-col items-center gap-4 mb-12">
-            <SafePhone
-              onClick={() => trackCallClick()}
-              className="w-full sm:w-auto flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 bg-primary text-primary-foreground rounded-2xl px-8 py-4 shadow-2xl shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all"
-            >
-              <span className="flex items-center gap-2 text-sm font-black uppercase italic tracking-tighter">
-                <Phone className="w-4 h-4" aria-hidden="true" /> Can&apos;t Wait? Call Now
-              </span>
-              <span className="text-xl font-black tracking-tight"><SafePhoneText /></span>
-            </SafePhone>
-
-            {bookingUrl && (
+          {/* Next step: book a time */}
+          {bookingUrl && (
+            <div className="flex flex-col items-center gap-4 mb-12">
               <a
                 href={bookingUrl}
                 target="_blank"
@@ -68,8 +57,8 @@ export default function ThankYouClient() {
                 <CalendarCheck className="w-4 h-4 text-primary" aria-hidden="true" />
                 Skip the wait — pick a time
               </a>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* While you wait */}
           <div className="bg-card/10 border border-border/15 rounded-2xl p-6 mb-10 text-left">

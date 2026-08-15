@@ -2,10 +2,9 @@
 
 import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Check, X, Phone, ArrowRight, Loader2, Mail, Bot, Smartphone, TriangleAlert } from 'lucide-react';
+import { Search, Check, X, ArrowRight, Loader2, Mail, Bot, Smartphone, TriangleAlert } from 'lucide-react';
 import Link from 'next/link';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
-import { trackCallClick, trackAuditRequest, trackLead } from '@/lib/analytics';
+import { trackAuditRequest, trackLead } from '@/lib/analytics';
 import { usePersonalization } from '@/lib/personalization';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -377,17 +376,9 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
                   </p>
                 )}
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <SafePhone
-                  onClick={() => trackCallClick()}
-                  className="inline-flex items-center gap-2 whitespace-nowrap bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-5 py-3 rounded-xl text-xs hover:shadow-lg hover:shadow-primary/25 transition-shadow"
-                >
-                  <Phone className="w-3.5 h-3.5" /> <SafePhoneText />
-                </SafePhone>
-                <Link href="/contact" className="text-xs font-bold whitespace-nowrap text-muted-foreground hover:text-primary transition-colors">
-                  {failCount > 0 ? 'Book the walkthrough →' : 'Book a call →'}
-                </Link>
-              </div>
+              <Link href="/contact" className="text-xs font-bold whitespace-nowrap text-muted-foreground hover:text-primary transition-colors">
+                {failCount > 0 ? 'Book the walkthrough →' : 'Book a call →'}
+              </Link>
             </div>
           </motion.div>
           );

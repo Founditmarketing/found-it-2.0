@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { LPFormSection } from '@/components/lp/LPFormSection';
-import { trackVideoPlay, trackCallClick } from '@/lib/analytics';
+import { trackVideoPlay } from '@/lib/analytics';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 
 /* Case study: Edwards Roofing. The story is told in the order it happened —
    the scatter, the fitting, the audit, the ownership — with Cory's verbatim
@@ -152,13 +151,6 @@ export default function EdwardsRoofingCaseStudy() {
             >
               Show Me What Mine Would Look Like <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
-            <SafePhone
-              onClick={() => trackCallClick()}
-              className="inline-flex items-center gap-2 text-sm font-bold text-white/80 hover:text-primary transition-colors"
-            >
-              <Phone className="w-4 h-4" aria-hidden="true" />
-              <SafePhoneText className="text-white font-black italic tracking-tighter" />
-            </SafePhone>
           </div>
         </div>
       </section>

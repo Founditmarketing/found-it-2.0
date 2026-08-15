@@ -1,10 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -67,13 +65,6 @@ export function JohnCTA({
                   <ArrowRight className="w-4 h-4" />
                 </motion.div>
               </Link>
-              <SafePhone
-                onClick={() => trackCallClick()}
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm font-bold"
-              >
-                <Phone className="w-4 h-4" />
-                <SafePhoneText />
-              </SafePhone>
             </div>
           </div>
         </motion.div>

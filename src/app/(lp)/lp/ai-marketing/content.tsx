@@ -10,7 +10,6 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { TeamCollageSection } from '@/components/lp/TeamCollageSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
-import { FounderVideo } from '@/components/lp/FounderVideo';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { motion } from 'framer-motion';
@@ -39,18 +38,6 @@ export function AIMarketingLPContent() {
         formHeading="Get My Free AI Demo"
         formSource="lp_ai_marketing"
         formPageSlug="ai-marketing"
-      />
-
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the free software map below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get A Free Software Map"
-        ctaHref="#lp-form"
       />
 
       <SocialProof

@@ -20,7 +20,7 @@ import { BOOKING_URL } from '@/lib/booking';
    ad's question instead of restarting the pitch.
      ad promise ("who owes me money?") → hero answers it → Edwards Roofing
      proof w/ real numbers → the touchable demo → the bigger one-system
-     reveal → founder → risk reversal → pricing → one CTA.
+     reveal → risk reversal → pricing → one CTA.
    One conversion goal: the software map (Tom's video call is the delivery
    mechanism, not the product). No marketing-era reviews, no PDF magnet,
    no exit links on this page. The local promise is Tom on the call; the
@@ -192,18 +192,6 @@ export function WichitaLPContent() {
           <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
         </div>
       </section>
-
-      {/* The face behind the build team — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="Tom fronts the call — this is the developer behind every screen above. One custom app replaces the subscriptions you're renting, and you own it: the code, the data, everything. Press play, then grab the software map below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get My Software Map"
-        ctaHref="#lp-form"
-      />
 
       <ObjectionBullets
         bullets={[

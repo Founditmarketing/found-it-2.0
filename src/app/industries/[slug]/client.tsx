@@ -1,12 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Phone } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
 import { OsRail } from '@/components/os/OsRail';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import type { IndustryData } from './data';
@@ -219,12 +217,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
                 Tell us how your business runs today — the software, the paper, the workarounds — and we will map the system we would build if it were ours. You keep the map either way. No pitch, no obligation.
               </p>
-              <p className="text-sm text-muted-foreground">
-                Prefer to talk? Call{' '}
-                <SafePhone onClick={() => trackCallClick()} className="text-primary font-bold"><SafePhoneText /></SafePhone>{' '}
-                or{' '}
-                <Link href="/contact" className="text-primary font-bold hover:underline">book a call</Link>.
-              </p>
             </div>
             <LeadFormEmbed heading={data.ctaText} source={data.formSource} pageSlug={`industry-${data.slug}`} />
           </div>
@@ -271,9 +263,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </LiquidButton>
             </Link>
-            <SafePhone onClick={() => trackCallClick()} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm font-bold">
-              <Phone className="w-4 h-4" /> <SafePhoneText />
-            </SafePhone>
           </div>
         </motion.div>
 

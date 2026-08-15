@@ -105,18 +105,6 @@ export function RoofingLPContent() {
         <OsRail items={tradePhones} dir="right" href="#lp-form" size="sm" />
       </div>
 
-      {/* The face behind the ad — 27-sec one-take from Trevor. */}
-      <FounderVideo
-        eyebrow="Meet The Developer"
-        heading="27 Seconds From"
-        headingAccent="The Guy Who Builds It."
-        body="No sales team, no account manager — you'd be talking to the developer. One custom app replaces the scatter of subscriptions you're renting, and you own it: the code, the data, everything. Press play, then book the free walkthrough below."
-        videoSrc="/founder-intro-v2.mp4"
-        poster="/founder-intro-poster-v2.jpg"
-        ctaText="Get A Free Software Map"
-        ctaHref="#lp-form"
-      />
-
       <ObjectionBullets
         bullets={[
           {
