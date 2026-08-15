@@ -80,18 +80,23 @@ export const REVENUE_CLAIM = {
     "we operate in 48 states" framing — it is one client's shipping footprint. */
 export const STATES_CLAIM = 'Scaled one client to customers in 48 states.';
 
-/* ─── Found It OS pricing + guarantee ───
+/* ─── Found It OS pricing + promise ───
    The ONLY service with a public sticker price, set by Trevor 2026-07-30.
    Single source of truth — homepage, /foundit-os, /pricing all render from
    here so the number can never drift. public/llms.txt is static: update it
-   by hand if these change. */
+   by hand if these change.
+   DOCTRINE CHANGE (Trevor, 2026-08-14): the money-back guarantee is RETIRED.
+   Never reintroduce "love it or your money back" or any refund promise
+   anywhere on the site or in the AI scripts. The risk reversal that remains
+   true: month-to-month, cancel anytime, the client keeps the code and the
+   data. The offer's spine is the promise below. */
 export const OS_PRICING = {
   monthly: '$2,200',
   monthlyLabel: 'per month',
   setup: '$2,000',
   setupLabel: 'one-time migration & setup',
-  /** The guarantee, verbatim. Plain statement — no invented fine print. */
-  guarantee: 'Love it or your money back.',
+  /** What the system is FOR — the offer's one-line spine, verbatim. */
+  promise: 'Simplify your life. Make your business more profitable.',
 } as const;
 
 /* ─── Config-gated links ───

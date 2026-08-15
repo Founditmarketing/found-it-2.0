@@ -14,12 +14,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: `${GUIDE_TITLE} — The Free Found It OS Guide (PDF)`,
   description:
-    `Free 4-page PDF: what one custom system replaces, the whole price printed (${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}), how a fitting works, and the guarantee verbatim: ${OS_PRICING.guarantee} Plain English, 2-minute read.`,
+    `Free 4-page PDF: what one custom system replaces, the whole price printed (${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}), how a fitting works, and the one job the system is built for: ${OS_PRICING.promise} Plain English, 2-minute read.`,
   alternates: { canonical: '/guide' },
   openGraph: {
     title: `${GUIDE_TITLE} — The Free Found It OS Guide (PDF)`,
     description:
-      `Four pages, plain English, zero tech specs — what you actually get with a custom business operating system you own. The whole price printed, and the guarantee verbatim: ${OS_PRICING.guarantee}`,
+      `Four pages, plain English, zero tech specs — what you actually get with a custom business operating system you own. The whole price printed, and one job: ${OS_PRICING.promise}`,
     type: 'website',
     url: 'https://www.founditsoftware.com/guide',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -46,8 +46,8 @@ export default function GuidePage() {
         <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
           The one question every owner asks before a fitting — answered in four pages of plain
           English. What one custom system replaces, the whole price printed ({OS_PRICING.monthly}
-          /mo plus {OS_PRICING.setup} {OS_PRICING.setupLabel}), how the fitting works, and the
-          guarantee verbatim: <span className="text-foreground font-bold">{OS_PRICING.guarantee}</span>{' '}
+          /mo plus {OS_PRICING.setup} {OS_PRICING.setupLabel}), how the fitting works, and the one
+          job the system is built for: <span className="text-foreground font-bold">{OS_PRICING.promise}</span>{' '}
           {TRACK_RECORD.softwareCustomers} software customers and growing are already running on
           systems they own. Read it in two minutes, hand it to your business partner.
         </p>

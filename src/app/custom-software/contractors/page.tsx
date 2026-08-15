@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Contractor Job Management Software You Own | Found It OS',
   description:
-    `Contractor job management software you own — jobs, customers, and service reminders in one system. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `Contractor job management software you own — jobs, customers, and service reminders in one system. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/contractors' },
   openGraph: {
     title: 'Contractor Job Management Software You Own | Found It Marketing',
     description:
-      `One system for your whole field operation — fitted to how your crews actually run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `One system for your whole field operation — fitted to how your crews actually run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/contractors',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS for contractors is custom job management software fitted to one contracting business at a time — jobs, customers, scheduling, estimates, invoices, annual service reminders, and website lead intake in a single system the contractor owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old way and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `Found It OS for contractors is custom job management software fitted to one contracting business at a time — jobs, customers, scheduling, estimates, invoices, annual service reminders, and website lead intake in a single system the contractor owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old way and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Found It OS · Contractors',
   headline: 'Contractor Job Management —',
   headlineAccent: 'Software You Own Outright.',
@@ -199,13 +199,13 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees, no per-user fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. And it is guaranteed: ${OS_PRICING.guarantee} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most local businesses. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees, no per-user fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most local businesses. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Contractors Choose Found It OS',
   whyUs: [
     'A field-service operating system we built is live in production today — jobs, customers, annual service reminders, and real website leads flowing straight into the desk.',
     'A foundation contractor is in fitting right now — a real engagement, not a promise.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
     'Your records get professionally migrated in — and nothing switches until the new system runs beside the old way and matches it.',
     `${TRACK_RECORD.yearsInBusiness} years building digital products for local businesses, from a team in Alexandria, LA you can actually reach.`,
@@ -235,7 +235,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-truck fees, no per-user fees, no surprise add-ons, no contracts. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-truck fees, no per-user fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
     },
     {
       question: 'Who owns the system?',
@@ -256,7 +256,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Jobs on One Desk',
   finalCtaSub:
-    `Tell us how your operation runs today — the truck cab, the paper, the reminders that never happen — and we will map what your own job management system would look like. Free, in person if you are local, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your operation runs today — the truck cab, the paper, the reminders that never happen — and we will map what your own job management system would look like. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function ContractorSoftwarePillar() {

@@ -18,9 +18,9 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    Message match: the searcher's pain is stale part prices — QuickBooks
    costs frozen years ago, distributor price files never loaded, the
    counter quoting below cost without knowing. The story is the margin
-   governor. Pricing renders from OS_PRICING only; the guarantee is
-   verbatim with no invented conditions; Cory Edwards is the one named
-   client (his numbers are sanctioned on-page).
+   governor. Pricing renders from OS_PRICING only; the money-back guarantee
+   was retired 8/14 (the offer line is OS_PRICING.promise, verbatim); Cory
+   Edwards is the one named client (his numbers are sanctioned on-page).
    Harmonized 8/14 to the ad-page audit structure: Cory's named-numbers
    proof directly under the hero, no marketing-era reviews, no PDF magnet,
    public price at the point of commitment. */
@@ -43,7 +43,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat — every counter seat, every location included. Month-to-month. ${OS_PRICING.guarantee}`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat — every counter seat, every location included. Month-to-month — cancel anytime, and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current system on day one?',
@@ -56,8 +56,9 @@ const faqItems = [
       'Yes. The code and the data are yours, 100% — inventory, part history, customers, the books. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
-    question: "What if I don't love it?",
-    answer: `${OS_PRICING.guarantee} That's the entire guarantee — no fine print to read, because there isn't any.`,
+    question: "What if it doesn't work out?",
+    answer:
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
   },
 ];
 
@@ -81,7 +82,7 @@ export function DealershipLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_dealership"
         formPageSlug="dealership"
-        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
       {/* Proof directly under the hero — a named local business and numbers
@@ -138,7 +139,7 @@ export function DealershipLPContent() {
           {
             title: '“I’ve Been Burned By Dealer Software Before.”',
             detail:
-              `Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Nobody rents you your own business back. And the guarantee is one sentence: ${OS_PRICING.guarantee}`,
+              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Leave any month with 30 days' notice and everything is still yours. Our customers stay because they love it, not because they're locked in.",
           },
         ]}
       />
@@ -161,7 +162,7 @@ export function DealershipLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. ${OS_PRICING.guarantee}`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
           },
         ]}
       />
@@ -176,7 +177,7 @@ export function DealershipLPContent() {
           'We come to your dealership, in person — free',
           'You keep the map: the app we’d build if we owned your dealership',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — every seat included`,
-          `Month-to-month. ${OS_PRICING.guarantee}`,
+          `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_dealership"
         pageSlug="dealership"

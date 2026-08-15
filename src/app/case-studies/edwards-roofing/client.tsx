@@ -142,7 +142,7 @@ export default function EdwardsRoofingCaseStudy() {
               maintenance — security, updates, new features — not rent. {TRACK_RECORD.softwareCustomers}{' '}
               local businesses run on systems built this way, at the same public price:{' '}
               {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
-              {OS_PRICING.setupLabel}, month-to-month. {OS_PRICING.guarantee}
+              {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-5 pt-2">
@@ -173,7 +173,7 @@ export default function EdwardsRoofingCaseStudy() {
           'A free 30-minute Zoom — your business mapped live, screen-shared',
           'You keep the map: the app we’d build if we owned your company',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
-          `Month-to-month. ${OS_PRICING.guarantee}`,
+          'Month-to-month — cancel anytime, and the system stays yours.',
         ]}
         source="case_edwards_footer"
         pageSlug="case-edwards-roofing"

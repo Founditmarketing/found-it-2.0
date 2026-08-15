@@ -5,12 +5,12 @@ import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Custom Business Software You Own — Built for Small Business',
   description:
-    `Custom business software built for one business at a time — you own it outright, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `Custom business software built for one business at a time — you own it outright, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software' },
   openGraph: {
     title: 'Custom Business Software — Fitted to One Business at a Time | Found It Marketing',
     description:
-      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records professionally migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records professionally migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. Installed in days, not quarters. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup, backed by a plain guarantee: ${OS_PRICING.guarantee}`,
+    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. Installed in days, not quarters. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Custom Software',
   headline: 'Built for Your Business —',
   headlineAccent: 'Not for an “Industry.”',
@@ -231,11 +231,11 @@ const data: PillarData = {
   ],
   pricingHeading: 'The Price Is on the Website',
   pricing:
-    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. And it is guaranteed: ${OS_PRICING.guarantee} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
+    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
     'Your records get professionally migrated in — and nothing switches until the new system has run beside the old one and matched it.',
@@ -247,7 +247,7 @@ const data: PillarData = {
     {
       question: 'What does custom business software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market entirely; the point of Found It OS is the same ownership at a price you can read before you ever pick up the phone. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market entirely; the point of Found It OS is the same ownership at a price you can read before you ever pick up the phone. Month-to-month — cancel anytime, and the system stays yours.`,
     },
     {
       question: 'Is this an alternative to Tekmetric, ShedSuite, or Buildertrend?',
@@ -275,9 +275,9 @@ const data: PillarData = {
         'Almost certainly. The industry pages below are where we have live systems and fittings underway — auto repair, field service, retail, sheds, dealerships, home builders — but the method is the same everywhere: map how one business runs, build the system around it, migrate the records in. If your business runs on jobs, customers, and a register in any form, it can be fitted.',
     },
     {
-      question: 'What does “love it or your money back” mean?',
+      question: 'What if it doesn’t work out?',
       answer:
-        'Exactly what it says. If you do not love it, you get your money back. The guarantee exists because the system has to earn its keep every month — not because we expect to write refunds.',
+        'The deal is month-to-month — cancel anytime with 30 days’ notice, and you keep the code and the data. The system stays yours and keeps running. Our customers stay because they love it, not because they’re locked in.',
     },
   ],
   relatedReading: [
@@ -291,7 +291,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See What a Fitted System Looks Like',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. The price is already published, and the system is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. Free, in person if you are local, no obligation. The price is already published, and the deal is simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function CustomSoftwarePillar() {

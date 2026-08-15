@@ -139,7 +139,7 @@ export default function GuidePrintPage() {
           <p style={{ fontSize: '13pt', lineHeight: 1.55, color: MUTED, fontWeight: 500, maxWidth: '5.6in' }}>
             The plain-English answer — what one custom system replaces, what it costs next to
             the stack you&apos;re renting, how it lands without breaking your business, and the
-            guarantee it all sits on. Four pages. No tech specs.
+            one promise it&apos;s all built on. Four pages. No tech specs.
           </p>
         </div>
 
@@ -158,13 +158,14 @@ export default function GuidePrintPage() {
           ))}
         </div>
 
-        {/* Guarantee band */}
+        {/* Promise band — the money-back guarantee was retired 8/14; the
+            offer line is OS_PRICING.promise, verbatim. */}
         <div style={{ background: ORANGE, borderRadius: 14, padding: '0.24in 0.3in', color: '#000' }}>
           <p className="font-heading font-black uppercase italic" style={{ fontSize: '19pt', letterSpacing: '-0.02em', lineHeight: 1 }}>
-            &ldquo;{OS_PRICING.guarantee}&rdquo;
+            &ldquo;{OS_PRICING.promise}&rdquo;
           </p>
           <p className="font-bold" style={{ fontSize: '9pt', marginTop: '5pt' }}>
-            That is the entire guarantee. There is no fine print, because it doesn&apos;t need any.
+            That is the whole job. Every system we build gets judged against that sentence.
           </p>
         </div>
       </Sheet>
@@ -322,10 +323,10 @@ export default function GuidePrintPage() {
 
         <div style={{ background: ORANGE, borderRadius: 14, padding: '0.2in 0.26in', color: '#000' }}>
           <p className="font-heading font-black uppercase italic" style={{ fontSize: '15pt', letterSpacing: '-0.01em', lineHeight: 1.05 }}>
-            And if it doesn&apos;t earn its keep: &ldquo;{OS_PRICING.guarantee}&rdquo;
+            And if it doesn&apos;t earn its keep: cancel. Month-to-month — the system is still yours.
           </p>
           <p className="font-bold" style={{ fontSize: '8.5pt', marginTop: '4pt' }}>
-            No fine print. No clawbacks. No conditions to read twice.
+            No long-term contract. Our customers stay because they love it, not because they&apos;re locked in.
           </p>
         </div>
 
@@ -396,7 +397,7 @@ export default function GuidePrintPage() {
         <div className="mt-auto" style={{ borderTop: `1px solid ${EDGE}`, paddingTop: '0.14in' }}>
           <div className="flex items-center justify-between">
             <span style={{ fontSize: '8.5pt', color: FAINT, fontWeight: 700 }}>
-              &ldquo;{OS_PRICING.guarantee}&rdquo; — no fine print.
+              &ldquo;{OS_PRICING.promise}&rdquo; — that&apos;s the job.
             </span>
             <span className="font-mono" style={{ fontSize: '8pt', color: FAINT, fontWeight: 700 }}>4 / 4</span>
           </div>

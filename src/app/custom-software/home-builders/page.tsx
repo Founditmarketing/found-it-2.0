@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'CoConstruct Alternative — Custom Home Builder Software',
   description:
-    `CoConstruct is being retired. Own a builder OS fitted to you — draws, selections, change orders — for ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `CoConstruct is being retired. Own a builder OS fitted to you — draws, selections, change orders — for ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/home-builders' },
   openGraph: {
     title: 'CoConstruct Alternative for Home Builders | Found It Marketing',
     description:
-      `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own — draws, selections, change orders, sub scheduling — before it goes dark. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own — draws, selections, change orders, sub scheduling — before it goes dark. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/home-builders',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `A custom operating system for home builders — draws, selections, change orders, sub scheduling, and takeoffs where the takeoff line is the estimate line — built one builder at a time and owned outright by the client. Records are professionally migrated in, and the new system runs beside the old one until the two match before anything switches. Currently in fitting with a custom home builder and recruiting design-partner builders ahead of the announced CoConstruct retirement. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `A custom operating system for home builders — draws, selections, change orders, sub scheduling, and takeoffs where the takeoff line is the estimate line — built one builder at a time and owned outright by the client. Records are professionally migrated in, and the new system runs beside the old one until the two match before anything switches. Currently in fitting with a custom home builder and recruiting design-partner builders ahead of the announced CoConstruct retirement. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Builder OS',
   headline: 'CoConstruct Is Being Retired.',
   headlineAccent: 'Own What Replaces It.',
@@ -164,12 +164,12 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your existing records — jobs, clients, selections, financial history — is part of that setup, not a separate invoice. No per-seat fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. And it is guaranteed: ${OS_PRICING.guarantee} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most builders. This is custom-software ownership without the custom-software invoice.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your existing records — jobs, clients, selections, financial history — is part of that setup, not a separate invoice. No per-seat fees, no surprise add-ons, no contracts — month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most builders. This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Builders Are Talking to Found It',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted on their own systems right now.`,
     'Straight answers about what is built: the builder OS is in fitting with a custom home builder today. We recruit design partners — we do not invent install counts.',
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays yours.',
     'Proven before it ships: the new system runs beside your old one until the two match, and you say go.',
@@ -210,7 +210,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migrating your existing records is part of that setup. That is the whole number: no per-seat fees, no surprise add-ons, no contracts. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migrating your existing records is part of that setup. That is the whole number: no per-seat fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
     },
   ],
   relatedReading: [
@@ -221,7 +221,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Get Fitted Before CoConstruct Goes Dark',
   finalCtaSub:
-    `Tell us how your jobs run today — the takeoffs, the draw schedules, the selection emails, the change orders on sticky notes — and we will map what your own builder OS would look like. Design partners get fitted first and shape what gets built. Free, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your jobs run today — the takeoffs, the draw schedules, the selection emails, the change orders on sticky notes — and we will map what your own builder OS would look like. Design partners get fitted first and shape what gets built. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function HomeBuildersPillar() {

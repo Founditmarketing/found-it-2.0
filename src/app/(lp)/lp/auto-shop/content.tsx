@@ -17,8 +17,8 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    Message match: the searcher is a shop owner pricing shop management
    systems, tired of per-seat fees and data he doesn't own. Proof point
    stays anonymous per content law: "a real Alexandria European auto shop"
-   — never a name. Pricing renders from OS_PRICING only; the guarantee is
-   verbatim with no invented conditions.
+   — never a name. Pricing renders from OS_PRICING only; the money-back
+   guarantee was retired 8/14 — the offer line is OS_PRICING.promise, verbatim.
    Harmonized 8/14 to the ad-page audit structure: Cory's named-numbers
    proof directly under the hero, no marketing-era reviews, no PDF magnet,
    public price at the point of commitment. */
@@ -36,7 +36,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat. No per-seat fees, no per-bay fees, no per-location fees — every service writer and every tech is included. Month-to-month. ${OS_PRICING.guarantee}`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat. No per-seat fees, no per-bay fees, no per-location fees — every service writer and every tech is included. Month-to-month — cancel anytime, and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current shop software on day one?',
@@ -49,8 +49,9 @@ const faqItems = [
       'Yes. The code and the data are yours, 100% — every customer record, every repair order, every invoice. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
-    question: "What if I don't love it?",
-    answer: `${OS_PRICING.guarantee} That's the entire guarantee — no fine print to read, because there isn't any.`,
+    question: "What if it doesn't work out?",
+    answer:
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
   },
 ];
 
@@ -74,7 +75,7 @@ export function AutoShopLPContent() {
         formHeading="Get A Free Software Map"
         formSource="lp_auto_shop"
         formPageSlug="auto-shop"
-        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. ${OS_PRICING.guarantee}`}
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
       {/* Proof directly under the hero — a named local business and numbers
@@ -153,7 +154,7 @@ export function AutoShopLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. ${OS_PRICING.guarantee}`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
           },
         ]}
       />
@@ -168,7 +169,7 @@ export function AutoShopLPContent() {
           'We come to your shop, in person — free',
           'You keep the map: the app we’d build if we owned your shop',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — flat, no per-seat fees`,
-          `Month-to-month. ${OS_PRICING.guarantee}`,
+          `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_auto_shop"
         pageSlug="auto-shop"

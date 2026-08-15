@@ -17,13 +17,13 @@ const ease = [0.16, 1, 0.3, 1] as const;
    optimization, maintenance from $250/mo), social (flat monthly), apps (fixed
    price after a free blueprint, 8–12 weeks), AI automation (flat monthly,
    live in 1–2 weeks), Found It OS ($2,200/mo + $2,000 one-time migration &
-   setup, love-it-or-your-money-back — the site's ONLY sticker price, from
+   setup, month-to-month (guarantee retired 8/14) — the site's ONLY sticker price, from
    OS_PRICING in site.ts). No other invented sticker prices. */
 const services = [
   {
     name: 'Found It OS',
     price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
-    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. Guaranteed — ${OS_PRICING.guarantee} Our customers stay because they love it, not because they’re locked in.`,
+    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. One job: ${OS_PRICING.promise} Our customers stay because they love it, not because they’re locked in.`,
     features: [
       'Free fitting first — we map how your business runs',
       'Runs beside your old system until the books match to the penny',

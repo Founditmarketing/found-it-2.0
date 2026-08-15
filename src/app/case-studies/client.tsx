@@ -257,7 +257,7 @@ export default function CaseStudiesPage() {
           <p className="text-sm text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
             The code and the data, one hundred percent — nobody rents you your own business back.
             The price is public: {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
-            {OS_PRICING.setupLabel}, month-to-month. {OS_PRICING.guarantee}
+            {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
           </p>
         </motion.div>
 

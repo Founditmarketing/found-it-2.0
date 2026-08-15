@@ -26,7 +26,8 @@ import { BOOKING_URL } from '@/lib/booking';
    no exit links on this page. The local promise is Tom on the call; the
    build team behind him is the same one behind every screen on the rail.
    Claims stay inside the doctrine: own the code and data, parallel run
-   penny-matched, month-to-month, guarantee rendered from OS_PRICING only.
+   penny-matched, month-to-month; the money-back guarantee was retired 8/14
+   — the offer line is OS_PRICING.promise, verbatim.
    The only numbers allowed: $2,200/$2,000 (OS_PRICING), the 12+ count
    (TRACK_RECORD), 30-minute call, and Cory Edwards' audited figures
    ($195,882.75 receivables / $19,000 error). Never add invoice counts or
@@ -45,7 +46,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. ${OS_PRICING.guarantee}`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current software on day one?',
@@ -58,8 +59,9 @@ const faqItems = [
       'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
-    question: "What if I don't love it?",
-    answer: `${OS_PRICING.guarantee} That's the entire guarantee — no fine print to read, because there isn't any.`,
+    question: "What if it doesn't work out?",
+    answer:
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data. Our customers stay because they love it, not because they're locked in.",
   },
 ];
 
@@ -96,7 +98,7 @@ export function WichitaLPContent() {
         formCtaLabel="Get My Free Software Map"
         formCompact
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
-        formPrivacyNote={`${OS_PRICING.guarantee} Free & no obligation — we reply within 2 hours.`}
+        formPrivacyNote={`One job: ${OS_PRICING.promise} Free & no obligation — we reply within 2 hours.`}
         nextSteps={[
           'Drop your name and number — nothing to book, nothing to cancel.',
           'Tom calls you back and maps your business with you — live, screen-shared.',
@@ -212,7 +214,7 @@ export function WichitaLPContent() {
         bullets={[
           {
             title: '“Okay — What’s The Catch?”',
-            detail: `There isn't a long-term contract. You own the code and the data. The monthly fee pays for building, hosting, securing, and improving the system. And if you don't love it: ${OS_PRICING.guarantee}`,
+            detail: "There isn't a long-term contract. You own the code and the data. The monthly fee pays for building, hosting, securing, and improving the system. And if it stops earning its keep, cancel with 30 days' notice — the system is still yours.",
           },
           {
             title: '“What If It Breaks? We Depend On This.”',
@@ -250,7 +252,7 @@ export function WichitaLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. ${OS_PRICING.guarantee}`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
           },
         ]}
       />
@@ -271,7 +273,7 @@ export function WichitaLPContent() {
           'Tom maps your business with you — live, screen-shared, free',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
-          `Month-to-month. ${OS_PRICING.guarantee}`,
+          `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_wichita_footer"
         pageSlug="wichita"

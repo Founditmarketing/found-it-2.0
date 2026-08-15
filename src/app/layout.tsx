@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Found It Marketing | Custom AI Software, Google Ads & Web Design | Alexandria, LA',
     template: '%s | Found It Marketing'
   },
-  description: "Found It builds custom AI-powered operating systems for real businesses — your records migrated, your team trained, live in days, one published price with a money-back guarantee. Plus Google Ads, web design & AI search. Alexandria, LA.",
+  description: "Found It builds custom AI-powered operating systems for real businesses — your records migrated, your team trained, live in days, one published price. Built to simplify your life and make your business more profitable. Plus Google Ads, web design & AI search. Alexandria, LA.",
   keywords: [
     'custom AI software',
     'custom business operating system',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: 'https://www.founditsoftware.com',
     siteName: 'Found It Marketing',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Money-back guarantee.",
+    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
     images: [
       {
         url: '/og-image-v3.png',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Money-back guarantee.",
+    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
     images: ['/og-image-v3.png'],
   },
   robots: {

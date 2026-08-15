@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The House System — Retail POS You Own',
   description:
-    `The House System is a retail POS you own outright — register, inventory, customer households, layaway, and Ask the House: AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `The House System is a retail POS you own outright — register, inventory, customer households, layaway, and Ask the House: AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/retail-stores' },
   openGraph: {
     title: 'The House System — Retail POS You Own | Found It Marketing',
     description:
-      `The House System: one system for your whole store — register, inventory, customer book, layaway — fitted to how you actually sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `The House System: one system for your whole store — register, inventory, customer book, layaway — fitted to how you actually sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/retail-stores',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `The House System is Found It's retail point of sale — a system independent stores own outright: register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Existing records are professionally migrated in, and the new system runs beside the old register until the books match to the penny before anything switches. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `The House System is Found It's retail point of sale — a system independent stores own outright: register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Existing records are professionally migrated in, and the new system runs beside the old register until the books match to the penny before anything switches. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'The House System · Retail',
   headline: 'The House System —',
   headlineAccent: 'A Register That Remembers.',
@@ -189,11 +189,11 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migration means your records come with you, professionally brought in. No per-terminal fees, no processor lock-in, no contracts — month-to-month, and if we ever part ways the system stays yours. Guaranteed: ${OS_PRICING.guarantee} Stores renting Square- or Lightspeed-class systems pay every month forever and own nothing at the end. This is the opposite trade: the same monthly discipline, but the register, the code, and the customer book are yours.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and migration means your records come with you, professionally brought in. No per-terminal fees, no processor lock-in, no contracts — month-to-month, and if we ever part ways the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay every month forever and own nothing at the end. This is the opposite trade: the same monthly discipline, but the register, the code, and the customer book are yours.`,
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'One House System core fitted to real stores — menswear, appliances and furniture — without forking the code.',
     'You own 100% of the code and the data. Your customer history is your asset, not your processor\'s.',
     'Records professionally migrated in — decades of customers and tickets survive the move.',
@@ -230,7 +230,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-terminal fees, no surprise add-ons, no contracts. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-terminal fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
     },
     {
       question: 'If I stop paying, do I lose my register and my data?',
@@ -251,7 +251,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Store in Its Own House',
   finalCtaSub:
-    `Tell us how your store runs today — the POS, the binder, the workarounds — and we will map what your own system would look like, with your history in it. Free, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your store runs today — the POS, the binder, the workarounds — and we will map what your own system would look like, with your history in it. Free, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function RetailStoresPillar() {

@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The AI-Powered Tekmetric Alternative You Own',
   description:
-    `The AI-powered Tekmetric alternative shops own outright — work orders, parts board, and an AI that answers from your own records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.guarantee}`,
+    `The AI-powered Tekmetric alternative shops own outright — work orders, parts board, and an AI that answers from your own records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/auto-repair-shops' },
   openGraph: {
     title: 'The AI-Powered Tekmetric Alternative You Own | Found It Marketing',
     description:
-      `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.guarantee}`,
+      `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/auto-repair-shops',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom shop management software for independent auto repair shops — work orders, the parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, backed by a love-it-or-your-money-back guarantee.`,
+    `Custom shop management software for independent auto repair shops — work orders, the parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Found It OS · The Tekmetric Alternative',
   headline: 'The AI-Powered',
   headlineAccent: 'Tekmetric Alternative You Own.',
@@ -201,13 +201,13 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and the migration is where your old records get professionally brought in, not abandoned. No per-writer fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. Guaranteed: ${OS_PRICING.guarantee} Shops renting a monthly management system pay rent forever and own nothing at the end. Here, the monthly covers backups, support, and new features — the system itself is already your asset.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and the migration is where your old records get professionally brought in, not abandoned. No per-writer fees, no surprise add-ons, no contracts. Month-to-month, and if we ever part ways, the system stays yours. One job: ${OS_PRICING.promise} Shops renting a monthly management system pay rent forever and own nothing at the end. Here, the monthly covers backups, support, and new features — the system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
     'We have already built a complete shop operating system for a real independent auto shop — work orders, parts board, customer book, invoicing, AI service desk — running on roughly ten years of its real migrated records.',
     'That migration surfaced about $270K in forgotten and unbilled work sitting in the shop\'s old system. Migration is not a chore here; it is where the money hides.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
-    `Guaranteed: ${OS_PRICING.guarantee} Month-to-month, no contracts — the system has to earn it every month.`,
+    `Month-to-month, no contracts — the system has to earn it every month. Our customers stay because they love it, not because they’re locked in.`,
     'You own 100% of the code and the data. If we ever part ways, the system stays in your shop.',
     'Proven before it ships: the new system runs beside your old one on your real data until the two match.',
     'AI-first, not AI-added: the system reads your entire migrated history, so the AI answers about YOUR shop — declined jobs, quiet regulars, what is waiting on parts, what is sleeping unbilled.',
@@ -237,7 +237,7 @@ const data: PillarData = {
     {
       question: 'What does auto repair shop software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-writer fees, no surprise add-ons, no contracts. And it is guaranteed: ${OS_PRICING.guarantee}`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-writer fees, no surprise add-ons, no contracts. Month-to-month — cancel anytime, and the system stays yours.`,
     },
     {
       question: 'Will my shop go down during the switch?',
@@ -263,7 +263,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Put the AI-Powered Alternative in Your Shop',
   finalCtaSub:
-    `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. Free, in person if you are local, no obligation. And the system itself is guaranteed: ${OS_PRICING.guarantee}`,
+    `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. Free, in person if you are local, no obligation. And the deal stays simple: month-to-month, cancel anytime, and the system stays yours.`,
 };
 
 export default function AutoRepairShopSoftwarePillar() {

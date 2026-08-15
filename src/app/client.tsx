@@ -81,7 +81,7 @@ const proofPoints = [
 ];
 
 const differentiators = [
-  { title: OS_PRICING.guarantee, detail: 'Every Found It OS install is guaranteed: if you don’t love your system, you get your money back. Month-to-month, no contracts — our customers stay because they love it, not because they’re locked in.' },
+  { title: 'No lock-in. Ever.', detail: 'Month-to-month, cancel anytime with 30 days’ notice — and you keep the code and the data. Our customers stay because they love it, not because they’re locked in.' },
   { title: 'You own everything.', detail: 'Your software, your ad accounts, your code, your data. Nothing held hostage.' },
   { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
 ];
@@ -208,7 +208,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Your whole business on one screen, in your hand — custom AI software fitted to how you actually run, and you own it outright, code and data. Nobody rents you your own business back. Guaranteed: <span className="text-white font-bold">{OS_PRICING.guarantee}</span>
+                Your whole business on one screen, in your hand — custom AI software fitted to how you actually run, and you own it outright, code and data. Nobody rents you your own business back. One job: <span className="text-white font-bold">{OS_PRICING.promise}</span>
               </p>
 
               {/* Revenue impact proof — canonical claim + methodology, always together */}
@@ -305,8 +305,8 @@ export default function HomePage() {
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{OS_PRICING.setupLabel}</p>
                 </div>
                 <div className="flex-1 bg-primary/10 border border-primary/25 rounded-2xl px-6 py-4">
-                  <p className="text-lg lg:text-xl font-black text-foreground italic tracking-tighter leading-tight">{OS_PRICING.guarantee}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">Guaranteed</p>
+                  <p className="text-lg lg:text-xl font-black text-foreground italic tracking-tighter leading-tight">{OS_PRICING.promise}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">One Job</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground/80 font-medium leading-relaxed mb-8 max-w-2xl">
