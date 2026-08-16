@@ -2,8 +2,10 @@ import { BlogList } from '@/components/blog/BlogList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Plain-English Notes for Business Owners',
-    description: "Software, AI, and getting found — written the way we'd say it across your counter. Notes for business owners from Found It Software in Alexandria, Louisiana.",
+    // Absolute on purpose: the layout template still appends the retired
+    // "| Found It Marketing" brand — the blog tab opts out entirely.
+    title: { absolute: 'Blog | Found It Software' },
+    description: "Software, ownership, and what we've shipped — written the way we'd say it across your counter. From Found It Software in Alexandria, Louisiana.",
     alternates: { canonical: '/blog' },
 };
 
