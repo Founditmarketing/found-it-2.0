@@ -28,7 +28,7 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 /* Dealer-relevant captures drift past first: sales-pipeline + quote screens. */
 const isDealerScreen = (s: { kind: string }) => /dealer|tire/i.test(s.kind);
 const dealerDesktops = railLeading(railDesktops, isDealerScreen);
-const dealerPhones = railLeading(railPhones, (s) => /flywheel/i.test(s.kind));
+const dealerPhones = railLeading(railPhones, (s) => /flywheel|lacaze/i.test(s.kind));
 
 const faqItems = [
   {

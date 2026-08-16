@@ -19,6 +19,30 @@ export function railLeading(
 
 export const railDesktops: OsRailItem[] = [
   {
+    src: '/os-screens/lacaze-os-ticket-v1.png',
+    alt: 'LaCaze OS repair ticket — the advance track, a machined total, and one-tap payment for an outdoor power dealership',
+    title: 'LaCaze OS',
+    kind: 'Outdoor Power Dealer',
+  },
+  {
+    src: '/os-screens/lacaze-os-invoices-v1.png',
+    alt: 'LaCaze OS invoice rack — commercial billing on terms with overdue invoices running hot',
+    title: 'LaCaze OS',
+    kind: 'Outdoor Power Dealer',
+  },
+  {
+    src: '/os-screens/lacaze-os-paid-v1.png',
+    alt: 'LaCaze OS paid ticket — the PAID stamp with tender and date, and the journal entry linked into the books',
+    title: 'LaCaze OS',
+    kind: 'Outdoor Power Dealer',
+  },
+  {
+    src: '/os-screens/lacaze-os-statement-v1.png',
+    alt: 'LaCaze OS customer statement — every open invoice on one page with a bank-payment link on each',
+    title: 'LaCaze OS',
+    kind: 'Outdoor Power Dealer',
+  },
+  {
     src: '/os-screens/tonys-shop-os-v1.png',
     alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
     title: 'Tony’s Shop OS',
@@ -75,6 +99,20 @@ export const railDesktops: OsRailItem[] = [
 ];
 
 export const railPhones: OsRailItem[] = [
+  {
+    src: '/os-screens/lacaze-os-ticket-mobile-v1.png',
+    alt: 'LaCaze OS repair ticket on a phone — the counter runs the whole ticket from a pocket',
+    title: 'The Ticket',
+    kind: 'LaCaze OS · Dealer',
+    portrait: true,
+  },
+  {
+    src: '/os-screens/lacaze-os-statement-mobile-v1.png',
+    alt: 'LaCaze OS customer statement on a phone — open invoices with pay-by-bank links',
+    title: 'The Statement',
+    kind: 'LaCaze OS · Dealer',
+    portrait: true,
+  },
   {
     src: '/os-screens/flywheel-os-mobile-quick-v2.png',
     alt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
