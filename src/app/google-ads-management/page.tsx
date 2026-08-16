@@ -106,8 +106,8 @@ const data: PillarData = {
     { question: 'Is there a contract?', answer: 'No. Month-to-month, cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in.' },
   ],
   relatedReading: [
-    { title: '5 Common PPC Mistakes Costing You Money', href: '/blog/common-ppc-mistakes' },
-    { title: 'How Much Should a Local Business Spend on Social Media?', href: '/blog/local-business-social-media-budget' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Google Ads Audit',
   finalCtaSub: 'See exactly where your budget is leaking and what we would change — before you spend another dollar. No pitch, no obligation.',

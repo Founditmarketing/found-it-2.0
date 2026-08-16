@@ -298,7 +298,8 @@ const data: PillarData = {
     { title: 'Auto Repair Shop Software You Own', href: '/custom-software/auto-repair-shops' },
     { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
     { title: 'Custom App Development', href: '/app-development' },
-    { title: 'Stop Fearing AI. Start Weaponizing It.', href: '/blog/weaponize-ai' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:

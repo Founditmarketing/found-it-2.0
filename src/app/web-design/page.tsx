@@ -108,7 +108,8 @@ const data: PillarData = {
     { question: 'What if I need changes after launch?', answer: '60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts.' },
   ],
   relatedReading: [
-    { title: 'Dominating the Map Pack: Your Guide to Local SEO', href: '/blog/local-seo-dominance' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Concept Call',
   finalCtaSub: 'Tell us about your business and we will show you how a faster, conversion-focused site could grow it. No pitch, no obligation.',

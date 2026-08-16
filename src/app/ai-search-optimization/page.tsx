@@ -97,9 +97,8 @@ const data: PillarData = {
     { question: 'Is there a contract?', answer: 'No. Month-to-month, cancel anytime with 30 days notice. You keep all the work, including content and schema, if you leave.' },
   ],
   relatedReading: [
-    { title: 'The Future is Answer Engines: An Intro to GEO', href: '/blog/intro-to-geo' },
-    { title: 'Stop Fearing AI. Start Weaponizing It.', href: '/blog/weaponize-ai' },
-    { title: 'Content is King, But AI is the Kingmaker', href: '/blog/ai-content-strategy' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free AI Visibility Audit',
   finalCtaSub: 'See exactly where AI sends your customers today — and where you are invisible. No pitch, no obligation.',

@@ -106,9 +106,8 @@ const data: PillarData = {
     { question: 'Is there a contract?', answer: 'No. Month-to-month. We recommend 90 days to see real traction, but we never lock you in.' },
   ],
   relatedReading: [
-    { title: 'How Much Should a Local Business Spend on Social Media?', href: '/blog/local-business-social-media-budget' },
-    { title: 'Organic vs. Paid Social: What Local Businesses Actually Need', href: '/blog/organic-vs-paid-social-local-business' },
-    { title: 'What a Real Social Media Content Engine Looks Like', href: '/blog/social-media-content-engine' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Social Strategy Session',
   finalCtaSub: 'Tell us about your business and we will build you a custom 30-day content plan you can start using immediately. No pitch, no obligation.',

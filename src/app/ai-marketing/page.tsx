@@ -98,8 +98,8 @@ const data: PillarData = {
     { question: 'Is my data safe and private?', answer: 'Yes. Your customer data stays in your own secure CRM. We never sell or share it, messaging runs through compliant channels, and you own your contacts at all times.' },
   ],
   relatedReading: [
-    { title: 'Stop Fearing AI. Start Weaponizing It.', href: '/blog/weaponize-ai' },
-    { title: 'Content is King, But AI is the Kingmaker', href: '/blog/ai-content-strategy' },
+    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free AI Demo',
   finalCtaSub: 'See exactly how an AI system would respond to your leads and book your appointments. No pitch, no obligation.',
