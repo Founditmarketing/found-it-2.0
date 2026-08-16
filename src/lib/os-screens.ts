@@ -19,6 +19,30 @@ export function railLeading(
 
 export const railDesktops: OsRailItem[] = [
   {
+    src: '/os-screens/roxanne-os-money-v1.png',
+    alt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
+    title: 'Roxanne’s OS',
+    kind: 'Wholesale Nursery',
+  },
+  {
+    src: '/os-screens/roxanne-os-intake-v1.png',
+    alt: 'Roxanne’s OS order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red',
+    title: 'Roxanne’s OS',
+    kind: 'Wholesale Nursery',
+  },
+  {
+    src: '/os-screens/roxanne-os-pull-sheet-v1.png',
+    alt: 'Roxanne’s OS pull sheet — the nursery-branded barn copy with big quantities and pull boxes, PO number only',
+    title: 'Roxanne’s OS',
+    kind: 'Wholesale Nursery',
+  },
+  {
+    src: '/os-screens/roxanne-os-crew-v1.png',
+    alt: 'Roxanne’s OS crew board — today’s loads by trailer slot with one big PRINT per order',
+    title: 'Roxanne’s OS',
+    kind: 'Wholesale Nursery',
+  },
+  {
     src: '/os-screens/lacaze-os-ticket-v1.png',
     alt: 'LaCaze OS repair ticket — the advance track, a machined total, and one-tap payment for an outdoor power dealership',
     title: 'LaCaze OS',
@@ -99,6 +123,20 @@ export const railDesktops: OsRailItem[] = [
 ];
 
 export const railPhones: OsRailItem[] = [
+  {
+    src: '/os-screens/roxanne-os-money-mobile-v1.png',
+    alt: 'Roxanne’s OS on a phone — money owed to the nursery, total open with aging bars',
+    title: 'The Money',
+    kind: 'Roxanne’s OS · Nursery',
+    portrait: true,
+  },
+  {
+    src: '/os-screens/roxanne-os-crew-mobile-v1.png',
+    alt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
+    title: 'The Print Board',
+    kind: 'Roxanne’s OS · Nursery',
+    portrait: true,
+  },
   {
     src: '/os-screens/lacaze-os-ticket-mobile-v1.png',
     alt: 'LaCaze OS repair ticket on a phone — the counter runs the whole ticket from a pocket',
