@@ -252,6 +252,11 @@ const data: PillarData = {
         `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-register fees and no surprise add-ons.`,
     },
     {
+      question: 'Do you take every business that asks?',
+      answer:
+        "No. Every system is built one business at a time, and we take a handful of new fittings a month. The fitting is where both sides decide — if it's not a fit, we say so, and tell you what we'd do instead.",
+    },
+    {
       question: "What if it doesn't work out?",
       answer:
         "Then you cancel. Thirty days' notice. You keep the code and the data, and the system keeps running.",
@@ -287,7 +292,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. In person if you are local.`,
+    `Tell us how your business runs today — the register, the paper, the workarounds. Systems get built one business at a time, a handful of new fittings a month — if yours is a fit, we map what your own operating system would look like, in person if you are local. If it's not, we'll tell you straight — and tell you what we'd do instead.`,
 };
 
 export default function FoundItOSPillar() {

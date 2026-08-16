@@ -110,7 +110,7 @@ export function AIMarketingLPContent() {
 
       <LPFormSection
         heading="Get My Free AI Demo"
-        subheading="Let us show you exactly how a custom AI system can automate your marketing."
+        subheading="Tell us how your marketing runs today. We'll show you exactly what a custom AI system would automate — and if it wouldn't pay for itself, we'll tell you that too."
         benefits={[
           'Live demo of an AI voice/text agent booking an appointment',
           'Custom automation mapping for your business',

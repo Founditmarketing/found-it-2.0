@@ -571,7 +571,8 @@ export default function HomePage() {
               Fifteen Minutes With Trevor.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              Fifteen minutes on what would actually work for your business.
+              Fifteen minutes on what would actually work for your business. We build one business
+              at a time — he&apos;s deciding the same thing you are: whether this is a fit.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link href="/contact" className="w-full sm:w-auto max-w-sm">

@@ -35,9 +35,12 @@ export interface NativeLeadFormProps {
   compact?: boolean;
   /** Success-state line — say what happens next in the page's own promise. */
   successNote?: string;
-  /** Ask the revenue band (OS funnel only). Tags the lead in the inbox and
-   *  gates ad-platform conversions: only qualified bands train Meta/Google. */
-  qualify?: boolean;
+  /** Ask the revenue band. `true` = required (OS ad funnel — gates
+   *  ad-platform conversions: only qualified bands train Meta/Google).
+   *  `'optional'` = same ask, skippable — the sitewide default, so every
+   *  lead form carries the qualification signal without adding friction.
+   *  `false` hides it (the guide gate and other light asks). */
+  qualify?: boolean | 'optional';
   className?: string;
 }
 
@@ -59,7 +62,7 @@ export function NativeLeadForm({
   showBusiness = false,
   compact = false,
   successNote = 'Trevor will call you back within 2 hours.',
-  qualify = false,
+  qualify = 'optional',
   className = '',
 }: NativeLeadFormProps) {
   const uid = useId();
@@ -98,9 +101,9 @@ export function NativeLeadForm({
       return;
     }
 
-    if (qualify && !revBand) {
+    if (qualify === true && !revBand) {
       setStatus('error');
-      setErrorMsg('Pick the closest revenue range — it tells us who to put on your map.');
+      setErrorMsg('Pick the closest revenue range — it tells us whether this is a fit.');
       return;
     }
 
@@ -239,7 +242,14 @@ export function NativeLeadForm({
 
         {qualify && (
           <div className="mb-5">
-            <span className={labelClass}>What&apos;s the business doing a year, roughly? *</span>
+            <span className={labelClass}>
+              What&apos;s the business doing a year, roughly?{' '}
+              {qualify === true ? (
+                '*'
+              ) : (
+                <span className="opacity-50 normal-case tracking-normal">(optional)</span>
+              )}
+            </span>
             <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Yearly revenue range">
               {REVENUE_BANDS.map((b) => (
                 <button

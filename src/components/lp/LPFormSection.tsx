@@ -38,8 +38,9 @@ interface LPFormSectionProps {
   bookingOnly?: boolean;
   /** Form-first hybrid: form primary, booking button quiet underneath. */
   bookingSecondary?: boolean;
-  /** Ask the revenue band; gates ad conversions (OS LPs). */
-  qualify?: boolean;
+  /** Ask the revenue band: `true` = required (OS LPs — gates ad
+   *  conversions), `'optional'` = skippable ask (sitewide default). */
+  qualify?: boolean | 'optional';
 }
 
 export function LPFormSection({
@@ -60,7 +61,7 @@ export function LPFormSection({
   bookingFallbackNote = "Or leave your number and we'll call you to set it up.",
   bookingOnly = false,
   bookingSecondary = false,
-  qualify = false,
+  qualify = 'optional',
 }: LPFormSectionProps) {
   // bookingOnly wins over bookingSecondary — combined raw flags would render
   // a section with no CTA and no form (same guard as LPSplitHero).

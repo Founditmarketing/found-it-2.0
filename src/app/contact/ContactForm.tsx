@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { CheckCircle2, AlertTriangle, Loader2, Send } from 'lucide-react';
 import { trackLead } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
+import { REVENUE_BANDS } from '@/lib/site';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -22,6 +23,7 @@ const labelClass =
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [revBand, setRevBand] = useState('');
   const [fields, setFields] = useState({ name: '', phone: '', email: '', message: '', hp: '' });
 
   const update =
@@ -51,6 +53,16 @@ export function ContactForm() {
     setStatus('submitting');
     setErrorMsg('');
 
+    // Revenue band rides in the message body — same additive mechanism as
+    // NativeLeadForm, so /api/lead's field set stays fixed.
+    const band = REVENUE_BANDS.find((b) => b.label === revBand);
+    const message = [
+      fields.message.trim(),
+      band ? `— Revenue: ${band.label}${band.qualified ? '' : ' (BELOW BAR)'}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n\n');
+
     try {
       const res = await fetch('/api/lead', {
         method: 'POST',
@@ -60,13 +72,13 @@ export function ContactForm() {
           name: fields.name.trim(),
           phone: fields.phone.trim(),
           email: fields.email.trim(),
-          message: fields.message.trim(),
+          message,
           hp: fields.hp,
         }),
       });
       if (!res.ok) throw new Error('lead_failed');
 
-      trackLead('contact_page');
+      trackLead('contact_page', band ? { qualified: band.qualified } : undefined);
       setStatus('success');
       // Full page load (not SPA nav) so the /thank-you URL-rule conversion fires.
       window.setTimeout(() => {
@@ -144,6 +156,31 @@ export function ContactForm() {
             placeholder="(318) 555-0123"
             className={inputClass}
           />
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <span className={labelClass}>
+          What&apos;s the business doing a year, roughly?{' '}
+          <span className="opacity-50 normal-case tracking-normal">(optional)</span>
+        </span>
+        <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Yearly revenue range">
+          {REVENUE_BANDS.map((b) => (
+            <button
+              key={b.label}
+              type="button"
+              role="radio"
+              aria-checked={revBand === b.label}
+              onClick={() => setRevBand(revBand === b.label ? '' : b.label)}
+              className={`rounded-xl border px-3 py-2.5 text-sm font-bold transition-colors text-center ${
+                revBand === b.label
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-card/20 border-border/20 text-foreground hover:border-primary/40'
+              }`}
+            >
+              {b.label}
+            </button>
+          ))}
         </div>
       </div>
 

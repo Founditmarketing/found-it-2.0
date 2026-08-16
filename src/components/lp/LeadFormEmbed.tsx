@@ -19,8 +19,9 @@ interface LeadFormEmbedProps {
   successNote?: string;
   /** Optional privacy / anti-spam reassurance line under the form */
   privacyNote?: string;
-  /** Ask the revenue band and gate ad conversions on it (OS funnel only). */
-  qualify?: boolean;
+  /** Ask the revenue band: `true` = required (OS ad funnel, gates ad
+   *  conversions), `'optional'` = skippable ask (sitewide default). */
+  qualify?: boolean | 'optional';
   className?: string;
 }
 
@@ -41,7 +42,7 @@ export function LeadFormEmbed({
   compact = false,
   successNote,
   privacyNote = 'We reply within two hours.',
-  qualify = false,
+  qualify = 'optional',
   className = '',
 }: LeadFormEmbedProps) {
   return (

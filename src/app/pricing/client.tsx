@@ -217,7 +217,8 @@ export default function PricingClient() {
             <span className="text-primary">Ask Trevor.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            Fifteen minutes. He&apos;ll tell you what makes sense for your business and budget, and give you the exact flat number.
+            Fifteen minutes. He&apos;ll tell you what makes sense for your business and budget, give
+            you the exact flat number — and tell you straight if we&apos;re not the right fit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="w-full sm:w-auto max-w-sm">

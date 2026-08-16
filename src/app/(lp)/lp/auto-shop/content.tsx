@@ -49,6 +49,11 @@ const faqItems = [
       'Yes. The code and the data are yours, 100% — every customer record, every repair order, every invoice. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
+    question: 'Do you take every shop that signs up?',
+    answer:
+      "No. Systems get fitted one business at a time — a handful of new fittings a month — so the walk-through is where both sides decide whether this is a fit. If it isn't, we tell you straight, tell you what we'd do instead, and you keep the map.",
+  },
+  {
     question: "What if it doesn't work out?",
     answer:
       "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
@@ -132,7 +137,7 @@ export function AutoShopLPContent() {
             number: '01',
             title: 'We Walk Your Shop. Free.',
             description:
-              'About an hour at your place. We walk the operation with you — the phones, the write-ups, the parts ordering, the books — and map the app we’d build if we owned your shop. You add to it or take away. If it’s not for you, we shake hands and you keep the map.',
+              'About an hour at your place. We walk the operation with you — the phones, the write-ups, the parts ordering, the books — and map the app we’d build if we owned your shop. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — we tell you straight, tell you what we’d do instead, and you keep the map.',
           },
           {
             number: '02',
@@ -154,7 +159,7 @@ export function AutoShopLPContent() {
         kicker="Free Software Map"
         qualify
         heading="Get A Free Software Map"
-        subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map."
+        subheading="Tell us about your shop. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your place. If it's not, we'll tell you straight. You keep the map either way."
         benefits={[
           'We come to your shop, in person — free',
           'You keep the map: the app we’d build if we owned your shop',

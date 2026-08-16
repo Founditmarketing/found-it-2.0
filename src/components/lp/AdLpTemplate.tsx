@@ -13,7 +13,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
-import { TRACK_RECORD, OS_PRICING, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* One template for every hook-test ad LP (walkthrough architecture, 8/14).
@@ -24,9 +24,15 @@ import { BOOKING_URL } from '@/lib/booking';
    test = one thin content.tsx passing hero copy, never a copied page.
    Claims stay inside the doctrine: the money-back guarantee was retired
    8/14 (the offer line is OS_PRICING.promise, verbatim),
-   sanctioned numbers only ($2,200/$2,000, the 12+ count, 30-minute call,
-   Cory Edwards' $195,882.75 / $19,000), no "Zoom" anywhere — the booking
-   page delivers Google Meet, so copy says "video call". */
+   sanctioned numbers only ($2,200/$2,000, 30-minute call, Cory Edwards'
+   $195,882.75 / $19,000 — customer counts retired 8/16, never reintroduce
+   one), no "Zoom" anywhere — the booking page delivers Google Meet, so
+   copy says "video call".
+   POSTURE (8/16): selective, not begging. The scarcity is real and stated
+   as plain fact — builds happen one business at a time, a handful of new
+   fittings a month — never fabricated (no counters, no "slots left"). The
+   map stays free and theirs either way; whether we build it is a separate
+   conversation, decided by both sides. */
 
 export interface AdLpHero {
   badge?: string;
@@ -73,6 +79,11 @@ const faqItems = [
       'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
+    question: 'Do you take everyone who signs up?',
+    answer:
+      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, we tell you straight, tell you what we'd do instead, and you keep the map.",
+  },
+  {
     question: "What if it doesn't work out?",
     answer:
       "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
@@ -104,7 +115,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         formHeading="Get A Free Software Map Of Your Business"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading={`Name and number. We map the software we would build for your business — ${MAP_VALUE.line}. Here, it's yours.`}
+        formSubheading={`Name and number. We build one business at a time and take a handful of new fittings a month — if yours is a fit, we map the software we'd build for it, and ${MAP_VALUE.line}. Here, it's yours either way.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formQualify
@@ -113,8 +124,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         voiceAgent={voiceHero}
         nextSteps={[
           'Leave your name and number.',
-          'We call you back and map your business with you — live, screen-shared.',
-          'You keep the map.',
+          "We call you back. If your business is a fit, we map it with you — live, screen-shared. If it isn't, we tell you straight, and tell you what we'd do instead.",
+          'You keep the map either way.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -249,7 +260,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             number: '01',
             title: 'We Map It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, we shake hands and you keep the map.',
+              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — we tell you straight, tell you what we’d do instead, and you keep the map.',
           },
           {
             number: '02',
@@ -277,10 +288,11 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="We map the software we'd build for your business — with you, live, screen-shared. You keep the map."
+        subheading="We map the software we'd build for your business — with you, live, screen-shared. The map is free and you keep it. Whether we build it is a separate conversation."
         benefits={[
           'We map your business with you — live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
+          "A handful of new fittings a month, one business at a time — if it's not a fit, we tell you straight",
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}

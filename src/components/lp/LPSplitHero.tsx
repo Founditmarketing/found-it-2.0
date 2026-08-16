@@ -43,8 +43,9 @@ interface LPSplitHeroProps {
   /** Reassurance line under the button — price, month-to-month, or the
    *  OS_PRICING.promise line goes HERE (money-back guarantee retired 8/14). */
   formPrivacyNote?: string;
-  /** Ask the revenue band on the hero form; gates ad conversions (OS LPs). */
-  formQualify?: boolean;
+  /** Ask the revenue band on the hero form: `true` = required (OS LPs —
+   *  gates ad conversions), `'optional'` = skippable ask (sitewide default). */
+  formQualify?: boolean | 'optional';
   /** "What happens next" — 3 short lines rendered right under the form,
    *  so the time-delay question is answered at the exact point of commitment. */
   nextSteps?: string[];
@@ -102,7 +103,7 @@ export function LPSplitHero({
   formCompact = false,
   formSuccessNote,
   formPrivacyNote,
-  formQualify = false,
+  formQualify = 'optional',
   nextSteps,
   nextStepsNote,
   showBooking = false,

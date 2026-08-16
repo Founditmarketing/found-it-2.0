@@ -12,7 +12,7 @@ import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
-import { TRACK_RECORD, OS_PRICING, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* Wichita, Kansas ad landing page — Tom's territory. Rebuilt 8/13 to the
@@ -28,10 +28,10 @@ import { BOOKING_URL } from '@/lib/booking';
    Claims stay inside the doctrine: own the code and data, parallel run
    penny-matched, month-to-month; the money-back guarantee was retired 8/14
    — the offer line is OS_PRICING.promise, verbatim.
-   The only numbers allowed: $2,200/$2,000 (OS_PRICING), the 12+ count
-   (TRACK_RECORD), 30-minute call, and Cory Edwards' audited figures
-   ($195,882.75 receivables / $19,000 error). Never add invoice counts or
-   any other detail to them. */
+   The only numbers allowed: $2,200/$2,000 (OS_PRICING), 30-minute call,
+   and Cory Edwards' audited figures ($195,882.75 receivables / $19,000
+   error). Customer counts retired 8/16 — never reintroduce one. Never add
+   invoice counts or any other detail to them. */
 
 const faqItems = [
   {
@@ -57,6 +57,11 @@ const faqItems = [
     question: 'Do I really own it?',
     answer:
       'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+  },
+  {
+    question: 'Do you take everyone who signs up?',
+    answer:
+      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, Tom tells you straight, tells you what we'd do instead, and you keep the map.",
   },
   {
     question: "What if it doesn't work out?",
@@ -89,7 +94,7 @@ export function WichitaLPContent() {
         formHeading="Get A Free Software Map Of Your Business"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading={`Name and number. Tom maps the software we would build for your business — ${MAP_VALUE.line}. Here, it's yours.`}
+        formSubheading={`Name and number. We build one business at a time and take a handful of new fittings a month — if yours is a fit, Tom maps the software we'd build for it, and ${MAP_VALUE.line}. Here, it's yours either way.`}
         formCtaLabel="Get My Software Map"
         formCompact
         formQualify
@@ -97,8 +102,8 @@ export function WichitaLPContent() {
         formPrivacyNote="We reply within two hours."
         nextSteps={[
           'Leave your name and number.',
-          'Tom calls you back and maps your business with you — live, screen-shared.',
-          'You keep the map.',
+          "Tom calls you back. If your business is a fit, he maps it with you — live, screen-shared. If it isn't, he tells you straight, and tells you what we'd do instead.",
+          'You keep the map either way.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -216,7 +221,7 @@ export function WichitaLPContent() {
             number: '01',
             title: 'Tom Maps It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. If it’s not for you, you shake hands and keep the map.',
+              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — Tom tells you straight, tells you what we’d do instead, and you keep the map.',
           },
           {
             number: '02',
@@ -244,7 +249,7 @@ export function WichitaLPContent() {
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared. You keep the map."
+        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared. The map is free and you keep it. Whether we build it is a separate conversation."
         benefits={[
           'Tom maps your business with you — live, screen-shared',
           'You keep the map: the app we’d build if we owned your company — add to it or take away',
