@@ -72,7 +72,7 @@ function LeadCapture({ messages, onDone }: { messages: Msg[]; onDone: () => void
   return (
     <div className="bg-primary/[0.07] border border-primary/25 rounded-2xl rounded-tl-md px-4 py-3.5 max-w-[92%] space-y-2.5">
       <p className="text-sm text-foreground font-medium leading-relaxed">
-        Want Trevor to look at this himself? Drop your name and the best way to reach you. He follows up personally, no drip campaign.
+        Want Trevor to look at this himself? Drop your name and the best way to reach you. He follows up personally.
       </p>
       <form
         onSubmit={(e) => { e.preventDefault(); submit(); }}
@@ -187,7 +187,7 @@ export function TrevorConcierge() {
           const copy = [...m];
           copy[copy.length - 1] = {
             role: 'assistant',
-            content: `Good one. That's honestly better answered on a quick call — Trevor's at ${phoneDisplay}.`,
+            content: `Good one. That's better answered on a quick call — Trevor's at ${phoneDisplay}.`,
           };
           return copy;
         });
@@ -265,7 +265,7 @@ export function TrevorConcierge() {
                 <div className="space-y-3">
                   <div className="bg-card/40 border border-border/20 rounded-2xl rounded-tl-md px-4 py-3 max-w-[85%]">
                     <p className="text-sm text-foreground font-medium leading-relaxed">
-                      Hey, what can we figure out for your business? Pricing, timelines, whether this would even work for you. Straight answers, no pitch.
+                      Hey, what can we figure out for your business? Pricing, timelines, what Trevor would build for your shop. Straight answers.
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2">

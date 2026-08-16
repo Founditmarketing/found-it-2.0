@@ -12,7 +12,7 @@ interface GEOPricingProps {
 
 export function GEOPricing({ businessName }: GEOPricingProps) {
   const ctaText = businessName
-    ? `Help ${businessName} Show Up in AI Search`
+    ? `Put ${businessName} in AI Search Results`
     : 'Get Started — Free Audit Included';
 
   return (

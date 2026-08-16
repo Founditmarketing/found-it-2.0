@@ -66,7 +66,7 @@ export function AppDevelopmentLPContent() {
           },
           {
             title: '100% Local. We Come To Your Office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We'll gladly drive to you and map out the build in person.",
+            detail: "Tired of faceless agencies? We are based right here. We drive to you and map out the build in person.",
           },
         ]}
       />
@@ -101,7 +101,7 @@ export function AppDevelopmentLPContent() {
           'Full technical architecture and database mapping',
           'Interactive UI/UX concept review',
           'Fixed-price quote and guaranteed timeline',
-          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
+          '📍 Local to Louisiana? We do this strategy session in person, at your office.',
         ]}
         source="lp_app_development"
         pageSlug="app-development"

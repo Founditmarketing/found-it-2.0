@@ -115,7 +115,7 @@ export function LakeCharlesWebDesignContent() {
           'Competitive website teardown',
           'Custom design direction and mockup concept',
           'Zero obligation, the insights are yours to keep',
-          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
+          '📍 Local to Louisiana? We do this strategy session in person, at your office.',
         ]}
         source="lp_web_design_lc"
         pageSlug="lake-charles-web-design"

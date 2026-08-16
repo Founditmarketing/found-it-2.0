@@ -63,7 +63,7 @@ export function LeadMagnetSection() {
                 </h2>
 
                 <p className="text-muted-foreground text-base lg:text-lg font-medium leading-relaxed mb-10">
-                  Select your industry and get a custom case study showing real results from businesses just like yours. No fluff — just data, strategy, and outcomes.
+                  Select your industry and get a custom case study showing real results from businesses like yours. No fluff — just data, strategy, and outcomes.
                 </p>
 
                 {/* Social proof snippet */}
@@ -196,7 +196,7 @@ export function LeadMagnetSection() {
                     </button>
 
                     <p className="text-[10px] text-muted-foreground text-center mt-4 opacity-50">
-                      No spam. We&apos;ll send your case study and that&apos;s it.
+                      We send your case study. That&apos;s it.
                     </p>
                   </form>
                 ) : (

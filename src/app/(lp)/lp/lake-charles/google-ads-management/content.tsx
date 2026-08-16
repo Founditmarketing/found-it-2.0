@@ -115,7 +115,7 @@ export function LakeCharlesGoogleAdsContent() {
           'Full campaign audit with wasted spend breakdown',
           'Competitor keyword analysis for your market',
           'Custom plan, yours to keep either way',
-          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
+          '📍 Local to Louisiana? We do this strategy session in person, at your office.',
         ]}
         source="lp_google_ads_lc"
         pageSlug="lake-charles-google-ads"

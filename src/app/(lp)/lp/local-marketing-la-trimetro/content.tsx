@@ -177,7 +177,7 @@ export function LocalMarketingTriMetroContent() {
           'A real conversation with a named senior strategist',
           'Local competitor and market breakdown for your area',
           'A straight answer on what we would do and what it costs',
-          '📍 We are 100% willing to do this session in person at your office.',
+          '📍 We do this session in person, at your office.',
         ]}
         source="lp_local_trimetro"
         pageSlug="local-marketing-la-trimetro"

@@ -170,7 +170,7 @@ function HumanLayerGate({ result, city }: { result: AuditResult; city: string | 
       <p className="text-[11px] text-faint font-medium px-5 sm:px-6 pb-4">
         {status === 'error'
           ? <span role="alert" className="text-red-400 font-bold">Could not send — try again in a moment.</span>
-          : 'Free. No spam, no drip campaign — one report, one personal follow-up.'}
+          : 'One report. One personal follow-up. Nothing else.'}
       </p>
     </div>
   );

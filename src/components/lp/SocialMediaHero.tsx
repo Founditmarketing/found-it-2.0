@@ -88,7 +88,7 @@ export function SocialMediaHero() {
                 </motion.h1>
               </div>
               <motion.p variants={fadeRise} className="text-base sm:text-lg text-white/70 font-medium mb-8 leading-relaxed max-w-xl">
-                Organic content, paid ads, and full-stack social strategy. We manage social for hundreds of local businesses across Louisiana and Texas.
+                Organic content, paid ads, and full-stack social strategy. We manage social for local businesses across Louisiana and Texas.
               </motion.p>
               <motion.div variants={fadeRise}>
                 <Link href="#lp-form" className="w-full sm:w-auto inline-block">

@@ -271,7 +271,7 @@ const data: PillarData = {
     {
       question: 'My business isn’t one of the industries listed. Can you still build for it?',
       answer:
-        'Almost certainly. The industry pages below are where we have live systems and fittings underway — auto repair, field service, retail, sheds, dealerships, home builders — but the method is the same everywhere: map how one business runs, build the system around it, migrate the records in. If your business runs on jobs, customers, and a register in any form, it can be fitted.',
+        'Yes. The industry pages below are where we have live systems and fittings underway — auto repair, field service, retail, sheds, dealerships, home builders — but the method is the same everywhere: map how one business runs, build the system around it, migrate the records in. If your business runs on jobs, customers, and a register in any form, it can be fitted.',
     },
     {
       question: 'What if it doesn’t work out?',

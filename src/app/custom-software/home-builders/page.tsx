@@ -165,7 +165,7 @@ const data: PillarData = {
   pricingHeading: 'What It Costs',
   pricing:
     `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your existing records — jobs, clients, selections, financial history — is part of that setup, not a separate invoice. No per-seat fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software development is typically quoted in the five and six figures before maintenance ever starts — a price that puts ownership out of reach for most builders. This is custom-software ownership without the custom-software invoice.`,
-  whyUsHeading: 'Why Builders Are Talking to Found It',
+  whyUsHeading: 'Why Builders Choose Found It',
   whyUs: [
     'The builder OS is in fitting with a custom home builder today.',
     `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted on their own systems right now.`,

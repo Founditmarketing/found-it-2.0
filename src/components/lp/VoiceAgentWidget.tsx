@@ -57,7 +57,7 @@ const IDLE_LINES = [
   'Tap the mic and just talk — she answers out loud.',
   'Ask her: “who owes me money right now?”',
   'In your system she schedules estimates and enters customers — herself.',
-  'She’s the same secretary Trevor can build into your business.',
+  'She’s the same secretary Trevor builds into your business.',
 ];
 
 /* ─── Text-mode fallback: her canned answers when voice can't connect ───
@@ -910,7 +910,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         {phase === 'ended' && (
           <div className="relative">
             <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
-              {endReason === 'time' ? 'That’s the 3-minute demo.' : 'Thanks for trying her out.'}
+              {endReason === 'time' ? 'That’s the 3-minute demo.' : 'That’s her.'}
             </p>
 
             {/* She's a secretary: if the clock (or the caller) beat her to the
@@ -946,7 +946,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
                 <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
                   {leadSaved
                     ? 'Got it — Trevor will reach out, usually within 2 hours during the day.'
-                    : 'She lives inside every system Trevor builds — yours could answer calls like that.'}
+                    : 'She lives inside every system Trevor builds — yours would answer calls like that.'}
                 </p>
                 <div className="mt-3.5 flex flex-wrap items-center gap-3">
                   <button
@@ -976,7 +976,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
               {endReason === 'network' ? 'Connection’s too slow for voice.' : 'She’ll answer by text instead.'}
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              No problem — same secretary, by text. Tap a question:
+              Same secretary, by text. Tap a question:
             </p>
 
             <div className="mt-3.5 flex flex-col gap-2">
@@ -1025,7 +1025,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
             {!leadSaved && afterStatus !== 'sent' ? (
               <>
                 <p className="mt-4 text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
-                  Rather have Trevor call you? Leave your number — takes ten seconds.
+                  Rather have Trevor call you? Leave your number.
                 </p>
                 {afterCaptureForm}
                 {afterStatus === 'error' && (
@@ -1094,7 +1094,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
               <MicOff className="w-4 h-4 text-primary" aria-hidden="true" /> Mic’s blocked.
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              Allow microphone access and tap again — or just use the form on this page.
+              Allow microphone access and tap again — or use the form on this page.
             </p>
             <div className="mt-3.5 flex flex-wrap items-center gap-3">
               <button

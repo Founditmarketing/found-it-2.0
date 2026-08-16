@@ -15,7 +15,7 @@ interface BenefitsGridProps {
 }
 
 export function BenefitsGrid({
-  heading = "Why Local Businesses Choose Us",
+  heading = "What You Get",
   subheading,
   benefits,
 }: BenefitsGridProps) {

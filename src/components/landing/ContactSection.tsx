@@ -20,7 +20,7 @@ const titleMap: { [key: string]: { title: string; description: string } } = {
   },
   website: {
     title: 'Transform Your Website & SEO',
-    description: "Your website is your digital storefront. If it's outdated, slow, or not converting, we can help. Tell us what needs fixing.",
+    description: "Your website is your digital storefront. If it's outdated, slow, or not converting, we fix it. Tell us where to start.",
   },
   ai: {
     title: 'Leverage AI for Growth',
@@ -32,7 +32,7 @@ const titleMap: { [key: string]: { title: string; description: string } } = {
   },
   default: {
     title: 'Your Free Strategy Session',
-    description: "Tell us about your business and goals. We'll analyze your market, audit your digital presence, and deliver a custom growth plan — no pressure, no obligations.",
+    description: "Tell us about your business and goals. We'll analyze your market, audit your digital presence, and deliver a custom growth plan.",
   },
 };
 
@@ -124,7 +124,7 @@ function ContactSectionInner() {
                       <CheckCircle2 className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <p className="text-foreground font-black uppercase tracking-tighter text-2xl mb-2 italic">Zero-Obligation Strategy</p>
+                      <p className="text-foreground font-black uppercase tracking-tighter text-2xl mb-2 italic">The Blueprint Is Yours</p>
                       <p className="text-muted-foreground text-lg leading-relaxed">We deliver a data-backed blueprint you can execute — with or without us.</p>
                     </div>
                   </div>

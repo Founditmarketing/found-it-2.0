@@ -22,7 +22,7 @@ const tiers: MarketingTier[] = [
   {
     id: 'foundation',
     name: 'Foundation',
-    tagline: 'Ready to get found?',
+    tagline: 'Get found.',
     icon: Search,
     inheritsFrom: null,
     features: [
@@ -38,7 +38,7 @@ const tiers: MarketingTier[] = [
   {
     id: 'velocity',
     name: 'Velocity',
-    tagline: 'Ready to accelerate growth?',
+    tagline: 'Accelerate growth.',
     icon: TrendingUp,
     inheritsFrom: 'Foundation',
     features: [
@@ -53,7 +53,7 @@ const tiers: MarketingTier[] = [
   {
     id: 'authority',
     name: 'Authority',
-    tagline: 'Ready to own your market?',
+    tagline: 'Own your market.',
     icon: Target,
     inheritsFrom: 'Velocity',
     features: [
@@ -68,7 +68,7 @@ const tiers: MarketingTier[] = [
   {
     id: 'dominion',
     name: 'Dominion',
-    tagline: 'Ready for total market dominance?',
+    tagline: 'Total market dominance.',
     icon: Flame,
     inheritsFrom: 'Authority',
     features: [
@@ -193,7 +193,7 @@ export function MarketingPackagesSection() {
                     Custom Pricing
                   </p>
                   <p className="text-muted-foreground text-xs sm:text-sm mb-6 sm:mb-8 font-medium">
-                    Every business is different. Let&apos;s find the right investment for your goals.
+                    Every business is different. We price yours on the strategy session.
                   </p>
                   <Link href="/contact">
                     <button className="w-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter py-4 sm:py-5 px-6 sm:px-8 rounded-xl sm:rounded-2xl text-sm sm:text-lg hover:scale-[1.03] active:scale-[0.97] transition-transform shadow-2xl shadow-primary/30 flex items-center justify-center gap-2 sm:gap-3">

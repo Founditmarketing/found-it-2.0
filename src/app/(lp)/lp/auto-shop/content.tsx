@@ -154,7 +154,7 @@ export function AutoShopLPContent() {
         kicker="Free Software Map"
         qualify
         heading="Get A Free Software Map"
-        subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map whether you hire us or not. No deck, no pressure, nothing to cancel."
+        subheading="Drop your name and number. We call, you pick the time, and we come to your shop — about an hour. You keep the map."
         benefits={[
           'We come to your shop, in person — free',
           'You keep the map: the app we’d build if we owned your shop',

@@ -104,7 +104,7 @@ export function WebDesignLPContent() {
           },
           {
             title: '100% Local. We Come To Your Office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here, and we'll gladly drive to you and review your strategy in person.",
+            detail: "Tired of faceless agencies? We are based right here. We drive to you and review your strategy in person.",
           },
         ]}
       />
@@ -117,8 +117,8 @@ export function WebDesignLPContent() {
         benefits={[
           'The Competitor Gap Analysis: exactly why your top 3 competitors are outranking and out-converting you.',
           'Your Free Custom Mockup: a designed concept of what your new, high-converting homepage should look like.',
-          'No Strings Attached: take our mockup and research to any agency. We just want to prove our value first.',
-          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
+          'Yours To Keep: take the mockup and the research to any agency. The work speaks for itself.',
+          '📍 Local to the area? We do this strategy session in person, at your office.',
         ]}
         source="lp_web_design"
         pageSlug="web-design"

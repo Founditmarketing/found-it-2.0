@@ -57,7 +57,7 @@ export function LPFormSection({
   showBooking = false,
   bookingUrl = BOOKING_URL,
   bookingLabel = 'Book My Free Video Call',
-  bookingFallbackNote = "Or just leave your number and we'll call you to set it up.",
+  bookingFallbackNote = "Or leave your number and we'll call you to set it up.",
   bookingOnly = false,
   bookingSecondary = false,
   qualify = false,

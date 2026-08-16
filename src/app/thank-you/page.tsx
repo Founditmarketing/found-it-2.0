@@ -3,7 +3,7 @@ import ThankYouClient from './client';
 
 export const metadata: Metadata = {
   title: 'Thank You | Found It Software',
-  description: "We've received your request and will be in touch shortly.",
+  description: "Request received. Trevor calls you back.",
   robots: { index: false, follow: false },
 };
 

@@ -215,7 +215,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
-                Tell us how your business runs today — the software, the paper, the workarounds — and we will map the system we would build if it were ours. You keep the map either way. No pitch, no obligation.
+                Tell us how your business runs today — the software, the paper, the workarounds — and we will map the system we would build if it were ours. You keep the map either way.
               </p>
             </div>
             <LeadFormEmbed heading={data.ctaText} source={data.formSource} pageSlug={`industry-${data.slug}`} />
@@ -255,7 +255,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            A free fitting for {data.name.toLowerCase()} businesses — we walk your operation and map the system. No pitch, no commitment.
+            A free fitting for {data.name.toLowerCase()} businesses — we walk your operation and map the system.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#lead-form">

@@ -267,8 +267,8 @@ export default function CaseStudiesPage() {
           className="text-center py-16 border-t border-border/10"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Want A System{' '}
-            <span className="text-primary">Like These?</span>
+            Get A System{' '}
+            <span className="text-primary">Like These.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
             Get a free software map — the app we&apos;d build if we owned your company. You keep the

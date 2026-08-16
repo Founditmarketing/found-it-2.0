@@ -108,7 +108,7 @@ export function AISearchSEOContent() {
           },
           {
             title: '100% Local. We Come To Your Office.',
-            detail: "Tired of faceless agencies hiding behind Zoom? We are based right here, and we'll gladly drive to you and review your strategy in person.",
+            detail: "Tired of faceless agencies? We are based right here. We drive to you and review your strategy in person.",
           },
         ]}
       />
@@ -122,7 +122,7 @@ export function AISearchSEOContent() {
           'AI visibility scan across ChatGPT, Perplexity, Gemini, and Google AI',
           'Competitor AI visibility comparison',
           'Custom action plan, yours to keep either way',
-          '📍 Local to the area? We are 100% willing to do this strategy session in person at your office.',
+          '📍 Local to the area? We do this strategy session in person, at your office.',
         ]}
         source="lp_ai_seo"
         pageSlug="ai-search-seo"

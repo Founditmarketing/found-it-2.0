@@ -6,7 +6,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const steps = [
   { week: 'Week 1', title: 'Discovery & Strategy', description: 'Deep dive into your business, competitors, audience, and conversion goals. We map your entire digital strategy before touching a pixel.' },
-  { week: 'Week 2', title: 'Design Concepts', description: 'Custom mockups for your key pages. We iterate until you love it — no generic templates, no compromises.' },
+  { week: 'Week 2', title: 'Design Concepts', description: 'Custom mockups for your key pages. We iterate until the design is right — no generic templates, no compromises.' },
   { week: 'Weeks 3–4', title: 'Build & Iterate', description: 'Pixel-perfect development on a modern stack. You see progress in real time and can request changes throughout.' },
   { week: 'Week 5', title: 'Launch & Optimize', description: 'We launch, set up analytics, and run 60 days of post-launch optimization to maximize conversions.' },
 ];

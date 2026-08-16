@@ -7,7 +7,7 @@ import { BOOKING_URL, isBookingUrl } from '@/lib/booking';
 interface BookingCtaProps {
   /** Analytics source tag, e.g. 'lp_walkthrough_hero'. */
   source: string;
-  /** Button label — keep it message-matched: "Book My Free Zoom Call". */
+  /** Button label — keep it message-matched: "Book My Free Video Call". */
   label?: string;
   /** Booking URL override. Defaults to the shared BOOKING_URL config constant. */
   bookingUrl?: string;
@@ -29,7 +29,7 @@ const secondaryButtonClass =
   'w-full inline-flex items-center justify-center gap-2 bg-white/[0.04] border border-border/30 text-white/85 font-black uppercase italic tracking-tighter text-sm py-3.5 px-6 rounded-xl hover:border-primary/40 hover:text-white active:scale-[0.99] transition-all';
 
 /**
- * The hybrid booking CTA: a primary "Book my free Zoom call" button, then a
+ * The hybrid booking CTA: a primary "Book my free video call" button, then a
  * line handing off to the lead form below it.
  *
  * - BOOKING_URL set  → the button opens the calendar in a new tab and fires
@@ -45,7 +45,7 @@ export function BookingCta({
   label = 'Book My Free Video Call',
   bookingUrl = BOOKING_URL,
   fallbackHref = '#lp-form',
-  fallbackNote = "Or just leave your number and we'll call you to set it up.",
+  fallbackNote = "Or leave your number and we'll call you to set it up.",
   secondary = false,
   className = '',
 }: BookingCtaProps) {

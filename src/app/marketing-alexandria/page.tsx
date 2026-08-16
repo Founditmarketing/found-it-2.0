@@ -28,7 +28,7 @@ const faqItems: FAQItemData[] = [
   {
     question: 'Do you only work with businesses in Alexandria?',
     answer:
-      "No. We're headquartered in Alexandria and most of our clients are here in Rapides Parish — Alexandria, Pineville, Ball, Tioga — but we work across Central Louisiana and beyond. Local doesn't mean small: we scaled one client to customers in 48 states.",
+      "No. We're headquartered in Alexandria and most of our clients are here in Rapides Parish — Alexandria, Pineville, Ball, Tioga — but we work across Central Louisiana and beyond. Local doesn't mean small: we've scaled local businesses into national operations.",
   },
   {
     question: 'How much does digital marketing cost in Alexandria?',

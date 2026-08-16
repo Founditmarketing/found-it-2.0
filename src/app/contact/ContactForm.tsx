@@ -230,7 +230,7 @@ export function ContactForm() {
       </button>
 
       <p className="mt-4 text-xs text-muted-foreground/70 font-medium text-center">
-        Free &amp; no obligation. We reply within 2 hours — and never sell your info.
+        Your info goes to Trevor and nobody else.
       </p>
     </form>
   );

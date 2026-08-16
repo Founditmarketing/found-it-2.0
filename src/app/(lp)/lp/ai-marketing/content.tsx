@@ -115,7 +115,7 @@ export function AIMarketingLPContent() {
           'Live demo of an AI voice/text agent booking an appointment',
           'Custom automation mapping for your business',
           'No tech skills required to run the system',
-          '📍 Local to Louisiana? We are 100% willing to do this strategy session in person at your office.',
+          '📍 Local to Louisiana? We do this strategy session in person, at your office.',
         ]}
         source="lp_ai_marketing"
         pageSlug="ai-marketing"

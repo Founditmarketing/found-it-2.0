@@ -12,7 +12,7 @@ interface LPLayoutProps {
   children: React.ReactNode;
   /** Page-level headline for the sticky bar CTA */
   ctaLabel?: string;
-  /** OPT-IN: pass the shared BOOKING_URL from a Zoom-offer LP so the sticky bar
+  /** OPT-IN: pass the shared BOOKING_URL from a video-call-offer LP so the sticky bar
    *  button opens the booking calendar in a new tab (once the URL is set)
    *  instead of scrolling to the form. Defaults to empty so every other LP
    *  keeps its scroll-to-form behavior, untouched. */

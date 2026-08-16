@@ -62,7 +62,7 @@ export function VisitorCapture() {
       writeState({ done: true });
       window.setTimeout(() => { setOpen(false); setDone(true); }, 2600);
     } catch {
-      setError("Didn't go through — mind trying once more?");
+      setError("Didn't go through — try once more.");
     } finally {
       setBusy(false);
     }

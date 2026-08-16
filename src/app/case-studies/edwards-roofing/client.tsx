@@ -100,7 +100,7 @@ export default function EdwardsRoofingCaseStudy() {
               ))}
             </div>
             <p className="mt-6 pt-5 border-t border-primary/15 text-sm text-white/60 font-medium leading-relaxed">
-              That audit isn&rsquo;t a sales stunt — it&rsquo;s standard on every fitting. The new
+              That audit is standard on every fitting. The new
               system runs beside the old one and gets matched against it, to the penny, every night,
               until the owner says go. Nothing gets ripped out on day one.
             </p>
@@ -160,9 +160,9 @@ export default function EdwardsRoofingCaseStudy() {
         heading="Let's Map Your Business. Free."
         kicker="Free Software Map"
         ctaLabel="Show Me What Mine Would Look Like"
-        subheading="30 minutes on Zoom, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
+        subheading="30 minutes on a video call, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
         benefits={[
-          'A free 30-minute Zoom — your business mapped live, screen-shared',
+          'A free 30-minute video call — your business mapped live, screen-shared',
           'You keep the map: the app we’d build if we owned your company',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           'Month-to-month — cancel anytime, and the system stays yours.',

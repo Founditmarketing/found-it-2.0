@@ -72,7 +72,7 @@ export function TestimonialsSection() {
             Trusted by Leaders.
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Don't just take our word for it. Here's what our clients have to say about their success with our GEO strategies.
+            In their words.
           </p>
         </div>
         <Carousel

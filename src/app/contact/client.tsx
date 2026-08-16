@@ -38,7 +38,7 @@ export default function ContactClient() {
             Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
-            No pitch. No junior account managers. Just a straight answer about what would work for your business.
+            No pitch. No junior account managers. A straight answer about what would work for your business.
           </p>
         </motion.div>
 

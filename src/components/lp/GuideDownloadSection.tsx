@@ -319,7 +319,7 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
 
                 <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
                   <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
-                  Instant download. No spam, ever — and we never sell your info.
+                  Instant download. No spam.
                 </p>
               </form>
             )}

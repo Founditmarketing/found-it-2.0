@@ -40,7 +40,7 @@ export function TeamCollageSection({
             </p>
             <div className="space-y-4 mb-8">
               {[
-                '13+ years in business, millions in managed ad spend',
+                '13+ years in business',
                 '2026 CLEDA Highest Traded Revenue Award winner',
                 'A senior strategist on every account',
               ].map((item, i) => (

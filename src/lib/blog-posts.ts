@@ -83,16 +83,16 @@ export const blogPosts: Post[] = [
         slug: 'intro-to-geo',
         title: 'The Future is Answer Engines: An Intro to GEO',
         date: '2024-07-29',
-        excerpt: 'Search is evolving. Learn why Generative Engine Optimization (GEO) is the key to staying visible in the age of AI, turning your brand into the definitive answer.',
+        excerpt: 'Search is evolving. Generative Engine Optimization (GEO) turns your brand into the definitive answer AI engines give.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/intro-to-geo.png',
         content: `
 <p>For two decades, Search Engine Optimization (SEO) has been the undisputed king of digital marketing. But the kingdom is changing. The rise of AI-powered "answer engines" like Google's AI Overviews and Perplexity is rewriting the rules of online visibility. Welcome to the era of Generative Engine Optimization (GEO).</p>
 <h3>What is GEO?</h3>
-<p>GEO isn't just a new buzzword; it's a fundamental shift in strategy. Where SEO focuses on ranking a list of blue links, GEO focuses on becoming the single, authoritative answer that an AI model presents to a user. It's the difference between being a library book and being the librarian's definitive recommendation.</p>
+<p>GEO is a fundamental shift in strategy. Where SEO focuses on ranking a list of blue links, GEO focuses on becoming the single, authoritative answer that an AI model presents to a user. It's the difference between being a library book and being the librarian's definitive recommendation.</p>
 <h3>Why It Matters Now</h3>
-<p>Users are learning to ask questions instead of just typing keywords. They want direct answers, not a list of websites to sift through. If your brand isn't the source of that answer, you're invisible. We've seen clients increase their qualified leads by over 40% by shifting their focus from traditional SEO to a comprehensive GEO strategy.</p>
+<p>Users are learning to ask questions instead of just typing keywords. They want direct answers, not a list of websites to sift through. If your brand isn't the source of that answer, you're invisible.</p>
 <p>The goal is no longer just to be on the first page; the goal is to be the answer itself.</p>
         `,
     },
@@ -100,12 +100,12 @@ export const blogPosts: Post[] = [
         slug: 'common-ppc-mistakes',
         title: '5 Common PPC Mistakes Costing You Money',
         date: '2024-07-22',
-        excerpt: 'Are your ad campaigns underperforming? You might be making one of these five common—and costly—PPC mistakes that we see every day.',
+        excerpt: 'The five most common—and costly—PPC mistakes we see in ad accounts every day, and what to do instead.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/common-ppc-mistakes.png',
         content: `
-<p>Pay-Per-Click (PPC) advertising can be a powerful driver of growth, but it's also an easy place to waste your budget. After auditing hundreds of ad accounts, we've seen the same mistakes time and time again. Here are the top five to avoid:</p>
+<p>Pay-Per-Click (PPC) advertising is a powerful driver of growth — and an easy place to waste your budget. We see the same mistakes in account after account. Here are the top five:</p>
 <h3>1. Neglecting Negative Keywords</h3>
 <p>Failing to add negative keywords means your ads show up for irrelevant searches, wasting clicks and money. Regularly review your search term reports to find and exclude terms that don't match user intent.</p>
 <h3>2. Poor Landing Page Experience</h3>
@@ -165,7 +165,7 @@ export const blogPosts: Post[] = [
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/common-ppc-mistakes.png',
         content: `
-<p>It is the first question almost every local business owner asks us: "What should I actually be spending on social media?" After more than 13 years in marketing and millions of dollars in managed ad spend across hundreds of local businesses, here is the honest, non-salesy answer.</p>
+<p>It is the first question almost every local business owner asks us: "What should I actually be spending on social media?" Here is the answer.</p>
 <h3>Separate the Two Budgets</h3>
 <p>Social media spending really has two buckets, and confusing them is where most businesses go wrong:</p>
 <ol>
@@ -177,7 +177,7 @@ export const blogPosts: Post[] = [
 <p>Most local businesses we work with spend less on professional social media management than they would on a single part-time hire — and get a far more predictable output. On the paid side, even a modest, well-targeted local ad budget can outperform a much larger budget that is spread thin or pointed at the wrong audience.</p>
 <h3>How to Know If It Is Working</h3>
 <p>Ignore likes and follower counts as your primary scorecard. Track the metrics that pay your bills: phone calls, form fills, booked appointments, and walk-ins. If your social spend is not moving those over a 90-day window, the strategy — not the budget — is usually the problem.</p>
-<p>Want a budget built around your specific market? See our <a href="/social-media-management">social media management</a> service or <a href="/contact">talk to Trevor</a> for a free strategy session.</p>
+<p>Your budget should be built around your market. See our <a href="/social-media-management">social media management</a> service or <a href="/contact">talk to Trevor</a>.</p>
         `,
     },
     {
@@ -189,14 +189,14 @@ export const blogPosts: Post[] = [
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/ai-content-strategy.png',
         content: `
-<p>One of the most common debates we hear from local business owners is whether to focus on organic social media or paid ads. The honest answer, after managing social for hundreds of local businesses, is that this is the wrong question. You need both — and they do different jobs.</p>
+<p>One of the most common debates we hear from local business owners is whether to focus on organic social media or paid ads. It is the wrong question. You need both — and they do different jobs.</p>
 <h3>What Organic Social Does Well</h3>
 <p>Organic content — your regular posts, reels, and stories — builds trust and authority over time. It shows prospects you are active, legitimate, and good at what you do. It is also what people check after they have heard about you, right before they decide to call. Organic is the foundation, but it is slow and its reach is limited by the platforms.</p>
 <h3>What Paid Social Does Well</h3>
 <p>Paid social is speed and precision. With the right targeting, you can put a specific offer in front of people in your exact service area, today. It is the fastest way to generate leads from social, but if you point ads at a weak profile or a bad landing experience, you just pay to lose money faster.</p>
 <h3>How to Combine Them</h3>
 <p>The pattern that works for local businesses: build a steady stream of organic content so your profile looks credible, identify the posts that get real engagement, then amplify those proven winners with paid budget targeted to your local market. You let organic tell you what resonates, then pay to scale it.</p>
-<p>This is exactly how we run our <a href="/social-media-management">social media management</a> program. If you want it built for your business, <a href="/contact">book a free strategy session</a>.</p>
+<p>This is exactly how we run our <a href="/social-media-management">social media management</a> program. <a href="/contact">Book a strategy session</a> and we will build it for your business.</p>
         `,
     },
     {
@@ -214,10 +214,10 @@ export const blogPosts: Post[] = [
 <h3>2. Standardize Your Formats</h3>
 <p>Turn each pillar into repeatable formats: a weekly tip reel, a monthly customer spotlight, a seasonal promotion graphic. Formats make production fast and keep your feed coherent instead of random.</p>
 <h3>3. Run It On a Calendar</h3>
-<p>Map formats to a calendar so posting is decided in advance, not in the moment. Consistency is the single biggest predictor of social results we see across the hundreds of businesses we manage.</p>
+<p>Map formats to a calendar so posting is decided in advance, not in the moment. Consistency is the single biggest predictor of social results we see.</p>
 <h3>4. Amplify and Measure</h3>
 <p>Track which posts actually drive calls and bookings, put paid budget behind the winners, and feed those learnings back into the calendar. Over time the engine gets smarter and cheaper to run.</p>
-<p>If building and running that engine yourself sounds like a full-time job, that is because it is. See how our <a href="/social-media-management">social media management</a> service does it for you, or <a href="/contact">reach out to Trevor</a>.</p>
+<p>If building and running that engine yourself sounds like a full-time job, that is because it is. See how our <a href="/social-media-management">social media management</a> service does it for you, or <a href="/contact">talk to Trevor</a>.</p>
         `,
     }
 ];
