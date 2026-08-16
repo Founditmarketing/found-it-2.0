@@ -23,6 +23,13 @@ interface AppStudy {
 
 const apps: AppStudy[] = [
   {
+    title: 'Roxanne’s OS',
+    trade: 'Wholesale Nursery',
+    src: '/os-screens/roxanne-os-money-v1.png',
+    alt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
+    line: 'Orders arrive as texts in fifteen formats — paste one in and every line is captured or flagged in red, never dropped. The money owed to the nursery stands on one screen, aged and ranked, with branded pull sheets and a crew print board behind it.',
+  },
+  {
     title: 'Tony’s Shop OS',
     trade: 'European Auto Repair',
     src: '/os-screens/tonys-shop-os-v1.png',
@@ -44,32 +51,11 @@ const apps: AppStudy[] = [
     line: 'An AI point-of-sale: the register on iPad, iPhone, or computer, a client book that knows the clients, and a store you can ask questions out loud. Also fitted to a luxury atelier.',
   },
   {
-    title: 'Lonestar OS',
-    trade: 'Shed Dealer & Builder',
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-    line: 'The sales pipeline from unprocessed to delivered, with dollars visible at every stage.',
-  },
-  {
     title: 'Pro Carpet OS',
     trade: 'Carpet & Duct Cleaning',
     src: '/os-screens/procarpet-os-v1.png',
     alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
     line: 'Follow-up texts drafted and waiting for one-tap approval — the ladder chases every estimate that’s out the door, the week board runs the jobs.',
-  },
-  {
-    title: 'Field OS',
-    trade: 'Windmill Manufacturer',
-    src: '/os-screens/ecw-field-os-v1.png',
-    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-    line: 'The service book: due services priced and ready to text, from the shop or the field.',
-  },
-  {
-    title: 'Brian’s Foundation',
-    trade: 'Foundation Contractor',
-    src: '/os-screens/brians-foundation-os-v2.png',
-    alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-    line: 'Speak It In: talk the job in and the system sorts it — the estimate book runs every job from out-the-door to booked.',
   },
 ];
 

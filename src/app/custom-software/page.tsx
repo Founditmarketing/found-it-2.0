@@ -143,8 +143,18 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Every industry below is a real system off a real screen — an auto shop, a tire shop, a shed dealer, a clothier, a foundation crew, a carpet cleaner, a windmill maker. Desktop and phone. Fitted, not templated, and owned by the business running it.',
+    'Every industry below is a real system off a real screen — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Desktop and phone. Fitted, not templated, and owned by the business running it.',
   showcase: [
+    {
+      img: '/os-screens/roxanne-os-intake-v1.png',
+      imgAlt: 'Roxanne’s OS order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red (demo data)',
+      phone: '/os-screens/roxanne-os-money-mobile-v1.png',
+      phoneAlt: 'Roxanne’s OS on a phone — money owed to the nursery, total open with aging bars',
+      title: 'Roxanne’s OS',
+      kind: 'Wholesale Nursery',
+      detail:
+        'Fifteen brokers text orders in fifteen formats — paste one in and every line is captured or held in red, never silently dropped. Branded pull sheets print for the barn, and the money owed rides along in a pocket.',
+    },
     {
       img: '/os-screens/flywheel-os-today-v1.png',
       imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
@@ -172,23 +182,6 @@ const data: PillarData = {
       detail: 'The register that remembers — tickets, clients, inventory, and the books in one place, fitted to the store it serves. It rings from a phone at the counter.',
     },
     {
-      img: '/os-screens/brians-foundation-os-v2.png',
-      imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-      phone: '/os-screens/brians-foundation-mobile-estimates-v2.png',
-      phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
-      title: 'Brian’s Foundation Repair',
-      kind: 'Foundation Contractor',
-      detail:
-        'The estimate book: ramble the job at your phone — Speak It In sorts it into a written estimate, and nothing opens until you approve it.',
-    },
-    {
-      img: '/os-screens/lonestar-os-v1.png',
-      imgAlt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-      title: 'Lonestar OS',
-      kind: 'Shed Dealer & Builder',
-      detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
-    },
-    {
       img: '/os-screens/procarpet-os-v1.png',
       imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
       phone: '/os-screens/procarpet-os-mobile-estimates-v1.png',
@@ -196,15 +189,6 @@ const data: PillarData = {
       title: 'Pro Carpet OS',
       kind: 'Carpet & Duct Cleaning',
       detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
-    },
-    {
-      img: '/os-screens/ecw-field-os-v1.png',
-      imgAlt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-      phone: '/os-screens/ecw-field-os-mobile-v1.png',
-      phoneAlt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
-      title: 'Field OS',
-      kind: 'Windmill Manufacturer',
-      detail: 'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
     },
   ],
   mistakesHeading: 'Why Off-the-Shelf Software Goes Wrong',

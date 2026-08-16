@@ -270,7 +270,7 @@ export default function HomePage() {
               Not Mockups. Screenshots.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner, a foundation crew. Every one custom-built, every one owned by the business running it.
+              Straight off the screens of systems we&apos;ve fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Every one custom-built, every one owned by the business running it.
             </p>
           </motion.div>
 

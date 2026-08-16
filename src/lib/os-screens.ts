@@ -79,12 +79,6 @@ export const railDesktops: OsRailItem[] = [
     kind: 'Tire & Auto Shop',
   },
   {
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-    title: 'Lonestar OS',
-    kind: 'Shed Dealer & Builder',
-  },
-  {
     src: '/os-screens/house-system-v1.png',
     alt: 'The House System register — a ticket rung with three lines and a live total',
     title: 'The House System',
@@ -107,18 +101,6 @@ export const railDesktops: OsRailItem[] = [
     alt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket',
     title: 'The House System',
     kind: 'Atelier Edition',
-  },
-  {
-    src: '/os-screens/ecw-field-os-v1.png',
-    alt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-    title: 'Field OS',
-    kind: 'Windmill Manufacturer',
-  },
-  {
-    src: '/os-screens/brians-foundation-os-v2.png',
-    alt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-    title: 'Brian’s Foundation',
-    kind: 'Foundation Contractor',
   },
 ];
 
@@ -173,13 +155,6 @@ export const railPhones: OsRailItem[] = [
     portrait: true,
   },
   {
-    src: '/os-screens/ecw-field-os-mobile-v1.png',
-    alt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
-    title: 'The Service Book',
-    kind: 'Field OS',
-    portrait: true,
-  },
-  {
     src: '/os-screens/matteo-register-mobile-v1.png',
     alt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
     title: 'The Atelier',
@@ -205,20 +180,6 @@ export const railPhones: OsRailItem[] = [
     alt: 'Pro Carpet OS schedule on a phone — the week’s jobs with the next one highlighted',
     title: 'The Week',
     kind: 'Pro Carpet OS',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/brians-foundation-mobile-estimates-v2.png',
-    alt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
-    title: 'Speak It In',
-    kind: 'Brian’s Foundation',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/brians-foundation-mobile-today-v2.png',
-    alt: 'Brian’s Foundation Repair OS on a phone — the day’s collected, tickets, and jobs due',
-    title: 'The Day',
-    kind: 'Brian’s Foundation',
     portrait: true,
   },
 ];

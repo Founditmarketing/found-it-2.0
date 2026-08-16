@@ -142,8 +142,18 @@ const data: PillarData = {
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of systems we have fitted — an auto shop, a tire shop, a shed dealer, a clothier, a windmill maker, a carpet cleaner, a foundation crew. Desktop and phone, because every Found It OS ships with the pocket version built in. Every one custom-built, every one owned by the business running it.',
+    'Straight off the screens of systems we have fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Desktop and phone, because every Found It OS ships with the pocket version built in. Every one custom-built, every one owned by the business running it.',
   showcase: [
+    {
+      img: '/os-screens/roxanne-os-money-v1.png',
+      imgAlt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
+      phone: '/os-screens/roxanne-os-crew-mobile-v1.png',
+      phoneAlt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
+      title: 'Roxanne’s OS',
+      kind: 'Wholesale Nursery',
+      detail:
+        'Money owed to the nursery on one screen — aged, ranked, oldest first every morning. Orders paste in exactly as brokers text them; every line is captured or flagged in red, never dropped. The barn crew gets a board with one big PRINT.',
+    },
     {
       img: '/os-screens/flywheel-os-today-v1.png',
       imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
@@ -171,13 +181,6 @@ const data: PillarData = {
       detail: 'The register that remembers — tickets, clients, inventory, and the books in one place. The same register rings from a phone at the counter.',
     },
     {
-      img: '/os-screens/lonestar-os-v1.png',
-      imgAlt: 'Lonestar OS desk — sales pipeline from unprocessed to delivered with dollars at every stage',
-      title: 'Lonestar OS',
-      kind: 'Shed Dealer & Builder',
-      detail: 'One pipeline from sold to delivered — every building, every dollar, every hand-off on one desk.',
-    },
-    {
       img: '/os-screens/procarpet-os-v1.png',
       imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
       phone: '/os-screens/procarpet-os-mobile-estimates-v1.png',
@@ -185,25 +188,6 @@ const data: PillarData = {
       title: 'Pro Carpet OS',
       kind: 'Carpet & Duct Cleaning',
       detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it. The whole desk rides along in a pocket.',
-    },
-    {
-      img: '/os-screens/ecw-field-os-v1.png',
-      imgAlt: 'East Coast Windmill Field OS — the service book with due services priced and ready to text',
-      phone: '/os-screens/ecw-field-os-mobile-v1.png',
-      phoneAlt: 'East Coast Windmill Field OS on a phone — the service book with quotes priced and draft-text buttons',
-      title: 'Field OS',
-      kind: 'Windmill Manufacturer',
-      detail: 'The service book that follows up — due services surface themselves, you approve the text. In the field, one tap drafts it.',
-    },
-    {
-      img: '/os-screens/brians-foundation-os-v2.png',
-      imgAlt: 'Brian’s Foundation Repair OS — the estimate book with jobs from out-the-door to booked, and the Speak It In button',
-      phone: '/os-screens/brians-foundation-mobile-estimates-v2.png',
-      phoneAlt: 'Brian’s Foundation Repair OS on a phone — the estimate book with speak-it-in intake',
-      title: 'Brian’s Foundation Repair',
-      kind: 'Foundation Contractor',
-      detail:
-        'The estimate book: ramble the job at your phone — Speak It In sorts it into a written estimate, and nothing opens until you approve it. A paper-and-pencil operation, on its own system.',
     },
   ],
   mistakesHeading: 'Why Business Software Usually Goes Wrong',
