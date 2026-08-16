@@ -34,12 +34,12 @@ const faqItems = [
   {
     question: 'What exactly is the margin governor?',
     answer:
-      "A floor under every part you sell. Your distributor cost files load into the system automatically, every part reprices at the margin you set, and the counter physically cannot ring a sale below cost — the system won't let it happen. No more discovering at year-end that the counter had been quoting off prices from years ago.",
+      'A floor under every part you sell. Your distributor cost files load in automatically, every part reprices at the margin you set, and the counter physically cannot ring a sale below cost.',
   },
   {
     question: 'Our part prices in QuickBooks are years old. Is that a problem?',
     answer:
-      "It's the normal starting point — most dealerships we walk are quoting off whatever cost QuickBooks last saw, sometimes 15 years ago. Loading your current distributor price files and repricing the catalog at your margin is part of the fitting. That's what the setup fee pays for.",
+      "It's the normal starting point. Loading your current distributor price files and repricing the catalog at your margin is part of the fitting — that's what the setup fee pays for.",
   },
   {
     question: 'What does it cost?',
@@ -48,12 +48,12 @@ const faqItems = [
   {
     question: 'Do I have to switch off my current system on day one?',
     answer:
-      'No. Nothing switches until you say go. Your new system runs beside the old one and gets matched against it — to the penny — until you trust it. The counter never stops selling while we fit it.',
+      'No. Nothing switches until you say go — the new system runs beside the old one, penny-matched, until you trust it. The counter never stops selling.',
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100% — inventory, part history, customers, the books. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
   },
   {
     question: 'Do you take every dealership that signs up?',
@@ -123,7 +123,7 @@ export function DealershipLPContent() {
           {
             title: '“Nobody Here Has Time To Load Price Files.”',
             detail:
-              "Nobody should. The price files your distributors send — spreadsheets, CSVs, portal downloads — load automatically. When a distributor moves cost, your prices move with it, at your margin. The counter never quotes off a stale number again, and no one at your dealership had to type anything.",
+              'Nobody should. The price files your distributors send — spreadsheets, CSVs, portal downloads — load automatically. When a distributor moves cost, your prices move with it, at your margin. Nobody at your dealership types a thing.',
           },
           {
             title: '“We Can’t Stop The Counter To Switch Systems.”',
@@ -133,7 +133,7 @@ export function DealershipLPContent() {
           {
             title: '“I’ve Been Burned By Dealer Software Before.”',
             detail:
-              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Leave any month with 30 days' notice and everything is still yours.",
+              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month. Leave any month with 30 days' notice and everything is still yours.",
           },
         ]}
       />

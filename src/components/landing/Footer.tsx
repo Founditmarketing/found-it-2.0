@@ -54,6 +54,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li><Link href="/about" className={linkClass}>About</Link></li>
               <li><Link href="/about#team" className={linkClass}>Team</Link></li>
+              <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
               <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
               <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
               <li><Link href="/blog" className={linkClass}>Blog</Link></li>
@@ -82,6 +83,7 @@ export function Footer() {
             </ul>
             <h4 className={`${headingClass} mt-8`}>Free Tools</h4>
             <ul className="space-y-3">
+              <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>
               <li><Link href="/ai-visibility-check" className={linkClass}>AI Visibility Check</Link></li>
               <li>
                 <Link

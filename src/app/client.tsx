@@ -35,7 +35,7 @@ const services = [
   },
   {
     name: 'AI That Knows Your Business',
-    result: 'A built-in AI that answers from your own books, in plain English — who bought what, what is running low, who has not been in. It reads your books; it can’t write them.',
+    result: 'A built-in AI that answers from your own books, in plain English. It reads your books; it can’t write them.',
     href: '/foundit-os',
     cta: 'See It Inside Found It OS',
     icon: Bot,
@@ -71,9 +71,9 @@ const proofPoints = [
 ];
 
 const differentiators = [
-  { title: 'No lock-in.', detail: 'Month-to-month, cancel anytime with 30 days’ notice — and you keep the code and the data.' },
+  { title: 'No lock-in.', detail: 'Month-to-month, cancel anytime with 30 days’ notice.' },
   { title: 'You own everything.', detail: 'Your software, your ad accounts, your code, your data. Nothing held hostage.' },
-  { title: 'Senior strategist, not interns.', detail: 'A senior strategist works on your account. Not a junior who Googles the answers.' },
+  { title: 'Senior strategist, not interns.', detail: 'Not a junior who Googles the answers.' },
 ];
 
 export default function HomePage() {
@@ -132,7 +132,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                Your whole business on one screen — custom AI software fitted to how you actually run, and you own it outright, code and data.
+                Your whole business on one screen — fitted to how you actually run, and yours outright: code and data.
               </p>
 
               {/* Primary ask — the fitting. One button, nothing beside it. */}
@@ -167,7 +167,7 @@ export default function HomePage() {
                 One System Runs Your Whole Business — And You Own It.
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
-                The register, the inventory, the customers, the website, and an AI that knows all of it — custom-built around how your business actually runs. It proves itself beside your old system, matched to the penny, before anything switches.{' '}
+                The register, the inventory, the customers, the website, and an AI that knows all of it. It proves itself beside your old system, matched to the penny, before anything switches.{' '}
                 <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
               </p>
 
@@ -175,7 +175,7 @@ export default function HomePage() {
               <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-3">
                 What It Costs
               </p>
-              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-8">
                 <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
                   <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.monthly}<span className="text-sm text-muted-foreground font-bold not-italic"> {OS_PRICING.monthlyLabel}</span></p>
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">Month-to-Month · No Contracts</p>
@@ -189,10 +189,6 @@ export default function HomePage() {
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">One Job</p>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground/80 font-medium leading-relaxed mb-8 max-w-2xl">
-                Real local businesses running or being fitted on their own systems right now.
-              </p>
-
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
                 <Link href="/foundit-os" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
                   See Found It OS <ArrowRight className="w-4 h-4 ml-2" />
@@ -270,7 +266,7 @@ export default function HomePage() {
               Not Mockups. Screenshots.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Every one custom-built, every one owned by the business running it.
+              Straight off the screens of systems we&apos;ve fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Every one owned by the business running it.
             </p>
           </motion.div>
 
@@ -571,8 +567,8 @@ export default function HomePage() {
               Fifteen Minutes With Trevor.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              Fifteen minutes on what would actually work for your business. We build one business
-              at a time — he&apos;s deciding the same thing you are: whether this is a fit.
+              What would actually work for your business. We build one business at a time —
+              he&apos;s deciding the same thing you are: whether this is a fit.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link href="/contact" className="w-full sm:w-auto max-w-sm">

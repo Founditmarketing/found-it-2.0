@@ -41,6 +41,12 @@ export interface NativeLeadFormProps {
    *  lead form carries the qualification signal without adding friction.
    *  `false` hides it (the guide gate and other light asks). */
   qualify?: boolean | 'optional';
+  /** Pre-select a revenue band (a REVENUE_BANDS label) — the fit check hands
+   *  its answer forward so nobody is asked twice. Still editable. */
+  initialBand?: string;
+  /** Extra attribution lines appended to the message trail (additive — the
+   *  /api/lead payload shape is unchanged). The fit check rides here. */
+  trailLines?: string[];
   className?: string;
 }
 
@@ -63,6 +69,8 @@ export function NativeLeadForm({
   compact = false,
   successNote = 'Trevor will call you back within 2 hours.',
   qualify = 'optional',
+  initialBand,
+  trailLines,
   className = '',
 }: NativeLeadFormProps) {
   const uid = useId();
@@ -70,7 +78,7 @@ export function NativeLeadForm({
   const [errorMsg, setErrorMsg] = useState('');
   const [showDetails, setShowDetails] = useState(!compact);
   const [started, setStarted] = useState(false);
-  const [revBand, setRevBand] = useState('');
+  const [revBand, setRevBand] = useState(initialBand ?? '');
   const [fields, setFields] = useState({
     name: '',
     phone: '',
@@ -125,6 +133,7 @@ export function NativeLeadForm({
     const utms = getStoredUTMs();
     const trail = [
       band ? `Revenue: ${band.label}${band.qualified ? '' : ' (BELOW BAR)'}` : '',
+      ...(trailLines ?? []),
       pageSlug ? `Page: ${pageSlug}` : '',
       ...Object.entries(utms).map(([k, v]) => `${k}: ${v}`),
     ].filter(Boolean);

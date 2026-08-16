@@ -37,7 +37,7 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a video call with Tom — we send the link — about 30 minutes, screen-shared. He maps the software we'd build for your business — jobs, estimates, invoices, the books — and shows you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map.",
+      "A video call with Tom — we send the link — about 30 minutes, screen-shared. He maps the software we'd build for your business: jobs, estimates, invoices, the books. You keep the map.",
   },
   {
     question: "Aren't you a Louisiana company?",
@@ -51,12 +51,12 @@ const faqItems = [
   {
     question: 'Do I have to switch off my current software on day one?',
     answer:
-      "No. Nothing switches until you say go. Your new system runs beside the old one and gets matched against it — to the penny — until you trust it. That's the rule on every fitting we do.",
+      "No. Nothing switches until you say go — the new system runs beside the old one, penny-matched, until you trust it. That's the rule on every fitting.",
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
   },
   {
     question: 'Do you take everyone who signs up?',
@@ -83,7 +83,7 @@ export function WichitaLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. And that's only one question your business could answer. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you — the map is yours."
+        subheadline="Could your current software answer that in five seconds? Ours can. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you."
         highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -137,12 +137,8 @@ export function WichitaLPContent() {
             somebody&rsquo;s head. Follow-ups buried in text messages.
           </p>
           <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
-            We replace the mess with one system —{' '}
-            <span className="text-white font-bold">
-              customers → estimates → jobs → invoices → payments → the books
-            </span>{' '}
-            — built around how you already run. And unlike the software you&rsquo;re renting now,{' '}
-            <span className="text-white font-bold">you own it</span>.
+            We replace the mess with one system built around how you already run. And unlike the
+            software you&rsquo;re renting now, <span className="text-white font-bold">you own it</span>.
           </p>
         </div>
       </section>
@@ -204,7 +200,7 @@ export function WichitaLPContent() {
           {
             title: 'Your old system stays plugged in',
             detail:
-              'Your new system runs BESIDE your current software, penny-matched against it every night. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
+              'Your new system runs BESIDE your current software, penny-matched every night, until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
             title: 'Who sees your numbers',
@@ -252,7 +248,7 @@ export function WichitaLPContent() {
         subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared. The map is free and you keep it. Whether we build it is a separate conversation."
         benefits={[
           'Tom maps your business with you — live, screen-shared',
-          'You keep the map: the app we’d build if we owned your company — add to it or take away',
+          'You keep the map: the app we’d build if we owned your company',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}

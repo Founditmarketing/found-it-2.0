@@ -32,7 +32,7 @@ const faqItems = [
   {
     question: 'What does it actually replace?',
     answer:
-      'The stack. Repair orders, estimates, parts, payments, scheduling, and the books run in one system fitted to how your shop already works — instead of a shop management subscription here, an accounting subscription there, and a card reader that talks to neither. A real European auto shop in Alexandria runs its whole operation on it today.',
+      'The stack. Repair orders, estimates, parts, payments, scheduling, and the books run in one system fitted to how your shop already works — instead of a shop management subscription here, an accounting subscription there, and a card reader that talks to neither.',
   },
   {
     question: 'What does it cost?',
@@ -41,12 +41,12 @@ const faqItems = [
   {
     question: 'Do I have to switch off my current shop software on day one?',
     answer:
-      "No. Nothing switches until you say go. Your new system runs beside the old one and gets matched against it — to the penny — until you trust it. Your shop never bets a single repair order on a cutover.",
+      'No. Nothing switches until you say go — the new system runs beside the old one, penny-matched, until you trust it.',
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100% — every customer record, every repair order, every invoice. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
   },
   {
     question: 'Do you take every shop that signs up?',
@@ -68,7 +68,7 @@ export function AutoShopLPContent() {
       <LPSplitHero
         headline="Auto Repair Shop Software"
         headlineAccent="You Own. No Per-Seat Fees."
-        subheadline="Repair orders, parts, payments, and the books — one system fitted to how your shop actually runs, and you own it outright. A real European auto shop in Alexandria runs its whole operation on it today. No per-seat fees. No data held hostage. No 'export request' when you want your own customer list."
+        subheadline="Repair orders, parts, payments, and the books — one system fitted to how your shop actually runs, and you own it outright. A real European auto shop in Alexandria runs its whole operation on it today. No per-seat fees. No data held hostage."
         highlight={'“Which declined jobs are worth a win-back text?” — answered from your own repair orders, with prices attached.'}
         highlightIcon={Wrench}
         voiceAgent
@@ -120,7 +120,7 @@ export function AutoShopLPContent() {
           {
             title: '“What Happens To My Data If I Leave?”',
             detail:
-              "You keep it — because you always had it. The code and the data are yours from day one: customers, vehicles, repair orders, history, the books. Nobody rents you your own business back. Cancel any month and the system is still yours.",
+              'You keep it — because you always had it. The code and the data are yours from day one: customers, vehicles, repair orders, history, the books.',
           },
           {
             title: '“My Shop Doesn’t Run Like Anyone Else’s.”',

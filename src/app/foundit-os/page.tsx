@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Stop Renting Your Software —',
   headlineAccent: 'Own Your Whole System.',
   intro:
-    `Try to leave the software you rent today and count what you keep: not the register, not the inventory, not your own customer list. Found It OS ends that: one system fitted to how your business actually runs — the register, the inventory, the customers, the tickets, the website, and an AI that knows all of it — and you own it outright. It is fitted in weeks, not months, and nothing switches until the new system has run beside your old one and matched it to the penny.`,
+    `Try to leave the software you rent today and count what you keep: not the register, not the inventory, not your own customer list. Found It OS ends that — one system fitted to how your business actually runs, and you own it outright. Fitted in weeks, and nothing switches until it has run beside your old system and matched it to the penny.`,
   ctaLabel: 'Get Fitted',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
@@ -49,13 +49,13 @@ const data: PillarData = {
   voiceDemo: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
-    'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Off-the-shelf software makes you run your business its way. Think of it like a suit: the big platforms sell off the rack — built for everyone, loaded with features you will never use, tight in all the wrong places. Found It OS is made to measure. We study how your business actually works, then build the system around it. You get one screen your team actually uses, one customer database instead of paper tickets and memory, and an AI that can answer questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',
+    'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Think of it like a suit: the big platforms sell off the rack — built for everyone, tight in all the wrong places. Found It OS is made to measure: we study how your business actually works, then build the system around it. One screen your team actually uses, one customer database, an AI that answers questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',
   includedHeading: 'What Every Found It OS Includes',
   included: [
     {
       title: 'Fitted, Not Templated',
       detail:
-        'We sit down in your business and map how it really runs — then build the system around your process, not the other way around.',
+        'We map how your business really runs, then build the system around your process — not the other way around.',
     },
     {
       title: 'The Whole Operation',
@@ -70,7 +70,7 @@ const data: PillarData = {
     {
       title: 'AI That Knows Your Business',
       detail:
-        'Ask it questions in plain English — who bought what, what is running low, who has not been in lately — and it answers from your own books. It reads your books; it cannot write them.',
+        'Ask in plain English — who bought what, what is running low, who has not been in — and it answers from your own books. It reads them; it cannot write them.',
     },
     {
       title: 'Books That Show Their Work',
@@ -101,7 +101,7 @@ const data: PillarData = {
       step: '03',
       title: 'You Say Go',
       detail:
-        'Nothing switches until the numbers have matched day after day and you give the word. We never pull the plug on the old system until you say go — and the switch itself costs you zero hours of downtime.',
+        'Nothing switches until the numbers have matched day after day and you give the word — and the switch itself costs zero hours of downtime.',
     },
     {
       step: '04',
@@ -138,11 +138,11 @@ const data: PillarData = {
       { value: '$0.00', label: 'Difference Before You Switch' },
     ],
     narrative:
-      'Before any business switches to Found It OS, the new system has to earn it. It runs beside the register you already trust, and every night the two sets of books go side by side until the difference is zero. When they match day after day and you are ready, you give the word.',
+      'The new system has to earn it: it runs beside the register you already trust until the nightly difference is zero. Then you give the word.',
   },
   galleryHeading: 'Not Mockups. Screenshots.',
   galleryIntro:
-    'Straight off the screens of systems we have fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Desktop and phone, because every Found It OS ships with the pocket version built in. Every one custom-built, every one owned by the business running it.',
+    'Straight off the screens of systems we have fitted — desktop and phone, because every Found It OS ships with the pocket version built in. Every one owned by the business running it.',
   showcase: [
     {
       img: '/os-screens/roxanne-os-money-v1.png',
@@ -195,7 +195,7 @@ const data: PillarData = {
     {
       title: 'Renting forever',
       detail:
-        'Big-name POS and software companies charge you rent forever, raise prices when they want, and hold your data if you try to leave. You never own a thing — they rent you your own business back.',
+        'Big-name platforms charge rent forever, raise prices when they want, and hold your data if you try to leave. They rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
@@ -210,7 +210,7 @@ const data: PillarData = {
     {
       title: 'Rip-and-replace migrations',
       detail:
-        'Most switches mean a scary weekend cutover and lost data. We never rip anything out — the new system proves itself beside the old one first.',
+        'Most switches mean a scary weekend cutover and lost data. We never rip anything out.',
     },
   ],
   pricingHeading: 'What It Costs',
@@ -220,9 +220,9 @@ const data: PillarData = {
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
-    'Proven before it ships: the new system runs beside your old one until the books match to the penny.',
+    'Proven beside your old system until the books match to the penny.',
     'Built-in AI that answers questions about your own business in plain English.',
-    `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
+    `${TRACK_RECORD.yearsInBusiness} years building for local businesses.`,
   ],
   faqHeading: 'Found It OS FAQ',
   faq: [
@@ -234,7 +234,7 @@ const data: PillarData = {
     {
       question: 'What happens to my old system and my data?',
       answer:
-        'Nothing, until the new system has earned it. Your old system keeps running while Found It OS runs beside it, and every night the two are checked against each other to the penny. Your existing data — even handwritten invoices and paper records — gets brought in during the fitting. You switch only when the numbers have proven themselves and you say go.',
+        'Nothing, until the new system has earned it. Your old system keeps running while Found It OS runs beside it, checked against it nightly to the penny. Your existing data — even handwritten invoices — comes in during the fitting. You switch when the numbers have proven themselves and you say go.',
     },
     {
       question: 'Who owns the system?',
@@ -244,7 +244,7 @@ const data: PillarData = {
     {
       question: 'How long does a fitting take?',
       answer:
-        'Weeks, not months. You get a firm timeline at your fitting, and nothing switches until the side-by-side numbers have matched and you give the word.',
+        'Weeks, not months. You get a firm timeline at your fitting; nothing switches until you give the word.',
     },
     {
       question: 'What does it cost?',
@@ -269,12 +269,12 @@ const data: PillarData = {
     {
       question: 'Is it safe? Who can see what?',
       answer:
-        'Everyone on your team gets their own login, limited to their role — the front desk sees the front desk, the books stay with the owner. The AI can read your books to answer questions; it cannot write to them. And everything is backed up every night. It is your data, period.',
+        'Everyone on your team gets their own login, limited to their role — the front desk sees the front desk, the books stay with the owner. The AI can read your books; it cannot write to them. Everything is backed up every night. It is your data, period.',
     },
     {
       question: 'My business is too complicated for software. Can you really fit it?',
       answer:
-        'Complicated is where custom software thrives. Off-the-rack systems break down exactly where your business gets interesting — the weird workflows, the exceptions, the things only you do. Those are the parts we map first at the fitting, and the system gets built around them. Simple businesses barely need us. Complicated ones are why we exist.',
+        'Complicated is where custom software thrives. Off-the-rack systems break down exactly where your business gets interesting — the weird workflows, the exceptions, the things only you do. Those are the parts we map first, and the system gets built around them. Complicated businesses are why we exist.',
     },
     {
       question: 'Do I need a technical person on staff?',

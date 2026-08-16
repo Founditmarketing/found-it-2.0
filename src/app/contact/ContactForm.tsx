@@ -119,7 +119,7 @@ export function ContactForm() {
         Tell Us What&apos;s Broken.
       </h2>
       <p className="text-sm text-muted-foreground font-medium mb-6">
-        Fill this out and Trevor will call you back — usually within 2 hours.
+        Fill this out — Trevor calls you back.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">

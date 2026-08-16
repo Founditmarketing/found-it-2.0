@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, Newspaper, type LucideIcon } from 'lucide-react';
+import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, UserCheck, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, Newspaper, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { trackGuideCTAClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
@@ -82,6 +82,12 @@ const navLinks: NavLink[] = [
     href: '/case-studies',
     icon: Globe,
     description: 'The systems we built, the businesses that own them',
+  },
+  {
+    title: "Who It's For",
+    href: '/who-we-build-for',
+    icon: UserCheck,
+    description: "We don't build for everyone — check your fit",
   },
   {
     title: 'Pricing',

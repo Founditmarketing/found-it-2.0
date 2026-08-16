@@ -37,7 +37,7 @@ const faqItems = [
   {
     question: 'What does it replace?',
     answer:
-      'The scatter. Estimates, invoices, payments, job costs, crew scheduling, and the book itself live in one system — every dollar tied to a job, every job tied to the ledger. No more re-typing an estimate into an invoice app and hoping the book catches up at tax time.',
+      'The scatter. Estimates, invoices, payments, job costs, crew scheduling, and the book itself live in one system. No more re-typing an estimate into an invoice app and hoping the book catches up at tax time.',
   },
   {
     question: 'What does it cost?',
@@ -46,12 +46,12 @@ const faqItems = [
   {
     question: 'Do I have to drop my current CRM on day one?',
     answer:
-      'No. Nothing switches until you say go. Your new system runs beside whatever you use now and gets matched against it — to the penny — until you trust it. Jobs keep moving the whole time.',
+      'No. Nothing switches until you say go — the new system runs beside whatever you use now, penny-matched, until you trust it. Jobs keep moving the whole time.',
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100% — every job, every customer, every dollar of history. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
   },
   {
     question: 'Do you take every company that signs up?',
@@ -116,7 +116,7 @@ export function RoofingLPContent() {
           {
             title: '“My Numbers Live In Five Different Places.”',
             detail:
-              'An estimate app, an invoice app, a card reader, a spreadsheet, and QuickBooks — and none of them agree. Here there is one ledger. Every estimate, invoice, payment, and cost lands against its job, and the book is the sum of the jobs. When the numbers disagree, the system tells you — not your accountant, next April.',
+              'Here there is one ledger. Every estimate, invoice, payment, and cost lands against its job, and the book is the sum of the jobs. When the numbers disagree, the system tells you — not your accountant, next April.',
           },
           {
             title: '“I Don’t Trust Software With My Money.”',
@@ -126,7 +126,7 @@ export function RoofingLPContent() {
           {
             title: '“Roofing CRMs Lock You In.”',
             detail:
-              "They rent you a login and hold your job history hostage. This one you own — the code and the data, 100%, month-to-month, no long-term contract. Leave any month and everything is still yours. Nobody rents you your own business back.",
+              'They rent you a login and hold your job history hostage. This one you own — the code and the data, 100%, month-to-month. Leave any month and everything is still yours.',
           },
           {
             title: '“My Crews Won’t Touch New Software.”',

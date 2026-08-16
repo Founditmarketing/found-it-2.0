@@ -20,7 +20,7 @@ const services = [
   {
     name: 'Found It OS',
     price: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} Setup`,
-    note: `The whole price, printed: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} migration & setup. One job: ${OS_PRICING.promise}`,
+    note: `The whole price, printed above. One job: ${OS_PRICING.promise}`,
     features: [
       'Starts with the software map — a $2,000 engagement on its own, yours before you pay anything',
       'Runs beside your old system until the books match to the penny',
@@ -33,7 +33,7 @@ const services = [
   {
     name: 'Google Ads Management',
     price: 'Flat Monthly Fee',
-    note: 'Most local businesses run $1,500–$5,000/mo in ad spend, paid straight to Google. Your management fee is flat, scoped to the account on the free audit.',
+    note: 'Most local businesses run $1,500–$5,000/mo in ad spend. The management fee is flat, scoped on the free audit.',
     features: [
       'Free audit first — we show you where the budget is leaking',
       'Weekly optimization',
@@ -85,7 +85,7 @@ const services = [
   {
     name: 'Custom App Development',
     price: 'Fixed Project Price',
-    note: 'Fixed price after a free blueprint session — typically 8 to 12 weeks to launch.',
+    note: 'Scoped at a free blueprint session.',
     features: [
       'Fixed price — no hourly creep',
       'Typically 8–12 weeks to launch',
@@ -131,6 +131,12 @@ export default function PricingClient() {
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
             Every service is a flat fee, in writing, before you pay. Month-to-month on everything.
+          </p>
+          {/* The one fit-check line on this page (by law: exactly one). */}
+          <p className="mt-4">
+            <Link href="/fit" className="text-sm font-bold text-primary hover:underline">
+              Not sure you&apos;re who we build for? Check your fit — 60 seconds →
+            </Link>
           </p>
         </motion.div>
 
@@ -192,9 +198,7 @@ export default function PricingClient() {
           <div className="space-y-3">
             {[
               'No setup fees on ads management.',
-              'Web design is a one-time build cost with 60 days of free post-launch optimization. Maintenance plans start at $250/mo.',
               'You pay ad spend directly to Google — we never mark it up or bundle it.',
-              'Apps are fixed-price after a free blueprint — typically 8 to 12 weeks to launch.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-primary text-xs font-black mt-0.5">•</span>
