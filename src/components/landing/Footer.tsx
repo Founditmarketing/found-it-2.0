@@ -31,12 +31,24 @@ export function Footer() {
     <footer className="bg-background text-foreground pt-16 pb-8 relative overflow-hidden border-t border-border/10">
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
 
-        {/* Main footer grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-12 mb-16">
+        {/* Main footer grid — software first */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-16">
 
-          {/* Services — canonical six pillars from site.ts */}
+          {/* The software */}
           <div>
-            <h4 className={headingClass}>Services</h4>
+            <h4 className={headingClass}>The Software</h4>
+            <ul className="space-y-3">
+              <li><Link href="/foundit-os" className={linkClass}>Found It OS</Link></li>
+              <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
+              <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
+              <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>
+              <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
+            </ul>
+          </div>
+
+          {/* Marketing — the six pillars, demoted to one tidy column */}
+          <div>
+            <h4 className={headingClass}>Marketing</h4>
             <ul className="space-y-3">
               {SERVICES.map((service) => (
                 <li key={service.slug}>
@@ -48,42 +60,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Company + free things */}
           <div>
             <h4 className={headingClass}>Company</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className={linkClass}>About</Link></li>
               <li><Link href="/about#team" className={linkClass}>Team</Link></li>
-              <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
-              <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
-              <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
               <li><Link href="/blog" className={linkClass}>Blog</Link></li>
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h4 className={headingClass}>Industries</h4>
-            <ul className="space-y-3">
-              <li><Link href="/industries/medical" className={linkClass}>Medical</Link></li>
-              <li><Link href="/industries/contractors" className={linkClass}>Contractors</Link></li>
-              <li><Link href="/industries/dealerships" className={linkClass}>Dealerships</Link></li>
-              <li><Link href="/industries/realtors" className={linkClass}>Real Estate</Link></li>
-              <li><Link href="/industries/lawyers" className={linkClass}>Lawyers</Link></li>
-            </ul>
-          </div>
-
-          {/* Service Areas + Free Tools */}
-          <div>
-            <h4 className={headingClass}>Service Areas</h4>
-            <ul className="space-y-3">
-              <li><Link href="/marketing-alexandria" className={linkClass}>Alexandria Marketing</Link></li>
-              <li><Link href="/pineville-seo" className={linkClass}>Pineville SEO</Link></li>
-              <li><Link href="/central-louisiana-web-design" className={linkClass}>Central Louisiana Web Design</Link></li>
-            </ul>
-            <h4 className={`${headingClass} mt-8`}>Free Tools</h4>
-            <ul className="space-y-3">
-              <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>
               <li><Link href="/ai-visibility-check" className={linkClass}>AI Visibility Check</Link></li>
               <li>
                 <Link
@@ -91,7 +74,7 @@ export function Footer() {
                   onClick={() => trackGuideCTAClick('footer_tools')}
                   className={linkClass}
                 >
-                  Free Guide: What Do I Get? (PDF)
+                  Free Guide (PDF)
                 </Link>
               </li>
             </ul>
@@ -137,8 +120,8 @@ export function Footer() {
                   Rated {TRACK_RECORD.googleRating} on Google
                 </a>
               )}
-              <Link href="/contact" className="block text-sm text-primary font-bold hover:underline">
-                Book a Free Call →
+              <Link href="/fit" className="block text-sm text-primary font-bold hover:underline">
+                See If Your Business Fits →
               </Link>
               <Link
                 href="/guide"
