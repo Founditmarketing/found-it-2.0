@@ -1,9 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, CalendarCheck } from 'lucide-react';
-import { trackCallClick } from '@/lib/analytics';
-import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
+import { Mail, MapPin, Clock, CalendarCheck } from 'lucide-react';
 import { BUSINESS, LINKS } from '@/lib/site';
 import { ContactForm } from './ContactForm';
 
@@ -15,7 +13,6 @@ const bookingUrl: string = LINKS.bookingCalendar;
 const fullAddress = `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addressLocality}, ${BUSINESS.address.addressRegion} ${BUSINESS.address.postalCode}`;
 
 const contactMethods = [
-  { icon: Phone, label: 'Call Trevor directly', phone: true },
   { icon: Mail, label: 'Email', value: BUSINESS.email, href: `mailto:${BUSINESS.email}` },
   { icon: MapPin, label: 'Office', value: fullAddress },
   { icon: Clock, label: 'Response time', value: 'Usually within 2 hours' },
@@ -35,27 +32,12 @@ export default function ContactClient() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="text-center mb-12">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Contact</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            Call Trevor.{' '}<span className="text-primary">15 Minutes.</span>
+            Send Your Number.{' '}<span className="text-primary">Trevor Calls You.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
-            No pitch. No junior account managers. A straight answer about what would work for your business.
+            No junior account managers. A straight answer about what would work for your business —
+            usually within two hours.
           </p>
-        </motion.div>
-
-        {/* Prominent tap-to-call strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6, ease }}
-          className="mb-10"
-        >
-          <SafePhone
-            onClick={() => trackCallClick()}
-            className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 bg-primary text-primary-foreground rounded-2xl px-6 py-5 shadow-2xl shadow-primary/20 hover:opacity-90 active:scale-[0.99] transition-all"
-          >
-            <span className="flex items-center gap-2 text-sm font-black uppercase italic tracking-tighter">
-              <Phone className="w-5 h-5" aria-hidden="true" /> Fastest: Call Trevor Now
-            </span>
-            <span className="text-2xl font-black tracking-tight"><SafePhoneText /></span>
-          </SafePhone>
         </motion.div>
 
         {/* Form + direct contact */}
@@ -74,11 +56,7 @@ export default function ContactClient() {
                   <method.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-faint">{method.label}</span>
                 </div>
-                {method.phone ? (
-                  <SafePhone onClick={() => trackCallClick()} className="text-foreground font-bold text-sm hover:text-primary transition-colors">
-                    <SafePhoneText />
-                  </SafePhone>
-                ) : method.href ? (
+                {method.href ? (
                   <a href={method.href} className="text-foreground font-bold text-sm hover:text-primary transition-colors">
                     {method.value}
                   </a>

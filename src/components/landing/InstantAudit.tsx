@@ -368,7 +368,7 @@ export function InstantAudit({ onStateChange }: InstantAuditProps = {}) {
                 <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">
                   {failCount > 0
                     ? <>Fix {failCount === 1 ? 'this' : 'these'} <span className="text-primary">{failCount} {failCount === 1 ? 'leak' : 'leaks'}</span> — free.</>
-                    : <>This is just the surface. <span className="text-primary">Call Trevor for the real audit.</span></>}
+                    : <>This is the surface. <span className="text-primary">The real audit goes deeper — send your number.</span></>}
                 </p>
                 {failCount > 0 && (
                   <p className="text-[11px] text-muted-foreground/70 font-medium mt-1">

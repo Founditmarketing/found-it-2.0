@@ -172,8 +172,8 @@ export default function AboutPage() {
           className="text-center py-16 border-t border-border/10"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Call Trevor.{' '}
-            <span className="text-primary">15 Minutes.</span>
+            Fifteen Minutes{' '}
+            <span className="text-primary">With Trevor.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
             A conversation about your business.

@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 import { escapeHtml, rateLimit, clientIp } from '@/lib/server/guards';
-import { phoneDisplay, phoneHref } from '@/lib/phone';
 import { SITE_URL } from '@/lib/site';
 
 export const runtime = 'nodejs';
@@ -68,11 +67,9 @@ function reportHtml(data: z.infer<typeof reportSchema>['result']): string {
     ${groupsHtml}
     <div style="margin-top:32px;padding:20px;background:#fff7f2;border:1px solid #ffd9c2;border-radius:12px">
       <p style="font-size:15px;font-weight:bold;margin:0 0 6px">This scan only checks the surface.</p>
-      <p style="font-size:13px;color:#444;margin:0 0 14px">The real audit looks at your ad spend, conversion tracking, rankings, and AI visibility — free, no strings. Call Trevor and he'll walk you through exactly what to fix first.</p>
+      <p style="font-size:13px;color:#444;margin:0 0 14px">The real audit looks at your ad spend, conversion tracking, rankings, and AI visibility. Leave your number and Trevor walks you through exactly what to fix first.</p>
       <p style="margin:0">
-        <a href="${phoneHref}" style="display:inline-block;background:#ff5500;color:#fff;font-weight:bold;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px">Call ${phoneDisplay}</a>
-        &nbsp;&nbsp;
-        <a href="${SITE_URL}/contact" style="display:inline-block;color:#ff5500;font-weight:bold;text-decoration:none;padding:12px 0;font-size:14px">Book a free call →</a>
+        <a href="${SITE_URL}/contact" style="display:inline-block;background:#ff5500;color:#fff;font-weight:bold;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px">Get the real audit →</a>
       </p>
     </div>
     <p style="font-size:11px;color:#999;margin-top:24px">Found It Marketing · Alexandria, Louisiana · You received this because you requested a scan report at founditsoftware.com</p>

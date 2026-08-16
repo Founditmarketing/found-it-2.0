@@ -16,13 +16,6 @@ import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
 import { usePersonalization } from '@/lib/personalization';
 
-/* The ROAS chart renders under the proof grid. It is loaded client-side only,
-   which keeps recharts (~100KB+) out of the initial homepage bundle. */
-const RoasChart = dynamic(
-  () => import('@/components/landing/RoasChart').then((m) => m.RoasChart),
-  { ssr: false }
-);
-
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -418,8 +411,11 @@ export default function HomePage() {
             className="bg-card/10 backdrop-blur-xl border border-border/15 rounded-3xl overflow-hidden shadow-2xl shadow-black/20"
           >
             <div className="p-7 lg:p-10">
+              {/* Terms-as-proof tiles. The ROAS "10x Trajectory" scrubber that
+                  used to render below them was a marketing-era ad-spend curve —
+                  confusing on a software homepage; retired 8/16 (Trevor). */}
               <h3 className="text-xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-[0.92] text-foreground mb-10">
-                Here&apos;s What Happened for Our Clients.
+                How Every System Runs.
               </h3>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
@@ -440,8 +436,6 @@ export default function HomePage() {
                   </motion.div>
                 ))}
               </div>
-
-              <RoasChart />
 
               <div className="mt-8 text-center">
                 <Link href="/case-studies" className="inline-flex items-center gap-2 text-xs text-primary font-bold hover:gap-3 transition-all duration-300 group">
@@ -574,7 +568,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease }}
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Call Trevor. 15 Minutes.
+              Fifteen Minutes With Trevor.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
               Fifteen minutes on what would actually work for your business.
