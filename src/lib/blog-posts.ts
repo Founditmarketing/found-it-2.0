@@ -19,7 +19,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Rented software holds your customers, your invoices, and your history in a format you don’t own, at a price they set next year. Here is what “no data rights” actually costs — and the two questions that expose it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/rented-software-hostage.png',
+        image: '/images/blog/rented-software-hostage-v2.png',
         content: `
 <p>Here is the deal you signed, in plain English: you pay every month to use their software, and everything that software knows — your customers, your invoices, your job history, seven years of your business's memory — lives in their format, on their servers, under their terms.</p>
 <p>You rent the tool. They hold the memory. That's the deal, and almost every small business in America is in it.</p>
@@ -57,7 +57,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Every system we build starts with one page. Here is a real one — drawn this week for a wholesale nursery in central Louisiana — and how to read it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/what-is-a-software-map.png',
+        image: '/images/blog/what-is-a-software-map-v2.png',
         content: `
 <p>Every system we build starts the same way: one page.</p>
 <p>We call it the software map. It answers the only question that matters: <strong>if we owned your company, what app would we build?</strong> Thirty minutes on a video call, screen-shared, walking your operation. It goes on one page. You keep it. (${MAP_VALUE.line} — it opens every fitting we do.)</p>
