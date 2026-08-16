@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
-import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, type LucideIcon } from 'lucide-react';
+import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, Newspaper, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { trackGuideCTAClick } from '@/lib/analytics';
 import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
@@ -89,16 +89,19 @@ const navLinks: NavLink[] = [
     icon: BadgeDollarSign,
     description: 'What it costs. No games.',
   },
+  // About + Blog are plain links on the menu line — no dropdown (Trevor
+  // 8/16); the team page merged into /about the same day.
   {
     title: 'About',
-    href: '#',
+    href: '/about',
     icon: Users,
-    description: 'Who we are',
-    sublinks: [
-      { title: 'About Us', href: '/about', tag: null },
-      { title: 'The Team', href: '/team', tag: null },
-      { title: 'Blog', href: '/blog', tag: null },
-    ],
+    description: 'Who we are — the story and the team',
+  },
+  {
+    title: 'Blog',
+    href: '/blog',
+    icon: Newspaper,
+    description: 'Software, ownership, and what we shipped',
   },
 ];
 

@@ -3,11 +3,20 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { GuideCta } from '@/components/GuideCta';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { AWARD, TRACK_RECORD } from '@/lib/site';
+import { AWARD, TRACK_RECORD, BUSINESS } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/* The team lives HERE now — /team 301s to /about#team (merged 8/16).
+   Public roster law: Trevor, Reece, Thomas. */
+const teamMembers = [
+  { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
+  { name: 'Reece Roberts', role: 'Head of Search & Generative Optimization', image: '/reese-roberts.jpeg' },
+  { name: 'Thomas Dombrowski', role: 'Director of Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
+] as { name: string; role: string; image: string; objectPosition?: string }[];
 
 const stats = [
   { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
@@ -92,6 +101,60 @@ export default function AboutPage() {
               — Trevor Ruby, Founder
             </p>
           </div>
+        </motion.div>
+
+        {/* The Team — merged from /team (8/16). Faces follow the voice. */}
+        <motion.div
+          id="team"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-20 scroll-mt-28"
+        >
+          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
+            The Team. <span className="text-primary">No Interns. No Handoffs.</span>
+          </h2>
+          <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
+            These are the people who actually work on your system. When you call, one of them picks
+            up — the same person who built it.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {teamMembers.map((member) => (
+              <div
+                key={member.name}
+                className="group bg-card/15 border border-border/20 rounded-[2rem] p-5 hover:border-primary/30 transition-colors"
+              >
+                <div className="relative w-full aspect-[4/5] mb-5 overflow-hidden rounded-3xl bg-muted/30">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: member.objectPosition || 'center' }}
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                </div>
+                <p className="text-[11px] text-primary font-mono font-black tracking-[0.2em] uppercase opacity-80 mb-1">
+                  {member.role}
+                </p>
+                <h3 className="text-xl font-black text-foreground uppercase italic tracking-tight">
+                  {member.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-muted-foreground font-medium">
+            Think you belong here? We&rsquo;re a small senior team on purpose — but if you&rsquo;re
+            serious about this work and near Alexandria,{' '}
+            <a
+              href={`mailto:${BUSINESS.email}`}
+              className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors"
+            >
+              email Trevor
+            </a>
+            .
+          </p>
         </motion.div>
 
         {/* Stats */}

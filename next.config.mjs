@@ -12,6 +12,12 @@ const nextConfig = {
   // and keeping every old ad/email link alive.
   async redirects() {
     return [
+      // /team merged into /about (8/16) — old links land on the team section.
+      {
+        source: '/team',
+        destination: '/about#team',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'founditmarketing.com' }],

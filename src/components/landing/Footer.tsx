@@ -53,7 +53,7 @@ export function Footer() {
             <h4 className={headingClass}>Company</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className={linkClass}>About</Link></li>
-              <li><Link href="/team" className={linkClass}>Team</Link></li>
+              <li><Link href="/about#team" className={linkClass}>Team</Link></li>
               <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
               <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
               <li><Link href="/blog" className={linkClass}>Blog</Link></li>

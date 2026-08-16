@@ -23,7 +23,6 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
 
   // Core informational pages
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/team', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
