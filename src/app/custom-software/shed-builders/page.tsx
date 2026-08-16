@@ -41,7 +41,7 @@ const data: PillarData = {
   formPageSlug: 'custom-software-shed-builders',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '$0', label: 'Per-Building Fees' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: '0 Hrs', label: 'Downtime at Switch' },
@@ -169,7 +169,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We have already built this for the shed industry — a full operating system fitted to a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
   ],
   faqHeading: 'Shed Builder Software FAQ',

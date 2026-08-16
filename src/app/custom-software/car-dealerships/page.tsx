@@ -41,7 +41,7 @@ const data: PillarData = {
   formPageSlug: 'custom-software-car-dealerships',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '3', label: 'Departments, One System' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: 'To the ¢', label: 'Proven Before Switch' },
@@ -168,7 +168,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now — retail sales, a custom service department, and rentals in one system — for a Louisiana independent dealer.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code, the data, and the website.',
   ],
   faqHeading: 'Dealership Software FAQ',

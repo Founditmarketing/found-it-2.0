@@ -118,7 +118,7 @@ const CANNED_QA: CannedQA[] = [
   {
     id: 'own',
     q: 'Do I actually own it?',
-    say: `Yes — the code and the data, one hundred percent. Nobody should rent you your own business back. ${TRACK_RECORD.softwareCustomers} local businesses run systems they own today, and every new one runs beside the old software, penny-matched, until the owner says go.`,
+    say: `Yes — the code and the data, one hundred percent. Nobody should rent you your own business back. Local businesses across Louisiana run systems they own today, and every new one runs beside the old software, penny-matched, until the owner says go.`,
     card: {
       heading: 'You own it',
       rows: [

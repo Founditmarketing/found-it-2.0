@@ -64,7 +64,7 @@ const marketingLinks = [
 ];
 
 const proofPoints = [
-  { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers', detail: 'Real local businesses running or being fitted now' },
+  { value: 'Live', label: 'Real Systems', detail: 'Local businesses running or being fitted on their own systems now' },
   { value: '100%', label: 'Owned', detail: 'The code and the data are the client’s — always' },
   { value: '$0.00', label: 'Nightly Difference', detail: 'New system runs beside the old one until the books match' },
   { value: '0', label: 'Contracts', detail: 'Month-to-month — the system earns it every month' },
@@ -190,7 +190,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground/80 font-medium leading-relaxed mb-8 max-w-2xl">
-                {TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.
+                Real local businesses running or being fitted on their own systems right now.
               </p>
 
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">

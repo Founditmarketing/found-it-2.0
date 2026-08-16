@@ -68,7 +68,7 @@ export function AutoShopLPContent() {
         highlightIcon={Wrench}
         voiceAgent
         stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
+          { value: 'Live', label: 'Real systems running now' },
           { value: '$0', label: 'Per-seat fees, ever' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}

@@ -73,7 +73,7 @@ export function RoofingLPContent() {
         highlightIcon={Scale}
         voiceAgent
         stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
+          { value: 'Live', label: 'Real systems running now' },
           { value: 'To the ¢', label: 'How your book ties out' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}

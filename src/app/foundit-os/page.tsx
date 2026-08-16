@@ -5,7 +5,7 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Found It OS — Custom Operating Systems for Local Businesses',
   description:
-    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, built to simplify the owner's life and make the business more profitable. ${TRACK_RECORD.softwareCustomers} software customers and growing. Based in Alexandria, LA.`,
+    `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, built to simplify the owner's life and make the business more profitable. Based in Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Marketing',
@@ -41,11 +41,12 @@ const data: PillarData = {
   formPageSlug: 'foundit-os',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: 'To the ¢', label: 'Matched Every Night' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: '0 Hrs', label: 'Downtime at Switch' },
   ],
+  voiceDemo: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
     'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Off-the-shelf software makes you run your business its way. Think of it like a suit: the big platforms sell off the rack — built for everyone, loaded with features you will never use, tight in all the wrong places. Found It OS is made to measure. We study how your business actually works, then build the system around it. You get one screen your team actually uses, one customer database instead of paper tickets and memory, and an AI that can answer questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',
@@ -233,7 +234,7 @@ const data: PillarData = {
     `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} This is custom-software ownership without the custom-software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
     'Proven before it ships: the new system runs beside your old one until the books match to the penny.',
     'Built-in AI that answers questions about your own business in plain English.',

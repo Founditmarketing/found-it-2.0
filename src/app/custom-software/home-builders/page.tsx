@@ -41,7 +41,7 @@ const data: PillarData = {
   formPageSlug: 'custom-software-home-builders',
   formHeading: 'Claim a Design-Partner Fitting',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: 'Mid-2027', label: 'CoConstruct Sunset Window' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: 'In Fitting', label: 'With a Custom Builder Now' },
@@ -168,7 +168,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Builders Choose Found It',
   whyUs: [
     'The builder OS is in fitting with a custom home builder today.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted on their own systems right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
   ],
   faqHeading: 'Home Builder Software FAQ',

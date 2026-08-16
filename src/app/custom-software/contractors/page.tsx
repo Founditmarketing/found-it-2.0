@@ -41,7 +41,7 @@ const data: PillarData = {
   formPageSlug: 'custom-software-contractors',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '1', label: 'Field-Service OS Live' },
     { value: 'In Fitting', label: 'Foundation Contractor Now' },
     { value: '100%', label: 'Yours — Code & Data' },

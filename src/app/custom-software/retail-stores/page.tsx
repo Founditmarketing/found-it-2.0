@@ -41,7 +41,7 @@ const data: PillarData = {
   formPageSlug: 'custom-software-retail-stores',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '1', label: 'Retail Core — Fitted, Never Forked' },
     { value: 'Est. 1946', label: 'Oldest Store Fitted' },
     { value: '$0', label: 'Per-Terminal Fees' },
@@ -193,7 +193,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
     'One House System core fitted to real stores — menswear, appliances and furniture — without forking the code.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data. Your customer history is your asset, not your processor\'s.',
   ],
   faqHeading: 'House System FAQ',

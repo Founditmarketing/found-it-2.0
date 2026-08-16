@@ -41,11 +41,12 @@ const data: PillarData = {
   formPageSlug: 'custom-software',
   formHeading: 'Get Fitted',
   stats: [
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '6', label: 'Industries Fitted or In Fitting' },
     { value: '100%', label: 'Yours — Code & Data' },
     { value: 'Days', label: 'To Install, Not Quarters' },
   ],
+  voiceDemo: true,
   definitionHeading: 'What Is Custom Business Software?',
   definition:
     'Custom business software is a system built around how one specific business actually runs — its jobs, its register, its customer book — instead of a rented product built for an industry average. Off-the-shelf systems make you work their way; whatever doesn’t fit ends up on paper, in spreadsheets, or in somebody’s head. A custom system is the reverse: we map how your business really works, build the software around that, and migrate your existing records into it so day one starts with your history, not a blank screen. Ours goes one step further — a built-in AI you can ask questions in plain English, and it answers from your own data. And when it’s done, you own it. The code, the data, everything.',
@@ -234,7 +235,7 @@ const data: PillarData = {
     `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data.',
     'Your records get professionally migrated in — and nothing switches until the new system has run beside the old one and matched it.',

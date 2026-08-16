@@ -182,7 +182,7 @@ export function WichitaLPContent() {
             Customers → estimates → jobs → invoices → the books — one system, built around your
             business, and you own it: the code and the data.{' '}
             <span className="text-white font-bold">
-              {TRACK_RECORD.softwareCustomers} businesses
+              Real businesses
             </span>{' '}
             run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
             themselves:

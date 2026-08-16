@@ -138,8 +138,8 @@ export default function EdwardsRoofingCaseStudy() {
             </h2>
             <p className="text-base text-white/70 font-medium leading-relaxed max-w-2xl">
               The code and the data are Cory&rsquo;s, one hundred percent. The monthly fee is
-              maintenance — security, updates, new features — not rent. {TRACK_RECORD.softwareCustomers}{' '}
-              local businesses run on systems built this way, at the same public price:{' '}
+              maintenance — security, updates, new features — not rent. Local businesses across{' '}
+              Louisiana run on systems built this way, at the same public price:{' '}
               {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
               {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
             </p>

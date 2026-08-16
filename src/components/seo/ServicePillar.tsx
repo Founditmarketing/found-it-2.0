@@ -5,6 +5,7 @@ import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { OsRail } from '@/components/os/OsRail';
+import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -32,6 +33,9 @@ export interface PillarData {
   /** Answer-first definition block (great for AI Overviews). */
   definitionHeading: string;
   definition: string;
+  /** Opt-in live AI-secretary demo under the definition (Trevor 8/16 —
+   *  foundit-os + custom-software only). Attribution rides formPageSlug. */
+  voiceDemo?: boolean;
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
@@ -207,6 +211,21 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <p className="text-lg text-muted-foreground font-medium leading-relaxed">{data.definition}</p>
           </div>
         </section>
+
+        {/* The definition, made audible: every system ships with the AI
+            secretary — here she is, live, right where the claim was made. */}
+        {data.voiceDemo && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
+              The AI Secretary. <span className="text-primary">She&rsquo;s Live.</span>
+            </h2>
+            <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
+              She comes built into every system — answers the phone, schedules estimates, and
+              enters customers into the database herself. Talk to her right now:
+            </p>
+            <VoiceAgentWidget pageSlug={data.formPageSlug} />
+          </section>
+        )}
 
         {/* What's included */}
         <section className="mb-16">

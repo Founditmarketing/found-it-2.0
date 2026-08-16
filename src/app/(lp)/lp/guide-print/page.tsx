@@ -146,7 +146,7 @@ export default function GuidePrintPage() {
         {/* Stat row */}
         <div className="grid grid-cols-4" style={{ gap: '0.15in', marginBottom: '0.3in' }}>
           {[
-            { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
+            { value: 'Live', label: 'Real systems running now' },
             { value: OS_PRICING.monthly, label: 'Flat, public price / mo' },
             { value: '100%', label: 'Yours — code and data' },
             { value: '0', label: 'Long-term contracts' },
@@ -234,7 +234,7 @@ export default function GuidePrintPage() {
           ))}
         </div>
         <p style={{ fontSize: '9.5pt', color: MUTED, fontWeight: 600, marginBottom: '0.26in' }}>
-          {TRACK_RECORD.softwareCustomers} local businesses run day-to-day on systems we built — real
+          Local businesses run day-to-day on systems we built — real
           operations, not pilots.
         </p>
 

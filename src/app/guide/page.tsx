@@ -48,7 +48,7 @@ export default function GuidePage() {
           English. What one custom system replaces, the whole price printed ({OS_PRICING.monthly}
           /mo plus {OS_PRICING.setup} {OS_PRICING.setupLabel}), how the fitting works, and the one
           job the system is built for: <span className="text-foreground font-bold">{OS_PRICING.promise}</span>{' '}
-          {TRACK_RECORD.softwareCustomers} software customers and growing are already running on
+          Local businesses across Louisiana are already running on
           systems they own. Read it in two minutes, hand it to your business partner.
         </p>
       </div>

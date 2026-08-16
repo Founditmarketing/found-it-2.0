@@ -63,9 +63,10 @@ export const FOUNDER = {
    Never reintroduce an unverifiable aggregate. What stays below is countable. */
 export const TRACK_RECORD = {
   yearsInBusiness: '13+',
-  /** Found It OS proof point. 12 per Trevor 2026-07-30 (was 7) — update HERE
-      only; every page interpolates it. public/llms.txt is static, sync by hand. */
-  softwareCustomers: '12',
+  /* softwareCustomers RETIRED 8/16 (Trevor: "why only 12 — better just to not
+     say how many"). A small specific count invites the comparison it loses;
+     copy says "local businesses across Louisiana" with no number. Never
+     reintroduce a customer count anywhere — site, ads, or AI scripts. */
   googleRating: '4.9',
 } as const;
 

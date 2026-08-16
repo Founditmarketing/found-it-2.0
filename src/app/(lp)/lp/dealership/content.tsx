@@ -75,7 +75,7 @@ export function DealershipLPContent() {
         highlightIcon={ShieldCheck}
         voiceAgent
         stats={[
-          { value: TRACK_RECORD.softwareCustomers, label: 'Local businesses running it' },
+          { value: 'Live', label: 'Real systems running now' },
           { value: '0', label: 'Below-cost sales allowed' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}

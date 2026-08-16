@@ -43,7 +43,7 @@ const data: PillarData = {
   stats: [
     { value: '~$270K', label: 'Unbilled Work Found in One Migration' },
     { value: '~10 Yrs', label: 'of Records Migrated In' },
-    { value: TRACK_RECORD.softwareCustomers, label: 'Software Customers' },
+    { value: 'Live', label: 'Real Systems Running Now' },
     { value: '100%', label: 'Yours — Code & Data' },
   ],
   demoVideo: {
@@ -205,7 +205,7 @@ const data: PillarData = {
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
     'A complete shop operating system we built runs a real independent auto shop today, on roughly ten years of its migrated records.',
-    `${TRACK_RECORD.softwareCustomers} software customers and growing — real local businesses running or being fitted right now.`,
+    `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
   ],
   faqHeading: 'Auto Repair Shop Software FAQ',

@@ -215,7 +215,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             Customers → estimates → jobs → invoices → the books — one system, built around your
             business, and you own it: the code and the data.{' '}
             <span className="text-white font-bold">
-              {TRACK_RECORD.softwareCustomers} local businesses
+              Real local businesses
             </span>{' '}
             run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
             themselves:
