@@ -81,6 +81,7 @@ export function AutoShopLPContent() {
         formSource="lp_auto_shop"
         formPageSlug="auto-shop"
         formQualify
+        formFitGate
         formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
@@ -158,6 +159,7 @@ export function AutoShopLPContent() {
       <LPFormSection
         kicker="Free Software Map"
         qualify
+        fitGate
         heading="Get A Free Software Map"
         subheading="Tell us about your shop. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your place. If it's not, we'll tell you straight. You keep the map either way."
         benefits={[

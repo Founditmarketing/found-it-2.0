@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
+import { FitCheck } from '@/components/fit/FitCheck';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { OsRail } from '@/components/os/OsRail';
@@ -87,6 +88,10 @@ export interface PillarData {
   formHeading: string;
   finalCtaHeadline: string;
   finalCtaSub: string;
+  /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
+   *  form — the software-map funnel only (/foundit-os). NOT A FIT captures
+   *  nothing. */
+  fitGate?: boolean;
 }
 
 export function ServicePillar({ data }: { data: PillarData }) {
@@ -479,7 +484,11 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 <Link href="/contact" className="text-primary font-bold hover:underline">Book a call</Link>.
               </p>
             </div>
-            <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />
+            {data.fitGate ? (
+              <FitCheck variant="embed" heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />
+            ) : (
+              <LeadFormEmbed heading={data.formHeading} source={data.formSource} pageSlug={data.formPageSlug} />
+            )}
           </div>
         </section>
 

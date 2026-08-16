@@ -40,6 +40,9 @@ const data: PillarData = {
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
   formHeading: 'Get Fitted',
+  /* THE GATE (Trevor 8/16): the fit check stands where the open form stood —
+     qualified gets the form, NOT A FIT gets the kind dismissal, no capture. */
+  fitGate: true,
   stats: [
     { value: 'Live', label: 'Real Systems Running Now' },
     { value: 'To the ¢', label: 'Matched Every Night' },

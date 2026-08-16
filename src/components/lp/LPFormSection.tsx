@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { NativeLeadForm } from '@/components/forms/NativeLeadForm';
+import { FitCheck } from '@/components/fit/FitCheck';
 import { BookingCta } from './BookingCta';
 import { BOOKING_URL } from '@/lib/booking';
 
@@ -41,6 +42,10 @@ interface LPFormSectionProps {
   /** Ask the revenue band: `true` = required (OS LPs — gates ad
    *  conversions), `'optional'` = skippable ask (sitewide default). */
   qualify?: boolean | 'optional';
+  /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
+   *  form. STRONG/BORDERLINE reveal the form; NOT A FIT captures nothing.
+   *  Booking moves behind the verdict. Software-map funnels only. */
+  fitGate?: boolean;
 }
 
 export function LPFormSection({
@@ -62,6 +67,7 @@ export function LPFormSection({
   bookingOnly = false,
   bookingSecondary = false,
   qualify = 'optional',
+  fitGate = false,
 }: LPFormSectionProps) {
   // bookingOnly wins over bookingSecondary — combined raw flags would render
   // a section with no CTA and no form (same guard as LPSplitHero).
@@ -114,7 +120,7 @@ export function LPFormSection({
           <div className={`lg:col-span-7 ${mobileFormFirst ? 'order-1 lg:order-none' : ''}`}>
             {/* Hybrid CTA: booking button above the form (legacy) or quietly
                 under it when the form is the primary conversion. Opt-in. */}
-            {showBooking && !secondaryBooking && (
+            {!fitGate && showBooking && !secondaryBooking && (
               <BookingCta
                 source={source}
                 label={bookingLabel}
@@ -122,10 +128,19 @@ export function LPFormSection({
                 fallbackNote={bookingOnly ? '' : bookingFallbackNote}
               />
             )}
-            {!bookingOnly && (
+            {/* THE GATE: quiz in the form slot; booking rides behind the verdict. */}
+            {fitGate ? (
+              <FitCheck
+                variant="embed"
+                source={source}
+                pageSlug={pageSlug}
+                ctaLabel={ctaLabel}
+                {...(showBooking ? { bookingUrl, bookingLabel } : {})}
+              />
+            ) : !bookingOnly ? (
               <NativeLeadForm source={source} pageSlug={pageSlug} showBusiness ctaLabel={ctaLabel} qualify={qualify} />
-            )}
-            {showBooking && secondaryBooking && (
+            ) : null}
+            {!fitGate && showBooking && secondaryBooking && (
               <div className="mt-4">
                 <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
                   Ready now? Skip the call-back —

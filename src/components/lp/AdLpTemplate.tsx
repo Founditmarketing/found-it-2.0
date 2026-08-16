@@ -32,7 +32,11 @@ import { BOOKING_URL } from '@/lib/booking';
    as plain fact — builds happen one business at a time, a handful of new
    fittings a month — never fabricated (no counters, no "slots left"). The
    map stays free and theirs either way; whether we build it is a separate
-   conversation, decided by both sides. */
+   conversation, decided by both sides.
+   THE GATE (8/16): the map is no longer open to anyone — the fit check is
+   step one of getting it. Both form slots render the quiz (formFitGate /
+   fitGate); qualified gets the form and the calendar, NOT A FIT gets the
+   kind dismissal and no capture. */
 
 export interface AdLpHero {
   badge?: string;
@@ -119,6 +123,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         formCtaLabel="Get My Software Map"
         formCompact
         formQualify
+        formFitGate
         formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."
         formPrivacyNote="We reply within two hours."
         voiceAgent={voiceHero}
@@ -282,6 +287,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         heading="Let's Map Your Business."
         kicker="Software Map"
         qualify
+        fitGate
         ctaLabel="Get My Software Map"
         mobileFormFirst
         showBooking

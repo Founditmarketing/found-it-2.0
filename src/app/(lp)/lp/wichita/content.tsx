@@ -98,6 +98,7 @@ export function WichitaLPContent() {
         formCtaLabel="Get My Software Map"
         formCompact
         formQualify
+        formFitGate
         formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
         formPrivacyNote="We reply within two hours."
         nextSteps={[
@@ -239,6 +240,7 @@ export function WichitaLPContent() {
         heading="Let's Map Your Business."
         kicker="Software Map"
         qualify
+        fitGate
         ctaLabel="Get My Software Map"
         mobileFormFirst
         showBooking

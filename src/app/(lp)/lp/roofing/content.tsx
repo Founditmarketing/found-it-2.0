@@ -86,6 +86,7 @@ export function RoofingLPContent() {
         formSource="lp_roofing"
         formPageSlug="roofing"
         formQualify
+        formFitGate
         formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
@@ -164,6 +165,7 @@ export function RoofingLPContent() {
       <LPFormSection
         kicker="Free Software Map"
         qualify
+        fitGate
         heading="Get A Free Software Map"
         subheading="Tell us about your operation. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your shop or your site. If it's not, we'll tell you straight. You keep the map either way."
         benefits={[

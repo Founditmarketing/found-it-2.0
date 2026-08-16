@@ -168,7 +168,9 @@ export default function PricingClient() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact">
+              {/* THE GATE (8/16): the OS fitting starts at the fit check, not
+                  the open contact form — qualified gets the map and the call. */}
+              <Link href={flagship ? '/fit' : '/contact'}>
                 <motion.div whileTap={{ scale: 0.97 }}
                   className="w-full text-center font-black uppercase italic tracking-tighter py-3.5 rounded-xl text-sm bg-card/30 border border-border/20 text-foreground hover:border-primary/30 hover:text-primary transition-all flex items-center justify-center gap-2"
                 >

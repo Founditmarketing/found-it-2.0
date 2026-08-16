@@ -2,6 +2,7 @@
 
 import { MapPin, Zap, Trophy, Target, type LucideIcon } from 'lucide-react';
 import { LeadFormEmbed } from './LeadFormEmbed';
+import { FitCheck } from '@/components/fit/FitCheck';
 import { BookingCta } from './BookingCta';
 import { VoiceAgentWidget } from './VoiceAgentWidget';
 import { BOOKING_URL } from '@/lib/booking';
@@ -46,6 +47,11 @@ interface LPSplitHeroProps {
   /** Ask the revenue band on the hero form: `true` = required (OS LPs —
    *  gates ad conversions), `'optional'` = skippable ask (sitewide default). */
   formQualify?: boolean | 'optional';
+  /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
+   *  form. STRONG/BORDERLINE reveal the form (band + trail prefilled);
+   *  NOT A FIT captures nothing. Booking buttons move behind the verdict too
+   *  — qualified gets the call. Software-map funnels only. */
+  formFitGate?: boolean;
   /** "What happens next" — 3 short lines rendered right under the form,
    *  so the time-delay question is answered at the exact point of commitment. */
   nextSteps?: string[];
@@ -104,6 +110,7 @@ export function LPSplitHero({
   formSuccessNote,
   formPrivacyNote,
   formQualify = 'optional',
+  formFitGate = false,
   nextSteps,
   nextStepsNote,
   showBooking = false,
@@ -225,7 +232,7 @@ export function LPSplitHero({
             {/* Hybrid CTA: primary "book my video call" button, then the
                 form demoted to the leave-your-number fallback directly under
                 it. Opt-in — off for every other LP sharing this hero. */}
-            {showBooking && !secondaryBooking && (
+            {!formFitGate && showBooking && !secondaryBooking && (
               <BookingCta
                 source={formSource}
                 label={bookingLabel}
@@ -236,13 +243,28 @@ export function LPSplitHero({
 
             {/* The public price lives at the point of commitment — nobody
                 should tap a "free" button wondering what the catch costs. */}
-            {showBooking && !secondaryBooking && ctaFootnote && (
+            {!formFitGate && showBooking && !secondaryBooking && ctaFootnote && (
               <p className="mt-3 text-center text-[13px] font-bold text-white/70 leading-snug [text-wrap:balance]">
                 {ctaFootnote}
               </p>
             )}
 
-            {!bookingOnly && (
+            {/* THE GATE: the quiz stands where the open form stood. The
+                booking shortcut rides inside it, behind the verdict — nobody
+                books before the fit check says fit. */}
+            {formFitGate ? (
+              <FitCheck
+                variant="embed"
+                source={formSource}
+                pageSlug={formPageSlug}
+                heading={formHeading}
+                subheading={formSubheading}
+                ctaLabel={formCtaLabel}
+                successNote={formSuccessNote}
+                {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
+                {...(showBooking ? { bookingUrl, bookingLabel } : {})}
+              />
+            ) : !bookingOnly ? (
               <LeadFormEmbed
                 heading={formHeading}
                 source={formSource}
@@ -254,10 +276,10 @@ export function LPSplitHero({
                 successNote={formSuccessNote}
                 {...(formPrivacyNote !== undefined ? { privacyNote: formPrivacyNote } : {})}
               />
-            )}
+            ) : null}
 
             {/* Hot-visitor shortcut: the calendar under the form, quiet. */}
-            {showBooking && secondaryBooking && (
+            {!formFitGate && showBooking && secondaryBooking && (
               <div className="mt-4">
                 <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
                   Ready now? Skip the call-back —

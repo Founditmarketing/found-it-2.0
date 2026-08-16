@@ -159,6 +159,7 @@ export default function EdwardsRoofingCaseStudy() {
       <LPFormSection
         heading="Let's Map Your Business. Free."
         kicker="Free Software Map"
+        fitGate
         ctaLabel="Show Me What Mine Would Look Like"
         subheading="30 minutes on a video call, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
         benefits={[
