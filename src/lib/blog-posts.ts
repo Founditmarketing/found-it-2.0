@@ -14,37 +14,33 @@ export type Post = {
 export const blogPosts: Post[] = [
     {
         slug: 'what-is-a-software-map',
-        title: 'What Is A Software Map? (Here Is A Real One)',
+        title: 'What Is A Software Map?',
         date: '2026-08-15',
-        excerpt: 'Every fitting we do starts with one page: where your business lives today, and what one owned system replaces, piece by piece. Here is a real one — drawn this week for a wholesale nursery in central Louisiana.',
+        excerpt: 'Every system we build starts with one page. Here is a real one — drawn this week for a wholesale nursery in central Louisiana — and how to read it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/what-is-a-software-map.png',
         content: `
-<p>On almost every call, somebody finally asks the honest version of the question: <em>"Okay — but what do I actually get?"</em></p>
-<p>Fair. "Free software map" is our name for it, and a name doesn't tell you much. So instead of defining it, let me just show you one.</p>
+<p>Every system we build starts the same way: one page.</p>
+<p>We call it the software map. It answers the only question that matters: <strong>if we owned your company, what app would we build?</strong> Thirty minutes on a video call, screen-shared, walking your operation. It goes on one page. You keep it. (${MAP_VALUE.line} — it opens every fitting we do.)</p>
 
-<h3>The one-page answer</h3>
-<p>A software map is what comes out of a 30-minute video call, screen-shared, where we walk your operation with you and put our heads to one question: <strong>if we owned your company, what app would we build?</strong></p>
-<p>Not "what software should you buy." What we would <em>build</em> — around the way you already run. It goes on one page. You add to it or cross things off. And you keep it, hire us or don't. (${MAP_VALUE.line} — it comes free because that's how every fitting starts.)</p>
-
-<h3>Here's a real one</h3>
-<p>This week I sat with Roxanne, who runs a wholesale plant nursery in central Louisiana. A real operation — trucks, crews, brokers — and a business that lives in eight different places at once: a QuickBooks she never opens, Google Sheets, Apple Notes screenshots texted to the crew, a drawer of old invoices, and her own memory.</p>
-<p>The week before we met, one hand-copied order missed its last line, and 44 plants bound for Austin nearly didn't make the truck. That's not a careless business. That's a healthy, growing business running on software that was never built for it.</p>
-<p>Here's the map we drew:</p>
+<h3>A real one</h3>
+<p>This week: Roxanne, a wholesale plant nursery in central Louisiana. Trucks, crews, fifteen brokers texting orders in fifteen formats. The business lives in eight places at once — a QuickBooks she never opens, Google Sheets, Apple Notes screenshots texted to the crew, a drawer of old invoices, and her own memory.</p>
+<p>The week before we met, one hand-copied order missed its last line. Forty-four plants nearly didn't make the truck to Austin. Healthy business. Wrong software.</p>
+<p>Here's the map:</p>
 <p><img src="/images/blog/roxanne-software-map-v1.png" alt="Roxanne's OS — a real software map: eight places the business lives today, and what one owned system replaces, piece by piece" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
 <h3>How to read it</h3>
-<p>The top is <strong>today</strong> — every place the business currently lives, in her own words. No shame in that list. Write yours down sometime; most businesses find six or eight places too.</p>
-<p>The middle is <strong>the map itself</strong>: each piece, replaced by one part of one system. Texted orders become paste-in order intake, where every line is captured and anything the system doesn't recognize gets flagged in red instead of silently dropped — because of those 44 plants. Handwritten pull sheets become printed ones with trailer assignments on them. The who-owes-you question stops living inside a bookkeeper's QuickBooks and shows up on one screen, oldest first, every morning.</p>
-<p>Notice the tags: <strong>built, next, later</strong>. A real map admits its order. Anyone who promises you everything at once is selling you a brochure.</p>
+<p><strong>The top is today</strong> — every place the business lives, in the owner's own words. Most businesses find eight. Yours has a list like this whether it's written down or not.</p>
+<p><strong>The middle is the map</strong>: each piece, replaced by one part of one system. Texted orders become paste-in intake where every line is captured and anything unrecognized flags red — never silently dropped. That rule exists because of those 44 plants. Handwritten pull sheets become printed ones with trailer assignments on them. Who-owes-you stops hiding in the bookkeeper's QuickBooks and stands on one screen, oldest first, every morning.</p>
+<p><strong>The tags — built, next, later — are the tell.</strong> A real map states its order. A promise of everything at once is a brochure.</p>
 
-<h3>What happens after the map</h3>
-<p>If you hire us, the map becomes your system — fitted in weeks, not quarters. It runs <strong>beside</strong> your current software, penny-matched against it every night, until the numbers say you can switch and you say go. Nothing gets ripped out on day one.</p>
-<p>And the part that makes all of it worth doing: <strong>you own the system.</strong> The code and the data, one hundred percent. The price is public — ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. Nobody rents you your own business back.</p>
+<h3>After the map</h3>
+<p>The map becomes the system, fitted in weeks. It runs <strong>beside</strong> the old software, penny-matched against it every night, and nothing switches until the numbers match and the owner says go. That's how we move a business: without betting it.</p>
+<p><strong>The system is yours. The code and the data, one hundred percent.</strong> The price is public — ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. Nobody rents you your own business back.</p>
 
 <h3>Get yours</h3>
-<p>The map call takes about 30 minutes, on a video call, screen-shared. You leave with the page above, drawn for your business. <a href="/contact">Tell us where to reach you</a> and we'll map it with you — or <a href="/lp/she-answers">talk to our AI secretary</a> and she'll set it up herself.</p>
+<p>Thirty minutes. Screen-shared. You leave with the page above, drawn for your business. <a href="/contact">Get your map</a> — or <a href="/lp/she-answers">tell our AI secretary</a> and she'll set it up while you talk.</p>
         `,
     },
     {
