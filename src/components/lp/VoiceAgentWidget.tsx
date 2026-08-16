@@ -565,10 +565,14 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     lastServerHeardRef.current = Date.now();
     trackCTAClick(`voice_agent_start_${pageSlug}`);
 
-    // 1. Mic — requested on the tap, never on page load.
+    // 1. Mic — requested on the tap, never on page load. Echo cancellation
+    // is stated explicitly (8/16): her voice from the speakers must never
+    // re-enter the mic as "the visitor talking."
     let mic: MediaStream;
     try {
-      mic = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mic = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
+      });
     } catch {
       sessionActive = false;
       phaseRef.current = 'denied';

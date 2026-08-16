@@ -20,12 +20,18 @@ export const REALTIME_CALLS_URL = 'https://api.openai.com/v1/realtime/calls';
    So sensitivity is now per-situation, not per-site:
 
    - default  — the ad visitor on their own phone/laptop, mic near their
-     mouth. near_field scrubbing, balanced turn-taking, barge-in ON so the
-     instant you speak she reacts (the mic is provably live).
+     mouth. near_field scrubbing, balanced turn-taking.
    - noisy    — a sales room: laptop across the table, HVAC, crowd. The
      8/13 round-3 tuning, kept verbatim: far_field scrubbing, low eagerness
-     (she waits for you to actually finish), and noise can never cut her
-     off mid-sentence. Presenters opt in with ?room=noisy on any LP URL.
+     (she waits for you to actually finish). Presenters opt in with
+     ?room=noisy on any LP URL.
+
+   interrupt_response is FALSE in BOTH profiles — field-tested twice.
+   8/16: with barge-in on, her own voice through laptop speakers leaked
+   into the mic, VAD read it as the visitor, and she cut herself off
+   mid-sentence. She always finishes; the widget's "She hears you — let
+   her finish" state covers the am-I-being-heard feedback that barge-in
+   was meant to provide. Never re-enable interruption.
 
    The widget reads the URL param and POSTs the profile name; the session
    route validates it against these keys. Change tunings HERE only. */
@@ -35,7 +41,7 @@ export const VOICE_PROFILES = {
     turn_detection: {
       type: 'semantic_vad',
       eagerness: 'auto',
-      interrupt_response: true,
+      interrupt_response: false,
     },
   },
   noisy: {
