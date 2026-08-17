@@ -380,7 +380,13 @@ export function createFormSubmitListener(source: string) {
 export function createCalendlyListener() {
   return function handleMessage(e: MessageEvent) {
     if (e.data && e.data.event && e.data.event === 'calendly.event_scheduled') {
-      if (typeof window !== 'undefined' && window.gtag) {
+      // GA4 funnel visibility always; the Ads conversion below is the LEGACY
+      // account's Calendly action and retires once the env seam configures.
+      // In the new account every booking already passed the fit form (which
+      // fired Lead — Software Map), so a primary Calendly conversion would
+      // double-count the same person — track the booking in GA4 only.
+      fire('calendly_booked', { event_category: 'conversion', event_label: 'calendly' });
+      if (!gadsConfigured() && typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17848789749/EDtKCMuG0K4cEPXV-75C',
           'value': 800.0,
