@@ -1,6 +1,11 @@
 /* ─── LP Conversion Tracking & UTM Helpers ─── */
 
-import { fireGadsLeadConversion } from '@/lib/gtag';
+import {
+  fireGadsCallConversion,
+  fireGadsLeadConversion,
+  fireGadsVoiceConversion,
+  gadsConfigured,
+} from '@/lib/gtag';
 
 declare global {
   interface Window {
@@ -43,15 +48,16 @@ function fire(eventName: string, params?: Record<string, any>) {
  * we'd actually fit. Default is qualified: callers without a band (voice
  * capture, chat capture) train the algorithms as before.
  */
-export function trackLead(source: string, opts?: { qualified?: boolean }) {
+export function trackLead(source: string, opts?: { qualified?: boolean; channel?: 'voice' }) {
   if (opts?.qualified === false) {
     fire('lead_submit_unqualified', { event_category: 'conversion', event_label: source, value: 0 });
     return;
   }
   fire('lead_submit', { event_category: 'conversion', event_label: source, value: 1 });
 
-  // Google Ads specific conversion: Lead Form Submit
-  if (typeof window !== 'undefined' && window.gtag) {
+  // Legacy hardcoded Lead Form Submit action — retired the moment the
+  // env-var seam is configured, or every lead would record twice.
+  if (!gadsConfigured() && typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'conversion', {
       'send_to': 'AW-17848789749/j48-CMiG0K4cEPXV-75C',
       'value': 800.0,
@@ -59,9 +65,14 @@ export function trackLead(source: string, opts?: { qualified?: boolean }) {
     });
   }
 
-  // Campaign-specific Google Ads conversion seam (vertical keyword LPs).
-  // No-ops unless NEXT_PUBLIC_GADS_ID is configured — see lib/gtag.ts.
-  fireGadsLeadConversion(source);
+  // Campaign conversion seam — voice-secretary saves record to their own
+  // action so Ads can see which channel produces demos. No-ops unless
+  // NEXT_PUBLIC_GADS_ID is configured — see lib/gtag.ts.
+  if (opts?.channel === 'voice') {
+    fireGadsVoiceConversion(source);
+  } else {
+    fireGadsLeadConversion(source);
+  }
 
   // Meta Pixel conversion: form submits ONLY (same no-junk-events discipline
   // as Google Ads above — Meta optimizes toward whatever we send it).
@@ -102,6 +113,11 @@ export function trackThankYouConversion() {
 
 export function trackCallClick() {
   fire('call_click', { event_category: 'engagement', event_label: 'phone_call' });
+
+  // Google Ads "Call click" action — a tel: tap on the site is a real contact
+  // attempt (call-asset taps in the ad itself are tracked by Google natively;
+  // this covers the land-then-tap path). No-op until the label env is set.
+  fireGadsCallConversion();
 
   // Meta standard Contact event — phone taps were invisible to the pixel,
   // so call-heavy campaigns read as zero-signal in Ads Manager.

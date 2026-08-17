@@ -412,7 +412,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
         if (res.ok) {
           leadCountRef.current += 1;
           setLeadSaved(true);
-          trackLead(source);
+          trackLead(source, { channel: 'voice' });
           const body = await res.json().catch(() => ({}));
           result = body?.confirmationEmailed
             ? { status: 'saved', message: 'Lead saved AND a confirmation email just landed in their inbox — tell them to check it, then that Trevor will reach out shortly.' }
@@ -451,7 +451,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
       if (!res.ok) throw new Error('lead_failed');
       leadCountRef.current += 1;
       setLeadSaved(true);
-      trackLead(source);
+      trackLead(source, { channel: 'voice' });
       setAfterStatus('sent');
     } catch {
       setAfterStatus('error');
