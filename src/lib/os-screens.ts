@@ -43,6 +43,30 @@ export const railDesktops: OsRailItem[] = [
     kind: 'Wholesale Nursery',
   },
   {
+    src: '/os-screens/lonestar-os-desk-v1.png',
+    alt: 'Lonestar OS desk — 30-day sold total, the pipeline from unprocessed to delivered, and escalations a human should look at (demo data)',
+    title: 'Lonestar OS',
+    kind: 'Shed Builder',
+  },
+  {
+    src: '/os-screens/lonestar-os-line-v1.png',
+    alt: 'Lonestar OS line board — every build from unprocessed to delivered with dollars on each column',
+    title: 'Lonestar OS',
+    kind: 'Shed Builder',
+  },
+  {
+    src: '/os-screens/lonestar-os-counter-v1.png',
+    alt: 'Lonestar OS sales counter — a kicked-back sale with the fix spelled out, and the seller’s month running total',
+    title: 'Lonestar OS',
+    kind: 'Shed Builder',
+  },
+  {
+    src: '/os-screens/lonestar-os-order-v1.png',
+    alt: 'Lonestar OS order — serial plate, money collected vs balance, site readiness, and sign-now or send-the-link',
+    title: 'Lonestar OS',
+    kind: 'Shed Builder',
+  },
+  {
     src: '/os-screens/lacaze-os-ticket-v1.png',
     alt: 'LaCaze OS repair ticket — the advance track, a machined total, and one-tap payment for an outdoor power dealership',
     title: 'LaCaze OS',
@@ -117,6 +141,20 @@ export const railPhones: OsRailItem[] = [
     alt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
     title: 'The Print Board',
     kind: 'Roxanne’s OS · Nursery',
+    portrait: true,
+  },
+  {
+    src: '/os-screens/lonestar-os-run-mobile-v1.png',
+    alt: 'Lonestar OS driver run on a phone — accept the handoff, see the shed, the address, and the over-width warning',
+    title: 'The Run',
+    kind: 'Lonestar OS · Sheds',
+    portrait: true,
+  },
+  {
+    src: '/os-screens/lonestar-os-wizard-mobile-v1.png',
+    alt: 'Lonestar OS delivery wizard on a phone — serial plate, pass/fail inspection, site photos before the drop',
+    title: 'The Delivery',
+    kind: 'Lonestar OS · Sheds',
     portrait: true,
   },
   {
