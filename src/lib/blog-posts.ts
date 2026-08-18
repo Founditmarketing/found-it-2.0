@@ -13,6 +13,41 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'why-they-cant-compete',
+        title: 'Why They Can’t Compete',
+        date: '2026-08-16',
+        excerpt: 'A software company cannot sell you software you own — it would kill them. Why the incumbents can’t follow us into ownership, and the slow, expensive habit that’s hardest to copy.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/why-they-cant-compete-v1.png',
+        content: `
+<p>A software company cannot sell you software you own. <strong>It would kill them.</strong></p>
+<p>That's the whole answer to why we shipped what we shipped this month.</p>
+
+<h3>The receipts</h3>
+<p>In the last thirty days we put live systems in front of a European auto shop, a roofer, a tree service, an equipment dealer, a concrete lab, and a carpet-and-duct company. Not demos with fake data. Their real books, their real customers, their real money.</p>
+<p>One of those systems found <strong>$268,000</strong> sitting in a work queue nobody was watching.</p>
+<p>Another audited a roofer's books to the penny and surfaced <strong>$195,882.75</strong> in open receivables — money finished, earned, and quietly written off in the owner's head. <a href="/case-studies/edwards-roofing">His name's on it.</a></p>
+
+<h3>Why the incumbents can't follow</h3>
+<p>Their business model is renting you your own business back. The shop software, the roofing software, the nursery software — every one of them holds your customer list hostage and charges you monthly for the privilege of looking at it.</p>
+<p>The day they sell you ownership is the day their valuation dies. They will never do it. Not because they can't build it. <strong>Because they can't survive it.</strong> Ownership isn't a feature they haven't gotten to — it's the one thing the subscription model cannot ship.</p>
+<p>And the agencies? Still selling websites and calling it strategy.</p>
+
+<h3>The narrow slot</h3>
+<p>We live in the gap between them. AI just made genuinely custom software buildable at a price a real business can pay — the biggest repricing this industry has ever seen — and most people are using it to write LinkedIn captions.</p>
+<p>We used it to build local businesses their own operating systems. The code and the data, one hundred percent theirs. The price printed on the website: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month.</p>
+
+<h3>The part that's hardest to copy</h3>
+<p>Here's the part I'm proudest of, and it's the part nobody will follow us on: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
+<p>That's slow. That's expensive. That's why nobody does it.</p>
+<p>It's also the only honest way to hand somebody the keys to their own company.</p>
+<p>Want to see what yours would look like? <a href="/blog/what-is-a-software-map">Start with the map</a> — or <a href="/lp/she-answers">ask our AI secretary out loud</a> and she'll take your number herself.</p>
+<p><strong>Nobody rents you your own business back.</strong></p>
+<p>— Trevor</p>
+        `,
+    },
+    {
         slug: 'the-scoreboard',
         title: 'New Company. Here’s the Scoreboard.',
         date: '2026-08-16',
