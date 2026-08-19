@@ -25,8 +25,9 @@ const data: PillarData = {
   schemaDescription:
     'Generative Engine Optimization (GEO) and SEO that make a business the answer when customers ask ChatGPT, Perplexity, and Google AI. Entity authority, structured data, local SEO, and content. Backed by 13+ years in marketing.',
   eyebrow: 'AI Search Optimization & SEO',
-  headline: 'Be the Answer When AI',
-  headlineAccent: 'Recommends Your Industry.',
+  // 8/18 audit: the visitor's actual question runs the page — not GEO jargon.
+  headline: 'When Somebody Asks ChatGPT Who to Hire,',
+  headlineAccent: 'Does It Say You?',
   intro:
     `Search is shifting from blue links to AI answers. Found It Marketing combines traditional SEO with Generative Engine Optimization (GEO) so your business is the one ChatGPT, Perplexity, and Google AI Overviews recommend. With ${TRACK_RECORD.yearsInBusiness} years in marketing, we build the entity authority and structured data that AI engines trust.`,
   ctaLabel: 'Get My Free Visibility Audit',

@@ -18,6 +18,11 @@ const nextConfig = {
         destination: '/about#team',
         permanent: true,
       },
+      // 8/18 audit: duplicate-intent industry pages merged into their
+      // custom-software counterparts — one definitive page per vertical.
+      { source: '/industries/contractors', destination: '/custom-software/contractors', permanent: true },
+      { source: '/industries/dealerships', destination: '/custom-software/car-dealerships', permanent: true },
+      { source: '/industries/retail', destination: '/custom-software/retail-stores', permanent: true },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'founditmarketing.com' }],

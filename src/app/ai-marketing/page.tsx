@@ -3,7 +3,7 @@ import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
 import { TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'AI Marketing Automation for Local Businesses',
+  title: 'AI Lead Response for Local Businesses',
   description:
     'Custom AI marketing automation from a local team with 13+ years in marketing. Instant lead follow-up, AI appointment setting, and automated content — built for you, no software skills required. Alexandria, LA.',
   alternates: { canonical: '/ai-marketing' },
@@ -19,12 +19,12 @@ export const metadata: Metadata = {
 };
 
 const data: PillarData = {
-  name: 'AI Marketing Automation',
+  name: 'AI Lead Response',
   slug: '/ai-marketing',
   serviceType: 'Marketing Automation',
   schemaDescription:
     'Custom AI marketing automation built by a local team: instant lead follow-up by text and voice, automated appointment setting, content, and ad optimization. Done-for-you, no software subscriptions or tech skills required. Backed by 13+ years in marketing.',
-  eyebrow: 'AI Marketing Automation',
+  eyebrow: 'AI Lead Response',
   headline: 'AI That Answers Leads',
   headlineAccent: 'in Under 5 Seconds.',
   intro:

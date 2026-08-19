@@ -192,7 +192,7 @@ export const SERVICE_SHORT_LABELS: Record<string, string> = {
   'ai-search-optimization': 'AI Search / SEO',
   'social-media-management': 'Social Media',
   'app-development': 'App Development',
-  'ai-marketing': 'AI Marketing',
+  'ai-marketing': 'AI Lead Response',
 };
 
 export interface ServiceDef {
@@ -247,10 +247,12 @@ export const SERVICES: ServiceDef[] = [
       'Native-feeling iOS and Android app development with in-person blueprinting and fixed-price timelines. Clients own 100% of the codebase.',
   },
   {
-    name: 'AI Marketing Automation',
+    // Renamed from "AI Marketing Automation" 8/18 (audit): the job is lead
+    // response — the old name blurred into Found It OS's built-in AI.
+    name: 'AI Lead Response',
     slug: 'ai-marketing',
     serviceType: 'Marketing Automation',
     description:
-      'Custom AI systems for lead generation, instant follow-up, and automated appointment setting with AI voice and text agents.',
+      'AI that answers every new lead by text and voice in seconds, follows up, and books the appointment — before a faster competitor does.',
   },
 ];

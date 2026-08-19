@@ -12,12 +12,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
    /lp/thanks exactly like the LP gates — one funnel, one thank-you. */
 
 export const metadata: Metadata = {
-  title: `${GUIDE_TITLE} — The Free Found It OS Guide (PDF)`,
+  title: `The Found It OS Guide — What You Get, the Price, and How a Fitting Works (Free PDF)`,
   description:
     `Free 4-page PDF: what one custom system replaces, the whole price printed (${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}), how a fitting works, and the one job the system is built for: ${OS_PRICING.promise} Plain English, 2-minute read.`,
   alternates: { canonical: '/guide' },
   openGraph: {
-    title: `${GUIDE_TITLE} — The Free Found It OS Guide (PDF)`,
+    title: `The Found It OS Guide — What You Get, the Price, and How a Fitting Works (Free PDF)`,
     description:
       `Four pages, plain English, zero tech specs — what you actually get with a custom business operating system you own. The whole price printed, and one job: ${OS_PRICING.promise}`,
     type: 'website',
