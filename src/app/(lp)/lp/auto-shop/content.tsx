@@ -68,7 +68,7 @@ export function AutoShopLPContent() {
       <LPSplitHero
         headline="Auto Repair Shop Software"
         headlineAccent="You Own. No Per-Seat Fees."
-        subheadline="Repair orders, parts, payments, and the books — one system fitted to how your shop actually runs, and you own it outright. A real European auto shop in Alexandria runs its whole operation on it today. No per-seat fees. No data held hostage."
+        subheadline="Repair orders, parts, payments, and the books — one system fitted to how your shop actually runs, and you own it outright. A real European auto shop in Alexandria runs its whole operation on it today."
         highlight={'“Which declined jobs are worth a win-back text?” — answered from your own repair orders, with prices attached.'}
         highlightIcon={Wrench}
         voiceAgent

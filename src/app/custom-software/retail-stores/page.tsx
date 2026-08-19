@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'The House System —',
   headlineAccent: 'A Register That Remembers.',
   intro:
-    `We call it the House System because it thinks the way a real store does — in households, not transactions: the family that has bought from you for three generations is one story, not four hundred scattered receipts. Your current point of sale charges you for every terminal and keeps your customer history in the processor's cloud — theirs to hold, yours to look at. The House System ends that. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny.`,
+    `The House System was built for one store in particular: the established independent retailer whose operation is scattered across systems that do not talk to each other — the inventory in the POS, the customer history in the processor's cloud (theirs to hold, yours to look at), layaway in a binder under the counter, special orders in the memory of whoever took them. If that is your store, this is your system. We call it the House System because it thinks the way a real store does — in households, not transactions: the family that has bought from you for three generations is one story, not four hundred scattered receipts. One system fitted to your store — the register, the inventory, the customer book, layaway, special orders, and an AI that answers questions from your own sales history — and you own it outright. Your records get professionally migrated in, not abandoned, and nothing switches until the new register has run beside your old one and matched it to the penny.`,
   ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
@@ -236,7 +236,7 @@ const data: PillarData = {
     {
       question: 'How does the switch work? Can the store stay open?',
       answer:
-        'The store never closes for it. Your current POS keeps running while the new system runs beside it, and every night the two sets of books go side by side until the difference is zero. Only when they match day after day — and you give the word — does the store switch. No rip-out weekend, no leap of faith.',
+        'The store never closes for it. Your current POS keeps running while the new system runs beside it, and every night the two sets of books go side by side until the difference is zero. Only when they match day after day — and you give the word — does the store switch. The registers keep ringing the whole way through.',
     },
   ],
   relatedReading: [

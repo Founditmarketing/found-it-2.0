@@ -310,7 +310,7 @@ export default function GuidePrintPage() {
             {[
               'Every employee included — no per-seat fees',
               'Month-to-month — cancel any time',
-              'You own the code and the data, 100%',
+              'You own the whole system outright, 100%',
               'The price is public — no quote games',
             ].map((line) => (
               <div key={line} className="flex items-start" style={{ gap: '7pt', marginBottom: '0.085in' }}>
@@ -360,7 +360,7 @@ export default function GuidePrintPage() {
           {
             n: '04',
             t: 'You Own It',
-            d: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts.`,
+            d: `Yours, 100% — the system and every record in it. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts.`,
           },
         ].map((s) => (
           <div key={s.n} className="flex items-start" style={{ gap: '0.18in', marginBottom: '0.17in' }}>

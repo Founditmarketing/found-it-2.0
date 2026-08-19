@@ -58,7 +58,7 @@ const data: PillarData = {
     {
       title: 'Fitted, Not Templated',
       detail:
-        'We map how your business really runs, then build the system around your process — not the other way around.',
+        'We map how your business really runs, then build the system around your process.',
     },
     {
       title: 'The Whole Operation',
@@ -98,7 +98,7 @@ const data: PillarData = {
       step: '02',
       title: 'Built Beside Your Old System',
       detail:
-        'Your old system keeps running. The new one runs quietly beside it, and every night we check the two against each other — to the penny.',
+        'Your old system keeps running. The new one runs quietly beside it, and every night we check the two against each other — same sales, same totals, line by line.',
     },
     {
       step: '03',
@@ -223,7 +223,7 @@ const data: PillarData = {
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
-    'Proven beside your old system until the books match to the penny.',
+    'Proven beside your old system until both sets of books agree, night after night.',
     'Built-in AI that answers questions about your own business in plain English.',
     `${TRACK_RECORD.yearsInBusiness} years building for local businesses.`,
   ],
@@ -237,7 +237,7 @@ const data: PillarData = {
     {
       question: 'What happens to my old system and my data?',
       answer:
-        'Nothing, until the new system has earned it. Your old system keeps running while Found It OS runs beside it, checked against it nightly to the penny. Your existing data — even handwritten invoices — comes in during the fitting. You switch when the numbers have proven themselves and you say go.',
+        'Nothing, until the new system has earned it. Your old system keeps running while Found It OS runs beside it, checked against it nightly, sale for sale. Your existing data — even handwritten invoices — comes in during the fitting. You switch when the numbers have proven themselves and you say go.',
     },
     {
       question: 'Who owns the system?',
@@ -262,7 +262,7 @@ const data: PillarData = {
     {
       question: "What if it doesn't work out?",
       answer:
-        "Then you cancel. Thirty days' notice. You keep the code and the data, and the system keeps running.",
+        "Then you cancel. Thirty days' notice. The system keeps running, and everything in it — the customers, the invoices, the books — is still yours.",
     },
     {
       question: 'What does the monthly cover?',

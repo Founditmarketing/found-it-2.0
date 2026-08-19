@@ -63,7 +63,7 @@ const marketingLinks = [
 
 const proofPoints = [
   { value: 'Live', label: 'Real Systems', detail: 'Local businesses running or being fitted on their own systems now' },
-  { value: '100%', label: 'Owned', detail: 'The code and the data are the client’s — always' },
+  { value: '100%', label: 'Owned', detail: 'The client owns the system outright — always' },
   { value: '$0.00', label: 'Nightly Difference', detail: 'New system runs beside the old one until the books match' },
   { value: '0', label: 'Contracts', detail: 'Month-to-month — the system earns it every month' },
 ];
@@ -238,7 +238,7 @@ export default function HomePage() {
               <div className="bg-primary/[0.06] border border-primary/25 rounded-2xl p-6">
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Found It</p>
                 <p className="text-sm text-foreground font-medium leading-relaxed">
-                  Built around you. You own the code and the data. Leave with 30 days&rsquo; notice, and
+                  Built around you. You own it — every customer record, every invoice. Leave with 30 days&rsquo; notice, and
                   the system leaves with you.
                 </p>
               </div>
@@ -534,7 +534,7 @@ export default function HomePage() {
                 Real People. Real Local Team.
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
-                When you call about your system, you reach the same senior team that built it — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
+                When you call about your system, you reach the same senior team that built it — right here in Alexandria, Louisiana. Your call never routes through a call center.
               </p>
               <div className="space-y-4 mb-8">
                 {[

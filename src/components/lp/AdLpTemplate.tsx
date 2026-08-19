@@ -75,7 +75,7 @@ const faqItems = [
   {
     question: 'Do I have to switch off my current software on day one?',
     answer:
-      "No. Nothing switches until you say go. Your new system runs beside the old one and gets matched against it — to the penny — until you trust it. That's the rule on every fitting we do.",
+      "No. Nothing switches until you say go. Your new system runs beside the old one, and every night the two sets of books get compared — invoice by invoice — until you trust it. That's the rule on every fitting we do.",
   },
   {
     question: 'Do I really own it?',
@@ -94,7 +94,7 @@ const faqItems = [
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
+      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice. The system keeps running, and your customer list, invoices, and books go with you.",
   },
 ];
 
@@ -233,7 +233,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           </h2>
           <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
             Customers → estimates → jobs → invoices → the books — one system, built around your
-            business, and you own it: the code and the data.{' '}
+            business, and you own it outright.{' '}
             <span className="text-white font-bold">
               Real local businesses
             </span>{' '}
@@ -252,7 +252,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           {
             title: 'Your old system stays plugged in',
             detail:
-              'Your new system runs BESIDE your current software, penny-matched against it every night. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
+              'Your new system runs BESIDE your current software, every sale rung in both. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
             title: 'Who sees your numbers',
@@ -275,7 +275,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'The map becomes your system — built around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'The map becomes your system — built around how you run, fitted in weeks. It runs in parallel with your current software — same jobs, same totals on both screens — until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',

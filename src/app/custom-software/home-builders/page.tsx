@@ -201,7 +201,7 @@ const data: PillarData = {
     {
       question: 'Can I keep using CoConstruct while this gets built?',
       answer:
-        'Yes — that is the rule, not the exception. Your current system keeps running while the new one runs beside it, and the two are checked against each other. Nothing switches until they match and you give the word. No rip-out weekend, no leap of faith, no houses caught mid-migration.',
+        'Yes — that is the rule, not the exception. Your current system keeps running while the new one runs beside it, and the two are checked against each other. Nothing switches until they match and you give the word — no house gets caught mid-migration.',
     },
     {
       question: 'What does it cost?',

@@ -34,7 +34,7 @@ export const industries: Record<string, IndustryData> = {
     heroStat: { value: "100%", label: "Yours â€” Code & Data" },
     definitionHeading: "What Is a Practice Operating System?",
     definition:
-      "A practice operating system is one piece of custom software that runs the business side of a medical or dental practice: scheduling, intake, recalls, billing follow-up, and the patient book treated like a customer book. It is not an EHR and it never touches the chart â€” clinical records stay exactly where they are. It replaces the pile of rented subscriptions around your front desk with one system you own outright: the code and the data, living in your system, not a vendor's cloud. Found It Software fits it to how your practice actually runs, and it goes live beside your old setup â€” nothing switches until you say go.",
+      "A practice operating system is one piece of custom software that runs the business side of a medical or dental practice: scheduling, intake, recalls, billing follow-up, and the patient book treated like a customer book. It is not an EHR and it never touches the chart: clinical records, e-prescribing, and your compliance systems stay exactly where they are, and we build the operations layer around them. It replaces the pile of rented subscriptions around your front desk with one system you own outright: the code and the data, living in your system, not a vendor's cloud. Found It Software fits it to how your practice actually runs, and it goes live beside your old setup â€” nothing switches until you say go.",
     painPoints: [
       {
         title: "A subscription for every job",
@@ -61,6 +61,10 @@ export const industries: Record<string, IndustryData> = {
       {
         title: "You own it â€” code and data",
         description: "Your data lives in your system, not a vendor's cloud. No terms of service quietly claiming your patient list. Leave anytime and it all stays yours. Nobody rents you your own business back.",
+      },
+      {
+        title: "What it will not touch",
+        description: "No charting, no clinical records, no e-prescribing. The EHR stays the EHR, and your compliance systems stay exactly where they are, with the people responsible for them. We build the operations layer around those systems: scheduling, intake, recalls, billing follow-up. Around the chart, never inside it. We tell you that before you ask.",
       },
     ],
     faqs: [
@@ -99,7 +103,7 @@ export const industries: Record<string, IndustryData> = {
     heroStat: { value: "100%", label: "Yours â€” Code & Data" },
     definitionHeading: "What Is a Real Estate OS?",
     definition:
-      "A real estate OS is one custom application that runs the whole operation: the deal pipeline from contract to close, the client book with every buyer and seller you have ever worked, follow-up that fires on its own, and every document attached to its deal. It replaces the per-agent stack of rented subscriptions â€” and unlike those, you own it outright, code and data. Found It Software fits it to how your team actually works, the same way our systems run in auto shops, retail stores, and field crews. Nobody rents you your own business back.",
+      "A real estate OS is one custom application that runs the whole operation: the deal pipeline from contract to close, the client book with every buyer and seller you have ever worked, follow-up that fires on its own, and every document attached to its deal. It replaces the per-agent stack of rented subscriptions â€” and unlike those, you own it outright, code and data. Found It Software fits it to how your team actually works, the same way our systems run in auto shops, retail stores, and field crews.",
     painPoints: [
       {
         title: "A subscription for every job",
@@ -212,7 +216,7 @@ export const industries: Record<string, IndustryData> = {
     faqs: [
       {
         question: "What happens to my data if I ever leave Clio or MyCase?",
-        answer: "With rented software, you get whatever their export tool decides to give you â€” and your matters, contacts, and history live on their servers under their terms of service until then. With a system we build, the question disappears: the code and the database are yours from day one, backed up nightly to a local hard drive and the cloud. There is no landlord to leave. Nobody rents you your own business back.",
+        answer: "With rented software, you get whatever their export tool decides to give you â€” and your matters, contacts, and history live on their servers under their terms of service until then. With a system we build, the question disappears: the code and the database are yours from day one, backed up nightly to a local hard drive and the cloud. There is no landlord to leave.",
       },
       {
         question: "What if the new system breaks? The whole firm runs on this.",

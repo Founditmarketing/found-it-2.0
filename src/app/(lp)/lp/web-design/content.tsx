@@ -26,7 +26,7 @@ const faqItems = [
   },
   {
     question: 'Who owns the website?',
-    answer: "You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything. No lock-in, no hostage games.",
+    answer: "You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything with you.",
   },
   {
     question: 'Will my new site actually show up on Google?',

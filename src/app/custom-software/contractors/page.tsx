@@ -211,7 +211,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-truck fees, no per-user fees, and no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. It does not grow when you add a truck or hire another tech.`,
     },
     {
       question: 'Who owns the system?',

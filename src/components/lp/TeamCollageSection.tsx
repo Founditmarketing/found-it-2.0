@@ -36,7 +36,7 @@ export function TeamCollageSection({
               <span className="text-primary">Real Local Team.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-xl">
-              When you call, you reach the same senior team that does the work — right here in Alexandria, Louisiana. No call centers, no interns, no handoffs.
+              When you call, you reach the same senior team that does the work — right here in Alexandria, Louisiana. Your call is never handed off.
             </p>
             <div className="space-y-4 mb-8">
               {[

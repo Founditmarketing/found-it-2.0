@@ -5,7 +5,7 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Custom App Development for Local Businesses',
   description:
-    'Custom mobile and web app development from a local team with 13+ years in marketing. Native-feeling iOS and Android apps, fixed timelines, and you own 100% of the code. Based in Alexandria, LA.',
+    'Custom iOS, Android, and web apps from a local team in Alexandria, LA. In-person blueprint, fixed price, and you own 100% of the code.',
   alternates: { canonical: '/app-development' },
   openGraph: {
     title: 'Custom App Development for Local Businesses | Found It Software',
@@ -28,7 +28,7 @@ const data: PillarData = {
   headline: 'Custom Apps Built Locally —',
   headlineAccent: 'And You Own the Code.',
   intro:
-    `Found It Marketing builds custom iOS, Android, and web apps with a local team you can actually reach. With ${TRACK_RECORD.yearsInBusiness} years building digital products, we blueprint your app in person, quote a fixed price, and hand over a clean codebase you own 100%. No overseas midnight calls, no scope-creep surprises.`,
+    'We blueprint your app in person, quote a fixed price, and hand over a clean codebase you own 100% — built by a local team you can actually reach.',
   ctaLabel: 'Get My Free App Blueprint',
   formSource: 'service_app_dev',
   formPageSlug: 'app-development',
@@ -40,7 +40,7 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Goes Into a Custom App?',
   definition:
-    'Custom app development means building software tailored to exactly how your business works — not forcing your process into off-the-shelf software. A good build starts with a blueprint (the features, screens, and flows mapped before any code), then native-feeling development for iOS and Android, integrations with the tools you already use, store submission, and a clean handover. At Found It Marketing we do the blueprint in person, quote a fixed price, and you own the source code and developer accounts at the end.',
+    'Custom app development means building software around how your business actually runs — the invoices, the schedule, the parts counter — instead of forcing your process into off-the-shelf software. A good build starts with a blueprint: every feature, screen, and flow mapped before any code. Then development, integrations with the tools you already use, store submission, and a clean handover.',
   includedHeading: 'What Every App Build Includes',
   included: [
     { title: 'In-Person Blueprint', detail: 'We map every feature, screen, and flow with you before a line of code is written — so the quote is firm.' },
@@ -53,8 +53,8 @@ const data: PillarData = {
   approachHeading: 'How We Build Your App',
   approach: [
     { step: '01', title: 'Blueprint', detail: 'We sit down (in person when local) and whiteboard the entire build, features, and flows.' },
-    { step: '02', title: 'Fixed Quote', detail: 'You get a guaranteed timeline and fixed price based on the exact features you need.' },
-    { step: '03', title: 'Build', detail: 'We develop native-feeling apps for iOS and Android with regular check-ins.' },
+    { step: '02', title: 'Fixed Quote', detail: 'A fixed price and a firm timeline, based on the exact features you mapped.' },
+    { step: '03', title: 'Build', detail: 'We build with regular check-ins — you see working screens, not status reports.' },
     { step: '04', title: 'Launch & Support', detail: 'We handle store submissions, monitor launch, and offer simple maintenance plans.' },
   ],
   audienceHeading: "Who This Is For",
@@ -62,12 +62,10 @@ const data: PillarData = {
     'Businesses that have outgrown off-the-shelf software',
     'Owners who want a customer-facing or internal-tool app',
     'Companies burned by unreachable overseas dev shops',
-    'Teams that need integrations with their existing tools',
     'Anyone who wants to own their code and IP outright',
-    'Local businesses that value an in-person blueprint',
   ],
   chipsHeading: 'How We Build',
-  chips: ['iOS', 'Android', 'Cross-Platform', 'Web Apps', 'API Integrations', 'App Store + Google Play'],
+  chips: ['iOS', 'Android', 'Web Apps', 'API Integrations', 'App Store + Google Play'],
   mistakesHeading: 'Why App Projects Go Wrong',
   mistakes: [
     { title: 'No real blueprint', detail: 'Building before scoping leads to surprises and overruns. We map everything first, so the quote holds.' },
@@ -77,8 +75,8 @@ const data: PillarData = {
   ],
   pricingHeading: 'What to Expect',
   pricing:
-    'Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to launch. We quote a fixed price after the free blueprint, based on the exact features you need — no hourly billing and no scope-creep invoices. You approve the full number before any work begins, and you own the finished codebase.',
-  whyUsHeading: 'Why Businesses Choose Found It Marketing',
+    'Most apps take 8 to 12 weeks from kickoff to launch. You get a fixed price after the free blueprint, approve the full number before any work begins, and own the finished codebase when it ships.',
+  whyUsHeading: 'Why Businesses Choose Found It Software',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
@@ -89,10 +87,10 @@ const data: PillarData = {
   ],
   faqHeading: 'App Development FAQ',
   faq: [
-    { question: 'How long does it take to build an app?', answer: 'Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to App Store launch. You will get a firm, guaranteed timeline on our first call.' },
-    { question: 'How much does an app cost?', answer: 'We quote a fixed price after the free blueprint, based on the exact features you need. No hourly billing, no scope-creep invoices. You approve the full number before any work begins.' },
+    { question: 'How long does it take to build an app?', answer: 'Most business apps take 8 to 12 weeks from kickoff to App Store launch. You get a firm timeline on our first call.' },
+    { question: 'How much does an app cost?', answer: 'We quote a fixed price after the free blueprint, based on the exact features you need. You approve the full number before any work begins, and the invoice matches it.' },
     { question: 'Who owns the code?', answer: 'You do. You own the intellectual property, the source code, and the developer accounts. We build it, but it is 100% your asset.' },
-    { question: 'Do you build for both iOS and Android?', answer: 'Yes. We use modern cross-platform frameworks to deploy native-feeling apps to both the Apple App Store and Google Play Store at once.' },
+    { question: 'Do you build for both iOS and Android?', answer: 'Yes. One build ships to both the Apple App Store and the Google Play Store at once.' },
     { question: 'Do I need a technical team to run it?', answer: 'No. We build it to be maintained, document everything, and hand over clean accounts. Your team inherits a tidy, fully owned codebase if you ever bring development in-house.' },
   ],
   relatedReading: [
@@ -100,7 +98,7 @@ const data: PillarData = {
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free App Blueprint',
-  finalCtaSub: 'Tell us what you want to build and we will map the features, timeline, and a fixed price — in person if you are local. No pitch, no obligation.',
+  finalCtaSub: 'Tell us what you want to build and we will map the features, timeline, and a fixed price — in person if you are local. You leave with the blueprint either way.',
 };
 
 export default function AppDevelopmentPillar() {

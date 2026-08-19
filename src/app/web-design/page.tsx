@@ -94,7 +94,7 @@ const data: PillarData = {
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience informing every design decision.`,
     `${AWARD.year} ${AWARD.label} Award winner.`,
-    'You own the code, domain, and hosting — no lock-in, no hostage situations.',
+    'You own the code, domain, and hosting outright.',
     'Conversion-first design: built to generate leads, not just win design awards.',
     'Firm launch timelines — you get the date on the first call.',
     '60 days of free post-launch optimization included.',
@@ -104,7 +104,7 @@ const data: PillarData = {
     { question: 'How long does it take to build?', answer: '2 weeks or less from kickoff to launch for most local business sites. Larger sites with custom features may take slightly longer, but you get a firm timeline on the first call.' },
     { question: 'Who owns the website?', answer: 'You do. Your domain, your code, your content, your hosting account. If you ever leave, you take everything. No lock-in.' },
     { question: 'Will my new site actually show up on Google?', answer: 'Yes. Every build ships with the technical SEO foundation in place: fast load times, clean structure, mobile-first design, and proper schema. It is built to be found, not just to look good.' },
-    { question: 'How much does a new website cost?', answer: "Most local business sites land in a clear, flat range we'll quote up front. No hourly surprises, no scope-creep invoices. You will know the full price before you commit." },
+    { question: 'How much does a new website cost?', answer: "Most local business sites land in a clear, flat range we'll quote up front, and the number holds. You will know the full price before you commit." },
     { question: 'What if I need changes after launch?', answer: '60 days of free post-launch optimization is included. After that, most clients move to a maintenance plan starting at $250/mo. No long-term contracts.' },
   ],
   relatedReading: [
@@ -112,7 +112,7 @@ const data: PillarData = {
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Concept Call',
-  finalCtaSub: 'Tell us about your business and we will show you how a faster, conversion-focused site could grow it. No pitch, no obligation.',
+  finalCtaSub: 'Tell us about your business and we will show you how a faster, conversion-focused site could grow it. The call is free, and you decide from there.',
 };
 
 export default function WebDesignPillar() {

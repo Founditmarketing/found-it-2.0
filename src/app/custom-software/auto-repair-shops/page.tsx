@@ -54,7 +54,7 @@ const data: PillarData = {
   },
   definitionHeading: 'What Makes It the AI-Powered Alternative?',
   definition:
-    "It covers every job a Tekmetric-class system does — write the work order, track the parts, ring the invoice, keep the customer book — then adds the two things a rented platform cannot give you. First, it is AI-first: every record in your shop’s history is something you can ask about in plain English, because the AI reads YOUR data, not a template’s. Second, at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. No per-seat rent forever. No data held hostage if you ever leave.",
+    "It covers every job a Tekmetric-class system does — write the work order, track the parts, ring the invoice, keep the customer book — then adds the two things a rented platform cannot give you. First, it is AI-first: every record in your shop’s history is something you can ask about in plain English, because the AI reads YOUR data, not a template’s. Second, at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. You never pay per-seat rent, and if you ever leave, every record leaves with you.",
   includedHeading: 'What a Shop OS Includes',
   included: [
     {

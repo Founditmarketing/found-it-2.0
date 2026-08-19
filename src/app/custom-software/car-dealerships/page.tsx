@@ -196,7 +196,7 @@ const data: PillarData = {
     {
       question: 'Will my website go down during the switch?',
       answer:
-        'No. Your current site keeps running while the new one is built beside it, with your inventory loaded and your records migrated. Nothing switches until the new system has proven itself side by side and you give the word. No cutover weekend, no dark website.',
+        'No. Your current site keeps running while the new one is built beside it, with your inventory loaded and your records migrated. Nothing switches until the new system has proven itself side by side and you give the word. Your website never goes dark.',
     },
     {
       question: 'What does it cost?',

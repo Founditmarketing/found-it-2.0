@@ -57,7 +57,7 @@ const data: PillarData = {
     {
       title: 'Fitted to One Business: Yours',
       detail:
-        'No templates, no industry edition. We map how your shop actually runs — then build the system around your process, not the other way around.',
+        'We map how your shop actually runs, then build the system around your process. Nothing starts from a template or an industry edition.',
     },
     {
       title: 'Your Records, Migrated In',
@@ -77,7 +77,7 @@ const data: PillarData = {
     {
       title: 'Proven Before Anything Switches',
       detail:
-        'The new system runs beside your old one until the two match. No leap of faith, no rip-out weekend. You switch when it has earned it.',
+        'The new system runs beside your old one until the two match, and you switch when it has earned it.',
     },
     {
       title: 'You Own It Outright',
