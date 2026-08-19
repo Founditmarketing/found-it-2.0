@@ -10,11 +10,13 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.founditsoftware.com'),
+  // Brand flip 8/18 (audit full-send): the public identity is Found It
+  // Software everywhere a customer reads. The LLC's legal name is unchanged.
   title: {
-    default: 'Found It Marketing | Custom AI Software, Google Ads & Web Design | Alexandria, LA',
-    template: '%s | Found It Marketing'
+    default: 'Found It Software | Custom Business Operating Systems You Own | Alexandria, LA',
+    template: '%s | Found It Software'
   },
-  description: "Found It builds custom AI-powered operating systems for real businesses — your records migrated, your team trained, live in days, one published price. Built to simplify your life and make your business more profitable. Plus Google Ads, web design & AI search. Alexandria, LA.",
+  description: "Found It Software builds custom AI-powered operating systems local businesses own outright — the code and the data. Fitted to how you run, proven beside your old system, one published price. Alexandria, LA.",
   keywords: [
     'custom AI software',
     'custom business operating system',

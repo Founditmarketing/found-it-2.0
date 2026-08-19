@@ -44,6 +44,11 @@ const marketingSublinks: NavSublink[] = SERVICES.filter(
   tag: null,
 }));
 
+/* 8/18 audit hierarchy: the brain should conclude in five seconds that this
+   company builds operating systems you own — not that it's an agency that
+   also codes. Software items ride the line as plain links; marketing is ONE
+   subtle dropdown at the end. Verticals live under Who It's For (which
+   links every industry page) and the footer. */
 const navLinks: NavLink[] = [
   {
     title: 'Found It OS',
@@ -52,48 +57,28 @@ const navLinks: NavLink[] = [
     description: 'One system that runs the whole business — you own it',
   },
   {
-    title: 'Custom Software',
-    href: '/custom-software',
-    icon: Building2,
-    description: 'AI-powered systems you own, fitted to your business',
-    sublinks: [
-      { title: 'All Industries', href: '/custom-software', tag: 'NEW' },
-      { title: 'Auto Repair — Tekmetric Alt.', href: '/custom-software/auto-repair-shops', tag: null },
-      { title: 'The House System (Retail)', href: '/custom-software/retail-stores', tag: null },
-      { title: 'Contractors & Field Service', href: '/custom-software/contractors', tag: null },
-      { title: 'Car Dealerships', href: '/custom-software/car-dealerships', tag: null },
-      { title: 'Shed Builders', href: '/custom-software/shed-builders', tag: null },
-      { title: 'Home Builders — CoConstruct Alt.', href: '/custom-software/home-builders', tag: null },
-      { title: 'App Development', href: '/app-development', tag: null },
-      { title: 'Medical / Healthcare', href: '/industries/medical', tag: null },
-      { title: 'Real Estate', href: '/industries/realtors', tag: null },
-      { title: 'Lawyers', href: '/industries/lawyers', tag: null },
-    ],
-  },
-  {
-    title: 'Marketing',
-    href: '/#services',
-    icon: TrendingUp,
-    description: 'Ads, websites, and getting found',
-    sublinks: marketingSublinks,
-  },
-  {
-    title: 'Case Studies',
-    href: '/case-studies',
-    icon: Globe,
-    description: 'The systems we built, the businesses that own them',
-  },
-  {
     title: "Who It's For",
     href: '/who-we-build-for',
     icon: UserCheck,
-    description: "We don't build for everyone — check your fit",
+    description: "The businesses we fit — and the ones we turn down",
+  },
+  {
+    title: 'Results',
+    href: '/case-studies',
+    icon: Globe,
+    description: 'The systems we built, the businesses that own them',
   },
   {
     title: 'Pricing',
     href: '/pricing',
     icon: BadgeDollarSign,
     description: 'What it costs. No games.',
+  },
+  {
+    title: 'Fit Check',
+    href: '/fit',
+    icon: Building2,
+    description: '60 seconds — are you who we build for?',
   },
   // About + Blog are plain links on the menu line — no dropdown (Trevor
   // 8/16); the team page merged into /about the same day.
@@ -108,6 +93,13 @@ const navLinks: NavLink[] = [
     href: '/blog',
     icon: Newspaper,
     description: 'Software, ownership, and what we shipped',
+  },
+  {
+    title: 'Marketing',
+    href: '/#services',
+    icon: TrendingUp,
+    description: 'Ads and getting found — for the companies we build for',
+    sublinks: marketingSublinks,
   },
 ];
 
@@ -517,22 +509,12 @@ export function Header() {
               )}
             </nav>
 
-            {/* ─── Desktop Actions ─── */}
-            <div className="hidden xl:flex items-center gap-3 2xl:gap-6">
-              {/* Paired secondary: the gated guide — the lighter ask beside the
-                  call. 2xl only: at exactly-xl widths it was the straw that
-                  broke the row; it stays one tap away in the mobile menu. */}
-              <Link
-                href="/guide"
-                onClick={() => trackGuideCTAClick('header_desktop')}
-                className="hidden 2xl:flex items-center gap-1.5 font-semibold text-sm text-white hover:text-primary transition-colors"
-              >
-                <Download className="w-4 h-4 text-primary" aria-hidden="true" />
-                Free Guide
-              </Link>
-              <Link href="/contact" className="block shrink-0">
+            {/* ─── Desktop Actions — ONE ask, sitewide (8/18 audit). The
+                guide lives on in the mobile menu + footer. ─── */}
+            <div className="hidden xl:flex items-center">
+              <Link href="/fit" className="block shrink-0">
                 <LiquidButton className="h-14 px-5 2xl:px-8 text-xs tracking-[0.2em] whitespace-nowrap magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
-                  Book a Free Call
+                  Get My Software Map
                 </LiquidButton>
               </Link>
             </div>
@@ -630,7 +612,7 @@ export function Header() {
               >
                 {/* CTA */}
                 <Link
-                  href="/contact"
+                  href="/fit"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block"
                 >
@@ -638,7 +620,7 @@ export function Header() {
                     whileTap={{ scale: 0.97 }}
                     className="w-full bg-primary text-primary-foreground font-semibold py-4 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                   >
-                    Book a Free Call
+                    Get My Software Map
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
                 </Link>

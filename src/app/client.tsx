@@ -7,11 +7,9 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
-import { GuideCta } from '@/components/GuideCta';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { ReviewMarquee } from '@/components/landing/ReviewMarquee';
 import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
 import { staff } from '@/lib/team';
 import { usePersonalization } from '@/lib/personalization';
@@ -125,23 +123,26 @@ export default function HomePage() {
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
-              {/* Headline (personalized by city/industry when known) */}
+              {/* Headline (personalized by city/industry when known) —
+                  pain-first per the 8/18 audit: name the pile before the fix. */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                We Help {audienceLine} Own Their Software.
+                {audienceLine} Run On Software They Don&rsquo;t Own.
               </h1>
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                Your whole business on one screen — fitted to how you actually run, and yours outright: code and data.
+                We replace the pile with one system built around how your company actually runs.
+                You own it — the code and the data.
               </p>
 
-              {/* Primary ask — the fitting. One button, nothing beside it. */}
+              {/* Primary ask — THE ask, sitewide (audit 8/18: one CTA that
+                  names what you receive). One button, nothing beside it. */}
               <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center">
                 <Link
                   href="/foundit-os#lead-form"
                   className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
                 >
-                  Get Fitted
+                  Get My Software Map
                 </Link>
               </div>
             </div>
@@ -189,14 +190,57 @@ export default function HomePage() {
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">One Job</p>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-                <Link href="/foundit-os" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-                  See Found It OS <ArrowRight className="w-4 h-4 ml-2" />
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5">
+                <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                  Get My Software Map
                 </Link>
-                <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
-                  Get a Fitting
+                <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
+                  See Found It OS <ArrowRight className="w-4 h-4" />
                 </Link>
-                <GuideCta location="home_flagship" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          THE RENT PARADOX — P0 from the 8/18 audit: "if I own it, why am I
+          paying monthly?" is the question every visitor asks right after the
+          price. Answer it before they have to think.
+      ═══════════════════════════════════════════ */}
+      <section className="relative py-12 lg:py-20">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease }}
+            className="bg-card/10 backdrop-blur-xl border border-border/15 rounded-3xl p-8 lg:p-12"
+          >
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter leading-[0.9] text-foreground mb-5">
+              If You Own It, What Does {OS_PRICING.monthly} a Month Pay For?
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
+              Not permission. You&rsquo;re paying us to <span className="text-foreground font-bold">host, maintain,
+              support, and keep building</span> your system — new features as your business grows, backups every
+              night, a person who answers when you call.{' '}
+              <span className="text-foreground font-bold">Stop paying and the work stops — not your software.</span>{' '}
+              The code and your data stay yours, and the system keeps running wherever you take it.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-background/40 border border-border/20 rounded-2xl p-6">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-3">Rented Software</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed">
+                  Pay forever. The vendor owns the platform. Leave, and you keep whatever the export
+                  window lets out.
+                </p>
+              </div>
+              <div className="bg-primary/[0.06] border border-primary/25 rounded-2xl p-6">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-3">Found It</p>
+                <p className="text-sm text-foreground font-medium leading-relaxed">
+                  Built around you. You own the code and the data. Leave with 30 days&rsquo; notice, and
+                  the system leaves with you.
+                </p>
               </div>
             </div>
           </motion.div>
@@ -243,9 +287,8 @@ export default function HomePage() {
               href="/foundit-os#lead-form"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
-              Get Yours Answering
+              Get My Software Map
             </Link>
-            <GuideCta location="home_askos" />
           </motion.div>
         </div>
       </section>
@@ -377,11 +420,12 @@ export default function HomePage() {
             className="mt-6 bg-card/5 border border-border/10 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
           >
             <div className="shrink-0">
-              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">The Other 10%</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Need Customers Too?</p>
               <p className="text-sm font-black tracking-tighter text-foreground">The Marketing Engine</p>
             </div>
             <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
-              Ads, AI search, and social for the businesses we build for.
+              We spent 13 years bringing local businesses customers. We still do — for the companies
+              we build systems for.
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
               {marketingLinks.map((m) => (
@@ -410,9 +454,14 @@ export default function HomePage() {
               {/* Terms-as-proof tiles. The ROAS "10x Trajectory" scrubber that
                   used to render below them was a marketing-era ad-spend curve —
                   confusing on a software homepage; retired 8/16 (Trevor). */}
-              <h3 className="text-xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-[0.92] text-foreground mb-10">
-                How Every System Runs.
+              <h3 className="text-xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-[0.92] text-foreground mb-4">
+                Changing The Software That Runs Your Business Is Terrifying.
               </h3>
+              <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-10 max-w-2xl">
+                So we don&rsquo;t make you switch. The new system runs beside your old one, the books
+                get checked against the books every night, and nothing changes hands until you look
+                at both screens, see the same number, and say go.
+              </p>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
                 {proofPoints.map((point, i) => (
@@ -543,9 +592,78 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          REVIEWS — animated marquee of real client reviews
+          THREE FITTINGS — software proof replaces the marketing review
+          marquee (audit 8/18: the reviews are real credibility, but no longer
+          the MOST RELEVANT credibility; ReviewMarquee still lives on the
+          marketing pages). The mess before, the screen after, the number
+          where one is sanctioned.
       ═══════════════════════════════════════════ */}
-      <ReviewMarquee />
+      <section className="relative py-16 lg:py-28">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+              Three Fittings.
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {[
+              {
+                kind: 'The Roofer',
+                before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
+                after: 'His system audited his own books the day it went live.',
+                number: '$195,882.75',
+                numberLabel: 'found in open receivables',
+                href: '/case-studies/edwards-roofing',
+                link: 'Read the case study',
+              },
+              {
+                kind: 'The Nursery',
+                before: 'Orders texted in by fifteen brokers, hand-copied to paper — 44 plants nearly missed the truck.',
+                after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
+                number: 'Lines in = lines on the sheet',
+                numberLabel: 'the rule the system enforces',
+                href: '/blog/what-is-a-software-map',
+                link: 'See her software map',
+              },
+              {
+                kind: 'The Shed Builder',
+                before: 'A Texas shed maker — dealer lots, shops, drivers — renting the software that ran all of it.',
+                after: 'Sales counter to delivery wizard on one system he’ll own outright.',
+                number: 'Sale → build → delivered',
+                numberLabel: 'one pipeline, one login',
+                href: '/foundit-os',
+                link: 'See Found It OS',
+              },
+            ].map((f, i) => (
+              <motion.div
+                key={f.kind}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease }}
+                className="bg-card/10 backdrop-blur-sm border border-border/15 rounded-3xl p-7 flex flex-col hover:border-primary/25 transition-colors"
+              >
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">{f.kind}</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-3">{f.before}</p>
+                <p className="text-sm text-foreground font-bold leading-relaxed mb-6">{f.after}</p>
+                <div className="mt-auto pt-5 border-t border-border/15">
+                  <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter leading-tight">{f.number}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1 mb-4">{f.numberLabel}</p>
+                  <Link href={f.href} className="text-xs text-primary font-bold inline-flex items-center gap-1.5 hover:gap-3 transition-all">
+                    {f.link} <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════════
           BOTTOM CTA
@@ -563,20 +681,23 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease }}
           >
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mb-4">
+              We don&rsquo;t build this for everyone —{' '}
+              <Link href="/fit" className="text-primary hover:underline">check your fit in 60 seconds</Link>
+            </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Fifteen Minutes With Trevor.
+              Show Us How Your Business Runs.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              What would actually work for your business. We build one business at a time —
-              he&apos;s deciding the same thing you are: whether this is a fit.
+              We&rsquo;ll map the system we&rsquo;d build for it — thirty minutes, screen-shared.
+              You keep the map either way.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link href="/contact" className="w-full sm:w-auto max-w-sm">
+            <div className="flex justify-center">
+              <Link href="/foundit-os#lead-form" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                  Book a Call
+                  Get My Software Map
                 </LiquidButton>
               </Link>
-              <GuideCta location="home_bottom" className="max-w-sm sm:max-w-none h-16" />
             </div>
           </motion.div>
         </div>

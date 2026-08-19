@@ -83,6 +83,10 @@ const faqItems = [
       'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
   },
   {
+    question: "If I own it, why is there a monthly fee?",
+    answer: `You're not paying for permission to use your own software. The ${OS_PRICING.monthly} covers hosting, nightly backups, support you can actually call, and new features as your business grows. Stop paying and the work stops — not your software. The code and your data stay yours.`,
+  },
+  {
     question: 'Do you take everyone who signs up?',
     answer:
       "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, we tell you straight, tell you what we'd do instead, and you keep the map.",

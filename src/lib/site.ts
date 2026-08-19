@@ -17,7 +17,9 @@ export const ENTITY_IDS = {
 } as const;
 
 export const BUSINESS = {
-  name: 'Found It Marketing',
+  // Public brand (8/18 audit full-send). The LLC's legal name is unchanged —
+  // legalName feeds legal/schema contexts only.
+  name: 'Found It Software',
   legalName: 'Found It Marketing LLC',
   tagline: 'Custom software your business owns.',
   description:
