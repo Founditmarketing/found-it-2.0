@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Generative Engine Optimization (GEO) and SEO from a team with 13+ years in marketing. Get recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data. Alexandria, LA.',
   alternates: { canonical: '/ai-search-optimization' },
   openGraph: {
-    title: 'AI Search Optimization & SEO (GEO) | Found It Marketing',
+    title: 'AI Search Optimization & SEO (GEO) | Found It Software',
     description:
       'Get recommended by ChatGPT, Perplexity, and Google AI through entity authority, structured data, and local SEO.',
     type: 'website',
@@ -29,7 +29,7 @@ const data: PillarData = {
   headline: 'When Somebody Asks ChatGPT Who to Hire,',
   headlineAccent: 'Does It Say You?',
   intro:
-    `Search is shifting from blue links to AI answers. Found It Marketing combines traditional SEO with Generative Engine Optimization (GEO) so your business is the one ChatGPT, Perplexity, and Google AI Overviews recommend. With ${TRACK_RECORD.yearsInBusiness} years in marketing, we build the entity authority and structured data that AI engines trust.`,
+    `Search is shifting from blue links to AI answers. Found It combines traditional SEO with Generative Engine Optimization (GEO) so your business is the one ChatGPT, Perplexity, and Google AI Overviews recommend. With ${TRACK_RECORD.yearsInBusiness} years in marketing, we build the entity authority and structured data that AI engines trust.`,
   ctaLabel: 'Get My Free Visibility Audit',
   formSource: 'service_ai_search',
   formPageSlug: 'ai-search-optimization',
@@ -80,7 +80,7 @@ const data: PillarData = {
   pricingHeading: 'What to Expect',
   pricing:
     'GEO and SEO are monthly programs scoped to your market and competition, with simple flat pricing and no setup fees that lock you in. Most clients see initial AI mentions within 60 to 90 days and consistent multi-platform visibility in 4 to 6 months. You keep all the work — content, schema, and citations — if you ever leave.',
-  whyUsHeading: 'Why Businesses Choose Found It Marketing',
+  whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience and a GEO-first approach.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Custom AI marketing automation from a local team with 13+ years in marketing. Instant lead follow-up, AI appointment setting, and automated content — built for you, no software skills required. Alexandria, LA.',
   alternates: { canonical: '/ai-marketing' },
   openGraph: {
-    title: 'AI Marketing Automation for Local Businesses | Found It Marketing',
+    title: 'AI Marketing Automation for Local Businesses | Found It Software',
     description:
       'Custom AI systems for instant lead follow-up, appointment setting, and content — built for you by a local team.',
     type: 'website',

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `Custom business software built for one business at a time — you own it outright, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software' },
   openGraph: {
-    title: 'Custom Business Software — Fitted to One Business at a Time | Found It Marketing',
+    title: 'Custom Business Software — Fitted to One Business at a Time | Found It Software',
     description:
       `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records professionally migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

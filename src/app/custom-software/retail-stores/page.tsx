@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `The House System is a retail POS you own outright — register, inventory, customer households, layaway, and Ask the House: AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/retail-stores' },
   openGraph: {
-    title: 'The House System — Retail POS You Own | Found It Marketing',
+    title: 'The House System — Retail POS You Own | Found It Software',
     description:
       `The House System: one system for your whole store — register, inventory, customer book, layaway — fitted to how you actually sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

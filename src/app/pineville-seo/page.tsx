@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'SEO for Pineville, LA businesses: local rankings, Google Business Profile, reviews, and AI search. From an Alexandria team minutes across the Red River. Free audit.',
   alternates: { canonical: '/pineville-seo' },
   openGraph: {
-    title: 'Pineville, LA SEO Services | Found It Marketing',
+    title: 'Pineville, LA SEO Services | Found It Software',
     description:
       'Local SEO and AI search optimization for Pineville businesses — Google Business Profile, rankings, reviews, and honest reporting.',
     type: 'website',

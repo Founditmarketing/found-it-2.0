@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Custom mobile and web app development from a local team with 13+ years in marketing. Native-feeling iOS and Android apps, fixed timelines, and you own 100% of the code. Based in Alexandria, LA.',
   alternates: { canonical: '/app-development' },
   openGraph: {
-    title: 'Custom App Development for Local Businesses | Found It Marketing',
+    title: 'Custom App Development for Local Businesses | Found It Software',
     description:
       'Native-feeling iOS and Android apps built by a local team. Fixed timelines, and you own the code.',
     type: 'website',

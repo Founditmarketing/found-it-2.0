@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `Contractor job management software you own — jobs, customers, and service reminders in one system. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/contractors' },
   openGraph: {
-    title: 'Contractor Job Management Software You Own | Found It Marketing',
+    title: 'Contractor Job Management Software You Own | Found It Software',
     description:
       `One system for your whole field operation — fitted to how your crews actually run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `Dealership software you own — inventory, website, service, and rentals in one system, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/car-dealerships' },
   openGraph: {
-    title: 'Independent Dealership Software You Own Outright | Found It Marketing',
+    title: 'Independent Dealership Software You Own Outright | Found It Software',
     description:
       `One system for the whole lot — inventory, website, sales desk, service department, and rentals — fitted to how you actually run it, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

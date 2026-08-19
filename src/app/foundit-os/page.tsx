@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `Found It OS is a custom AI operating system fitted to your business — register, inventory, customers, website, and a built-in AI in one system you own outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, built to simplify the owner's life and make the business more profitable. Based in Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
-    title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Marketing',
+    title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Software',
     description:
       `One system for your whole business — fitted to how you actually run it, proven beside your old system, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.promise}`,
     type: 'website',

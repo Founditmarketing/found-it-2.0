@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Custom, conversion-focused web design built on Next.js by a team with 13+ years in marketing. Fast, mobile-first websites that turn visitors into calls — and you own the code. Alexandria, Louisiana — see 12 live client builds.',
   alternates: { canonical: '/web-design' },
   openGraph: {
-    title: 'Web Design & Development for Local Businesses | Found It Marketing',
+    title: 'Web Design & Development for Local Businesses | Found It Software',
     description:
       'Custom, conversion-focused websites built on Next.js. Fast, mobile-first, and you own the code.',
     type: 'website',

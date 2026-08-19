@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Digital marketing for Alexandria, LA businesses from an agency headquartered in Alexandria. Google Ads, web design, SEO, and AI search. No contracts. Free audit.',
   alternates: { canonical: '/marketing-alexandria' },
   openGraph: {
-    title: 'Digital Marketing in Alexandria, LA | Found It Marketing',
+    title: 'Digital Marketing in Alexandria, LA | Found It Software',
     description:
       'Google Ads, web design, SEO, and AI search for Alexandria businesses — from a team headquartered in Alexandria since 2013.',
     type: 'website',
@@ -105,7 +105,7 @@ export default function MarketingAlexandriaPage() {
             <span className="text-primary">From a Team That Actually Lives Here.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Marketing is headquartered in Alexandria, Louisiana — not a franchise desk, not a reseller, not
+            Found It is headquartered in Alexandria, Louisiana — not a franchise desk, not a reseller, not
             an out-of-state call center with a local phone number. Since {BUSINESS.foundingYear} we&apos;ve helped
             business owners across Rapides Parish turn Google searches, ads, and websites into ringing phones.
           </p>

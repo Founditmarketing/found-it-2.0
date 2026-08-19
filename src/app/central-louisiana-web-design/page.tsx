@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Custom web design for Central Louisiana businesses — Alexandria, Pineville, Marksville, Natchitoches, Leesville. Mobile-first, fast, you own everything. Free concept call.',
   alternates: { canonical: '/central-louisiana-web-design' },
   openGraph: {
-    title: 'Web Design in Central Louisiana | Found It Marketing',
+    title: 'Web Design in Central Louisiana | Found It Software',
     description:
       'Mobile-first, conversion-focused websites for Cenla businesses. Built fast, built to make the phone ring, owned by you.',
     type: 'website',

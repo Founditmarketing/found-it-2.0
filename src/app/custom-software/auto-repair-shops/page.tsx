@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `The AI-powered Tekmetric alternative shops own outright — work orders, parts board, and an AI that answers from your own records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/auto-repair-shops' },
   openGraph: {
-    title: 'The AI-Powered Tekmetric Alternative You Own | Found It Marketing',
+    title: 'The AI-Powered Tekmetric Alternative You Own | Found It Software',
     description:
       `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

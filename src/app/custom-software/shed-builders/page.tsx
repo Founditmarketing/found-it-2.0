@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `Custom shed builder software you own outright — orders, dealer lots, build queue, delivery, rent-to-own. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/shed-builders' },
   openGraph: {
-    title: 'Shed Builder Software You Own Outright | Found It Marketing',
+    title: 'Shed Builder Software You Own Outright | Found It Software',
     description:
       `One system for your whole yard — orders, dealer lots, build queue, delivery, and rent-to-own, fitted to how you actually run and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

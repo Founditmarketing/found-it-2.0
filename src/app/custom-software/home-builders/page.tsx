@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     `CoConstruct is being retired. Own a builder OS fitted to you — draws, selections, change orders — for ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/home-builders' },
   openGraph: {
-    title: 'CoConstruct Alternative for Home Builders | Found It Marketing',
+    title: 'CoConstruct Alternative for Home Builders | Found It Software',
     description:
       `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own — draws, selections, change orders, sub scheduling — before it goes dark. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',

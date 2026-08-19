@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.founditsoftware.com',
     siteName: 'Found It Marketing',
-    title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
+    title: 'Found It Software | Custom AI Software, Google Ads & Web Design',
     description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
     images: [
       {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Found It Marketing | Custom AI Software, Google Ads & Web Design',
+    title: 'Found It Software | Custom AI Software, Google Ads & Web Design',
     description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
     images: ['/og-image-v3.png'],
   },

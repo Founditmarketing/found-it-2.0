@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Done-for-you social media management from a team with 13+ years in marketing. Content, strategy, and paid social that drive calls and bookings. Alexandria, LA.',
   alternates: { canonical: '/social-media-management' },
   openGraph: {
-    title: 'Social Media Management for Local Businesses | Found It Marketing',
+    title: 'Social Media Management for Local Businesses | Found It Software',
     description:
       'A team with 13+ years in marketing running social for local businesses. Content + paid social that drives calls.',
     type: 'website',

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Google Ads management from a team with 13+ years in marketing. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Based in Alexandria, LA.',
   alternates: { canonical: '/google-ads-management' },
   openGraph: {
-    title: 'Google Ads Management for Local Businesses | Found It Marketing',
+    title: 'Google Ads Management for Local Businesses | Found It Software',
     description:
       'A team with 13+ years in marketing. Weekly optimization, conversion tracking, no contracts.',
     type: 'website',
