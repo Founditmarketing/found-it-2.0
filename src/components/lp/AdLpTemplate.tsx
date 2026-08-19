@@ -252,7 +252,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           {
             title: 'Your old system stays plugged in',
             detail:
-              'Your new system runs BESIDE your current software, every sale rung in both. The old one stays plugged in until the numbers match and you say go. You never bet the shop on a cutover.',
+              'You keep working your old system exactly like today — the new one fills itself alongside it, and we check the two against each other every night. Nothing switches until the numbers match and you say go. You never bet the shop on a cutover.',
           },
           {
             title: 'Who sees your numbers',
