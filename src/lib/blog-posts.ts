@@ -13,6 +13,74 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'nursery-management-software',
+        title: 'Nursery Management Software You Actually Own',
+        date: '2026-08-20',
+        excerpt: 'A hand-copied order missed 44 plants bound for Austin. That mistake is why this nursery management software exists — and why the nursery that runs it owns every line of it.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/roxanne-blog-hero-v1.png',
+        content: `
+<p>Roxanne runs a wholesale nursery in central Louisiana. Trucks, crews, brokers, thousands of plants on the ground. The orders come in as texts, emails, photos of handwriting, PDFs — fifteen brokers, fifteen formats.</p>
+<p>One week, a hand-copied order missed its last line. Forty-four plants nearly stayed behind while the truck left for Austin — a mistake that costs close to a thousand dollars in freight to fix. Healthy business. Wrong software.</p>
+<p>That order is why this system exists. We drew <a href="/blog/what-is-a-software-map">the map</a> the week it happened. This is what got built. Every screen below shows demo data — the screens are real, the numbers are not.</p>
+
+<h3>Every line, captured or held in red</h3>
+<p>She pastes the order in exactly as it came — text, email, whatever. The system reads it into clean lines against her real price list. The rule the whole app is built on: <strong>lines in equals lines captured.</strong> Eight lines in, eight accounted for. Anything it doesn't recognize stays on the order in red, in her words, instead of being silently dropped.</p>
+<p>A dropped line is how 44 plants miss a truck. A red line never rides on memory.</p>
+<p><img src="/images/blog/roxanne-blog-intake-v1.png" alt="Order intake in Roxanne's OS — an order pasted as received, 8 lines in and 8 captured, one unmatched line held in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p>PDFs and photos drop straight in — a reader transcribes them into the same box, and the same red-line rule checks every line. For phone orders there's a picker that works the way she talks: count first, then the plant. Enter drops the line in and puts her back on the count.</p>
+<p><img src="/images/blog/roxanne-blog-picker-v1.png" alt="The qty-first plant picker — type the count, then the plant, Enter adds the line (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Pull sheets the crew can hold</h3>
+<p>One click turns the order into a pull sheet: quantities, plants, sizes, trailer slot in big type. <strong>No prices.</strong> The crew doesn't need them, and a price list has no business lying in the gravel by the loading dock.</p>
+<p><img src="/images/blog/roxanne-blog-pull-sheet-v1.png" alt="A printed pull sheet — quantities, plants, sizes, and the trailer slot, with no prices anywhere (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The barn board</h3>
+<p>A big screen in the barn shows today's loads: every PO, its trailer slot, its status, updating on its own. The crew sees what's new, what's staged, what's loaded — without anyone walking a note across the yard.</p>
+<p><img src="/images/blog/roxanne-blog-crew-v1.png" alt="The crew board — today's loads with trailer slots and status, built for a big screen in the barn (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The availability sheet her competitors already send</h3>
+<p>Other nurseries email a weekly availability list. She never had a good way to make one. Now she picks what's ready off her own price list and the sheet builds itself — branded, grouped, with clickable plant photos, and honest <strong>"not ready"</strong> chips for what's coming but not sellable yet. Print it, or email it to every customer on her book in one click.</p>
+<p><img src="/images/blog/roxanne-blog-availability-sheet-v1.png" alt="The weekly availability sheet — plant photos, prices, and honest not-ready chips, ready to print or email to the whole customer list (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The broker book</h3>
+<p>Every supplier's offer sheet gets pasted in and lands in one table: every plant, every broker quoting it, <strong>cheapest first</strong>, next to what she actually paid. The spread column is the argument she takes into every price call.</p>
+<p><img src="/images/blog/roxanne-blog-broker-compare-v1.png" alt="The broker compare — every supplier's current quote per plant, cheapest first, beside what she really paid (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Cost per surviving plant</h3>
+<p>Nurseries lose stock. Plants die in the heat, in the wet weeks, on the truck. Dead plants change what the living ones cost you — and no off-the-shelf nursery software does that math. This one does. She logs each batch coming in and each loss, and the system computes her real number: <strong>cost per surviving plant</strong>, by plant, by source. The broker with the best sticker price is not always the cheapest broker.</p>
+<p><img src="/images/blog/roxanne-blog-inventory-v1.png" alt="Living inventory — batches in, losses logged, and the number nobody else computes: cost per surviving plant (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>P&amp;L on demand</h3>
+<p>Money in, money out, what you kept — by year, straight from her books, printable. No waiting on anyone.</p>
+<p><img src="/images/blog/roxanne-blog-pnl-v1.png" alt="Profit and loss on demand — money in, money out, what you kept, by year (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Who owes you, and the statement that collects it</h3>
+<p>Open invoices stand on one screen, oldest first, every morning. One click prints a branded statement for any customer — and a text-to-pay link means the money can move the moment somebody says "send it to me."</p>
+<p><img src="/images/blog/roxanne-blog-statement-v1.png" alt="A printable statement of account — every open invoice for one customer, aged, totaled, ready to send (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Ask your book a question</h3>
+<p>An assistant lives on every screen. Plain English in, her own numbers out — who owes the most, what's on the board, how this year compares. It answers from her book, not the internet.</p>
+<p><img src="/images/blog/roxanne-blog-assistant-v1.png" alt="The assistant answering from the nursery's own book — who owes the most, straight off the ledger (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Why generic software fails a nursery</h3>
+<p>QuickBooks plus spreadsheets is what most wholesale nurseries actually run on. It fails them in the same five places:</p>
+<p><strong>Inventory that dies.</strong> A widget on a shelf is still a widget next month. A tray of gardenias isn't. Counting pots without counting losses gives you a cost that's fiction.</p>
+<p><strong>Brokered and grown, side by side.</strong> Half the yard came off somebody's truck, half came out of her own ground. Two cost structures, one price list. Generic software sees one bucket.</p>
+<p><strong>Orders in every format.</strong> Landscapers text like landscapers. Any system that needs the customer to fill out a form correctly has already lost the order.</p>
+<p><strong>Crews need paper, not logins.</strong> The point of a pull sheet is that it works with wet gloves.</p>
+<p><strong>Availability changes weekly.</strong> What's ready, what's coming, what died — the sheet has to be honest this week, not last month.</p>
+
+<h3>She owns it</h3>
+<p>The code and the data are hers. One hundred percent. The system runs <strong>beside</strong> QuickBooks, matched to the penny, for as long as it takes — nothing switches until the numbers agree and she says go.</p>
+<p><strong>Nobody rents you your own business back.</strong></p>
+
+<h3>If you run a nursery — or anything with trucks and a yard</h3>
+<p>Take the <a href="/fit">two-minute fit check</a>. Or text <strong>MAP</strong> to <strong>(318) 713-3781</strong> — three questions, and we'll build you a free map of your business.</p>
+        `,
+    },
+    {
         slug: 'why-they-cant-compete',
         title: 'Why They Can’t Compete',
         date: '2026-08-16',
