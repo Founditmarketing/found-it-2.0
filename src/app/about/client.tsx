@@ -85,16 +85,16 @@ export default function AboutPage() {
           <div className="bg-card/10 border border-border/20 rounded-[2rem] p-8 lg:p-10 border-l-4 border-l-primary">
             <div className="space-y-5 text-base lg:text-lg text-muted-foreground font-medium leading-relaxed">
               <p>
-                I started Found It Marketing because I was tired of watching good local businesses get burned by agencies. Long contracts that trapped them. Junior account managers learning on their dime. Ad accounts and websites held hostage the moment they tried to leave.
+                Last July, QuickBooks lost track of $99,000 of my own money. My books matched the bank to the penny — the software just lost it. I only caught it because building software is my whole job. That was the day this stopped being a marketing company.
               </p>
               <p>
-                So we built the opposite. At Found It, <span className="text-foreground font-bold">you own everything</span> — your ad accounts, your code, your data. There are no long-term contracts; we earn your business every single month by getting results. A senior strategist works on your account, not an intern Googling answers. And because we&apos;re based right here in Alexandria, we&apos;ll actually drive to your office and sit across the table from you.
+                Now I build one thing: <span className="text-foreground font-bold">software that local businesses own.</span> One system that runs the whole operation — the tickets, the invoices, the books, the phone — fitted to how you actually work. The code and the data are yours, written into a two-page contract you can read without a lawyer. Your new system runs beside the old one, matched to the penny, until you say go. <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
               </p>
               <p>
-                That approach has taken us a long way. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company.
+                Today, {TRACK_RECORD.softwareCustomers} Louisiana businesses run their day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand — and they stay.
               </p>
               <p>
-                But the thing I&apos;m proudest of isn&apos;t an award. It&apos;s that our clients stay because they want to — not because a contract makes them. That&apos;s the whole point.
+                We&apos;re in Alexandria. I&apos;ll drive to your shop, sit across the table, and show you your own numbers on a screen before I ask you for anything.
               </p>
             </div>
             <p className="mt-6 text-sm font-black uppercase italic tracking-tighter text-primary">
