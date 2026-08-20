@@ -27,6 +27,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/who-we-build-for', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/fit', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/seminar', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
 
   // Service authority pillars (organic / GEO) — primary public service pages

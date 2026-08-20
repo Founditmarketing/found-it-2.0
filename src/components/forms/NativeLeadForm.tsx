@@ -47,6 +47,17 @@ export interface NativeLeadFormProps {
   /** Extra attribution lines appended to the message trail (additive — the
    *  /api/lead payload shape is unchanged). The fit check rides here. */
   trailLines?: string[];
+  /** Label over the message box. Default: 'What do you need?' — event pages
+   *  (the seminar) ask 'What does the business do?' instead. */
+  messageLabel?: string;
+  /** Placeholder inside the message box. */
+  messagePlaceholder?: string;
+  /** Redirect to /thank-you after success (fires the Ads URL-rule
+   *  conversion). Pass false to stay on the success card — pages whose
+   *  promise is a TEXT, not a call-back (the seminar), would break their
+   *  promise on the generic thank-you copy. trackLead still fires either
+   *  way, so qualified-pixel gating is unchanged. */
+  redirectToThankYou?: boolean;
   className?: string;
 }
 
@@ -71,6 +82,9 @@ export function NativeLeadForm({
   qualify = 'optional',
   initialBand,
   trailLines,
+  messageLabel = 'What do you need?',
+  messagePlaceholder = 'Tell us how your business runs today — the software, the paper, the workarounds.',
+  redirectToThankYou = true,
   className = '',
 }: NativeLeadFormProps) {
   const uid = useId();
@@ -159,10 +173,12 @@ export function NativeLeadForm({
 
       trackLead(source, band ? { qualified: band.qualified } : undefined);
       setStatus('success');
-      // Full page load (not SPA nav) so the /thank-you URL-rule Ads conversion fires.
-      window.setTimeout(() => {
-        window.location.href = '/thank-you';
-      }, 900);
+      if (redirectToThankYou) {
+        // Full page load (not SPA nav) so the /thank-you URL-rule Ads conversion fires.
+        window.setTimeout(() => {
+          window.location.href = '/thank-you';
+        }, 900);
+      }
     } catch {
       setStatus('error');
       setErrorMsg('Something went wrong sending that.');
@@ -331,7 +347,7 @@ export function NativeLeadForm({
 
         <div className="mb-6">
           <label htmlFor={`${uid}-message`} className={labelClass}>
-            What do you need?{' '}
+            {messageLabel}{' '}
             <span className="opacity-50 normal-case tracking-normal">(optional)</span>
           </label>
           <textarea
@@ -341,7 +357,7 @@ export function NativeLeadForm({
             maxLength={4000}
             value={fields.message}
             onChange={update('message')}
-            placeholder="Tell us how your business runs today — the software, the paper, the workarounds."
+            placeholder={messagePlaceholder}
             className={`${inputClass} resize-y ${compact ? 'min-h-[64px]' : 'min-h-[110px]'}`}
           />
         </div>
