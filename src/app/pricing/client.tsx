@@ -14,11 +14,15 @@ const ease = [0.16, 1, 0.3, 1] as const;
    OS_PRICING is the site's ONLY sticker price; marketing rows carry fee
    MODELS, not invented stickers. */
 
+/* Outcome-first, one objection dead per line (8/19, Trevor: "we can do
+   better"). Declaratives only — restraint law bans staging the buyer's
+   questions in his own voice. The stop-paying line lives in the rent-paradox
+   block below, not here (once per page). */
 const osFeatures = [
-  'Starts with the software map — a $2,000 engagement on its own, yours before you pay anything',
-  'Runs beside your old system until the books match to the penny',
-  'You own the code and the data — if we part ways, the system stays yours',
-  'Month-to-month — no contracts',
+  'The map comes first — the app we’d build if we owned your company, on one page. A $2,000 engagement on its own, yours before you pay anything',
+  'You keep working your old software exactly like today — the new system fills itself beside it until the numbers match and you say go',
+  'Leave with 30 days’ notice and the system leaves with you — running',
+  'Month to month. The system earns the next month, every month',
 ];
 
 /* Contained marketing pricing: compact rows, one link each. */
@@ -81,8 +85,10 @@ export default function PricingClient() {
                 + {OS_PRICING.setup} <span className="text-sm font-bold not-italic">{OS_PRICING.setupLabel}</span>
               </p>
             </div>
-            <p className="text-base lg:text-lg font-black text-foreground italic tracking-tight max-w-xs lg:text-right">
-              One job: {OS_PRICING.promise}
+            {/* The promise stands alone — a declaration, not a labeled
+                footnote. Verbatim, once on this page. */}
+            <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter max-w-sm lg:text-right leading-tight">
+              {OS_PRICING.promise}
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2 mb-8">
