@@ -91,7 +91,7 @@ export default function AboutPage() {
                 Now I build one thing: <span className="text-foreground font-bold">software that local businesses own.</span> One system that runs the whole operation — the tickets, the invoices, the books, the phone — fitted to how you actually work. The code and the data are yours, written into a two-page contract you can read without a lawyer. Your new system runs beside the old one, matched to the penny, until you say go. <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
               </p>
               <p>
-                Today, {TRACK_RECORD.softwareCustomers} Louisiana businesses run their day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand — and they stay.
+                Today, real Louisiana businesses run their whole day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand — and they stay.
               </p>
               <p>
                 We&apos;re in Alexandria. I&apos;ll drive to your shop, sit across the table, and show you your own numbers on a screen before I ask you for anything.
