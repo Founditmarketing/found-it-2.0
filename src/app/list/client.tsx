@@ -76,6 +76,7 @@ const ITEMS_GATED: Item[] = [
 const CLOSERS: string[] = [
   'Now the catch. His rule says there has to be one.',
   "Here it is: none of this comes off a shelf. Each one gets built for one business — yours — and you own it. Code and data. Month to month. If we ever part ways, it all leaves with you.",
+  'Hunt for the trap. Take your time. The catch cuts the other way.',
   'Nobody rents you your own business back.',
 ];
 
@@ -364,6 +365,10 @@ export default function ListClient() {
 
           <IncomingBubble>If something sounds too good to be true, it generally is.</IncomingBubble>
           <OutgoingBubble>Fair. Come watch it run.</OutgoingBubble>
+          <OutgoingBubble>
+            That rule has kept a lot of good men from getting robbed. Keep it. Point it at
+            what&rsquo;s below — every line is running in a real Louisiana business right now.
+          </OutgoingBubble>
 
           {ITEMS_OPEN.map((item) => (
             <ItemBubble key={item.head} item={item} />
@@ -380,6 +385,8 @@ export default function ListClient() {
               className="space-y-3"
             >
               <p className="text-right text-[11px] font-medium text-[#8e8e93] px-1">Delivered</p>
+
+              <OutgoingBubble>Now the money.</OutgoingBubble>
 
               {ITEMS_GATED.map((item) => (
                 <ItemBubble key={item.head} item={item} />
