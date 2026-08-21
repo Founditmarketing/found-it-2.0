@@ -18,9 +18,9 @@ const AUDIT_STATS = [
 
 /** Verbatim from Cory's on-camera clip — never paraphrase, never extend. */
 const CORY_LINES = [
-  'They put my whole business in one system. It went through my books.',
-  'Me and Found It — we’ve been together since the beginning.',
-  'I think that’s the best part. It’s mine. I own it. The code, the data — nobody’s renting me my own business back.',
+  'They put my whole business in one system and it read my books to the penny.',
+  'Found almost two hundred grand sitting in open receivables — and a $19,000 bookkeeping error my old software never even seen.',
+  'It’s mine. The code, the data — mine.',
 ];
 
 export default function EdwardsRoofingCaseStudy() {
@@ -54,11 +54,11 @@ export default function EdwardsRoofingCaseStudy() {
           <video
             controls
             preload="none"
-            poster="/cory-ownership-poster-v3.jpg"
-            onPlay={() => trackVideoPlay('/cory-ownership-v3.mp4#case-study')}
+            poster="/cory-ownership-poster-v4.jpg"
+            onPlay={() => trackVideoPlay('/cory-ownership-v4.mp4#case-study')}
             className="w-full rounded-2xl border border-border/25 shadow-2xl shadow-black/50"
           >
-            <source src="/cory-ownership-v3.mp4" type="video/mp4" />
+            <source src="/cory-ownership-v4.mp4" type="video/mp4" />
           </video>
           <div>
             <blockquote className="space-y-4">
@@ -76,7 +76,7 @@ export default function EdwardsRoofingCaseStudy() {
               ))}
             </blockquote>
             <p className="mt-5 text-[11px] font-black uppercase tracking-[0.18em] text-white/40">
-              Cory Edwards · Edwards Roofing · on camera, 20 seconds
+              Cory Edwards · Edwards Roofing · on camera, 38 seconds
             </p>
           </div>
         </div>

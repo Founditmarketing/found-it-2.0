@@ -142,7 +142,7 @@ export default function CaseStudiesPage() {
           <div className="grid md:grid-cols-2 items-stretch">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/cory-ownership-poster-v3.jpg"
+              src="/cory-ownership-poster-v4.jpg"
               alt="Cory Edwards of Edwards Roofing on camera"
               className="w-full h-full object-cover min-h-[220px]"
             />

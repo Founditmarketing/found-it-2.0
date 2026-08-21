@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       'The penny-audit surfaced $195,882.75 in open receivables and caught a $19,000 bookkeeping error the old software never saw. Cory owns the code and the data.',
     type: 'article',
     url: 'https://www.founditsoftware.com/case-studies/edwards-roofing',
-    images: [{ url: '/cory-ownership-poster-v3.jpg', width: 1920, height: 1080 }],
+    images: [{ url: '/cory-ownership-poster-v4.jpg', width: 1920, height: 1080 }],
   },
 };
 
