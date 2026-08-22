@@ -654,7 +654,7 @@ export default function ListClient() {
           <p className="font-heading text-2xl sm:text-[28px] font-bold italic tracking-tight leading-snug text-foreground">
             &ldquo;If something sounds too good to be true, it generally is.&rdquo;
           </p>
-          <p className="mt-3 text-sm text-muted-foreground font-medium">— an HVAC contractor</p>
+          <p className="mt-3 text-sm text-muted-foreground font-medium">— Barry, ACA Residential</p>
         </motion.div>
 
         {/* ─── Intro ─── */}
@@ -741,7 +741,7 @@ export default function ListClient() {
               {/* ─── The catch ─── */}
               <div className="pt-4 border-t border-primary/20">
                 <h2 className="font-heading text-3xl font-black uppercase italic tracking-tighter text-foreground mb-5">
-                  The HVAC guy was right.
+                  Barry was right.
                 </h2>
                 <p className="text-[17px] leading-relaxed text-foreground/85">
                   It does sound like a lie. That&rsquo;s why I said watch, don&rsquo;t believe. Now the
