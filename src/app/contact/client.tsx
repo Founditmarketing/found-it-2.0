@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Clock, CalendarCheck } from 'lucide-react';
 import { BUSINESS, LINKS } from '@/lib/site';
+import { FounderByline } from '@/components/FounderByline';
 import { ContactForm } from './ContactForm';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -38,6 +39,11 @@ export default function ContactClient() {
             No junior account managers. A straight answer on what would work for your business —
             including whether we&apos;re the right fit to build it — usually within two hours.
           </p>
+          <FounderByline
+            align="center"
+            className="mt-7"
+            line="The one who calls you back — not a rep."
+          />
         </motion.div>
 
         {/* Form + direct contact */}

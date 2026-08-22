@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
+import { FounderByline } from '@/components/FounderByline';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -509,7 +510,11 @@ export default function HomePage() {
             <p className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.92] text-foreground">
               &ldquo;We want to free the world from rental software.&rdquo;
             </p>
-            <p className="mt-5 text-xs font-black uppercase tracking-[0.25em] text-muted-foreground">— Trevor Ruby, Founder</p>
+            <FounderByline
+              align="center"
+              className="mt-7"
+              line="Founder, Found It Software. Builds every system himself."
+            />
             <p className="mt-6 text-base lg:text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
               Off-the-shelf software is off the rack. Yours is made to measure.
             </p>

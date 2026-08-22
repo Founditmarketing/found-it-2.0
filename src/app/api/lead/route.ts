@@ -100,7 +100,7 @@ export async function POST(req: Request) {
             <p style="margin:0 0 12px">Hey ${first},</p>
             <p style="margin:0 0 12px">Your info just landed with Found It Software — Trevor will reach out shortly, usually within 2 hours during the day.</p>
             <p style="margin:0 0 12px">On the call: a free 30-minute software map — the app we&rsquo;d build if we owned your company. You keep the map either way, hire us or don&rsquo;t.</p>
-            <p style="margin:0">— Found It Software, Alexandria LA</p>
+            <p style="margin:0">— Trevor Ruby, Found It Software, Alexandria LA</p>
           `,
         });
         confirmationEmailed = true;

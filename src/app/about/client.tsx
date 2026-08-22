@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { GuideCta } from '@/components/GuideCta';
+import { FounderByline } from '@/components/FounderByline';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { AWARD, TRACK_RECORD, BUSINESS } from '@/lib/site';
 
@@ -51,6 +52,11 @@ export default function AboutPage() {
           className="mb-20"
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Our Story</p>
+          <FounderByline
+            size="lg"
+            className="mb-8"
+            line="Founder. Builds every system himself, in Alexandria, Louisiana."
+          />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             We Build the Software.{' '}
             <span className="text-primary">You Own It.</span>

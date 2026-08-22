@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
+import { FounderByline } from '@/components/FounderByline';
 import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 /* The live AI secretary, for posts that opt in via `voice` on the post
@@ -77,6 +78,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                 {post.title}
               </h1>
               <time dateTime={post.date} className="text-muted-foreground"><ClientSideFormattedDate dateString={post.date} /></time>
+              <FounderByline
+                align="center"
+                className="mt-6"
+                line="Founder, Found It Software. Builds every system himself."
+              />
             </header>
         </div>
 

@@ -11,6 +11,7 @@ import { LPNav } from '@/components/lp/LPNav';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
+import { FounderByline } from '@/components/FounderByline';
 import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
 import { OS_PRICING, MAP_VALUE } from '@/lib/site';
@@ -138,6 +139,16 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
+
+      {/* The face (8/19): the byline, not the pitch — the 8/14 order that
+          pulled the founder self-pitch video stands; Cory below is the proof,
+          Trevor is the author who signs it. */}
+      <div className="max-w-3xl mx-auto px-4 -mt-2 mb-6">
+        <FounderByline
+          align="center"
+          line="Builds every system himself — and he’s the one who calls you back."
+        />
+      </div>
 
       {/* Proof directly under the hero — a named local business and numbers
           too specific to be invented. Specificity beats skepticism. */}
