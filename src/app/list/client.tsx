@@ -781,6 +781,8 @@ export default function ListClient() {
             pageSlug="too-good-list"
             source={VOICE_SOURCE}
             opener={VOICE_OPENER}
+            idleTitle="Tell her the number"
+            idleLines={['Tap once. Say the number, your name, and your cell — Trevor calls you back.']}
             fallbackHref="/foundit-os#lead-form"
             sticky
             className="mt-6"
