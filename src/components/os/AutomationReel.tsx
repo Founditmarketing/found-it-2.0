@@ -690,7 +690,7 @@ export function AutomationReel({ className = '' }: { className?: string }) {
     <div ref={ref} className={className}>
       {/* ── The stage ── */}
       <motion.div drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0.06} onDragEnd={onDragEnd} className="select-none">
-        <div ref={stageRef} className="relative mx-auto h-[680px] max-w-[1040px] overflow-hidden rounded-2xl border border-white/10 bg-card/20 md:h-[560px]">
+        <div ref={stageRef} className="relative mx-auto h-[740px] max-w-[1040px] overflow-hidden rounded-2xl border border-white/10 bg-card/20 md:h-[560px]">
           {/* top bar: the clock narrates */}
           <div className="flex h-11 items-center justify-between border-b border-white/10 px-4 md:px-6">
             <div className="flex items-center gap-2.5">
@@ -699,7 +699,7 @@ export function AutomationReel({ className = '' }: { className?: string }) {
             </div>
             <span className="font-mono text-[11px] text-faint">Demo books · real behavior</span>
           </div>
-          <div className="grid h-[calc(100%-44px)] grid-rows-[46fr_54fr] md:grid-cols-[56fr_44fr] md:grid-rows-none">
+          <div className="grid h-[calc(100%-44px)] grid-rows-[45fr_55fr] md:grid-cols-[56fr_44fr] md:grid-rows-none">
             {/* THE WORLD */}
             <div className="relative overflow-hidden p-4 md:p-6">
               <AnimatePresence mode="wait">
@@ -711,7 +711,7 @@ export function AutomationReel({ className = '' }: { className?: string }) {
             {/* YOUR BOOKS */}
             <div className="relative flex flex-col overflow-hidden border-t border-white/10 bg-white/[0.03] p-4 md:border-l md:border-t-0 md:p-6">
               <p className={`${label} mb-3 text-primary`}>Your books</p>
-              <div className="relative min-h-0 flex-1">
+              <div className="relative min-h-0 flex-1 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div key={bodyKey} {...cut} className="h-full">
                     <scene.Books step={step} live={live} reg={reg} />
