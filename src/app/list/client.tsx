@@ -1,16 +1,18 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
-import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
+import { trackLead, trackFormStart, trackCTAClick, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
-   paywall-style gate after item 03. Copy law: list copy is FINAL, no client
-   names, never any refund/guarantee language. The gate posts to the house
-   /api/lead pipe — same rails, same inbox, same pixels. */
+   paywall-style gate after item 03. Copy law: list copy is FINAL; the only
+   client name is Cory Edwards and every figure is a sanctioned one already
+   public on the Edwards case study; never any refund/guarantee language,
+   never a price. The gate costs ONE thing — a cell number — and posts to
+   the house /api/lead pipe: same rails, same inbox, same pixels. The page
+   ends on text, not a button: "text MAP to (318) 713-3781". */
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -37,7 +39,7 @@ const ITEMS_OPEN: Item[] = [
   {
     n: '03',
     head: 'Your books post themselves.',
-    body: 'Ring the sale; the ledger entry writes itself, clean enough for your accountant. Done right, they match QuickBooks to the penny.',
+    body: 'Ring the sale; the ledger entry writes itself, clean enough for your accountant. At one dealership the new books matched QuickBooks to the penny across 37 accounts.',
   },
 ];
 
@@ -46,12 +48,12 @@ const ITEMS_GATED: Item[] = [
   {
     n: '04',
     head: 'Your prices protect themselves.',
-    body: "Load your suppliers' price files and nothing sells below cost again. You approve every fix with your thumb.",
+    body: "Load your suppliers' price files and nothing sells below cost again. One parts counter had about 1,200 stale prices flagged in its first week. The owner approves fixes with his thumb.",
   },
   {
     n: '05',
     head: 'Your lost money gets found.',
-    body: 'Forgotten jobs, quotes nobody chased, invoices aging in a drawer — pulled onto one screen. This one found a tree service $268,000.',
+    body: "Forgotten jobs, quotes nobody chased, invoices aging in a drawer — pulled onto one screen. It found a tree service $268,000. It found Cory Edwards of Edwards Roofing $195,882.75 he'd already earned, and a $19,000 bookkeeping error his old software never saw.",
   },
   {
     n: '06',
@@ -75,18 +77,23 @@ const ITEMS_GATED: Item[] = [
   },
 ];
 
-/** Renders an item body, giving the $268,000 figure the accent it earns. */
+/** Dollar figures — the receipts — get the accent they earn. Split keeps the
+    captured figures in the array; the anchored test tells them from prose. */
+const MONEY_SPLIT = /(\$[\d,]+(?:\.\d{2})?)/;
+const IS_MONEY = /^\$[\d,]+(?:\.\d{2})?$/;
+
 function ItemBody({ body }: { body: string }) {
-  const MONEY = '$268,000';
-  if (!body.includes(MONEY)) {
-    return <p className="text-[17px] leading-relaxed text-foreground/75">{body}</p>;
-  }
-  const [before, after] = body.split(MONEY);
   return (
     <p className="text-[17px] leading-relaxed text-foreground/75">
-      {before}
-      <span className="font-bold text-primary">{MONEY}</span>
-      {after}
+      {body.split(MONEY_SPLIT).map((part, i) =>
+        IS_MONEY.test(part) ? (
+          <span key={i} className="font-bold text-primary">
+            {part}
+          </span>
+        ) : (
+          part
+        ),
+      )}
     </p>
   );
 }
@@ -122,12 +129,18 @@ function Entry({ item, animate = false }: { item: Item; animate?: boolean }) {
 const gateInputClass =
   'w-full rounded-xl bg-white/[0.04] border border-white/15 px-4 py-3.5 text-[15px] text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary transition-colors';
 
+/** A plausible US cell: ten digits, or eleven with a leading country code 1. */
+function isPlausibleUsPhone(raw: string): boolean {
+  const digits = raw.replace(/\D/g, '');
+  return digits.length === 10 || (digits.length === 11 && digits.startsWith('1'));
+}
+
 function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
   const uid = useId();
   const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [started, setStarted] = useState(false);
-  const [fields, setFields] = useState({ name: '', phone: '', email: '', hp: '' });
+  const [fields, setFields] = useState({ phone: '', hp: '' });
 
   const update =
     (key: keyof typeof fields) => (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -137,18 +150,10 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
     e.preventDefault();
     if (status === 'submitting') return;
 
-    if (!fields.name.trim() || !fields.phone.trim()) {
+    // One field, one check — the gate costs a cell number and nothing else.
+    if (!isPlausibleUsPhone(fields.phone)) {
       setStatus('error');
-      setErrorMsg('Name and cell are required — that is the whole price.');
-      return;
-    }
-
-    // Email is optional, but the API rejects malformed non-empty emails —
-    // never let a valid name+phone lead die over an optional field.
-    const email = fields.email.trim();
-    if (email && !/^\S+@\S+\.\S{2,}$/.test(email)) {
-      setStatus('error');
-      setErrorMsg("That email doesn't look right — fix it or leave it blank.");
+      setErrorMsg("That doesn't look like a US cell — ten digits, please.");
       return;
     }
 
@@ -168,11 +173,11 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        // Cell-only on purpose: /api/lead takes name and email as optional,
+        // so neither is sent — no placeholder name, nothing faked.
         body: JSON.stringify({
           source: SOURCE,
-          name: fields.name.trim(),
           phone: fields.phone.trim(),
-          email,
           message,
           hp: fields.hp,
         }),
@@ -215,58 +220,28 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
         className="relative mt-6 rounded-2xl border border-primary/25 bg-card/15 backdrop-blur-xl p-6 sm:p-8"
       >
         <h3 className="font-heading text-2xl font-black tracking-tight text-foreground leading-snug">
-          The other six cost your name and number.
+          The other six cost your cell number.
         </h3>
         <p className="mt-2 mb-6 text-[15px] text-muted-foreground font-medium">
-          Still free — I just want to know who&rsquo;s reading.
+          That&rsquo;s it. No form, no spam. The October edition comes by text when it prints.
         </p>
 
-        <div className="space-y-3">
-          <label htmlFor={`${uid}-name`} className="sr-only">
-            Name
-          </label>
-          <input
-            id={`${uid}-name`}
-            name="name"
-            type="text"
-            autoComplete="name"
-            required
-            maxLength={200}
-            value={fields.name}
-            onChange={update('name')}
-            placeholder="Name"
-            className={gateInputClass}
-          />
-          <label htmlFor={`${uid}-phone`} className="sr-only">
-            Cell
-          </label>
-          <input
-            id={`${uid}-phone`}
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            required
-            maxLength={40}
-            value={fields.phone}
-            onChange={update('phone')}
-            placeholder="Cell"
-            className={gateInputClass}
-          />
-          <label htmlFor={`${uid}-email`} className="sr-only">
-            Email
-          </label>
-          <input
-            id={`${uid}-email`}
-            name="email"
-            type="email"
-            autoComplete="email"
-            maxLength={254}
-            value={fields.email}
-            onChange={update('email')}
-            placeholder="Email (optional)"
-            className={gateInputClass}
-          />
-        </div>
+        <label htmlFor={`${uid}-phone`} className="sr-only">
+          Cell
+        </label>
+        <input
+          id={`${uid}-phone`}
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          required
+          maxLength={40}
+          value={fields.phone}
+          onChange={update('phone')}
+          placeholder="Cell"
+          className={gateInputClass}
+        />
 
         {/* Honeypot — humans never see this; bots fill it and get silently
             dropped server-side. Same field name as the house form. */}
@@ -310,9 +285,6 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
             'Unlock the list'
           )}
         </button>
-        <p className="mt-3 text-center text-xs text-muted-foreground/80">
-          No spam. The October edition comes to you automatically.
-        </p>
       </form>
     </div>
   );
@@ -429,6 +401,27 @@ export default function ListClient() {
                 <Entry key={item.n} item={item} animate={justUnlocked} />
               ))}
 
+              {/* ─── Things we won't do — the anti-hype beat, kept quiet ─── */}
+              <div className="rounded-2xl border border-white/10 bg-card/10 px-6 py-6 sm:px-7">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">
+                  Things we won&rsquo;t do
+                </p>
+                <ul className="space-y-3 text-[15px] leading-relaxed text-foreground/70">
+                  <li>
+                    <span className="font-bold text-foreground/90">Payroll.</span> Your payroll
+                    stays where it is. We don&rsquo;t touch it.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground/90">Taxes.</span> We track them to
+                    the penny. Filing stays with your CPA.
+                  </li>
+                  <li>
+                    <span className="font-bold text-foreground/90">Promises.</span> Nothing here
+                    is a projection. Every line is running today.
+                  </li>
+                </ul>
+              </div>
+
               {/* ─── The catch ─── */}
               <div className="pt-4 border-t border-primary/20">
                 <h2 className="font-heading text-3xl font-black uppercase italic tracking-tighter text-foreground mb-5">
@@ -450,34 +443,28 @@ export default function ListClient() {
                   The October edition will be longer. This stuff doesn&rsquo;t slow down.
                 </p>
               </div>
+
+              {/* ─── The ending — text, not a button. No box, no CTA band.
+                  Copy is FINAL. The number is the permanent text-MAP line
+                  (Twilio → cell); a person answers it. ─── */}
+              <p className="text-[17px] leading-relaxed text-foreground/85">
+                We take on a handful of businesses a quarter. Not everybody — the fit has to be
+                right on both sides. If you read this far and recognized yourself, text the word
+                MAP to{' '}
+                <a
+                  href="sms:+13187133781?&body=MAP"
+                  onClick={() => trackCTAClick('list_text_map')}
+                  className="text-foreground underline underline-offset-4 decoration-foreground/40 hover:decoration-foreground whitespace-nowrap transition-colors"
+                >
+                  (318) 713-3781
+                </a>
+                . A person answers.
+              </p>
             </motion.div>
           ) : (
             <GateCard onUnlocked={handleUnlocked} />
           )}
         </div>
-
-        {/* ─── CTA band, only once the whole list is read ─── */}
-        {unlocked && (
-          <motion.div
-            initial={justUnlocked ? { opacity: 0, y: 20 } : false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: justUnlocked ? 0.3 : 0, duration: 0.7, ease }}
-            className="mt-16 bg-card/15 backdrop-blur-xl border border-primary/25 rounded-2xl p-6 sm:p-8 text-center"
-          >
-            <h2 className="font-heading text-xl sm:text-2xl font-black uppercase italic tracking-tighter text-foreground mb-4 leading-tight">
-              Want one of these running in your business?
-            </h2>
-            <Link
-              href="/foundit-os#lead-form"
-              className="inline-flex w-full items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-            >
-              Get My Software Map
-            </Link>
-            <p className="mt-4 text-sm text-muted-foreground font-medium">
-              Or text or call Trevor: <TrackedPhoneLink />
-            </p>
-          </motion.div>
-        )}
       </article>
     </main>
   );
