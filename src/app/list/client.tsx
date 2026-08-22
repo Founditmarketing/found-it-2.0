@@ -613,7 +613,15 @@ export default function ListClient() {
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
             <FounderByline line="Found It Software, Alexandria LA" />
-            <span className="text-xs text-muted-foreground/80 font-medium uppercase tracking-widest">A 2-minute read</span>
+            <span className="text-xs text-muted-foreground/80 font-medium uppercase tracking-widest">
+              A 2-minute read &mdash;{' '}
+              <a
+                href="#watch"
+                className="text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+              >
+                or watch for yourself below
+              </a>
+            </span>
           </div>
         </motion.header>
 
@@ -682,7 +690,8 @@ export default function ListClient() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, ease }}
-          className="mt-14"
+          id="watch"
+          className="mt-14 scroll-mt-28"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
             Don&rsquo;t take my word for it
