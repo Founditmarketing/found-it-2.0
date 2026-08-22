@@ -14,6 +14,9 @@ const REALTIME_VOICE = 'marin';
 
 /** Longest page opener the widget may hand her — one spoken sentence or two. */
 const VOICE_OPENER_MAX_CHARS = 240;
+/** Longest page script she'll read aloud (narrate mode, 8/22 — the List read to
+    people who'd rather listen). About ninety seconds of speech. */
+const VOICE_SCRIPT_MAX_CHARS = 2600;
 
 /* ─── Her persona ───
    This IS the product's voice — she demos the AI secretary Trevor builds
@@ -168,6 +171,11 @@ export async function POST(req: Request) {
   // greeting rule; price, promise, lead rules and every hard limit above
   // stay exactly as written.
   let opener = '';
+  // Page script (optional, narrate mode): the page's own words, read aloud
+  // first. Whitespace collapsed, quotes neutralized, capped. It replaces the
+  // first-turn rule and stretches the clock by a minute; every other rule —
+  // price, promise, lead rules, every hard limit — stays exactly as written.
+  let script = '';
   try {
     const body = await req.json();
     if (typeof body?.profile === 'string' && body.profile in VOICE_PROFILES) {
@@ -180,9 +188,19 @@ export async function POST(req: Request) {
         .trim()
         .slice(0, VOICE_OPENER_MAX_CHARS);
     }
+    if (typeof body?.script === 'string') {
+      script = body.script
+        .replace(/[ \t]+/g, ' ')
+        .replace(/\r?\n\s*\n/g, '\n')
+        .replace(/["`]/g, "'")
+        .trim()
+        .slice(0, VOICE_SCRIPT_MAX_CHARS);
+    }
   } catch { /* no body — default */ }
   const { noise_reduction, turn_detection } = VOICE_PROFILES[profile];
-  const instructions = opener
+  const instructions = script
+    ? `${INSTRUCTIONS}\n\nPAGE SCRIPT (replaces the "Open your very first turn" rule and the three-minute clock — every other rule above still applies)\n- This call is capped at about four minutes, not three. Start wrapping up past the three-and-a-half-minute mark.\n- Your very first turn: one short hello, say you're Found It's AI secretary in half a sentence, then read the SCRIPT below aloud — warm and unhurried, like reading to a friend in his truck. Read every numbered item, in order, with a short natural pause between items. No commentary between items, no skipping, no summarizing, no adding. Say the dollar figures exactly as written.\n- If the listener talks while you read, stop, answer them, then ask if they want you to pick up where you left off.\n- When you reach the end of the SCRIPT, ask its closing question and take their name and number with capture_lead the way you always do.\n\nSCRIPT:\n${script}`
+    : opener
     ? `${INSTRUCTIONS}\n\nPAGE OPENER (replaces only the "Open your very first turn" rule — every other rule above still applies)\n- Open your very first turn with a brief greeting, introduce yourself as Found It's AI secretary, then say some version of: "${opener}" Keep it to three short sentences.`
     : INSTRUCTIONS;
 

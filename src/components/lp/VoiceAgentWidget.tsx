@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Mic, MicOff, PhoneOff, ArrowDown, MessageSquare, WifiOff } from 'lucide-react';
+import { Mic, MicOff, PhoneOff, ArrowDown, ArrowUp, MessageSquare, WifiOff, Play } from 'lucide-react';
 import { trackLead, trackCTAClick, getStoredUTMs } from '@/lib/analytics';
 import {
   REALTIME_CALLS_URL,
@@ -144,11 +144,28 @@ interface VoiceAgentWidgetProps {
   className?: string;
   /** Where the ended/busy/denied states send people. Ad LPs have #lp-form; article pages pass a real URL. */
   fallbackHref?: string;
+  /** 'talk' (default): she greets and converses. 'narrate' (8/22): she reads
+   *  `script` aloud first — the page, for people who'd rather listen — then
+   *  converses and takes the callback like always. */
+  mode?: 'talk' | 'narrate';
+  /** The page's own words for narrate mode. Rides to /api/voice/session. */
+  script?: string;
+  /** Idle-card copy overrides (narrate cards say "Let her read it to you"). */
+  idleTitle?: string;
+  idleLines?: string[];
+  /** Follow the reader: while she's on the line and this card is scrolled
+   *  off-screen, a slim bar pins to the bottom of the viewport. */
+  sticky?: boolean;
 }
 
 /** One concurrent session per visitor — module-level so a double-tap or a
  *  second widget instance can never open two paid calls at once. */
 let sessionActive = false;
+const activeListeners = new Set<(active: boolean) => void>();
+function setSessionActive(active: boolean) {
+  sessionActive = active;
+  activeListeners.forEach((fn) => fn(active));
+}
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
@@ -168,12 +185,23 @@ const MIC_REOPEN_TAIL_MS = 400;
  *  ever missed, the mic comes back on its own. */
 const MIC_MAX_MUTE_MS = 20_000;
 
-export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, className = '', fallbackHref = '#lp-form' }: VoiceAgentWidgetProps) {
+export function VoiceAgentWidget({
+  pageSlug, source: sourceOverride, opener, className = '', fallbackHref = '#lp-form',
+  mode = 'talk', script, idleTitle, idleLines, sticky = false,
+}: VoiceAgentWidgetProps) {
+  // Narration needs the extra minute: ~90s of reading, then the conversation.
+  const maxSeconds = mode === 'narrate' ? VOICE_SESSION_MAX_SECONDS + 60 : VOICE_SESSION_MAX_SECONDS;
+  const lines = idleLines && idleLines.length ? idleLines : IDLE_LINES;
   const [phase, setPhase] = useState<Phase>('idle');
+  /** Another card on this page has her on the line — this one steps aside. */
+  const [otherActive, setOtherActive] = useState(false);
+  /** Is this card on screen? (drives the sticky follow-bar) */
+  const [cardVisible, setCardVisible] = useState(true);
+  const cardRef = useRef<HTMLDivElement | null>(null);
   const [captions, setCaptions] = useState<CaptionLine[]>([]);
   const [herTalking, setHerTalking] = useState(false);
   const [youTalking, setYouTalking] = useState(false);
-  const [secondsLeft, setSecondsLeft] = useState(VOICE_SESSION_MAX_SECONDS);
+  const [secondsLeft, setSecondsLeft] = useState(maxSeconds);
   const [endReason, setEndReason] = useState<EndReason>('user');
   const [answerCard, setAnswerCard] = useState<AnswerCard | null>(null);
   const [idleLine, setIdleLine] = useState(0);
@@ -303,7 +331,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
     setHerTalking(false);
     setYouTalking(false);
     setMissed(false);
-    sessionActive = false;
+    setSessionActive(false);
   }, []);
 
   const endSession = useCallback((reason: EndReason) => {
@@ -318,6 +346,29 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
     setPhase(next);
     if (reason === 'network') trackCTAClick(`voice_fallback_shown_${pageSlug}`);
   }, [cleanup, pageSlug]);
+
+  // A second card on the page (the List has her at the top AND the bottom):
+  // while one is on the line, the other's idle tap steps aside.
+  useEffect(() => {
+    const fn = (active: boolean) => setOtherActive(active && phaseRef.current === 'idle');
+    activeListeners.add(fn);
+    return () => { activeListeners.delete(fn); };
+  }, []);
+
+  // Sticky follow-bar: know when the card has scrolled off-screen.
+  useEffect(() => {
+    if (!sticky || !cardRef.current || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(([e]) => setCardVisible(e.isIntersecting), { threshold: 0.15 });
+    io.observe(cardRef.current);
+    return () => io.disconnect();
+  }, [sticky]);
+
+  // While she's on the line the page's chat launcher steps aside (globals.css).
+  useEffect(() => {
+    const live = phase === 'live' || phase === 'connecting';
+    document.body.classList.toggle('voice-live', live);
+    return () => document.body.classList.remove('voice-live');
+  }, [phase]);
 
   // Unmount / navigate away: stop the paid call, release the mic.
   useEffect(() => {
@@ -336,7 +387,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
   // before anyone taps. Stops the moment the phase changes.
   useEffect(() => {
     if (phase !== 'idle') return;
-    const t = setInterval(() => setIdleLine((i) => (i + 1) % IDLE_LINES.length), 3800);
+    const t = setInterval(() => setIdleLine((i) => (i + 1) % lines.length), 3800);
     return () => clearInterval(t);
   }, [phase]);
 
@@ -608,7 +659,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
   /* ─── Start the call (tap → mic prompt → token → WebRTC) ─── */
   const start = async () => {
     if (sessionActive || phaseRef.current === 'connecting' || phaseRef.current === 'live') return;
-    sessionActive = true;
+    setSessionActive(true);
     phaseRef.current = 'connecting';
     setPhase('connecting');
     setConnectSlow(false);
@@ -616,7 +667,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
     setCaptions([]);
     setAnswerCard(null);
     setFallbackQ(null);
-    setSecondsLeft(VOICE_SESSION_MAX_SECONDS);
+    setSecondsLeft(maxSeconds);
     // A stale error alert must not haunt the next call's ended card; a
     // 'sent' status (and leadSaved) survives on purpose — one page view,
     // one lead, no duplicate asks. The per-call ≥3 cap resets below.
@@ -635,7 +686,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
         audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
       });
     } catch {
-      sessionActive = false;
+      setSessionActive(false);
       phaseRef.current = 'denied';
       setPhase('denied');
       return;
@@ -676,7 +727,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // `opener` is undefined on ad LPs → JSON.stringify drops it, body unchanged.
-        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener }),
+        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener, script: mode === 'narrate' ? script : undefined }),
         signal: abort.signal,
       });
       if (!sessRes.ok) throw new Error(`session ${sessRes.status}`);
@@ -702,7 +753,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
         phaseRef.current = 'live';
         setPhase('live');
         // Countdown → hard cap. Instructions have her wrapping up at 2:30.
-        const endAt = Date.now() + VOICE_SESSION_MAX_SECONDS * 1000;
+        const endAt = Date.now() + maxSeconds * 1000;
         timerRef.current = setInterval(() => {
           const left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
           setSecondsLeft(left);
@@ -769,7 +820,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
   const liveStatus = herTalking && youTalking
     ? 'She hears you — let her finish…'
     : herTalking
-    ? 'She’s talking…'
+    ? (mode === 'narrate' ? 'She’s reading the list…' : 'She’s talking…')
     : youTalking
     ? 'She hears you…'
     : missed
@@ -797,7 +848,9 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
       ) : phase === 'connecting' ? (
         <span className="relative w-6 h-6 rounded-full border-[3px] border-primary-foreground/40 border-t-primary-foreground animate-spin" aria-hidden="true" />
       ) : (
-        <Mic className="relative w-7 h-7 text-primary-foreground" aria-hidden="true" />
+        mode === 'narrate' && phase === 'idle'
+          ? <Play className="relative w-7 h-7 text-primary-foreground fill-current" aria-hidden="true" />
+          : <Mic className="relative w-7 h-7 text-primary-foreground" aria-hidden="true" />
       )}
     </span>
   );
@@ -838,20 +891,71 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
     </form>
   );
 
+  const onTheLine = phase === 'live' || phase === 'connecting';
+  const followBar = sticky && onTheLine && !cardVisible && (
+    <div className="fixed inset-x-3 bottom-3 z-[70] sm:inset-x-auto sm:left-1/2 sm:w-[440px] sm:-translate-x-1/2 animate-[fadeIn_0.3s_ease]">
+      <div className="flex items-center gap-3 rounded-2xl border border-primary/35 bg-black/95 px-3 py-2.5 shadow-2xl shadow-black/70">
+        <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary">
+          {phase === 'connecting' ? (
+            <span className="w-4 h-4 rounded-full border-[3px] border-black/30 border-t-black animate-spin" aria-hidden="true" />
+          ) : herTalking ? (
+            <span className="flex items-end gap-[2px] h-4" aria-hidden="true">
+              {[0, 1, 2, 3].map((i) => (
+                <span key={i} className="va-bar w-[3px] rounded-full bg-black" style={{ height: `${[9, 15, 12, 8][i]}px`, animationDelay: `${i * 0.12}s` }} />
+              ))}
+            </span>
+          ) : (
+            <Mic className="w-4 h-4 text-black" aria-hidden="true" />
+          )}
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-[13px] font-black uppercase italic tracking-tight text-white" aria-live="polite">
+            {phase === 'connecting' ? 'Ringing her now…' : liveStatus}
+          </p>
+          <p className="truncate text-[11px] font-medium text-white/55">
+            {mode === 'narrate' ? 'Cut in anytime — ask about any number' : 'Say anything about your business'} · {fmt(secondsLeft)}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+          aria-label="Back to her"
+          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors"
+        >
+          <ArrowUp className="w-4 h-4" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => endSession('user')}
+          aria-label="End the call"
+          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors"
+        >
+          <PhoneOff className="w-4 h-4" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+
   return (
-    <div className={`relative max-w-xl ${className}`}>
+    <div ref={cardRef} className={`relative max-w-xl ${className}`}>
+      {followBar}
       <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-white/[0.03] p-4 sm:p-5">
         {/* Soft brand glow so the card reads premium, not boxy. */}
         <div className="pointer-events-none absolute -top-20 -left-16 w-56 h-56 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
 
         {/* ─── Idle: the whole card is the tap target ─── */}
-        {phase === 'idle' && (
+        {phase === 'idle' && otherActive && (
+          <p className="relative text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
+            She&rsquo;s already on the line with you &mdash; keep listening.
+          </p>
+        )}
+        {phase === 'idle' && !otherActive && (
           <button type="button" onClick={start} className="group relative w-full flex items-center gap-4 text-left">
             {orb}
             <span className="min-w-0">
               <span className="flex items-center gap-2 flex-wrap">
                 <span className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
-                  Talk To Our AI Secretary
+                  {idleTitle ?? 'Talk To Our AI Secretary'}
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2 py-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" aria-hidden="true" />
@@ -862,7 +966,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
                 key={idleLine}
                 className="block text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug animate-[fadeIn_0.6s_ease]"
               >
-                {IDLE_LINES[idleLine]}
+                {lines[idleLine % lines.length]}
               </span>
             </span>
           </button>
@@ -908,6 +1012,8 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
                 <p className="text-[12px] text-white/50 font-medium mt-0.5">
                   {missed
                     ? 'Try a little louder, a little closer to the mic.'
+                    : mode === 'narrate'
+                    ? 'Cut in anytime — “tell me about number five.”'
                     : 'Live conversation — say anything about your business.'}
                 </p>
               </div>
@@ -976,7 +1082,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
         {phase === 'ended' && (
           <div className="relative">
             <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white">
-              {endReason === 'time' ? 'That’s the 3-minute demo.' : 'That’s her.'}
+              {endReason === 'time' ? (mode === 'narrate' ? 'That’s the clock.' : 'That’s the 3-minute demo.') : 'That’s her.'}
             </p>
 
             {/* She's a secretary: if the clock (or the caller) beat her to the
@@ -1178,7 +1284,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
         )}
 
         <p className="relative mt-3 text-[10px] font-medium text-white/35 leading-snug">
-          Live AI demo — 3-minute limit.
+          Live AI demo — {Math.round(maxSeconds / 60)}-minute limit.
         </p>
       </div>
     </div>

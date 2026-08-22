@@ -233,3 +233,5 @@
   .concierge-fab { transition: opacity 0.3s ease, visibility 0.3s; }
   body.reel-live .concierge-fab { opacity: 0 !important; visibility: hidden; pointer-events: none !important; }
 }
+/* The AI secretary is on the line (any page): the chat launcher steps aside so it never covers her bar. */
+body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; pointer-events: none !important; }

@@ -29,6 +29,22 @@ const VOICE_SOURCE = 'too-good-list-voice';
 const VOICE_OPENER =
   'You just read the list. If one of those should be running in your business, tell me your name and number and Trevor will call you.';
 
+/** What she reads aloud from the "Let her read it to you" tap (8/22 — Trevor:
+    "a button that activates the secretary reading the page… for those that
+    want it narrated"). The same nine, the same sanctioned numbers, spoken. */
+const LIST_NARRATION = `Here's Trevor's list. Nine things real Louisiana businesses do every day that sound like lies. It takes about a minute.
+One. Your phone, answered at 9 p.m. Calls and texts after close get answered and booked. The job's on your screen by morning.
+Two. Your paperwork reads itself. Snap a photo of a ticket and it's typed in before you're back in the truck.
+Three. Your books post themselves. Ring up a sale and the books write themselves. One dealership matched QuickBooks to the penny, all 37 accounts.
+Four. Your prices protect themselves. Load your suppliers' price lists and nothing sells below cost again.
+Five. Your lost money gets found. It found a tree service 268 thousand dollars. It found Cory Edwards of Edwards Roofing 195 thousand, 882 dollars and 75 cents he'd already earned.
+Six. Your invoices collect themselves. The bill goes out by text, the customer taps Pay, and the money lands in your account.
+Seven. You can ask your business anything. Who owes me the most? Straight answer, from your own records.
+Eight. Your follow-ups happen without you. The thank-you, the reminder, the quote nobody answered. Handled.
+Nine. Your Monday writes itself. What sold, what's late, who owes you. In plain sentences, before you unlock the door.
+That's the nine. The catch? None of it is store-bought. It's built for your business, and you own it, the code and the data. Nobody rents you your own business back.
+So. Which number would you want running by Monday? Tell me the number, and your name and phone number, and Trevor will call you himself.`;
+
 /** Returning visitors stay unlocked — the gate charges once. */
 const UNLOCK_KEY = 'fis_list_unlocked';
 
@@ -601,6 +617,29 @@ export default function ListClient() {
           </div>
         </motion.header>
 
+        {/* ─── Let her read it (8/22) — she used to be the last thing on the
+            page; now she's the first. One tap: mic, and she reads the nine. ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.7, ease }}
+          className="mt-8"
+        >
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+            Don&rsquo;t feel like reading?
+          </p>
+          <VoiceAgentWidget
+            pageSlug="too-good-list"
+            source={VOICE_SOURCE}
+            mode="narrate"
+            script={LIST_NARRATION}
+            idleTitle="Let her read it to you"
+            idleLines={['Tap once. She reads the list out loud — cut in with a question anytime.']}
+            sticky
+            fallbackHref="/foundit-os#lead-form"
+          />
+        </motion.div>
+
         {/* ─── The text that started it ─── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -742,6 +781,7 @@ export default function ListClient() {
             source={VOICE_SOURCE}
             opener={VOICE_OPENER}
             fallbackHref="/foundit-os#lead-form"
+            sticky
             className="mt-6"
           />
         </div>
