@@ -27,7 +27,7 @@ const SOURCE = 'too-good-list';
 const VOICE_SOURCE = 'too-good-list-voice';
 /** Her first line here: she knows they just read the list. */
 const VOICE_OPENER =
-  'You just read the list. If one of those should be running in your business, tell me your name and number and Trevor will call you.';
+  'You just read the list. Which number would you want running by Monday? Tell me the number, your name and your cell, and Trevor will call you.';
 
 /** What she reads aloud from the "Let her read it to you" tap (8/22 — Trevor:
     "a button that activates the secretary reading the page… for those that
@@ -740,21 +740,19 @@ export default function ListClient() {
               {/* ─── The catch ─── */}
               <div className="pt-4 border-t border-primary/20">
                 <h2 className="font-heading text-3xl font-black uppercase italic tracking-tighter text-foreground mb-5">
-                  Now the catch.
+                  The HVAC guy was right.
                 </h2>
                 <p className="text-[17px] leading-relaxed text-foreground/85">
-                  His rule says there has to be one. Here it is. None of this is store-bought. We
-                  build it for one business — <span className="font-bold">yours</span>. You own it,
-                  the code and the data. Month to month. If you ever leave, it all goes with you.
+                  It does sound like a lie. That&rsquo;s why I said watch, don&rsquo;t believe. Now the
+                  catch: we build it for one business — <span className="font-bold">yours</span>. You
+                  own it, the code and the data. Month to month. If you ever leave, it all goes with
+                  you.
                 </p>
                 <p className="mt-5 text-[17px] leading-relaxed text-foreground/85 italic">
-                  Hunt for the trap. Take your time. The only catch is that it&rsquo;s all yours.
+                  Hunt for the trap all you want. The only catch is it&rsquo;s yours.
                 </p>
                 <p className="mt-10 font-heading text-3xl sm:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground">
                   Nobody rents you your own business back<span className="text-primary">.</span>
-                </p>
-                <p className="mt-8 text-sm text-muted-foreground font-medium">
-                  The October edition will be longer. This stuff doesn&rsquo;t slow down.
                 </p>
               </div>
             </motion.div>
@@ -769,12 +767,15 @@ export default function ListClient() {
             only UI here: no band, no button, an editorial lead-in and her. */}
         <div className="mt-20 pt-10 border-t border-white/10">
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
-            Or just tell her
+            Which one?
           </p>
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            If I sent you this, just reply to that message. I read every one. Or talk to her.
-            She&rsquo;s the receptionist we build into every system. Say your name and number and
-            I&rsquo;ll call you back.
+            Nine things up there. Pick the one you wish you&rsquo;d had last week. If I sent you
+            this, reply with just that number and I&rsquo;ll take it from there.
+          </p>
+          <p className="mt-4 text-[17px] leading-relaxed text-foreground/85">
+            Or tap below and tell her the number. She&rsquo;s number one on the list, running right
+            now. She&rsquo;ll take your name and cell, and I&rsquo;ll call you back.
           </p>
           <VoiceAgentWidget
             pageSlug="too-good-list"
@@ -784,6 +785,9 @@ export default function ListClient() {
             sticky
             className="mt-6"
           />
+          <p className="mt-8 text-sm text-muted-foreground font-medium">
+            The October edition will be longer. This stuff doesn&rsquo;t slow down.
+          </p>
         </div>
       </article>
     </main>
