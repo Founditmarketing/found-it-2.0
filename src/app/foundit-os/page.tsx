@@ -144,56 +144,6 @@ const data: PillarData = {
     narrative:
       'The new system has to earn it: it runs beside the register you already trust until the nightly difference is zero. Then you give the word.',
   },
-  galleryHeading: 'Not Mockups. Screenshots.',
-  galleryIntro:
-    'Straight off the screens of systems we have fitted — desktop and phone, because every Found It OS ships with the pocket version built in. Every one owned by the business running it.',
-  showcase: [
-    {
-      img: '/os-screens/roxanne-os-money-v1.png',
-      imgAlt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
-      phone: '/os-screens/roxanne-os-crew-mobile-v1.png',
-      phoneAlt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
-      title: 'Roxanne’s OS',
-      kind: 'Wholesale Nursery',
-      detail:
-        'Money owed to the nursery on one screen — aged, ranked, oldest first every morning. Orders paste in exactly as brokers text them; every line is captured or flagged in red, never dropped. The barn crew gets a board with one big PRINT.',
-    },
-    {
-      img: '/os-screens/flywheel-os-today-v1.png',
-      imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-      phone: '/os-screens/flywheel-os-mobile-quick-v2.png',
-      phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-      title: 'Flywheel OS',
-      kind: 'Tire & Auto Shop',
-      detail:
-        'The whole day on one screen — quotes, invoices, and profit counted live. And in the pocket: type a tire size or snap the sidewall, priced out the door in seconds.',
-    },
-    {
-      img: '/os-screens/tonys-shop-os-v1.png',
-      imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-      title: 'Tony’s Shop OS',
-      kind: 'European Auto Repair',
-      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
-    },
-    {
-      img: '/os-screens/house-system-v1.png',
-      imgAlt: 'The House System register — a ticket rung with three lines and a live total',
-      phone: '/os-screens/house-system-mobile-register-v1.png',
-      phoneAlt: 'The House System register on a phone — the product rail and an empty ticket ready to ring',
-      title: 'The House System',
-      kind: 'Menswear Retail',
-      detail: 'The register that remembers — tickets, clients, inventory, and the books in one place. The same register rings from a phone at the counter.',
-    },
-    {
-      img: '/os-screens/procarpet-os-v1.png',
-      imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
-      phone: '/os-screens/procarpet-os-mobile-estimates-v1.png',
-      phoneAlt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
-      title: 'Pro Carpet OS',
-      kind: 'Carpet & Duct Cleaning',
-      detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it. The whole desk rides along in a pocket.',
-    },
-  ],
   mistakesHeading: 'Why Business Software Usually Goes Wrong',
   mistakes: [
     {

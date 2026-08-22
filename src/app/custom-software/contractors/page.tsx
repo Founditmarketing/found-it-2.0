@@ -139,21 +139,6 @@ const data: PillarData = {
     narrative:
       'This is not a mockup. A specialty outdoor-equipment service company runs its whole field operation on a system we fitted: every job, every customer, and annual service reminders so recurring revenue stops slipping through the cracks. When a customer fills out the form on their public website, that lead lands directly on the desk inside the system — no inbox, no copy-paste, no lost slip of paper.',
   },
-  galleryHeading: 'Not Mockups. Screenshots.',
-  galleryIntro:
-    'Straight off the screen of a fitted field system — a cleaning company’s desk that drafts its own follow-ups and rides in the truck. Desktop and phone. Fitted, not templated.',
-  showcase: [
-    {
-      img: '/os-screens/procarpet-os-v1.png',
-      imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
-      phone: '/os-screens/procarpet-os-mobile-v1.png',
-      phoneAlt: 'Pro Carpet OS on a phone — the day’s money tiles and follow-up texts waiting for approval',
-      title: 'Pro Carpet OS',
-      kind: 'Carpet & Duct Cleaning',
-      detail:
-        'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it. The whole desk rides in the truck: collected, waiting, in play, ready for your thumb.',
-    },
-  ],
   mistakesHeading: 'Why Contractor Software Usually Goes Wrong',
   mistakes: [
     {

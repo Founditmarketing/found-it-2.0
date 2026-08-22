@@ -144,56 +144,6 @@ const data: PillarData = {
     narrative:
       'A Louisiana auto shop runs its service desk on a system we fitted — live, on its own migrated records, not sample data. A field service company takes real leads through its system in production every day. Retail stores are being fitted to one shared core — staging registers in evaluation, zero forks — so every store gets every improvement. Shed builders, car dealerships, and home builders are being fitted now. None of these are mockups. They are businesses that own their software.',
   },
-  galleryHeading: 'Not Mockups. Screenshots.',
-  galleryIntro:
-    'Every industry below is a real system off a real screen — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Desktop and phone. Fitted, not templated, and owned by the business running it.',
-  showcase: [
-    {
-      img: '/os-screens/roxanne-os-intake-v1.png',
-      imgAlt: 'Roxanne’s OS order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red (demo data)',
-      phone: '/os-screens/roxanne-os-money-mobile-v1.png',
-      phoneAlt: 'Roxanne’s OS on a phone — money owed to the nursery, total open with aging bars',
-      title: 'Roxanne’s OS',
-      kind: 'Wholesale Nursery',
-      detail:
-        'Fifteen brokers text orders in fifteen formats — paste one in and every line is captured or held in red, never silently dropped. Branded pull sheets print for the barn, and the money owed rides along in a pocket.',
-    },
-    {
-      img: '/os-screens/flywheel-os-today-v1.png',
-      imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-      phone: '/os-screens/flywheel-os-mobile-quick-v2.png',
-      phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-      title: 'Flywheel OS',
-      kind: 'Tire & Auto Shop',
-      detail:
-        'The whole day on one screen — quotes, invoices, and profit counted live. And in the pocket: type a tire size or snap the sidewall, priced out the door in seconds.',
-    },
-    {
-      img: '/os-screens/tonys-shop-os-v1.png',
-      imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-      title: 'Tony’s Shop OS',
-      kind: 'European Auto Repair',
-      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
-    },
-    {
-      img: '/os-screens/matteo-register-v1.png',
-      imgAlt: 'The House System register fitted to a luxury atelier — terracotta styling, a three-line ticket',
-      phone: '/os-screens/matteo-register-mobile-v1.png',
-      phoneAlt: 'The House System register on a phone, fitted to a luxury atelier — terracotta styling',
-      title: 'The House System',
-      kind: 'Retail · Atelier Edition',
-      detail: 'The register that remembers — tickets, clients, inventory, and the books in one place, fitted to the store it serves. It rings from a phone at the counter.',
-    },
-    {
-      img: '/os-screens/procarpet-os-v1.png',
-      imgAlt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
-      phone: '/os-screens/procarpet-os-mobile-estimates-v1.png',
-      phoneAlt: 'Pro Carpet OS estimates on a phone — the ladder chasing every estimate that is out the door',
-      title: 'Pro Carpet OS',
-      kind: 'Carpet & Duct Cleaning',
-      detail: 'The ladder: every open estimate gets its follow-up drafted — nothing sends until you tap it.',
-    },
-  ],
   mistakesHeading: 'Why Off-the-Shelf Software Goes Wrong',
   mistakes: [
     {

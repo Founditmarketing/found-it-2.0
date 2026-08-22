@@ -144,38 +144,6 @@ const data: PillarData = {
     narrative:
       'We fitted a complete shop operating system for one Louisiana auto shop — work orders, the parts and waiting board, customer book, invoicing, an AI service desk — running on their real migrated data, roughly ten years of records. During that migration, the system surfaced about $270,000 in forgotten and unbilled work sitting in their old system. The shop called it the parking lot. It had been there the whole time; the old software just never showed it. That is the honest case for a professional migration: it can pay for itself before the new system even goes live. What is sleeping in your old system?',
   },
-  galleryHeading: 'Not Mockups. Screenshots.',
-  galleryIntro:
-    'Straight off the screens of shop systems we have fitted — the day on one board, a tire quote priced out the door in seconds, and the parking lot of declined work. Desktop and phone. Fitted, not templated.',
-  showcase: [
-    {
-      img: '/os-screens/flywheel-os-today-v1.png',
-      imgAlt: "Flywheel OS dashboard — the day's quotes, invoices, and profit tiles with aging and open-quote widgets",
-      phone: '/os-screens/flywheel-os-mobile-quick-v2.png',
-      phoneAlt: 'Flywheel OS quick quote on a phone — a tire size field with a snap-the-sidewall camera option',
-      title: 'Flywheel OS',
-      kind: 'Tire & Auto Shop',
-      detail:
-        'The whole day on one screen — quotes, invoices, and profit counted live. And in the pocket: type the size or snap the sidewall, the 30-second answer from the parking lot.',
-    },
-    {
-      img: '/os-screens/flywheel-os-quote-v1.png',
-      imgAlt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
-      phone: '/os-screens/flywheel-os-mobile-board-v2.png',
-      phoneAlt: 'Flywheel OS estimate board on a phone — open orders with dollars on the board and win-back cards',
-      title: 'The Quote Screen',
-      kind: 'Flywheel OS · Tire & Auto Shop',
-      detail:
-        'Type a tire size — every supplier, every price, out the door in seconds. No customer form first. The board rides along: every open order and every dollar, from anywhere in the shop.',
-    },
-    {
-      img: '/os-screens/tonys-shop-os-v1.png',
-      imgAlt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-      title: 'Tony’s Shop OS',
-      kind: 'European Auto Repair',
-      detail: 'The parking lot: every declined job on the books — named, priced, and one tap from a win-back text.',
-    },
-  ],
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',
   mistakes: [
     {

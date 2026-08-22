@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
@@ -52,29 +51,9 @@ export interface PillarData {
     stats: { value: string; label: string }[];
     narrative: string;
   };
-  /** Optional screenshot gallery (e.g. Found It OS installs on screen). */
-  galleryHeading?: string;
-  /** 8/19: play the AutomationReel above the showcase rail — automations in
-   *  motion instead of dashboards at rest. foundit-os + custom-software. */
+  /** 8/19: play the AutomationReel above the fold — automations in motion
+   *  instead of dashboards at rest. foundit-os + custom-software. */
   automationReel?: boolean;
-  galleryIntro?: string;
-  gallery?: { src: string; alt: string; title: string; kind: string; detail: string }[];
-  /** Optional phone captures — portrait shots of the same systems on mobile. */
-  mobileHeading?: string;
-  mobileIntro?: string;
-  mobileShots?: { src: string; alt: string; title: string; kind: string; detail: string }[];
-  /** Integrated evidence stages: a desktop capture in browser chrome with its
-      phone twin overlapping the corner. Supersedes gallery + mobileShots on
-      pages that use it; reuses galleryHeading/galleryIntro for its header. */
-  showcase?: {
-    img: string;
-    imgAlt: string;
-    phone?: string;
-    phoneAlt?: string;
-    title: string;
-    kind: string;
-    detail: string;
-  }[];
   /** Optional demo video — a screen tour of the system, shown high on the page. */
   demoVideo?: { src: string; poster?: string; heading?: string; sub?: string };
   /** Common mistakes / what we fix. */
@@ -316,114 +295,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 ))}
               </div>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">{data.result.narrative}</p>
-            </div>
-          </section>
-        )}
-
-        {/* Integrated evidence stages — desktop capture + overlapping phone twin */}
-        {data.showcase && data.showcase.length > 0 && (
-          <section id="screens" className="mb-16 scroll-mt-28">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-              {data.galleryHeading || 'Not Mockups. Screenshots.'}
-            </h2>
-            {data.galleryIntro && (
-              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-10">{data.galleryIntro}</p>
-            )}
-            <div className="space-y-14 lg:space-y-20">
-              {data.showcase.map((s, i) => {
-                const phoneRight = i % 2 === 0;
-                return (
-                  <figure key={s.img} className="group">
-                    <div
-                      className={
-                        s.phone
-                          ? `relative pb-12 sm:pb-16 ${phoneRight ? 'pr-8 sm:pr-14' : 'pl-8 sm:pl-14'}`
-                          : 'relative'
-                      }
-                    >
-                      <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30">
-                        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-black/50 border-b border-border/15">
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
-                          <span className="ml-3 text-[10px] font-mono uppercase tracking-[0.3em] text-faint">{s.kind}</span>
-                        </div>
-                        <Image src={s.img} alt={s.imgAlt} width={1440} height={900} className="w-full h-auto" sizes="(max-width: 1024px) 100vw, 900px" />
-                      </div>
-                      {s.phone && (
-                        <div
-                          className={`absolute bottom-0 w-[30%] max-w-[210px] min-w-[120px] overflow-hidden rounded-[1.4rem] border border-border/40 bg-card/20 shadow-2xl shadow-black/60 transition-transform duration-500 group-hover:-translate-y-2 ${
-                            phoneRight ? 'right-0 rotate-2' : 'left-0 -rotate-2'
-                          }`}
-                        >
-                          <Image src={s.phone} alt={s.phoneAlt || ''} width={780} height={1688} className="w-full h-auto" sizes="(max-width: 640px) 30vw, 210px" />
-                        </div>
-                      )}
-                    </div>
-                    <figcaption className={`pt-5 ${s.phone && !phoneRight ? 'sm:pl-14' : ''}`}>
-                      <div className="flex items-baseline gap-3 flex-wrap">
-                        <span className="chip">{s.title}</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{s.kind}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-2 max-w-2xl">{s.detail}</p>
-                    </figcaption>
-                  </figure>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {/* Screenshot gallery */}
-        {data.gallery && data.gallery.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-              {data.galleryHeading || 'On Screen'}
-            </h2>
-            {data.galleryIntro && (
-              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">{data.galleryIntro}</p>
-            )}
-            <div className="space-y-10">
-              {data.gallery.map((g) => (
-                <figure key={g.src}>
-                  <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/10 shadow-2xl shadow-black/30">
-                    <Image src={g.src} alt={g.alt} width={1440} height={900} className="w-full h-auto" sizes="(max-width: 1024px) 100vw, 900px" />
-                  </div>
-                  <figcaption className="pt-3 px-1">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">{g.title}</p>
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 shrink-0">{g.kind}</p>
-                    </div>
-                    <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1">{g.detail}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Phone captures */}
-        {data.mobileShots && data.mobileShots.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-              {data.mobileHeading || 'In the Truck. In the Pocket.'}
-            </h2>
-            {data.mobileIntro && (
-              <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">{data.mobileIntro}</p>
-            )}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {data.mobileShots.map((g) => (
-                <figure key={g.src}>
-                  <div className="rounded-[1.75rem] overflow-hidden border border-border/25 bg-card/10 shadow-2xl shadow-black/40">
-                    <Image src={g.src} alt={g.alt} width={780} height={1688} className="w-full h-auto" sizes="(max-width: 768px) 50vw, 220px" />
-                  </div>
-                  <figcaption className="pt-3 px-1 text-center">
-                    <p className="text-xs font-black uppercase italic tracking-tighter text-foreground">{g.title}</p>
-                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5">{g.kind}</p>
-                    <p className="text-[11px] text-muted-foreground font-medium leading-relaxed mt-1">{g.detail}</p>
-                  </figcaption>
-                </figure>
-              ))}
             </div>
           </section>
         )}
