@@ -27,7 +27,7 @@ const SOURCE = 'too-good-list';
 const VOICE_SOURCE = 'too-good-list-voice';
 /** Her first line here: she knows they just read the list. */
 const VOICE_OPENER =
-  'You just read the list. Which number would you want running by Monday? Tell me the number, your name and your cell, and Trevor will call you.';
+  'You just read the list. Which number would you want running by Monday? Tell me, or ask me anything about it.';
 
 /** What she reads aloud from the "Let her read it to you" tap (8/22 — Trevor:
     "a button that activates the secretary reading the page… for those that
@@ -43,7 +43,7 @@ Seven. You can ask your business anything. Who owes me the most? Straight answer
 Eight. Your follow-ups happen without you. The thank-you, the reminder, the quote nobody answered. Handled.
 Nine. Your Monday writes itself. What sold, what's late, who owes you. In plain sentences, before you unlock the door.
 That's the nine. The catch? None of it is store-bought. It's built for your business, and you own it, the code and the data. Nobody rents you your own business back.
-So. Which number would you want running by Monday? Tell me the number, and your name and phone number, and Trevor will call you himself.`;
+So. Which number would you want running by Monday? Tell me, or just reply to Trevor's message with the number. He'll take it from there.`;
 
 /** Returning visitors stay unlocked — the gate charges once. */
 const UNLOCK_KEY = 'fis_list_unlocked';
@@ -636,6 +636,7 @@ export default function ListClient() {
             idleTitle="Let her read it to you"
             idleLines={['Tap once. She reads the list out loud — cut in with a question anytime.']}
             sticky
+            warm
             fallbackHref="/foundit-os#lead-form"
           />
         </motion.div>
@@ -775,16 +776,17 @@ export default function ListClient() {
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/85">
             Or tap below and tell her the number. She&rsquo;s number one on the list, running right
-            now. She&rsquo;ll take your name and cell, and I&rsquo;ll call you back.
+            now. Ask her anything about it.
           </p>
           <VoiceAgentWidget
             pageSlug="too-good-list"
             source={VOICE_SOURCE}
             opener={VOICE_OPENER}
             idleTitle="Tell her the number"
-            idleLines={['Tap once. Say the number, your name, and your cell — Trevor calls you back.']}
+            idleLines={['Tap once. Say the number — or ask her anything about it.']}
             fallbackHref="/foundit-os#lead-form"
             sticky
+            warm
             className="mt-6"
           />
           <p className="mt-8 text-sm text-muted-foreground font-medium">

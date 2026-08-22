@@ -156,6 +156,10 @@ interface VoiceAgentWidgetProps {
   /** Follow the reader: while she's on the line and this card is scrolled
    *  off-screen, a slim bar pins to the bottom of the viewport. */
   sticky?: boolean;
+  /** Warm page (8/22): the visitor already knows Trevor and he has their
+   *  number. She never chases a number (only takes one if they express
+   *  interest), and the ended card offers a call instead of a form. */
+  warm?: boolean;
 }
 
 /** One concurrent session per visitor — module-level so a double-tap or a
@@ -187,8 +191,10 @@ const MIC_MAX_MUTE_MS = 20_000;
 
 export function VoiceAgentWidget({
   pageSlug, source: sourceOverride, opener, className = '', fallbackHref = '#lp-form',
-  mode = 'talk', script, idleTitle, idleLines, sticky = false,
+  mode = 'talk', script, idleTitle, idleLines, sticky = false, warm = false,
 }: VoiceAgentWidgetProps) {
+  /** Warm page: the visitor tapped "I want Trevor to call me" on the ended card. */
+  const [wantsCall, setWantsCall] = useState(false);
   // Narration needs the extra minute: ~90s of reading, then the conversation.
   const maxSeconds = mode === 'narrate' ? VOICE_SESSION_MAX_SECONDS + 60 : VOICE_SESSION_MAX_SECONDS;
   const lines = idleLines && idleLines.length ? idleLines : IDLE_LINES;
@@ -727,7 +733,7 @@ export function VoiceAgentWidget({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // `opener` is undefined on ad LPs → JSON.stringify drops it, body unchanged.
-        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener, script: mode === 'narrate' ? script : undefined }),
+        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener, script: mode === 'narrate' ? script : undefined, warm: warm || undefined }),
         signal: abort.signal,
       });
       if (!sessRes.ok) throw new Error(`session ${sessRes.status}`);
@@ -1090,11 +1096,19 @@ export function VoiceAgentWidget({
                 warmest traffic on the page — never wave them goodbye. */}
             {!leadSaved && afterStatus !== 'sent' ? (
               <>
-                <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-                  Want Trevor to call you back about your business? Leave your number — she&rsquo;ll
-                  pass it along.
-                </p>
-                {afterCaptureForm}
+                {!warm || wantsCall ? (
+                  <>
+                    <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
+                      Want Trevor to call you back about your business? Leave your number — she&rsquo;ll
+                      pass it along.
+                    </p>
+                    {afterCaptureForm}
+                  </>
+                ) : (
+                  <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
+                    Want one of those running? Reply to Trevor&rsquo;s message with the number.
+                  </p>
+                )}
                 {afterStatus === 'error' && (
                   <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
                     Could not send — use the form on this page instead.
@@ -1108,6 +1122,15 @@ export function VoiceAgentWidget({
                   >
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk to her again
                   </button>
+                  {warm && !wantsCall && (
+                    <button
+                      type="button"
+                      onClick={() => setWantsCall(true)}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+                    >
+                      I want Trevor to call me
+                    </button>
+                  )}
                   <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
                     Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
