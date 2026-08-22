@@ -30,6 +30,12 @@ const VOICE_OPENER =
 /** Returning visitors stay unlocked — the gate charges once. */
 const UNLOCK_KEY = 'fis_list_unlocked';
 
+/** OPEN LIST (Trevor 8/19: "just give the whole list for free right now").
+ *  true = every item renders for everyone, no gate, no cell number. The
+ *  GateCard + Twilio Verify flow stays intact below — flip this back to
+ *  false to charge a cell number again. */
+const LIST_OPEN = true;
+
 type Item = { n: string; head: string; body: string };
 
 /** Items 01–03 — open to everyone. Verbatim, do not edit. */
@@ -537,7 +543,7 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
 /* ─── Page ─── */
 
 export default function ListClient() {
-  const [unlocked, setUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState(LIST_OPEN);
   // Distinguishes a fresh submit (animate the reveal) from a returning
   // visitor restored via localStorage (content is just there, no theater).
   const [justUnlocked, setJustUnlocked] = useState(false);
