@@ -39,6 +39,8 @@ next-env.d.ts
 
 .genkit/*
 .env*
+# The example carries names only (no values) and is meant to be committed.
+!.env.example
 
 # firebase
 firebase-debug.log

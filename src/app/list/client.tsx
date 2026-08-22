@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
@@ -124,10 +124,28 @@ function Entry({ item, animate = false }: { item: Item; animate?: boolean }) {
   );
 }
 
-/* ─── The gate ─── */
+/* ─── The gate ───
+
+   Two steps in one card. Step 1 takes the cell and asks /api/list/verify to
+   text a one-time code (Twilio Verify — sends from Twilio's own registered
+   channels, so the marketing number's A2P status doesn't matter). Step 2
+   takes the code; on a good check the lead posts to /api/lead exactly as it
+   always has, with "Phone verified by SMS code." on the trail.
+
+   DEGRADATION: when the server has no Twilio env it answers
+   { ok: true, skipped: true } to 'start', and the gate behaves exactly as it
+   did before verification existed — cell in, lead posted, list unlocked,
+   no verified note on the trail. */
 
 const gateInputClass =
-  'w-full rounded-xl bg-white/[0.04] border border-white/15 px-4 py-3.5 text-[15px] text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary transition-colors';
+  'w-full rounded-xl bg-white/[0.04] border border-white/15 px-4 py-3.5 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary transition-colors';
+// 16px is the floor that keeps iOS from zooming the page on focus.
+const phoneInputClass = `${gateInputClass} text-base`;
+// Big spaced digits read like the text they came from; placeholder stays plain.
+const codeInputClass = `${gateInputClass} text-[22px] font-bold tracking-[0.3em] text-center placeholder:text-base placeholder:font-medium placeholder:tracking-normal`;
+
+const gateLinkClass =
+  'underline underline-offset-4 decoration-white/30 hover:text-foreground transition-colors disabled:no-underline disabled:cursor-default disabled:hover:text-muted-foreground';
 
 /** A plausible US cell: ten digits, or eleven with a leading country code 1. */
 function isPlausibleUsPhone(raw: string): boolean {
@@ -135,31 +153,87 @@ function isPlausibleUsPhone(raw: string): boolean {
   return digits.length === 10 || (digits.length === 11 && digits.startsWith('1'));
 }
 
+/** (318) 555-0100 — for "we texted a code to …". */
+function formatUsPhone(raw: string): string {
+  const d = raw.replace(/\D/g, '').replace(/^1(?=\d{10}$)/, '');
+  return d.length === 10 ? `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}` : raw;
+}
+
+/** Seconds before "Send again" re-arms — the client-side throttle. */
+const RESEND_COOLDOWN = 30;
+
+type VerifyReply = { ok: boolean; skipped?: boolean; error?: string };
+
+/** One call to the verify route. Throws on a network/server failure;
+    otherwise returns the server's verdict, including ok:false with its
+    plain-English reason. */
+async function callVerify(body: Record<string, string>): Promise<VerifyReply> {
+  const res = await fetch('/api/list/verify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const data = (await res.json().catch(() => null)) as VerifyReply | null;
+  if (!data) throw new Error('verify_failed');
+  return data;
+}
+
 function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
   const uid = useId();
+  const codeRef = useRef<HTMLInputElement>(null);
+  const [step, setStep] = useState<'phone' | 'code'>('phone');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [note, setNote] = useState('');
+  const [cooldown, setCooldown] = useState(0);
+  // A code that already checked out stays checked out — if the lead post
+  // fails after a good check, retrying must not re-check a spent code.
+  const [verified, setVerified] = useState(false);
   const [started, setStarted] = useState(false);
-  const [fields, setFields] = useState({ phone: '', hp: '' });
+  const [fields, setFields] = useState({ phone: '', code: '', hp: '' });
 
   const update =
     (key: keyof typeof fields) => (e: React.ChangeEvent<HTMLInputElement>) =>
       setFields((f) => ({ ...f, [key]: e.target.value }));
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (status === 'submitting') return;
+  // Resend throttle: counts down once a second while armed.
+  const coolingDown = cooldown > 0;
+  useEffect(() => {
+    if (!coolingDown) return;
+    const t = setInterval(() => setCooldown((c) => Math.max(0, c - 1)), 1000);
+    return () => clearInterval(t);
+  }, [coolingDown]);
 
-    // One field, one check — the gate costs a cell number and nothing else.
-    if (!isPlausibleUsPhone(fields.phone)) {
-      setStatus('error');
-      setErrorMsg("That doesn't look like a US cell — ten digits, please.");
-      return;
+  // Step 2 lands with the cursor in the code box.
+  useEffect(() => {
+    if (step === 'code') codeRef.current?.focus();
+  }, [step]);
+
+  function showError(msg: string) {
+    setStatus('error');
+    setErrorMsg(msg);
+  }
+
+  /** Ask the server to text a code. Returns its reply, or null if it failed
+      (the error is already on screen). */
+  async function sendCode(): Promise<VerifyReply | null> {
+    try {
+      const r = await callVerify({ action: 'start', phone: fields.phone.trim(), hp: fields.hp });
+      if (!r.ok) {
+        showError(r.error || "Couldn't send the code right now.");
+        return null;
+      }
+      return r;
+    } catch {
+      showError('Something went wrong sending that.');
+      return null;
     }
+  }
 
-    setStatus('submitting');
-    setErrorMsg('');
-
+  /** The lead post — same rails, same inbox, same pixels as before
+      verification existed. The only difference is the note on the trail
+      when the code checked out. */
+  async function finish(phoneVerified: boolean) {
     // Attribution rides in the message body — the lead API has a fixed field
     // set, and this keeps page + campaign context on the notification.
     const utms = getStoredUTMs();
@@ -167,6 +241,7 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
       'Page: list (The Too Good To Be True List)',
       ...Object.entries(utms).map(([k, v]) => `${k}: ${v}`),
     ];
+    if (phoneVerified) trail.push('Phone verified by SMS code.');
     const message = `Unlocked the Too Good To Be True List.\n\n— ${trail.join(' · ')}`;
 
     try {
@@ -189,9 +264,93 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
       trackLead(SOURCE);
       onUnlocked();
     } catch {
-      setStatus('error');
-      setErrorMsg('Something went wrong sending that.');
+      showError('Something went wrong sending that.');
     }
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (status === 'submitting') return;
+    setNote('');
+
+    if (step === 'phone') {
+      // One field, one check — the gate costs a cell number and nothing else.
+      if (!isPlausibleUsPhone(fields.phone)) {
+        showError("That doesn't look like a US cell — ten digits, please.");
+        return;
+      }
+      setStatus('submitting');
+      setErrorMsg('');
+      const r = await sendCode();
+      if (!r) return;
+      // No Twilio env on the server: cell-only unlock, exactly as before.
+      if (r.skipped) {
+        await finish(false);
+        return;
+      }
+      setStatus('idle');
+      setCooldown(RESEND_COOLDOWN);
+      setStep('code');
+      return;
+    }
+
+    // step === 'code'
+    if (verified) {
+      setStatus('submitting');
+      await finish(true);
+      return;
+    }
+    const code = fields.code.replace(/\D/g, '');
+    if (code.length !== 6) {
+      showError('Enter the 6-digit code from the text.');
+      return;
+    }
+    setStatus('submitting');
+    setErrorMsg('');
+    try {
+      const r = await callVerify({
+        action: 'check',
+        phone: fields.phone.trim(),
+        code,
+        hp: fields.hp,
+      });
+      if (!r.ok) {
+        showError(r.error || "That code isn't right. Check the text and try again.");
+        return;
+      }
+      if (!r.skipped) setVerified(true);
+      await finish(!r.skipped);
+    } catch {
+      showError('Something went wrong sending that.');
+    }
+  }
+
+  async function handleResend() {
+    if (status === 'submitting' || coolingDown) return;
+    setStatus('submitting');
+    setErrorMsg('');
+    setNote('');
+    const r = await sendCode();
+    if (!r) return;
+    if (r.skipped) {
+      await finish(false);
+      return;
+    }
+    setStatus('idle');
+    setFields((f) => ({ ...f, code: '' }));
+    setCooldown(RESEND_COOLDOWN);
+    setNote('Sent another code.');
+    codeRef.current?.focus();
+  }
+
+  function handleWrongNumber() {
+    if (status === 'submitting') return;
+    setStep('phone');
+    setStatus('idle');
+    setErrorMsg('');
+    setNote('');
+    setVerified(false);
+    setFields((f) => ({ ...f, code: '' }));
   }
 
   return (
@@ -222,26 +381,63 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
         <h3 className="font-heading text-2xl font-black tracking-tight text-foreground leading-snug">
           The other six cost your cell number.
         </h3>
-        <p className="mt-2 mb-6 text-[15px] text-muted-foreground font-medium">
-          That&rsquo;s it. No form, no spam. The October edition comes by text when it prints.
-        </p>
+        {step === 'phone' ? (
+          <p className="mt-2 mb-6 text-[15px] text-muted-foreground font-medium">
+            That&rsquo;s it. No form, no spam. The October edition comes by text when it prints.
+          </p>
+        ) : (
+          <p className="mt-2 mb-6 text-[15px] text-muted-foreground font-medium">
+            We texted a 6-digit code to{' '}
+            <span className="font-bold text-foreground whitespace-nowrap">
+              {formatUsPhone(fields.phone)}
+            </span>
+            .
+          </p>
+        )}
 
-        <label htmlFor={`${uid}-phone`} className="sr-only">
-          Cell
-        </label>
-        <input
-          id={`${uid}-phone`}
-          name="phone"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          required
-          maxLength={40}
-          value={fields.phone}
-          onChange={update('phone')}
-          placeholder="Cell"
-          className={gateInputClass}
-        />
+        {step === 'phone' ? (
+          <>
+            <label htmlFor={`${uid}-phone`} className="sr-only">
+              Cell
+            </label>
+            <input
+              id={`${uid}-phone`}
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              required
+              maxLength={40}
+              value={fields.phone}
+              onChange={update('phone')}
+              placeholder="Cell"
+              className={phoneInputClass}
+            />
+          </>
+        ) : (
+          <>
+            <label htmlFor={`${uid}-code`} className="sr-only">
+              6-digit code
+            </label>
+            <input
+              ref={codeRef}
+              id={`${uid}-code`}
+              name="code"
+              type="text"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              pattern="[0-9]*"
+              maxLength={6}
+              required
+              value={fields.code}
+              onChange={(e) =>
+                setFields((f) => ({ ...f, code: e.target.value.replace(/\D/g, '').slice(0, 6) }))
+              }
+              placeholder="6-digit code"
+              className={codeInputClass}
+            />
+          </>
+        )}
 
         {/* Honeypot — humans never see this; bots fill it and get silently
             dropped server-side. Same field name as the house form. */}
@@ -271,6 +467,9 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
             )}
           </p>
         )}
+        {note && status !== 'error' && (
+          <p className="mt-3 text-[13px] font-medium text-muted-foreground">{note}</p>
+        )}
 
         <button
           type="submit"
@@ -279,12 +478,49 @@ function GateCard({ onUnlocked }: { onUnlocked: () => void }) {
         >
           {status === 'submitting' ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Unlocking…
+              <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />{' '}
+              {step === 'phone' ? 'Sending…' : 'Unlocking…'}
             </>
+          ) : step === 'phone' ? (
+            'Text me a code'
           ) : (
             'Unlock the list'
           )}
         </button>
+
+        {step === 'phone' ? (
+          <>
+            <p className="mt-4 text-[13px] text-muted-foreground font-medium text-center">
+              We&rsquo;ll text you a code to make sure it&rsquo;s really you.
+            </p>
+            {/* TCPA consent language — final copy, do not edit. */}
+            <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground/70 text-center">
+              By texting the code we&rsquo;re confirming your number. We&rsquo;ll only text you
+              this list and its October edition. Reply STOP anytime.
+            </p>
+          </>
+        ) : (
+          <div className="mt-4 flex items-center justify-between gap-4 text-[13px] font-medium text-muted-foreground">
+            <button
+              type="button"
+              onClick={handleResend}
+              disabled={status === 'submitting' || coolingDown}
+              className={gateLinkClass}
+            >
+              {coolingDown
+                ? `Didn’t get it? Send again in ${cooldown}s`
+                : 'Didn’t get it? Send again'}
+            </button>
+            <button
+              type="button"
+              onClick={handleWrongNumber}
+              disabled={status === 'submitting'}
+              className={`${gateLinkClass} shrink-0`}
+            >
+              Wrong number?
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );
