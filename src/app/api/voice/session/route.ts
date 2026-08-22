@@ -12,6 +12,9 @@ export const maxDuration = 15;
 const REALTIME_MODEL = 'gpt-realtime-2.1';
 const REALTIME_VOICE = 'marin';
 
+/** Longest page opener the widget may hand her — one spoken sentence or two. */
+const VOICE_OPENER_MAX_CHARS = 240;
+
 /* ─── Her persona ───
    This IS the product's voice — she demos the AI secretary Trevor builds
    into client systems. Price + promise interpolate from OS_PRICING (the
@@ -159,13 +162,29 @@ export async function POST(req: Request) {
   // Room profile from the widget ('default' | 'noisy'), validated against
   // VOICE_PROFILES — an unknown or missing body silently means 'default'.
   let profile: VoiceProfileName = 'default';
+  // Page opener (optional): article pages (/list, a blog post) hand her their
+  // own first line so she doesn't open by continuing an ad nobody clicked.
+  // Single line, capped, quotes neutralized — and it replaces ONLY the
+  // greeting rule; price, promise, lead rules and every hard limit above
+  // stay exactly as written.
+  let opener = '';
   try {
     const body = await req.json();
     if (typeof body?.profile === 'string' && body.profile in VOICE_PROFILES) {
       profile = body.profile as VoiceProfileName;
     }
+    if (typeof body?.opener === 'string') {
+      opener = body.opener
+        .replace(/\s+/g, ' ')
+        .replace(/["`]/g, "'")
+        .trim()
+        .slice(0, VOICE_OPENER_MAX_CHARS);
+    }
   } catch { /* no body — default */ }
   const { noise_reduction, turn_detection } = VOICE_PROFILES[profile];
+  const instructions = opener
+    ? `${INSTRUCTIONS}\n\nPAGE OPENER (replaces only the "Open your very first turn" rule — every other rule above still applies)\n- Open your very first turn with a brief greeting, introduce yourself as Found It's AI secretary, then say some version of: "${opener}" Keep it to three short sentences.`
+    : INSTRUCTIONS;
 
   try {
     const res = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
@@ -179,7 +198,7 @@ export async function POST(req: Request) {
         session: {
           type: 'realtime',
           model: REALTIME_MODEL,
-          instructions: INSTRUCTIONS,
+          instructions,
           audio: {
             input: {
               // Live "you said" captions in the widget.

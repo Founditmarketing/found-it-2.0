@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
+import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
    paywall-style gate after item 03. Copy law: list copy is FINAL; the only
@@ -12,12 +13,19 @@ import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
    public on the Edwards case study; never any refund/guarantee language,
    never a price. The gate costs ONE thing — a cell number — and posts to
    the house /api/lead pipe: same rails, same inbox, same pixels. The page
-   ends on text, not a button: "text MAP to (318) 713-3781". */
+   ends on her: the AI secretary from item 01, live, in both states — a
+   visitor who won't type a cell can say it instead (8/22). */
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 /** Attribution tag on /api/lead + every analytics event from this page. */
 const SOURCE = 'too-good-list';
+
+/** Her attribution — beside the gate's tag, tellable at a glance in the inbox. */
+const VOICE_SOURCE = 'too-good-list-voice';
+/** Her first line here: she knows they just read the list. */
+const VOICE_OPENER =
+  'You just read the list. If one of those should be running in your business, tell me your name and number and Trevor will call you.';
 
 /** Returning visitors stay unlocked — the gate charges once. */
 const UNLOCK_KEY = 'fis_list_unlocked';
@@ -683,6 +691,26 @@ export default function ListClient() {
           ) : (
             <GateCard onUnlocked={handleUnlocked} />
           )}
+        </div>
+
+        {/* ─── Or just tell her ───
+            Item 01, live. Closes the article in BOTH states — after the gate
+            when locked, after the doctrine line when open. Her card is the
+            only UI here: no band, no button, an editorial lead-in and her. */}
+        <div className="mt-20 pt-10 border-t border-white/10">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+            Or just tell her
+          </p>
+          <p className="text-[17px] leading-relaxed text-foreground/85">
+            She&rsquo;s the receptionist we build into every system. Say your name and number;
+            Trevor calls you back.
+          </p>
+          <VoiceAgentWidget
+            pageSlug="too-good-list"
+            source={VOICE_SOURCE}
+            opener={VOICE_OPENER}
+            className="mt-6"
+          />
         </div>
       </article>
     </main>

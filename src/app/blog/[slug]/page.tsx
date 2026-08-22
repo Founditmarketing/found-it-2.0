@@ -3,8 +3,16 @@ import { blogPosts } from '@/lib/blog-posts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
 import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
+
+/* The live AI secretary, for posts that opt in via `voice` on the post
+   object. Code-split: the widget chunk only ships when a post renders it,
+   so every other post's bundle is untouched. */
+const VoiceAgentWidget = dynamic(() =>
+  import('@/components/lp/VoiceAgentWidget').then((m) => m.VoiceAgentWidget),
+);
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
@@ -90,6 +98,22 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </article>
+
+      {/* Her — below the body, above Keep Reading, only on posts that opt in. */}
+      {post.voice && (
+        <section className="max-w-3xl mx-auto px-6 mt-16">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+            {post.voice.eyebrow}
+          </p>
+          <p className="text-lg leading-relaxed text-foreground/85">{post.voice.lead}</p>
+          <VoiceAgentWidget
+            pageSlug={post.slug}
+            source={post.voice.source}
+            opener={post.voice.opener}
+            className="mt-6"
+          />
+        </section>
+      )}
 
       {relatedPosts.length > 0 && (
         <aside className="mt-24 border-t border-border pt-16">

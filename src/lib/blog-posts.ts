@@ -9,6 +9,10 @@ export type Post = {
   author: string;
   authorImage: string;
   image: string;
+  /** Opt-in: mount the live AI secretary (VoiceAgentWidget) under the body,
+   *  above Keep Reading. Leads post to /api/lead under `source`; `opener` is
+   *  her first line on that post. Posts without it render exactly as before. */
+  voice?: { eyebrow: string; lead: string; opener: string; source: string };
 };
 
 export const blogPosts: Post[] = [
@@ -123,6 +127,13 @@ export const blogPosts: Post[] = [
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/scoreboard-hero-v1.png',
+        // She closes the post — "or tell her yourself" is literally her, below.
+        voice: {
+            eyebrow: "She's on the board too",
+            lead: "Want your line on this scoreboard? Tell her. She'll put you in the system while you're still talking.",
+            opener: "Want your line on the scoreboard? Give me your name and number and I'll put you in the system.",
+            source: 'scoreboard-voice',
+        },
         content: `
 <p>Found It Software is a new company. The wins aren't. Here's the scoreboard — every line on it checkable. Updated August 22, because the week moved it.</p>
 

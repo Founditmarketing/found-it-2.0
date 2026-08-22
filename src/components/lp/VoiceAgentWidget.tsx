@@ -133,6 +133,14 @@ const CANNED_QA: CannedQA[] = [
 interface VoiceAgentWidgetProps {
   /** LP slug for lead attribution, e.g. 'auto-shop' → voice_agent_auto-shop */
   pageSlug: string;
+  /** Explicit lead-source tag. Overrides the voice_agent_<slug> default for
+   *  pages whose existing source family she should sit beside — /list posts
+   *  'too-good-list', so she posts 'too-good-list-voice'. */
+  source?: string;
+  /** Page-specific first line. Rides to /api/voice/session, which swaps it
+   *  in for the ad-continuation opener; every other persona rule stays.
+   *  Omit on ad LPs — the default opener continues the ad. */
+  opener?: string;
   className?: string;
 }
 
@@ -158,7 +166,7 @@ const MIC_REOPEN_TAIL_MS = 400;
  *  ever missed, the mic comes back on its own. */
 const MIC_MAX_MUTE_MS = 20_000;
 
-export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetProps) {
+export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, className = '' }: VoiceAgentWidgetProps) {
   const [phase, setPhase] = useState<Phase>('idle');
   const [captions, setCaptions] = useState<CaptionLine[]>([]);
   const [herTalking, setHerTalking] = useState(false);
@@ -217,7 +225,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const watchdogRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dropGraceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const source = voiceLeadSource(pageSlug);
+  const source = sourceOverride || voiceLeadSource(pageSlug);
 
   /** Same attribution trail NativeLeadForm appends — widget leads from paid
    *  traffic were arriving with no campaign context beyond the source tag. */
@@ -665,7 +673,8 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
       const sessRes = await fetch('/api/voice/session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ profile: voiceProfileFromLocation() }),
+        // `opener` is undefined on ad LPs → JSON.stringify drops it, body unchanged.
+        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener }),
         signal: abort.signal,
       });
       if (!sessRes.ok) throw new Error(`session ${sessRes.status}`);
