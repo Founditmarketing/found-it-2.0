@@ -212,3 +212,17 @@
 @media (prefers-reduced-motion: reduce) {
   .va-bar { animation: none; }
 }
+
+/* ─── Mobile scroll-flicker fix (8/19) ───
+   Fixed full-screen blur() glow layers + backdrop-filter cards make mobile
+   Safari/Chrome re-rasterize on every scroll frame — the "background
+   flashes a little while scrolling" report. Under 1024px the ambient glows
+   (3% opacity, invisible anyway) are dropped and cards keep their tint
+   without the live blur. Desktop is untouched. */
+@media (max-width: 1023px) {
+  [class*="blur-["][class*="rounded-full"] { display: none !important; }
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

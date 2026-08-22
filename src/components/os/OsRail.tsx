@@ -70,7 +70,11 @@ export function OsRail({
                   alt={dup ? '' : s.alt}
                   width={s.portrait ? 320 : 800}
                   height={s.portrait ? 640 : 500}
-                  quality={70}
+                  /* sizes = what the tile actually renders (perf pass 8/19):
+                     without it next/image shipped every desktop capture at
+                     1920px — ~4x the pixels a ~480px tile shows. */
+                  sizes={s.portrait ? '160px' : '(max-width: 640px) 320px, 480px'}
+                  quality={60}
                   className={`w-auto max-w-none ${s.portrait ? phoneH : deskH}`}
                 />
                 <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/60 border-t border-border/15">
