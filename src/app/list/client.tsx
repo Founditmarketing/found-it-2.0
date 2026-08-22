@@ -750,7 +750,7 @@ export default function ListClient() {
               {/* ─── The catch ─── */}
               <div className="pt-4 border-t border-primary/20">
                 <h2 className="font-heading text-3xl font-black uppercase italic tracking-tighter text-foreground mb-5">
-                  Barry was right.
+                  The HVAC guy was right.
                 </h2>
                 <p className="text-[17px] leading-relaxed text-foreground/85">
                   It does sound like a lie. That&rsquo;s why I said watch, don&rsquo;t believe. Now the
