@@ -40,56 +40,57 @@ const LIST_OPEN = true;
 
 type Item = { n: string; head: string; body: string };
 
-/** Items 01–03 — open to everyone. Verbatim, do not edit. */
+/** Items 01–03 — open to everyone. Plain-English rewrite 8/22 (Trevor: "don't
+    make them work for it"); the numbers are the sanctioned ones and nothing else. */
 const ITEMS_OPEN: Item[] = [
   {
     n: '01',
     head: 'Your phone, answered at 9pm.',
-    body: 'Calls and texts after close get answered, the customer gets a straight update, and the booking is on your screen in the morning. What happened to the last call you missed at 4:45?',
+    body: "Calls and texts after close get answered and booked. The job's on your screen by morning.",
   },
   {
     n: '02',
     head: 'Your paperwork reads itself.',
-    body: "Snap a photo of an order, an invoice, a handwritten ticket — it's read line by line and typed in before you're back in the truck.",
+    body: "Snap a photo of an invoice or a handwritten ticket. It's typed in before you're back in the truck.",
   },
   {
     n: '03',
     head: 'Your books post themselves.',
-    body: 'Ring the sale; the ledger entry writes itself, clean enough for your accountant. At one dealership the new books matched QuickBooks to the penny across 37 accounts.',
+    body: 'Ring up a sale and the books write themselves. At one dealership, all 37 accounts matched QuickBooks to the penny.',
   },
 ];
 
-/** Items 04–09 — behind the gate. Verbatim, do not edit. */
+/** Items 04–09 — behind the gate when it's on. Same plain rewrite. */
 const ITEMS_GATED: Item[] = [
   {
     n: '04',
     head: 'Your prices protect themselves.',
-    body: "Load your suppliers' price files and nothing sells below cost again. One parts counter had about 1,200 stale prices flagged in its first week. The owner approves fixes with his thumb.",
+    body: "Load your suppliers' price lists and nothing sells below cost again. One parts counter caught about 1,200 stale prices its first week. The owner okayed the fixes with his thumb.",
   },
   {
     n: '05',
     head: 'Your lost money gets found.',
-    body: "Forgotten jobs, quotes nobody chased, invoices aging in a drawer — pulled onto one screen. It found a tree service $268,000. It found Cory Edwards of Edwards Roofing $195,882.75 he'd already earned, and a $19,000 bookkeeping error his old software never saw.",
+    body: "Forgotten jobs and unpaid invoices get pulled onto one screen. It found a tree service $268,000. It found Cory Edwards of Edwards Roofing $195,882.75 he'd already earned. It also caught a $19,000 bookkeeping error his old software never saw.",
   },
   {
     n: '06',
     head: 'Your invoices collect themselves.',
-    body: "Sent by text, paid by card or bank from the customer's phone, money in your account. The quiet ones get a polite nudge on schedule.",
+    body: 'The bill goes out by text, the customer taps Pay on their phone, and the money lands in your account. Slow payers get a polite nudge.',
   },
   {
     n: '07',
     head: 'You can ask your business anything.',
-    body: '"Who owes me the most?" "Which customers went quiet this year?" Plain English in, straight answer out — from your records, not the internet.',
+    body: 'Ask "Who owes me the most?" and get a straight answer from your own records, not the internet.',
   },
   {
     n: '08',
     head: 'Your follow-ups happen without you.',
-    body: 'The check-in after the job. The reminder before the appointment. The estimate that went silent. Handled, politely, every time.',
+    body: 'The thank-you after the job. The reminder before the next appointment. The quote the customer never answered. All of it handled.',
   },
   {
     n: '09',
     head: 'Your Monday writes itself.',
-    body: "What sold, what's aging, who owes — in sentences, waiting before you unlock the door.",
+    body: "What sold, what's late, who owes you. In plain sentences, waiting before you unlock the door.",
   },
 ];
 
@@ -592,7 +593,7 @@ export default function ListClient() {
             To Be True List
           </h1>
           <p className="mt-5 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed">
-            Nine things real Louisiana businesses run every day that sound like lies.
+            Nine things real Louisiana businesses do every day. All of them sound like lies.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
             <FounderByline line="Found It Software, Alexandria LA" />
@@ -624,13 +625,13 @@ export default function ListClient() {
           className="mt-10 space-y-5"
         >
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            He&rsquo;s right. Keep that rule — it&rsquo;s kept a lot of good men from getting
-            robbed. Point it at this list.
+            He&rsquo;s right. Keep that rule. It&rsquo;s kept a lot of good men from getting
+            robbed. Now point it at this list.
           </p>
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            Because this isn&rsquo;t a brochure of someday. Every line below is possible for your
-            business <span className="font-bold text-foreground">today</span> — and every one is
-            already running inside a real Louisiana business while you read this.
+            This isn&rsquo;t a someday list. Every line below is running{' '}
+            <span className="font-bold text-foreground">right now</span>, inside a real Louisiana
+            business.
           </p>
         </motion.div>
 
@@ -647,8 +648,7 @@ export default function ListClient() {
             Don&rsquo;t take my word for it
           </p>
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            Six of the nine, running. One day inside a business on a Found It OS, nobody at the
-            desk. Watch:
+            Six of the nine, running. One day in a shop like yours. Nobody at the desk. Watch:
           </p>
         </motion.div>
         <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 px-5">
@@ -684,16 +684,16 @@ export default function ListClient() {
                 </p>
                 <ul className="space-y-3 text-[15px] leading-relaxed text-foreground/70">
                   <li>
-                    <span className="font-bold text-foreground/90">Payroll.</span> Your payroll
-                    stays where it is. We don&rsquo;t touch it.
+                    <span className="font-bold text-foreground/90">Payroll.</span> We don&rsquo;t
+                    touch it. It stays where it is.
                   </li>
                   <li>
                     <span className="font-bold text-foreground/90">Taxes.</span> We track them to
-                    the penny. Filing stays with your CPA.
+                    the penny. Your CPA still files.
                   </li>
                   <li>
                     <span className="font-bold text-foreground/90">Promises.</span> Nothing here
-                    is a projection. Every line is running today.
+                    is a guess. Every line is running today.
                   </li>
                 </ul>
               </div>
@@ -704,13 +704,12 @@ export default function ListClient() {
                   Now the catch.
                 </h2>
                 <p className="text-[17px] leading-relaxed text-foreground/85">
-                  His rule says there has to be one. Here it is: none of this comes off a shelf.
-                  Each one gets built for one business — <span className="font-bold">yours</span> —
-                  and you own it. Code and data. Month to month. If we ever part ways, it all
-                  leaves with you.
+                  His rule says there has to be one. Here it is. None of this is store-bought. We
+                  build it for one business — <span className="font-bold">yours</span>. You own it,
+                  the code and the data. Month to month. If you ever leave, it all goes with you.
                 </p>
                 <p className="mt-5 text-[17px] leading-relaxed text-foreground/85 italic">
-                  Hunt for the trap. Take your time. The catch cuts the other way.
+                  Hunt for the trap. Take your time. The only catch is that it&rsquo;s all yours.
                 </p>
                 <p className="mt-10 font-heading text-3xl sm:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground">
                   Nobody rents you your own business back<span className="text-primary">.</span>
@@ -734,9 +733,9 @@ export default function ListClient() {
             Or just tell her
           </p>
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            If I sent you this myself, just reply to that message — I read every one. Or try
-            her: she&rsquo;s the receptionist we build into every system. Say your name and
-            number; I call you back.
+            If I sent you this, just reply to that message. I read every one. Or talk to her.
+            She&rsquo;s the receptionist we build into every system. Say your name and number and
+            I&rsquo;ll call you back.
           </p>
           <VoiceAgentWidget
             pageSlug="too-good-list"
