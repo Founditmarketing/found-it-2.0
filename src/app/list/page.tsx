@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   title: 'The Too Good To Be True List',
   description:
     'Nine things real Louisiana businesses run every day that sound like lies. August–October 2026 edition.',
+  openGraph: {
+    title: 'The Too Good To Be True List',
+    description: 'Nine things real Louisiana businesses run every day that sound like lies. August–October 2026 edition.',
+    type: 'article',
+    url: 'https://www.founditsoftware.com/list',
+    images: [{ url: '/og-list-v1.png', width: 1200, height: 630 }],
+  },
   robots: { index: false, follow: false },
 };
 

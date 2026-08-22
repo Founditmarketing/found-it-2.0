@@ -6,6 +6,7 @@ import { Loader2 } from 'lucide-react';
 import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
+import { FounderByline } from '@/components/FounderByline';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
    paywall-style gate after item 03. Copy law: list copy is FINAL; the only
@@ -592,9 +593,10 @@ export default function ListClient() {
           <p className="mt-5 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed">
             Nine things real Louisiana businesses run every day that sound like lies.
           </p>
-          <p className="mt-5 text-xs text-muted-foreground/80 font-medium uppercase tracking-widest">
-            Trevor Ruby &nbsp;·&nbsp; Found It Software, Alexandria LA &nbsp;·&nbsp; A 2-minute read
-          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <FounderByline line="Found It Software, Alexandria LA" />
+            <span className="text-xs text-muted-foreground/80 font-medium uppercase tracking-widest">A 2-minute read</span>
+          </div>
         </motion.header>
 
         {/* ─── The text that started it ─── */}
@@ -708,8 +710,9 @@ export default function ListClient() {
             Or just tell her
           </p>
           <p className="text-[17px] leading-relaxed text-foreground/85">
-            She&rsquo;s the receptionist we build into every system. Say your name and number;
-            Trevor calls you back.
+            If I sent you this myself, just reply to that message — I read every one. Or try
+            her: she&rsquo;s the receptionist we build into every system. Say your name and
+            number; I call you back.
           </p>
           <VoiceAgentWidget
             pageSlug="too-good-list"
