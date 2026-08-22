@@ -5,7 +5,6 @@ import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { FitCheck } from '@/components/fit/FitCheck';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
-import { OsRail } from '@/components/os/OsRail';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 
@@ -170,21 +169,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </p>
             <AutomationReel />
           </section>
-        )}
-
-        {data.showcase && data.showcase.length > 0 && (
-          <div className="relative left-1/2 -translate-x-1/2 w-screen mb-16">
-            <OsRail
-              href="#screens"
-              size="sm"
-              items={data.showcase.flatMap((s) => [
-                { src: s.img, alt: s.imgAlt, title: s.title, kind: s.kind },
-                ...(s.phone
-                  ? [{ src: s.phone, alt: s.phoneAlt || '', title: s.title, kind: s.kind, portrait: true }]
-                  : []),
-              ])}
-            />
-          </div>
         )}
 
         {/* Stats */}

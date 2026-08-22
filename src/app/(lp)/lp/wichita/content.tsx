@@ -8,9 +8,8 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
-import { OsRail } from '@/components/os/OsRail';
+import { AutomationReel } from '@/components/os/AutomationReel';
 import { AskTheOS } from '@/components/os/AskTheOS';
-import { railDesktops, railPhones } from '@/lib/os-screens';
 import { MessageSquare } from 'lucide-react';
 import { OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
@@ -186,13 +185,12 @@ export function WichitaLPContent() {
             <span className="text-white font-bold">
               Real businesses
             </span>{' '}
-            run on systems we built. These aren&rsquo;t mockups — they&rsquo;re the systems
-            themselves:
+            run on systems we built. Here&rsquo;s one day inside one of them — nobody at the
+            desk:
           </p>
         </div>
-        <div className="space-y-5">
-          <OsRail items={railDesktops} dir="left" href="#lp-form" size="sm" />
-          <OsRail items={railPhones} dir="right" href="#lp-form" size="sm" />
+        <div className="max-w-[1100px] mx-auto px-4 pb-6">
+          <AutomationReel />
         </div>
       </section>
 

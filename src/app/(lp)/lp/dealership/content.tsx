@@ -8,8 +8,7 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
-import { OsRail } from '@/components/os/OsRail';
-import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
+import { AutomationReel } from '@/components/os/AutomationReel';
 import { ShieldCheck } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 
@@ -24,11 +23,6 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    Harmonized 8/14 to the ad-page audit structure: Cory's named-numbers
    proof directly under the hero, no marketing-era reviews, no PDF magnet,
    public price at the point of commitment. */
-
-/* Dealer-relevant captures drift past first: sales-pipeline + quote screens. */
-const isDealerScreen = (s: { kind: string }) => /dealer|tire/i.test(s.kind);
-const dealerDesktops = railLeading(railDesktops, isDealerScreen);
-const dealerPhones = railLeading(railPhones, (s) => /flywheel|lacaze/i.test(s.kind));
 
 const faqItems = [
   {
@@ -108,10 +102,9 @@ export function DealershipLPContent() {
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
-      {/* Not mockups — the systems themselves, dealer screens leading */}
-      <div className="py-6 space-y-5">
-        <OsRail items={dealerDesktops} dir="left" href="#lp-form" size="sm" />
-        <OsRail items={dealerPhones} dir="right" href="#lp-form" size="sm" />
+      {/* THE REEL (8/22): one day inside a business on a Found It OS — replaces the screenshot rails */}
+      <div className="max-w-[1100px] mx-auto px-4 py-10">
+        <AutomationReel />
       </div>
 
       <ObjectionBullets

@@ -8,8 +8,7 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
 import { FounderVideo } from '@/components/lp/FounderVideo';
-import { OsRail } from '@/components/os/OsRail';
-import { railDesktops, railPhones, railLeading } from '@/lib/os-screens';
+import { AutomationReel } from '@/components/os/AutomationReel';
 import { Scale } from 'lucide-react';
 import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
 
@@ -22,11 +21,6 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    name, never a number we can't stand behind. Pricing renders from
    OS_PRICING only; the money-back guarantee was retired 8/14 — the offer
    line is OS_PRICING.promise, verbatim. */
-
-/* Trade-contractor captures drift past first: foundation, carpet, field ops. */
-const isTradeScreen = (s: { kind: string }) => /contractor|carpet|windmill/i.test(s.kind);
-const tradeDesktops = railLeading(railDesktops, isTradeScreen);
-const tradePhones = railLeading(railPhones, (s) => /foundation|carpet|field/i.test(s.kind));
 
 const faqItems = [
   {
@@ -106,10 +100,9 @@ export function RoofingLPContent() {
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
 
-      {/* Not mockups — the systems themselves, trade-contractor screens leading */}
-      <div className="py-6 space-y-5">
-        <OsRail items={tradeDesktops} dir="left" href="#lp-form" size="sm" />
-        <OsRail items={tradePhones} dir="right" href="#lp-form" size="sm" />
+      {/* THE REEL (8/22): one day inside a business on a Found It OS — replaces the screenshot rails */}
+      <div className="max-w-[1100px] mx-auto px-4 py-10">
+        <AutomationReel />
       </div>
 
       <ObjectionBullets

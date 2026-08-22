@@ -7,6 +7,7 @@ import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/ana
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { FounderByline } from '@/components/FounderByline';
+import { AutomationReel } from '@/components/os/AutomationReel';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
    paywall-style gate after item 03. Copy law: list copy is FINAL; the only
@@ -632,6 +633,29 @@ export default function ListClient() {
             already running inside a real Louisiana business while you read this.
           </p>
         </motion.div>
+
+        {/* ─── Six of the nine, running (8/22) ───
+            The reel breaks out of the 680px column: one stage, six chapters,
+            numbers that travel from the world into the books. Demo books. */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.7, ease }}
+          className="mt-14"
+        >
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+            Don&rsquo;t take my word for it
+          </p>
+          <p className="text-[17px] leading-relaxed text-foreground/85">
+            Six of the nine, running. One day inside a business on a Found It OS, nobody at the
+            desk. Watch:
+          </p>
+        </motion.div>
+        <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 px-5">
+          <div className="mx-auto max-w-[1040px]">
+            <AutomationReel />
+          </div>
+        </div>
 
         {/* ─── Items 01–03, open ─── */}
         <div className="mt-20 space-y-16 sm:space-y-20">

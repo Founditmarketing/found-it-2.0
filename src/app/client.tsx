@@ -5,11 +5,9 @@ import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { Check, ArrowRight, Layers, Smartphone, Bot } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { FounderByline } from '@/components/FounderByline';
-import { railSpectacular, railPhonesSpectacular } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
@@ -317,26 +315,8 @@ export default function HomePage() {
           </motion.div>
 
           {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
-          <AutomationReel className="mb-16" />
-
-          <p className="text-center text-xs font-black uppercase tracking-[0.25em] text-faint mb-6">
-            And yes — it&apos;s real software, running real businesses
-          </p>
+          <AutomationReel />
         </div>
-
-        {/* THE FLOOR — full-bleed evidence rails. Desktops drift left in
-            browser chrome; phones drift right in bezels. Hover pauses a row;
-            reduced motion swaps the drift for manual scroll. */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease }}
-          className="space-y-6 lg:space-y-8"
-        >
-          <OsRail items={railSpectacular} dir="left" href="/foundit-os" size="md" />
-          <OsRail items={railPhonesSpectacular} dir="right" href="/foundit-os" size="md" />
-        </motion.div>
       </section>
 
       {/* ═══════════════════════════════════════════

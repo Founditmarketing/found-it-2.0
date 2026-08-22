@@ -5,8 +5,6 @@ import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
-import { OsRail } from '@/components/os/OsRail';
-import { railDesktops, railPhones } from '@/lib/os-screens';
 import type { IndustryData } from './data';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -24,12 +22,6 @@ const PILLAR_LINKS: Record<string, { label: string; href: string }> = {
   retail: { label: 'See the House System on screen', href: '/custom-software/retail-stores' },
   dealerships: { label: 'See the dealership system', href: '/custom-software/car-dealerships' },
 };
-
-/* One mixed evidence rail: desktops and phones interleaved. */
-const railMix = [
-  ...railDesktops.flatMap((d, i) => (railPhones[i] ? [d, railPhones[i]] : [d])),
-  ...railPhones.slice(railDesktops.length),
-];
 
 export default function IndustryPageClient({ data }: { data: IndustryData }) {
   return (
@@ -75,17 +67,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* ── The stable, drifting past — not mockups, screenshots ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease }}
-          className="relative left-1/2 -translate-x-1/2 w-screen mb-16"
-        >
-          <OsRail items={railMix} href={PILLAR_LINKS[data.slug]?.href || '/custom-software'} size="sm" />
         </motion.div>
 
         {/* ── Definition (answer-first) ── */}

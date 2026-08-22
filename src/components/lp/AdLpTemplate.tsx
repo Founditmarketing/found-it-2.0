@@ -8,12 +8,10 @@ import { LPFormSection } from '@/components/lp/LPFormSection';
 import { FounderVideo } from '@/components/lp/FounderVideo';
 import { FAQSection } from '@/components/lp/FAQSection';
 import { LPNav } from '@/components/lp/LPNav';
-import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { FounderByline } from '@/components/FounderByline';
-import { railSpectacular, railPhonesSpectacular } from '@/lib/os-screens';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
 import { OS_PRICING, MAP_VALUE } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
@@ -233,8 +231,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         </div>
       </section>
 
-      {/* The reveal: not another app — THE app. The rail is the proof that
-          it exists: real systems from real local businesses, not mockups. */}
+      {/* The reveal: not another app — THE app. The reel is the proof:
+          one day inside a business on a Found It OS, nobody at the desk. */}
       <section className="pt-14 lg:pt-20 pb-6">
         <div className="max-w-4xl mx-auto px-4 text-center mb-10">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
@@ -254,15 +252,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           </p>
         </div>
         {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
-        <div className="max-w-[1100px] mx-auto px-4 mb-12">
+        <div className="max-w-[1100px] mx-auto px-4 pb-6">
           <AutomationReel />
-          <p className="text-center text-xs font-black uppercase tracking-[0.25em] text-faint mt-10">
-            And yes &mdash; it&rsquo;s real software, running real businesses
-          </p>
-        </div>
-        <div className="space-y-5">
-          <OsRail items={railSpectacular} dir="left" href="#lp-form" size="sm" />
-          <OsRail items={railPhonesSpectacular} dir="right" href="#lp-form" size="sm" />
         </div>
       </section>
 
