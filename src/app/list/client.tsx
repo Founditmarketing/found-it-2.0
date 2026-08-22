@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
-import { trackLead, trackFormStart, trackCTAClick, captureUTMs, getStoredUTMs } from '@/lib/analytics';
+import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
 import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
@@ -443,23 +443,6 @@ export default function ListClient() {
                   The October edition will be longer. This stuff doesn&rsquo;t slow down.
                 </p>
               </div>
-
-              {/* ─── The ending — text, not a button. No box, no CTA band.
-                  Copy is FINAL. The number is the permanent text-MAP line
-                  (Twilio → cell); a person answers it. ─── */}
-              <p className="text-[17px] leading-relaxed text-foreground/85">
-                We take on a handful of businesses a quarter. Not everybody — the fit has to be
-                right on both sides. If you read this far and recognized yourself, text the word
-                MAP to{' '}
-                <a
-                  href="sms:+13187133781?&body=MAP"
-                  onClick={() => trackCTAClick('list_text_map')}
-                  className="text-foreground underline underline-offset-4 decoration-foreground/40 hover:decoration-foreground whitespace-nowrap transition-colors"
-                >
-                  (318) 713-3781
-                </a>
-                . A person answers.
-              </p>
             </motion.div>
           ) : (
             <GateCard onUnlocked={handleUnlocked} />
