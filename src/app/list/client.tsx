@@ -709,6 +709,7 @@ export default function ListClient() {
             pageSlug="too-good-list"
             source={VOICE_SOURCE}
             opener={VOICE_OPENER}
+            fallbackHref="/foundit-os#lead-form"
             className="mt-6"
           />
         </div>

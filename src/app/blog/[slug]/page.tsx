@@ -110,6 +110,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             pageSlug={post.slug}
             source={post.voice.source}
             opener={post.voice.opener}
+            fallbackHref="/foundit-os#lead-form"
             className="mt-6"
           />
         </section>

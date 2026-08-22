@@ -142,6 +142,8 @@ interface VoiceAgentWidgetProps {
    *  Omit on ad LPs — the default opener continues the ad. */
   opener?: string;
   className?: string;
+  /** Where the ended/busy/denied states send people. Ad LPs have #lp-form; article pages pass a real URL. */
+  fallbackHref?: string;
 }
 
 /** One concurrent session per visitor — module-level so a double-tap or a
@@ -166,7 +168,7 @@ const MIC_REOPEN_TAIL_MS = 400;
  *  ever missed, the mic comes back on its own. */
 const MIC_MAX_MUTE_MS = 20_000;
 
-export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, className = '' }: VoiceAgentWidgetProps) {
+export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, className = '', fallbackHref = '#lp-form' }: VoiceAgentWidgetProps) {
   const [phase, setPhase] = useState<Phase>('idle');
   const [captions, setCaptions] = useState<CaptionLine[]>([]);
   const [herTalking, setHerTalking] = useState(false);
@@ -1000,7 +1002,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
                   >
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk to her again
                   </button>
-                  <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
                     Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
@@ -1020,7 +1022,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
                   >
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk again
                   </button>
-                  <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
+                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
                     Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
@@ -1112,7 +1114,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
               >
                 <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try the voice line again
               </button>
-              <a href="#lp-form" className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+              <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
                 Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
               </a>
             </div>
@@ -1142,7 +1144,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
                 <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Ask her by text
               </button>
               <a
-                href="#lp-form"
+                href={fallbackHref}
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors"
               >
                 Leave my info <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
@@ -1168,7 +1170,7 @@ export function VoiceAgentWidget({ pageSlug, source: sourceOverride, opener, cla
               >
                 <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try again
               </button>
-              <a href="#lp-form" className="text-xs font-bold text-white/70 hover:text-primary transition-colors">
+              <a href={fallbackHref} className="text-xs font-bold text-white/70 hover:text-primary transition-colors">
                 Use the form instead
               </a>
             </div>
