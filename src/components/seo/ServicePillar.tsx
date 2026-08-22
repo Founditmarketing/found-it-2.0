@@ -6,6 +6,7 @@ import { FitCheck } from '@/components/fit/FitCheck';
 import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { OsRail } from '@/components/os/OsRail';
+import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 
 export interface PillarData {
@@ -54,6 +55,9 @@ export interface PillarData {
   };
   /** Optional screenshot gallery (e.g. Found It OS installs on screen). */
   galleryHeading?: string;
+  /** 8/19: play the AutomationReel above the showcase rail — automations in
+   *  motion instead of dashboards at rest. foundit-os + custom-software. */
+  automationReel?: boolean;
   galleryIntro?: string;
   gallery?: { src: string; alt: string; title: string; kind: string; detail: string }[];
   /** Optional phone captures — portrait shots of the same systems on mobile. */
@@ -155,6 +159,19 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* The floor, page-sized: this system's captures drift past right under
             the hero. Tapping any frame jumps to the full stages below. */}
+        {data.automationReel && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
+              This Is What Automated <span className="text-primary">Looks Like.</span>
+            </h2>
+            <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-8 max-w-2xl">
+              One day inside a business that runs on a Found It OS — 8:02 AM to the next morning,
+              nobody at the desk. Everything that moves, moves by itself.
+            </p>
+            <AutomationReel />
+          </section>
+        )}
+
         {data.showcase && data.showcase.length > 0 && (
           <div className="relative left-1/2 -translate-x-1/2 w-screen mb-16">
             <OsRail

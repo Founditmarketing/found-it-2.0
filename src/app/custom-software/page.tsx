@@ -49,6 +49,7 @@ const data: PillarData = {
     { value: 'Days', label: 'To Install, Not Quarters' },
   ],
   voiceDemo: true,
+  automationReel: true,
   definitionHeading: 'What Is Custom Business Software?',
   definition:
     'Custom business software is a system built around how one specific business actually runs — its jobs, its register, its customer book — instead of a rented product built for an industry average. Off-the-shelf systems make you work their way; whatever doesn’t fit ends up on paper, in spreadsheets, or in somebody’s head. A custom system is the reverse: we map how your business really works, build the software around that, and migrate your existing records into it so day one starts with your history, not a blank screen. Ours goes one step further — a built-in AI you can ask questions in plain English, and it answers from your own data. And when it’s done, you own it. The code, the data, everything.',

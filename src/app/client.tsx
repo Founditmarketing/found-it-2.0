@@ -7,8 +7,9 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { OsRail } from '@/components/os/OsRail';
 import { AskTheOS } from '@/components/os/AskTheOS';
+import { AutomationReel } from '@/components/os/AutomationReel';
 import { FounderByline } from '@/components/FounderByline';
-import { railDesktops, railPhones } from '@/lib/os-screens';
+import { railSpectacular, railPhonesSpectacular } from '@/lib/os-screens';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
@@ -307,13 +308,20 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-              Not Mockups. Screenshots.
+              This Is What Automated Looks Like.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Straight off the screens of systems we&apos;ve fitted — a wholesale nursery, an auto shop, a tire shop, a clothier, a carpet cleaner. Every one owned by the business running it.
+              One day inside a business that runs on a Found It OS — 8:02 AM to the next morning,
+              nobody at the desk. Everything that moves, moves by itself. Watch:
             </p>
           </motion.div>
 
+          {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
+          <AutomationReel className="mb-16" />
+
+          <p className="text-center text-xs font-black uppercase tracking-[0.25em] text-faint mb-6">
+            And yes — it&apos;s real software, running real businesses
+          </p>
         </div>
 
         {/* THE FLOOR — full-bleed evidence rails. Desktops drift left in
@@ -326,8 +334,8 @@ export default function HomePage() {
           transition={{ duration: 1, ease }}
           className="space-y-6 lg:space-y-8"
         >
-          <OsRail items={railDesktops} dir="left" href="/foundit-os" size="md" />
-          <OsRail items={railPhones} dir="right" href="/foundit-os" size="md" />
+          <OsRail items={railSpectacular} dir="left" href="/foundit-os" size="md" />
+          <OsRail items={railPhonesSpectacular} dir="right" href="/foundit-os" size="md" />
         </motion.div>
       </section>
 

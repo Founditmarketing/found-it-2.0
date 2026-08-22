@@ -221,3 +221,26 @@ export const railPhones: OsRailItem[] = [
     portrait: true,
   },
 ];
+
+/* ─── The spectacular subset (Trevor + brother, 8/19) ───
+   "Remove most of the admin dashboards unless they're doing something
+   spectacular." The AutomationReel now carries the story; these few
+   screens ride below it as proof the automations live in real software.
+   Criteria: money visibly moving, a rule visibly enforced, or a thing
+   visibly happening — never a grid at rest. */
+const SPECTACULAR_DESKTOP = new Set([
+  '/os-screens/lonestar-os-desk-v1.png',     // 30-day sold + escalations a human should look at
+  '/os-screens/lonestar-os-line-v1.png',     // every build, dollars on every column
+  '/os-screens/roxanne-os-intake-v1.png',    // lines in = lines captured, the odd one held in red
+  '/os-screens/lacaze-os-paid-v1.png',       // the PAID stamp writing itself into the books
+  '/os-screens/flywheel-os-quote-v1.png',    // a tire size in, every supplier priced out the door
+  '/os-screens/lonestar-os-counter-v1.png',  // a sale kicked back with the fix spelled out
+]);
+const SPECTACULAR_PHONE = new Set([
+  '/os-screens/lonestar-os-run-mobile-v1.png',      // the driver's day with the over-width warning
+  '/os-screens/roxanne-os-crew-mobile-v1.png',      // loads by trailer slot, one big PRINT
+  '/os-screens/flywheel-os-mobile-quick-v2.png',    // snap-the-sidewall quote
+  '/os-screens/lacaze-os-statement-mobile-v1.png',  // open invoices with pay-by-bank links
+]);
+export const railSpectacular: OsRailItem[] = railDesktops.filter((s) => SPECTACULAR_DESKTOP.has(s.src));
+export const railPhonesSpectacular: OsRailItem[] = railPhones.filter((s) => SPECTACULAR_PHONE.has(s.src));

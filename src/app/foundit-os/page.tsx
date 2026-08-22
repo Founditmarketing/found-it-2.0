@@ -50,6 +50,7 @@ const data: PillarData = {
     { value: '0 Hrs', label: 'Downtime at Switch' },
   ],
   voiceDemo: true,
+  automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
     'A business operating system is one piece of software that runs your whole operation — sales, inventory, customers, invoices, service work, and your website — instead of five subscriptions taped together. Think of it like a suit: the big platforms sell off the rack — built for everyone, tight in all the wrong places. Found It OS is made to measure: we study how your business actually works, then build the system around it. One screen your team actually uses, one customer database, an AI that answers questions about your own business in plain English — and at the end, you own it. The code, the data, everything.',

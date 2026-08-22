@@ -146,8 +146,8 @@ export function VoiceIntro() {
                 <span className="relative w-12 h-12 shrink-0">
                   <span className="absolute inset-0 rounded-full overflow-hidden border border-border/40">
                     <Image
-                      src="/trevorruby.jpeg"
-                      alt="Trevor Ruby, founder of Found It Marketing"
+                      src="/trevorruby-v2.jpg"
+                      alt="Trevor Ruby, founder of Found It Software"
                       fill
                       sizes="48px"
                       className="object-cover"

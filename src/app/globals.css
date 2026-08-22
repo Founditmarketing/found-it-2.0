@@ -226,3 +226,10 @@
     -webkit-backdrop-filter: none !important;
   }
 }
+
+/* The automation reel on stage (phones): the chat launcher steps aside so it never covers the verdict. */
+@media (max-width: 767px) {
+  /* framer sets the launcher's opacity inline, so these win by !important */
+  .concierge-fab { transition: opacity 0.3s ease, visibility 0.3s; }
+  body.reel-live .concierge-fab { opacity: 0 !important; visibility: hidden; pointer-events: none !important; }
+}

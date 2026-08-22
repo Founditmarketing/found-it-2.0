@@ -220,7 +220,7 @@ export function TrevorConcierge() {
             aria-label="Ask Trevor a question"
             // z-40 keeps the launcher below the header (z-50) and the mobile menu overlay/panel
             // (z-[160]/z-[161]) so it can't intercept taps when the menu is open.
-            className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-primary/30 hover:scale-105 transition-transform"
+            className="concierge-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-primary/30 hover:scale-105 transition-transform"
           >
             <MessageCircle className="w-5 h-5" />
             <span className="text-sm hidden sm:block">Ask Trevor</span>
@@ -244,7 +244,7 @@ export function TrevorConcierge() {
             {/* Header */}
             <div className="flex items-center gap-3 px-5 py-4 border-b border-border/20 bg-gradient-to-r from-primary/[0.08] to-transparent">
               <div className="relative w-10 h-10 rounded-full overflow-hidden border border-primary/30 shrink-0">
-                <Image src="/trevorruby.jpeg" alt="Trevor Ruby" fill className="object-cover" sizes="40px" />
+                <Image src="/trevorruby-v2.jpg" alt="Trevor Ruby" fill className="object-cover" sizes="40px" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-black uppercase italic tracking-tighter text-foreground leading-none">Ask Trevor</p>

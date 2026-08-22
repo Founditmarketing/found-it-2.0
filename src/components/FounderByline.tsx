@@ -32,7 +32,7 @@ export function FounderByline({
         style={{ width: px, height: px }}
       >
         <Image
-          src="/trevorruby.jpeg"
+          src="/trevorruby-v2.jpg"
           alt="Trevor Ruby, founder of Found It Software"
           fill
           className="object-cover"
