@@ -149,6 +149,15 @@ const BAR_SHAPE = [0.55, 0.8, 1, 0.7, 0.45];
  *  surface "didn't catch that" instead of leaving the presenter guessing. */
 const MISSED_AFTER_MS = 3_500;
 
+/** Half-duplex: how long after her audio stops before the mic reopens —
+ *  long enough for a speakerphone's echo tail to die, short enough that a
+ *  quick reply isn't clipped. */
+const MIC_REOPEN_TAIL_MS = 400;
+
+/** Safety: a mute can never outlive this — if a stopped/cleared event is
+ *  ever missed, the mic comes back on its own. */
+const MIC_MAX_MUTE_MS = 20_000;
+
 export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetProps) {
   const [phase, setPhase] = useState<Phase>('idle');
   const [captions, setCaptions] = useState<CaptionLine[]>([]);
@@ -178,6 +187,9 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const pcRef = useRef<RTCPeerConnection | null>(null);
   const dcRef = useRef<RTCDataChannel | null>(null);
   const micRef = useRef<MediaStream | null>(null);
+  // Half-duplex mic gate timers (see output_audio_buffer handlers).
+  const unmuteTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const maxMuteTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const talkDecayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -220,6 +232,24 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
   const clearMissedTimer = () => {
     if (missedTimerRef.current) { clearTimeout(missedTimerRef.current); missedTimerRef.current = null; }
   };
+  const clearMicGateTimers = () => {
+    if (unmuteTimerRef.current) { clearTimeout(unmuteTimerRef.current); unmuteTimerRef.current = null; }
+    if (maxMuteTimerRef.current) { clearTimeout(maxMuteTimerRef.current); maxMuteTimerRef.current = null; }
+  };
+  /** Half-duplex gate: the mic track is disabled while she speaks so her
+   *  own voice can't come back through the speakers as "the visitor." A
+   *  disabled track sends silence — the session stays up, nothing
+   *  reconnects. Closing arms a watchdog that reopens no matter what. */
+  const setMicOpen = (open: boolean) => {
+    micRef.current?.getAudioTracks().forEach((t) => { t.enabled = open; });
+    if (maxMuteTimerRef.current) { clearTimeout(maxMuteTimerRef.current); maxMuteTimerRef.current = null; }
+    if (!open) {
+      maxMuteTimerRef.current = setTimeout(() => {
+        maxMuteTimerRef.current = null;
+        micRef.current?.getAudioTracks().forEach((t) => { t.enabled = true; });
+      }, MIC_MAX_MUTE_MS);
+    }
+  };
   const clearConnectTimers = () => {
     if (slowTimerRef.current) { clearTimeout(slowTimerRef.current); slowTimerRef.current = null; }
     if (watchdogRef.current) { clearTimeout(watchdogRef.current); watchdogRef.current = null; }
@@ -232,6 +262,7 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
     if (dropGraceRef.current) { clearTimeout(dropGraceRef.current); dropGraceRef.current = null; }
     clearMissedTimer();
     clearConnectTimers();
+    clearMicGateTimers();
     connectAbortRef.current?.abort();
     connectAbortRef.current = null;
     if (rafRef.current) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
@@ -522,10 +553,30 @@ export function VoiceAgentWidget({ pageSlug, className = '' }: VoiceAgentWidgetP
       case 'output_audio_buffer.started':
         setHerTalking(true);
         markServerHeard();
+        // HALF-DUPLEX (8/19 — "interrupting herself over and over"): her own
+        // voice through the speakers was reaching the mic and the VAD read
+        // it as the visitor taking a turn, so every sentence she spoke
+        // spawned a NEW response on top of itself. interrupt_response:false
+        // stops her being cut off; it does not stop echo from starting
+        // turns. So the mic track closes while she talks — a sales-room
+        // speakerphone does the same thing, and the UI already says
+        // "let her finish."
+        setMicOpen(false);
         break;
       case 'output_audio_buffer.stopped':
       case 'output_audio_buffer.cleared':
         setHerTalking(false);
+        // Reopen after the room's echo tail dies, and drop anything the
+        // server buffered between her last word and the mute landing.
+        if (unmuteTimerRef.current) clearTimeout(unmuteTimerRef.current);
+        unmuteTimerRef.current = setTimeout(() => {
+          unmuteTimerRef.current = null;
+          const dcNow = dcRef.current;
+          if (dcNow && dcNow.readyState === 'open') {
+            dcNow.send(JSON.stringify({ type: 'input_audio_buffer.clear' }));
+          }
+          setMicOpen(true);
+        }, MIC_REOPEN_TAIL_MS);
         break;
       case 'response.done': {
         const outputs: any[] = msg.response?.output ?? [];
