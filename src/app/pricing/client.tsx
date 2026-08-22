@@ -84,6 +84,12 @@ export default function PricingClient() {
               <p className="text-xl font-black text-muted-foreground italic tracking-tighter mt-1">
                 + {OS_PRICING.setup} <span className="text-sm font-bold not-italic">{OS_PRICING.setupLabel}</span>
               </p>
+              {/* The founding-accounts line — true as of 8/22/26: the first twenty
+                  signed at $2,200 and are grandfathered forever. Retire this line
+                  once it stops being true. */}
+              <p className="mt-3 text-sm font-medium text-muted-foreground">
+                The first twenty were founding accounts at $2,200. That&rsquo;s closing out.
+              </p>
             </div>
             {/* The promise stands alone — a declaration, not a labeled
                 footnote. Verbatim, once on this page. */}

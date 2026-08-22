@@ -110,8 +110,14 @@ export const MAP_VALUE = {
    anywhere on the site or in the AI scripts. The risk reversal that remains
    true: month-to-month, cancel anytime, the client keeps the code and the
    data. The offer's spine is the promise below. */
+/* PRICE CHANGE (Trevor, 2026-08-22): list price raised to $3,000/mo. The first
+   twenty accounts were founding accounts at $2,200 — every signed customer is
+   grandfathered forever; the founding line on /pricing tells that truth. Setup
+   stays $2,000 on purpose (the first check stays small; the monthly carries the
+   lift). Discounts need a NAME (founding / reference shop / slow-season) and
+   come off SETUP, never the monthly. */
 export const OS_PRICING = {
-  monthly: '$2,200',
+  monthly: '$3,000',
   monthlyLabel: 'per month',
   setup: '$2,000',
   setupLabel: 'one-time migration & setup',
