@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import { rateLimit, clientIp } from '@/lib/server/guards';
 import { OS_PRICING } from '@/lib/site';
 import { VOICE_SESSION_MAX_SECONDS, VOICE_PROFILES, type VoiceProfileName } from '@/lib/voice';
@@ -180,9 +181,22 @@ export async function POST(req: Request) {
   // their number (/list went to his own contacts). She must not chase a
   // number — only take one if they express interest.
   let warm = false;
+  // Where she was started from (8/22 — Trevor: "has anybody even used the
+  // damn ai secretary"). Until now a session that ended without a lead left
+  // no trace anywhere he can see. The widget sends its lead `source` + page
+  // path; both are display-only here (sanitized, capped) and ride in the
+  // "AI secretary started" ping below — never into her instructions.
+  let startedFrom = '';
+  let startedPage = '';
   try {
     const body = await req.json();
     warm = body?.warm === true;
+    if (typeof body?.source === 'string') {
+      startedFrom = body.source.replace(/[^\w.:/-]/g, '').slice(0, 80);
+    }
+    if (typeof body?.page === 'string') {
+      startedPage = body.page.replace(/[^\w.:/?=&%-]/g, '').slice(0, 160);
+    }
     if (typeof body?.profile === 'string' && body.profile in VOICE_PROFILES) {
       profile = body.profile as VoiceProfileName;
     }
@@ -248,6 +262,32 @@ export async function POST(req: Request) {
     }
 
     const data = await res.json();
+
+    // "AI secretary started" ping (8/22). One short email per session mint so
+    // usage is visible in the inbox — the same two inboxes the lead pipe
+    // uses. Best-effort and fire-and-forget: a Resend hiccup must never cost
+    // a caller her voice. Subject is grep-able: count them for "how many".
+    if (process.env.RESEND_API_KEY) {
+      const mode = script ? 'narrate' : opener ? 'page' : 'lp';
+      const page = startedPage || req.headers.get('referer') || '';
+      const ua = (req.headers.get('user-agent') || '').slice(0, 140);
+      const when = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      void resend.emails
+        .send({
+          from: 'Found It Software <contact@founditmarketing.com>',
+          to: ['trevor@founditmarketing.com', 'trevorruby@gmail.com'],
+          subject: `AI secretary started: ${startedFrom || 'unknown'} (${mode})`,
+          html: `<p style="margin:4px 0"><strong>Someone tapped the AI secretary.</strong></p>
+<p style="margin:4px 0"><strong>When:</strong> ${when} CT</p>
+<p style="margin:4px 0"><strong>Page:</strong> ${page.replace(/</g, '&lt;')}</p>
+<p style="margin:4px 0"><strong>Source:</strong> ${startedFrom || 'unknown'} · <strong>Mode:</strong> ${mode} · <strong>Room:</strong> ${profile}${warm ? ' · warm' : ''}</p>
+<p style="margin:4px 0;color:#666"><strong>Device:</strong> ${ua.replace(/</g, '&lt;')}</p>
+<p style="margin:12px 0 0;color:#666">A lead email follows only if she captured a name and number.</p>`,
+        })
+        .catch((err) => console.error('[voice/session] start ping failed', err));
+    }
+
     return NextResponse.json({
       token: data.value,
       expiresAt: data.expires_at,

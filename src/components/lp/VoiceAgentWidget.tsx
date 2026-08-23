@@ -733,7 +733,16 @@ export function VoiceAgentWidget({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // `opener` is undefined on ad LPs → JSON.stringify drops it, body unchanged.
-        body: JSON.stringify({ profile: voiceProfileFromLocation(), opener, script: mode === 'narrate' ? script : undefined, warm: warm || undefined }),
+        // `source` + `page` only feed the "AI secretary started" inbox ping
+        // (8/22) — the route never puts them in her instructions.
+        body: JSON.stringify({
+          profile: voiceProfileFromLocation(),
+          opener,
+          script: mode === 'narrate' ? script : undefined,
+          warm: warm || undefined,
+          source,
+          page: typeof window !== 'undefined' ? `${window.location.pathname}${window.location.search}` : undefined,
+        }),
         signal: abort.signal,
       });
       if (!sessRes.ok) throw new Error(`session ${sessRes.status}`);
