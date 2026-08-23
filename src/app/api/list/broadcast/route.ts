@@ -189,6 +189,35 @@ export async function POST(req: Request) {
       return NextResponse.json({ broadcastId, scheduled: scheduledAt || 'now', send: sent });
     }
 
+    if (action === 'send') {
+      // One-to-one transactional sends (individually written bodies), paced
+      // to Resend's 2 req/s. ≤50 per call so a chunk finishes inside maxDuration.
+      const raw = Array.isArray(body.emails) ? (body.emails as { to: string; subject: string; text: string }[]) : [];
+      if (!raw.length) return NextResponse.json({ error: 'emails required.' }, { status: 400 });
+      if (raw.length > 50) return NextResponse.json({ error: 'Max 50 emails per call.' }, { status: 400 });
+      const from = String(body.from || DEFAULT_FROM);
+      const replyTo = String(body.replyTo || DEFAULT_REPLY_TO);
+      const sent: { to: string; id: string }[] = [];
+      const failed: { to: string; error: string }[] = [];
+      for (const m of raw) {
+        const to = String(m?.to || '').trim().toLowerCase();
+        const subject = String(m?.subject || '').trim();
+        const text = String(m?.text || '');
+        if (!EMAIL_RE.test(to) || !subject || !text) {
+          failed.push({ to, error: 'bad to/subject/text' });
+          continue;
+        }
+        try {
+          const r = await resend('/emails', { method: 'POST', json: { from, to: [to], reply_to: replyTo, subject, text } });
+          sent.push({ to, id: String(r.id) });
+        } catch (e) {
+          failed.push({ to, error: (e as Error).message });
+        }
+        await sleep(CONTACT_PAUSE_MS);
+      }
+      return NextResponse.json({ sent, failed });
+    }
+
     if (action === 'cancel') {
       const broadcastId = String(body.broadcastId || '').trim();
       if (!broadcastId) return NextResponse.json({ error: 'broadcastId required.' }, { status: 400 });
