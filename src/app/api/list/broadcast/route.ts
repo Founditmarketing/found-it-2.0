@@ -33,7 +33,10 @@ export const maxDuration = 300;
 
 const RESEND = 'https://api.resend.com';
 const DEFAULT_FROM = 'Trevor Ruby <trevor@founditmarketing.com>';
-const DEFAULT_REPLY_TO = 'trevorruby@gmail.com';
+// Reply-To stays on the sending domain: a freemail Reply-To under a business
+// From is a SpamAssassin hit (FREEMAIL_FORGED_REPLYTO, +2.5 on 8/23's
+// mail-tester run). Trevor reads trevor@founditmarketing.com too.
+const DEFAULT_REPLY_TO = 'trevor@founditmarketing.com';
 const MAX_CONTACTS_PER_CALL = 100;
 const CONTACT_PAUSE_MS = 550;
 
