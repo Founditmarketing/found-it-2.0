@@ -25,7 +25,7 @@ export const blogPosts: Post[] = [
         excerpt: 'We just built Doggett Law Firm an employee who answers at 9 PM and types what Kenneth says. The smartest thing in her is what she won\'t do: calculate a deadline, or touch a dollar of client money. He owns her outright.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/lawyer-og-hook-v2.png',
+        image: '/images/blog/lawyer-og-hook-v3.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
