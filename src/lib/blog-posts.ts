@@ -20,9 +20,9 @@ export type Post = {
 export const blogPosts: Post[] = [
     {
         slug: 'law-practice-management-software',
-        title: 'We Just Built Doggett Law Firm an Employee. She\'s Not a Person.',
+        title: 'There Are Two Things She Flat Refuses to Do. Both End Law Careers.',
         date: '2026-08-24',
-        excerpt: 'Check out the app we just built for Kenneth Doggett\'s one-man firm in Alexandria: she answers at 9 PM, types what he says, refuses the dangerous stuff, and can\'t press SEND. He owns her — code, data, everything.',
+        excerpt: 'We just built Doggett Law Firm an employee who answers at 9 PM and types what Kenneth says. The smartest thing in her is what she won\'t do: calculate a deadline, or touch a dollar of client money. He owns her outright.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/lawyer-og-hook-v2.png',
