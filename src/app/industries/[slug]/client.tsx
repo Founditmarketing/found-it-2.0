@@ -16,6 +16,26 @@ const marketingLinks = [
   { label: 'Social Media', href: '/social-media-management' },
 ];
 
+/* Industries without their own sanctioned captures still open with pictures:
+   the strongest cross-trade shots, honestly labeled. */
+const DEFAULT_SCREENS: { src: string; alt: string; caption: string }[] = [
+  {
+    src: '/os-screens/lonestar-os-desk-v1.png',
+    alt: 'Lonestar OS desk, 30-day sold total, the build pipeline, and escalations a human should look at (demo data)',
+    caption: 'A shed builder’s desk. Thirty days of sales, every build on the line, and the problems pulled to the top.',
+  },
+  {
+    src: '/os-screens/roxanne-os-intake-v1.png',
+    alt: 'Order intake, an order pasted as it came in, every line captured, the odd one held in red (demo data)',
+    caption: 'A nursery’s order intake. Paste the order as it came in. Every line captured, the odd one held in red, never dropped.',
+  },
+  {
+    src: '/os-screens/lawyer-os-prescription-v1.png',
+    alt: 'A law firm’s Prescription Watch, every date entered by hand, red when ignored (demo data)',
+    caption: 'A law firm’s deadline watch. It refuses to compute a date, and it never lets one slip out of sight.',
+  },
+];
+
 /* Where an industry has a dedicated system page, send readers there. */
 const PILLAR_LINKS: Record<string, { label: string; href: string }> = {
   contractors: { label: 'See the contractor systems on screen', href: '/custom-software/contractors' },
@@ -69,6 +89,54 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           </div>
         </motion.div>
 
+        {/* ── The system, on screen — pictures FIRST, prose after ── */}
+        {(() => {
+          const screens = data.screens?.length ? data.screens : DEFAULT_SCREENS;
+          const note = data.screens?.length
+            ? data.screensNote
+            : 'These run other Louisiana businesses today. Yours gets fitted the same way. Demo data on every screen.';
+          const heading = data.screens?.length ? 'The System, On Screen' : 'Live Systems, On Screen';
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.7, ease }}
+              className="mb-16"
+            >
+              <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-8">
+                {heading}
+              </h2>
+              <div className="space-y-10">
+                {screens.map((s, i) => (
+                  <motion.figure
+                    key={s.src}
+                    initial={{ opacity: 0, y: 28, scale: 0.985 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    whileHover={{ scale: 1.012 }}
+                    transition={{ delay: i * 0.06, duration: 0.65, ease }}
+                    className="m-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={s.src}
+                      alt={s.alt}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      className="w-full rounded-2xl border border-border/20 shadow-2xl shadow-black/40"
+                    />
+                    <figcaption className="text-sm text-muted-foreground font-medium leading-relaxed mt-3">
+                      {s.caption}
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+              {note && (
+                <p className="text-xs text-faint font-medium leading-relaxed mt-6">{note}</p>
+              )}
+            </motion.div>
+          );
+        })()}
+
         {/* ── Definition (answer-first) ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,47 +152,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
             <p className="text-lg text-muted-foreground font-medium leading-relaxed">{data.definition}</p>
           </div>
         </motion.div>
-
-        {/* ── The system, on screen — pictures before prose ── */}
-        {data.screens && data.screens.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="mb-16"
-          >
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-8">
-              The System, On Screen
-            </h2>
-            <div className="space-y-10">
-              {data.screens.map((s, i) => (
-                <motion.figure
-                  key={s.src}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, duration: 0.6, ease }}
-                  className="m-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={s.src}
-                    alt={s.alt}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    className="w-full rounded-2xl border border-border/20 shadow-2xl shadow-black/40"
-                  />
-                  <figcaption className="text-sm text-muted-foreground font-medium leading-relaxed mt-3">
-                    {s.caption}
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </div>
-            {data.screensNote && (
-              <p className="text-xs text-faint font-medium leading-relaxed mt-6">{data.screensNote}</p>
-            )}
-          </motion.div>
-        )}
 
         {/* ── Pain Points ── */}
         <motion.div
