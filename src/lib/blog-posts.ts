@@ -25,7 +25,7 @@ export const blogPosts: Post[] = [
         excerpt: 'Nobody answered his phone — and the six-figure cases call the phone. So instead of a $2,500-a-month hire, I built him an employee who never sleeps. Ten screens, ten seconds each.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/lawyer-blog-today-v1.png',
+        image: '/images/blog/lawyer-og-hook-v1.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">9:04 PM on a Tuesday. A dog-bite call — the kind of case that pays for a lawyer's whole year.</p>
@@ -70,71 +70,43 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'nursery-management-software',
-        title: 'Nursery Management Software You Actually Own',
+        title: '44 Plants Almost Missed the Truck. I Built the Software That Makes That Impossible.',
         date: '2026-08-20',
-        excerpt: 'A hand-copied order missed 44 plants bound for Austin. That mistake is why this nursery management software exists — and why the nursery that runs it owns every line of it.',
+        excerpt: 'A truck was loading for Austin. A hand-copied order missed its last line — 44 plants almost stayed behind. So I built her a system with one rule: lines in equals lines captured. She owns every line of it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/roxanne-blog-hero-v1.png',
+        image: '/images/blog/nursery-og-hook-v1.png',
+        hideHero: true,
         content: `
-<p>Roxanne runs a wholesale nursery in central Louisiana. Trucks, crews, brokers, thousands of plants on the ground. The orders come in as texts, emails, photos of handwriting, PDFs — fifteen brokers, fifteen formats.</p>
-<p>One week, a hand-copied order missed its last line. Forty-four plants nearly stayed behind while the truck left for Austin — a mistake that costs close to a thousand dollars in freight to fix. Healthy business. Wrong software.</p>
-<p>That order is why this system exists. We <a href="/blog/what-is-a-software-map">walked her operation</a> the week it happened. This is what got built. Every screen below shows demo data — the screens are real, the numbers are not.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Roxanne runs a wholesale nursery in central Louisiana. Trucks, crews, fifteen brokers, thousands of plants on the ground.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">A truck was loading for Austin.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The order was copied by hand.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">It missed the last line.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">44 plants almost stayed behind. Fixing that mistake runs about a thousand dollars in freight. Healthy business. <span style="color: #FF5500;">Wrong software.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">15 brokers</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">15 different order formats — texts, emails, PDFs, photos of handwriting</div></div>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">So her system runs on one rule: <span style="color: #FF5500;">lines in = lines captured.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-intake-focus-v1.png" alt="Eight lines in, eight accounted for — and the one line the system did not recognize held in red instead of dropped (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">She pastes the order in exactly how it came. Eight lines in, eight accounted for. Anything it doesn't recognize <span style="color: #FF5500;">turns red</span> — kept in her words — instead of quietly disappearing. A dropped line rides on memory. <span style="color: #FF5500;">A red line never does.</span></p>
 
-<h3>Every line, captured or held in red</h3>
-<p>She pastes the order in exactly as it came — text, email, whatever. The system reads it into clean lines against her real price list. The rule the whole app is built on: <strong>lines in equals lines captured.</strong> Eight lines in, eight accounted for. Anything it doesn't recognize stays on the order in red, in her words, instead of being silently dropped.</p>
-<p>A dropped line is how 44 plants miss a truck. A red line never rides on memory.</p>
-<p><img src="/images/blog/roxanne-blog-intake-v1.png" alt="Order intake in Roxanne's OS — an order pasted as received, 8 lines in and 8 captured, one unmatched line held in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>PDFs and photos drop straight in — a reader transcribes them into the same box, and the same red-line rule checks every line. For phone orders there's a picker that works the way she talks: count first, then the plant. Enter drops the line in and puts her back on the count.</p>
-<p><img src="/images/blog/roxanne-blog-picker-v1.png" alt="The qty-first plant picker — type the count, then the plant, Enter adds the line (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One click: <span style="color: #FF5500;">a pull sheet the crew can hold.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-pull-sheet-focus-v1.png" alt="The pull sheet: quantities, plants, sizes and trailer slot in big type — and no prices (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Big type. Trailer slot. <span style="color: #FF5500;">No prices.</span> A price list has no business lying in the gravel by the loading dock.</p>
 
-<h3>Pull sheets the crew can hold</h3>
-<p>One click turns the order into a pull sheet: quantities, plants, sizes, trailer slot in big type. <strong>No prices.</strong> The crew doesn't need them, and a price list has no business lying in the gravel by the loading dock.</p>
-<p><img src="/images/blog/roxanne-blog-pull-sheet-v1.png" alt="A printed pull sheet — quantities, plants, sizes, and the trailer slot, with no prices anywhere (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It knows what a dead plant <span style="color: #FF5500;">really costs.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-inventory-focus-v1.png" alt="Living inventory: plants in, still alive, lost, and what was spent on stock (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Plants die — in the heat, in the wet weeks, on the truck. The survivors carry the cost. This does the math no off-the-shelf nursery software will: <span style="color: #FF5500;">cost per surviving plant</span>, by plant, by broker. The best sticker price is not always the cheapest broker.</p>
 
-<h3>The barn board</h3>
-<p>A big screen in the barn shows today's loads: every PO, its trailer slot, its status, updating on its own. The crew sees what's new, what's staged, what's loaded — without anyone walking a note across the yard.</p>
-<p><img src="/images/blog/roxanne-blog-crew-v1.png" alt="The crew board — today's loads with trailer slots and status, built for a big screen in the barn (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And getting paid <span style="color: #FF5500;">stops being a project.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-statement-focus-v1.png" alt="A branded statement of account: every open invoice aged oldest-first, with the past-due total in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every open invoice, oldest first, every morning. One click prints a branded statement for any customer on her book. <span style="color: #FF5500;">The red numbers stop hiding.</span></p>
 
-<h3>The availability sheet her competitors already send</h3>
-<p>Other nurseries email a weekly availability list. She never had a good way to make one. Now she picks what's ready off her own price list and the sheet builds itself — branded, grouped, with clickable plant photos, and honest <strong>"not ready"</strong> chips for what's coming but not sellable yet. Print it, or email it to every customer on her book in one click.</p>
-<p><img src="/images/blog/roxanne-blog-availability-sheet-v1.png" alt="The weekly availability sheet — plant photos, prices, and honest not-ready chips, ready to print or email to the whole customer list (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the plot twist: <span style="color: #FF5500;">she owns it.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code. The data. Her name on the title. If she ever fires me, she keeps everything.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<h3>The broker book</h3>
-<p>Every supplier's offer sheet gets pasted in and lands in one table: every plant, every broker quoting it, <strong>cheapest first</strong>, next to what she actually paid. The spread column is the argument she takes into every price call.</p>
-<p><img src="/images/blog/roxanne-blog-broker-compare-v1.png" alt="The broker compare — every supplier's current quote per plant, cheapest first, beside what she really paid (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>Cost per surviving plant</h3>
-<p>Nurseries lose stock. Plants die in the heat, in the wet weeks, on the truck. Dead plants change what the living ones cost you — and no off-the-shelf nursery software does that math. This one does. She logs each batch coming in and each loss, and the system computes her real number: <strong>cost per surviving plant</strong>, by plant, by source. The broker with the best sticker price is not always the cheapest broker.</p>
-<p><img src="/images/blog/roxanne-blog-inventory-v1.png" alt="Living inventory — batches in, losses logged, and the number nobody else computes: cost per surviving plant (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>P&amp;L on demand</h3>
-<p>Money in, money out, what you kept — by year, straight from her books, printable. No waiting on anyone.</p>
-<p><img src="/images/blog/roxanne-blog-pnl-v1.png" alt="Profit and loss on demand — money in, money out, what you kept, by year (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>Who owes you, and the statement that collects it</h3>
-<p>Open invoices stand on one screen, oldest first, every morning. One click prints a branded statement for any customer — and a text-to-pay link means the money can move the moment somebody says "send it to me."</p>
-<p><img src="/images/blog/roxanne-blog-statement-v1.png" alt="A printable statement of account — every open invoice for one customer, aged, totaled, ready to send (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>Ask your book a question</h3>
-<p>An assistant lives on every screen. Plain English in, her own numbers out — who owes the most, what's on the board, how this year compares. It answers from her book, not the internet.</p>
-<p><img src="/images/blog/roxanne-blog-assistant-v1.png" alt="The assistant answering from the nursery's own book — who owes the most, straight off the ledger (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>Why generic software fails a nursery</h3>
-<p>QuickBooks plus spreadsheets is what most wholesale nurseries actually run on. It fails them in the same five places:</p>
-<p><strong>Inventory that dies.</strong> A widget on a shelf is still a widget next month. A tray of gardenias isn't. Counting pots without counting losses gives you a cost that's fiction.</p>
-<p><strong>Brokered and grown, side by side.</strong> Half the yard came off somebody's truck, half came out of her own ground. Two cost structures, one price list. Generic software sees one bucket.</p>
-<p><strong>Orders in every format.</strong> Landscapers text like landscapers. Any system that needs the customer to fill out a form correctly has already lost the order.</p>
-<p><strong>Crews need paper, not logins.</strong> The point of a pull sheet is that it works with wet gloves.</p>
-<p><strong>Availability changes weekly.</strong> What's ready, what's coming, what died — the sheet has to be honest this week, not last month.</p>
-
-<h3>She owns it</h3>
-<p>The code and the data are hers. One hundred percent. The system runs <strong>beside</strong> QuickBooks, matched to the penny, for as long as it takes — nothing switches until the numbers agree and she says go.</p>
-<p><strong>Nobody rents you your own business back.</strong></p>
-
-<h3>If you run a nursery — or anything with trucks and a yard</h3>
-<p>Take the <a href="/fit">two-minute fit check</a>. Or text us at <strong>(318) 713-3781</strong> and we'll show you what yours would look like. Free, about thirty minutes, screen-shared.</p>
-        `,
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, a law office — and one very fast nursery. <strong>Drowning in fifteen formats of paperwork? Call me first.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The screens are real; the numbers on them are demo data.</em></p>
+`,
     },
     {
         slug: 'why-they-cant-compete',
