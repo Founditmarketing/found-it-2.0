@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   // Brand flip 8/18 (audit full-send): the public identity is Found It
   // Software everywhere a customer reads. The LLC's legal name is unchanged.
   title: {
-    default: 'Found It Software | Custom Business Operating Systems You Own | Alexandria, LA',
+    default: 'Found It Software | Custom Software That Simplifies Your Business and Makes You Money',
     template: '%s | Found It Software'
   },
-  description: "Found It Software builds custom AI-powered operating systems local businesses own outright — the code and the data. Fitted to how you run, proven beside your old system, one published price. Alexandria, LA.",
+  description: "One custom system that does the typing, chases what you're owed, and answers your phone. You own it outright, the code and the data. One published price. Alexandria, LA.",
   keywords: [
     'custom AI software',
     'custom business operating system',
@@ -41,21 +41,21 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.founditsoftware.com',
     siteName: 'Found It Marketing',
-    title: 'Found It Software | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
+    title: 'Found It Software | Simpler Business. More Money. You Own It.',
+    description: "One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. One published price.",
     images: [
       {
         url: '/og-image-v3.png',
         width: 1200,
         height: 630,
-        alt: 'Found It Marketing — Custom AI Software, Google Ads & Web Design',
+        alt: 'Found It Software, custom systems local businesses own outright',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Found It Software | Custom AI Software, Google Ads & Web Design',
-    description: "Custom AI-powered operating systems for real businesses — records migrated, team trained, live in days. One published price. Built to simplify your life and make your business more profitable.",
+    title: 'Found It Software | Simpler Business. More Money. You Own It.',
+    description: "One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. One published price.",
     images: ['/og-image-v3.png'],
   },
   robots: {

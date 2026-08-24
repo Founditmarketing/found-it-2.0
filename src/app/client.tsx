@@ -72,8 +72,8 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                We replace the pile with one system built around how your company runs.
-                You own it. The code and the data.
+                We build you one system that does the typing, chases what you&rsquo;re owed,
+                and answers your phone. Simpler life. More money. And you own it.
               </p>
 
               {/* Primary ask — THE ask, sitewide (audit 8/18: one CTA that
