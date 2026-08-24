@@ -18,60 +18,69 @@ export type Post = {
 export const blogPosts: Post[] = [
     {
         slug: 'law-practice-management-software',
-        title: 'Law Practice Management Software You Actually Own',
+        title: 'A Lawyer Was About to Hire Somebody Just to Answer His Phone. I Built Him an Employee Instead.',
         date: '2026-08-24',
-        excerpt: 'A missed date ends a law career. So the system we built for a solo Louisiana lawyer refuses to compute deadlines at all. It just makes sure nobody can ignore one. Nine screens, short read.',
+        excerpt: 'He was about to pay $2,500 a month for a seat in a two-room office. One weekend later: an employee who answers at 2 AM, files what he says, collects the money, and refuses to touch the stuff that ends law careers. He owns every line of it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/lawyer-blog-prescription-v1.png',
+        image: '/images/blog/lawyer-blog-today-v1.png',
         content: `
-<p>One mistake ends a law career all by itself: a missed date. Prescription runs out on a file sitting in a drawer and the case is gone. Louisiana made it meaner in 2024 when Act 423 split prescription into two clocks, one year for older injuries, two for new ones.</p>
-<p>The big rented platforms sell automated deadline math as the cure. We built the opposite for a solo lawyer in central Louisiana. His system refuses to compute a single deadline. It just makes sure nobody can quietly ignore one.</p>
-<p>The screens below are the real system with demo data. The firm name on them is a stand-in.</p>
+<p>There is a one-man law office here in Louisiana.</p>
+<p>Good lawyer. Busy lawyer. And nobody answers his phone.</p>
+<p>The cases that pay for everything come in <strong>by phone</strong>. And they were hitting an answering machine.</p>
+<p>He was about to hire someone. Around here that seat runs <strong>$2,500 to $3,500 a month</strong>.</p>
+<p>I told him: don't. Give me a weekend.</p>
+<p><em>The screens below are the real system running demo data. The firm name on them is a stand-in.</em></p>
+<p><img src="/images/blog/lawyer-blog-today-v1.png" alt="The morning desk greets the lawyer by name and lists exactly what needs him today (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p>This is what he wakes up to now. It says good morning and tells him exactly what needs him today.</p>
 
-<h3>Prescription Watch</h3>
-<p><img src="/images/blog/lawyer-blog-prescription-v1.png" alt="Prescription Watch, every open file's prescription date on one screen, entered by hand, red after 48 unacknowledged hours (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Every open injury file's prescription date, soonest first. The lawyer types each date in himself. If one sits ignored for two days it turns red and stays red until somebody answers for it.</p>
+<h3>She answers his phone at 2 in the morning</h3>
+<p>A real call comes in at 9 PM. Dog bite.</p>
+<p>She answers. Takes the whole story. Books the meeting. Opens the file.</p>
+<p>He finds it all waiting for him with his coffee.</p>
+<p><strong>And nothing sends itself.</strong> Every text, every call she wants to make sits and waits for HIS tap. Best employee he's ever had. Still can't touch SEND.</p>
+<p><img src="/images/blog/lawyer-blog-secretary-v1.png" alt="The secretary's desk: the approval queue and her work log, every outbound waiting on a human tap (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<h3>The morning desk</h3>
-<p><img src="/images/blog/lawyer-blog-today-v1.png" alt="The morning desk, the day's docket up top with one escalated hearing in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>The day opens on one screen. The secretary took three calls overnight, two dates need his eyes, and the unpaid fees stand in one number. It installs on his phone and works with the internet down.</p>
+<h3>He talks. It types.</h3>
+<p>He walks out of the courthouse and just says what happened, out loud, into his phone.</p>
+<p>It files everything. The notes. The to-do list. The time he just spent.</p>
+<p><strong>He never types on his phone again.</strong></p>
 
-<h3>Paste a court order</h3>
-<p><img src="/images/blog/lawyer-blog-docket-v1.png" alt="The docket calendar, a month of human-entered dates, every one stamped with who entered it (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Paste in a scheduling order and it reads the dates back exactly as the court wrote them. Where the order says within 15 days, it hands that math back to the lawyer. Nothing lands on the docket until he checks a box saying he entered it.</p>
+<h3>It refuses to touch the dangerous stuff</h3>
+<p>This is the part no software company will tell you.</p>
+<p>Lawyers lose their licenses over two things: <strong>missed deadlines and client money</strong>. So I built this thing to refuse both:</p>
+<ul>
+<li><strong>It never calculates a deadline.</strong> A human types every date. Then the app puts that date in his face every morning until he says "I saw it." Ignore it two days? It turns red and gets loud.</li>
+<li><strong>It never touches client money.</strong> It just checks his accounts every night and proves everything matches. To the penny.</li>
+</ul>
+<p><img src="/images/blog/lawyer-blog-prescription-v1.png" alt="Every case deadline on one screen, each one typed in by a human hand, counted down but never calculated (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p>Every case deadline on one screen. A human typed every one. The app just refuses to let him forget.</p>
+<p><strong>I don't do the risky stuff for him. I make it impossible to quietly get it wrong.</strong> That's the difference.</p>
 
-<h3>Three kinds of law, one board</h3>
-<p><img src="/images/blog/lawyer-blog-board-v1.png" alt="The board, personal injury, family law, and successions over seven shared stages (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Personal injury, family, successions. Seven stages, and each board talks in its own language.</p>
+<h3>The money collects itself</h3>
+<p>Client gets a text with a pay link. Taps it at 9 at night. Pays.</p>
+<p><strong>The bookkeeping writes itself before anybody wakes up.</strong> No re-typing. No shoebox. No QuickBooks night.</p>
+<p><img src="/images/blog/lawyer-blog-money-v1.png" alt="The injury money screen: every medical bill, every lien, netted down to what the client takes home (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p>Every medical bill, every payout, one sheet, down to what the client actually takes home.</p>
+<p>And the letters? There are companies charging law firms <strong>$2,000 a month</strong> to write demand letters.</p>
+<p>His writes itself off the file in one tap. <strong>Big red DRAFT stamp. He signs. It never does.</strong></p>
+<p><img src="/images/blog/lawyer-blog-demand-v1.png" alt="A demand letter assembled from the file in one tap, on letterhead, under a red UNSIGNED DRAFT watermark (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<h3>The whole file on one card</h3>
-<p><img src="/images/blog/lawyer-blog-matter-v1.png" alt="One matter's file, court and docket number, carrier and adjuster, and the prescription date counting down (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Court, docket number, carrier, the adjuster's phone, the checklist, and the prescription date counting down at the top of the card.</p>
+<h3>His clients stopped calling to ask "any news?"</h3>
+<p>Every client gets a simple link. No password. No app.</p>
+<p>It shows where their case stands, in plain English.</p>
+<p><strong>The answer is already in their pocket. So the phone stops ringing.</strong></p>
+<p><img src="/images/blog/lawyer-blog-status-mobile-v1.png" alt="What the client sees on their phone: where the case stands, in plain English, no login (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<h3>Where every dollar stands</h3>
-<p><img src="/images/blog/lawyer-blog-money-v1.png" alt="The money spine, the demand and every offer against it, settlement math to the penny, never touched (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>The demand, every offer that came back, and what the client nets at any number. It shows the math to the penny and never moves a dollar. The trust account stays under the lawyer's pen.</p>
-
-<h3>A secretary that can't send</h3>
-<p><img src="/images/blog/lawyer-blog-secretary-v1.png" alt="The AI secretary's approval queue, drafts waiting on a human tap (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>She answers the phone at nine at night, takes the intake, and drafts every follow-up into a queue. A human taps send. Nothing sends itself, and she never hears a card number.</p>
-
-<h3>The demand letter writes its first draft</h3>
-<p><img src="/images/blog/lawyer-blog-demand-v1.png" alt="The letter desk, a demand letter assembled from the file's own medicals and liens, watermarked DRAFT (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Assembled from the file's own medicals and liens, wearing a DRAFT watermark until the lawyer says send.</p>
-
-<h3>The books tie</h3>
-<p><img src="/images/blog/lawyer-blog-books-v1.png" alt="The firm's books, debits equal credits, receivables match the invoices, nothing parked in suspense (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Debits equal credits, receivables match the invoices, and the page says so out loud. It runs beside QuickBooks, matched to the penny, until the owner says go.</p>
-
-<h3>What it will never do</h3>
-<p>Printed inside the app on purpose: no trust accounting, no deadline math, no conflict clearing, no legal opinions, no card numbers, no payroll or taxes. That work stays with the lawyer. We say it up front instead of selling something we shouldn't build.</p>
-
-<h3>He owns it</h3>
-<p>The code and the data, one hundred percent. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. <strong>Nobody rents you your own business back.</strong></p>
-<p>Run a firm? Take the <a href="/fit">two-minute fit check</a>, or text <strong>MAP</strong> to <strong>(318) 713-3781</strong> and we'll draw your map free.</p>
-        `,
+<h3>And here is the different part: he OWNS it</h3>
+<p>Not a subscription. Not a login on somebody's platform.</p>
+<p><strong>The code. The data. His name on the title.</strong> If he ever leaves me, he leaves with everything.</p>
+<p>The monthly fee? That's me taking care of it, like a good mechanic takes care of your truck.</p>
+<p><strong>Nobody rents you your own business back.</strong></p>
+<p><img src="/images/blog/lawyer-blog-pay-mobile-v1.png" alt="The pay link on a phone: the client pays at 9 PM and the books write themselves (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p>I'm Trevor. Found It Software, Alexandria, Louisiana. I take the software you're renting and build you one you own. Auto shops. Roofers. Tree services. Dealerships. Now a law office.</p>
+<p><strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
+`,
     },
     {
         slug: 'nursery-management-software',
@@ -84,7 +93,7 @@ export const blogPosts: Post[] = [
         content: `
 <p>Roxanne runs a wholesale nursery in central Louisiana. Trucks, crews, brokers, thousands of plants on the ground. The orders come in as texts, emails, photos of handwriting, PDFs — fifteen brokers, fifteen formats.</p>
 <p>One week, a hand-copied order missed its last line. Forty-four plants nearly stayed behind while the truck left for Austin — a mistake that costs close to a thousand dollars in freight to fix. Healthy business. Wrong software.</p>
-<p>That order is why this system exists. We drew <a href="/blog/what-is-a-software-map">the map</a> the week it happened. This is what got built. Every screen below shows demo data — the screens are real, the numbers are not.</p>
+<p>That order is why this system exists. We <a href="/blog/what-is-a-software-map">walked her operation</a> the week it happened. This is what got built. Every screen below shows demo data — the screens are real, the numbers are not.</p>
 
 <h3>Every line, captured or held in red</h3>
 <p>She pastes the order in exactly as it came — text, email, whatever. The system reads it into clean lines against her real price list. The rule the whole app is built on: <strong>lines in equals lines captured.</strong> Eight lines in, eight accounted for. Anything it doesn't recognize stays on the order in red, in her words, instead of being silently dropped.</p>
@@ -138,7 +147,7 @@ export const blogPosts: Post[] = [
 <p><strong>Nobody rents you your own business back.</strong></p>
 
 <h3>If you run a nursery — or anything with trucks and a yard</h3>
-<p>Take the <a href="/fit">two-minute fit check</a>. Or text <strong>MAP</strong> to <strong>(318) 713-3781</strong> — three questions, and we'll build you a free map of your business.</p>
+<p>Take the <a href="/fit">two-minute fit check</a>. Or text us at <strong>(318) 713-3781</strong> and we'll show you what yours would look like. Free, about thirty minutes, screen-shared.</p>
         `,
     },
     {
@@ -171,7 +180,7 @@ export const blogPosts: Post[] = [
 <p>Here's the part I'm proudest of, and it's the part nobody will follow us on: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
 <p>That's slow. That's expensive. That's why nobody does it.</p>
 <p>It's also the only honest way to hand somebody the keys to their own company.</p>
-<p>Want to see what yours would look like? <a href="/blog/what-is-a-software-map">Start with the map</a> — or <a href="/lp/she-answers">ask our AI secretary out loud</a> and she'll take your number herself.</p>
+<p>Want to see what yours would look like? <a href="/blog/what-is-a-software-map">This is how it starts</a>, or <a href="/lp/she-answers">ask our AI secretary out loud</a> and she'll take your number herself.</p>
 <p><strong>Nobody rents you your own business back.</strong></p>
 <p>— Trevor</p>
         `,
@@ -210,7 +219,7 @@ export const blogPosts: Post[] = [
 <p>A nursery's QuickBooks balance sheet had drifted into fiction. So the system stopped trusting it and rebuilt the books from the bank statements themselves — January through July, opening balance to closing, every month tying to the cent. That's the foundation you build a QuickBooks exit on. It's underway.</p>
 
 <h3>A nursery got its first system in a day</h3>
-<p>Thursday we sat with a wholesale nursery owner whose orders arrive as texts from fifteen brokers — the week after a hand-copied order nearly stranded 44 plants on the road to Austin. By Friday night the first version was running against her real orders: paste the text in, every line captured, anything unrecognized flagged in red instead of silently dropped. Custom software used to take quarters. We fit it in days, and <a href="/blog/what-is-a-software-map">it starts with a map</a>.</p>
+<p>Thursday we sat with a wholesale nursery owner whose orders arrive as texts from fifteen brokers — the week after a hand-copied order nearly stranded 44 plants on the road to Austin. By Friday night the first version was running against her real orders: paste the text in, every line captured, anything unrecognized flagged in red instead of silently dropped. Custom software used to take quarters. We fit it in days, and <a href="/blog/what-is-a-software-map">this is how it starts</a>.</p>
 
 <h3>Our receptionist is software — and she's on this site</h3>
 <p>The AI secretary we build into client systems answers out loud, takes the message, and enters the caller into the database herself. We don't describe her; we hand her the phone. <a href="/lp/she-answers">Talk to her right now</a> — she'll put you in our system while you're still on the line.</p>
@@ -263,8 +272,8 @@ export const blogPosts: Post[] = [
 <p>The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. And nothing switches on day one — the new system runs beside your current software, penny-matched against it every night, until the numbers say you can leave and you say go. That's how the biggest roofer in central Louisiana moved his whole operation onto a system he owns — the same books that surfaced $195,882.75 sitting in open receivables and caught a $19,000 error his old software never saw.</p>
 <p>Nobody should rent you your own business back.</p>
 
-<h3>Start with the map</h3>
-<p>Every fitting starts with a <a href="/blog/what-is-a-software-map">software map</a> — thirty minutes, screen-shared, the app we'd build if we owned your company, on one page. You keep it. (${MAP_VALUE.line}.) <a href="/contact">Send your number</a> and Trevor calls you — or <a href="/lp/she-answers">talk to our AI secretary</a> and she'll take it herself.</p>
+<h3>See what yours would look like</h3>
+<p>Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight. <a href="/blog/what-is-a-software-map">This is how a fitting starts</a>. <a href="/contact">Send your number</a> and Trevor calls you, or <a href="/lp/she-answers">talk to our AI secretary</a> and she'll take it herself.</p>
         `,
     },
     {
@@ -296,8 +305,8 @@ export const blogPosts: Post[] = [
 <p>The system runs <strong>beside</strong> the old software, penny-matched against it every night, and nothing switches until the numbers match and the owner says go. That's how we move a business: without betting it.</p>
 <p><strong>The system is yours. The code and the data, one hundred percent.</strong> The price is public — ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. Nobody rents you your own business back.</p>
 
-<h3>Get yours</h3>
-<p>Thirty minutes. Screen-shared. You leave with the page above, drawn for your business. <a href="/contact">Get your map</a> — or <a href="/lp/she-answers">tell our AI secretary</a> and she'll set it up while you talk.</p>
+<h3>See what yours would look like</h3>
+<p>Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight. <a href="/contact">Send your number</a>, or <a href="/lp/she-answers">tell our AI secretary</a> and she'll set it up while you talk.</p>
         `,
     },
 ];
