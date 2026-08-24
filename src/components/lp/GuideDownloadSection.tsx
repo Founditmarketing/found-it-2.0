@@ -68,12 +68,12 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
 
     if (!fields.firstName.trim() || !fields.email.trim()) {
       setStatus('error');
-      setErrorMsg("First name and email are required — that's where the guide goes.");
+      setErrorMsg("First name and email. That's where the guide goes.");
       return;
     }
     if (!/^\S+@\S+\.\S{2,}$/.test(fields.email.trim())) {
       setStatus('error');
-      setErrorMsg("That email doesn't look right — double-check it.");
+      setErrorMsg("That email doesn't look right. Check it again.");
       return;
     }
 
@@ -123,7 +123,7 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
       }, 900);
     } catch {
       setStatus('error');
-      setErrorMsg('Something went wrong sending that. Try again — or call us and we’ll email it to you.');
+      setErrorMsg('Something went wrong. Try again, or call us and we’ll email it to you.');
     }
   }
 
@@ -147,14 +147,14 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
               Not Ready To Book? <span className="text-primary">Take The Guide.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium italic mb-8 leading-relaxed">
-              &ldquo;{GUIDE_TITLE}&rdquo; — four pages, plain English, zero tech specs. Read it in
-              two minutes, hand it to your business partner.
+              &ldquo;{GUIDE_TITLE}&rdquo; is four pages, plain English, zero tech specs. Read it in
+              two minutes. Hand it to your business partner.
             </p>
 
             <div className="space-y-4 mb-8">
               {[
-                'What one custom system replaces — and the industries already running on one',
-                'The money story: the stack you rent every month vs. one flat public price',
+                'What one custom system replaces, and who already runs on one',
+                'The stack you rent every month vs. one flat public price',
                 'How a fitting works: free walkthrough → runs beside your old system → you own it',
                 `The promise it's all built on: “${OS_PRICING.promise}”`,
               ].map((line, i) => (
@@ -213,7 +213,7 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
                 className="relative bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
               >
                 <h3 className="text-xl lg:text-2xl font-black uppercase italic tracking-tighter text-foreground mb-1 leading-tight">
-                  Get The Free Guide — &ldquo;{GUIDE_TITLE}&rdquo;
+                  Get The Free Guide: &ldquo;{GUIDE_TITLE}&rdquo;
                 </h3>
                 <p className="text-sm text-muted-foreground font-medium mb-6">
                   Instant download. First name and email is all it takes.

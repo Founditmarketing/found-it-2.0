@@ -54,9 +54,9 @@ interface AnswerCard {
 
 /** Idle-state rotator — the widget sells itself before the tap. */
 const IDLE_LINES = [
-  'Tap the mic and just talk — she answers out loud.',
+  'Tap the mic and talk. She answers out loud.',
   'Ask her: “who owes me money right now?”',
-  'In your system she schedules estimates and enters customers — herself.',
+  'In your system she schedules estimates and enters customers herself.',
   'She’s the same secretary Trevor builds into your business.',
 ];
 
@@ -75,36 +75,36 @@ const CANNED_QA: CannedQA[] = [
   {
     id: 'owed',
     q: 'Who owes me money right now?',
-    say: 'In the demo books, three customers owe $8,325 total — Melancon’s the oldest at 12 days. Your system would answer this from your own books, out loud or on screen.',
+    say: 'In the demo books, three customers owe $8,325 total. Melancon’s the oldest at 12 days. Yours would answer from your own books, out loud or on screen.',
     card: {
       heading: 'Who owes you money',
       rows: [
-        { label: 'Melancon — inv 1042, 12 days', value: '$4,850' },
-        { label: 'Broussard — inv 1046, 5 days', value: '$2,300' },
-        { label: 'Richard — inv 1049, 2 days', value: '$1,175' },
+        { label: 'Melancon, inv 1042, 12 days', value: '$4,850' },
+        { label: 'Broussard, inv 1046, 5 days', value: '$2,300' },
+        { label: 'Richard, inv 1049, 2 days', value: '$1,175' },
         { label: 'Total outstanding', value: '$8,325' },
       ],
-      note: 'Demo books — synthetic numbers.',
+      note: 'Demo books, synthetic numbers.',
     },
   },
   {
     id: 'unbilled',
     q: 'What’s finished but not invoiced?',
-    say: 'The Dauzat job finished Tuesday and $3,600 still hasn’t been billed — and two estimates worth $8,140 have gone quiet. That’s the money a system catches before it slips.',
+    say: 'The Dauzat job finished Tuesday. Its $3,600 still hasn’t been billed. Two estimates worth $8,140 have gone quiet. That’s money a system catches before it slips.',
     card: {
       heading: 'Finished, not yet billed',
       rows: [
-        { label: 'Dauzat job — finished Tuesday', value: '$3,600' },
-        { label: 'Fontenot estimate — quiet 9 days', value: '$6,200' },
-        { label: 'Guidry estimate — quiet 4 days', value: '$1,940' },
+        { label: 'Dauzat job, finished Tuesday', value: '$3,600' },
+        { label: 'Fontenot estimate, quiet 9 days', value: '$6,200' },
+        { label: 'Guidry estimate, quiet 4 days', value: '$1,940' },
       ],
-      note: 'Demo books — synthetic numbers.',
+      note: 'Demo books, synthetic numbers.',
     },
   },
   {
     id: 'price',
     q: 'What does it cost?',
-    say: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel} — month to month, no long-term contract, and the system is yours. One job: ${OS_PRICING.promise}`,
+    say: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month to month, and the system is yours. One job: ${OS_PRICING.promise}`,
     card: {
       heading: 'The price is public',
       rows: [
@@ -118,7 +118,7 @@ const CANNED_QA: CannedQA[] = [
   {
     id: 'own',
     q: 'Do I actually own it?',
-    say: `Yes — the code and the data, one hundred percent. Nobody should rent you your own business back. Local businesses across Louisiana run systems they own today, and every new one runs beside the old software, penny-matched, until the owner says go.`,
+    say: `Yes. The code and the data, one hundred percent. Nobody should rent you your own business back. Every new system runs beside the old software, penny-matched, until the owner says go.`,
     card: {
       heading: 'You own it',
       rows: [
@@ -833,14 +833,14 @@ export function VoiceAgentWidget({
 
   /* ─── UI ─── */
   const liveStatus = herTalking && youTalking
-    ? 'She hears you — let her finish…'
+    ? 'She hears you. Let her finish…'
     : herTalking
     ? (mode === 'narrate' ? 'She’s reading the list…' : 'She’s talking…')
     : youTalking
     ? 'She hears you…'
     : missed
-    ? 'Didn’t catch that — say it again.'
-    : 'I’m listening — just talk.';
+    ? 'Didn’t catch that. Say it again.'
+    : 'I’m listening. Just talk.';
 
   const orb = (
     <span className="relative w-16 h-16 shrink-0 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/40 transition-transform group-hover:scale-105 group-active:scale-95">
@@ -928,7 +928,7 @@ export function VoiceAgentWidget({
             {phase === 'connecting' ? 'Ringing her now…' : liveStatus}
           </p>
           <p className="truncate text-[11px] font-medium text-white/55">
-            {mode === 'narrate' ? 'Cut in anytime — ask about any number' : 'Say anything about your business'} · {fmt(secondsLeft)}
+            {mode === 'narrate' ? 'Cut in anytime. Ask about any number' : 'Say anything about your business'} · {fmt(secondsLeft)}
           </p>
         </div>
         <button
@@ -961,7 +961,7 @@ export function VoiceAgentWidget({
         {/* ─── Idle: the whole card is the tap target ─── */}
         {phase === 'idle' && otherActive && (
           <p className="relative text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
-            She&rsquo;s already on the line with you &mdash; keep listening.
+            She&rsquo;s already on the line with you. Keep listening.
           </p>
         )}
         {phase === 'idle' && !otherActive && (
@@ -994,12 +994,12 @@ export function VoiceAgentWidget({
               {orb}
               <div>
                 <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white" aria-live="polite">
-                  {connectSlow ? 'Slow connection — still ringing…' : 'Ringing her now…'}
+                  {connectSlow ? 'Slow connection. Still ringing…' : 'Ringing her now…'}
                 </p>
                 <p className="text-[13px] text-white/60 font-medium mt-1">
                   {connectSlow
-                    ? 'Weak signal takes a few extra seconds. Hang tight — or ask her by text.'
-                    : 'One second — she picks up fast.'}
+                    ? 'Weak signal takes a few extra seconds. Hang tight, or ask her by text.'
+                    : 'One second. She picks up fast.'}
                 </p>
               </div>
             </div>
@@ -1009,7 +1009,7 @@ export function VoiceAgentWidget({
                 onClick={skipToText}
                 className="mt-3.5 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-xs font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors animate-[fadeIn_0.4s_ease]"
               >
-                <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Skip the wait — ask by text
+                <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Skip the wait. Ask by text
               </button>
             )}
           </div>
@@ -1028,8 +1028,8 @@ export function VoiceAgentWidget({
                   {missed
                     ? 'Try a little louder, a little closer to the mic.'
                     : mode === 'narrate'
-                    ? 'Cut in anytime — “tell me about number five.”'
-                    : 'Live conversation — say anything about your business.'}
+                    ? 'Cut in anytime. “Tell me about number five.”'
+                    : 'Live conversation. Say anything about your business.'}
                 </p>
               </div>
               <span
@@ -1108,8 +1108,7 @@ export function VoiceAgentWidget({
                 {!warm || wantsCall ? (
                   <>
                     <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-                      Want Trevor to call you back about your business? Leave your number — she&rsquo;ll
-                      pass it along.
+                      Want Trevor to call you back? Leave your number. She&rsquo;ll pass it along.
                     </p>
                     {afterCaptureForm}
                   </>
@@ -1120,7 +1119,7 @@ export function VoiceAgentWidget({
                 )}
                 {afterStatus === 'error' && (
                   <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
-                    Could not send — use the form on this page instead.
+                    Could not send. Use the form on this page instead.
                   </p>
                 )}
                 <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -1149,8 +1148,8 @@ export function VoiceAgentWidget({
               <>
                 <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
                   {leadSaved
-                    ? 'Got it — Trevor will reach out, usually within 2 hours during the day.'
-                    : 'She lives inside every system Trevor builds — yours would answer calls like that.'}
+                    ? 'Got it. Trevor will reach out, usually within 2 hours during the day.'
+                    : 'She lives inside every system Trevor builds. Yours would answer calls like that.'}
                 </p>
                 <div className="mt-3.5 flex flex-wrap items-center gap-3">
                   <button
@@ -1234,13 +1233,13 @@ export function VoiceAgentWidget({
                 {afterCaptureForm}
                 {afterStatus === 'error' && (
                   <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
-                    Could not send — use the form on this page instead.
+                    Could not send. Use the form on this page instead.
                   </p>
                 )}
               </>
             ) : (
               <p className="mt-4 text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
-                Got it — Trevor will reach out, usually within 2 hours during the day.
+                Got it. Trevor will reach out, usually within 2 hours during the day.
               </p>
             )}
 
@@ -1266,7 +1265,7 @@ export function VoiceAgentWidget({
               She’s helping someone else right now.
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              Ask her by text below — or leave your info and Trevor calls you back himself, usually
+              Ask her by text below. Or leave your info and Trevor calls you back himself, usually
               within 2 hours.
             </p>
             <div className="mt-3.5 flex flex-wrap items-center gap-3">
@@ -1298,7 +1297,7 @@ export function VoiceAgentWidget({
               <MicOff className="w-4 h-4 text-primary" aria-hidden="true" /> Mic’s blocked.
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              Allow microphone access and tap again — or use the form on this page.
+              Allow microphone access and tap again. Or use the form on this page.
             </p>
             <div className="mt-3.5 flex flex-wrap items-center gap-3">
               <button
@@ -1316,7 +1315,7 @@ export function VoiceAgentWidget({
         )}
 
         <p className="relative mt-3 text-[10px] font-medium text-white/35 leading-snug">
-          Live AI demo — {Math.round(maxSeconds / 60)}-minute limit.
+          Live AI demo. {Math.round(maxSeconds / 60)}-minute limit.
         </p>
       </div>
     </div>

@@ -143,7 +143,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               This Is What Automated <span className="text-primary">Looks Like.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-8 max-w-2xl">
-              One day inside a business that runs on a Found It OS — 8:02 AM to the next morning,
+              One day inside a business that runs on a Found It OS. From 8:02 AM to the next morning,
               nobody at the desk. Everything that moves, moves by itself.
             </p>
             <AutomationReel />
@@ -205,7 +205,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               The AI Secretary. <span className="text-primary">She&rsquo;s Live.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
-              She comes built into every system — answers the phone, schedules estimates, and
+              She comes with every system. She answers the phone, schedules estimates, and
               enters customers into the database herself. Talk to her right now:
             </p>
             <VoiceAgentWidget pageSlug={data.formPageSlug} />

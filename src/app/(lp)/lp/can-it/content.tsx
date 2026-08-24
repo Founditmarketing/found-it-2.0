@@ -17,7 +17,7 @@ export function CanItLPContent() {
         headline: 'Can Your Software',
         headlineAccent: 'Do This?',
         subheadline:
-          "Ask it who owes you money — names and amounts, in five seconds. Ask it what's finished but never got invoiced. Ask it how this week ran against last year. One custom system — customers, jobs, estimates, invoices, the books — built around the way you actually run. And you own it. Sign up below and we'll show you what yours would look like, free. If it's not a fit, we tell you straight.",
+          "Ask it who owes you money. Names and amounts, in five seconds. Ask it what's finished but never got invoiced. Ask it how this week ran against last year. One custom system: customers, jobs, estimates, invoices, the books. Built around the way you run. And you own it. Sign up below and we'll show you what yours would look like, free. If it's not a fit, we tell you straight.",
         highlightIcon: HelpCircle,
       }}
     />

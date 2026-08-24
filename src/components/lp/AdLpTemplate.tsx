@@ -24,7 +24,7 @@ import { BOOKING_URL } from '@/lib/booking';
    test = one thin content.tsx passing hero copy, never a copied page.
    Claims stay inside the doctrine: the money-back guarantee was retired
    8/14 (the offer line is OS_PRICING.promise, verbatim),
-   sanctioned numbers only ($2,200/$2,000, 30-minute call, Cory Edwards'
+   sanctioned numbers only ($3,000/$2,000, 30-minute call, Cory Edwards'
    $195,882.75 / $19,000 — customer counts retired 8/16, never reintroduce
    one), no "Zoom" anywhere — the booking page delivers Google Meet, so
    copy says "video call".
@@ -66,35 +66,35 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a video call — we send the link — about 30 minutes, screen-shared. We walk your operation with you, jobs, estimates, invoices, the books, and show you what we'd build if it were ours. You see what a system built around how you run would answer, like “who owes me money right now?” from your own books.",
+      "A video call, about 30 minutes, screen-shared. We send the link. We walk your business with you. Jobs, estimates, invoices, the books. Then we show you what we'd build if it were ours.",
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime. The system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current software on day one?',
     answer:
-      "No. Nothing switches until you say go. Your new system runs beside the old one, and every night the two sets of books get compared — invoice by invoice — until you trust it. That's the rule on every fitting we do.",
+      "No. Your new system runs beside your old one. Every night we match the two books, invoice by invoice, until you trust it. Nothing switches until you say go.",
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back. That is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back.',
   },
   {
     question: "If I own it, why is there a monthly fee?",
-    answer: `You're not paying for permission to use your own software. The ${OS_PRICING.monthly} covers hosting, nightly backups, support you can actually call, and new features as your business grows. Stop paying and the work stops — not your software. The code and your data stay yours.`,
+    answer: `The ${OS_PRICING.monthly} covers hosting, nightly backups, real support, and new features as you grow. Stop paying and the work stops, not your software. The code and your data stay yours.`,
   },
   {
     question: 'Do you take everyone who signs up?',
     answer:
-      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, we tell you straight, and tell you what we'd do instead.",
+      "No. We build one business at a time, a handful of new fittings a month. On the call, both sides decide if this is a fit. If it's not a fit, we tell you straight.",
   },
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice. The system keeps running, and your customer list, invoices, and books go with you.",
+      "You leave. It's month-to-month, cancel anytime with 30 days' notice. The system keeps running. Your customers, invoices, and books go with you.",
   },
 ];
 
@@ -112,7 +112,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         subheadline={hero.subheadline}
         highlight={
           hero.highlight ??
-          '“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'
+          '“You currently have $195,882.75 in open receivables.” A real system said that, the day it read one roofer’s books.'
         }
         highlightIcon={hero.highlightIcon ?? MessageSquare}
         showAward={false}
@@ -123,20 +123,20 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         formHeading="See What Yours Would Look Like"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading="Name and number. We build one business at a time and take a handful of new fittings a month. If yours is a fit, we show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight."
+        formSubheading="Name and number. We build one business at a time. If yours is a fit, we show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight."
         formCtaLabel="Let's Talk"
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done — we'll call you back, usually within 2 hours, to set up your walkthrough."
+        formSuccessNote="Done. We'll call you back, usually within 2 hours, to set up your walkthrough."
         formPrivacyNote="We reply within two hours."
         voiceAgent={voiceHero}
         nextSteps={[
           'Leave your name and number.',
-          "We call you back. If your business is a fit, we walk it with you, live, screen-shared, and show you what we'd build if it were ours.",
+          "We call you back. If it's a fit, we walk your business with you live and show you what we'd build if it were ours.",
           "If it's not a fit, we tell you straight.",
         ]}
-        nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
+        nextStepsNote="If you hire us, the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
 
       {/* The face (8/19): the byline, not the pitch — the 8/14 order that
@@ -145,7 +145,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
       <div className="max-w-3xl mx-auto px-4 -mt-2 mb-6">
         <FounderByline
           align="center"
-          line="Builds every system himself — and he’s the one who calls you back."
+          line="He builds every system himself. He’s the one who calls you back."
         />
       </div>
 
@@ -155,7 +155,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         eyebrow="Real Local Business. Real Numbers."
         heading="The Biggest Roofer In Cenla"
         headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        body="Cory Edwards, Edwards Roofing. His system found $195,882.75 sitting in open receivables. It caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
         videoSrc="/cory-ownership-v4.mp4"
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
@@ -178,11 +178,11 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             somebody&rsquo;s head. Follow-ups buried in text messages.
           </p>
           <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
-            We replace the mess with one system —{' '}
+            We replace the mess with one system.{' '}
             <span className="text-white font-bold">
-              customers → estimates → jobs → invoices → payments → the books
+              Customers → estimates → jobs → invoices → payments → the books.
             </span>{' '}
-            — built around how you already run. And unlike the software you&rsquo;re renting now,{' '}
+            Built around how you already run. And unlike the software you&rsquo;re renting now,{' '}
             <span className="text-white font-bold">you own it</span>.
           </p>
         </div>
@@ -197,8 +197,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
               Ask It. <span className="text-primary">It Answers.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              &ldquo;Who owes me money right now?&rdquo; — here&rsquo;s that exact thing. This one
-              runs a demo book. Tap a question. Yours would answer from{' '}
+              &ldquo;Who owes me money right now?&rdquo; Try it here. This one runs a demo book.
+              Tap a question. Yours would answer from{' '}
               <span className="text-white font-bold">your own books</span>.
             </p>
           </div>
@@ -212,9 +212,9 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           {!voiceHero && (
             <div className="mt-12 max-w-xl mx-auto">
               <p className="text-center text-sm sm:text-base font-bold text-white/80 mb-4 [text-wrap:balance]">
-                Rather talk than tap? Every system comes with an AI secretary who answers,
-                schedules estimates, and enters customers herself —{' '}
-                <span className="text-primary">try ours live.</span>
+                Rather talk than tap? Every system comes with an AI secretary. She answers,
+                schedules estimates, and enters customers herself.{' '}
+                <span className="text-primary">Try ours live.</span>
               </p>
               <VoiceAgentWidget pageSlug={slug} />
             </div>
@@ -242,13 +242,12 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             This Isn&rsquo;t Another App. It&rsquo;s <span className="text-primary">The App.</span>
           </h2>
           <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Customers → estimates → jobs → invoices → the books — one system, built around your
-            business, and you own it outright.{' '}
+            Customers → estimates → jobs → invoices → the books. One system, built around your
+            business. You own it outright.{' '}
             <span className="text-white font-bold">
               Real local businesses
             </span>{' '}
-            run on systems we built. Here&rsquo;s one day inside one of them — nobody at the
-            desk:
+            run on systems we built. Here&rsquo;s one day inside one, nobody at the desk:
           </p>
         </div>
         {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
@@ -262,12 +261,12 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
           {
             title: 'Your old system stays plugged in',
             detail:
-              'You keep working your old system exactly like today — the new one fills itself alongside it, and we check the two against each other every night. Nothing switches until the numbers match and you say go. You never bet the shop on a cutover.',
+              'You keep working your old system like today. The new one fills itself beside it. We check the two against each other every night. Nothing switches until the numbers match and you say go.',
           },
           {
             title: 'Who sees your numbers',
             detail:
-              "Everyone gets their own login, limited to their role. The AI can read your books — it can't write to them. Everything is backed up every night. It's your data, period.",
+              "Everyone gets their own login, limited to their role. The AI can read your books. It can't write to them. Everything is backed up every night. It's your data, period.",
           },
         ]}
       />
@@ -279,18 +278,18 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
             number: '01',
             title: 'We Walk It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We show you on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, we tell you straight and tell you what we’d do instead.',
+              "About 30 minutes on a video call, screen-shared. We walk your business with you. Jobs, estimates, invoices, the books. Think yours is too complicated? Complicated is where software shines. Then one question: if we owned your company, what app would we build? We show you on the call. You add to it or take away. If it's not a fit, we tell you straight.",
           },
           {
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'What we showed you becomes your system, built around how you run, fitted in weeks. It runs in parallel with your current software — same jobs, same totals on both screens — until you trust it. Nothing switches until you say go.',
+              'What we showed you becomes your system, built around how you run, fitted in weeks. It runs beside your current software, same jobs, same totals on both screens, until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. Cancel anytime. The system stays yours.`,
           },
         ]}
       />
@@ -312,8 +311,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         benefits={[
           'We walk your business with you, live, screen-shared',
           'You see the app we’d build if we owned your company. Add to it or take away',
-          "A handful of new fittings a month, one business at a time — if it's not a fit, we tell you straight",
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
+          "A handful of new fittings a month, one business at a time. If it's not a fit, we tell you straight",
+          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. No surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source={`${sourcePrefix}_footer`}

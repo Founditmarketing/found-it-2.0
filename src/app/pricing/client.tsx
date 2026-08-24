@@ -20,19 +20,19 @@ const ease = [0.16, 1, 0.3, 1] as const;
    block below, not here (once per page). */
 const osFeatures = [
   'First we show you what we’d build if we owned your company. Free, about thirty minutes, screen-shared, before you pay anything',
-  'You keep working your old software exactly like today — the new system fills itself beside it until the numbers match and you say go',
-  'Leave with 30 days’ notice and the system leaves with you — running',
+  'You keep working your old software like today. The new system fills itself beside it until the numbers match and you say go',
+  'Leave with 30 days’ notice and the system leaves with you, still running',
   'Month to month. The system earns the next month, every month',
 ];
 
 /* Contained marketing pricing: compact rows, one link each. */
 const marketingRows = [
-  { name: 'Google Ads Management', model: 'Flat monthly fee — scoped on the free audit', href: '/google-ads-management' },
-  { name: 'Custom Web Design', model: 'Flat project quote — full number before any code', href: '/web-design' },
-  { name: 'AI Search Optimization', model: 'Flat monthly fee — scoped after the free AI audit', href: '/ai-search-optimization' },
-  { name: 'Social Media Management', model: 'Flat monthly fee — scoped to platforms and volume', href: '/social-media-management' },
-  { name: 'Custom App Development', model: 'Fixed project price — scoped on a free call', href: '/app-development' },
-  { name: 'AI Lead Response', model: 'Flat monthly fee — live in 1 to 2 weeks', href: '/ai-marketing' },
+  { name: 'Google Ads Management', model: 'Flat monthly fee, priced on the free audit', href: '/google-ads-management' },
+  { name: 'Custom Web Design', model: 'Flat project quote, full number before any code', href: '/web-design' },
+  { name: 'AI Search Optimization', model: 'Flat monthly fee, priced after the free AI audit', href: '/ai-search-optimization' },
+  { name: 'Social Media Management', model: 'Flat monthly fee, priced by platforms and volume', href: '/social-media-management' },
+  { name: 'Custom App Development', model: 'Fixed project price, set on a free call', href: '/app-development' },
+  { name: 'AI Lead Response', model: 'Flat monthly fee, live in 1 to 2 weeks', href: '/ai-marketing' },
 ];
 
 export default function PricingClient() {
@@ -62,7 +62,7 @@ export default function PricingClient() {
           {/* The one fit-check line on this page (by law: exactly one). */}
           <p className="mt-4">
             <Link href="/fit" className="text-sm font-bold text-primary hover:underline">
-              Not sure you&apos;re who we build for? Check your fit — 60 seconds →
+              Not sure you&apos;re who we build for? Check your fit. 60 seconds →
             </Link>
           </p>
         </motion.div>
@@ -129,11 +129,11 @@ export default function PricingClient() {
             If You Own It, Why Is There a Monthly Fee?
           </h2>
           <p className="text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
-            You&rsquo;re not paying for permission to use your own software. The monthly covers{' '}
+            You&rsquo;re not paying to use your own software. The monthly covers{' '}
             <span className="text-foreground font-bold">hosting, nightly backups, support you can
             actually call, and new features as your business grows.</span>{' '}
-            <span className="text-foreground font-bold">Stop paying and the work stops — not your
-            software.</span> Cancel with 30 days&rsquo; notice and the system leaves with you: the
+            <span className="text-foreground font-bold">Stop paying and the work stops, not your
+            software.</span> Cancel with 30 days&rsquo; notice and the system leaves with you. The
             code and the data.
           </p>
         </motion.div>
@@ -150,7 +150,7 @@ export default function PricingClient() {
           <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Marketing Pricing</h3>
           <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 max-w-2xl">
             Thirteen years of it, for the companies we build systems for. Every service is a flat
-            fee, in writing, before you pay — you own your ad accounts, your site, your code.
+            fee, in writing, before you pay. You own your ad accounts, your site, your code.
           </p>
           <div className="divide-y divide-border/10">
             {marketingRows.map((row) => (
@@ -164,7 +164,7 @@ export default function PricingClient() {
             ))}
           </div>
           <p className="text-[11px] text-muted-foreground/70 font-medium mt-4">
-            Ad spend goes directly to Google — never marked up, never bundled.
+            Ad spend goes straight to Google. Never marked up, never bundled.
           </p>
         </motion.div>
 

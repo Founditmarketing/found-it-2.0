@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'The AI-Powered Tekmetric Alternative You Own',
   description:
-    `The AI-powered Tekmetric alternative shops own outright — work orders, parts board, and an AI that answers from your own records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `The Tekmetric alternative you own. Work orders, parts board, and AI that answers from your records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/auto-repair-shops' },
   openGraph: {
     title: 'The AI-Powered Tekmetric Alternative You Own | Found It Software',
     description:
-      `One system for your whole shop — work orders, the parts board, your customer book, invoicing, and an AI service desk — fitted to how you run and owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
+      `One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. Fitted to your shop, owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/auto-repair-shops',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -30,12 +30,12 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom shop management software for independent auto repair shops — work orders, the parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup, built to simplify the owner’s life and make the business more profitable.`,
+    `Custom shop management software for independent auto repair shops. Work orders, parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Old records are migrated in. Nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Found It OS · The Tekmetric Alternative',
   headline: 'The AI-Powered',
   headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
-    `Tekmetric is a capable system — and you will rent it forever, by the month, with your shop's history living in their cloud. We build the other kind: the AI-powered shop system you own. We have already moved a real shop off a Tekmetric-class system — roughly ten years of records professionally migrated — and the AI read every line on the way in, surfacing about $270K in forgotten, unbilled work their old software never showed them. One system fitted to how your shop actually runs — work orders, the parts and waiting board, your customer book, invoicing, and an AI service desk — and you own it, code and data. Nothing switches until the new system has run beside your old one and matched it. The price is published right on this page.`,
+    `Tekmetric is a good system. But you rent it forever, and your shop's history lives in their cloud. We build the AI-powered shop system you own. We already moved a real shop off a Tekmetric-class system, about ten years of records. On the way in, the AI found about $270K in forgotten, unbilled work. One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. You own it, code and data. Nothing switches until the new system runs beside your old one and matches it. The price is on this page.`,
   ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
@@ -44,43 +44,43 @@ const data: PillarData = {
     { value: '~$270K', label: 'Unbilled Work Found in One Migration' },
     { value: '~10 Yrs', label: 'of Records Migrated In' },
     { value: 'Live', label: 'Real Systems Running Now' },
-    { value: '100%', label: 'Yours — Code & Data' },
+    { value: '100%', label: 'Yours, Code & Data' },
   ],
   demoVideo: {
     src: '/tonys-os-demo-v2.mp4',
     poster: '/tonys-os-demo-poster.jpg',
     heading: 'Look Inside a Real Shop’s System',
-    sub: 'A 35-second tour of Found It OS running a live European auto shop — the money on the board, an AI that answers from the shop’s own records, digital inspections, and the secretary that texts back after hours. Customer names shown are placeholders.',
+    sub: "A 35-second tour of Found It OS running a live European auto shop. The money on the board, an AI that answers from the shop's records, and the secretary that texts back after hours. Customer names are placeholders.",
   },
   definitionHeading: 'What Makes It the AI-Powered Alternative?',
   definition:
-    "It covers every job a Tekmetric-class system does — write the work order, track the parts, ring the invoice, keep the customer book — then adds the two things a rented platform cannot give you. First, it is AI-first: every record in your shop’s history is something you can ask about in plain English, because the AI reads YOUR data, not a template’s. Second, at the end, the software and the data belong to you. We study how your shop actually runs, build the system around your process, and migrate your existing records in so day one starts with your real history, not an empty screen. You never pay per-seat rent, and if you ever leave, every record leaves with you.",
+    "It does every job a Tekmetric-class system does. Write the work order, track the parts, ring the invoice, keep the customer book. Then it adds two things a rented system cannot. First, the AI reads YOUR data, so you can ask about any record in plain English. Second, you own the software and the data. We map how your shop runs, build around your process, and migrate your old records in. Day one starts with your real history, not an empty screen. No per-seat rent. If you ever leave, every record leaves with you.",
   includedHeading: 'What a Shop OS Includes',
   included: [
     {
       title: 'Work Orders',
       detail:
-        'Every job on one screen, from write-up to paid — who brought the car in, what was found, what was approved, what got declined.',
+        'Every job on one screen, from write-up to paid. Who brought the car in, what was found, what was approved, what was declined.',
     },
     {
       title: 'The Parts & Waiting Board',
       detail:
-        'One board that shows what every car in the lot is waiting on, so nothing sits forgotten and nobody has to ask around the shop.',
+        'One board shows what every car in the lot is waiting on. Nothing sits forgotten. Nobody has to ask around the shop.',
     },
     {
       title: 'Your Customer Book',
       detail:
-        'Every customer, every vehicle, every visit — in one database you own, instead of scattered across an old system and memory.',
+        'Every customer, every vehicle, every visit. One database you own, instead of an old system and memory.',
     },
     {
       title: 'Invoicing That Matches the Work',
       detail:
-        'Invoices come straight off the work order, so what got done is what gets billed — and nothing finished goes out the door unbilled.',
+        'Invoices come straight off the work order. What got done is what gets billed. Nothing finished leaves unbilled.',
     },
     {
       title: 'An AI Service Desk',
       detail:
-        'The part no rented system matches: ask your shop questions in plain English — who declined brakes last quarter, which regulars have gone quiet, what is sitting unbilled — and it answers from your own records, because it read every one of them during migration.',
+        'Ask your shop questions in plain English. Who declined brakes last quarter. Which regulars went quiet. What is sitting unbilled. It answers from your own records, because it read every one during migration.',
     },
     {
       title: 'You Own It',
@@ -94,35 +94,35 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We come to your shop and map how it really runs — how a car gets written up, how parts get chased, what lives on paper and in heads. That becomes the blueprint.',
+        'We come to your shop and map how it really runs. How a car gets written up, how parts get chased, what lives on paper. That becomes the blueprint.',
     },
     {
       step: '02',
       title: 'The Migration',
       detail:
-        'Your existing records get professionally brought in — customers, vehicles, history. This is where the surprises surface: the migration reads everything sitting in your old system, including the work it was quietly losing track of.',
+        'Your old records come in. Customers, vehicles, history. This is where the surprises surface, like the work your old system quietly lost track of.',
     },
     {
       step: '03',
       title: 'Built Beside Your Old System',
       detail:
-        'Your current system keeps running. The new one runs beside it on your real data, and the two get checked against each other until they match. No leap of faith.',
+        'Your current system keeps running. The new one runs beside it on your real data until the two match. No leap of faith.',
     },
     {
       step: '04',
-      title: 'You Say Go — and We Stay On',
+      title: 'You Say Go, We Stay On',
       detail:
-        'Nothing switches until the numbers have proven themselves and you give the word. After that: backups, support you can actually call, and new features as the shop grows.',
+        'Nothing switches until the numbers prove out and you give the word. After that, backups, support you can call, and new features as the shop grows.',
     },
   ],
   audienceHeading: 'Who This Is For',
   audience: [
     'Independent shops renting a monthly management system',
-    'Shops still running write-ups on paper tickets',
-    'European and specialty shops generic software never quite fits',
-    'Owners whose customer history lives in an old system they distrust',
-    'Shops that have been burned by a data-hostage switch before',
-    'Anyone who wants to ask their own records a question and get an answer',
+    'Shops still writing up jobs on paper tickets',
+    'European and specialty shops generic software never fits',
+    'Owners whose history sits in an old system they distrust',
+    'Shops burned by a data-hostage switch before',
+    'Anyone who wants to ask their records a question and get an answer',
   ],
   chipsHeading: 'What It Runs',
   chips: [
@@ -142,38 +142,38 @@ const data: PillarData = {
       { value: '~$270K', label: 'Unbilled Work Surfaced' },
     ],
     narrative:
-      'We fitted a complete shop operating system for one Louisiana auto shop — work orders, the parts and waiting board, customer book, invoicing, an AI service desk — running on their real migrated data, roughly ten years of records. During that migration, the system surfaced about $270,000 in forgotten and unbilled work sitting in their old system. The shop called it the parking lot. It had been there the whole time; the old software just never showed it. That is the honest case for a professional migration: it can pay for itself before the new system even goes live. What is sleeping in your old system?',
+      'We fitted a full shop system for one Louisiana auto shop, running on about ten years of migrated records. During that migration, the system found about $270,000 in forgotten, unbilled work. The shop called it the parking lot. It was there the whole time. The old software just never showed it. A good migration can pay for itself before the new system goes live. What is sleeping in your old system?',
   },
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',
   mistakes: [
     {
       title: 'Renting forever, leaving with nothing',
       detail:
-        'Shops renting Tekmetric-class management systems pay month after month and never own a thing — and if they ever leave, years of work orders and customer history typically stay behind in the old vendor\'s system.',
+        'Shops renting Tekmetric-class systems pay every month and never own a thing. Leave, and years of work orders and customer history stay behind.',
     },
     {
       title: 'Generic software, forced workarounds',
       detail:
-        'Off-the-shelf shop systems are built for every shop, which means they fit no shop. The parts chase ends up on a whiteboard and half the history stays in someone\'s head.',
+        "Off-the-shelf software is built for every shop, so it fits no shop. The parts chase ends up on a whiteboard and half the history stays in someone's head.",
     },
     {
       title: 'The abandoned back catalog',
       detail:
-        'When shops do switch systems, the old records usually get left behind — and whatever was unbilled, declined, or forgotten in there is gone for good.',
+        'When shops switch systems, the old records usually get left behind. Whatever was unbilled or forgotten in there is gone for good.',
     },
     {
       title: 'Rip-and-replace weekends',
       detail:
-        'Most switches mean a scary cutover and crossed fingers. We never rip anything out — the new system proves itself beside the old one on your real data first.',
+        'Most switches mean a scary cutover and crossed fingers. We never rip anything out. The new system proves itself beside the old one first.',
     },
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — and the migration is where your old records get professionally brought in, not abandoned. No per-writer fees and no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Shops renting a monthly management system pay rent forever and own nothing at the end. Here, the monthly covers backups, support, and new features — the system itself is already your asset.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. The migration brings your old records in. No per-writer fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
-    'A complete shop operating system we built runs a real independent auto shop today, on roughly ten years of its migrated records.',
-    `Real local businesses running or being fitted on their own systems right now.`,
+    'A shop system we built runs a real independent auto shop today, on about ten years of migrated records.',
+    `Real local businesses run their own systems right now, or are getting fitted.`,
     'You own 100% of the code and the data.',
   ],
   faqHeading: 'Auto Repair Shop Software FAQ',
@@ -181,48 +181,48 @@ const data: PillarData = {
     {
       question: 'Can you migrate my shop off Tekmetric?',
       answer:
-        'That is the core of what we do. We have already moved a real shop off a Tekmetric-class system — roughly ten years of customers, vehicles, and work orders professionally migrated in. The old system gets read completely, the new system runs beside it on your real data until the two match, and nothing switches until you give the word.',
+        'Yes. That is the core of what we do. We already moved a real shop off a Tekmetric-class system, about ten years of customers, vehicles, and work orders. The new system runs beside the old one until the two match. Nothing switches until you give the word.',
     },
     {
       question: 'Is Found It OS a Tekmetric alternative?',
       answer:
-        'In function, yes. Tekmetric-class systems are capable shop management platforms you rent by the month. Found It OS covers the same jobs — work orders, parts tracking, customer history, invoicing — with two differences: it is fitted to how your specific shop runs instead of templated, and at the end you own it. The code, the data, the system — yours, not rented.',
+        'Yes. It covers the same jobs. Work orders, parts tracking, customer history, invoicing. Two differences: it is fitted to how your shop runs, and you own it. The code and the data are yours, not rented.',
     },
     {
       question: 'What happens to the years of records in my current system?',
       answer:
-        'They get professionally migrated in — customers, vehicles, and history — so day one starts with your shop\'s real past, not an empty screen. In one Louisiana shop\'s migration, that meant roughly ten years of records. Your old system is not abandoned; it is read completely, and everything worth keeping comes with you.',
+        'They get migrated in, so day one starts with your real history, not an empty screen. One Louisiana shop brought about ten years of records over. Everything worth keeping comes with you.',
     },
     {
       question: 'What does auto repair shop software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number — no per-writer fees and no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-writer fees, no surprise add-ons.`,
     },
     {
       question: 'Will my shop go down during the switch?',
       answer:
-        'No. Your current system keeps running while the new one runs beside it on your real migrated data, and the two get checked against each other until they match. Nothing switches until the numbers have proven themselves and you give the word.',
+        'No. Your current system keeps running while the new one runs beside it. Nothing switches until the numbers match and you give the word.',
     },
     {
       question: 'Who owns the system and the data?',
       answer:
-        'You do. The code, the customer book, every work order — it is your asset. If we ever part ways, it stays in your shop and keeps running.',
+        'You do. The code, the customer book, every work order. If we ever part ways, it stays in your shop and keeps running.',
     },
     {
       question: 'Do I need a computer person on staff?',
       answer:
-        'No. It is built to be run by the people already behind your counter — writers, techs, the front desk. We handle backups and support, and the AI service desk means the fastest way to find anything is to ask in plain English.',
+        'No. The people already behind your counter can run it. We handle backups and support. The fastest way to find anything is to ask the AI in plain English.',
     },
   ],
   relatedReading: [
-    { title: 'Found It OS — Custom Operating Systems for Local Businesses', href: '/foundit-os' },
+    { title: 'Found It OS - Custom Operating Systems for Local Businesses', href: '/foundit-os' },
     { title: 'Custom Software for Local Businesses', href: '/custom-software' },
     { title: 'Custom Software for Car Dealerships', href: '/custom-software/car-dealerships' },
     { title: 'Custom Software for Retail Stores', href: '/custom-software/retail-stores' },
   ],
   finalCtaHeadline: 'Put the AI-Powered Alternative in Your Shop',
   finalCtaSub:
-    `Tell us how your shop runs today — the system you rent, the whiteboard, the paper — and we will map what your own shop OS would look like, records migrated in and all. In person if you are local.`,
+    `Tell us how your shop runs today. The system you rent, the whiteboard, the paper. We will map what your own shop OS would look like, records and all. In person if you are local.`,
 };
 
 export default function AutoRepairShopSoftwarePillar() {

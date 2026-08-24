@@ -11,9 +11,9 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
    on-camera lines carrying the argument. One conversion goal at the foot. */
 
 const AUDIT_STATS = [
-  { value: '$195,882.75', label: 'Sitting in open receivables the day the system went through his books' },
-  { value: '$19,000', label: 'Bookkeeping error caught — one his old software never saw' },
-  { value: 'To the ¢', label: 'How the new ledger was matched against his old book, nightly' },
+  { value: '$195,882.75', label: 'Sitting in open receivables the day the system read his books' },
+  { value: '$19,000', label: 'Bookkeeping error caught. His old software never saw it' },
+  { value: 'To the ¢', label: 'The new ledger matched his old book, every night' },
 ];
 
 /** Verbatim from Cory's on-camera clip — never paraphrase, never extend. */
@@ -37,11 +37,11 @@ export default function EdwardsRoofingCaseStudy() {
             The Biggest Roofer In Cenla <span className="text-primary">Owns His Whole System.</span>
           </h1>
           <p className="text-lg sm:text-xl font-bold text-white/95 max-w-2xl leading-snug mb-3">
-            Cory Edwards runs Edwards Roofing on one system — estimates, jobs, invoices, crews, and
-            the books — built around how his company actually works.
+            Cory Edwards runs Edwards Roofing on one system. Estimates, jobs, invoices, crews, and
+            the books, built around how his company works.
           </p>
           <p className="text-base text-white/60 font-medium max-w-2xl leading-relaxed">
-            He doesn&rsquo;t rent it. He owns it — the code and the data. This is what happened when
+            He doesn&rsquo;t rent it. He owns it. The code and the data. This is what happened when
             his book went through it.
           </p>
         </div>
@@ -100,9 +100,8 @@ export default function EdwardsRoofingCaseStudy() {
               ))}
             </div>
             <p className="mt-6 pt-5 border-t border-primary/15 text-sm text-white/60 font-medium leading-relaxed">
-              That audit is standard on every fitting. The new
-              system runs beside the old one and gets matched against it, to the penny, every night,
-              until the owner says go. Nothing gets ripped out on day one.
+              Every fitting gets this audit. The new system runs beside the old one, matched to
+              the penny every night, until the owner says go. Nothing gets ripped out on day one.
             </p>
           </div>
         </div>
@@ -116,9 +115,9 @@ export default function EdwardsRoofingCaseStudy() {
               Before: The Scatter
             </h2>
             <p className="text-base text-white/70 font-medium leading-relaxed max-w-2xl">
-              Like most roofing companies, the job money lived in pieces — an estimating tool here,
-              invoices there, payments on a card reader, and a book nobody fully trusted. Every
-              dollar had to be chased across apps that didn&rsquo;t talk to each other.
+              The job money lived in pieces. An estimating tool here, invoices there, payments on
+              a card reader, and a book nobody trusted. Every dollar got chased across apps that
+              didn&rsquo;t talk to each other.
             </p>
           </div>
           <div>
@@ -126,10 +125,9 @@ export default function EdwardsRoofingCaseStudy() {
               The Fitting
             </h2>
             <p className="text-base text-white/70 font-medium leading-relaxed max-w-2xl">
-              Found It built one ledger around how Edwards Roofing actually runs: every estimate,
-              invoice, payment, and cost lands against its job; the week board runs the crews;
-              insurance jobs and job photos live where the work does. The book is the sum of the
-              jobs — checkable to the cent.
+              Found It built one ledger around how Edwards Roofing runs. Every estimate, invoice,
+              payment, and cost lands on its job. The week board runs the crews. Insurance jobs
+              and photos live with the work. The book is the sum of the jobs, checkable to the cent.
             </p>
           </div>
           <div>
@@ -138,7 +136,7 @@ export default function EdwardsRoofingCaseStudy() {
             </h2>
             <p className="text-base text-white/70 font-medium leading-relaxed max-w-2xl">
               The code and the data are Cory&rsquo;s, one hundred percent. The monthly fee is
-              maintenance — security, updates, new features — not rent. Local businesses across{' '}
+              upkeep, not rent. It covers security, updates, and new features. Businesses across{' '}
               Louisiana run on systems built this way, at the same public price:{' '}
               {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
               {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
@@ -165,8 +163,8 @@ export default function EdwardsRoofingCaseStudy() {
         benefits={[
           'A free 30-minute video call, screen-shared, walking how your business runs',
           'You see the app we’d build if we owned your company, live on the call',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
-          'Month-to-month — cancel anytime, and the system stays yours.',
+          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. No surprises at the end`,
+          'Month-to-month. Cancel anytime, and the system stays yours.',
         ]}
         source="case_edwards_footer"
         pageSlug="case-edwards-roofing"

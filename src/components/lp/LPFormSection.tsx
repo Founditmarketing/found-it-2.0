@@ -143,7 +143,7 @@ export function LPFormSection({
             {!fitGate && showBooking && secondaryBooking && (
               <div className="mt-4">
                 <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
-                  Ready now? Skip the call-back —
+                  Ready now? Skip the call-back.
                 </p>
                 <BookingCta
                   secondary

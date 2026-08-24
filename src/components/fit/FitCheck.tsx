@@ -247,7 +247,7 @@ export function FitCheck({
               {bookingUrl && (
                 <div className="mt-4">
                   <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
-                    Ready now? Skip the call-back —
+                    Ready now? Skip the call-back.
                   </p>
                   <BookingCta
                     secondary
@@ -372,7 +372,7 @@ export function FitCheck({
                 {verdict.reason}
               </p>
               <p className="text-sm text-foreground font-bold mb-8">
-                No hard feelings — most good businesses aren&apos;t ours to build.
+                No hard feelings. Most good businesses aren&apos;t ours to build.
               </p>
               {verdict.pointer && (
                 <Link

@@ -5,12 +5,12 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Social Media Management for Local Businesses',
   description:
-    'Done-for-you social media management from a team with 13+ years in marketing. Content, strategy, and paid social that drive calls and bookings. Alexandria, LA.',
+    'Done-for-you social media management. 13+ years in marketing. Content and paid social that drive calls and bookings. Alexandria, LA.',
   alternates: { canonical: '/social-media-management' },
   openGraph: {
     title: 'Social Media Management for Local Businesses | Found It Software',
     description:
-      'A team with 13+ years in marketing running social for local businesses. Content + paid social that drives calls.',
+      '13+ years in marketing. We run social for local businesses. Content plus paid ads that drive calls.',
     type: 'website',
     url: 'https://www.founditsoftware.com/social-media-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -23,12 +23,12 @@ const data: PillarData = {
   slug: '/social-media-management',
   serviceType: 'Social Media Marketing',
   schemaDescription:
-    'Done-for-you social media management for local businesses: content creation, strategy, paid social, and reporting focused on calls and leads — backed by 13+ years in marketing.',
+    'Done-for-you social media management for local businesses. Content, strategy, paid social, and reports focused on calls and leads. 13+ years in marketing.',
   eyebrow: 'Social Media Management',
   headline: 'Social Media That Gets Calls,',
   headlineAccent: 'Not Just Likes.',
   intro:
-    `Found It Marketing has managed marketing for ${TRACK_RECORD.yearsInBusiness} years. We run a done-for-you content engine — graphics, copy, video, scheduling, and paid social — built to turn scrolls into booked calls. You approve everything; we handle the rest.`,
+    `We have run marketing for ${TRACK_RECORD.yearsInBusiness} years. We handle it all: graphics, copy, video, scheduling, and paid ads. Built to turn scrolls into booked calls. You approve everything. We do the rest.`,
   ctaLabel: 'Get My Free Strategy Session',
   formSource: 'service_social',
   formPageSlug: 'social-media-management',
@@ -39,24 +39,24 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Does Social Media Management Actually Do?',
   definition:
-    'Social media management is the done-for-you service of planning, creating, scheduling, and reporting on the content that goes out on your business profiles — and, when it makes sense, running paid social ads on top of it. The goal is not likes; it is calls, leads, and bookings. At Found It Marketing we build a repeatable content engine around your brand voice, publish consistently, amplify the winners with paid budget, and report on the metrics that actually move your business.',
+    'Social media management means we plan, create, schedule, and report on everything posted to your business profiles. When it makes sense, we run paid ads on top. The goal is not likes. It is calls, leads, and bookings. We build around your voice, post steadily, and put budget behind the winners.',
   includedHeading: 'What Our Social Media Management Includes',
   included: [
-    { title: 'Content Creation', detail: 'Graphics, captions, and short-form video direction built around your brand voice — not generic stock posts.' },
-    { title: 'Strategy & Calendar', detail: 'A platform-specific content calendar mapped to your offers, seasons, and local market.' },
-    { title: 'Paid Social Ads', detail: 'Targeted Facebook, Instagram, and TikTok ads that put the right offer in front of nearby customers.' },
-    { title: 'Community Management', detail: 'We monitor comments and messages so leads never sit unanswered.' },
-    { title: 'Google Business Profile', detail: 'Profile posts, updates, and optimization to strengthen your local map presence.' },
-    { title: 'Real Reporting', detail: 'Monthly reports on calls, leads, and bookings — the metrics that move your business, not vanity likes.' },
+    { title: 'Content Creation', detail: 'Graphics, captions, and short video built around your voice. No stock posts.' },
+    { title: 'Strategy & Calendar', detail: 'A content calendar mapped to your offers, seasons, and market.' },
+    { title: 'Paid Social Ads', detail: 'Facebook, Instagram, and TikTok ads that put your offer in front of nearby customers.' },
+    { title: 'Community Management', detail: 'We watch comments and messages so leads never sit unanswered.' },
+    { title: 'Google Business Profile', detail: 'Posts and updates that strengthen your spot on the map.' },
+    { title: 'Real Reporting', detail: 'Monthly reports on calls, leads, and bookings. Not vanity likes.' },
   ],
-  approachHeading: 'Our Approach: A Content Engine, Not Random Posting',
+  approachHeading: 'A Content Engine, Not Random Posting',
   approachIntro:
-    `Most social media fails because it is sporadic and unmeasured. After ${TRACK_RECORD.yearsInBusiness} years, we have learned consistency plus strategy beats volume every time.`,
+    `Most social fails because it is random and unmeasured. After ${TRACK_RECORD.yearsInBusiness} years, we know steady posting with a plan wins.`,
   approach: [
-    { step: '01', title: 'Learn Your Voice', detail: 'We start by understanding your business, your customers, and what makes you different.' },
-    { step: '02', title: 'Build the Engine', detail: 'We create a repeatable content system: themes, formats, and a calendar designed to publish consistently and convert.' },
-    { step: '03', title: 'Publish & Amplify', detail: 'We produce and schedule everything, then amplify the best-performing content with targeted paid social.' },
-    { step: '04', title: 'Measure & Refine', detail: 'Every month we report on real outcomes and double down on what is driving calls and bookings.' },
+    { step: '01', title: 'Learn Your Voice', detail: 'We learn your business, your customers, and what makes you different.' },
+    { step: '02', title: 'Build the Engine', detail: 'We build a repeatable system: themes, formats, and a calendar.' },
+    { step: '03', title: 'Publish & Amplify', detail: 'We make and schedule everything, then put ad budget behind the winners.' },
+    { step: '04', title: 'Measure & Refine', detail: 'Every month we report and double down on what drives calls.' },
   ],
   audienceHeading: "Who This Is For",
   audience: [
@@ -77,40 +77,40 @@ const data: PillarData = {
       { value: '12K', label: 'Monthly Reach' },
     ],
     narrative:
-      'One local restaurant was posting phone photos with generic captions. We built a real content strategy: behind-the-scenes kitchen content, seasonal menu highlights, and targeted Instagram ads within a 15-mile radius. Ninety days later, Friday and Saturday nights were consistently booked.',
+      'One restaurant posted phone photos with dull captions. We built a real plan: kitchen videos, menu highlights, and Instagram ads within 15 miles. Ninety days later, Friday and Saturday nights stayed booked.',
   },
   mistakesHeading: 'Why Most Social Media Fails',
   mistakes: [
-    { title: 'Posting only when you remember', detail: 'Sporadic posting never compounds. A content engine on a calendar is the single biggest predictor of results.' },
-    { title: 'Chasing likes instead of leads', detail: 'Vanity metrics feel good but pay nothing. We track calls, leads, and bookings and optimize for those.' },
-    { title: 'Generic, off-brand content', detail: 'Stock posts from a stranger overseas do not sound like you. We learn your voice and create content that converts.' },
-    { title: 'Organic with no amplification', detail: 'Great posts with zero budget barely reach anyone. We put paid behind proven winners to scale them.' },
+    { title: 'Posting only when you remember', detail: 'Random posting never adds up. A calendar is the biggest predictor of results.' },
+    { title: 'Chasing likes instead of leads', detail: 'Likes feel good but pay nothing. We track calls, leads, and bookings.' },
+    { title: 'Generic, off-brand content', detail: 'Stock posts from a stranger do not sound like you. We learn your voice.' },
+    { title: 'Organic with no amplification', detail: 'Great posts with zero budget barely reach anyone. We put money behind proven winners.' },
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    'Pricing is simple and flat, scoped to the platforms and posting volume you need, with no setup fees that lock you in. Most local businesses spend less on professional social management than on a single part-time hire. Paid ad budget is separate and set with you. Month-to-month, cancel anytime.',
+    'Pricing is flat and scoped to the platforms and volume you need. No setup fees. Most businesses spend less than one part-time hire. Ad budget is separate and set with you. Month-to-month, cancel anytime.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years of marketing experience.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
-    'We create everything; you just approve before it goes live.',
+    'We create everything. You approve before it goes live.',
     'We track calls and bookings, not vanity likes.',
     'No long-term contracts. Month-to-month. Cancel anytime.',
   ],
   faqHeading: 'Social Media Management FAQ',
   faq: [
-    { question: 'Which platforms do you manage?', answer: 'Facebook, Instagram, LinkedIn, TikTok, YouTube, and Google Business Profile. Most local businesses see the strongest return starting with Facebook and Instagram.' },
-    { question: 'Do you create the content or do I?', answer: 'We create everything: graphics, copy, video direction, and scheduling. You just approve before it goes live. Nothing posts without your green light.' },
-    { question: 'How much does social media management cost?', answer: 'Pricing is simple and flat, scoped to the platforms and posting volume you need, with no setup fees. You get a clear monthly number up front.' },
-    { question: 'How long until I see results?', answer: 'Reach and engagement usually move in the first month. Real traction — more calls, leads, and bookings — typically takes about 90 days of consistent, strategic posting.' },
-    { question: 'Is there a contract?', answer: 'No. Month-to-month. We recommend 90 days to see real traction, but we never lock you in.' },
+    { question: 'Which platforms do you manage?', answer: 'Facebook, Instagram, LinkedIn, TikTok, YouTube, and Google Business Profile. Most start with Facebook and Instagram.' },
+    { question: 'Do you create the content or do I?', answer: 'We create everything. You approve before it goes live. Nothing posts without your green light.' },
+    { question: 'How much does social media management cost?', answer: 'Flat pricing scoped to the platforms and volume you need. No setup fees. You get a clear number up front.' },
+    { question: 'How long until I see results?', answer: 'Reach moves in the first month. More calls and bookings usually take about 90 days.' },
+    { question: 'Is there a contract?', answer: 'No. Month-to-month. We suggest 90 days to see real traction, but we never lock you in.' },
   ],
   relatedReading: [
     { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Social Strategy Session',
-  finalCtaSub: 'Tell us about your business and we will build you a custom 30-day content plan you can start using immediately. No pitch, no obligation.',
+  finalCtaSub: 'Tell us about your business. We will build you a 30-day content plan you can use right away. No pitch, no obligation.',
 };
 
 export default function SocialMediaManagementPillar() {

@@ -78,7 +78,7 @@ export default function GuideThanksClient() {
               See What <span className="text-primary">Yours Would Look Like.</span>
             </h2>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-6">
-              Page 4 of the guide is the fitting — here&apos;s step one. About 30 minutes, screen-shared: we show you what we&apos;d build if it were ours. If it&apos;s not a fit, we tell you straight.
+              Page 4 of the guide is the fitting. Here&apos;s step one. About 30 minutes, screen-shared. We show you what we&apos;d build if it were ours. If it&apos;s not a fit, we tell you straight.
               One job: {OS_PRICING.promise}
             </p>
             {bookingLive ? (

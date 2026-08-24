@@ -5,12 +5,12 @@ import { TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Google Ads Management for Local Businesses',
   description:
-    'Google Ads management from a team with 13+ years in marketing. Weekly optimization, real conversion tracking, transparent reporting, no contracts. Based in Alexandria, LA.',
+    'Google Ads management from a team with 13+ years in marketing. Weekly tuning, real conversion tracking, clear reports, no contracts. Alexandria, LA.',
   alternates: { canonical: '/google-ads-management' },
   openGraph: {
     title: 'Google Ads Management for Local Businesses | Found It Software',
     description:
-      'A team with 13+ years in marketing. Weekly optimization, conversion tracking, no contracts.',
+      'A team with 13+ years in marketing. Weekly tuning, conversion tracking, no contracts.',
     type: 'website',
     url: 'https://www.founditsoftware.com/google-ads-management',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
@@ -23,12 +23,12 @@ const data: PillarData = {
   slug: '/google-ads-management',
   serviceType: 'PPC Management',
   schemaDescription:
-    'Google Ads management for local service businesses, backed by 13+ years in marketing. Weekly optimization, conversion tracking, and transparent reporting with no contracts.',
+    'Google Ads management for local service businesses. 13+ years in marketing. Weekly tuning, conversion tracking, clear reports, no contracts.',
   eyebrow: 'Google Ads Management',
   headline: 'Google Ads That Make the Phone Ring,',
   headlineAccent: 'Not Just Burn Budget.',
   intro:
-    `Found It Marketing has managed marketing campaigns for ${TRACK_RECORD.yearsInBusiness} years. We run Google Ads for local service businesses with weekly hands-on optimization, real conversion tracking, and reporting you can actually read. You own your account and data, always.`,
+    `We have run ads for ${TRACK_RECORD.yearsInBusiness} years. We manage Google Ads for local service businesses. Hands-on work every week, real conversion tracking, and reports you can read. You own your account and data, always.`,
   ctaLabel: 'Get My Free Ad Audit',
   formSource: 'service_google_ads',
   formPageSlug: 'google-ads-management',
@@ -39,24 +39,24 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is Google Ads Management?',
   definition:
-    'Google Ads management is the ongoing service of planning, building, and optimizing paid search campaigns so a business shows up — profitably — when customers search for what it offers. Done right, it means tight keyword targeting, airtight conversion tracking, continuous bid and budget tuning, and clear reporting on cost per lead and return on ad spend. At Found It Marketing, a senior strategist manages your account hands-on every week, inside your own Google Ads account.',
+    'Google Ads management means planning, building, and tuning your paid search ads so you show up when customers search, and make money doing it. Done right, it means tight keywords, solid conversion tracking, and clear reports on cost per lead. Here, a senior strategist works your account every week, inside your own Google Ads account.',
   includedHeading: 'What Our Google Ads Management Includes',
   included: [
-    { title: 'Account Audit', detail: 'A full review of your existing account to find wasted spend, missed opportunities, and quick wins.' },
-    { title: 'Campaign Build & Structure', detail: 'Tightly themed campaigns and ad groups built around real buyer intent, not guesswork.' },
-    { title: 'Keywords & Negatives', detail: 'Ongoing search-term mining and negative-keyword work so you stop paying for clicks that never convert.' },
-    { title: 'Conversion Tracking', detail: 'Proper tracking for calls, forms, and bookings — because you cannot optimize what you cannot measure.' },
-    { title: 'Bid Strategy', detail: 'Smart bidding tuned to your real goals, with a human watching it instead of letting the algorithm run wild.' },
-    { title: 'Transparent Reporting', detail: 'Monthly reporting on cost per lead, lead quality, and ROI — the numbers that matter, in plain English.' },
+    { title: 'Account Audit', detail: 'We review your account and find wasted spend and quick wins.' },
+    { title: 'Campaign Build & Structure', detail: 'Campaigns built around what real buyers search, not guesswork.' },
+    { title: 'Keywords & Negatives', detail: 'Weekly negative-keyword work so you stop paying for junk clicks.' },
+    { title: 'Conversion Tracking', detail: 'We track calls, forms, and bookings. You cannot fix what you cannot see.' },
+    { title: 'Bid Strategy', detail: 'Smart bidding with a human watching it, not the algorithm running wild.' },
+    { title: 'Transparent Reporting', detail: 'Monthly reports on cost per lead and ROI, in plain English.' },
   ],
   approachHeading: 'How We Manage Your Account',
   approachIntro:
-    `After ${TRACK_RECORD.yearsInBusiness} years, we have learned that Google Ads is won in the weekly details, not set-and-forget automation.`,
+    `After ${TRACK_RECORD.yearsInBusiness} years, we know Google Ads is won in the weekly details, not set-and-forget.`,
   approach: [
-    { step: '01', title: 'Audit & Plan', detail: 'We audit your account (or build from scratch), find the leaks, and map a plan with realistic projections.' },
-    { step: '02', title: 'Build & Launch', detail: 'We structure campaigns around buyer intent, write the ads, and set up airtight conversion tracking.' },
-    { step: '03', title: 'Optimize Weekly', detail: 'Every week we refine keywords, negatives, bids, and creative to drive cost per lead down and quality up.' },
-    { step: '04', title: 'Report & Scale', detail: 'You get clear monthly reporting, and once the numbers work, we scale what is profitable.' },
+    { step: '01', title: 'Audit & Plan', detail: 'We audit your account, find the leaks, and map a plan.' },
+    { step: '02', title: 'Build & Launch', detail: 'We build the campaigns, write the ads, and set up conversion tracking.' },
+    { step: '03', title: 'Tune Weekly', detail: 'Every week we tune keywords, bids, and ads to drive cost per lead down.' },
+    { step: '04', title: 'Report & Scale', detail: 'You get a clear monthly report. When the numbers work, we scale what makes money.' },
   ],
   audienceHeading: 'Who Google Ads Is Right For',
   audience: [
@@ -77,40 +77,40 @@ const data: PillarData = {
       { value: '90 Days', label: 'To Real Traction' },
     ],
     narrative:
-      'One client was spending $4,200/month with no idea what was working. We rebuilt their campaigns around their best services, set up real call tracking, and cut the junk keywords. Ninety days later: $42K/month in new revenue — a 10x return.',
+      'One client spent $4,200/month with no idea what was working. We rebuilt the campaigns, set up real call tracking, and cut the junk keywords. Ninety days later: $42K/month in new revenue. A 10x return.',
   },
   mistakesHeading: 'Common Google Ads Mistakes We Fix',
   mistakes: [
-    { title: 'No negative keywords', detail: 'Ads showing for irrelevant searches quietly drain budget. We mine search terms weekly and exclude the waste.' },
-    { title: 'Broken or missing conversion tracking', detail: 'If calls and forms are not tracked correctly, you are optimizing blind. We fix tracking first, always.' },
-    { title: 'Over-relying on broad match + Smart Bidding', detail: 'Handing Google full control without guardrails burns money. We give the algorithm the right signals and watch it.' },
-    { title: 'Sending clicks to a weak landing page', detail: 'A great ad to a slow, confusing page still loses. We make sure the destination converts.' },
+    { title: 'No negative keywords', detail: 'Ads showing for the wrong searches drain budget. We cut the waste every week.' },
+    { title: 'Broken or missing conversion tracking', detail: 'If calls and forms are not tracked, you are flying blind. We fix tracking first.' },
+    { title: 'Over-relying on broad match + Smart Bidding', detail: 'Handing Google full control burns money. We give it the right signals and watch it.' },
+    { title: 'Sending clicks to a weak landing page', detail: 'A great ad sent to a slow page still loses. We make sure the page converts.' },
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    'Most local businesses invest between $1,500 and $5,000/month in ad spend, plus a flat management fee scoped to your account. The right number depends on what a customer is worth to you and how fast you want to grow — you will get specific projections in your free audit. No long-term contracts; month-to-month, cancel anytime.',
+    'Most local businesses spend $1,500 to $5,000/month on ads, plus a flat management fee. The right number depends on what a customer is worth to you. Your free audit spells it out. No contracts. Month-to-month, cancel anytime.',
   whyUsHeading: 'Why Businesses Choose Found It Marketing',
   whyUs: [
     `${TRACK_RECORD.yearsInBusiness} years running local ad accounts.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
-    'You own your Google Ads account, conversion history, and data — keep everything if you leave.',
+    'You own your Google Ads account and data. If you leave, you keep everything.',
     'No long-term contracts. Month-to-month. Cancel anytime.',
     'A senior strategist runs your account every week. No hand-offs to interns.',
   ],
   faqHeading: 'Google Ads Management FAQ',
   faq: [
-    { question: 'How much should I spend on Google Ads?', answer: 'Most local businesses start between $1,500 and $5,000/month in ad spend. The right number depends on what a customer is worth to you and how fast you want to grow. You will get specific projections in the free audit.' },
-    { question: 'How fast will I see results?', answer: 'Most clients see leads in the first week. Real optimization — where cost per lead drops and lead quality climbs — takes about 60 to 90 days. Anyone promising overnight results is either lying or burning your budget.' },
-    { question: 'Who actually manages my account?', answer: 'A senior strategist, not a junior who Googles the answers. The same person who audits your account optimizes it every week, and you will know exactly who to call.' },
-    { question: 'Do I own my ad account and data?', answer: 'Yes. We work inside your own Google Ads account. Your campaigns, conversion history, and data are yours. If you ever leave, you keep everything we built.' },
-    { question: 'Is there a contract?', answer: 'No. Month-to-month, cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in.' },
+    { question: 'How much should I spend on Google Ads?', answer: 'Most start between $1,500 and $5,000/month. It depends on what a customer is worth to you. Your free audit spells it out.' },
+    { question: 'How fast will I see results?', answer: 'Leads often come the first week. Real gains take 60 to 90 days. Anyone promising overnight results is burning your budget.' },
+    { question: 'Who actually manages my account?', answer: 'A senior strategist. The same person every week, and you know who to call.' },
+    { question: 'Do I own my ad account and data?', answer: 'Yes. We work inside your own account. If you leave, you keep everything.' },
+    { question: 'Is there a contract?', answer: 'No. Month-to-month, cancel anytime with 30 days notice.' },
   ],
   relatedReading: [
     { title: 'How Every Fitting Starts', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Google Ads Audit',
-  finalCtaSub: 'See exactly where your budget is leaking and what we would change — before you spend another dollar. No pitch, no obligation.',
+  finalCtaSub: 'See where your budget leaks before you spend another dollar. No pitch, no obligation.',
 };
 
 export default function GoogleAdsManagementPillar() {

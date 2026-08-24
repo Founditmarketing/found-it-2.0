@@ -16,14 +16,14 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const who = [
   'Owner-operated',
   'Roughly $2M–$10M a year',
-  'Sells parts, product, or service — on accounts and terms',
+  'Sells parts, product, or service, on accounts and terms',
   'Sick of renting software',
   'The owner will sit with us for an hour',
 ];
 
 const turnDown = [
   'Restaurants',
-  'Payroll or taxes — those stay with your accountant, always',
+  'Payroll or taxes. Your accountant keeps those, always',
   'Trust or escrow accounting',
   'Owners who won’t be in the room',
   'Anyone shopping for the cheapest option',
@@ -33,32 +33,32 @@ const fineDetail: { title: string; detail: string }[] = [
   {
     title: 'Why the $2M–$10M band',
     detail:
-      `Big enough that ${OS_PRICING.monthly} a month pays for itself fast. Small enough that the owner still runs the room — which is the whole method.`,
+      `Big enough that ${OS_PRICING.monthly} a month pays for itself fast. Small enough that the owner still runs the room. That is the whole method.`,
   },
   {
     title: 'Why no restaurants',
     detail:
-      'The restaurant POS market is genuinely good at its job. Custom software would cost you more and serve you worse — so we say so.',
+      'Restaurant POS systems are good at their job. Custom software would cost you more and serve you worse. So we say so.',
   },
   {
     title: 'Why payroll and taxes never',
     detail:
-      'A mistake there lands on real paychecks and real filings. Your accountant keeps both, always — the system hands them clean books to work from.',
+      'A mistake there lands on real paychecks and real tax filings. Your accountant keeps both, always. The system hands them clean books.',
   },
   {
     title: 'Why no trust or escrow accounting',
     detail:
-      'Money held for someone else carries rules we refuse to be clever about. Wrong tool, wrong builder — we tell lawyers the same thing.',
+      'Money held for someone else has rules we refuse to be clever about. Wrong tool, wrong builder. We tell lawyers the same thing.',
   },
   {
     title: 'Why the owner has to be in the room',
     detail:
-      'A fitting maps how the business actually runs — only the owner knows that, and only the owner can decide to change it. An info packet can’t.',
+      'A fitting maps how the business really runs. Only the owner knows that. Only the owner can decide to change it. An info packet cannot.',
   },
   {
     title: 'Why not the cheapest option',
     detail:
-      `The price is printed: ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. If cheapest is the goal, we’re not it — and we’d rather say that now.`,
+      `The price is printed: ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. If cheapest is the goal, we are not it. We would rather say that now.`,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function WhoClient() {
             <span className="text-primary">For Everyone.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto">
-            One business at a time, a handful of new fittings a month — the list stays short on purpose.
+            One business at a time, a handful of new fittings a month. The list stays short on purpose.
           </p>
         </motion.div>
 
@@ -153,7 +153,7 @@ export default function WhoClient() {
             href="/fit"
             className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
           >
-            Check Your Fit — 60 Seconds
+            Check Your Fit in 60 Seconds
           </Link>
         </motion.div>
 
@@ -173,7 +173,7 @@ export default function WhoClient() {
             className="w-full flex items-center justify-between px-6 lg:px-8 py-5 text-left group"
           >
             <span className="text-sm font-black uppercase italic tracking-tighter text-foreground group-hover:text-primary transition-colors">
-              The Fine Detail — why every line above is true
+              The Fine Detail. Why every line above is true
             </span>
             <ChevronDown
               className={`w-4 h-4 text-primary shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}

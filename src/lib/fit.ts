@@ -97,7 +97,7 @@ const BAND_250K_1M = REVENUE_BANDS[1].label; // qualified, but below the sweet s
 
 /** Free reads, no email gate — the only thing the NOT-A-FIT tier points at. */
 const READ_MAP = { label: 'What we’d show you on the call, a free read', href: '/blog/what-is-a-software-map' };
-const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. — a free read', href: '/blog/rented-software-no-data-rights' };
+const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. A free read', href: '/blog/rented-software-no-data-rights' };
 
 /**
  * The verdict. Deterministic and honest:
@@ -111,14 +111,14 @@ export function fitVerdict(a: FitAnswers): FitVerdict {
     return {
       tier: 'no',
       reason:
-        "We don't build for restaurants — a purpose-built restaurant POS already does that job well, and custom software wouldn't beat it.",
+        "We don't build for restaurants. A restaurant POS already does that job well. Custom software wouldn't beat it.",
       pointer: READ_RENT,
     };
   }
   if (a.revenue === UNDER_250K) {
     return {
       tier: 'no',
-      reason: `Under $250k a year, ${OS_PRICING.monthly} a month is too big a slice of the business. We'd be a bad buy — so we won't sell you one.`,
+      reason: `Under $250k a year, ${OS_PRICING.monthly} a month is too big a slice of the business. We'd be a bad buy, so we won't sell you one.`,
       pointer: READ_MAP,
     };
   }
@@ -134,17 +134,17 @@ export function fitVerdict(a: FitAnswers): FitVerdict {
   const weaknesses: string[] = [];
   if (a.revenue === BAND_250K_1M) {
     weaknesses.push(
-      'The revenue band. $250k–$1M is workable, but below the size where a system like this pays for itself fastest.'
+      'The revenue band. $250k–$1M can work, but the system pays for itself fastest above that.'
     );
   }
   if (a.who === 'manager') {
     weaknesses.push(
-      'A manager in the chair. Managers start great conversations — but the fitting only works with the owner in the room.'
+      'A manager in the chair. The fitting only works with the owner in the room.'
     );
   }
   if (a.books === 'dont-ask') {
     weaknesses.push(
-      "The books. “Don't ask” is exactly what the nightly penny-match untangles — but the owner has to be willing to open them."
+      "The books. “Don't ask” is what the nightly penny-match untangles. But the owner has to be willing to open them."
     );
   }
 
@@ -153,7 +153,7 @@ export function fitVerdict(a: FitAnswers): FitVerdict {
   return {
     tier: 'no',
     reason:
-      "More than one answer lands outside our lane — and we'd rather tell you now than after you've paid us.",
+      "More than one answer lands outside our lane. We'd rather tell you now than after you've paid us.",
     pointer: READ_MAP,
   };
 }

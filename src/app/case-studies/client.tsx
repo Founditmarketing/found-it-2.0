@@ -26,43 +26,43 @@ const apps: AppStudy[] = [
     title: 'Roxanne’s OS',
     trade: 'Wholesale Nursery',
     src: '/os-screens/roxanne-os-money-v1.png',
-    alt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
-    line: 'Orders arrive as texts in fifteen formats — paste one in and every line is captured or flagged in red, never dropped. The money owed to the nursery stands on one screen, aged and ranked, with branded pull sheets and a crew print board behind it.',
+    alt: 'Roxanne’s OS receivables dashboard. Money owed to the nursery, aging buckets, and who owes what (demo data)',
+    line: 'Orders come in as texts in fifteen formats. Paste one in. Every line gets caught or flagged in red, never dropped. The money owed sits on one screen, oldest first, with pull sheets and a crew print board behind it.',
   },
   {
     title: 'Tony’s Shop OS',
     trade: 'European Auto Repair',
     src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-    line: 'The whole shop in one system — repair orders, a parking lot of declined jobs priced for win-back texts, and an AI secretary on the phones after hours.',
+    alt: 'Tony’s Shop OS dashboard. The parking lot of declined jobs, priced and ready for win-back texts',
+    line: 'The whole shop in one system. Repair orders, declined jobs priced for win-back texts, and an AI secretary on the phones after hours.',
   },
   {
     title: 'Flywheel OS',
     trade: 'Tire & Auto Shop',
     src: '/os-screens/flywheel-os-quote-v1.png',
-    alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
-    line: 'Type a tire size, get every supplier priced out the door in seconds — the 30-second quote, the board, and the day’s money on one screen.',
+    alt: 'Flywheel OS quote screen. A tire size typed in and every supplier priced out the door in seconds',
+    line: 'Type a tire size. Every supplier priced out the door in seconds. The 30-second quote, the board, and the day’s money on one screen.',
   },
   {
     title: 'The House System',
     trade: 'Menswear Retail · Atelier Edition',
     src: '/os-screens/house-system-v1.png',
-    alt: 'The House System register — a ticket rung with three lines and a live total',
-    line: 'An AI point-of-sale: the register on iPad, iPhone, or computer, a client book that knows the clients, and a store you can ask questions out loud. Also fitted to a luxury atelier.',
+    alt: 'The House System register. A ticket rung with three lines and a live total',
+    line: 'An AI point-of-sale. The register on iPad, iPhone, or computer. A client book that knows the clients. A store you can ask questions out loud. Also fitted to a luxury atelier.',
   },
   {
     title: 'Pro Carpet OS',
     trade: 'Carpet & Duct Cleaning',
     src: '/os-screens/procarpet-os-v1.png',
-    alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
-    line: 'Follow-up texts drafted and waiting for one-tap approval — the ladder chases every estimate that’s out the door, the week board runs the jobs.',
+    alt: 'Pro Carpet OS desk. Estimate follow-up texts drafted and waiting for one-tap approval',
+    line: 'Follow-up texts drafted, waiting for one-tap approval. It chases every estimate out the door. The week board runs the jobs.',
   },
   {
     title: 'The Lawyer OS',
     trade: 'Law Firm',
     src: '/os-screens/lawyer-os-prescription-v1.png',
     alt: 'Prescription Watch, every open file’s prescription date on one screen, entered by hand, red when ignored (demo data)',
-    line: 'Three practice boards, settlement math to the penny, and a docket that refuses to compute a deadline. Every date entered by a hand and escalated in red if ignored. The demand letter drafts itself from the file. The trust ledger stays the lawyer’s.',
+    line: 'Three practice boards and settlement math to the penny. The docket never computes a deadline. A person enters every date, and it turns red if ignored. The demand letter drafts itself from the file. The trust ledger stays the lawyer’s.',
   },
 ];
 
@@ -77,37 +77,37 @@ const marketingStudies: CaseStudy[] = [
   {
     client: 'National Equipment Dealer',
     industry: 'Heavy Equipment',
-    story: 'Started with $5K/month. We built the digital infrastructure — Google Ads, SEO, and a conversion-optimized site — that turned a local dealership into a national volume dealer.',
+    story: 'Started with $5K/month. Google Ads, SEO, and a site built to sell turned a local dealership into a national volume dealer.',
   },
   {
     client: 'Total Family Solutions',
     industry: 'Healthcare',
-    story: 'They were invisible against billion-dollar aggregators. We got them to Top 3 in Maps and outranking ZocDoc, Psychology Today, and BetterHelp for their local market.',
+    story: 'They were invisible against billion-dollar giants. We got them to Top 3 in Maps, ahead of ZocDoc, Psychology Today, and BetterHelp in their market.',
   },
   {
     client: 'Stone Automotive',
     industry: 'Auto Repair',
-    story: 'Auto shops live and die by the phone. We drove 150+ high-intent calls per month from their Google Business Profile alone — bays full, mechanics busy.',
+    story: 'Auto shops live and die by the phone. We drove 150+ calls a month from their Google Business Profile alone. Bays full, mechanics busy.',
   },
   {
     client: 'Weiss & Goldring',
     industry: 'Luxury Retail',
-    story: "When someone asks ChatGPT or Google AI for luxury suit recommendations, our client isn't on a list — they are the answer. That's AI search optimization.",
+    story: "Ask ChatGPT or Google AI for a luxury suit. Our client isn't on a list. They are the answer. That's AI search optimization.",
   },
   {
     client: "Smoker's Heaven",
     industry: 'Retail',
-    story: "For retail, clicks don't matter — customers walking through the door matters. We optimized for Google Maps direction requests and drove 7+ new customers to the store daily.",
+    story: "Retail isn't about clicks. It's about people walking in the door. We drove 7+ new customers to the store daily from Google Maps.",
   },
   {
     client: 'Sniper Off Road',
     industry: 'Automotive',
-    story: 'Dominated the local market with Map Pack ownership and a direct pipeline of high-value phone leads. One converted lead pays for the entire year of agency fees.',
+    story: 'We took the local Map Pack and turned it into big phone leads. One closed lead pays for the whole year of fees.',
   },
   {
     client: 'Futrell Marine',
     industry: 'Marine & Boat Sales',
-    story: 'A Louisiana dealer needed to prove they could win outside their home state. We deployed in Rogers, Arkansas and secured #1 organic and Maps — in a market they had zero presence in.',
+    story: 'A Louisiana dealer wanted to win outside their state. We launched in Rogers, Arkansas and took #1 in Google search and Maps. From zero presence.',
   },
 ];
 
@@ -132,9 +132,8 @@ export default function CaseStudiesPage() {
             <span className="text-primary">The Businesses That Own Them.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
-            Local businesses across central Louisiana run day to day on software we built —
-            and every one of them owns it outright. These aren&apos;t mockups; they&apos;re
-            the systems themselves.
+            Local businesses across central Louisiana run on software we built. Every one
+            owns it outright. These aren&apos;t mockups. They&apos;re the real systems.
           </p>
         </motion.div>
 
@@ -160,8 +159,8 @@ export default function CaseStudiesPage() {
               </h2>
               <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-5">
                 The biggest roofer in Cenla runs his whole company on a system he owns. The
-                penny-audit of his books surfaced <span className="text-white font-bold">$195,882.75</span>{' '}
-                sitting in open receivables — and caught a{' '}
+                penny-audit of his books found <span className="text-white font-bold">$195,882.75</span>{' '}
+                sitting in open receivables. It also caught a{' '}
                 <span className="text-white font-bold">$19,000</span> bookkeeping error his old
                 software never saw.
               </p>
@@ -209,7 +208,7 @@ export default function CaseStudiesPage() {
             Every One Of Them <span className="text-primary">Owns It.</span>
           </h2>
           <p className="text-sm text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            The code and the data, one hundred percent — nobody rents you your own business back.
+            The code and the data, one hundred percent. Nobody rents you your own business back.
             The price is public: {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
             {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
           </p>
@@ -221,7 +220,7 @@ export default function CaseStudiesPage() {
             The Marketing Record
           </h2>
           <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
-            Found It started in marketing, and the record stands — real clients, real numbers.
+            Found It started in marketing. The record stands. Real clients, real numbers.
           </p>
           <div className="space-y-6">
             {marketingStudies.map((study, i) => (

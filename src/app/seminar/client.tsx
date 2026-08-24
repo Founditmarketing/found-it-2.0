@@ -19,7 +19,7 @@ const stories: { stat: string; label: string; body: string }[] = [
   {
     stat: '$268,000',
     label: 'in missed work, caught',
-    body: 'A job queue we built for a Cenla tree service. Estimates went out; nobody was watching what never came back. The queue was. You’ll see the screen that found it.',
+    body: 'A job queue we built for a Cenla tree service. Estimates went out. Nobody watched what never came back. The queue did. You’ll see the screen that found it.',
   },
   {
     stat: 'Six figures',
@@ -29,7 +29,7 @@ const stories: { stat: string; label: string; body: string }[] = [
   {
     stat: '2 a.m.',
     label: 'and the phone still answers',
-    body: 'A real AI secretary answering a business line at night — played out loud, live, in the room. She answers, takes the message, and books the callback.',
+    body: 'A real AI secretary answering a business line at night, played out loud in the room. She answers, takes the message, and books the callback.',
   },
 ];
 
@@ -49,7 +49,7 @@ export default function SeminarClient() {
           className="text-center mb-16"
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-            The Owner&apos;s Room &mdash; A Free Monthly Seminar
+            The Owner&apos;s Room. A Free Monthly Seminar
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
             AI For Business Owners Over 50: What&apos;s Real, What&apos;s Junk, And What It&apos;s{' '}
@@ -63,7 +63,7 @@ export default function SeminarClient() {
 
           <div className="inline-block bg-card/15 backdrop-blur-xl border border-primary/25 rounded-2xl px-6 py-4 mb-8">
             <p className="text-sm text-foreground font-bold">
-              September session &mdash; Alexandria. Reserve a seat and we&apos;ll text you the date
+              September session in Alexandria. Reserve a seat and we&apos;ll text you the date
               the moment it&apos;s set.
             </p>
           </div>
@@ -152,13 +152,13 @@ export default function SeminarClient() {
             source="seminar"
             pageSlug="seminar"
             heading="Reserve A Seat"
-            subheading="September session — Alexandria. Free. We'll text you the date the moment it's set."
+            subheading="September session in Alexandria. Free. We'll text you the date the moment it's set."
             ctaLabel="Reserve My Seat"
             showBusiness
             qualify
             messageLabel="What does the business do?"
-            messagePlaceholder="Roofing, tree work, parts counter, retail — plain words are fine."
-            successNote="Seat requested — we'll text you the date."
+            messagePlaceholder="Roofing, tree work, parts counter, retail. Plain words are fine."
+            successNote="Seat requested. We'll text you the date."
             privacyNote="One text when the date is set. That's it."
             redirectToThankYou={false}
           />

@@ -54,13 +54,13 @@ const navLinks: NavLink[] = [
     title: 'Found It OS',
     href: '/foundit-os',
     icon: Cpu,
-    description: 'One system that runs the whole business — you own it',
+    description: 'One system runs the whole business. You own it',
   },
   {
     title: "Who It's For",
     href: '/who-we-build-for',
     icon: UserCheck,
-    description: "The businesses we fit — and the ones we turn down",
+    description: "The businesses we fit, and the ones we turn down",
   },
   {
     title: 'Results',
@@ -78,7 +78,7 @@ const navLinks: NavLink[] = [
     title: 'Fit Check',
     href: '/fit',
     icon: Building2,
-    description: '60 seconds — are you who we build for?',
+    description: '60 seconds. Are you who we build for?',
   },
   // About + Blog are plain links on the menu line — no dropdown (Trevor
   // 8/16); the team page merged into /about the same day.
@@ -86,7 +86,7 @@ const navLinks: NavLink[] = [
     title: 'About',
     href: '/about',
     icon: Users,
-    description: 'Who we are — the story and the team',
+    description: 'Who we are. The story and the team',
   },
   {
     title: 'Blog',
@@ -98,7 +98,7 @@ const navLinks: NavLink[] = [
     title: 'Marketing',
     href: '/#services',
     icon: TrendingUp,
-    description: 'Ads and getting found — for the companies we build for',
+    description: 'Ads and getting found, for the companies we build for',
     sublinks: marketingSublinks,
   },
 ];
@@ -111,8 +111,8 @@ const SECRET_LPS = [
   { title: 'Social Media', href: '/lp/social-media-management' },
   { title: 'App Development', href: '/lp/app-development' },
   { title: 'AI Marketing', href: '/lp/ai-marketing' },
-  { title: 'Lake Charles — Google Ads', href: '/lp/lake-charles/google-ads-management' },
-  { title: 'Lake Charles — Web Design', href: '/lp/lake-charles/web-design' },
+  { title: 'Lake Charles Google Ads', href: '/lp/lake-charles/google-ads-management' },
+  { title: 'Lake Charles Web Design', href: '/lp/lake-charles/web-design' },
 ];
 
 /* ───────────────────────────── ANIMATION CONFIG ───────────────────── */
@@ -684,7 +684,7 @@ export function Header() {
                   </span>
                   <div>
                     <p className="text-sm font-semibold text-foreground leading-none">Campaign Pages</p>
-                    <p className="text-[10px] text-muted-foreground font-medium mt-1">Internal — AdWords landing pages</p>
+                    <p className="text-[10px] text-muted-foreground font-medium mt-1">Internal. AdWords landing pages</p>
                   </div>
                 </div>
                 <button

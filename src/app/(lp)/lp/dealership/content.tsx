@@ -28,36 +28,36 @@ const faqItems = [
   {
     question: 'What exactly is the margin governor?',
     answer:
-      'A floor under every part you sell. Your distributor cost files load in automatically, every part reprices at the margin you set, and the counter physically cannot ring a sale below cost.',
+      'A floor under every part you sell. Your distributor cost files load automatically. Every part reprices at your margin. The counter cannot ring a sale below cost.',
   },
   {
     question: 'Our part prices in QuickBooks are years old. Is that a problem?',
     answer:
-      "It's the normal starting point. Loading your current distributor price files and repricing the catalog at your margin is part of the fitting — that's what the setup fee pays for.",
+      "It's the normal starting point. We load your current price files and reprice the catalog at your margin during the fitting. That's what the setup fee pays for.",
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat — every counter seat, every location included. Month-to-month — cancel anytime, and the system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat. Every counter seat and location included. Month-to-month. Cancel anytime and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current system on day one?',
     answer:
-      'No. Nothing switches until you say go — the new system runs beside the old one, penny-matched, until you trust it. The counter never stops selling.',
+      'No. The new system runs beside the old one, penny-matched, until you trust it. Nothing switches until you say go. The counter never stops selling.',
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody rents you your own business back.',
   },
   {
     question: 'Do you take every dealership that signs up?',
     answer:
-      "No. Systems get fitted one business at a time — a handful of new fittings a month — so the walk-through is where both sides decide whether this is a fit. If it isn't, we tell you straight and tell you what we'd do instead.",
+      "No. We fit a handful of new businesses a month, one at a time. The walk-through is where both sides decide. If it's not a fit, we tell you straight.",
   },
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
+      "You leave. It's month-to-month, cancel anytime with 30 days' notice. You keep the code and the data.",
   },
 ];
 
@@ -69,7 +69,7 @@ export function DealershipLPContent() {
       <LPSplitHero
         headline="Quoting 15-Year-Old Prices?"
         headlineAccent="Dealer Software That Knows Cost."
-        subheadline="For equipment, outdoor power, and trailer dealers still quoting off part prices QuickBooks last saw years ago. Your distributor price files load automatically, every part reprices at your margin, and the counter cannot ring a sale below cost. One system — parts, sales, service, the books — fitted to your dealership, and you own it outright."
+        subheadline="For equipment, outdoor power, and trailer dealers quoting off part prices QuickBooks last saw years ago. Your distributor price files load automatically. Every part reprices at your margin. The counter cannot ring a sale below cost. One system for parts, sales, service, and the books. You own it outright."
         highlight={'A distributor price file lands → every part on your shelf reprices at your margin. Automatically.'}
         highlightIcon={ShieldCheck}
         voiceAgent
@@ -92,7 +92,7 @@ export function DealershipLPContent() {
         eyebrow="Real Local Business. Real Numbers."
         heading="The Biggest Roofer In Cenla"
         headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny. It found $195,882.75 sitting in open receivables. It caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
         videoSrc="/cory-ownership-v4.mp4"
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
@@ -112,22 +112,22 @@ export function DealershipLPContent() {
           {
             title: '“Our Part Prices Are 15 Years Old.”',
             detail:
-              "That's exactly who this is built for. Most dealerships quote off whatever cost the system last saw — and every stale price is margin walking out the door. We load your current distributor files during the fitting, reprice the whole catalog at your margin, and from then on the floor holds itself.",
+              "That's who this is built for. Every stale price is margin walking out the door. We load your current distributor files, reprice the whole catalog at your margin, and the floor holds itself from then on.",
           },
           {
             title: '“Nobody Here Has Time To Load Price Files.”',
             detail:
-              'Nobody should. The price files your distributors send — spreadsheets, CSVs, portal downloads — load automatically. When a distributor moves cost, your prices move with it, at your margin. Nobody at your dealership types a thing.',
+              'Nobody should. The price files your distributors send load automatically. When a distributor moves cost, your prices move with it, at your margin. Nobody types a thing.',
           },
           {
             title: '“We Can’t Stop The Counter To Switch Systems.”',
             detail:
-              'You never stop. Your new system runs BESIDE the old one, penny-matched against it every night. The counter keeps ringing sales on the system it knows until the numbers match and you say go. You never bet the dealership on a cutover.',
+              'You never stop. Your new system runs BESIDE the old one, penny-matched every night. The counter keeps ringing sales on the system it knows until you say go. You never bet the dealership on a switch.',
           },
           {
             title: '“I’ve Been Burned By Dealer Software Before.”',
             detail:
-              "Most dealer platforms rent you a seat and hold your data. This one you own — the code and the data, 100%, month-to-month. Leave any month with 30 days' notice and everything is still yours.",
+              "Most dealer platforms rent you a seat and hold your data. This one you own: the code and the data, 100%. Month-to-month. Leave with 30 days' notice and everything is still yours.",
           },
         ]}
       />
@@ -139,18 +139,18 @@ export function DealershipLPContent() {
             number: '01',
             title: 'We Walk Your Dealership. Free.',
             description:
-              'About an hour at your place. We walk the counter, the yard, the service bay, and the books with you — and show you the app we’d build if we owned your dealership. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, we tell you straight and tell you what we’d do instead.',
+              'About an hour at your place. We walk the counter, the yard, the service bay, and the books. Then we show you the app we’d build if we owned your dealership. You add or take away. We’re deciding too: is this a fit? If not, we tell you straight.',
           },
           {
             number: '02',
             title: 'We Load Your Costs. It Runs Beside The Old System.',
             description:
-              'Your distributor price files load in, every part reprices at your margin, and the whole system runs in parallel with your current setup — penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'Your price files load in. Every part reprices at your margin. The whole system runs beside your current setup, penny-matched every night, until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
           },
         ]}
       />
@@ -162,11 +162,11 @@ export function DealershipLPContent() {
         qualify
         fitGate
         heading="See What Yours Would Look Like"
-        subheading="Tell us about your dealership. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your place. If it's not, we tell you straight."
+        subheading="Tell us about your dealership. We take a handful of new fittings a month. If yours is a fit, we come walk it, about an hour, at your place. If it's not, we tell you straight."
         benefits={[
-          'We come to your dealership, in person — free',
+          'We come to your dealership, in person, free',
           'You see the app we’d build if we owned your dealership',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — every seat included`,
+          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Every seat included`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_dealership"

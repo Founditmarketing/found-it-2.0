@@ -36,36 +36,36 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "A video call with Tom — we send the link — about 30 minutes, screen-shared. You tell him how your business runs today, and he shows you what we'd build if it were ours: jobs, estimates, invoices, the books.",
+      "A video call with Tom, about 30 minutes, screen-shared. We send the link. You tell him how your business runs. He shows you what we'd build if it were ours: jobs, estimates, invoices, the books.",
   },
   {
     question: "Aren't you a Louisiana company?",
     answer:
-      'Found It Software is built in Alexandria, Louisiana — and Tom is our man in Wichita. He runs your video call and walks your business with you; the team behind him is the same one that built every system on this page.',
+      'Yes. Found It Software is built in Alexandria, Louisiana. Tom is our man in Wichita. He runs your call and walks your business with you. The team behind him built every system on this page.',
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current software on day one?',
     answer:
-      "No. Nothing switches until you say go — the new system runs beside the old one, penny-matched, until you trust it. That's the rule on every fitting.",
+      "No. The new system runs beside the old one, penny-matched, until you trust it. Nothing switches until you say go. That's the rule on every fitting.",
   },
   {
     question: 'Do I really own it?',
     answer:
-      'Yes. The code and the data are yours, 100%. Nobody should rent you your own business back — that is the whole reason Found It Software exists.',
+      'Yes. The code and the data are yours, 100%. Nobody rents you your own business back.',
   },
   {
     question: 'Do you take everyone who signs up?',
     answer:
-      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, Tom tells you straight and tells you what we'd do instead.",
+      "No. We build one business at a time, a handful of new fittings a month. The call is where both sides decide. If it's not a fit, Tom tells you straight.",
   },
   {
     question: "What if it doesn't work out?",
     answer:
-      "Then you leave — it's month-to-month, cancel anytime with 30 days' notice, and you keep the code and the data.",
+      "You leave. It's month-to-month, cancel anytime with 30 days' notice. You keep the code and the data.",
   },
 ];
 
@@ -82,8 +82,8 @@ export function WichitaLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, shows you what yours would look like."
-        highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
+        subheadline="Could your current software answer that in five seconds? Ours can. We put your whole operation into one custom system: customers, jobs, estimates, invoices, the books. Built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, shows you what yours would look like."
+        highlight={'“You currently have $195,882.75 in open receivables.” A real system’s real answer, the day it went through one roofer’s books.'}
         highlightIcon={MessageSquare}
         showAward={false}
         showBooking
@@ -93,17 +93,17 @@ export function WichitaLPContent() {
         formHeading="See What Yours Would Look Like"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading="Name and number. We build one business at a time and take a handful of new fittings a month. If yours is a fit, Tom shows you what we'd build for it. If it's not, he tells you straight."
+        formSubheading="Name and number. We take a handful of new fittings a month. If yours is a fit, Tom shows you what we'd build. If it's not, he tells you straight."
         formCtaLabel="Let's Talk"
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done — Tom will call you back, usually within 2 hours."
+        formSuccessNote="Done. Tom will call you back, usually within 2 hours."
         formPrivacyNote="We reply within two hours."
         nextSteps={[
           'Leave your name and number.',
-          "Tom calls you back. If your business is a fit, he walks it with you, live, screen-shared, and shows you what we'd build. If it isn't, he tells you straight, and tells you what we'd do instead.",
-          'Free, about thirty minutes, and you see what we’d build if it were ours.',
+          "Tom calls you back. If your business is a fit, he walks it with you live, screen-shared, and shows you what we'd build. If not, he tells you straight.",
+          'Free, about thirty minutes. You see what we’d build if it were ours.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -114,7 +114,7 @@ export function WichitaLPContent() {
         eyebrow="Real Business. Real Numbers."
         heading="This Roofer"
         headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny and found $195,882.75 sitting in open receivables — then caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
+        body="Cory Edwards, Edwards Roofing. The system audited his books to the penny. It found $195,882.75 sitting in open receivables. It caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
         videoSrc="/cory-ownership-v4.mp4"
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
@@ -152,7 +152,7 @@ export function WichitaLPContent() {
               Ask It. <span className="text-primary">It Answers.</span>
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              You clicked for &ldquo;who owes me money right now?&rdquo; — here&rsquo;s that exact
+              You clicked for &ldquo;who owes me money right now?&rdquo; Here&rsquo;s that exact
               thing. This one runs a demo book. Tap a question. Yours would answer from{' '}
               <span className="text-white font-bold">your own books</span>.
             </p>
@@ -180,12 +180,12 @@ export function WichitaLPContent() {
             This Isn&rsquo;t Another App. It&rsquo;s <span className="text-primary">The App.</span>
           </h2>
           <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Customers → estimates → jobs → invoices → the books — one system, built around your
-            business, and you own it: the code and the data.{' '}
+            Customers → estimates → jobs → invoices → the books. One system, built around your
+            business. You own it: the code and the data.{' '}
             <span className="text-white font-bold">
               Real businesses
             </span>{' '}
-            run on systems we built. Here&rsquo;s one day inside one of them — nobody at the
+            run on systems we built. Here&rsquo;s one day inside one of them, nobody at the
             desk:
           </p>
         </div>
@@ -199,12 +199,12 @@ export function WichitaLPContent() {
           {
             title: 'Your old system stays plugged in',
             detail:
-              'Your new system runs BESIDE your current software, penny-matched every night, until the numbers match and you say go. You never bet the shop on a cutover.',
+              'Your new system runs BESIDE your current software, penny-matched every night, until the numbers match and you say go. You never bet the shop on a switch.',
           },
           {
             title: 'Who sees your numbers',
             detail:
-              "Everyone gets their own login, limited to their role. The AI can read your books — it can't write to them. Everything is backed up every night. It's your data, period.",
+              "Everyone gets their own login, limited to their role. The AI can read your books. It cannot write to them. Everything is backed up every night. It's your data, period.",
           },
         ]}
       />
@@ -216,18 +216,18 @@ export function WichitaLPContent() {
             number: '01',
             title: 'Tom Shows You Yours. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? Tom shows you, on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, Tom tells you straight and tells you what we’d do instead.',
+              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you: jobs, estimates, invoices, the books. Think yours is too complicated? Complicated is where software shines. Then one question: if we owned your company, what app would we build? Tom shows you on the call. You add or take away. We’re deciding too: is this a fit? If not, Tom tells you straight.',
           },
           {
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'Then we build it, around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'We build it in weeks, around how you run. It runs beside your current software, penny-matched every night, until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts. Cancel anytime, and the system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
           },
         ]}
       />
@@ -249,7 +249,7 @@ export function WichitaLPContent() {
         benefits={[
           'Tom walks your business with you, live, screen-shared',
           'You see the app we’d build if we owned your company',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
+          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. No surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_wichita_footer"

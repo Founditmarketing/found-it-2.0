@@ -94,7 +94,7 @@ const SERVED_CITIES = new Set([
 ]);
 
 export function LPSplitHero({
-  badge = '100% Local — We Come To You',
+  badge = '100% Local. We Come To You',
   headline,
   headlineAccent,
   subheadline,
@@ -127,7 +127,7 @@ export function LPSplitHero({
   // raw flags combined would otherwise render a hero with no CTA and no form.
   const secondaryBooking = bookingSecondary && !bookingOnly;
   const badgeText =
-    city && SERVED_CITIES.has(city) ? `100% Local — Serving ${city}` : badge;
+    city && SERVED_CITIES.has(city) ? `100% Local. Serving ${city}` : badge;
 
   // The subheadline's first sentence is the challenge line — it gets the
   // strong voice; the rest of the paragraph settles under the demo. Copy
@@ -282,7 +282,7 @@ export function LPSplitHero({
             {!formFitGate && showBooking && secondaryBooking && (
               <div className="mt-4">
                 <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
-                  Ready now? Skip the call-back —
+                  Ready now? Skip the call-back.
                 </p>
                 <BookingCta
                   secondary
