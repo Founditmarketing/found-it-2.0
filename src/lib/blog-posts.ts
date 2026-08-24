@@ -20,66 +20,47 @@ export const blogPosts: Post[] = [
         slug: 'law-practice-management-software',
         title: 'A Lawyer Was About to Hire Somebody Just to Answer His Phone. I Built Him an Employee Instead.',
         date: '2026-08-24',
-        excerpt: 'He was about to pay $2,500 a month for a seat in a two-room office. One weekend later: an employee who answers at 2 AM, files what he says, collects the money, and refuses to touch the stuff that ends law careers. He owns every line of it.',
+        excerpt: 'Nobody answered his phone — and the six-figure cases call the phone. So instead of a $2,500-a-month hire, I built him an employee who never sleeps. Ten screens, ten seconds each.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/lawyer-blog-today-v1.png',
         content: `
-<p>There is a one-man law office here in Louisiana.</p>
-<p>Good lawyer. Busy lawyer. And nobody answers his phone.</p>
-<p>The cases that pay for everything come in <strong>by phone</strong>. And they were hitting an answering machine.</p>
-<p>He was about to hire someone. Around here that seat runs <strong>$2,500 to $3,500 a month</strong>.</p>
-<p>I told him: don't. Give me a weekend.</p>
-<p><em>The screens below are the real system running demo data. The firm name on them is a stand-in.</em></p>
-<p><img src="/images/blog/lawyer-blog-today-v1.png" alt="The morning desk greets the lawyer by name and lists exactly what needs him today (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>This is what he wakes up to now. It says good morning and tells him exactly what needs him today.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">A one-man law office. Good lawyer. Busy lawyer.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">Nobody answered his phone.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">The six-figure cases? They call the phone.</p>
+<div style="margin: 2.4em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$2,500/mo</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the employee he was about to hire, just to answer it</div></div>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">I built him one in a weekend. <span style="color: #FF5500;">She never sleeps.</span></p>
+<p style="margin: 1.2em 0 2em;"><img src="/images/blog/lawyer-blog-today-focus-v1.png" alt="The lawyer's morning screen greets him by name and shows what needs him today (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">It says good morning to him <span style="color: #FF5500;">by name</span>.</p>
 
-<h3>She answers his phone at 2 in the morning</h3>
-<p>A real call comes in at 9 PM. Dog bite.</p>
-<p>She answers. Takes the whole story. Books the meeting. Opens the file.</p>
-<p>He finds it all waiting for him with his coffee.</p>
-<p><strong>And nothing sends itself.</strong> Every text, every call she wants to make sits and waits for HIS tap. Best employee he's ever had. Still can't touch SEND.</p>
-<p><img src="/images/blog/lawyer-blog-secretary-v1.png" alt="The secretary's desk: the approval queue and her work log, every outbound waiting on a human tap (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">9 PM. Dog-bite call. <span style="color: #FF5500;">She answered.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">Took the story. Booked the meeting. Opened the file. He found it with his coffee.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;"><strong>And nothing sends itself.</strong> Everything she does waits for HIS tap.</p>
 
-<h3>He talks. It types.</h3>
-<p>He walks out of the courthouse and just says what happened, out loud, into his phone.</p>
-<p>It files everything. The notes. The to-do list. The time he just spent.</p>
-<p><strong>He never types on his phone again.</strong></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">He talks. <span style="color: #FF5500;">It types.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">Walks out of court, says what happened. Filed. He never types on his phone again.</p>
 
-<h3>It refuses to touch the dangerous stuff</h3>
-<p>This is the part no software company will tell you.</p>
-<p>Lawyers lose their licenses over two things: <strong>missed deadlines and client money</strong>. So I built this thing to refuse both:</p>
-<ul>
-<li><strong>It never calculates a deadline.</strong> A human types every date. Then the app puts that date in his face every morning until he says "I saw it." Ignore it two days? It turns red and gets loud.</li>
-<li><strong>It never touches client money.</strong> It just checks his accounts every night and proves everything matches. To the penny.</li>
-</ul>
-<p><img src="/images/blog/lawyer-blog-prescription-v1.png" alt="Every case deadline on one screen, each one typed in by a human hand, counted down but never calculated (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Every case deadline on one screen. A human typed every one. The app just refuses to let him forget.</p>
-<p><strong>I don't do the risky stuff for him. I make it impossible to quietly get it wrong.</strong> That's the difference.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">It <span style="color: #FF5500;">refuses</span> to do the dangerous stuff.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">Missed deadlines and client money end law careers. This thing won't calculate a date and can't touch a dollar of client money. A human types every deadline —</p>
+<p style="margin: 1.2em 0 2em;"><img src="/images/blog/lawyer-blog-prescription-focus-v1.png" alt="Every case deadline on one screen, typed by hand, red when ignored (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">— and if he ignores one for two days, <span style="color: #FF5500;">it turns red and gets loud</span>.</p>
+<div style="margin: 2.4em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$2,000/mo</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">what law firms RENT demand-letter software for</div></div>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">His writes itself. One tap. <span style="color: #FF5500;">It can't sign.</span></p>
+<p style="margin: 1.2em 0 2em;"><img src="/images/blog/lawyer-blog-demand-focus-v1.png" alt="A demand letter assembled from the file in one tap, under a red UNSIGNED DRAFT stamp (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<h3>The money collects itself</h3>
-<p>Client gets a text with a pay link. Taps it at 9 at night. Pays.</p>
-<p><strong>The bookkeeping writes itself before anybody wakes up.</strong> No re-typing. No shoebox. No QuickBooks night.</p>
-<p><img src="/images/blog/lawyer-blog-money-v1.png" alt="The injury money screen: every medical bill, every lien, netted down to what the client takes home (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>Every medical bill, every payout, one sheet, down to what the client actually takes home.</p>
-<p>And the letters? There are companies charging law firms <strong>$2,000 a month</strong> to write demand letters.</p>
-<p>His writes itself off the file in one tap. <strong>Big red DRAFT stamp. He signs. It never does.</strong></p>
-<p><img src="/images/blog/lawyer-blog-demand-v1.png" alt="A demand letter assembled from the file in one tap, on letterhead, under a red UNSIGNED DRAFT watermark (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">Clients stopped calling to ask <span style="color: #FF5500;">&ldquo;any news?&rdquo;</span></p>
+<p style="margin: 1.2em 0 2em;"><img src="/images/blog/lawyer-blog-status-mobile-v1.png" alt="The client's phone shows where the case stands, plain English, no login (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">The answer's already in their pocket.</p>
 
-<h3>His clients stopped calling to ask "any news?"</h3>
-<p>Every client gets a simple link. No password. No app.</p>
-<p>It shows where their case stands, in plain English.</p>
-<p><strong>The answer is already in their pocket. So the phone stops ringing.</strong></p>
-<p><img src="/images/blog/lawyer-blog-status-mobile-v1.png" alt="What the client sees on their phone: where the case stands, in plain English, no login (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">The money collects itself <span style="color: #FF5500;">while he sleeps.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">Client taps a link at 9 PM. Pays. The books write themselves before sunrise.</p>
 
-<h3>And here is the different part: he OWNS it</h3>
-<p>Not a subscription. Not a login on somebody's platform.</p>
-<p><strong>The code. The data. His name on the title.</strong> If he ever leaves me, he leaves with everything.</p>
-<p>The monthly fee? That's me taking care of it, like a good mechanic takes care of your truck.</p>
-<p><strong>Nobody rents you your own business back.</strong></p>
-<p><img src="/images/blog/lawyer-blog-pay-mobile-v1.png" alt="The pay link on a phone: the client pays at 9 PM and the books write themselves (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>I'm Trevor. Found It Software, Alexandria, Louisiana. I take the software you're renting and build you one you own. Auto shops. Roofers. Tree services. Dealerships. Now a law office.</p>
-<p><strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;">And he <span style="color: #FF5500;">OWNS</span> it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">The code. The data. His name on the title. The monthly fee is me taking care of it — like a mechanic takes care of your truck.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 2.2em 0 0.4em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, dealerships — now a law office. <strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1em;"><em style="opacity:0.6; font-size: 14px;">Screens show the real system on demo data; the firm name on them is a stand-in.</em></p>
 `,
     },
     {
