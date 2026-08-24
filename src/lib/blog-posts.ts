@@ -20,9 +20,9 @@ export type Post = {
 export const blogPosts: Post[] = [
     {
         slug: 'law-practice-management-software',
-        title: 'A Lawyer Was About to Hire Somebody Just to Answer His Phone. I Built Him an Employee Instead.',
+        title: 'A 9 PM Dog-Bite Call Pays for a Lawyer\'s Whole Year. She Caught It.',
         date: '2026-08-24',
-        excerpt: 'Nobody answered his phone — and the six-figure cases call the phone. So instead of a $2,500-a-month hire, I built him an employee who never sleeps. Ten screens, ten seconds each.',
+        excerpt: 'He was at supper. She took the whole story, booked the consult, opened the file. She\'s not a person — I built her in a weekend, and he owns her. Code, data, everything.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/lawyer-og-hook-v1.png',
