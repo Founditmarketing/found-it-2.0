@@ -1,4 +1,4 @@
-﻿/* â”€â”€â”€ Industry Data â”€â”€â”€
+/* â”€â”€â”€ Industry Data â”€â”€â”€
    OS-software-first copy (rewritten 2026-08: solves problems, saves time,
    kills rented-software cost, streamlines workflow, own the code and data).
    Marketing appears once per page, via the renderer's "Other 10%" band. */
@@ -32,14 +32,14 @@ export const industries: Record<string, IndustryData> = {
     name: "Medical / Healthcare",
     slug: "medical",
     metaDescription:
-      "Custom software for medical and dental practices: scheduling, intake, recalls, and billing follow-up in one system you own outright â€” code and data. It runs beside your current setup until you say go. Built by Found It Software.",
+      "Custom software for medical and dental practices: scheduling, intake, recalls, and billing follow-up in one system you own outright, code and data. It runs beside your current setup until you say go. Built by Found It Software.",
     headline: "Your Practice Runs on Rented Software. Time to Own It.",
     subline:
-      "Scheduling, intake, recalls, billing follow-up â€” one system fitted to your practice, and you own it outright. Code and data. The chart stays in your EHR; we build around it, never inside it.",
-    heroStat: { value: "100%", label: "Yours â€” Code & Data" },
+      "Scheduling, intake, recalls, billing follow-up, one system fitted to your practice, and you own it outright. Code and data. The chart stays in your EHR; we build around it, never inside it.",
+    heroStat: { value: "100%", label: "Yours: Code & Data" },
     definitionHeading: "What Is a Practice Operating System?",
     definition:
-      "A practice operating system is one piece of custom software that runs the business side of a medical or dental practice: scheduling, intake, recalls, billing follow-up, and the patient book treated like a customer book. It is not an EHR and it never touches the chart: clinical records, e-prescribing, and your compliance systems stay exactly where they are, and we build the operations layer around them. It replaces the pile of rented subscriptions around your front desk with one system you own outright: the code and the data, living in your system, not a vendor's cloud. Found It Software fits it to how your practice actually runs, and it goes live beside your old setup â€” nothing switches until you say go.",
+      "A practice operating system is one piece of custom software that runs the business side of a medical or dental practice: scheduling, intake, recalls, billing follow-up, and the patient book treated like a customer book. It is not an EHR and it never touches the chart: clinical records, e-prescribing, and your compliance systems stay exactly where they are, and we build the operations layer around them. It replaces the pile of rented subscriptions around your front desk with one system you own outright: the code and the data, living in your system, not a vendor's cloud. Found It Software fits it to how your practice actually runs, and it goes live beside your old setup, nothing switches until you say go.",
     painPoints: [
       {
         title: "A subscription for every job",
@@ -47,7 +47,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         title: "Your patient list lives in a vendor's cloud",
-        description: "The book you spent years building sits behind someone else's login, under someone else's terms of service. That's not your data working for you â€” that's your data rented back to you.",
+        description: "The book you spent years building sits behind someone else's login, under someone else's terms of service. That's not your data working for you, that's your data rented back to you.",
       },
       {
         title: "The front desk runs on memory",
@@ -57,14 +57,14 @@ export const industries: Record<string, IndustryData> = {
     solutions: [
       {
         title: "One system for the business side",
-        description: "Scheduling, intake, recalls, billing follow-up â€” one screen, fitted to how your front desk actually works. Built in weeks, not months. The stack of subscriptions it replaces goes away, and so do their bills.",
+        description: "Scheduling, intake, recalls, billing follow-up, one screen, fitted to how your front desk actually works. Built in weeks, not months. The stack of subscriptions it replaces goes away, and so do their bills.",
       },
       {
         title: "The patient book, worked like a customer book",
-        description: "Recalls go out on time. No-shows get a follow-up. Overdue balances get a polite nudge. Ask the system how last month compared to last year and it answers from your own numbers â€” the AI reads the books, it can't write them.",
+        description: "Recalls go out on time. No-shows get a follow-up. Overdue balances get a polite nudge. Ask the system how last month compared to last year and it answers from your own numbers, the AI reads the books, it can't write them.",
       },
       {
-        title: "You own it â€” code and data",
+        title: "You own it: code and data",
         description: "Your data lives in your system, not a vendor's cloud. No terms of service quietly claiming your patient list. Leave anytime and it all stays yours. Nobody rents you your own business back.",
       },
       {
@@ -75,23 +75,23 @@ export const industries: Record<string, IndustryData> = {
     faqs: [
       {
         question: "Does this replace our EHR?",
-        answer: "No. The chart stays in your EHR and we don't touch clinical records â€” that's a hard line. The OS runs everything around the chart: scheduling, intake, recalls, billing follow-up, the patient book as a customer book. That's the business side of a practice, and that's where the hours and the subscription bills are.",
+        answer: "No. The chart stays in your EHR and we don't touch clinical records, that's a hard line. The OS runs everything around the chart: scheduling, intake, recalls, billing follow-up, the patient book as a customer book. That's the business side of a practice, and that's where the hours and the subscription bills are.",
       },
       {
         question: "What happens to our data if we leave the software we rent now?",
-        answer: "Read your vendor's terms of service â€” most practices signed away more than they think, and a clean export is the vendor's decision, not yours. That's the rental trap. With a Found It OS you own the code and the data outright, and it lives in your system, not a vendor's cloud. If you ever walk away from us, you keep everything. Nobody rents you your own business back.",
+        answer: "Read your vendor's terms of service, most practices signed away more than they think, and a clean export is the vendor's decision, not yours. That's the rental trap. With a Found It OS you own the code and the data outright, and it lives in your system, not a vendor's cloud. If you ever walk away from us, you keep everything. Nobody rents you your own business back.",
       },
       {
         question: "We book patients all day. What if the new system breaks?",
-        answer: "It never gets the chance to hurt you. The new system runs beside your old one â€” both live, penny-matched nightly â€” and nothing switches off until you say go. If day one has a bug, your old system is still standing right there.",
+        answer: "It never gets the chance to hurt you. The new system runs beside your old one, both live, penny-matched nightly, and nothing switches off until you say go. If day one has a bug, your old system is still standing right there.",
       },
       {
         question: "Have you built one for a medical practice before?",
-        answer: "Not yet â€” we won't pretend otherwise. The same system is running today in auto shops, retail stores, and field crews, and the business side of a practice is the same shape: a schedule, a customer book, money to follow up on. A fitting starts with us mapping your front desk's actual week â€” you add to it or cross things off before we build a thing.",
+        answer: "Not yet, we won't pretend otherwise. The same system is running today in auto shops, retail stores, and field crews, and the business side of a practice is the same shape: a schedule, a customer book, money to follow up on. A fitting starts with us mapping your front desk's actual week, you add to it or cross things off before we build a thing.",
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month. No long-term contracts and no fine print â€” cancel anytime with 30 days' notice, and the system, code and data, stays yours.",
+        answer: "One public price, month-to-month. No long-term contracts and no fine print, cancel anytime with 30 days' notice, and the system, code and data, stays yours.",
       },
     ],
     formSource: "industry_medical",
@@ -101,18 +101,18 @@ export const industries: Record<string, IndustryData> = {
     name: "Real Estate",
     slug: "realtors",
     metaDescription:
-      "Custom software for real estate: one system you own â€” the deal pipeline, the client book, follow-up that never sleeps, documents in one place. Replaces the per-agent SaaS stack. The code and the data are yours.",
+      "Custom software for real estate: one system you own, the deal pipeline, the client book, follow-up that never sleeps, documents in one place. Replaces the per-agent SaaS stack. The code and the data are yours.",
     headline: "Stop Renting Your Client Book. Own the System That Runs Your Business.",
     subline:
-      "A CRM here, e-signatures there, a follow-up tool, a showing scheduler â€” every agent paying every month, and none of it talks to the rest. We build one system that runs the whole operation. And you own it outright: the code and the data.",
-    heroStat: { value: "100%", label: "Yours â€” Code & Data" },
+      "A CRM here, e-signatures there, a follow-up tool, a showing scheduler, every agent paying every month, and none of it talks to the rest. We build one system that runs the whole operation. And you own it outright: the code and the data.",
+    heroStat: { value: "100%", label: "Yours: Code & Data" },
     definitionHeading: "What Is a Real Estate OS?",
     definition:
-      "A real estate OS is one custom application that runs the whole operation: the deal pipeline from contract to close, the client book with every buyer and seller you have ever worked, follow-up that fires on its own, and every document attached to its deal. It replaces the per-agent stack of rented subscriptions â€” and unlike those, you own it outright, code and data. Found It Software fits it to how your team actually works, the same way our systems run in auto shops, retail stores, and field crews.",
+      "A real estate OS is one custom application that runs the whole operation: the deal pipeline from contract to close, the client book with every buyer and seller you have ever worked, follow-up that fires on its own, and every document attached to its deal. It replaces the per-agent stack of rented subscriptions, and unlike those, you own it outright, code and data. Found It Software fits it to how your team actually works, the same way our systems run in auto shops, retail stores, and field crews.",
     painPoints: [
       {
         title: "A subscription for every job",
-        description: "CRM, e-signature, follow-up tool, showing scheduler, transaction tracker â€” per agent, per month. The stack costs real money and none of it talks to the rest.",
+        description: "CRM, e-signature, follow-up tool, showing scheduler, transaction tracker, per agent, per month. The stack costs real money and none of it talks to the rest.",
       },
       {
         title: "Your client book lives in a vendor's cloud",
@@ -130,33 +130,33 @@ export const industries: Record<string, IndustryData> = {
     solutions: [
       {
         title: "One pipeline, contract to close",
-        description: "Every deal on one screen â€” stage, dates, parties, next action. Ask it a plain question about your numbers and get a straight answer. The AI reads the books; it can't write them.",
+        description: "Every deal on one screen, stage, dates, parties, next action. Ask it a plain question about your numbers and get a straight answer. The AI reads the books; it can't write them.",
       },
       {
         title: "A client book you own",
-        description: "Every buyer, seller, and past client with full history â€” in your system, not a vendor's cloud. The code and the data are yours outright, from day one.",
+        description: "Every buyer, seller, and past client with full history, in your system, not a vendor's cloud. The code and the data are yours outright, from day one.",
       },
       {
         title: "Follow-up that never sleeps",
-        description: "The system works the list while you work the closings â€” past clients, anniversaries, quiet leads. Nobody falls through, because nobody has to remember.",
+        description: "The system works the list while you work the closings, past clients, anniversaries, quiet leads. Nobody falls through, because nobody has to remember.",
       },
       {
         title: "Documents in one place",
-        description: "Every contract, disclosure, and addendum attached to its deal. Search it, find it, send it â€” seconds, not scavenger hunts.",
+        description: "Every contract, disclosure, and addendum attached to its deal. Search it, find it, send it, seconds, not scavenger hunts.",
       },
     ],
     faqs: [
       {
         question: "What happens to my client book if I leave kvCORE or Follow Up Boss?",
-        answer: "Whatever their terms of service say â€” usually a CSV export and good luck. That's the problem with rented software: the relationships you spent a career building live in their cloud. With a system you own, the question disappears. The code and the data are yours from day one. Nobody rents you your own business back.",
+        answer: "Whatever their terms of service say, usually a CSV export and good luck. That's the problem with rented software: the relationships you spent a career building live in their cloud. With a system you own, the question disappears. The code and the data are yours from day one. Nobody rents you your own business back.",
       },
       {
         question: "Do we have to switch everything at once?",
-        answer: "No. The new system runs beside your current stack, penny-matched nightly, and nothing switches until you say go. You keep working deals the whole time. When you trust it, you pull the plug on the old subscriptions â€” not before.",
+        answer: "No. The new system runs beside your current stack, penny-matched nightly, and nothing switches until you say go. You keep working deals the whole time. When you trust it, you pull the plug on the old subscriptions, not before.",
       },
       {
         question: "Does it replace the MLS?",
-        answer: "No â€” and we'll tell you straight what it won't touch. The MLS stays the MLS, and your brokerage's compliance requirements stay theirs. What the system replaces is the rented stack around them: the CRM, the follow-up tool, the document chase, the per-agent subscriptions.",
+        answer: "No, and we'll tell you straight what it won't touch. The MLS stays the MLS, and your brokerage's compliance requirements stay theirs. What the system replaces is the rented stack around them: the CRM, the follow-up tool, the document chase, the per-agent subscriptions.",
       },
       {
         question: "Have you built one for a real estate team before?",
@@ -164,7 +164,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "What does it cost?",
-        answer: "One public price, month-to-month, no long-term contracts. Cancel anytime with 30 days' notice â€” you keep the code, the data, and a system that keeps running.",
+        answer: "One public price, month-to-month, no long-term contracts. Cancel anytime with 30 days' notice, you keep the code, the data, and a system that keeps running.",
       },
     ],
     formSource: "industry_realtors",
@@ -174,14 +174,14 @@ export const industries: Record<string, IndustryData> = {
     name: "Lawyers",
     slug: "lawyers",
     metaDescription:
-      "Custom software for law firms from Found It Software: intake, matters, documents, and billing hygiene in one system your firm owns outright â€” code and data. It runs beside your current software until you say go. No per-seat rentals.",
+      "Custom software for law firms from Found It Software: intake, matters, documents, and billing hygiene in one system your firm owns outright, code and data. It runs beside your current software until you say go. No per-seat rentals.",
     headline: "One System Runs the Firm. And the Firm Owns It.",
     subline:
-      "Intake in one app, matters in another, documents in a third, billing in a fourth â€” all rented, per seat, none of it built for your firm. We build one custom system that fits how you actually work, and you own it outright. Nobody rents you your own business back.",
-    heroStat: { value: "100%", label: "Yours â€” Code & Data" },
+      "Intake in one app, matters in another, documents in a third, billing in a fourth, all rented, per seat, none of it built for your firm. We build one custom system that fits how you actually work, and you own it outright. Nobody rents you your own business back.",
+    heroStat: { value: "100%", label: "Yours: Code & Data" },
     definitionHeading: "What Is a Law Firm Operating System?",
     definition:
-      "A law firm operating system is one custom piece of software that runs the business side of a practice â€” intake, matters, documents, and billing hygiene â€” in a single system the firm owns outright: the code and the data. Found It Software builds it by sitting with your people and reverse-engineering how the firm actually works, then fitting software to that â€” the same discipline behind the systems we have running in auto shops, retail stores, and field crews. An AI sits on top that answers plain questions about the firm's books; it can read, it can't write. And it stays out of trust accounting and court deadlines â€” that's lawyer work, and we say so up front.",
+      "A law firm operating system is one custom piece of software that runs the business side of a practice, intake, matters, documents, and billing hygiene, in a single system the firm owns outright: the code and the data. Found It Software builds it by sitting with your people and reverse-engineering how the firm actually works, then fitting software to that, the same discipline behind the systems we have running in auto shops, retail stores, and field crews. An AI sits on top that answers plain questions about the firm's books; it can read, it can't write. And it stays out of trust accounting and court deadlines, that's lawyer work, and we say so up front.",
     painPoints: [
       {
         title: "You pay per lawyer, per month, forever",
@@ -189,7 +189,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         title: "Intake is scattered across sticky notes and inboxes",
-        description: "A new client calls. Somebody writes it down â€” somewhere. Then the same name gets retyped into three different systems. Matters, documents, and billing never see each other.",
+        description: "A new client calls. Somebody writes it down, somewhere. Then the same name gets retyped into three different systems. Matters, documents, and billing never see each other.",
       },
       {
         title: "Billing hygiene leaks money quietly",
@@ -199,19 +199,19 @@ export const industries: Record<string, IndustryData> = {
     solutions: [
       {
         title: "One system, fitted to the firm",
-        description: "A client calls, intake becomes a matter, the matter holds its documents, the work becomes an invoice. One place, start to finish. We reverse-engineer how your firm actually runs and build to that â€” not an off-the-rack platform stuffed with features you'll never touch.",
+        description: "A client calls, intake becomes a matter, the matter holds its documents, the work becomes an invoice. One place, start to finish. We reverse-engineer how your firm actually runs and build to that, not an off-the-rack platform stuffed with features you'll never touch.",
       },
       {
         title: "An AI that reads the firm's books",
-        description: "Ask it plain questions: what's unbilled right now, which matters went quiet, how this June compares to last June. It reads and it answers. It cannot write an entry â€” read-only, by design. The AI can't get in the books.",
+        description: "Ask it plain questions: what's unbilled right now, which matters went quiet, how this June compares to last June. It reads and it answers. It cannot write an entry, read-only, by design. The AI can't get in the books.",
       },
       {
-        title: "You own it â€” code and data",
+        title: "You own it: code and data",
         description: "The software carries your firm's name. The code and the database are yours, backed up nightly to a local drive and the cloud. The subscriptions it replaces get canceled. Nobody else has your data.",
       },
       {
         title: "It runs beside your current software first",
-        description: "Nothing switches on day one. The new system runs in parallel with what you use now, matched against it nightly, until you trust it. You pull the plug on the old one when you say go â€” not before.",
+        description: "Nothing switches on day one. The new system runs in parallel with what you use now, matched against it nightly, until you trust it. You pull the plug on the old one when you say go, not before.",
       },
       {
         title: "What it will not touch",
@@ -221,23 +221,23 @@ export const industries: Record<string, IndustryData> = {
     faqs: [
       {
         question: "What happens to my data if I ever leave Clio or MyCase?",
-        answer: "With rented software, you get whatever their export tool decides to give you â€” and your matters, contacts, and history live on their servers under their terms of service until then. With a system we build, the question disappears: the code and the database are yours from day one, backed up nightly to a local hard drive and the cloud. There is no landlord to leave.",
+        answer: "With rented software, you get whatever their export tool decides to give you, and your matters, contacts, and history live on their servers under their terms of service until then. With a system we build, the question disappears: the code and the database are yours from day one, backed up nightly to a local hard drive and the cloud. There is no landlord to leave.",
       },
       {
         question: "What if the new system breaks? The whole firm runs on this.",
-        answer: "Nothing switches until you say go. The new system runs beside your current software â€” both live at the same time, matched against each other nightly, down to the penny on billing. You work out of the old one for as long as you want while the new one proves itself. When you're confident, you pull the plug. Not a day earlier.",
+        answer: "Nothing switches until you say go. The new system runs beside your current software, both live at the same time, matched against each other nightly, down to the penny on billing. You work out of the old one for as long as you want while the new one proves itself. When you're confident, you pull the plug. Not a day earlier.",
       },
       {
         question: "Will it handle trust accounting or calculate court deadlines?",
-        answer: "No, and we won't pretend otherwise. Trust accounting and IOLTA stay in whatever handles them now, and deadline math stays with your lawyers and your docketing â€” we're not touching either one. The system runs intake, matters, documents, and billing hygiene. The AI on top answers questions about the firm's books, and it's read-only: it can look, it can never write an entry. We'd rather tell you plainly what it won't do than sell you something it can't.",
+        answer: "No, and we won't pretend otherwise. Trust accounting and IOLTA stay in whatever handles them now, and deadline math stays with your lawyers and your docketing, we're not touching either one. The system runs intake, matters, documents, and billing hygiene. The AI on top answers questions about the firm's books, and it's read-only: it can look, it can never write an entry. We'd rather tell you plainly what it won't do than sell you something it can't.",
       },
       {
         question: "What does it cost, and am I locked into a contract?",
-        answer: "One public price, month-to-month. No long-term contracts â€” clients stay because they love the system, not because they're locked in. Cancel anytime with 30 days' notice and the whole thing stays yours.",
+        answer: "One public price, month-to-month. No long-term contracts, clients stay because they love the system, not because they're locked in. Cancel anytime with 30 days' notice and the whole thing stays yours.",
       },
       {
         question: "Do you still do marketing for law firms?",
-        answer: "Yes â€” it's the other 10%. Custom software is 90% of what we do now. And when you want clients on top of the system, the same team runs ads and AI search â€” that's the other 10% of what we do. But the software comes first, because a firm that runs clean makes every new client worth more.",
+        answer: "Yes, it's the other 10%. Custom software is 90% of what we do now. And when you want clients on top of the system, the same team runs ads and AI search, that's the other 10% of what we do. But the software comes first, because a firm that runs clean makes every new client worth more.",
       },
     ],
     formSource: "industry_lawyers",
@@ -245,26 +245,26 @@ export const industries: Record<string, IndustryData> = {
     screens: [
       {
         src: "/os-screens/lawyer-os-prescription-v1.png",
-        alt: "The Lawyer OS Prescription Watch — every open PI file's prescription date on one screen, soonest first, each one entered by the lawyer, never computed (demo data)",
-        caption: "Prescription Watch. The rule is printed on the page: the system will not compute your deadlines — it makes sure nobody can quietly ignore one. Every date entered by a hand, surfaced daily, escalated in red after 48 unacknowledged hours.",
+        alt: "Prescription Watch, every open file's prescription date on one screen, entered by hand, red when ignored (demo data)",
+        caption: "Prescription Watch. Every date entered by a hand, up every morning, red after two days ignored. It will not compute a deadline.",
       },
       {
         src: "/os-screens/lawyer-os-today-v1.png",
-        alt: "The Lawyer OS morning desk — calls the AI secretary took overnight, escalated dates first, fees sitting invoiced (demo data)",
-        caption: "The morning desk. The secretary took three calls while you were out, two dates need your eyes first, and the fees sitting invoiced stand in one number.",
+        alt: "The morning desk, overnight calls taken, escalated dates first, unpaid fees in one number (demo data)",
+        caption: "The morning desk. Three calls taken overnight, two dates waiting on your eyes, unpaid fees in one number.",
       },
       {
         src: "/os-screens/lawyer-os-money-v1.png",
-        alt: "The Lawyer OS money spine — medicals by provider, a records gap being chased, the lien register, a read-only settlement view (demo data)",
-        caption: "The money spine. Medicals by provider, a 58-day records gap being chased, the lien register — shown to the penny, never touched. The trust ledger stays in the firm's own system, where the bar put it.",
+        alt: "The money spine, medicals by provider, the lien register, settlement math shown and never touched (demo data)",
+        caption: "The money spine. Medicals, liens, and settlement math to the penny. It never touches the money.",
       },
       {
         src: "/os-screens/lawyer-os-demand-v1.png",
-        alt: "The Lawyer OS letter desk — a demand letter assembled from the file's own medicals and liens, watermarked DRAFT (demo data)",
-        caption: "The letter desk. A demand letter assembles itself from the file's own medical specials and liens — and wears a DRAFT watermark until the lawyer says send.",
+        alt: "The letter desk, a demand letter drafted from the file's own medicals and liens (demo data)",
+        caption: "The demand letter drafts itself from the file and stays a DRAFT until the lawyer says send.",
       },
     ],
     screensNote:
-      "A live demo build for a solo Louisiana practice — demo data throughout, and a stand-in firm name on the masthead until its owner puts his own on it.",
+      "A live demo build for a solo Louisiana practice. Demo data. The firm name on the screens is a stand-in.",
   },
 };

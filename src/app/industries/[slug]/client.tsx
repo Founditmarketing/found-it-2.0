@@ -85,6 +85,47 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           </div>
         </motion.div>
 
+        {/* ── The system, on screen — pictures before prose ── */}
+        {data.screens && data.screens.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-8">
+              The System, On Screen
+            </h2>
+            <div className="space-y-10">
+              {data.screens.map((s, i) => (
+                <motion.figure
+                  key={s.src}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05, duration: 0.6, ease }}
+                  className="m-0"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    className="w-full rounded-2xl border border-border/20 shadow-2xl shadow-black/40"
+                  />
+                  <figcaption className="text-sm text-muted-foreground font-medium leading-relaxed mt-3">
+                    {s.caption}
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </div>
+            {data.screensNote && (
+              <p className="text-xs text-faint font-medium leading-relaxed mt-6">{data.screensNote}</p>
+            )}
+          </motion.div>
+        )}
+
         {/* ── Pain Points ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -146,47 +187,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           </div>
         </motion.div>
 
-        {/* ── The system, on screen (only industries with sanctioned captures) ── */}
-        {data.screens && data.screens.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="mb-16"
-          >
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-8">
-              The System, On Screen
-            </h2>
-            <div className="space-y-10">
-              {data.screens.map((s, i) => (
-                <motion.figure
-                  key={s.src}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, duration: 0.6, ease }}
-                  className="m-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={s.src}
-                    alt={s.alt}
-                    loading="lazy"
-                    className="w-full rounded-2xl border border-border/20 shadow-2xl shadow-black/40"
-                  />
-                  <figcaption className="text-sm text-muted-foreground font-medium leading-relaxed mt-3">
-                    {s.caption}
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </div>
-            {data.screensNote && (
-              <p className="text-xs text-faint font-medium leading-relaxed mt-6">{data.screensNote}</p>
-            )}
-          </motion.div>
-        )}
-
         {/* ── Pillar deep-link + the 10% marketing band ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -237,7 +237,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
-                Tell us how your business runs today — the software, the paper, the workarounds — and we will map the system we would build if it were ours. You keep the map either way.
+                Tell us how your business runs today. The software, the paper, the workarounds. We map the system we would build if it were ours, and you keep the map either way.
               </p>
             </div>
             <LeadFormEmbed heading={data.ctaText} source={data.formSource} pageSlug={`industry-${data.slug}`} />
