@@ -86,17 +86,19 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             </header>
         </div>
 
-      <div className="max-w-5xl mx-auto px-6 mb-12">
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={1200}
-          height={600}
-          className="w-full h-auto rounded-3xl aspect-[16/8] object-cover"
-          data-ai-hint="abstract digital"
-          priority
-        />
-      </div>
+      {!post.hideHero && (
+        <div className="max-w-5xl mx-auto px-6 mb-12">
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={1200}
+            height={600}
+            className="w-full h-auto rounded-3xl aspect-[16/8] object-cover"
+            data-ai-hint="abstract digital"
+            priority
+          />
+        </div>
+      )}
 
       <article className="max-w-3xl mx-auto px-6">
         <div
