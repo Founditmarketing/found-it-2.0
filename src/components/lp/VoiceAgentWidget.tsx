@@ -1141,7 +1141,7 @@ export function VoiceAgentWidget({
                     </button>
                   )}
                   <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
-                    Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                    Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </>
@@ -1161,7 +1161,7 @@ export function VoiceAgentWidget({
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk again
                   </button>
                   <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
-                    Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                    Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </>
@@ -1253,7 +1253,7 @@ export function VoiceAgentWidget({
                 <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try the voice line again
               </button>
               <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
-                Or grab the free software map <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+                Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
               </a>
             </div>
           </div>

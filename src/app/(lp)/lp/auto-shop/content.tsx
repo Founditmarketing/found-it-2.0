@@ -45,7 +45,7 @@ const faqItems = [
   {
     question: 'Do you take every shop that signs up?',
     answer:
-      "No. Systems get fitted one business at a time — a handful of new fittings a month — so the walk-through is where both sides decide whether this is a fit. If it isn't, we tell you straight, tell you what we'd do instead, and you keep the map.",
+      "No. Systems get fitted one business at a time — a handful of new fittings a month — so the walk-through is where both sides decide whether this is a fit. If it isn't, we tell you straight and tell you what we'd do instead.",
   },
   {
     question: "What if it doesn't work out?",
@@ -56,7 +56,7 @@ const faqItems = [
 
 export function AutoShopLPContent() {
   return (
-    <LPLayout ctaLabel="Get A Free Software Map">
+    <LPLayout ctaLabel="Let's Talk">
       <LPNav />
 
       <LPSplitHero
@@ -71,7 +71,7 @@ export function AutoShopLPContent() {
           { value: '$0', label: 'Per-seat fees, ever' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Google rating' },
         ]}
-        formHeading="Get A Free Software Map"
+        formHeading="See What Yours Would Look Like"
         formSource="lp_auto_shop"
         formPageSlug="auto-shop"
         formQualify
@@ -90,7 +90,7 @@ export function AutoShopLPContent() {
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Get A Free Software Map"
+        ctaText="Let's Talk"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -119,7 +119,7 @@ export function AutoShopLPContent() {
           {
             title: '“My Shop Doesn’t Run Like Anyone Else’s.”',
             detail:
-              "Good — this isn't configured off a template, it's fitted. We walk your shop, map how work actually moves from phone call to picked-up car, and build around that. Euro specialist, diesel, tires, general repair — the system bends to the shop, not the other way around.",
+              "Good — this isn't configured off a template, it's fitted. We walk your shop, learn how work actually moves from phone call to picked-up car, and build around that. Euro specialist, diesel, tires, general repair — the system bends to the shop, not the other way around.",
           },
         ]}
       />
@@ -131,13 +131,13 @@ export function AutoShopLPContent() {
             number: '01',
             title: 'We Walk Your Shop. Free.',
             description:
-              'About an hour at your place. We walk the operation with you — the phones, the write-ups, the parts ordering, the books — and map the app we’d build if we owned your shop. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — we tell you straight, tell you what we’d do instead, and you keep the map.',
+              'About an hour at your place. We walk the operation with you — the phones, the write-ups, the parts ordering, the books — and show you the app we’d build if we owned your shop. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, we tell you straight and tell you what we’d do instead.',
           },
           {
             number: '02',
             title: 'It Runs Beside Your Old System',
             description:
-              'The map becomes your system — fitted in weeks, not quarters. It runs in parallel with your current shop software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'Then we build it, fitted in weeks, not quarters. It runs in parallel with your current shop software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
@@ -150,14 +150,14 @@ export function AutoShopLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        kicker="Free Software Map"
+        kicker="Free Walk-Through"
         qualify
         fitGate
-        heading="Get A Free Software Map"
-        subheading="Tell us about your shop. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your place. If it's not, we'll tell you straight. You keep the map either way."
+        heading="See What Yours Would Look Like"
+        subheading="Tell us about your shop. We take a handful of new fittings a month — if yours is a fit, we come walk it, about an hour, at your place. If it's not, we tell you straight."
         benefits={[
           'We come to your shop, in person — free',
-          'You keep the map: the app we’d build if we owned your shop',
+          'You see the app we’d build if we owned your shop',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — flat, no per-seat fees`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}

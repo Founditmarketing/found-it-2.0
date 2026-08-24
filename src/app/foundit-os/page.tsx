@@ -59,7 +59,7 @@ const data: PillarData = {
     {
       title: 'Fitted, Not Templated',
       detail:
-        'We map how your business really runs, then build the system around your process.',
+        'We study how your business really runs, then build the system around your process.',
     },
     {
       title: 'The Whole Operation',
@@ -93,7 +93,7 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We come to your business and map every flow — how a sale rings, how inventory moves, what lives on paper. That becomes the blueprint.',
+        'We come to your business and walk every flow. How a sale rings, how inventory moves, what lives on paper. That is what we build from.',
     },
     {
       step: '02',
@@ -228,7 +228,7 @@ const data: PillarData = {
     {
       question: 'My business is too complicated for software. Can you really fit it?',
       answer:
-        'Complicated is where custom software thrives. Off-the-rack systems break down exactly where your business gets interesting — the weird workflows, the exceptions, the things only you do. Those are the parts we map first, and the system gets built around them. Complicated businesses are why we exist.',
+        'Complicated is where custom software thrives. Off-the-rack systems break down exactly where your business gets interesting — the weird workflows, the exceptions, the things only you do. Those are the parts we study first, and the system gets built around them. Complicated businesses are why we exist.',
     },
     {
       question: 'Do I need a technical person on staff?',
@@ -237,16 +237,16 @@ const data: PillarData = {
     },
   ],
   relatedReading: [
-    { title: 'Custom Software by Industry — the full map', href: '/custom-software' },
+    { title: 'Custom Software by Industry', href: '/custom-software' },
     { title: 'Auto Repair Shop Software You Own', href: '/custom-software/auto-repair-shops' },
     { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
     { title: 'Custom App Development', href: '/app-development' },
-    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'The Free Walkthrough, Explained', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds. Systems get built one business at a time, a handful of new fittings a month — if yours is a fit, we map what your own operating system would look like, in person if you are local. If it's not, we'll tell you straight — and tell you what we'd do instead.`,
+    `Tell us how your business runs today. The register, the paper, the workarounds. Systems get built one business at a time, a handful of new fittings a month. If yours is a fit, we show you what your own operating system would look like, in person if you are local. If it's not, we tell you straight.`,
 };
 
 export default function FoundItOSPillar() {

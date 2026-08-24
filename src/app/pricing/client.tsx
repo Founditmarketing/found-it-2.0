@@ -19,7 +19,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
    questions in his own voice. The stop-paying line lives in the rent-paradox
    block below, not here (once per page). */
 const osFeatures = [
-  'The map comes first — the app we’d build if we owned your company, on one page. A $2,000 engagement on its own, yours before you pay anything',
+  'First we show you what we’d build if we owned your company. Free, about thirty minutes, screen-shared, before you pay anything',
   'You keep working your old software exactly like today — the new system fills itself beside it until the numbers match and you say go',
   'Leave with 30 days’ notice and the system leaves with you — running',
   'Month to month. The system earns the next month, every month',
@@ -31,7 +31,7 @@ const marketingRows = [
   { name: 'Custom Web Design', model: 'Flat project quote — full number before any code', href: '/web-design' },
   { name: 'AI Search Optimization', model: 'Flat monthly fee — scoped after the free AI audit', href: '/ai-search-optimization' },
   { name: 'Social Media Management', model: 'Flat monthly fee — scoped to platforms and volume', href: '/social-media-management' },
-  { name: 'Custom App Development', model: 'Fixed project price — scoped at a free blueprint', href: '/app-development' },
+  { name: 'Custom App Development', model: 'Fixed project price — scoped on a free call', href: '/app-development' },
   { name: 'AI Lead Response', model: 'Flat monthly fee — live in 1 to 2 weeks', href: '/ai-marketing' },
 ];
 
@@ -106,12 +106,12 @@ export default function PricingClient() {
             ))}
           </div>
           {/* THE GATE (8/16): the OS fitting starts at the fit check, not the
-              open contact form — qualified gets the map and the call. */}
+              open contact form — qualified gets the call. */}
           <Link href="/fit">
             <motion.div whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto sm:inline-flex text-center font-black uppercase italic tracking-tighter py-4 px-10 rounded-xl text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity items-center justify-center gap-2"
             >
-              Get My Software Map <ArrowRight className="w-4 h-4" />
+              Let's Talk <ArrowRight className="w-4 h-4" />
             </motion.div>
           </Link>
         </motion.div>
@@ -180,12 +180,12 @@ export default function PricingClient() {
             Show Us How Your Business Runs.
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            We&rsquo;ll map the system we&rsquo;d build for it. You keep the map either way.
+            We&rsquo;ll show you what we&rsquo;d build if it were ours. If it&rsquo;s not a fit, we tell you straight.
           </p>
           <div className="flex justify-center">
             <Link href="/fit" className="w-full sm:w-auto max-w-sm">
               <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get My Software Map
+                Let's Talk
               </LiquidButton>
             </Link>
           </div>

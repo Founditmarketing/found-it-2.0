@@ -6,11 +6,11 @@ import { SheAnswersLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Talk To Our AI Secretary — Live | Found It Software' },
   description:
-    'Every missed call is a job that called somebody else. She answers, takes the message, and books your callback — talk to her live, then get a free software map of your business.',
+    'Every missed call is a job that called somebody else. She answers, takes the message, and books your callback — talk to her live, then see what yours would look like, free.',
   openGraph: {
     title: 'Talk To Our AI Secretary — Live | Found It Software',
     description:
-      'Every missed call is a job that called somebody else. She answers, takes the message, and books your callback — talk to her live, then get a free software map of your business.',
+      'Every missed call is a job that called somebody else. She answers, takes the message, and books your callback — talk to her live, then see what yours would look like, free.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/she-answers',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],

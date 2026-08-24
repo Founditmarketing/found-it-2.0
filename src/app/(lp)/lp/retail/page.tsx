@@ -6,11 +6,11 @@ import { RetailLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Your Store, Answered By 8am | Found It Software' },
   description:
-    'Sales, sizes, low stock, reorders — one custom system built around your store, and you own it: the code and the data. Free software map of your business.',
+    'Sales, sizes, low stock, reorders — one custom system built around your store, and you own it: the code and the data. See what yours would look like, free.',
   openGraph: {
     title: 'Your Store, Answered By 8am | Found It Software',
     description:
-      'Sales, sizes, low stock, reorders — one custom system built around your store, and you own it: the code and the data. Free software map of your business.',
+      'Sales, sizes, low stock, reorders — one custom system built around your store, and you own it: the code and the data. See what yours would look like, free.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/retail',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],

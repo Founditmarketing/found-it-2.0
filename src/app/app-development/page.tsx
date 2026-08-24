@@ -94,7 +94,7 @@ const data: PillarData = {
     { question: 'Do I need a technical team to run it?', answer: 'No. We build it to be maintained, document everything, and hand over clean accounts. Your team inherits a tidy, fully owned codebase if you ever bring development in-house.' },
   ],
   relatedReading: [
-    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'How Every Fitting Starts', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free App Blueprint',

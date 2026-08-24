@@ -18,7 +18,7 @@ export function PennyMatchLPContent() {
         headline: 'We Don’t Ask You To Trust Us.',
         headlineAccent: 'We Match Your Old Books To The Penny.',
         subheadline:
-          "Nobody bets their business on a software cutover — so we never ask you to. Your new system runs BESIDE your current software, matched against it to the penny, every night, until YOU say go. Nothing gets ripped out on day one. That's the rule on every fitting we do. Start with the free software map below: 30 minutes, screen-shared, and you keep the map either way.",
+          "Nobody bets their business on a software cutover — so we never ask you to. Your new system runs BESIDE your current software, matched against it to the penny, every night, until YOU say go. Nothing gets ripped out on day one. That's the rule on every fitting we do. Start below. Tell us how it runs today and we'll show you what we'd build if it were ours. Free, 30 minutes, screen-shared.",
         highlight:
           '“The new system runs beside the old one, penny-matched every night, until the owner says go.” — the rule on every fitting',
         highlightIcon: Equal,

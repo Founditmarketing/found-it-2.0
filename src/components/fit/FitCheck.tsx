@@ -13,7 +13,7 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 /* THE FIT CHECK — five chip-taps, one honest verdict. The single shared quiz:
    /fit renders the 'page' variant, every gated lead-form slot renders 'embed'.
    Verdict logic lives in src/lib/fit.ts (pure, tested) — never fork it.
-   GATE DOCTRINE (Trevor 8/16): the map is no longer open to anyone. The quiz
+   GATE DOCTRINE (Trevor 8/16): the offer is no longer open to anyone. The quiz
    IS step one of getting it — STRONG/BORDERLINE reveal the lead form with the
    band and fit trail prefilled; NOT A FIT gets the kind dismissal, one free
    pointer, and NO capture. Craftsman, not bouncer. */
@@ -25,11 +25,11 @@ export interface FitCheckProps {
   source: string;
   /** Page slug recorded alongside the lead. */
   pageSlug: string;
-  /** Embed only: heading above the quiz — keep the map promise verbatim
-   *  (message match: the button they clicked said the map). */
+  /** Embed only: heading above the quiz — keep the promise verbatim
+   *  (message match with the button they clicked). */
   heading?: string;
   /** Embed only: rides into the revealed form as its subheading, so the
-   *  map-value / scarcity line still sits at the point of commitment. */
+   *  promise / scarcity line still sits at the point of commitment. */
   subheading?: string;
   /** Submit label on the revealed form. */
   ctaLabel?: string;
@@ -221,7 +221,7 @@ export function FitCheck({
                     <span className="text-primary font-black uppercase italic tracking-tighter">
                       Your business fits.
                     </span>{' '}
-                    <span className="text-foreground">Request the map.</span>
+                    <span className="text-foreground">See what yours would look like.</span>
                   </>
                 ) : (
                   <>
@@ -237,7 +237,7 @@ export function FitCheck({
                 pageSlug={pageSlug}
                 heading={heading}
                 subheading={subheading}
-                ctaLabel={ctaLabel ?? 'Request My Software Map'}
+                ctaLabel={ctaLabel ?? "Let's Talk"}
                 compact
                 initialBand={answers.revenue}
                 trailLines={verdict ? fitTrail(answers as FitAnswers, verdict) : undefined}
@@ -320,9 +320,9 @@ export function FitCheck({
               <NativeLeadForm
                 source={source}
                 pageSlug={pageSlug}
-                heading="Request Your Software Map"
-                subheading="The app we'd build if we owned your company. Free, and yours either way."
-                ctaLabel="Request My Software Map"
+                heading="See What Yours Would Look Like"
+                subheading="Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared."
+                ctaLabel="Let's Talk"
                 compact
                 initialBand={answers.revenue}
                 trailLines={fitTrail(answers as FitAnswers, verdict)}
@@ -348,9 +348,9 @@ export function FitCheck({
               <NativeLeadForm
                 source={source}
                 pageSlug={pageSlug}
-                heading="The Map Is Still Free"
-                subheading="Worth the call to find out — we'll tell you straight either way."
-                ctaLabel="Request My Software Map"
+                heading="See What Yours Would Look Like"
+                subheading="Worth the call to find out. If it's not a fit, we tell you straight."
+                ctaLabel="Let's Talk"
                 compact
                 initialBand={answers.revenue}
                 trailLines={fitTrail(answers as FitAnswers, verdict)}

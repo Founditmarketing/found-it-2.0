@@ -75,11 +75,10 @@ export default function GuideThanksClient() {
               While it&apos;s fresh
             </p>
             <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
-              Book Your Free <span className="text-primary">Software Map Call.</span>
+              See What <span className="text-primary">Yours Would Look Like.</span>
             </h2>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-6">
-              Page 4 of the guide is the fitting — here&apos;s step one. About 30 minutes: we map
-              the app we&apos;d build if we owned your business, live. You keep the map.
+              Page 4 of the guide is the fitting — here&apos;s step one. About 30 minutes, screen-shared: we show you what we&apos;d build if it were ours. If it&apos;s not a fit, we tell you straight.
               One job: {OS_PRICING.promise}
             </p>
             {bookingLive ? (
@@ -91,7 +90,7 @@ export default function GuideThanksClient() {
                 className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
               >
                 <CalendarCheck className="w-5 h-5" aria-hidden="true" />
-                Book My Free Map Call
+                Book The Free Call
               </a>
             ) : (
               // BOOKING_URL unset → the site's existing contact/booking path.
@@ -101,7 +100,7 @@ export default function GuideThanksClient() {
                 className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
               >
                 <CalendarCheck className="w-5 h-5" aria-hidden="true" />
-                Book My Free Map Call
+                Book The Free Call
               </Link>
             )}
           </div>

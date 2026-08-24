@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     const who = lead.businessName || lead.name || lead.email || 'Unknown';
     // Guide downloads ride the same hardened pipe but must be tellable at a
     // glance in the inbox — a PDF grab is a lighter intent than a walkthrough
-    // or map request, and the follow-up call is a different conversation.
+    // or call request, and the follow-up call is a different conversation.
     const isGuideDownload = lead.source.startsWith('lp_guide_download');
     await resend.emails.send({
       from: 'Found It Marketing <contact@founditmarketing.com>',
@@ -99,7 +99,7 @@ export async function POST(req: Request) {
           html: `
             <p style="margin:0 0 12px">Hey ${first},</p>
             <p style="margin:0 0 12px">Your info just landed with Found It Software — Trevor will reach out shortly, usually within 2 hours during the day.</p>
-            <p style="margin:0 0 12px">On the call: a free 30-minute software map — the app we&rsquo;d build if we owned your company. You keep the map either way, hire us or don&rsquo;t.</p>
+            <p style="margin:0 0 12px">On the call: tell us how it runs today and we&rsquo;ll show you what we&rsquo;d build if it were ours. Free, about 30 minutes, screen-shared. If it&rsquo;s not a fit, we tell you straight.</p>
             <p style="margin:0">— Trevor Ruby, Found It Software, Alexandria LA</p>
           `,
         });

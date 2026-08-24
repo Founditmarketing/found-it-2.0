@@ -41,9 +41,9 @@ const services = [
   },
   {
     name: 'Custom Apps',
-    result: 'iOS, Android, and web apps blueprinted in person — fixed price, and you own the code.',
+    result: 'iOS, Android, and web apps scoped with you in person. Fixed price, and you own the code.',
     href: '/app-development',
-    cta: 'Get an App Blueprint',
+    cta: "Let's Talk",
     icon: Smartphone,
     accent: 'from-blue-500/20 to-cyan-500/5',
   },
@@ -142,7 +142,7 @@ export default function HomePage() {
                   href="/foundit-os#lead-form"
                   className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
                 >
-                  Get My Software Map
+                  Let's Talk
                 </Link>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                 <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-                  Get My Software Map
+                  Let's Talk
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
                   See Found It OS <ArrowRight className="w-4 h-4" />
@@ -287,7 +287,7 @@ export default function HomePage() {
               href="/foundit-os#lead-form"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
-              Get My Software Map
+              Let's Talk
             </Link>
           </motion.div>
         </div>
@@ -622,7 +622,7 @@ export default function HomePage() {
                 number: 'Lines in = lines on the sheet',
                 numberLabel: 'the rule the system enforces',
                 href: '/blog/what-is-a-software-map',
-                link: 'See her software map',
+                link: 'See how her system was built',
               },
               {
                 kind: 'The Shed Builder',
@@ -682,13 +682,13 @@ export default function HomePage() {
               Show Us How Your Business Runs.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              We&rsquo;ll map the system we&rsquo;d build for it — thirty minutes, screen-shared.
-              You keep the map either way.
+              Tell us how it runs today. We&rsquo;ll show you what we&rsquo;d build if it were ours.
+              Free, about thirty minutes, screen-shared. If it&rsquo;s not a fit, we tell you straight.
             </p>
             <div className="flex justify-center">
               <Link href="/foundit-os#lead-form" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                  Get My Software Map
+                  Let's Talk
                 </LiquidButton>
               </Link>
             </div>

@@ -20,7 +20,7 @@ export function DoubleEntryLPContent() {
         headline: 'Stop Typing The Same Job',
         headlineAccent: 'Into Three Apps.',
         subheadline:
-          "The estimate app. The job board. The books. Somebody at your shop re-types the same job into all three — and 10 hours a week at $20/hr is $10,400 a year spent moving information between apps you rent. One custom system enters it once: customers → estimates → jobs → invoices → the books. Built around how you run, and you own it. Sign up below and we'll map yours free — you keep the map either way.",
+          "The estimate app. The job board. The books. Somebody at your shop re-types the same job into all three — and 10 hours a week at $20/hr is $10,400 a year spent moving information between apps you rent. One custom system enters it once: customers → estimates → jobs → invoices → the books. Built around how you run, and you own it. Sign up below and we'll show you what yours would look like, free. If it's not a fit, we tell you straight.",
         highlight:
           '10 hrs/week × $20/hr × 52 weeks = $10,400 a year — the double-entry tax, and it never shows up on an invoice',
         highlightIcon: Calculator,

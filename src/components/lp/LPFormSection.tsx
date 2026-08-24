@@ -18,7 +18,7 @@ interface LPFormSectionProps {
   /** Page slug for attribution (e.g. 'google-ads-management') */
   pageSlug?: string;
   /** Tiny kicker above the heading. The default is marketing vocabulary —
-   *  software LPs must override it ('Software Map'), because 'strategy
+   *  software LPs must override it ('The Fitting'), because 'strategy
    *  session' is the exact salesman identity that audience was burned by. */
   kicker?: string;
   /** Submit-button label passed through to the form. */
@@ -44,7 +44,7 @@ interface LPFormSectionProps {
   qualify?: boolean | 'optional';
   /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
    *  form. STRONG/BORDERLINE reveal the form; NOT A FIT captures nothing.
-   *  Booking moves behind the verdict. Software-map funnels only. */
+   *  Booking moves behind the verdict. OS walkthrough funnels only. */
   fitGate?: boolean;
 }
 
@@ -53,7 +53,7 @@ export function LPFormSection({
   subheading = "Tell us about your business and we'll deliver a custom growth plan within 24 hours.",
   benefits = [
     'Full competitive analysis',
-    'Custom strategy roadmap',
+    'Custom strategy plan',
   ],
   source = 'lp_general',
   pageSlug = 'general',

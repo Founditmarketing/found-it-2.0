@@ -8,7 +8,7 @@ import GuideThanksClient from './client';
    noindex: this page only exists as a funnel step. */
 export const metadata: Metadata = {
   title: { absolute: 'Your Guide Is Downloading | Found It Software' },
-  description: 'Your copy of "What Do I Get?" is on its way. Next step: book your free software map call.',
+  description: 'Your copy of "What Do I Get?" is on its way. Next step: book the free call and see what yours would look like.',
   robots: { index: false, follow: false },
 };
 

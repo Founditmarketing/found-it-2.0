@@ -19,7 +19,7 @@
  */
 // v2 (8/14): reprinted after the money-back guarantee was retired — the
 // v1 file still promises it; old inbox links keep working on purpose.
-export const GUIDE_PDF_PATH = '/downloads/what-do-i-get-v2.pdf';
+export const GUIDE_PDF_PATH = '/downloads/what-do-i-get-v3.pdf';
 
 /** Filename the visitor's browser saves — human-readable, not the cache-bust name. */
 export const GUIDE_DOWNLOAD_NAME = 'What-Do-I-Get-Found-It-Software.pdf';

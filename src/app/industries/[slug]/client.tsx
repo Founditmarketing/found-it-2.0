@@ -264,7 +264,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
                 {data.ctaText}
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">
-                Tell us how your business runs today. The software, the paper, the workarounds. We map the system we would build if it were ours, and you keep the map either way.
+                Tell us how your business runs today. The software, the paper, the workarounds. We&rsquo;ll show you what we&rsquo;d build if it were ours. Free, about thirty minutes, screen-shared. If it&rsquo;s not a fit, we tell you straight.
               </p>
             </div>
             <LeadFormEmbed heading={data.ctaText} source={data.formSource} pageSlug={`industry-${data.slug}`} />
@@ -301,10 +301,10 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           className="text-center py-16 border-t border-border/10"
         >
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Fifteen Minutes.{' '}<span className="text-primary">Your Whole Operation, Mapped.</span>
+            Thirty Minutes.{' '}<span className="text-primary">See What Yours Would Look Like.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            A free fitting for {data.name.toLowerCase()} businesses — we walk your operation and map the system.
+            A free fitting for {data.name.toLowerCase()} businesses. We walk your operation, screen-shared, and show you what we&rsquo;d build.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#lead-form">

@@ -106,7 +106,7 @@ const data: PillarData = {
     { question: 'Is there a contract?', answer: 'No. Month-to-month, cancel anytime with 30 days notice. We keep clients by getting results, not by locking them in.' },
   ],
   relatedReading: [
-    { title: 'What Is A Software Map?', href: '/blog/what-is-a-software-map' },
+    { title: 'How Every Fitting Starts', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'Get a Free Google Ads Audit',

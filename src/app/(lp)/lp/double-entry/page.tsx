@@ -6,11 +6,11 @@ import { DoubleEntryLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Stop Paying The Double-Entry Tax | Found It Software' },
   description:
-    'Typing the same job into three apps is a tax. One custom system enters it once — customers, estimates, jobs, invoices, the books — and you own it. Free software map of your business.',
+    'Typing the same job into three apps is a tax. One custom system enters it once — customers, estimates, jobs, invoices, the books — and you own it. See what yours would look like, free.',
   openGraph: {
     title: 'Stop Paying The Double-Entry Tax | Found It Software',
     description:
-      'Typing the same job into three apps is a tax. One custom system enters it once — customers, estimates, jobs, invoices, the books — and you own it. Free software map of your business.',
+      'Typing the same job into three apps is a tax. One custom system enters it once — customers, estimates, jobs, invoices, the books — and you own it. See what yours would look like, free.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/double-entry',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],

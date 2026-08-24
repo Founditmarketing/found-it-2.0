@@ -11,7 +11,7 @@ import { FounderVideo } from '@/components/lp/FounderVideo';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { MessageSquare } from 'lucide-react';
-import { OS_PRICING, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* Wichita, Kansas ad landing page — Tom's territory. Rebuilt 8/13 to the
@@ -20,8 +20,8 @@ import { BOOKING_URL } from '@/lib/booking';
      ad promise ("who owes me money?") → hero answers it → Edwards Roofing
      proof w/ real numbers → the touchable demo → the bigger one-system
      reveal → risk reversal → pricing → one CTA.
-   One conversion goal: the software map (Tom's video call is the delivery
-   mechanism, not the product). No marketing-era reviews, no PDF magnet,
+   One conversion goal: the walk-through call, where Tom shows what theirs
+   would look like. No marketing-era reviews, no PDF magnet,
    no exit links on this page. The local promise is Tom on the call; the
    build team behind him is the same one behind every screen on the rail.
    Claims stay inside the doctrine: own the code and data, parallel run
@@ -36,12 +36,12 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "A video call with Tom — we send the link — about 30 minutes, screen-shared. He maps the software we'd build for your business: jobs, estimates, invoices, the books. You keep the map.",
+      "A video call with Tom — we send the link — about 30 minutes, screen-shared. You tell him how your business runs today, and he shows you what we'd build if it were ours: jobs, estimates, invoices, the books.",
   },
   {
     question: "Aren't you a Louisiana company?",
     answer:
-      'Found It Software is built in Alexandria, Louisiana — and Tom is our man in Wichita. He runs your video call and maps your business with you; the team behind him is the same one that built every system on this page.',
+      'Found It Software is built in Alexandria, Louisiana — and Tom is our man in Wichita. He runs your video call and walks your business with you; the team behind him is the same one that built every system on this page.',
   },
   {
     question: 'What does it cost?',
@@ -60,7 +60,7 @@ const faqItems = [
   {
     question: 'Do you take everyone who signs up?',
     answer:
-      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, Tom tells you straight, tells you what we'd do instead, and you keep the map.",
+      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, Tom tells you straight and tells you what we'd do instead.",
   },
   {
     question: "What if it doesn't work out?",
@@ -73,7 +73,7 @@ export function WichitaLPContent() {
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM now — the form is the primary conversion (8/14 audit).
-    <LPLayout ctaLabel="Get My Software Map">
+    <LPLayout ctaLabel="Let's Talk">
       <LPNav />
 
       {/* The hero IS the ad's question — an uninterrupted thought from click
@@ -82,7 +82,7 @@ export function WichitaLPContent() {
         badge="Custom Software Built Around Your Business"
         headline="Who Owes You Money"
         headlineAccent="Right Now?"
-        subheadline="Could your current software answer that in five seconds? Ours can. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, maps yours for you."
+        subheadline="Could your current software answer that in five seconds? Ours can. We put your whole operation — customers, jobs, estimates, invoices, the books — into one custom system built around the way you actually work. And you own it. Sign up below and Tom, our man in Wichita, shows you what yours would look like."
         highlight={'“You currently have $195,882.75 in open receivables.” — a real system’s real answer, the day it went through one roofer’s books'}
         highlightIcon={MessageSquare}
         showAward={false}
@@ -90,20 +90,20 @@ export function WichitaLPContent() {
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        formHeading="Get A Free Software Map Of Your Business"
+        formHeading="See What Yours Would Look Like"
         formSource="lp_wichita_hero"
         formPageSlug="wichita"
-        formSubheading={`Name and number. We build one business at a time and take a handful of new fittings a month — if yours is a fit, Tom maps the software we'd build for it, and ${MAP_VALUE.line}. Here, it's yours either way.`}
-        formCtaLabel="Get My Software Map"
+        formSubheading="Name and number. We build one business at a time and take a handful of new fittings a month. If yours is a fit, Tom shows you what we'd build for it. If it's not, he tells you straight."
+        formCtaLabel="Let's Talk"
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done — Tom will call you back, usually within 2 hours, to start your map."
+        formSuccessNote="Done — Tom will call you back, usually within 2 hours."
         formPrivacyNote="We reply within two hours."
         nextSteps={[
           'Leave your name and number.',
-          "Tom calls you back. If your business is a fit, he maps it with you — live, screen-shared. If it isn't, he tells you straight, and tells you what we'd do instead.",
-          'You keep the map either way.',
+          "Tom calls you back. If your business is a fit, he walks it with you, live, screen-shared, and shows you what we'd build. If it isn't, he tells you straight, and tells you what we'd do instead.",
+          'Free, about thirty minutes, and you see what we’d build if it were ours.',
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -119,7 +119,7 @@ export function WichitaLPContent() {
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Get My Software Map"
+        ctaText="Let's Talk"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -163,7 +163,7 @@ export function WichitaLPContent() {
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Get your software map →
+              Want yours to answer? See what yours would look like →
             </a>
           </p>
         </div>
@@ -210,19 +210,19 @@ export function WichitaLPContent() {
       />
 
       <ProcessSteps
-        heading="How The Software Map Works"
+        heading="How It Works"
         steps={[
           {
             number: '01',
-            title: 'Tom Maps It. Live.',
+            title: 'Tom Shows You Yours. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — Tom tells you straight, tells you what we’d do instead, and you keep the map.',
+              'About 30 minutes on a video call, screen-shared. Tom walks your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? Tom shows you, on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, Tom tells you straight and tells you what we’d do instead.',
           },
           {
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'The map becomes your system — built around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
+              'Then we build it, around how you run, fitted in weeks. It runs in parallel with your current software and gets penny-matched against it every night until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
@@ -235,20 +235,20 @@ export function WichitaLPContent() {
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Let's Map Your Business."
-        kicker="Software Map"
+        heading="See What Yours Would Look Like."
+        kicker="Free Walk-Through"
         qualify
         fitGate
-        ctaLabel="Get My Software Map"
+        ctaLabel="Let's Talk"
         mobileFormFirst
         showBooking
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="Tom maps the software we'd build for your Wichita business — with you, live, screen-shared. The map is free and you keep it. Whether we build it is a separate conversation."
+        subheading="Tell us how your Wichita business runs today. Tom shows you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, he tells you straight."
         benefits={[
-          'Tom maps your business with you — live, screen-shared',
-          'You keep the map: the app we’d build if we owned your company',
+          'Tom walks your business with you, live, screen-shared',
+          'You see the app we’d build if we owned your company',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}

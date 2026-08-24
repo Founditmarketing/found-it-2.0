@@ -264,13 +264,13 @@ export default function CaseStudiesPage() {
             <span className="text-primary">Like These.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            Get a free software map — the app we&apos;d build if we owned your company. You keep the
-            map either way.
+            We&apos;ll show you the app we&apos;d build if we owned your company. Free, about thirty
+            minutes, screen-shared. If it&apos;s not a fit, we tell you straight.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/lp/walkthrough">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Get My Free Software Map
+                Let's Talk
               </LiquidButton>
             </Link>
           </div>

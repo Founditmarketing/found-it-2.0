@@ -167,15 +167,15 @@ export default function SeminarClient() {
           <p className="mt-8 flex items-start justify-center gap-2.5 text-sm text-muted-foreground font-medium text-center">
             <MessageSquareText className="w-4 h-4 text-primary/70 shrink-0 mt-0.5" aria-hidden="true" />
             <span>
-              Can&apos;t wait for September? Text MAP to{' '}
+              Can&apos;t wait for September? Text us at{' '}
               <a
-                href="sms:+13187133781?&body=MAP"
+                href="sms:+13187133781"
                 onClick={() => trackCTAClick('seminar_text_map')}
                 className="text-primary font-bold hover:underline whitespace-nowrap"
               >
                 (318) 713-3781
               </a>{' '}
-              &mdash; three questions, and we&apos;ll build you a free map of your business.
+              and tell us what you run. Trevor answers.
             </span>
           </p>
         </motion.div>

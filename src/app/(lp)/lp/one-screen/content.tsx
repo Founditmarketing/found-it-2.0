@@ -19,7 +19,7 @@ export function OneScreenLPContent() {
         // LPSplitHero promotes the FIRST sentence to the big challenge line —
         // it must be a full line, never a one-word list item ("Customers.").
         subheadline:
-          "How many programs does it take to run your business today? Ours takes one screen: customers, estimates, jobs, invoices, who's paid, who hasn't, what needs attention today — one custom system built around the way you actually run, in your pocket, and you can just ask it questions in plain English. And you own it. Sign up below and we'll map yours for you, free — you keep the map either way, hire us or don't.",
+          "How many programs does it take to run your business today? Ours takes one screen: customers, estimates, jobs, invoices, who's paid, who hasn't, what needs attention today — one custom system built around the way you actually run, in your pocket, and you can just ask it questions in plain English. And you own it. Sign up below and we'll show you what yours would look like, free. If it's not a fit, we tell you straight.",
         highlightIcon: Smartphone,
       }}
     />

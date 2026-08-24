@@ -13,7 +13,7 @@ import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { FounderByline } from '@/components/FounderByline';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
-import { OS_PRICING, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
 /* One template for every hook-test ad LP (walkthrough architecture, 8/14).
@@ -31,9 +31,9 @@ import { BOOKING_URL } from '@/lib/booking';
    POSTURE (8/16): selective, not begging. The scarcity is real and stated
    as plain fact — builds happen one business at a time, a handful of new
    fittings a month — never fabricated (no counters, no "slots left"). The
-   map stays free and theirs either way; whether we build it is a separate
+   walkthrough is free either way; whether we build it is a separate
    conversation, decided by both sides.
-   THE GATE (8/16): the map is no longer open to anyone — the fit check is
+   THE GATE (8/16): the walkthrough is not open to anyone — the fit check is
    step one of getting it. Both form slots render the quiz (formFitGate /
    fitGate); qualified gets the form and the calendar, NOT A FIT gets the
    kind dismissal and no capture. */
@@ -66,7 +66,7 @@ const faqItems = [
   {
     question: 'What actually happens on the call?',
     answer:
-      "It's a video call — we send the link — about 30 minutes, screen-shared. We map the software we'd build for your business — jobs, estimates, invoices, the books — and show you what a system built around how you run would answer, like “who owes me money right now?” from your own books. You keep the map.",
+      "It's a video call — we send the link — about 30 minutes, screen-shared. We walk your operation with you, jobs, estimates, invoices, the books, and show you what we'd build if it were ours. You see what a system built around how you run would answer, like “who owes me money right now?” from your own books.",
   },
   {
     question: 'What does it cost?',
@@ -89,7 +89,7 @@ const faqItems = [
   {
     question: 'Do you take everyone who signs up?',
     answer:
-      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, we tell you straight, tell you what we'd do instead, and you keep the map.",
+      "No. Systems get built one business at a time, and we take a handful of new fittings a month — so the call is where both sides decide whether this is a fit. If it isn't, we tell you straight, and tell you what we'd do instead.",
   },
   {
     question: "What if it doesn't work out?",
@@ -102,7 +102,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM — the form is the primary conversion (8/14 audit).
-    <LPLayout ctaLabel="Get My Software Map">
+    <LPLayout ctaLabel="Let's Talk">
       <LPNav />
 
       <LPSplitHero
@@ -120,21 +120,21 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        formHeading="Get A Free Software Map Of Your Business"
+        formHeading="See What Yours Would Look Like"
         formSource={`${sourcePrefix}_hero`}
         formPageSlug={slug}
-        formSubheading={`Name and number. We build one business at a time and take a handful of new fittings a month — if yours is a fit, we map the software we'd build for it, and ${MAP_VALUE.line}. Here, it's yours either way.`}
-        formCtaLabel="Get My Software Map"
+        formSubheading="Name and number. We build one business at a time and take a handful of new fittings a month. If yours is a fit, we show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight."
+        formCtaLabel="Let's Talk"
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done — we'll call you back, usually within 2 hours, to start your map."
+        formSuccessNote="Done — we'll call you back, usually within 2 hours, to set up your walkthrough."
         formPrivacyNote="We reply within two hours."
         voiceAgent={voiceHero}
         nextSteps={[
           'Leave your name and number.',
-          "We call you back. If your business is a fit, we map it with you — live, screen-shared. If it isn't, we tell you straight, and tell you what we'd do instead.",
-          'You keep the map either way.',
+          "We call you back. If your business is a fit, we walk it with you, live, screen-shared, and show you what we'd build if it were ours.",
+          "If it's not a fit, we tell you straight.",
         ]}
         nextStepsNote="And if you do hire us: the new system runs beside your old one, penny-matched every night, until you say go. Nobody rips anything out on day one."
       />
@@ -160,7 +160,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         poster="/cory-ownership-poster-v4.jpg"
         founderName="Cory Edwards"
         captionText="Watch the 20-sec clip"
-        ctaText="Get My Software Map"
+        ctaText="Let's Talk"
         ctaHref="#lp-form"
         secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
       />
@@ -225,7 +225,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
               href="#lp-form"
               className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
             >
-              Want yours to answer? Get your software map →
+              Want yours to answer? Let&apos;s talk →
             </a>
           </p>
         </div>
@@ -273,19 +273,19 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
       />
 
       <ProcessSteps
-        heading="How The Software Map Works"
+        heading="How The Fitting Works"
         steps={[
           {
             number: '01',
-            title: 'We Map It. Live.',
+            title: 'We Walk It. Live.',
             description:
-              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We map it out on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t — either direction — we tell you straight, tell you what we’d do instead, and you keep the map.',
+              'About 30 minutes on a video call, screen-shared. We walk your operation with you — jobs, estimates, invoices, the books. Think your operation’s too complicated? That’s where software thrives — when it gets complicated. Then we put our heads to one question: if we owned your company, what app would we build? We show you on the call. You add to it or take away. And we’re deciding the same thing you are: whether this is a fit. If it isn’t, either direction, we tell you straight and tell you what we’d do instead.',
           },
           {
             number: '02',
             title: 'We Fit The System Beside Your Old One',
             description:
-              'The map becomes your system — built around how you run, fitted in weeks. It runs in parallel with your current software — same jobs, same totals on both screens — until you trust it. Nothing switches until you say go.',
+              'What we showed you becomes your system, built around how you run, fitted in weeks. It runs in parallel with your current software — same jobs, same totals on both screens — until you trust it. Nothing switches until you say go.',
           },
           {
             number: '03',
@@ -298,20 +298,20 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
       <FAQSection items={faqItems} />
 
       <LPFormSection
-        heading="Let's Map Your Business."
-        kicker="Software Map"
+        heading="See What Yours Would Look Like."
+        kicker="The Fitting"
         qualify
         fitGate
-        ctaLabel="Get My Software Map"
+        ctaLabel="Let's Talk"
         mobileFormFirst
         showBooking
         bookingSecondary
         bookingLabel="Pick My Time On The Calendar"
         bookingUrl={BOOKING_URL}
-        subheading="We map the software we'd build for your business — with you, live, screen-shared. The map is free and you keep it. Whether we build it is a separate conversation."
+        subheading="Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. Whether we build it is a separate conversation."
         benefits={[
-          'We map your business with you — live, screen-shared',
-          'You keep the map: the app we’d build if we owned your company — add to it or take away',
+          'We walk your business with you, live, screen-shared',
+          'You see the app we’d build if we owned your company. Add to it or take away',
           "A handful of new fittings a month, one business at a time — if it's not a fit, we tell you straight",
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,

@@ -96,7 +96,7 @@ const UNDER_250K = REVENUE_BANDS[0].label; // 'Under $250k / yr' — the unquali
 const BAND_250K_1M = REVENUE_BANDS[1].label; // qualified, but below the sweet spot
 
 /** Free reads, no email gate — the only thing the NOT-A-FIT tier points at. */
-const READ_MAP = { label: 'What Is A Software Map? — a free read', href: '/blog/what-is-a-software-map' };
+const READ_MAP = { label: 'What we’d show you on the call, a free read', href: '/blog/what-is-a-software-map' };
 const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. — a free read', href: '/blog/rented-software-no-data-rights' };
 
 /**
@@ -126,7 +126,7 @@ export function fitVerdict(a: FitAnswers): FitVerdict {
     return {
       tier: 'no',
       reason:
-        "We only build with the owner in the room — there's no info packet that can map a business.",
+        "We only build with the owner in the room. There's no info packet that can size up a business.",
       pointer: READ_MAP,
     };
   }

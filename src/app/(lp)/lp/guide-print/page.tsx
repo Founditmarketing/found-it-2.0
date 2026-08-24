@@ -344,8 +344,8 @@ export default function GuidePrintPage() {
         {[
           {
             n: '01',
-            t: 'The Free Map Visit',
-            d: 'We come to your place (or hop on a video call) and walk how the business actually runs — the phones, the paperwork, the money. Then we map the app we\u2019d build if we owned your company. You add to it or take away. You keep the map either way, hire us or don\u2019t.',
+            t: 'The Free Walk-Through',
+            d: 'We come to your place (or hop on a video call) and walk how the business actually runs — the phones, the paperwork, the money. Then we show you the app we\u2019d build if we owned your company. You add to it or take away. If it\u2019s not a fit, we tell you straight.',
           },
           {
             n: '02',
@@ -382,11 +382,11 @@ export default function GuidePrintPage() {
             The Next Step Is Free
           </p>
           <h3 className="font-heading font-black uppercase italic" style={{ fontSize: '23pt', lineHeight: 0.95, letterSpacing: '-0.02em', marginBottom: '0.1in' }}>
-            Book Your Free Software Map Call.
+            See What Yours Would Look Like.
           </h3>
           <p className="font-bold" style={{ fontSize: '10pt', lineHeight: 1.45, marginBottom: '0.14in' }}>
-            About 30 minutes. We map the software we&apos;d build for your business, live — and you
-            keep the map whether you hire us or not.
+            Tell us how it runs today. We&apos;ll show you what we&apos;d build if it were ours.
+            Free, about thirty minutes, screen-shared.
           </p>
           <div className="flex items-center" style={{ gap: '0.3in' }}>
             <span className="font-heading font-black italic" style={{ fontSize: '13.5pt' }}>founditsoftware.com</span>

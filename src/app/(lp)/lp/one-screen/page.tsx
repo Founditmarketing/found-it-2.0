@@ -6,7 +6,7 @@ import { OneScreenLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Your Whole Business On One Screen | Found It Software' },
   description:
-    "Customers, estimates, jobs, invoices, payments, the books — one custom system built around how you run, and you own it. Get a free software map of your business; you keep the map either way.",
+    "Customers, estimates, jobs, invoices, payments, the books — one custom system built around how you run, and you own it. See what yours would look like. Free, about thirty minutes, screen-shared.",
   openGraph: {
     title: 'Your Whole Business On One Screen | Found It Software',
     description:

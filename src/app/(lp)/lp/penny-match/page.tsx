@@ -6,11 +6,11 @@ import { PennyMatchLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Penny-Matched Every Night | Found It Software' },
   description:
-    "We don't ask you to trust us. Your new system runs beside your current software, matched to the penny every night, until you say go. Free software map of your business.",
+    "We don't ask you to trust us. Your new system runs beside your current software, matched to the penny every night, until you say go. See what yours would look like, free.",
   openGraph: {
     title: 'Penny-Matched Every Night | Found It Software',
     description:
-      "We don't ask you to trust us. Your new system runs beside your current software, matched to the penny every night, until you say go. Free software map of your business.",
+      "We don't ask you to trust us. Your new system runs beside your current software, matched to the penny every night, until you say go. See what yours would look like, free.",
     type: 'website',
     url: 'https://founditsoftware.com/lp/penny-match',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],

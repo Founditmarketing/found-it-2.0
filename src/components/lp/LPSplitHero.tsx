@@ -50,7 +50,7 @@ interface LPSplitHeroProps {
   /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
    *  form. STRONG/BORDERLINE reveal the form (band + trail prefilled);
    *  NOT A FIT captures nothing. Booking buttons move behind the verdict too
-   *  — qualified gets the call. Software-map funnels only. */
+   *  — qualified gets the call. OS walkthrough funnels only. */
   formFitGate?: boolean;
   /** "What happens next" — 3 short lines rendered right under the form,
    *  so the time-delay question is answered at the exact point of commitment. */

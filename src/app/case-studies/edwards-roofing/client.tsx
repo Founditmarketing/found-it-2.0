@@ -149,7 +149,7 @@ export default function EdwardsRoofingCaseStudy() {
               href="/lp/walkthrough"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-7 py-4 rounded-xl text-sm hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
             >
-              Show Me What Mine Would Look Like <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              Let's Talk <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -157,14 +157,14 @@ export default function EdwardsRoofingCaseStudy() {
 
       {/* ─── The ask ─── */}
       <LPFormSection
-        heading="Let's Map Your Business. Free."
-        kicker="Free Software Map"
+        heading="See What Yours Would Look Like"
+        kicker="Free Walkthrough"
         fitGate
-        ctaLabel="Show Me What Mine Would Look Like"
-        subheading="30 minutes on a video call, screen-shared. We map the software we'd build for your business — live, on the call. You keep the map either way, hire us or don't."
+        ctaLabel="Let's Talk"
+        subheading="30 minutes on a video call, screen-shared. We show you what we'd build if your business were ours. If it's not a fit, we tell you straight."
         benefits={[
-          'A free 30-minute video call — your business mapped live, screen-shared',
-          'You keep the map: the app we’d build if we owned your company',
+          'A free 30-minute video call, screen-shared, walking how your business runs',
+          'You see the app we’d build if we owned your company, live on the call',
           `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup — no surprises at the end`,
           'Month-to-month — cancel anytime, and the system stays yours.',
         ]}

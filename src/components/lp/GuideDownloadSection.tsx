@@ -42,7 +42,7 @@ interface GuideDownloadSectionProps {
  * On submit: posts to the same hardened /api/lead pipe with a guide-specific
  * source tag, fires trackLead() with that tag, starts the PDF download
  * immediately, then routes to /lp/thanks (which re-offers the file and points
- * at the one next step — the free software map call).
+ * at the one next step — the free walkthrough call).
  */
 export function GuideDownloadSection({ page, source: sourceOverride }: GuideDownloadSectionProps) {
   const uid = useId();
@@ -155,7 +155,7 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
               {[
                 'What one custom system replaces — and the industries already running on one',
                 'The money story: the stack you rent every month vs. one flat public price',
-                'How a fitting works: free map visit → runs beside your old system → you own it',
+                'How a fitting works: free walkthrough → runs beside your old system → you own it',
                 `The promise it's all built on: “${OS_PRICING.promise}”`,
               ].map((line, i) => (
                 <motion.div

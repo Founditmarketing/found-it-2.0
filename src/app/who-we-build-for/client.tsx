@@ -147,7 +147,7 @@ export default function WhoClient() {
           className="text-center mb-16"
         >
           <p className="text-base text-foreground font-bold mb-6">
-            Either way, the software map is free — and yours.
+            Either way, the look is free. We show you what we'd build, and you decide.
           </p>
           <Link
             href="/fit"

@@ -6,7 +6,7 @@ import { CanItLPContent } from './content';
 export const metadata: Metadata = {
   title: { absolute: 'Can Your Software Do This? | Found It Software' },
   description:
-    'Who owes you money right now — names and amounts, in five seconds, from your own books. One custom system built around how you run, and you own it. Get a free software map of your business.',
+    'Who owes you money right now — names and amounts, in five seconds, from your own books. One custom system built around how you run, and you own it. See what yours would look like. Free, about thirty minutes, screen-shared.',
   openGraph: {
     title: 'Can Your Software Do This? | Found It Software',
     description:

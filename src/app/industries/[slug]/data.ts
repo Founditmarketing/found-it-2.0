@@ -87,7 +87,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "Have you built one for a medical practice before?",
-        answer: "Not yet, we won't pretend otherwise. The same system is running today in auto shops, retail stores, and field crews, and the business side of a practice is the same shape: a schedule, a customer book, money to follow up on. A fitting starts with us mapping your front desk's actual week, you add to it or cross things off before we build a thing.",
+        answer: "Not yet, we won't pretend otherwise. The same system is running today in auto shops, retail stores, and field crews, and the business side of a practice is the same shape: a schedule, a customer book, money to follow up on. A fitting starts with us walking your front desk's actual week, you add to it or cross things off before we build a thing.",
       },
       {
         question: "What does it cost?",
@@ -95,7 +95,7 @@ export const industries: Record<string, IndustryData> = {
       },
     ],
     formSource: "industry_medical",
-    ctaText: "Map My Practice",
+    ctaText: "Let's Talk",
   },
   realtors: {
     name: "Real Estate",
@@ -160,7 +160,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "Have you built one for a real estate team before?",
-        answer: "A fitting starts with your deals, not a template. We sit down, map how your operation actually runs, and build to that. The same core is running in auto shops, retail stores, and field crews. Real estate's version is the pipeline, the client book, follow-up, and documents in one system.",
+        answer: "A fitting starts with your deals, not a template. We sit down, walk through how your operation actually runs, and build to that. The same core is running in auto shops, retail stores, and field crews. Real estate's version is the pipeline, the client book, follow-up, and documents in one system.",
       },
       {
         question: "What does it cost?",
@@ -168,7 +168,7 @@ export const industries: Record<string, IndustryData> = {
       },
     ],
     formSource: "industry_realtors",
-    ctaText: "Map My Real Estate OS",
+    ctaText: "Let's Talk",
   },
   lawyers: {
     name: "Lawyers",
@@ -241,7 +241,7 @@ export const industries: Record<string, IndustryData> = {
       },
     ],
     formSource: "industry_lawyers",
-    ctaText: "Map My Firm's System",
+    ctaText: "Let's Talk",
     screens: [
       {
         src: "/os-screens/lawyer-os-prescription-v1.png",
