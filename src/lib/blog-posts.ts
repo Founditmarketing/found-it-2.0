@@ -35,6 +35,8 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Took the whole story. Booked the consult for Tuesday at ten. Opened the file. Drafted the welcome text.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">He found all of it waiting with his coffee.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">She's not a person. <span style="color: #FF5500;">I built her in a weekend.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">True story? <span style="color: #FF5500;">Not yet.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The lawyer is real. Nobody answers his phone, and he was about to hire somebody just to fix that. The night you just read — and every screen below — is the <span style="color: #FF5500;">demo I built him</span>, running on demo data. It's the exact life he's buying.</p>
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/lawyer-blog-today-focus-v1.png" alt="The lawyer's morning screen greets him by name: calls taken overnight, dates needing his eyes, money waiting (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is his phone every morning. It greets him <span style="color: #FF5500;">by name</span> and rats out everything that needs him.</p>
 <div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$2,500/mo</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the hire she replaced — that's what a desk seat costs around here</div></div>
@@ -65,7 +67,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, dealerships — now a law office. <strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Screens show the real system on demo data; the firm name on them is a stand-in.</em></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The system is real; the story above is its demo, on demo data. The firm name on the screens is a stand-in.</em></p>
 `,
     },
     {
