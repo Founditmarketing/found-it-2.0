@@ -57,6 +57,13 @@ const apps: AppStudy[] = [
     alt: 'Pro Carpet OS desk — estimate follow-up texts drafted and waiting for one-tap approval',
     line: 'Follow-up texts drafted and waiting for one-tap approval — the ladder chases every estimate that’s out the door, the week board runs the jobs.',
   },
+  {
+    title: 'The Lawyer OS',
+    trade: 'Law Firm',
+    src: '/os-screens/lawyer-os-prescription-v1.png',
+    alt: 'The Lawyer OS Prescription Watch — every open PI file’s human-entered prescription date on one screen, soonest first, under the printed rule "we will not compute your deadlines" (demo data)',
+    line: 'Three practice boards, a money spine shown to the penny, and a docket that refuses to compute a deadline — every date entered by a hand, surfaced daily, escalated in red if ignored. The demand letter drafts itself from the file; the trust ledger stays the lawyer’s.',
+  },
 ];
 
 /* ─── The marketing record — still real, now the second act. */

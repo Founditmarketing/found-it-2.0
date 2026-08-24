@@ -126,6 +126,32 @@ export const railDesktops: OsRailItem[] = [
     title: 'The House System',
     kind: 'Atelier Edition',
   },
+  // The Lawyer OS wears a stand-in masthead (LANDRY LAW) until its owner
+  // puts his name on it — same anonymization law as every unsigned prospect.
+  {
+    src: '/os-screens/lawyer-os-prescription-v1.png',
+    alt: 'The Lawyer OS Prescription Watch — every open PI file’s human-entered prescription date on one screen, soonest first, under the printed rule "we will not compute your deadlines" (demo data)',
+    title: 'The Lawyer OS',
+    kind: 'Law Firm',
+  },
+  {
+    src: '/os-screens/lawyer-os-today-v1.png',
+    alt: 'The Lawyer OS morning desk — calls the AI secretary took overnight, two dates escalated for the lawyer’s eyes first, and fees sitting invoiced (demo data)',
+    title: 'The Lawyer OS',
+    kind: 'Law Firm',
+  },
+  {
+    src: '/os-screens/lawyer-os-money-v1.png',
+    alt: 'The Lawyer OS money spine — medicals by provider with a 58-day records gap being chased, the lien register, and a read-only settlement view that never holds the trust pen (demo data)',
+    title: 'The Lawyer OS',
+    kind: 'Law Firm',
+  },
+  {
+    src: '/os-screens/lawyer-os-demand-v1.png',
+    alt: 'The Lawyer OS letter desk — a demand letter assembled from the file’s own medical specials and liens, watermarked DRAFT until the lawyer says send (demo data)',
+    title: 'The Lawyer OS',
+    kind: 'Law Firm',
+  },
 ];
 
 export const railPhones: OsRailItem[] = [
@@ -220,6 +246,20 @@ export const railPhones: OsRailItem[] = [
     kind: 'Pro Carpet OS',
     portrait: true,
   },
+  {
+    src: '/os-screens/lawyer-os-today-mobile-v1.png',
+    alt: 'The Lawyer OS on a phone — escalated dates demand the lawyer’s acknowledgment before anything else (demo data)',
+    title: 'The Morning Desk',
+    kind: 'The Lawyer OS · Law Firm',
+    portrait: true,
+  },
+  {
+    src: '/os-screens/lawyer-os-pay-mobile-v1.png',
+    alt: 'A client’s pay link from The Lawyer OS — the open invoice with the card surcharge shown honestly; the firm never sees the card number (demo data)',
+    title: 'The Pay Link',
+    kind: 'The Lawyer OS · Law Firm',
+    portrait: true,
+  },
 ];
 
 /* ─── The spectacular subset (Trevor + brother, 8/19) ───
@@ -235,12 +275,14 @@ const SPECTACULAR_DESKTOP = new Set([
   '/os-screens/lacaze-os-paid-v1.png',       // the PAID stamp writing itself into the books
   '/os-screens/flywheel-os-quote-v1.png',    // a tire size in, every supplier priced out the door
   '/os-screens/lonestar-os-counter-v1.png',  // a sale kicked back with the fix spelled out
+  '/os-screens/lawyer-os-prescription-v1.png', // the rule printed on the page: no computed deadlines
 ]);
 const SPECTACULAR_PHONE = new Set([
   '/os-screens/lonestar-os-run-mobile-v1.png',      // the driver's day with the over-width warning
   '/os-screens/roxanne-os-crew-mobile-v1.png',      // loads by trailer slot, one big PRINT
   '/os-screens/flywheel-os-mobile-quick-v2.png',    // snap-the-sidewall quote
   '/os-screens/lacaze-os-statement-mobile-v1.png',  // open invoices with pay-by-bank links
+  '/os-screens/lawyer-os-pay-mobile-v1.png',        // a law client's honest pay link
 ]);
 export const railSpectacular: OsRailItem[] = railDesktops.filter((s) => SPECTACULAR_DESKTOP.has(s.src));
 export const railPhonesSpectacular: OsRailItem[] = railPhones.filter((s) => SPECTACULAR_PHONE.has(s.src));

@@ -20,6 +20,11 @@ export interface IndustryData {
   /** Attribution tag for the embedded lead form. */
   formSource: string;
   ctaText: string;
+  /** Optional: real captures of the industry's system, rendered as an
+   *  "on screen" section. Sanctioned shots only (src/lib/os-screens.ts laws). */
+  screens?: { src: string; alt: string; caption: string }[];
+  /** Footnote under the screens section (demo-data / stand-in-masthead honesty). */
+  screensNote?: string;
 }
 
 export const industries: Record<string, IndustryData> = {
@@ -237,5 +242,29 @@ export const industries: Record<string, IndustryData> = {
     ],
     formSource: "industry_lawyers",
     ctaText: "Map My Firm's System",
+    screens: [
+      {
+        src: "/os-screens/lawyer-os-prescription-v1.png",
+        alt: "The Lawyer OS Prescription Watch — every open PI file's prescription date on one screen, soonest first, each one entered by the lawyer, never computed (demo data)",
+        caption: "Prescription Watch. The rule is printed on the page: the system will not compute your deadlines — it makes sure nobody can quietly ignore one. Every date entered by a hand, surfaced daily, escalated in red after 48 unacknowledged hours.",
+      },
+      {
+        src: "/os-screens/lawyer-os-today-v1.png",
+        alt: "The Lawyer OS morning desk — calls the AI secretary took overnight, escalated dates first, fees sitting invoiced (demo data)",
+        caption: "The morning desk. The secretary took three calls while you were out, two dates need your eyes first, and the fees sitting invoiced stand in one number.",
+      },
+      {
+        src: "/os-screens/lawyer-os-money-v1.png",
+        alt: "The Lawyer OS money spine — medicals by provider, a records gap being chased, the lien register, a read-only settlement view (demo data)",
+        caption: "The money spine. Medicals by provider, a 58-day records gap being chased, the lien register — shown to the penny, never touched. The trust ledger stays in the firm's own system, where the bar put it.",
+      },
+      {
+        src: "/os-screens/lawyer-os-demand-v1.png",
+        alt: "The Lawyer OS letter desk — a demand letter assembled from the file's own medicals and liens, watermarked DRAFT (demo data)",
+        caption: "The letter desk. A demand letter assembles itself from the file's own medical specials and liens — and wears a DRAFT watermark until the lawyer says send.",
+      },
+    ],
+    screensNote:
+      "A live demo build for a solo Louisiana practice — demo data throughout, and a stand-in firm name on the masthead until its owner puts his own on it.",
   },
 };
