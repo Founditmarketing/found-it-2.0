@@ -17,6 +17,87 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'law-practice-management-software',
+        title: 'Law Practice Management Software You Actually Own',
+        date: '2026-08-24',
+        excerpt: 'A missed prescription date ends a law career. So the system we built for a solo lawyer in central Louisiana refuses to compute a single deadline — every date entered by a human hand, surfaced every morning, escalated in red if ignored. Six refusals, printed inside the app on purpose — and the lawyer who runs it owns every line.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/lawyer-blog-prescription-v1.png',
+        content: `
+<p>There is one mistake that ends a law career all by itself: a missed date. Prescription runs on a file sitting in a drawer and the case is gone — not weakened, gone — and the client's next call is to a malpractice lawyer. The ABA's own profile of claims puts calendaring failures at roughly a quarter of all malpractice claims. Every lawyer knows this. It is the fear under the whole profession.</p>
+<p>Louisiana just made it meaner. Since Act 423 of 2024, the state runs two prescription regimes at once: injuries before July 1, 2024 prescribe in one year; injuries on or after, in two. A solo's open docket straddles both, keyed to the injury date. Which regime governs a file is a lawyer's call — never a formula's.</p>
+<p>The big rented platforms — Clio, MyCase, PracticePanther, the class of software a lawyer subscribes to — answer that fear by selling automated deadline calculation. We built the opposite, for a solo lawyer in central Louisiana who runs personal injury, family law, and successions out of one office: a system that <strong>refuses to compute a single deadline</strong> — and prints that refusal, with five others, on a panel inside the app. The panel is the feature.</p>
+<p>Every screen below shows demo data. The masthead on them reads <strong>LANDRY LAW</strong> — a stand-in name, our demo convention. The screens are real. The names and the numbers are not.</p>
+
+<h3>Prescription Watch</h3>
+<p>One screen holds every open injury file's prescription date, sorted soonest first, counting down. Every date on it was <strong>entered by a human hand</strong> and stamped that way — entered by you, on this day, never calculated. The list surfaces every morning, and a date that sits unacknowledged for 48 hours turns red and stays red until somebody answers for it.</p>
+<p>The line we say out loud in every walkthrough: <strong>it will not compute your deadlines — it makes sure nobody can quietly ignore one.</strong> Which prescription period applies to a wreck is your call. The system's whole job is making sure the date your head produced never slips out of sight.</p>
+<p><img src="/images/blog/lawyer-blog-prescription-v1.png" alt="Prescription Watch — every open file's prescription date, entered by hand and stamped, sorted soonest first, red after 48 unacknowledged hours (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The morning desk</h3>
+<p>The day opens on one screen. It greets the lawyer by name, the docket stands at the top, and in the demo a hearing sits in red — escalated, because nobody acknowledged it. Not buried three taps deep in a calendar app. Red, at the top, first thing, until a human deals with it.</p>
+<p>The whole thing installs on his phone and keeps working with the internet down — courthouse basements included.</p>
+<p><img src="/images/blog/lawyer-blog-today-v1.png" alt="The morning desk — the day's docket front and center, with one escalated hearing standing in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Paste the order. It never types the date for you.</h3>
+<p>A scheduling order arrives from the court. Paste it in. The system reads back the hearing dates <strong>exactly as written in the document</strong> — and where the order says "within 15 days," it hands that math back to the lawyer as a note, undone. Each date lands on the docket only when he checks a box that says, in so many words: <em>I'm entering this date.</em></p>
+<p>That checkbox is the whole doctrine. Reading what a document says is extraction. Deriving a deadline is practicing law. The newest AI in legal software auto-creates the calendar event for you. This one makes you look at every date first, because the license on the line is yours.</p>
+<p>The docket calendar shows the month at a glance, every date stamped with who entered it, and any of them adds to the phone calendar the lawyer actually lives by.</p>
+<p><img src="/images/blog/lawyer-blog-docket-v1.png" alt="The docket calendar — a month of human-entered dates at a glance, every one stamped, none of them computed (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Three kinds of law, one board</h3>
+<p>Personal injury, family, successions — three tracks over the same seven stages, each speaking its own language. The family board reads Petition Filed, Mediation, Judgment. The succession board reads Heirs &amp; Assets, Descriptive List, Judgment of Possession. One glance answers the question a solo asks forty times a day: where is everything?</p>
+<p>On the succession side, the estate stands itemized, heirs and shares in the lawyer's own words — with a nudge counter on the death certificate the client still hasn't brought in ("asked 3×").</p>
+<p><img src="/images/blog/lawyer-blog-board-v1.png" alt="The board — personal injury, family law, and successions over seven shared stages, each track in its own language (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>One matter, the whole file</h3>
+<p>Open a matter and everything a litigator reaches for is on the card: court and docket number, the carrier, the claim number, the adjuster's phone, the fee tier, the what's-next checklist — and pinned across the top, the prescription banner counting down the date the lawyer entered with his own hand. It counts down. It never calculates.</p>
+<p><img src="/images/blog/lawyer-blog-matter-v1.png" alt="One matter's file — court and docket number, carrier and adjuster, fee tier, and the prescription banner counting down a human-entered date (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Where every dollar stands</h3>
+<p>The money spine of a contingency file: the demand that went out and every offer that came back, in one ledger — months of phone calls with an adjuster that no longer ride on memory. Before answering the next offer, type any number into the what-if and see what your client actually nets. The settlement sheet shows the math to the penny. <strong>It shows the math. It never moves the money.</strong> Client funds stay in the trust account, under the lawyer's pen, with a read-only proof view standing beside it.</p>
+<p><img src="/images/blog/lawyer-blog-money-v1.png" alt="The money spine — the demand, every offer against it, and what the client nets at any number, shown to the penny and never moved (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The secretary who can't send</h3>
+<p>In the demo, a dog-bite call comes in at 9:07 at night. Nobody is at the office. The AI secretary answers, takes the intake, and in the morning the whole call sits on the desk as a card — with every follow-up she wants to send waiting in an approval queue. Letters, client texts, collection calls: every one a draft, waiting on a human tap. <strong>Nothing sends itself.</strong></p>
+<p>And when a client on one of her calls wants to pay, it's a keypad entry or a secure link on processor rails. <strong>She never hears a card number.</strong> Neither does the system.</p>
+<p><img src="/images/blog/lawyer-blog-secretary-v1.png" alt="The AI secretary's approval queue — a 9:07 PM intake call logged, every draft waiting for a human tap; nothing sends itself (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The demand letter arrives as a draft</h3>
+<p>One tap builds a letterhead demand with the medicals already in the table — and stamps it <strong>UNSIGNED DRAFT</strong>. Beside it sits a letter desk: representation letters, records requests, HIPAA authorizations, client updates — and a medical chronology with the treatment gap flagged. Out in the rental market, demand-drafting tools run $500 to $2,000 a month, additive, on top of the practice management bill. Here it's part of the system — and none of it signs. Everything drafts from the firm's own file; nothing cites law it went and found. The signature is the practice of law, and it stays with the license.</p>
+<p><img src="/images/blog/lawyer-blog-demand-v1.png" alt="A letterhead demand drafted into the letter desk, medicals already in the table, watermarked UNSIGNED DRAFT (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>The firm's books</h3>
+<p>The family-law side runs hourly: time gets dictated, affirmed by the lawyer, and drafted into an invoice that waits in Payments for approval. A client taps a pay link and the payment ties into the firm's books — real double-entry books, so "where does the firm stand" comes off a ledger, not a feeling. Payroll and taxes never enter the building.</p>
+<p><img src="/images/blog/lawyer-blog-books-v1.png" alt="The firm's books — dictated time affirmed into a draft invoice, pay-link payments tied into a real double-entry ledger (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<h3>Six refusals, printed in the app</h3>
+<p>There's a gold panel in this system that lists, in plain language, what it will never do. Not a terms page nobody reads — a panel in the app, on purpose:</p>
+<p><strong>It will never hold the trust ledger or do IOLTA accounting.</strong> Rule 1.15 is the lawyer's. The system shows a read-only proof view beside the trust system — it never holds the pen.</p>
+<p><strong>It will never compute a deadline.</strong> Every date is entered by a human, stamped, surfaced daily, and escalated if ignored. The math stays human.</p>
+<p><strong>It will never clear a conflict.</strong> It shows names that already appear in the files — down to the sound-alike spellings Louisiana surnames breed — and it never says "clear." It is not a conflicts check, and it says so on the label.</p>
+<p><strong>It will never give a client a legal opinion.</strong> The assistant answers from the firm's own records. The client status link shows status — never advice.</p>
+<p><strong>It will never hear or store a card number.</strong> Payments run on processor rails, start to finish.</p>
+<p><strong>It will never do payroll or taxes.</strong> Out forever, on every system we build.</p>
+<p>Software that knows what it must never do is software a lawyer can put a license next to.</p>
+
+<h3>Why the rented platforms can't say no</h3>
+<p>The incumbent shelf competes by computing more for you. Automated deadline and statute-of-limitations calendaring is a selling point across the category. AI now reads court documents and creates the calendar events on its own. "Conflict check" tools are name searches wearing the title of an authority. AI drafting is trained on the law, with the hallucinations disclaimed in the terms of service.</p>
+<p>When any of that is wrong, the bar doesn't call the vendor. The malpractice claim and the discipline file carry the lawyer's name, and the vendor's exposure caps out around the subscription fee. Think about what that means in Louisiana right now: a vendor's formula has to know about Act 423 and apply the right regime to the right injury date, silently, forever, on your files. Our answer is older and harder to break: your own head enters the date, once — and then nobody can quietly ignore it.</p>
+<p>And the refusals aren't the only thing the shelf can't match. The rent stack reads like a second payroll: the demand tool you just saw is a $500-to-$2,000-a-month line item on its own. A docketing-rules service, about $40 a seat. Trust accounting software, another $49. A Louisiana forms library, $150. The client status portal is a whole separate company. Every one renews. None of it is ever yours. <a href="/blog/rented-software-no-data-rights">The rent isn't even the real problem.</a></p>
+
+<h3>He owns it</h3>
+<p>Rule 1.16(d) says that when a representation ends, the lawyer surrenders the file promptly. Now try getting a whole file out of the software that holds it. One incumbent handles full export through a support request — the same vendor reported to sign three-to-five-year contracts with personal guarantors and buyouts north of $7,000. Your ethical duty is prompt. Their ticket queue is not.</p>
+<p>Here the code and the data are the lawyer's. <strong>One hundred percent.</strong> The client files live in a database he owns — keep a copy in the office safe if you like, then try asking a subscription vendor for a copy of theirs. The system runs <strong>beside</strong> the tools the office trusts today — the calendar, the books, the paper files — and nothing switches until the owner says go.</p>
+<p>The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month with thirty days' notice — and the code and the data stay with the firm either way.</p>
+<p><strong>Nobody rents you your own business back.</strong></p>
+
+<h3>If you practice law and rent your software</h3>
+<p>Take the <a href="/fit">two-minute fit check</a>. Or text <strong>MAP</strong> to <strong>(318) 713-3781</strong> — three questions, and we'll build you a free map of your practice. Prefer a person? <a href="/contact">Send your number</a>. Every system we build starts with <a href="/blog/what-is-a-software-map">a one-page map</a>.</p>
+        `,
+    },
+    {
         slug: 'nursery-management-software',
         title: 'Nursery Management Software You Actually Own',
         date: '2026-08-20',
