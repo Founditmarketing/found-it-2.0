@@ -20,54 +20,50 @@ export type Post = {
 export const blogPosts: Post[] = [
     {
         slug: 'law-practice-management-software',
-        title: 'A 9 PM Dog-Bite Call Pays for a Lawyer\'s Whole Year. She Caught It.',
+        title: 'We Just Built Doggett Law Firm an Employee. She\'s Not a Person.',
         date: '2026-08-24',
-        excerpt: 'He was at supper. She took the whole story, booked the consult, opened the file. She\'s not a person — I built her in a weekend, and he owns her. Code, data, everything.',
+        excerpt: 'Check out the app we just built for Kenneth Doggett\'s one-man firm in Alexandria: she answers at 9 PM, types what he says, refuses the dangerous stuff, and can\'t press SEND. He owns her — code, data, everything.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/lawyer-og-hook-v1.png',
+        image: '/images/blog/lawyer-og-hook-v2.png',
         hideHero: true,
         content: `
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">9:04 PM on a Tuesday. A dog-bite call — the kind of case that pays for a lawyer's whole year.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It rang a one-man law office.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">He was at supper.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">She answered.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Took the whole story. Booked the consult for Tuesday at ten. Opened the file. Drafted the welcome text.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">He found all of it waiting with his coffee.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">She's not a person. <span style="color: #FF5500;">I built her in a weekend.</span></p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">True story? <span style="color: #FF5500;">Not yet.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The lawyer is real. Nobody answers his phone, and he was about to hire somebody just to fix that. The night you just read — and every screen below — is the <span style="color: #FF5500;">demo I built him</span>, running on demo data. It's the exact life he's buying.</p>
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/lawyer-blog-today-focus-v1.png" alt="The lawyer's morning screen greets him by name: calls taken overnight, dates needing his eyes, money waiting (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is his phone every morning. It greets him <span style="color: #FF5500;">by name</span> and rats out everything that needs him.</p>
-<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$2,500/mo</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the hire she replaced — that's what a desk seat costs around here</div></div>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>And nothing she does sends itself.</strong> Every text, every call waits for HIS tap. Best employee he's ever had. Can't touch SEND.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">We just built <span style="color: #FF5500;">Doggett Law Firm</span> an employee.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">She answers at 9 PM.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">She's not a person.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Kenneth Doggett runs a one-man injury and family firm — third generation. The big cases come in by phone, and a solo lawyer's phone doesn't keep office hours. He was about to hire somebody just to catch it. <span style="color: #FF5500;">We built him her instead.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$2,500/mo</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">what a desk seat costs around here — the hire he didn't have to make</div></div>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Watch her take the 9 PM call.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A dog-bite call rings while he's at supper. She answers, takes the whole story, books the consult, opens the file, drafts the welcome text. He finds all of it with his coffee —</p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/doggett-blog-today-focus-v1.png" alt="Kenneth's morning screen greets him by name: calls the secretary took, dates needing his eyes, money sitting invoiced (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">— right here. His morning screen greets him by name and rats out everything that needs him. <strong>And nothing she does sends itself.</strong> Every text, every call waits for HIS tap. <span style="color: #FF5500;">She can't touch SEND.</span></p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">He talks. <span style="color: #FF5500;">It types.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Walks out of court, says what happened out loud. Filed. He hasn't typed on his phone since.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Walks out of court, says what happened out loud. Filed — the notes, the to-dos, the time he just spent.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Now the part <span style="color: #FF5500;">nobody believes</span>.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The best thing it does is <span style="color: #FF5500;">refuse</span>.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Two things end law careers: missed deadlines and client money. This thing won't calculate a single date and can't touch a dollar of client money. A human types every deadline —</p>
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/lawyer-blog-prescription-focus-v1.png" alt="Every case deadline on one screen, typed by a human, counted down, red when ignored (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">— and if he ignores one for two days, <span style="color: #FF5500;">it turns red and gets loud</span>. I don't do the risky stuff. I make it impossible to quietly get it wrong.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The best thing she does is <span style="color: #FF5500;">refuse.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Two things end law careers: missed deadlines and client money. She won't calculate a single date and can't touch a dollar of client money. Kenneth types every deadline himself —</p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/doggett-blog-prescription-focus-v1.png" alt="Prescription Watch: every deadline on one screen, entered by Kenneth's hand, counted down, loud when ignored (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">— and if he ignores one for two days, <span style="color: #FF5500;">it turns red and gets loud</span>. We don't do the risky stuff for him. We make it impossible to quietly get it wrong.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">This next screen? Law firms <span style="color: #FF5500;">rent</span> it for $2,000 a month.</p>
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/lawyer-blog-demand-focus-v1.png" alt="A demand letter assembled from the file in one tap, on letterhead, under a red UNSIGNED DRAFT stamp (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">His builds itself off the file in one tap. See the red stamp? <span style="color: #FF5500;">It can't sign. Only he can.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Law firms rent this next screen for <span style="color: #FF5500;">$2,000 a month.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/doggett-blog-demand-focus-v1.png" alt="A demand letter assembled from the file in one tap, on Doggett Law Firm letterhead, under a DRAFT stamp it cannot sign (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">His builds the demand letter off the file in one tap, on his own letterhead. See the stamp? <span style="color: #FF5500;">It can't sign. Only Kenneth can.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">His clients think he hired <span style="color: #FF5500;">a whole staff</span>.</p>
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/lawyer-blog-status-mobile-v1.png" alt="The client's own phone shows where their case stands, plain English, no login (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every client carries this link. No password. Where the case stands, in plain English. The <span style="color: #FF5500;">&ldquo;any news?&rdquo;</span> calls just&hellip; stopped.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">His clients think he hired <span style="color: #FF5500;">a whole staff.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/doggett-blog-status-mobile-v1.png" alt="The client's own phone: where their case stands, in plain English, no login (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every client carries a link — no password, no app. Where the case stands, in plain English. The <span style="color: #FF5500;">&ldquo;any news?&rdquo;</span> calls stop.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The money collects itself <span style="color: #FF5500;">while he sleeps</span>.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Client taps a link at 9 PM. Pays. The books write themselves before sunrise. No re-typing, no shoebox, no QuickBooks night.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The money collects itself <span style="color: #FF5500;">while he sleeps.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Client taps a pay link at 9 PM. Pays. The books write themselves before sunrise — tied out to the penny, every night.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the plot twist: <span style="color: #FF5500;">he owns it</span>.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code. The data. His name on the title. If he ever fires me, he keeps everything. The monthly fee is just me taking care of it — like a good mechanic takes care of your truck.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the part that makes it a Found It app: <span style="color: #FF5500;">Kenneth owns it.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code. The data. His name on the title. If he ever fires us, he keeps everything. The monthly fee is us taking care of it — like a good mechanic takes care of your truck.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, dealerships — now a law office. <strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The system is real; the story above is its demo, on demo data. The firm name on the screens is a stand-in.</em></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, dealerships — and now <span style="color: #FF5500;">a law firm</span>. <strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen shows Kenneth’s real system running demo data — the names and cases on it are invented. No client information, ever.</em></p>
 `,
     },
     {
