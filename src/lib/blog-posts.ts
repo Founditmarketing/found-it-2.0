@@ -25,7 +25,7 @@ export const blogPosts: Post[] = [
         excerpt: 'There\'s a pen on the front desk at DJ\'s Bail Bonds. It filled out every application in the parish for years. Last week DJ fired it. Applications that fill themselves out on the defendant\'s phone at midnight, payment plans that populate their own dates, and a robot that is BANNED from ever touching his phone.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/djs-blog-today-v1.png',
+        image: '/images/blog/djs-og-hook-v1.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
