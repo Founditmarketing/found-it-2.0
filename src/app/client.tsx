@@ -76,10 +76,18 @@ export default function HomePage() {
                 and answers your phone. Simpler life. More money. And you own it.
               </p>
 
-              {/* NO hero CTA on purpose (Trevor 8/23: "let them work to get
-                  to me"). The first ask now comes after the reel and the
-                  flagship card — scarcity posture; the ideal client doesn't
-                  get begged above the fold. Do not add a button back here. */}
+              {/* Hero button is a FILTER, not an invitation (Trevor 8/25:
+                  "let them work to get to me"). No "Let's Talk" above the
+                  fold — the visitor is asked to qualify, not to book. The
+                  first real ask comes after the reel and the flagship card. */}
+              <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center">
+                <Link
+                  href="/fit"
+                  className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+                >
+                  Are We a Fit? 60 Seconds.
+                </Link>
+              </div>
             </div>
           </div>
         </motion.div>
