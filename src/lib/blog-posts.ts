@@ -131,12 +131,12 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'nursery-management-software',
-        title: '44 Plants Almost Missed the Truck. I Built the Software That Makes That Impossible.',
+        title: 'Her Books Were Lying to Her by Eight Figures. So I Rebuilt Them From the Bank.',
         date: '2026-08-25',
         excerpt: 'A truck was loading for Austin and a hand-copied order dropped its last line — 44 plants, a thousand dollars in freight, almost gone. So I tore out the text-message-and-QuickBooks way a wholesale nursery runs and built her one system: catches every line, prices every broker by what actually lives, rebuilds the books her old software lied about — and she owns all of it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/nursery-og-hook-v1.png',
+        image: '/images/blog/nursery-og-hook-v2.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Roxanne runs a wholesale nursery in central Louisiana. Fifteen acres, crews, trucks, fifteen brokers, thousands of plants on the ground.</p>
