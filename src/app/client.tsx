@@ -7,7 +7,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING } from '@/lib/site';
+import { OS_PRICING, OS_SLOTS } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -150,6 +150,30 @@ export default function HomePage() {
                   <p className="text-lg lg:text-xl font-black text-foreground italic tracking-tighter leading-tight">{OS_PRICING.promise}</p>
                   <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">One Job</p>
                 </div>
+              </div>
+
+              {/* The twenty seats (Trevor 8/25): a hard cap, said plainly.
+                  Count lives in OS_SLOTS — bump `taken` by hand as accounts
+                  sign; never let this strip say a number that isn't true. */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 -mt-4 mb-8 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
+                <div className="flex items-center gap-[5px] shrink-0" aria-hidden="true">
+                  {Array.from({ length: OS_SLOTS.total }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={
+                        i < OS_SLOTS.taken
+                          ? 'h-4 w-[7px] rounded-full bg-primary'
+                          : 'h-4 w-[7px] rounded-full bg-white/10 border border-white/20'
+                      }
+                    />
+                  ))}
+                </div>
+                <p className="text-sm font-bold text-foreground leading-snug">
+                  {OS_SLOTS.taken} of {OS_SLOTS.total} seats spoken for.{' '}
+                  <span className="text-muted-foreground font-medium">
+                    At {OS_SLOTS.total} accounts we stop taking new ones.
+                  </span>
+                </p>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                 <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">

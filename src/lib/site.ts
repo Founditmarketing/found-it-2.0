@@ -125,6 +125,16 @@ export const OS_PRICING = {
   promise: 'Simplify your life. Make your business more profitable.',
 } as const;
 
+/* ─── The twenty seats (Trevor, 2026-08-25) ───
+   His words: "14/20 slots spoken for — after 20 accounts we are not taking
+   any more." A hard cap, not a marketing timer: at twenty accounts the door
+   closes. Bump `taken` BY HAND when an account signs — nothing derives it,
+   and an inflated number here is a lie on the pricing block. */
+export const OS_SLOTS = {
+  total: 20,
+  taken: 14,
+} as const;
+
 /* ─── Config-gated links ───
    Each renders on the site only when non-empty. Paste the real URL to enable. */
 export const LINKS = {
