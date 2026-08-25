@@ -19,6 +19,55 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'bail-bonds-management-software',
+        title: 'She\'s Never Gonna Touch That Pen, Ever Again.',
+        date: '2026-08-25',
+        excerpt: 'The front desk at DJ\'s Bail Bonds fills out the same application by hand all day, every day. DJ watched one screen and retired the pen on the spot. Applications that fill themselves out on the defendant\'s phone, payment plans that populate their own dates, and a robot that is banned from ever answering his phone.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/djs-blog-today-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">A bail bonds office runs on <span style="color: #FF5500;">a pen.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Ask the woman who runs the front desk at DJ's Bail Bonds how many times she's filled out the same application by hand. Her answer: <em>&ldquo;I do it all day.&rdquo;</em> Defendant file, co-signer file, three references each, payment plan sheets — copied off one paper onto another paper, every day, for years.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">DJ watched one screen. Then he made the call:</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">&ldquo;She's never gonna have to use that pen, ever again.&rdquo;</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So we built it. Here's what the front desk sees now.</p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-today-v1.png" alt="The morning screen: money due, applications filling themselves in, Wednesday check-ins, court dates (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">One screen, already sorted: who owes this week, who's behind, who checked in, who's got court coming — and which applications are out on people's phones, <span style="color: #FF5500;">filling themselves in.</span> Nobody re-keys anything.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The application does itself — <span style="color: #FF5500;">on their phone.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">11:52 PM</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">an application kept working after the office went dark — and picked the man back up at the same question in the morning</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The office texts a link. The defendant — or a co-signing grandmother three states away — answers on their own phone. It <span style="color: #FF5500;">saves as they type</span>: quit at midnight, and the same link reopens on the same question tomorrow. At the end they sign with their thumb, and the audit trail prints with the paper.</p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-apply-v1.png" alt="The phone application welcome: saves as you type, thumb signature at the end (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And look at the third check on that screen. It never asks the bond amount or the charges. <span style="color: #FF5500;">That conversation happens at the office, person to person</span> — the phone only gathers what the file needs.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">DJ described the payment plan feature <span style="color: #FF5500;">in one sentence.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em>&ldquo;It's a $3,000 balance, $500 every two weeks — and it'll populate your dates.&rdquo;</em> That's exactly what it does, while you watch:</p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-plans-v1.png" alt="The plan composer: type a balance and a payment, the dates populate themselves — no interest, ever (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>No interest, ever</strong> — there isn't even a column for it. And every payment shows, all of them: the old paper form hid everything after line six, so people signed schedules <span style="color: #FF5500;">they literally could not see.</span> Never here. If a payment goes missing, the system texts a reminder, then keeps politely texting until the money lands — and stands down the second it does.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Court wants paper? <span style="color: #FF5500;">The paper types itself.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-agreement-v1.png" alt="The payment plan agreement on letterhead, every installment printed, e-signature and audit trail on the page (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Same agreements, same packets, same acknowledgments the office prints today — filled from the file, on letterhead, signature and audit stamp included. It just <span style="color: #FF5500;">looks better</span>, because a computer typed it.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The best feature is a <span style="color: #FF5500;">refusal.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Everybody's selling AI phone agents right now. This system is <strong>banned from ever answering DJ's phone</strong> — and that ban is printed right on its front screen. Jail calls come collect. A robot picking up breaks the collect call, and that call is the whole business. <span style="color: #FF5500;">The phone stays human, 24/7.</span> Custom software means knowing what NOT to build.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the old system? <span style="color: #FF5500;">It stays.</span></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-beside-v1.png" alt="The run-beside page: nightly totals from the old system logged next to the new one, matched to the penny (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We never rip anything out. The new system runs <em>beside</em> the software the office pays for today, and every night the two totals get logged side by side — they have to <span style="color: #FF5500;">match to the penny</span>, night after night, before anything switches. And when it's proven itself, <strong>DJ flips the switch.</strong> Not the software. Not a salesman. DJ.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the part that makes it a Found It app: <span style="color: #FF5500;">DJ owns it.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code. The data. His name on the title. The software he rents today keeps his data and rents it back to him. His new system belongs to him the way his building does.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, a nursery, a law office — and now <span style="color: #FF5500;">a bail bonds office</span>. <strong>If your front desk still runs on a pen, call me first.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above is the real system running demo data — every name and dollar on it is invented. No client information, ever.</em></p>
+`,
+    },
+    {
         slug: 'law-practice-management-software',
         title: 'There Are Two Things She Flat Refuses to Do. Both End Law Careers.',
         date: '2026-08-24',
