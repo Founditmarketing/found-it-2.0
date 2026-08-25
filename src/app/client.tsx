@@ -8,7 +8,6 @@ import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING } from '@/lib/site';
-import { usePersonalization } from '@/lib/personalization';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -41,16 +40,6 @@ export default function HomePage() {
   const heroY = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
     pin ? 0 : clamp01(y / 500) * 80
   );
-  const { city, industry } = usePersonalization();
-
-  const audienceLine = industry && city
-    ? `${city} ${industry}`
-    : industry
-      ? `Local ${industry}`
-      : city
-        ? `${city} Businesses`
-        : 'Local Businesses';
-
   return (
     <div className="bg-transparent text-foreground relative overflow-hidden">
 
@@ -64,16 +53,19 @@ export default function HomePage() {
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
           <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
             <div>
-              {/* Headline (personalized by city/industry when known) —
-                  pain-first per the 8/18 audit: name the pile before the fix. */}
+              {/* Headline (8/25, panel-judged 26.7/30 — Trevor picked it):
+                  the enemy frame. "Landlord" is a word this audience stopped
+                  answering to on purpose. Personalization token retired here —
+                  every personalized variant judged weaker than the accusation. */}
               <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                {audienceLine} Run On Software They Don&rsquo;t Own.
+                Your Software Has a Landlord. It Isn&rsquo;t You.
               </h1>
 
               {/* Subheadline */}
               <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                We build you one system that does the typing, chases what you&rsquo;re owed,
-                and answers your phone. Simpler life. More money. And you own it.
+                One missed payment and your books go dark. We build you one system
+                &mdash; register, invoices, phone &mdash; that&rsquo;s yours forever.
+                They can&rsquo;t take back what you own.
               </p>
 
               {/* Hero button is a FILTER, not an invitation (Trevor 8/25:
