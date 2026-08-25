@@ -76,16 +76,10 @@ export default function HomePage() {
                 and answers your phone. Simpler life. More money. And you own it.
               </p>
 
-              {/* Primary ask — THE ask, sitewide (audit 8/18: one CTA that
-                  names what you receive). One button, nothing beside it. */}
-              <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center">
-                <Link
-                  href="/foundit-os#lead-form"
-                  className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-                >
-                  Let's Talk
-                </Link>
-              </div>
+              {/* NO hero CTA on purpose (Trevor 8/23: "let them work to get
+                  to me"). The first ask now comes after the reel and the
+                  flagship card — scarcity posture; the ideal client doesn't
+                  get begged above the fold. Do not add a button back here. */}
             </div>
           </div>
         </motion.div>
