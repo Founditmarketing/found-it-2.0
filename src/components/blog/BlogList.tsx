@@ -5,12 +5,11 @@ import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from './ClientSideFormattedDate';
 
 /**
- * Server-rendered blog listing — three newest posts, phone-first (Trevor 8/25).
- *
- * One uniform card design instead of featured-vs-rest: on a phone all three
- * posts sit in one comfortable scroll; on desktop they stand as a 3-across
- * row. Older posts stay live at their URLs, just unlisted. Deliberately NOT
- * a client component (no-JS pages must paint) — entrance motion is pure CSS.
+ * Server-rendered blog listing — three newest posts as stacked horizontal
+ * rows (Trevor 8/25: "horizontal rectangles, stacked, cleaner"). Thumb left,
+ * words right, the whole row is one tap target. Older posts stay live at
+ * their URLs, just unlisted. NOT a client component — pages must paint
+ * without JS; motion is pure CSS.
  */
 export function BlogList() {
   if (!blogPosts || blogPosts.length === 0) {
@@ -22,74 +21,71 @@ export function BlogList() {
     );
   }
 
-  // Only the three newest posts show. The newest wears the Latest chip.
   const visiblePosts = [...blogPosts]
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);
 
   return (
-    <div>
-      <div className="mb-10 lg:mb-16 min-w-0">
-        <h1 className="text-[7vw] sm:text-5xl lg:text-oversized font-black uppercase italic tracking-tighter leading-[0.9] mb-4 lg:mb-8">
+    <div className="max-w-[900px]">
+      <div className="mb-8 lg:mb-14 min-w-0">
+        <h1 className="text-[7vw] sm:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 lg:mb-6">
           Plain-English Notes<br />
           <span className="text-primary">For Business Owners.</span>
         </h1>
-        <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl font-medium leading-snug">
+        <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl font-medium leading-snug">
           Real systems, real numbers, written the way we&apos;d say it across your counter.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-8 animate-fade-in-up">
+      <div className="flex flex-col gap-4 lg:gap-5 animate-fade-in-up">
         {visiblePosts.map((post, i) => (
-          <article
+          <Link
             key={post.slug}
-            className="group relative min-w-0 bg-card/20 backdrop-blur-xl border border-border/20 rounded-3xl overflow-hidden shadow-xl hover:border-primary/40 transition-all duration-500 flex flex-col"
+            href={`/blog/${post.slug}`}
+            className="group relative flex items-stretch gap-4 sm:gap-6 min-w-0 bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl lg:rounded-3xl p-3.5 sm:p-5 shadow-lg hover:border-primary/40 transition-all duration-500 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-            <Link href={`/blog/${post.slug}`} className="block relative h-44 sm:h-52 w-full overflow-hidden">
+            <div className="relative w-24 sm:w-40 lg:w-48 self-stretch min-h-[6.5rem] sm:min-h-[8rem] shrink-0 rounded-xl lg:rounded-2xl overflow-hidden">
               <Image
                 src={post.image}
                 alt={post.title}
                 fill
                 priority={i === 0}
-                sizes="(max-width: 1024px) 100vw, 33vw"
+                sizes="(max-width: 640px) 96px, 192px"
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-3 left-4 flex items-center gap-2.5">
+            </div>
+
+            <div className="relative z-10 flex flex-col justify-center min-w-0 py-0.5 flex-grow">
+              <div className="flex items-center gap-2 mb-1.5">
                 {i === 0 && (
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-foreground bg-primary px-2.5 py-1 rounded-full">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary-foreground bg-primary px-2 py-0.5 rounded-full">
                     Latest
                   </span>
                 )}
                 <time
                   dateTime={post.date}
-                  className="text-[11px] text-white/90 font-mono font-bold uppercase tracking-[0.15em]"
+                  className="text-[10px] sm:text-[11px] text-muted-foreground font-mono font-bold uppercase tracking-[0.15em]"
                 >
                   <ClientSideFormattedDate dateString={post.date} />
                 </time>
               </div>
-            </Link>
 
-            <div className="p-5 sm:p-7 flex flex-col flex-grow relative z-10">
-              <h2 className="text-xl sm:text-2xl font-black text-foreground uppercase italic tracking-tight leading-tight mb-3">
-                <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors duration-300">
-                  {post.title}
-                </Link>
+              <h2 className="text-base sm:text-xl lg:text-2xl font-black text-foreground uppercase italic tracking-tight leading-tight line-clamp-3 sm:line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                {post.title}
               </h2>
-              <p className="text-sm text-muted-foreground font-medium leading-relaxed line-clamp-2 mb-5 flex-grow">
+
+              <p className="hidden sm:block text-sm text-muted-foreground font-medium leading-relaxed line-clamp-1 mt-2">
                 {post.excerpt}
               </p>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center text-xs font-black text-primary uppercase tracking-[0.2em] group-hover:gap-1 transition-all"
-              >
+
+              <div className="mt-2.5 inline-flex items-center text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.2em]">
                 Read The Post
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
+                <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </div>
