@@ -216,59 +216,6 @@ export const blogPosts: Post[] = [
         `,
     },
     {
-        slug: 'the-scoreboard',
-        title: 'New Company. Here’s the Scoreboard.',
-        date: '2026-08-22',
-        excerpt: 'Found It Software is new. The wins aren’t. $195,882.75 found on a roofer’s books, $268,000 pulled out of a queue nobody checked, books matched to the penny across 37 accounts, two systems sold on a Friday to owners coming off paper — every line checkable.',
-        author: 'Trevor Ruby',
-        authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/scoreboard-hero-v1.png',
-        // She closes the post — "or tell her yourself" is literally her, below.
-        voice: {
-            eyebrow: "She's on the board too",
-            lead: "Want your line on this scoreboard? Tell her. She'll put you in the system while you're still talking.",
-            opener: "Want your line on the scoreboard? Give me your name and number and I'll put you in the system.",
-            source: 'scoreboard-voice',
-        },
-        content: `
-<p>Found It Software is a new company. The wins aren't. Here's the scoreboard — every line on it checkable. Updated August 22, because the week moved it.</p>
-
-<h3>Two systems sold on a Friday — to owners coming off paper</h3>
-<p>Not a demo on a screen in an office. A counter, a phone, and the owner ringing his own ticket on software with his name on it. Two of this week's signings are coming off paper and pencil. Laugh if you want — they're in the top five percent of earners in the parish. They were never behind. Nobody had ever built them something worth trusting.</p>
-
-<h3>We found $195,882.75 on one roofer's books</h3>
-<p>The day Edwards Roofing's system went through its own books, it surfaced $195,882.75 sitting in open receivables — money finished, earned, and un-collected. Then it caught a $19,000 bookkeeping error the old software had carried without blinking. Cory Edwards owns that system now, code and data. <a href="/case-studies/edwards-roofing">The whole story is public</a>, with his name on it — and as of this week, he says it on camera.</p>
-
-<h3>$268,000 was sitting in a queue nobody checked</h3>
-<p>A tree service's forgotten work — jobs sold and never scheduled, estimates never chased — pulled onto one screen the first week the system read the book. Nobody had lost the money. Nobody had looked.</p>
-
-<h3>Books matched to the penny across 37 accounts</h3>
-<p>A dealership's new ledger, loaded from fourteen thousand QuickBooks entries and compared account by account: 37 for 37, to the cent. Same store, week one: the pricing governor flagged about 1,200 parts being sold at prices fifteen years stale. The owner approves fixes with his thumb.</p>
-
-<h3>Seven months of bank statements, rebuilt to the penny</h3>
-<p>A nursery's QuickBooks balance sheet had drifted into fiction. So the system stopped trusting it and rebuilt the books from the bank statements themselves — January through July, opening balance to closing, every month tying to the cent. That's the foundation you build a QuickBooks exit on. It's underway.</p>
-
-<h3>A nursery got its first system in a day</h3>
-<p>Thursday we sat with a wholesale nursery owner whose orders arrive as texts from fifteen brokers — the week after a hand-copied order nearly stranded 44 plants on the road to Austin. By Friday night the first version was running against her real orders: paste the text in, every line captured, anything unrecognized flagged in red instead of silently dropped. Custom software used to take quarters. We fit it in days, and <a href="/blog/what-is-a-software-map">this is how it starts</a>.</p>
-
-<h3>Our receptionist is software — and she's on this site</h3>
-<p>The AI secretary we build into client systems answers out loud, takes the message, and enters the caller into the database herself. We don't describe her; we hand her the phone. <a href="/lp/she-answers">Talk to her right now</a> — she'll put you in our system while you're still on the line.</p>
-
-<h3>The screenshots on this site are the systems</h3>
-<p>A roofer's operations board. A dealership's parts and invoices. An auto shop's repair orders. A tire shop, a wholesale nursery, a concrete plant's quality control. The screens scrolling across this site aren't mockups — they're the systems themselves, running businesses across Louisiana and beyond, owned by the people who run them.</p>
-
-<h3>Nine things that sound like lies</h3>
-<p>A contractor texted me last week: "If something sounds too good to be true, it generally is." He's right. So we wrote down nine things real Louisiana businesses are running right now that sound exactly like that. <a href="/list">It's a two-minute read, and it costs your cell number.</a></p>
-
-<h3>The terms are wins too</h3>
-<p>The price is public — ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel} — which almost nobody in custom software will print. The first twenty were founding accounts at $2,200; that's closing out. Month to month. The new system runs beside the old one, penny-matched every night, until the owner says go. And the client owns everything: the code and the data, one hundred percent. Nobody rents you your own business back.</p>
-
-<h3>New name, old habit</h3>
-<p>The software company is new. The shop behind it has built for local businesses for over thirteen years, and holds a 4.9 rating on Google doing it. The habit that carried over is the only one that matters: shipping. More than a dozen Louisiana businesses run on software they own today. The next line on this board is somebody's first month without QuickBooks.</p>
-<p>Want your line on this board? <a href="/contact">Send your number</a> — or tell her yourself.</p>
-        `,
-    },
-    {
         slug: 'rented-software-no-data-rights',
         title: 'The Rent Isn’t the Problem. The Hostage Is.',
         date: '2026-08-16',

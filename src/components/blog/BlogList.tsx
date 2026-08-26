@@ -24,8 +24,13 @@ export function BlogList() {
     );
   }
 
-  const featuredPost = blogPosts[0];
-  const otherPosts = blogPosts.slice(1);
+  // Only the three newest posts show (Trevor 8/25). Older posts stay live at
+  // their URLs — they just don't get listed.
+  const visiblePosts = [...blogPosts]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3);
+  const featuredPost = visiblePosts[0];
+  const otherPosts = visiblePosts.slice(1);
 
   return (
     <div className="space-y-16 lg:space-y-32">
