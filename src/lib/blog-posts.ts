@@ -19,6 +19,55 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'quickbooks-replacement-software',
+        title: 'I Took QuickBooks Apart Piece by Piece. Then I Built Books That Can\'t Lie.',
+        date: '2026-08-26',
+        excerpt: 'A client\'s QuickBooks swore her bank account was millions of dollars underwater while her real balance sat healthy, because the books had never been matched to the bank in years. So we rebuilt seven months of her books from the bank statements, then rebuilt QuickBooks itself: a ledger nobody can edit, math proven by 134 tests, AI that files every transaction, and books you own instead of rent.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/books-og-hook-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every Found It OS ships with its own set of books built in. A journal, a ledger, the reports your accountant asks for every year. It replaces QuickBooks. This post is the story of why we built it and how it works.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It started with a client whose QuickBooks said her bank account was <span style="color: #FF5500;">millions of dollars underwater.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Her real bank balance was healthy. She had money in the bank, and plenty of it. The software just swore she didn't. How does a gap like that happen? Simple. Her books had never been matched against the bank, not that month, not that year, not for years. And QuickBooks let it slide. It will sit there wrong forever and never raise its hand.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So we did the slow, honest thing. We sat down with her actual bank statements and rebuilt seven straight months of her books from scratch, and every one of those months tied to the penny. When we were done, she knew her real numbers for the first time in years. That job taught me something I could not un-learn. <span style="color: #FF5500;">The problem was never her. It was software that lets books rot quietly for years.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">7 months</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">of one client's books rebuilt straight from the bank statements, every month tied to the penny</div></div>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">So I took QuickBooks apart, <span style="color: #FF5500;">piece by piece.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Here is what is actually inside an accounting program once you lay the parts out on the bench: a journal, a general ledger, a chart of accounts, a profit and loss, a balance sheet, a cash flow report, a sales tax report, bank reconciliation, accounts payable, and printable checks. I rebuilt every one of those pieces, and now they live inside every Found It OS. Your shop system and your books, one login, talking to each other all day. It does not feed QuickBooks or sit on top of it. <span style="color: #FF5500;">It takes its place.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">In this ledger, <span style="color: #FF5500;">history cannot be edited.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is the part that makes the whole thing trustworthy, so let me say it plain. Once an entry is written in our books, it is written. Nobody can go back and change it, not me, not you, not an employee having a bad day. The system physically will not do it. So what happens when somebody makes a mistake? You fix it with a reversal entry. That is a new entry that undoes the old one, right out in the open, with a date on it. The mistake shows and the fix shows. Ask an auditor what she wants to see in a set of books and that is exactly the answer. <span style="color: #FF5500;">Books that show their work.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The math checks itself, <span style="color: #FF5500;">134 different ways.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Accounting has rules that can never break, the kind where if one bends, the books are wrong somewhere. We wrote 134 tests that check those rules, and every time we change one line of code, all 134 run again and re-prove the math. If a single one fails, the change does not ship. Your old software asks you to take its word for it. <span style="color: #FF5500;">This one has to prove itself every time we touch it.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">134</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">tests that re-prove the math on every single change before it ships</div></div>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The AI does the filing, so month-end is <span style="color: #FF5500;">basically already done.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Here is what that means on a normal Tuesday. Every transaction that comes through, the AI reads it and files it to the right category. The fuel bill lands under fuel. The insurance payment lands under insurance. Nothing piles up waiting for somebody to sit down some Sunday and sort it. So when the end of the month comes, the books are basically done, and your accountant gets a clean set of books instead of a shoebox.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Your accountant stays. <span style="color: #FF5500;">We just make her job boring.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I want to be dead clear here, because people hear AI and books in the same sentence and think somebody is losing a job. This does not take your accountant's job. It takes the worst part of it, the sorting and the chasing, and hands her clean numbers to do her real work with. And two things stay with the humans forever: payroll and tax filing. We refuse to build those, and we always will. Some work belongs to a person who signs her name to it, and those are two of them.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Nothing gets ripped out on day one.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">If you are wondering how anybody switches books without wrecking a business, here is the answer. The new books run beside your QuickBooks, matched to the penny, day after day, until you have watched the two agree long enough to trust it. Then <span style="color: #FF5500;">you</span> say go, not me, and not a salesman with a deadline.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the ledger is <span style="color: #FF5500;">yours.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code is yours. The data is yours. Every number in that ledger belongs to you the same way the cash in your drawer does. Compare that to what most owners do today, which is pay rent every month just to look at their own numbers. Fire me tomorrow and you keep the whole thing, books and all.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One last thing, and I am putting it in writing.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The next set of books we tear up is our own. Found It is moving its own company onto this engine. I will not ask you to run your business on books I will not run mine on. <span style="color: #FF5500;">That is the whole test.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, a nursery, a law office, a bail bonds office. <strong>If your books and your bank have not agreed in a while, call me before you renew anything with a login.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The story is real and the client stays anonymous. Any screen we ever show of this engine runs demo data, every name and dollar on it invented. No client information, ever.</em></p>
+`,
+    },
+
+    {
         slug: 'government-bid-finder-tree-service',
         title: 'We Built a Tree Company a Machine That Finds Money.',
         date: '2026-08-27',
