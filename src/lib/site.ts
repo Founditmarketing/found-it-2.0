@@ -94,6 +94,15 @@ export const REVENUE_BANDS = [
    funnel gives it away without cheapening it.
    RESTRAINT LAW: say it ONCE per page, as plain fact, at the point of the
    ask — never as a "$2,000 VALUE!" starburst. */
+/* ─── Founding accounts counter ───
+   The first twenty accounts signed at $2,200 and are grandfathered forever.
+   `taken` is the ONE number to update as founding spots fill. Retire the
+   whole graphic once taken === total. */
+export const FOUNDING = {
+  taken: 14,
+  total: 20,
+} as const;
+
 export const MAP_VALUE = {
   standalone: '$2,000',
   /** The one sentence, reused verbatim so the number can never drift. */

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING } from '@/lib/site';
+import { FOUNDING, OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -84,12 +84,27 @@ export default function PricingClient() {
               <p className="text-xl font-black text-muted-foreground italic tracking-tighter mt-1">
                 + {OS_PRICING.setup} <span className="text-sm font-bold not-italic">{OS_PRICING.setupLabel}</span>
               </p>
-              {/* The founding-accounts line — true as of 8/22/26: the first twenty
-                  signed at $2,200 and are grandfathered forever. Retire this line
-                  once it stops being true. */}
-              <p className="mt-3 text-sm font-medium text-muted-foreground">
-                The first twenty were founding accounts at $2,200. That&rsquo;s closing out.
-              </p>
+              {/* The founding-accounts counter — pips read 14/20 from
+                  FOUNDING in lib/site.ts (one number to bump as spots fill).
+                  Retire the whole block once taken === total. */}
+              <div className="mt-4">
+                <div className="flex items-center gap-1.5 mb-2">
+                  {Array.from({ length: FOUNDING.total }, (_, k) => (
+                    <span
+                      key={k}
+                      className={`h-3 w-3 rounded-[4px] ${
+                        k < FOUNDING.taken
+                          ? 'bg-primary'
+                          : 'border border-primary/40 bg-transparent'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm font-medium text-muted-foreground">
+                  <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
+                  founding accounts taken at $2,200. When the last {FOUNDING.total - FOUNDING.taken} go, that price goes with them.
+                </p>
+              </div>
             </div>
             {/* The promise stands alone — a declaration, not a labeled
                 footnote. Verbatim, once on this page. */}
