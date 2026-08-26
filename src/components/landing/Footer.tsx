@@ -172,6 +172,9 @@ export function Footer() {
             <Link href="/privacy-policy" className="text-[10px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
               Privacy
             </Link>
+            <Link href="/media" className="text-[10px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
+              Media Kit
+            </Link>
           </div>
         </div>
 
