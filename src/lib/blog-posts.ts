@@ -25,7 +25,7 @@ export const blogPosts: Post[] = [
         excerpt: 'A client\'s QuickBooks swore she was millions of dollars underwater. Her real balance was healthy. The books had just been allowed to drift from the bank for years, because rented software gets paid either way. So I took QuickBooks apart on the bench, kept the 700-year-old math, and threw out what lets books lie: history anybody can edit, and a bank match nobody enforces. A ledger nobody can rewrite. 134 tests prove the math on every change. AI does the filing. You own the whole thing.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/books-og-hook-v1.png',
+        image: '/images/blog/books-og-hook-v2.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
