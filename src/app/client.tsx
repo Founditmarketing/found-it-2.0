@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
@@ -12,101 +11,48 @@ import { OS_PRICING, OS_SLOTS } from '@/lib/site';
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const clamp01 = (v: number) => Math.min(Math.max(v, 0), 1);
-
 export default function HomePage() {
-  const { scrollY } = useScroll();
-  // The hero fade-on-scroll is a desktop-only flourish; touch devices keep the
-  // hero pinned. The pin is routed through a MotionValue (instead of
-  // conditionally swapping the style prop) so it always wins, even mid-scroll.
-  const heroPin = useMotionValue(1); // 1 = pinned fully visible, 0 = fade with scroll
-  const [fadeCapable, setFadeCapable] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
-    const update = () => setFadeCapable(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-
-  useEffect(() => {
-    heroPin.set(fadeCapable ? 0 : 1);
-  }, [fadeCapable, heroPin]);
-
-  const heroOpacity = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
-    pin ? 1 : 1 - clamp01(y / 500)
-  );
-  const heroY = useTransform([scrollY, heroPin], ([y, pin]: number[]) =>
-    pin ? 0 : clamp01(y / 500) * 80
-  );
   return (
     <div className="bg-transparent text-foreground relative overflow-hidden">
 
       {/* ═══════════════════════════════════════════
-          HERO
+          HERO = THE REEL (Trevor 8/27: "get rid of our hero section and go
+          right for the automations"). The old landlord headline is retired;
+          the proof IS the opener now. Order: reel → pricing → the rest.
+          The h1 stays short so the reel stays the star; the sub carries the
+          identity the old hero used to (custom, AI, owned outright).
       ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[92dvh] flex flex-col justify-center pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-20 overflow-hidden">
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10 flex-grow flex items-center">
-          <div className="max-w-[1000px] mx-auto px-6 w-full text-center">
-            <div>
-              {/* Headline (8/25, panel-judged 26.7/30 — Trevor picked it):
-                  the enemy frame. "Landlord" is a word this audience stopped
-                  answering to on purpose. Personalization token retired here —
-                  every personalized variant judged weaker than the accusation. */}
-              <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[8vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-7">
-                Your Software Has a Landlord. It Isn&rsquo;t You.
-              </h1>
-
-              {/* Subheadline */}
-              <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
-                One missed payment and your books go dark. We build you one system
-                &mdash; register, invoices, phone &mdash; that&rsquo;s yours forever.
-                They can&rsquo;t take back what you own.
-              </p>
-
-              {/* Hero button is a FILTER, not an invitation (Trevor 8/25:
-                  "let them work to get to me"). No "Let's Talk" above the
-                  fold — the visitor is asked to qualify, not to book. The
-                  first real ask comes after the reel and the flagship card. */}
-              <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center">
-                <Link
-                  href="/fit"
-                  className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-                >
-                  Are We a Fit? 60 Seconds.
-                </Link>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          THE REEL — make them see, before one more word
-      ═══════════════════════════════════════════ */}
-      <section className="relative py-12 lg:py-20">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+        <div className="relative z-10 max-w-[1100px] mx-auto px-6">
+          <div className="text-center mb-10 lg:mb-12">
+            <h1 className="opacity-0 animate-reveal-up delay-200 text-[13vw] sm:text-[9vw] md:text-[7vw] lg:text-[5vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-6">
               Watch It Work.
-            </h2>
-            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              One day inside a business on a Found It OS. Nobody at the desk.
+            </h1>
+            <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg lg:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
+              One day inside a business on a Found It OS &mdash; custom AI software
+              we build and you own outright. Nobody at the desk.
             </p>
-          </motion.div>
+          </div>
 
           {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
-          <AutomationReel />
+          <div className="opacity-0 animate-reveal-up delay-400">
+            <AutomationReel />
+          </div>
+
+          {/* The filter, not an invitation (Trevor 8/25: "let them work to
+              get to me"). No "Let's Talk" above the fold — the first real
+              ask comes on the flagship card below. */}
+          <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-10">
+            <Link
+              href="/fit"
+              className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+            >
+              Are We a Fit? 60 Seconds.
+            </Link>
+          </div>
         </div>
       </section>
 
