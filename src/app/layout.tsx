@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.founditsoftware.com',
-    siteName: 'Found It Marketing',
+    siteName: 'Found It Software',
     title: 'Found It Software | Simpler Business. More Money. You Own It.',
     description: "One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. One published price.",
     images: [

@@ -60,7 +60,7 @@ function reportHtml(data: z.infer<typeof reportSchema>['result']): string {
 
   return `
   <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ff5500;font-weight:bold;margin:0 0 16px">Found It Marketing — Site Scan Report</p>
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#ff5500;font-weight:bold;margin:0 0 16px">Found It Software — Site Scan Report</p>
     <h1 style="font-size:26px;margin:0 0 4px;font-style:italic;text-transform:uppercase">Your Website Scored <span style="color:${grade.color}">${data.score}/100</span></h1>
     <p style="font-size:15px;color:${grade.color};font-weight:bold;margin:0 0 4px">${grade.label}</p>
     <p style="font-size:13px;color:#666;margin:0 0 20px">Scanned: ${escapeHtml(data.url)}</p>
@@ -72,7 +72,7 @@ function reportHtml(data: z.infer<typeof reportSchema>['result']): string {
         <a href="${SITE_URL}/contact" style="display:inline-block;background:#ff5500;color:#fff;font-weight:bold;text-decoration:none;padding:12px 22px;border-radius:8px;font-size:14px">Get the real audit →</a>
       </p>
     </div>
-    <p style="font-size:11px;color:#999;margin-top:24px">Found It Marketing · Alexandria, Louisiana · You received this because you requested a scan report at founditsoftware.com</p>
+    <p style="font-size:11px;color:#999;margin-top:24px">Found It Software · Alexandria, Louisiana · You received this because you requested a scan report at founditsoftware.com</p>
   </div>`;
 }
 

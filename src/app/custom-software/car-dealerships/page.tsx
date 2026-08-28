@@ -30,7 +30,7 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom dealership software for independent car dealers. Inventory, website, sales desk, service department, and rentals in one system the dealer owns outright. Old records are migrated in. Built one dealership at a time by Found It Marketing in Alexandria, LA. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `Custom dealership software for independent car dealers. Inventory, website, sales desk, service department, and rentals in one system the dealer owns outright. Old records are migrated in. Built one dealership at a time by Found It Software in Alexandria, LA. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Custom Software · Car Dealerships',
   headline: 'Stop Renting Your Own',
   headlineAccent: 'Inventory Pages.',

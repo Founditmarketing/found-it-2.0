@@ -157,7 +157,7 @@ export function Footer() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Found It Marketing on ${social.label}`}
+                  aria-label={`Found It Software on ${social.label}`}
                   className="w-9 h-9 flex items-center justify-center rounded-xl text-muted-foreground hover:text-primary hover:bg-white/5 transition-colors"
                 >
                   <social.Icon className="w-4 h-4" />
