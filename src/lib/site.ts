@@ -101,6 +101,9 @@ export const REVENUE_BANDS = [
 export const FOUNDING = {
   taken: 14,
   total: 20,
+  /** The founding rate, for life — said in one plain sentence wherever it
+   *  renders (8/27 review: "don't make me calculate what you mean"). */
+  price: '$2,200',
 } as const;
 
 export const MAP_VALUE = {

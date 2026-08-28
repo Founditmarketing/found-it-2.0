@@ -101,8 +101,9 @@ export default function PricingClient() {
                   ))}
                 </div>
                 <p className="text-sm font-medium text-muted-foreground">
-                  <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
-                  founding accounts taken at $2,200. When the last {FOUNDING.total - FOUNDING.taken} go, that price goes with them.
+                  Regular price: <span className="text-foreground font-black">{OS_PRICING.monthly}/mo</span>. The first{' '}
+                  {FOUNDING.total} founding accounts: <span className="text-foreground font-black">{FOUNDING.price}/mo for life</span>.{' '}
+                  <span className="text-primary font-black">{FOUNDING.total - FOUNDING.taken} founding slots remain.</span>
                 </p>
               </div>
             </div>

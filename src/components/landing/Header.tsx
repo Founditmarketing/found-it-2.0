@@ -85,12 +85,9 @@ const navLinks: NavLink[] = [
     icon: Newspaper,
     description: 'Software, ownership, and what we shipped',
   },
-  {
-    title: 'AI Search',
-    href: '/ai-search-optimization',
-    icon: TrendingUp,
-    description: 'When someone asks an AI who to hire, it should say you',
-  },
+  // AI Search left the nav 8/27 (review: "one vestigial limb from the old
+  // company") — it lives on in the footer's Beyond the OS. The nav is
+  // software only.
 ];
 
 /* ───── Secret menu: AdWords landing pages (off public nav) ─────

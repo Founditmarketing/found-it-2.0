@@ -6,7 +6,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE, FOUNDING } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -49,7 +49,7 @@ export default function HomePage() {
                 filter, kept below the reel). No more five names for one door. */}
             <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-8">
               <Link
-                href="/foundit-os#lead-form"
+                href="/map"
                 className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
               >
                 Get Your Software Map
@@ -265,14 +265,16 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-sm font-bold text-foreground leading-snug">
-                  {OS_SLOTS.taken} of {OS_SLOTS.total} seats spoken for.{' '}
+                  {OS_SLOTS.taken} of {OS_SLOTS.total} founding seats spoken for.{' '}
                   <span className="text-muted-foreground font-medium">
-                    At {OS_SLOTS.total} accounts we stop taking new ones.
+                    The last {OS_SLOTS.total - OS_SLOTS.taken} sign at the founding{' '}
+                    <span className="text-foreground font-bold">{FOUNDING.price}/mo, for life</span>. At{' '}
+                    {OS_SLOTS.total} accounts we stop taking new ones.
                   </span>
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-                <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                <Link href="/map" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
                   Get Your Software Map
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
@@ -388,7 +390,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-8 max-w-sm sm:max-w-none mx-auto"
           >
             <Link
-              href="/foundit-os#lead-form"
+              href="/map"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
               Get Your Software Map
@@ -427,7 +429,7 @@ export default function HomePage() {
               {MAP_VALUE.line}. If it&rsquo;s not a fit, we tell you straight.
             </p>
             <div className="flex justify-center">
-              <Link href="/foundit-os#lead-form" className="w-full sm:w-auto max-w-sm">
+              <Link href="/map" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                   Get Your Software Map
                 </LiquidButton>
