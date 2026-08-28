@@ -97,7 +97,7 @@ export default function MapPage() {
                 pageSlug="map"
                 heading="Tell us where to send it"
                 subheading="Trevor texts you back today to set the 30-minute fitting."
-                ctaLabel="Show Me What You'd Build"
+                ctaLabel="Send Me My Map"
                 qualify="optional"
                 successNote="Got it. Trevor texts you back today to set the fitting."
                 privacyNote="No spam, no list. One human replies."

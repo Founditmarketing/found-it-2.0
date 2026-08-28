@@ -45,14 +45,15 @@ export default function HomePage() {
             </p>
 
             {/* CTA CONSOLIDATION (8/27 review): two named actions sitewide —
-                "Get Your Software Map" (the ask) and "Are We a Fit?" (the
-                filter, kept below the reel). No more five names for one door. */}
+                "Show Me What You'd Build" (the ask — Trevor 8/27: nobody
+                knows what a software map is; the map is the REVEAL on /map,
+                never the button) and "Are We a Fit?" (the filter). */}
             <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-8">
               <Link
                 href="/map"
                 className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
               >
-                Get Your Software Map
+                Show Me What You'd Build
               </Link>
             </div>
             <p className="opacity-0 animate-reveal-up-sm delay-400 mt-5 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
@@ -275,7 +276,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                 <Link href="/map" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-                  Get Your Software Map
+                  Show Me What You'd Build
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
                   See Found It OS <ArrowRight className="w-4 h-4" />
@@ -393,7 +394,7 @@ export default function HomePage() {
               href="/map"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
-              Get Your Software Map
+              Show Me What You'd Build
             </Link>
           </motion.div>
         </div>
@@ -431,7 +432,7 @@ export default function HomePage() {
             <div className="flex justify-center">
               <Link href="/map" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                  Get Your Software Map
+                  Show Me What You'd Build
                 </LiquidButton>
               </Link>
             </div>
