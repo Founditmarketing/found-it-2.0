@@ -6,7 +6,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, OS_SLOTS } from '@/lib/site';
+import { OS_PRICING, OS_SLOTS, TRACK_RECORD } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -16,36 +16,178 @@ export default function HomePage() {
     <div className="bg-transparent text-foreground relative overflow-hidden">
 
       {/* ═══════════════════════════════════════════
-          HERO = THE REEL (Trevor 8/27: "get rid of our hero section and go
-          right for the automations"). The old landlord headline is retired;
-          the proof IS the opener now. Order: reel → pricing → the rest.
-          The h1 stays short so the reel stays the star; the sub carries the
-          identity the old hero used to (custom, AI, owned outright).
+          HERO = THE PAIN (Trevor 8/27 pm, after the conversion report: the
+          demo was arriving before the sale started. Order now: problem →
+          what would yours fix first → proof → THEN the reel → price.
+          The reel stayed the star of its own section below; it just no
+          longer opens cold. No customer counts here, ever (retired 8/16).
       ═══════════════════════════════════════════ */}
-      <section className="relative pt-28 lg:pt-36 pb-12 lg:pb-20 overflow-hidden">
+      <section className="relative pt-28 lg:pt-36 pb-14 lg:pb-20 overflow-hidden">
         {/* Hero gradient wash */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
         <div className="relative z-10 max-w-[1100px] mx-auto px-6">
           <div className="text-center mb-10 lg:mb-12">
-            <h1 className="opacity-0 animate-reveal-up delay-200 text-[13vw] sm:text-[9vw] md:text-[7vw] lg:text-[5vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white mb-6">
-              Watch It Work.
+            <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[7vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.9] tracking-tight font-black font-heading uppercase italic text-white mb-6">
+              Your Business Shouldn&rsquo;t Take<br className="hidden sm:block" />{' '}
+              <span className="text-primary">Five Systems to Run.</span>
             </h1>
             <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg lg:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
-              One day inside a business on a Found It OS &mdash; custom AI software
-              we build and you own outright. Nobody at the desk.
+              Found It replaces the software, the spreadsheets, the paper, and the things only
+              your employees know with <span className="text-white font-bold">one system built
+              around the way your business actually runs.</span> We migrate your records. It runs
+              beside what you use now. And you own it outright. The code and the data.
+            </p>
+
+            <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-8">
+              <Link
+                href="/fit"
+                className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+              >
+                See What We&rsquo;d Build For Your Business
+              </Link>
+            </div>
+            <p className="opacity-0 animate-reveal-up-sm delay-400 mt-5 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
+              {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No contracts
             </p>
           </div>
 
-          {/* THE REEL (8/19): automations in motion, not dashboards at rest. */}
+          {/* What would yours fix first? Three doors into the same house. */}
           <div className="opacity-0 animate-reveal-up delay-400">
-            <AutomationReel />
+            <p className="text-center text-sm font-black uppercase tracking-[0.25em] text-primary mb-5">
+              What Would Yours Fix First?
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              {[
+                { label: 'Money you’re owed', detail: 'and can’t see', href: '#proof' },
+                { label: 'Work falling through the cracks', detail: 'quotes, follow-ups, reorders', href: '#reel' },
+                { label: 'Too many systems', detail: 'none of them talking', href: '#foundit-os' },
+              ].map((c) => (
+                <a
+                  key={c.href}
+                  href={c.href}
+                  className="group bg-card/10 border border-border/15 rounded-2xl px-6 py-5 text-center hover:border-primary/40 transition-colors"
+                >
+                  <p className="text-sm font-black text-foreground leading-snug">{c.label}</p>
+                  <p className="text-xs text-muted-foreground font-medium mt-1">{c.detail}</p>
+                  <p className="text-xs text-primary font-bold mt-3 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Show me <ArrowRight className="w-3 h-3" />
+                  </p>
+                </a>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          THREE FITTINGS — proof before demonstration. Another owner's
+          numbers open the sale; our screens close it below.
+      ═══════════════════════════════════════════ */}
+      <section id="proof" className="relative py-14 lg:py-24 scroll-mt-20">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+              Three Fittings.
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              Real businesses, real numbers. This is what happens when the system fits.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {[
+              {
+                kind: 'The Roofer',
+                before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
+                after: 'His system audited his own books the day it went live.',
+                number: '$195,882.75',
+                numberLabel: 'found in open receivables',
+                href: '/case-studies/edwards-roofing',
+                link: 'Read the case study',
+              },
+              {
+                kind: 'The Nursery',
+                before: 'Fifteen brokers texting orders in, hand-copied to paper. 44 plants nearly missed the truck.',
+                after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
+                number: 'Lines in = lines on the sheet',
+                numberLabel: 'the rule the system enforces',
+                href: '/blog/what-is-a-software-map',
+                link: 'See how her system was built',
+              },
+              {
+                kind: 'The Shed Builder',
+                before: 'A Texas shed maker with dealer lots, shops, and drivers, renting the software that ran it all.',
+                after: 'Sales counter to delivery on one system he will own outright.',
+                number: 'Sale → build → delivered',
+                numberLabel: 'one pipeline, one login',
+                href: '/foundit-os',
+                link: 'See Found It OS',
+              },
+            ].map((f, i) => (
+              <motion.div
+                key={f.kind}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease }}
+                className="bg-card/10 backdrop-blur-sm border border-border/15 rounded-3xl p-7 flex flex-col hover:border-primary/25 transition-colors"
+              >
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">{f.kind}</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-3">{f.before}</p>
+                <p className="text-sm text-foreground font-bold leading-relaxed mb-6">{f.after}</p>
+                <div className="mt-auto pt-5 border-t border-border/15">
+                  <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter leading-tight">{f.number}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1 mb-4">{f.numberLabel}</p>
+                  <Link href={f.href} className="text-xs text-primary font-bold inline-flex items-center gap-1.5 hover:gap-3 transition-all">
+                    {f.link} <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          THE REEL — the demonstration, now that the sale has started.
+          (8/19): automations in motion, not dashboards at rest.
+      ═══════════════════════════════════════════ */}
+      <section id="reel" className="relative py-14 lg:py-24 scroll-mt-20">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-10 lg:mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5 uppercase italic">
+              Watch It Work.
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+              One day inside a business on a Found It OS &mdash; custom AI software
+              we build and you own outright. Nobody at the desk.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease }}
+          >
+            <AutomationReel />
+          </motion.div>
 
           {/* The filter, not an invitation (Trevor 8/25: "let them work to
-              get to me"). No "Let's Talk" above the fold — the first real
-              ask comes on the flagship card below. */}
-          <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-10">
+              get to me"). The first real ask comes on the flagship card. */}
+          <div className="flex justify-center mt-10">
             <Link
               href="/fit"
               className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
@@ -177,80 +319,6 @@ export default function HomePage() {
               Let's Talk
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          THREE FITTINGS — software proof replaces the marketing review
-          marquee (audit 8/18: the reviews are real credibility, but no longer
-          the MOST RELEVANT credibility; ReviewMarquee still lives on the
-          marketing pages). The mess before, the screen after, the number
-          where one is sanctioned.
-      ═══════════════════════════════════════════ */}
-      <section className="relative py-16 lg:py-28">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-              Three Fittings.
-            </h2>
-          </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {[
-              {
-                kind: 'The Roofer',
-                before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
-                after: 'His system audited his own books the day it went live.',
-                number: '$195,882.75',
-                numberLabel: 'found in open receivables',
-                href: '/case-studies/edwards-roofing',
-                link: 'Read the case study',
-              },
-              {
-                kind: 'The Nursery',
-                before: 'Fifteen brokers texting orders in, hand-copied to paper. 44 plants nearly missed the truck.',
-                after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
-                number: 'Lines in = lines on the sheet',
-                numberLabel: 'the rule the system enforces',
-                href: '/blog/what-is-a-software-map',
-                link: 'See how her system was built',
-              },
-              {
-                kind: 'The Shed Builder',
-                before: 'A Texas shed maker with dealer lots, shops, and drivers, renting the software that ran it all.',
-                after: 'Sales counter to delivery on one system he will own outright.',
-                number: 'Sale → build → delivered',
-                numberLabel: 'one pipeline, one login',
-                href: '/foundit-os',
-                link: 'See Found It OS',
-              },
-            ].map((f, i) => (
-              <motion.div
-                key={f.kind}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6, ease }}
-                className="bg-card/10 backdrop-blur-sm border border-border/15 rounded-3xl p-7 flex flex-col hover:border-primary/25 transition-colors"
-              >
-                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">{f.kind}</p>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-3">{f.before}</p>
-                <p className="text-sm text-foreground font-bold leading-relaxed mb-6">{f.after}</p>
-                <div className="mt-auto pt-5 border-t border-border/15">
-                  <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter leading-tight">{f.number}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1 mb-4">{f.numberLabel}</p>
-                  <Link href={f.href} className="text-xs text-primary font-bold inline-flex items-center gap-1.5 hover:gap-3 transition-all">
-                    {f.link} <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
