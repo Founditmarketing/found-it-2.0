@@ -22,7 +22,7 @@ export const blogPosts: Post[] = [
         slug: 'what-is-owned-software',
         title: 'SaaS Got a Name and a Trillion Dollars. The Opposite Never Got a Name.',
         date: '2026-08-28',
-        excerpt: 'SaaS renamed renting so smoothly nobody noticed the deal underneath. The opposite never got a name. Perpetual licenses, on-premise, self-hosted, pay-once apps: all describe how you buy it or where it runs, never what you have. So here's the name. Owned software. One question tells you which one you run on: if you stop paying, what's left?',
+        excerpt: 'SaaS renamed renting so smoothly nobody noticed the deal underneath. The opposite never got a name. Perpetual licenses, on-premise, self-hosted, pay-once apps: all describe how you buy it or where it runs, never what you have. So here\'s the name. Owned software. One question tells you which one you run on: if you stop paying, what\'s left?',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/owned-software-og-v1.png',
