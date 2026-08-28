@@ -23,7 +23,7 @@ const DEFAULT_SCREENS: { src: string; alt: string; caption: string }[] = [
     caption: 'A shed builder’s desk. Thirty days of sales, every build on the line, and the problems pulled to the top.',
   },
   {
-    src: '/os-screens/roxanne-os-intake-v1.png',
+    src: '/os-screens/roxanne-os-intake-v2.png',
     alt: 'Order intake, an order pasted as it came in, every line captured, the odd one held in red (demo data)',
     caption: 'A nursery’s order intake. Paste the order as it came in. Every line captured, the odd one held in red, never dropped.',
   },

@@ -25,7 +25,7 @@ const apps: AppStudy[] = [
   {
     title: 'Roxanne’s OS',
     trade: 'Wholesale Nursery',
-    src: '/os-screens/roxanne-os-money-v1.png',
+    src: '/os-screens/roxanne-os-money-v2.png',
     alt: 'Roxanne’s OS receivables dashboard. Money owed to the nursery, aging buckets, and who owes what (demo data)',
     line: 'Orders come in as texts in fifteen formats. Paste one in. Every line gets caught or flagged in red, never dropped. The money owed sits on one screen, oldest first, with pull sheets and a crew print board behind it.',
   },

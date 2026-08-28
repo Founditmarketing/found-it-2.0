@@ -19,25 +19,25 @@ export function railLeading(
 
 export const railDesktops: OsRailItem[] = [
   {
-    src: '/os-screens/roxanne-os-money-v1.png',
+    src: '/os-screens/roxanne-os-money-v2.png',
     alt: 'Roxanne’s OS receivables dashboard — money owed to the nursery, aging buckets, and who owes what (demo data)',
     title: 'Roxanne’s OS',
     kind: 'Wholesale Nursery',
   },
   {
-    src: '/os-screens/roxanne-os-intake-v1.png',
+    src: '/os-screens/roxanne-os-intake-v2.png',
     alt: 'Roxanne’s OS order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red',
     title: 'Roxanne’s OS',
     kind: 'Wholesale Nursery',
   },
   {
-    src: '/os-screens/roxanne-os-pull-sheet-v1.png',
+    src: '/os-screens/roxanne-os-pull-sheet-v2.png',
     alt: 'Roxanne’s OS pull sheet — the nursery-branded barn copy with big quantities and pull boxes, PO number only',
     title: 'Roxanne’s OS',
     kind: 'Wholesale Nursery',
   },
   {
-    src: '/os-screens/roxanne-os-crew-v1.png',
+    src: '/os-screens/roxanne-os-crew-v2.png',
     alt: 'Roxanne’s OS crew board — today’s loads by trailer slot with one big PRINT per order',
     title: 'Roxanne’s OS',
     kind: 'Wholesale Nursery',
@@ -156,14 +156,14 @@ export const railDesktops: OsRailItem[] = [
 
 export const railPhones: OsRailItem[] = [
   {
-    src: '/os-screens/roxanne-os-money-mobile-v1.png',
+    src: '/os-screens/roxanne-os-money-mobile-v2.png',
     alt: 'Roxanne’s OS on a phone — money owed to the nursery, total open with aging bars',
     title: 'The Money',
     kind: 'Roxanne’s OS · Nursery',
     portrait: true,
   },
   {
-    src: '/os-screens/roxanne-os-crew-mobile-v1.png',
+    src: '/os-screens/roxanne-os-crew-mobile-v2.png',
     alt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
     title: 'The Print Board',
     kind: 'Roxanne’s OS · Nursery',
@@ -271,7 +271,7 @@ export const railPhones: OsRailItem[] = [
 const SPECTACULAR_DESKTOP = new Set([
   '/os-screens/lonestar-os-desk-v1.png',     // 30-day sold + escalations a human should look at
   '/os-screens/lonestar-os-line-v1.png',     // every build, dollars on every column
-  '/os-screens/roxanne-os-intake-v1.png',    // lines in = lines captured, the odd one held in red
+  '/os-screens/roxanne-os-intake-v2.png',    // lines in = lines captured, the odd one held in red
   '/os-screens/lacaze-os-paid-v1.png',       // the PAID stamp writing itself into the books
   '/os-screens/flywheel-os-quote-v1.png',    // a tire size in, every supplier priced out the door
   '/os-screens/lonestar-os-counter-v1.png',  // a sale kicked back with the fix spelled out
@@ -279,7 +279,7 @@ const SPECTACULAR_DESKTOP = new Set([
 ]);
 const SPECTACULAR_PHONE = new Set([
   '/os-screens/lonestar-os-run-mobile-v1.png',      // the driver's day with the over-width warning
-  '/os-screens/roxanne-os-crew-mobile-v1.png',      // loads by trailer slot, one big PRINT
+  '/os-screens/roxanne-os-crew-mobile-v2.png',      // loads by trailer slot, one big PRINT
   '/os-screens/flywheel-os-mobile-quick-v2.png',    // snap-the-sidewall quote
   '/os-screens/lacaze-os-statement-mobile-v1.png',  // open invoices with pay-by-bank links
   '/os-screens/lawyer-os-pay-mobile-v1.png',        // a law client's honest pay link
