@@ -1,131 +1,29 @@
 'use client';
 
-import { useEffect, useId, useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  AlertTriangle,
-  CheckCircle2,
-  Download,
-  FileText,
-  Loader2,
-  ShieldCheck,
-} from 'lucide-react';
-import { trackLead, trackFormStart, captureUTMs, getStoredUTMs } from '@/lib/analytics';
-import { GUIDE_PDF_PATH, GUIDE_DOWNLOAD_NAME, GUIDE_TITLE, GUIDE_SOURCE_PREFIX } from '@/lib/guide';
+import { CheckCircle2, Download, FileText } from 'lucide-react';
+import { trackGuideCTAClick } from '@/lib/analytics';
+import { GUIDE_PDF_PATH, GUIDE_DOWNLOAD_NAME, GUIDE_TITLE } from '@/lib/guide';
 import { OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const inputClass =
-  'w-full bg-card/20 border border-border/20 rounded-xl px-4 py-3.5 text-base text-foreground font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors';
-
-const labelClass =
-  'block text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2';
-
-type Status = 'idle' | 'submitting' | 'success' | 'error';
-
 interface GuideDownloadSectionProps {
-  /** LP slug for attribution, e.g. 'auto-shop' — becomes part of the source tag. */
+  /** LP slug for attribution, e.g. 'auto-shop' — becomes part of the click tag. */
   page: string;
-  /**
-   * Full source-tag override for non-LP surfaces (e.g. 'guide_page' on /guide).
-   * When omitted, the tag stays the LP default: `${GUIDE_SOURCE_PREFIX}_${page}`.
-   */
+  /** Full tag override for non-LP surfaces (e.g. 'guide_page' on /guide). */
   source?: string;
 }
 
 /**
- * The "What Do I Get?" gated guide — the lighter ask on every OS landing page.
- * Deliberately fewer fields than the main form (first name + email, phone
- * optional): the visitor is trading an email for a PDF, not booking a call.
- *
- * On submit: posts to the same hardened /api/lead pipe with a guide-specific
- * source tag, fires trackLead() with that tag, starts the PDF download
- * immediately, then routes to /lp/thanks (which re-offers the file and points
- * at the one next step — the free walkthrough call).
+ * The "What Do I Get?" guide — UNGATED (Trevor, 8/28: "actually give it to
+ * them... don't make them put info in"). No form, no email, no lead capture.
+ * The button hands over the PDF; the click is counted (trackGuideCTAClick)
+ * and nothing else is asked. The old gated form and its /api/lead post are
+ * gone on purpose — never re-add a field in front of this file.
  */
 export function GuideDownloadSection({ page, source: sourceOverride }: GuideDownloadSectionProps) {
-  const uid = useId();
-  const source = sourceOverride ?? `${GUIDE_SOURCE_PREFIX}_${page}`;
-  const [status, setStatus] = useState<Status>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
-  const [started, setStarted] = useState(false);
-  const [fields, setFields] = useState({ firstName: '', email: '', phone: '', hp: '' });
-
-  // Same attribution discipline as NativeLeadForm: stash UTMs on mount so
-  // paid-traffic context survives to submit time.
-  useEffect(() => {
-    captureUTMs();
-  }, []);
-
-  const update =
-    (key: keyof typeof fields) => (e: React.ChangeEvent<HTMLInputElement>) =>
-      setFields((f) => ({ ...f, [key]: e.target.value }));
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (status === 'submitting' || status === 'success') return;
-
-    if (!fields.firstName.trim() || !fields.email.trim()) {
-      setStatus('error');
-      setErrorMsg("First name and email. That's where the guide goes.");
-      return;
-    }
-    if (!/^\S+@\S+\.\S{2,}$/.test(fields.email.trim())) {
-      setStatus('error');
-      setErrorMsg("That email doesn't look right. Check it again.");
-      return;
-    }
-
-    setStatus('submitting');
-    setErrorMsg('');
-
-    // Attribution rides in the message body — the lead API's field set stays
-    // fixed, and the source tag alone already distinguishes guide downloads.
-    const utms = getStoredUTMs();
-    const trail = [`Page: ${page}`, ...Object.entries(utms).map(([k, v]) => `${k}: ${v}`)];
-    const message = `Guide download — "${GUIDE_TITLE}" PDF\n\n— ${trail.join(' · ')}`;
-
-    try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          source,
-          name: fields.firstName.trim(),
-          email: fields.email.trim(),
-          phone: fields.phone.trim(),
-          message,
-          hp: fields.hp,
-        }),
-      });
-      if (!res.ok) throw new Error('lead_failed');
-
-      trackLead(source);
-      if (typeof console !== 'undefined') {
-        console.log(`[Found It] Guide lead fired — source: ${source}`);
-      }
-      setStatus('success');
-
-      // Deliver the PDF immediately — the thank-you page re-offers it in case
-      // this download doesn't fire (some mobile browsers defer it).
-      const a = document.createElement('a');
-      a.href = GUIDE_PDF_PATH;
-      a.download = GUIDE_DOWNLOAD_NAME;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-
-      // Full page load (not SPA nav) — same idiom as the main lead form, so
-      // analytics on /lp/thanks fires from a fresh gtag config.
-      window.setTimeout(() => {
-        window.location.href = '/lp/thanks';
-      }, 900);
-    } catch {
-      setStatus('error');
-      setErrorMsg('Something went wrong. Try again, or call us and we’ll email it to you.');
-    }
-  }
+  const source = sourceOverride ?? `guide_download_${page}`;
 
   return (
     // lp-guide: light-ask anchor — deliberately NOT #lp-form (the hero owns it).
@@ -182,147 +80,36 @@ export function GuideDownloadSection({ page, source: sourceOverride }: GuideDown
             </div>
           </div>
 
-          {/* Right — the light gate */}
+          {/* Right — no gate. The button IS the delivery. */}
           <div className="lg:col-span-6">
-            {status === 'success' ? (
-              <div
-                role="status"
-                className="bg-card/15 backdrop-blur-xl border border-primary/25 rounded-2xl p-8 lg:p-10 text-center"
-              >
-                <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-5 border border-primary/20">
-                  <Download className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-                  It&apos;s Downloading.
-                </h3>
-                <p className="text-sm text-muted-foreground font-medium">
-                  Your copy of &ldquo;{GUIDE_TITLE}&rdquo; is on its way…
-                </p>
+            <div className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-8 lg:p-10 text-center">
+              <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-5 border border-primary/20">
+                <FileText className="w-7 h-7 text-primary" />
               </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                noValidate
-                data-lead-form
-                onFocusCapture={() => {
-                  if (!started) {
-                    setStarted(true);
-                    trackFormStart(source);
-                  }
-                }}
-                className="relative bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
+              <h3 className="text-xl lg:text-2xl font-black uppercase italic tracking-tighter text-foreground mb-2 leading-tight">
+                &ldquo;{GUIDE_TITLE}&rdquo;
+              </h3>
+              <p className="text-sm text-muted-foreground font-medium mb-7">
+                No form. No email. It&apos;s free, so here it is.
+              </p>
+              <a
+                href={GUIDE_PDF_PATH}
+                download={GUIDE_DOWNLOAD_NAME}
+                onClick={() => trackGuideCTAClick(source)}
+                className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
               >
-                <h3 className="text-xl lg:text-2xl font-black uppercase italic tracking-tighter text-foreground mb-1 leading-tight">
-                  Get The Free Guide: &ldquo;{GUIDE_TITLE}&rdquo;
-                </h3>
-                <p className="text-sm text-muted-foreground font-medium mb-6">
-                  Instant download. First name and email is all it takes.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label htmlFor={`${uid}-first-name`} className={labelClass}>
-                      First Name *
-                    </label>
-                    <input
-                      id={`${uid}-first-name`}
-                      name="firstName"
-                      type="text"
-                      autoComplete="given-name"
-                      required
-                      maxLength={200}
-                      value={fields.firstName}
-                      onChange={update('firstName')}
-                      placeholder="Your first name"
-                      className={inputClass}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor={`${uid}-email`} className={labelClass}>
-                      Email *
-                    </label>
-                    <input
-                      id={`${uid}-email`}
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      maxLength={254}
-                      value={fields.email}
-                      onChange={update('email')}
-                      placeholder="you@yourbusiness.com"
-                      className={inputClass}
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor={`${uid}-phone`} className={labelClass}>
-                    Phone <span className="opacity-50 normal-case tracking-normal">(optional)</span>
-                  </label>
-                  <input
-                    id={`${uid}-phone`}
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    maxLength={40}
-                    value={fields.phone}
-                    onChange={update('phone')}
-                    placeholder="(318) 555-0123"
-                    className={inputClass}
-                  />
-                </div>
-
-                {/* Honeypot — same trap as the main form: meaningless name so
-                    Chrome autofill never fills it and drops a real human. */}
-                <div
-                  className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden"
-                  aria-hidden="true"
-                >
-                  <label htmlFor={`${uid}-fim-extra`}>Leave this field empty</label>
-                  <input
-                    id={`${uid}-fim-extra`}
-                    name="fim_extra_field"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={fields.hp}
-                    onChange={update('hp')}
-                  />
-                </div>
-
-                {status === 'error' && (
-                  <div
-                    role="alert"
-                    className="flex items-start gap-3 bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-3 mb-5"
-                  >
-                    <AlertTriangle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
-                    <p className="text-sm text-foreground font-medium">{errorMsg}</p>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === 'submitting'}
-                  className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-base py-4 rounded-xl hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
-                >
-                  {status === 'submitting' ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> Sending…
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-4 h-4" aria-hidden="true" /> Get The Free Guide
-                    </>
-                  )}
-                </button>
-
-                <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
-                  <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
-                  Instant download. No spam.
-                </p>
-              </form>
-            )}
+                <Download className="w-4 h-4" aria-hidden="true" /> Download The Guide
+              </a>
+              <a
+                href={GUIDE_PDF_PATH}
+                target="_blank"
+                rel="noopener"
+                onClick={() => trackGuideCTAClick(`${source}_view`)}
+                className="mt-4 inline-block text-xs text-primary font-bold hover:underline"
+              >
+                Or read it right here in your browser →
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
