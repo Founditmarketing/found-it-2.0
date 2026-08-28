@@ -39,6 +39,7 @@ export function Footer() {
             <h4 className={headingClass}>The Software</h4>
             <ul className="space-y-3">
               <li><Link href="/foundit-os" className={linkClass}>Found It OS</Link></li>
+              <li><Link href="/owned-software" className={linkClass}>What Is Owned Software?</Link></li>
               <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
               <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
               <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>

@@ -54,7 +54,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That is a roofer's owned system auditing his own books the day it went live. Real Louisiana businesses run on software they own, right now, and the price is printed: ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} one-time migration and setup. Month to month. Cancel with 30 days notice and the system leaves with you. The code and the data.</p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Nobody rents you your own business back.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><a href="/fit" style="color: #FF5500; font-weight: 700;">Sixty seconds tells you if you're who we build for.</a></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><a href="/owned-software" style="color: #FF5500; font-weight: 700;">The category, defined →</a> &nbsp;·&nbsp; <a href="/owned-software-test" style="color: #FF5500; font-weight: 700;">Take the Owned Software Test →</a> &nbsp;·&nbsp; <a href="/fit" style="color: #FF5500; font-weight: 700;">Sixty seconds tells you if you're who we build for →</a></p>
 `,
     },
     {

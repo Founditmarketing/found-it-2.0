@@ -30,6 +30,11 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/seminar', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
 
+  // The Owned Software category pages (coined 8/28/2026 — the citation targets)
+  { path: '/owned-software', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/owned-software-vs-saas', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/owned-software-test', priority: 0.8, changeFrequency: 'monthly' },
+
   // Service authority pillars (organic / GEO) — primary public service pages
   { path: '/foundit-os', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/custom-software', priority: 0.9, changeFrequency: 'weekly' },
