@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: 'Found It Software | Custom Software That Simplifies Your Business and Makes You Money',
     template: '%s | Found It Software'
   },
-  description: "One custom system that does the typing, chases what you're owed, and answers your phone. You own it outright, the code and the data. One published price. Alexandria, LA.",
+  description: "Owned software — the opposite of SaaS. One custom system that does the typing, chases what you're owed, and answers your phone. You own it outright, the code and the data. One published price. Alexandria, LA.",
   keywords: [
     'custom AI software',
     'custom business operating system',

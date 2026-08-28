@@ -499,7 +499,7 @@ export function Header() {
             <div className="hidden xl:flex items-center">
               <Link href="/fit" className="block shrink-0">
                 <LiquidButton className="h-14 px-5 2xl:px-8 text-xs tracking-[0.2em] whitespace-nowrap magnetic transition-colors duration-300 text-white border-white bg-transparent hover:bg-white hover:text-black">
-                  Let's Talk
+                  Are We a Fit?
                 </LiquidButton>
               </Link>
             </div>
@@ -605,7 +605,7 @@ export function Header() {
                     whileTap={{ scale: 0.97 }}
                     className="w-full bg-primary text-primary-foreground font-semibold py-4 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                   >
-                    Let's Talk
+                    Are We a Fit?
                     <ArrowRight className="w-4 h-4" />
                   </motion.div>
                 </Link>

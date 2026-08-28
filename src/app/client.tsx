@@ -6,7 +6,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, OS_SLOTS, TRACK_RECORD } from '@/lib/site';
+import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -28,6 +28,11 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-[1100px] mx-auto px-6">
           <div className="text-center mb-10 lg:mb-12">
+            {/* THE CATEGORY (8/27 review): "Owned Software" is the claim —
+                SaaS rents, we hand over the keys. One line, said like a fact. */}
+            <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
+              Owned Software &middot; The Opposite of SaaS
+            </p>
             <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[7vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.9] tracking-tight font-black font-heading uppercase italic text-white mb-6">
               Your Business Shouldn&rsquo;t Take<br className="hidden sm:block" />{' '}
               <span className="text-primary">Five Systems to Run.</span>
@@ -39,12 +44,15 @@ export default function HomePage() {
               beside what you use now. And you own it outright. The code and the data.
             </p>
 
+            {/* CTA CONSOLIDATION (8/27 review): two named actions sitewide —
+                "Get Your Software Map" (the ask) and "Are We a Fit?" (the
+                filter, kept below the reel). No more five names for one door. */}
             <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-8">
               <Link
-                href="/fit"
+                href="/foundit-os#lead-form"
                 className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
               >
-                See What We&rsquo;d Build For Your Business
+                Get Your Software Map
               </Link>
             </div>
             <p className="opacity-0 animate-reveal-up-sm delay-400 mt-5 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
@@ -265,7 +273,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                 <Link href="/foundit-os#lead-form" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-                  Let's Talk
+                  Get Your Software Map
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
                   See Found It OS <ArrowRight className="w-4 h-4" />
@@ -273,6 +281,73 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          THE FLEET (8/27 review): not three examples — the factory floor.
+          Every nameplate is a real system already public on /case-studies
+          or the blog; every receipt line stays inside sanctioned copy.
+          Marquee duplicates the track for a seamless loop; pauses on hover.
+      ═══════════════════════════════════════════ */}
+      <section id="fleet" className="relative py-14 lg:py-24 overflow-hidden">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="text-center mb-10"
+          >
+            <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-4">
+              Live Systems &middot; Running Now
+            </p>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+              The Fleet.
+            </h2>
+            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+              Every one custom-built. Every one owned outright by the business that runs it.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="group relative">
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+            {[0, 1].map((track) => (
+              <div key={track} className="flex shrink-0" aria-hidden={track === 1}>
+                {[
+                  { name: 'Edwards Roofing OS', trade: 'Roofing', receipt: '$195,882.75 found in open receivables' },
+                  { name: 'Roxanne’s OS', trade: 'Wholesale Nursery', receipt: 'Fifteen brokers’ texts, every line caught' },
+                  { name: 'Tony’s Shop OS', trade: 'European Auto Repair', receipt: 'Declined jobs priced for win-back' },
+                  { name: 'Flywheel OS', trade: 'Tire & Auto', receipt: 'Any tire quoted out the door in seconds' },
+                  { name: 'The House System', trade: 'Menswear Retail', receipt: 'An AI register you can ask out loud' },
+                  { name: 'Pro Carpet OS', trade: 'Carpet & Duct Cleaning', receipt: 'Every estimate chased to an answer' },
+                  { name: 'The Lawyer OS', trade: 'Law Firm', receipt: 'Deadlines turn red. Never guessed.' },
+                  { name: 'The Bail Bonds OS', trade: 'Bail Bonds', receipt: 'Banned from answering the phone. On purpose.' },
+                ].map((s) => (
+                  <div
+                    key={`${track}-${s.name}`}
+                    className="w-[300px] sm:w-[340px] shrink-0 mx-2.5 bg-card/10 backdrop-blur-sm border border-border/15 rounded-2xl px-7 py-6 hover:border-primary/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                      <p className="text-lg font-black italic tracking-tighter text-foreground leading-none truncate">{s.name}</p>
+                    </div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-faint mb-3">{s.trade}</p>
+                    <p className="text-sm text-muted-foreground font-medium leading-snug">{s.receipt}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-10">
+          <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
+            See every system <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -316,7 +391,7 @@ export default function HomePage() {
               href="/foundit-os#lead-form"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
-              Let's Talk
+              Get Your Software Map
             </Link>
           </motion.div>
         </div>
@@ -343,16 +418,18 @@ export default function HomePage() {
               <Link href="/fit" className="text-primary hover:underline">Check your fit in 60 seconds</Link>
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Show Us How Your Business Runs.
+              Walk Out With the Map.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              Tell us how it runs today. We&rsquo;ll show you what we&rsquo;d build if it were ours.
-              Free, about thirty minutes, screen-shared. If it&rsquo;s not a fit, we tell you straight.
+              Show us how your business runs today. We&rsquo;ll hand you the map of what
+              we&rsquo;d build &mdash; every screen, every automation, on paper. About thirty
+              minutes, screen-shared, and the map is yours to keep either way;{' '}
+              {MAP_VALUE.line}. If it&rsquo;s not a fit, we tell you straight.
             </p>
             <div className="flex justify-center">
               <Link href="/foundit-os#lead-form" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                  Let's Talk
+                  Get Your Software Map
                 </LiquidButton>
               </Link>
             </div>

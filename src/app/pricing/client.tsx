@@ -126,7 +126,7 @@ export default function PricingClient() {
             <motion.div whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto sm:inline-flex text-center font-black uppercase italic tracking-tighter py-4 px-10 rounded-xl text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity items-center justify-center gap-2"
             >
-              Let's Talk <ArrowRight className="w-4 h-4" />
+              Are We a Fit? 60 Seconds. <ArrowRight className="w-4 h-4" />
             </motion.div>
           </Link>
         </motion.div>
@@ -198,7 +198,7 @@ export default function PricingClient() {
           <div className="flex justify-center">
             <Link href="/fit" className="w-full sm:w-auto max-w-sm">
               <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Let's Talk
+                Are We a Fit? 60 Seconds.
               </LiquidButton>
             </Link>
           </div>
