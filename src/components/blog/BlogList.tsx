@@ -23,7 +23,7 @@ export function BlogList() {
 
   const visiblePosts = [...blogPosts]
     .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 4);
+    .slice(0, 5);
 
   return (
     <div className="max-w-[900px]">
