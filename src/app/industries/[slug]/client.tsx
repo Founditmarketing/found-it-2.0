@@ -9,11 +9,9 @@ import type { IndustryData } from './data';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-/* The 10%: marketing, one slim band near the bottom — never primary. */
+/* MARKETING SALES DEAD (8/26): AI Search is the only marketing offer left. */
 const marketingLinks = [
-  { label: 'Google Ads', href: '/google-ads-management' },
   { label: 'AI Search / SEO', href: '/ai-search-optimization' },
-  { label: 'Social Media', href: '/social-media-management' },
 ];
 
 /* Industries without their own sanctioned captures still open with pictures:
@@ -233,11 +231,11 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
           )}
           <div className="bg-card/5 border border-border/10 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <div className="shrink-0">
-              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">The Other 10%</p>
-              <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">Marketing, When You Want It</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">One More Thing</p>
+              <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">Be the Answer AI Gives</p>
             </div>
             <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
-              When you want customers on top of the system, the same team runs the ads and the AI search.
+              When someone asks ChatGPT who to hire in your trade, the same team makes sure it says you.
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
               {marketingLinks.map((m) => (

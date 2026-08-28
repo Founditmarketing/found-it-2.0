@@ -218,7 +218,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Yard on Its Own OS',
   finalCtaSub:
-    `Tell us how your operation runs today. The order binder, the build sheets, the lot calls, the RTO spreadsheet. We will map what your own operating system would look like. In person if you are local.`,
+    `Tell us how your operation runs today. The order binder, the build sheets, the lot calls, the RTO spreadsheet. We will show you what your own operating system would look like. In person if you are local.`,
 };
 
 export default function ShedBuildersPillar() {

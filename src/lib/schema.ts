@@ -112,7 +112,7 @@ export function buildEntityGraph() {
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Custom AI Software & Digital Marketing Services',
+          name: 'Custom AI Software Services',
           itemListElement: SERVICES.map((s) => ({
             '@type': 'Offer',
             itemOffered: {
@@ -166,7 +166,7 @@ export function buildFAQSchema(items: FAQItemData[]) {
 
 /** A machine-readable price line for a Service node (only Found It OS has one). */
 export interface ServiceOffer {
-  /** Numeric price, e.g. 2200 (derived from OS_PRICING, never hand-typed). */
+  /** Numeric price, e.g. 3000 (derived from OS_PRICING, never hand-typed). */
   price: number;
   priceCurrency: string;
   /** UN/CEFACT unit code, e.g. 'MON' for per-month. Omit for one-time fees. */

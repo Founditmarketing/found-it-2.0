@@ -222,7 +222,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Store in Its Own House',
   finalCtaSub:
-    `Tell us how your store runs today. The POS, the binder, the workarounds. We will map what your own system would look like, with your history in it. In person if you are local.`,
+    `Tell us how your store runs today. The POS, the binder, the workarounds. We will show you what your own system would look like, with your history in it. In person if you are local.`,
 };
 
 export default function RetailStoresPillar() {

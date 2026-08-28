@@ -222,7 +222,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Put the AI-Powered Alternative in Your Shop',
   finalCtaSub:
-    `Tell us how your shop runs today. The system you rent, the whiteboard, the paper. We will map what your own shop OS would look like, records and all. In person if you are local.`,
+    `Tell us how your shop runs today. The system you rent, the whiteboard, the paper. We will show you what your own shop OS would look like, records and all. In person if you are local.`,
 };
 
 export default function AutoRepairShopSoftwarePillar() {

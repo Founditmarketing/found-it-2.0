@@ -27,7 +27,7 @@ export function ServiceSchema({ name, description, url, image }: ServiceSchemaPr
         },
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Digital Marketing Services",
+            "name": "Custom AI Software Services",
             "itemListElement": [
                 {
                     "@type": "Offer",

@@ -228,7 +228,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See What a Fitted System Looks Like',
   finalCtaSub:
-    `Tell us how your business runs today — the register, the paper, the workarounds — and we will map what your own operating system would look like. In person if you are local.`,
+    `Tell us how your business runs today — the register, the paper, the workarounds — and we will show you what your own operating system would look like. In person if you are local.`,
 };
 
 export default function CustomSoftwarePillar() {

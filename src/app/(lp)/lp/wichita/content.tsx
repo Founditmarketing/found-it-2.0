@@ -27,7 +27,7 @@ import { BOOKING_URL } from '@/lib/booking';
    Claims stay inside the doctrine: own the code and data, parallel run
    penny-matched, month-to-month; the money-back guarantee was retired 8/14
    — the offer line is OS_PRICING.promise, verbatim.
-   The only numbers allowed: $2,200/$2,000 (OS_PRICING), 30-minute call,
+   The only numbers allowed: $3,000/$2,000 (OS_PRICING), 30-minute call,
    and Cory Edwards' audited figures ($195,882.75 receivables / $19,000
    error). Customer counts retired 8/16 — never reintroduce one. Never add
    invoice counts or any other detail to them. */

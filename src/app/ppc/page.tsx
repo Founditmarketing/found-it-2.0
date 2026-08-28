@@ -1,7 +1,7 @@
+﻿/* MARKETING SALES DEAD (Trevor, 2026-08-26): this marketing offer page was
+   retired. Permanent redirect; never rebuild the offer here. */
 import { permanentRedirect } from 'next/navigation';
 
-export default function PpcPage() {
-  // Organic visitors get the full service page (nav, schema, internal links) —
-  // not the chrome-less paid landing page.
-  permanentRedirect('/google-ads-management');
+export default function Page() {
+  permanentRedirect('/ai-search-optimization');
 }

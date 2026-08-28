@@ -79,10 +79,10 @@ const data: PillarData = {
   ],
   pricingHeading: 'What to Expect',
   pricing:
-    'GEO and SEO are monthly programs with simple flat pricing and no setup fees. Most clients see first AI mentions in 60 to 90 days, and steady visibility in 4 to 6 months. If you leave, you keep all the work.',
+    'The price is printed: $1,500 a month standard, $3,200 a month for premium and large markets. No setup fees. Most clients see first AI mentions in 60 to 90 days, and steady visibility in 4 to 6 months. If you leave, you keep all the work.',
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
-    `${TRACK_RECORD.yearsInBusiness} years in marketing and a GEO-first approach.`,
+    `${TRACK_RECORD.yearsInBusiness} years of getting local businesses found, now GEO-first.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
     'We run classic local SEO and AI visibility at the same time.',
     'If you leave, you keep all the work. Content, schema, citations.',

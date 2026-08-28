@@ -217,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'Get Fitted Before CoConstruct Goes Dark',
   finalCtaSub:
-    `Tell us how your jobs run today. The takeoffs, the draw schedules, the selection emails, the change orders on sticky notes. We will map what your own builder OS would look like. Design partners get fitted first and shape what gets built.`,
+    `Tell us how your jobs run today. The takeoffs, the draw schedules, the selection emails, the change orders on sticky notes. We will show you what your own builder OS would look like. Design partners get fitted first and shape what gets built.`,
 };
 
 export default function HomeBuildersPillar() {

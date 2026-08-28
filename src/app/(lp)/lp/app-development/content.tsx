@@ -28,7 +28,7 @@ export function AppDevelopmentLPContent() {
         headline="Don't Outsource Your App."
         headlineAccent="Build It Here."
         subheadline="A fast, native-feeling app for iOS and Android, architected and built by a local team you can actually sit down with."
-        highlight="You get a fixed price and a guaranteed delivery date before you sign anything."
+        highlight="You get a fixed price and a delivery date in writing before you sign anything."
         highlightIcon={ShieldCheck}
         stats={[
           { value: 'iOS+Android', label: 'Native build' },
@@ -58,7 +58,7 @@ export function AppDevelopmentLPContent() {
         bullets={[
           {
             title: 'Fixed Timelines & Budgets.',
-            detail: "We don't do scope creep. You get a fixed price and a guaranteed delivery date before you sign anything.",
+            detail: "We don't do scope creep. You get a fixed price and a delivery date in writing before you sign anything.",
           },
           {
             title: 'You Own the Codebase.',
@@ -87,7 +87,7 @@ export function AppDevelopmentLPContent() {
           {
             number: '03',
             title: 'Development & Launch',
-            description: "We engineer a lightning-fast, native-feeling app for iOS and Android, handle the App Store submissions, and guarantee our delivery date.",
+            description: "We engineer a lightning-fast, native-feeling app for iOS and Android, handle the App Store submissions, and hit the delivery date we put in writing.",
           },
         ]}
       />
@@ -100,7 +100,7 @@ export function AppDevelopmentLPContent() {
         benefits={[
           'Full technical architecture and database mapping',
           'Interactive UI/UX concept review',
-          'Fixed-price quote and guaranteed timeline',
+          'Fixed-price quote and a timeline in writing',
           '📍 Local to Louisiana? We do this strategy session in person, at your office.',
         ]}
         source="lp_app_development"
@@ -111,7 +111,7 @@ export function AppDevelopmentLPContent() {
         items={[
           {
             question: 'How long does it take to build an app?',
-            answer: "Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to App Store launch. You'll get a firm, guaranteed timeline on our first call.",
+            answer: "Most business utility and customer-facing apps take 8 to 12 weeks from kickoff to App Store launch. You'll get a firm timeline, in writing, on our first call.",
           },
           {
             question: 'How much does an app cost?',

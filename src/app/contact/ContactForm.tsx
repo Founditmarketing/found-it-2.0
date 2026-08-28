@@ -212,7 +212,7 @@ export function ContactForm() {
           maxLength={4000}
           value={fields.message}
           onChange={update('message')}
-          placeholder="More calls, a new website, ads that actually work — tell us what's not working today."
+          placeholder="Too many systems, money you can't see, work falling through the cracks. Tell us what's not working today."
           className={`${inputClass} resize-y min-h-[110px]`}
         />
       </div>

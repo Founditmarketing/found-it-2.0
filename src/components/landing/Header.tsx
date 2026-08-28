@@ -11,7 +11,6 @@ import { cn } from '@/lib/utils';
 import { ChevronDown, X, ArrowRight, ChevronRight, Globe, TrendingUp, Building2, Users, UserCheck, Copy, Check, ExternalLink, Lock, BadgeDollarSign, Cpu, Download, Newspaper, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { trackGuideCTAClick } from '@/lib/analytics';
-import { SERVICES, SERVICE_SHORT_LABELS } from '@/lib/site';
 import * as React from 'react';
 import { usePathname } from 'next/navigation';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -33,16 +32,8 @@ interface NavLink {
   sublinks?: NavSublink[];
 }
 
-/** Marketing services only — software is the company, not a line item in a
-    Services dropdown. Found It OS stands at the top level; the marketing
-    pillars live under a dropdown that says what it is by its name. */
-const marketingSublinks: NavSublink[] = SERVICES.filter(
-  (s) => !['foundit-os', 'app-development'].includes(s.slug)
-).map((s) => ({
-  title: SERVICE_SHORT_LABELS[s.slug] ?? s.name,
-  href: `/${s.slug}`,
-  tag: null,
-}));
+/* MARKETING SALES DEAD (8/26): the Marketing dropdown is gone. The sole
+   marketing offer left is AI Search Optimization, a plain link below. */
 
 /* 8/18 audit hierarchy: the brain should conclude in five seconds that this
    company builds operating systems you own — not that it's an agency that
@@ -95,24 +86,18 @@ const navLinks: NavLink[] = [
     description: 'Software, ownership, and what we shipped',
   },
   {
-    title: 'Marketing',
-    href: '/#services',
+    title: 'AI Search',
+    href: '/ai-search-optimization',
     icon: TrendingUp,
-    description: 'Ads and getting found, for the companies we build for',
-    sublinks: marketingSublinks,
+    description: 'When someone asks an AI who to hire, it should say you',
   },
 ];
 
-/* ───── Secret menu: AdWords landing pages (off public nav) ───── */
+/* ───── Secret menu: AdWords landing pages (off public nav) ─────
+   MARKETING SALES DEAD (8/26): marketing LPs removed. */
 const SECRET_LPS = [
-  { title: 'Google Ads', href: '/lp/google-ads-management' },
-  { title: 'Web Design', href: '/lp/web-design' },
   { title: 'AI Search / SEO', href: '/lp/ai-search-seo' },
-  { title: 'Social Media', href: '/lp/social-media-management' },
   { title: 'App Development', href: '/lp/app-development' },
-  { title: 'AI Marketing', href: '/lp/ai-marketing' },
-  { title: 'Lake Charles Google Ads', href: '/lp/lake-charles/google-ads-management' },
-  { title: 'Lake Charles Web Design', href: '/lp/lake-charles/web-design' },
 ];
 
 /* ───────────────────────────── ANIMATION CONFIG ───────────────────── */

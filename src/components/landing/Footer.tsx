@@ -46,11 +46,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Marketing — the six pillars, demoted to one tidy column */}
+          {/* Beyond the OS — MARKETING SALES DEAD (8/26): AI Search is the
+              sole marketing offer left; everything else here is software. */}
           <div>
-            <h4 className={headingClass}>Marketing</h4>
+            <h4 className={headingClass}>Beyond the OS</h4>
             <ul className="space-y-3">
-              {SERVICES.map((service) => (
+              {SERVICES.filter((s) => s.slug !== 'foundit-os').map((service) => (
                 <li key={service.slug}>
                   <Link href={`/${service.slug}`} className={linkClass}>
                     {SERVICE_SHORT_LABELS[service.slug] ?? service.name}

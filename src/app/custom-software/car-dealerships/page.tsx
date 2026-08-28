@@ -217,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Lot on Its Own System',
   finalCtaSub:
-    `Tell us how your dealership runs today. The rented website, the paper tickets, the spreadsheet. We will map what a system you own would look like. In person if you are local.`,
+    `Tell us how your dealership runs today. The rented website, the paper tickets, the spreadsheet. We will show you what a system you own would look like. In person if you are local.`,
 };
 
 export default function CarDealershipsPillar() {

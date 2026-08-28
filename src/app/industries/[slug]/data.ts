@@ -237,7 +237,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "Do you still do marketing for law firms?",
-        answer: "Yes, that's the other 10%. Software is 90% of what we do. When you want clients on top of the system, the same team runs the ads and the AI search. The software comes first.",
+        answer: "We retired the marketing side to build software full time. The one exception is AI Search Optimization: when somebody asks ChatGPT for a lawyer in your parish, we make sure it says you. Everything else we build is the system itself.",
       },
     ],
     formSource: "industry_lawyers",

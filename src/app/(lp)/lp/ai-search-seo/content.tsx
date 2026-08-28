@@ -22,7 +22,7 @@ const faqItems = [
   },
   {
     question: 'Is traditional SEO dead?',
-    answer: "No, but ranking #1 on Google no longer guarantees AI will recommend you. You need both working together. We handle the classic local SEO and the new AI visibility layer at the same time.",
+    answer: "No, but ranking #1 on Google no longer means AI will recommend you. You need both working together. We handle the classic local SEO and the new AI visibility layer at the same time.",
   },
   {
     question: 'How is this different from the SEO I might already pay for?',

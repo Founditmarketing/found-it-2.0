@@ -19,7 +19,7 @@ export function DitchQuickbooksLPContent() {
         headline: 'Ditch QuickBooks.',
         headlineAccent: 'Just Not On Day One.',
         subheadline:
-          "You're not crazy — QuickBooks wasn't built to run your jobs, your estimates, your crews, or your customers. But nobody should bet their business on a rip-out. So here's how our clients leave: we build your system, it runs BESIDE QuickBooks, penny-matched against it every night, and you switch the day the numbers say you can. And what you switch to is YOURS — the code and the data. Sign up below and we'll map it.",
+          "You're not crazy — QuickBooks wasn't built to run your jobs, your estimates, your crews, or your customers. But nobody should bet their business on a rip-out. So here's how our clients leave: we build your system, it runs BESIDE QuickBooks, penny-matched against it every night, and you switch the day the numbers say you can. And what you switch to is YOURS — the code and the data. Sign up below and we'll show you yours.",
         highlight:
           'The exit ramp: run both → penny-matched every night → switch when the numbers say you can. You own what you switch to.',
         highlightIcon: LogOut,

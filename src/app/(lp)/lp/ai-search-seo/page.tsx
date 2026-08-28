@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   { question: 'What is AI search optimization?', answer: "It's making sure your business is the answer when people ask AI tools like ChatGPT, Perplexity, or Google AI for a recommendation in your industry. AI engines use different signals than Google's blue links, so it takes a different playbook." },
-  { question: 'Is traditional SEO dead?', answer: "No, but ranking #1 on Google no longer guarantees AI will recommend you. You need both working together. We handle the classic local SEO and the new AI visibility layer at the same time." },
+  { question: 'Is traditional SEO dead?', answer: "No, but ranking #1 on Google no longer means AI will recommend you. You need both working together. We handle the classic local SEO and the new AI visibility layer at the same time." },
   { question: 'How is this different from the SEO I might already pay for?', answer: "Most SEO stops at Google rankings. We also structure your content, schema, and citations so the large language models behind ChatGPT, Gemini, and Perplexity pull you in as the recommended local option." },
   { question: 'How long until I show up in AI search?', answer: "Most clients see initial AI mentions within 60 to 90 days. Consistent visibility across multiple platforms takes 4 to 6 months. We track it and report monthly so you can see the movement." },
   { question: "How do I know it's actually working?", answer: "Every month you get a report showing where AI recommends you, where it doesn't yet, and what we're doing about it, alongside your organic traffic and call volume. Real signals, not vanity metrics." },

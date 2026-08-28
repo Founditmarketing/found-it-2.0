@@ -217,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Jobs on One Desk',
   finalCtaSub:
-    `Tell us how your operation runs today. The truck cab, the paper, the reminders that never happen. We will map what your own job management system would look like. In person if you are local.`,
+    `Tell us how your operation runs today. The truck cab, the paper, the reminders that never happen. We will show you what your own job management system would look like. In person if you are local.`,
 };
 
 export default function ContractorSoftwarePillar() {

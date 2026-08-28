@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { FOUNDING, OS_PRICING } from '@/lib/site';
+import { AISEO_PRICING, FOUNDING, OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 /* 8/18 audit rebuild: this is FOUND IT OS pricing — one number, one thought.
-   The marketing services still price honestly (flat fees, scoped in writing)
-   but live in a contained, visibly secondary block. Only approved numbers:
-   OS_PRICING is the site's ONLY sticker price; marketing rows carry fee
-   MODELS, not invented stickers. */
+   MARKETING SALES DEAD (8/26): the marketing rows are gone. The only services
+   below the OS are AI Search Optimization (the sole marketing offer, prices
+   printed from AISEO_PRICING) and Custom App Development (software). Never
+   re-add a marketing row. */
 
 /* Outcome-first, one objection dead per line (8/19, Trevor: "we can do
    better"). Declaratives only — restraint law bans staging the buyer's
@@ -25,14 +25,14 @@ const osFeatures = [
   'Month to month. The system earns the next month, every month',
 ];
 
-/* Contained marketing pricing: compact rows, one link each. */
-const marketingRows = [
-  { name: 'Google Ads Management', model: 'Flat monthly fee, priced on the free audit', href: '/google-ads-management' },
-  { name: 'Custom Web Design', model: 'Flat project quote, full number before any code', href: '/web-design' },
-  { name: 'AI Search Optimization', model: 'Flat monthly fee, priced after the free AI audit', href: '/ai-search-optimization' },
-  { name: 'Social Media Management', model: 'Flat monthly fee, priced by platforms and volume', href: '/social-media-management' },
+/* The two services that exist beside the OS. Prices printed, per doctrine. */
+const otherRows = [
+  {
+    name: 'AI Search Optimization',
+    model: `${AISEO_PRICING.standard}/mo standard, ${AISEO_PRICING.premium}/mo ${AISEO_PRICING.premiumLabel}`,
+    href: '/ai-search-optimization',
+  },
   { name: 'Custom App Development', model: 'Fixed project price, set on a free call', href: '/app-development' },
-  { name: 'AI Lead Response', model: 'Flat monthly fee, live in 1 to 2 weeks', href: '/ai-marketing' },
 ];
 
 export default function PricingClient() {
@@ -153,7 +153,7 @@ export default function PricingClient() {
           </p>
         </motion.div>
 
-        {/* Contained marketing pricing — visibly secondary by design. */}
+        {/* The rest of the catalog — visibly secondary by design. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -161,14 +161,15 @@ export default function PricingClient() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="bg-card/5 border border-border/10 rounded-2xl p-6 lg:p-8 mb-16"
         >
-          <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Need Customers Too?</p>
-          <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Marketing Pricing</h3>
+          <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Beyond the OS</p>
+          <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Everything Else We Build</h3>
           <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 max-w-2xl">
-            Thirteen years of it, for the companies we build systems for. Every service is a flat
-            fee, in writing, before you pay. You own your ad accounts, your site, your code.
+            Two things, priced in writing before you pay. Found It no longer takes new marketing
+            clients. AI Search Optimization is the one exception, because being the answer when
+            someone asks an AI who to hire is worth paying for.
           </p>
           <div className="divide-y divide-border/10">
-            {marketingRows.map((row) => (
+            {otherRows.map((row) => (
               <div key={row.href} className="py-3 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
                 <p className="text-sm font-bold text-foreground sm:w-56 shrink-0">{row.name}</p>
                 <p className="text-xs text-muted-foreground font-medium flex-grow">{row.model}</p>
@@ -178,9 +179,6 @@ export default function PricingClient() {
               </div>
             ))}
           </div>
-          <p className="text-[11px] text-muted-foreground/70 font-medium mt-4">
-            Ad spend goes straight to Google. Never marked up, never bundled.
-          </p>
         </motion.div>
 
         {/* CTA */}

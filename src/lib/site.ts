@@ -23,7 +23,7 @@ export const BUSINESS = {
   legalName: 'Found It Marketing LLC',
   tagline: 'Custom software your business owns.',
   description:
-    'Custom AI software and digital marketing company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems that improve lives and save time, owned outright by the client — plus Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO) for local businesses. No long-term contracts; clients own their accounts, code, and data.',
+    'Custom AI software company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems that improve lives and save time, owned outright by the client — plus custom app development and AI Search Optimization (GEO) so local businesses get recommended by AI. No long-term contracts; clients own their accounts, code, and data.',
   url: SITE_URL,
   logo: `${SITE_URL}/og-image-v3.png`,
   image: `${SITE_URL}/og-image-v3.png`,
@@ -176,20 +176,21 @@ export const SAME_AS = [
 ] as const;
 
 /** Topics the brand is an authority on — strengthens entity understanding for LLMs. */
+/* MARKETING SALES DEAD (Trevor, 2026-08-26): zero new marketing accounts, ever
+   forward. The SOLE marketing service still for sale is AI Search Optimization
+   at $1,500/mo standard, $3,200/mo premium / large market. Google Ads, web
+   design as a service, social media, and AI lead response were removed from
+   this list, SERVICES, nav, footer, sitemap, llms.txt, and the AI scripts.
+   Never reintroduce them as offers. */
 export const KNOWS_ABOUT = [
   'Custom AI Software',
   'Business Operating Systems',
   'Custom Software Development',
-  'Google Ads Management',
-  'Pay-Per-Click Advertising (PPC)',
   'Search Engine Optimization (SEO)',
   'Generative Engine Optimization (GEO)',
   'AI Search Optimization',
   'Local SEO',
-  'Conversion Rate Optimization',
   'Web Design and Development',
-  'Social Media Management',
-  'Marketing Automation',
 ] as const;
 
 export interface ServiceArea {
@@ -212,13 +213,19 @@ export const AREA_SERVED: ServiceArea[] = [
 /** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */
 export const SERVICE_SHORT_LABELS: Record<string, string> = {
   'foundit-os': 'Found It OS',
-  'google-ads-management': 'Google Ads',
-  'web-design': 'Web Design',
   'ai-search-optimization': 'AI Search / SEO',
-  'social-media-management': 'Social Media',
   'app-development': 'App Development',
-  'ai-marketing': 'AI Lead Response',
 };
+
+/* ─── AI Search Optimization pricing (the sole marketing offer) ───
+   Set by Trevor 2026-08-26 with the MARKETING SALES DEAD law. Printed, like
+   every price here. */
+export const AISEO_PRICING = {
+  standard: '$1,500',
+  premium: '$3,200',
+  premiumLabel: 'premium / large market',
+  label: 'per month',
+} as const;
 
 export interface ServiceDef {
   name: string;
@@ -227,7 +234,10 @@ export interface ServiceDef {
   description: string;
 }
 
-/** Canonical service catalog — referenced by Service schema + sitemap + llms.txt. */
+/** Canonical service catalog — referenced by Service schema + sitemap + llms.txt.
+    MARKETING SALES DEAD (8/26): Google Ads, Web Design, Social Media, and AI
+    Lead Response were removed as offers. Software plus AI Search Optimization
+    is the whole catalog. Never re-add a marketing service here. */
 export const SERVICES: ServiceDef[] = [
   {
     name: 'Found It OS — Custom Business Operating Systems',
@@ -237,32 +247,11 @@ export const SERVICES: ServiceDef[] = [
       'Custom operating systems built one business at a time — point of sale, inventory, customers, website, and a built-in AI in a single system clients own outright. Fitted in weeks with zero-downtime, penny-matched migration.',
   },
   {
-    name: 'Google Ads Management',
-    slug: 'google-ads-management',
-    serviceType: 'PPC Management',
-    description:
-      'Google Ads management for local service businesses with weekly optimization, real conversion tracking, and transparent reporting. No contracts.',
-  },
-  {
-    name: 'Web Design & Development',
-    slug: 'web-design',
-    serviceType: 'Web Design',
-    description:
-      'Custom, conversion-focused websites built on Next.js — fast, mobile-first, and engineered to turn visitors into calls. Clients own the code.',
-  },
-  {
     name: 'AI Search Optimization (GEO)',
     slug: 'ai-search-optimization',
     serviceType: 'Generative Engine Optimization',
     description:
-      'Generative Engine Optimization to get your business recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data.',
-  },
-  {
-    name: 'Social Media Management',
-    slug: 'social-media-management',
-    serviceType: 'Social Media Marketing',
-    description:
-      'Done-for-you social media content and strategy. We create it, you approve it — real content that builds authority and drives leads.',
+      'Generative Engine Optimization to get your business recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data. $1,500/month standard, $3,200/month premium and large markets.',
   },
   {
     name: 'Custom App Development',
@@ -270,14 +259,5 @@ export const SERVICES: ServiceDef[] = [
     serviceType: 'Mobile App Development',
     description:
       'Native-feeling iOS and Android app development with in-person blueprinting and fixed-price timelines. Clients own 100% of the codebase.',
-  },
-  {
-    // Renamed from "AI Marketing Automation" 8/18 (audit): the job is lead
-    // response — the old name blurred into Found It OS's built-in AI.
-    name: 'AI Lead Response',
-    slug: 'ai-marketing',
-    serviceType: 'Marketing Automation',
-    description:
-      'AI that answers every new lead by text and voice in seconds, follows up, and books the appointment — before a faster competitor does.',
   },
 ];

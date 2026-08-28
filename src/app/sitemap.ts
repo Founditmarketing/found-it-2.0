@@ -39,22 +39,12 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/custom-software/contractors', priority: 0.85, changeFrequency: 'weekly' },
   { path: '/custom-software/retail-stores', priority: 0.85, changeFrequency: 'weekly' },
   { path: '/custom-software/home-builders', priority: 0.85, changeFrequency: 'weekly' },
-  { path: '/google-ads-management', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/web-design', priority: 0.9, changeFrequency: 'weekly' },
+  // MARKETING SALES DEAD (8/26): google-ads-management, web-design,
+  // social-media-management, ai-marketing, marketing-alexandria,
+  // central-louisiana-web-design, pineville-seo, and the marketing /lp/*
+  // pages are now permanent redirects — removed from the sitemap.
   { path: '/ai-search-optimization', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/social-media-management', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/app-development', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/ai-marketing', priority: 0.9, changeFrequency: 'weekly' },
-
-  // Local / geo pages
-  { path: '/marketing-alexandria', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/central-louisiana-web-design', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/pineville-seo', priority: 0.6, changeFrequency: 'monthly' },
-
-  // Self-canonical /lp/* pages with no organic-pillar counterpart
-  { path: '/lp/lake-charles/google-ads-management', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/lp/lake-charles/web-design', priority: 0.6, changeFrequency: 'monthly' },
-  { path: '/lp/local-marketing-la-trimetro', priority: 0.6, changeFrequency: 'monthly' },
 
   // Tools / lead magnets
   { path: '/ai-visibility-check', priority: 0.6, changeFrequency: 'monthly' },

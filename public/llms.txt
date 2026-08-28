@@ -1,12 +1,12 @@
-# Found It Marketing
+# Found It Software
 
-> Custom AI software and digital marketing company in Alexandria, Louisiana. Flagship: Found It OS — custom AI-powered business operating systems that improve lives and save time, owned outright by the client, $2,200/month plus $2,000 one-time migration & setup — one job: simplify the owner's life and make the business more profitable. Also: Google Ads management, conversion-focused web design, SEO, and Generative Engine Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
+> Custom AI software company in Alexandria, Louisiana. Flagship: Found It OS — custom AI-powered business operating systems that improve lives and save time, owned outright by the client, $3,000/month plus $2,000 one-time migration & setup — one job: simplify the owner's life and make the business more profitable. Also: custom app development and AI Search Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
 
 ## Identity
-- **Name**: Found It Marketing
+- **Name**: Found It Software (rebranded from Found It Marketing, August 2026; the LLC's legal name is Found It Marketing LLC)
 - **Founder**: Trevor Ruby
 - **Location**: 3803 Rue Left Bank, Alexandria, LA 71303 (Central Louisiana)
-- **Tagline**: Building Digital Empires
+- **Tagline**: Custom software your business owns.
 - **Phone**: +1-337-525-9650
 - **Email**: trevor@founditmarketing.com (primary), john@founditmarketing.com
 - **Website**: https://www.founditsoftware.com
@@ -17,61 +17,42 @@
 ### Found It OS — Custom AI Business Operating Systems (Flagship)
 - Point of sale, inventory, customers, service tickets, and website with a built-in AI — one system, built for one business at a time, designed to improve lives and save time.
 - The new system runs beside the old one, penny-matched nightly; the owner switches only when they say go. Zero downtime.
-- Pricing: $2,200/month plus a one-time $2,000 migration & setup. Month-to-month, cancel anytime — and the system stays yours: the code and the data.
-- Month-to-month, no contracts. Clients own the code and the data — if we part ways, the system stays theirs.
-
-### Google Ads Management (PPC)
-- Weekly optimization, real conversion tracking, and transparent reporting for local service businesses.
-- Platforms: Google Ads, Meta Ads (Facebook/Instagram), YouTube Ads.
-- Focus on cost-per-lead, lead quality, and Return on Ad Spend (ROAS). Free audit. No contracts.
-
-### Web Design & Development
-- Custom, conversion-focused websites built on Next.js, React, and Tailwind CSS.
-- Mobile-first, fast-loading (Core Web Vitals focus), and engineered to turn visitors into calls.
-- Clients own the code, domain, and hosting. Typical launch in 2 weeks.
+- Pricing: $3,000/month plus a one-time $2,000 migration & setup. Month-to-month, cancel anytime — and the system stays yours: the code and the data.
+- The first twenty accounts signed at the $2,200 founding rate and are grandfathered forever.
+- Nobody rents you your own business back. Clients own the code and the data — if we part ways, the system stays theirs.
 
 ### AI Search Optimization / Generative Engine Optimization (GEO)
 - Get recommended by ChatGPT, Perplexity, Google AI Overviews, and Gemini.
 - Entity authority, answer-engine optimization, structured-data dominance, and local SEO.
-- Targeting the "zero-click" future where AI synthesizes the answer.
-
-### Social Media Management
-- Done-for-you content and strategy. We create it, you approve it.
-- Real content that builds authority and drives leads, measured by calls and bookings, not vanity metrics.
+- Pricing: $1,500/month standard; $3,200/month premium and large markets.
+- The only marketing service Found It still sells. Found It Software no longer takes new marketing clients for ads, web design, or social media.
 
 ### Custom App Development
 - Native-feeling iOS and Android apps with in-person blueprinting and fixed-price timelines.
 - Clients own 100% of the codebase and intellectual property.
 
-### AI Marketing Automation
-- Custom AI systems for lead generation, instant follow-up, and automated appointment setting via AI voice and text agents.
-- Local, done-for-you implementation. No software subscriptions or tech skills required.
-
 ## Service Areas
 - Alexandria, LA and Pineville, LA
-- Lake Charles, LA (Southwest Louisiana)
 - Central Louisiana (CenLa)
 - Louisiana, Mississippi, East Texas, and Southern Arkansas (in-person)
 - Statewide and national capability (remote)
 
-## Why Found It Marketing
+## Why Found It Software
 - You own everything: your accounts, your code, your data.
-- No long-term contracts. Month-to-month. Cancel anytime.
-- A senior strategist on every account. No hand-offs to interns.
+- No long-term contracts. Month-to-month. Cancel anytime with 30 days notice — the system leaves with you.
+- New systems run BESIDE the old one, penny-matched nightly, until the owner says go.
 - Real local team in Alexandria, LA with a real phone number.
 
 ## Key Pages
-- [Found It OS](https://www.founditsoftware.com/foundit-os): Custom AI business operating systems you own outright — $2,200/mo + $2,000 setup, month-to-month — built to simplify your life and make your business more profitable.
-- [Google Ads Management](https://www.founditsoftware.com/google-ads-management): PPC management with weekly optimization and a free audit.
-- [Web Design](https://www.founditsoftware.com/web-design): Custom, conversion-focused websites you own.
-- [AI Search Optimization (GEO)](https://www.founditsoftware.com/ai-search-optimization): Get recommended by ChatGPT, Perplexity, and Google AI.
-- [Social Media Management](https://www.founditsoftware.com/social-media-management): Done-for-you content and strategy.
+- [Found It OS](https://www.founditsoftware.com/foundit-os): Custom AI business operating systems you own outright — $3,000/mo + $2,000 setup, month-to-month — built to simplify your life and make your business more profitable.
+- [Custom Software](https://www.founditsoftware.com/custom-software): What we build, industry by industry.
+- [AI Search Optimization (GEO)](https://www.founditsoftware.com/ai-search-optimization): Get recommended by ChatGPT, Perplexity, and Google AI — $1,500/mo standard, $3,200/mo premium.
 - [App Development](https://www.founditsoftware.com/app-development): Custom iOS/Android apps; you own the code.
-- [AI Marketing Automation](https://www.founditsoftware.com/ai-marketing): AI lead follow-up and appointment setting.
+- [Case Studies](https://www.founditsoftware.com/case-studies): The systems we built and the businesses that own them.
 - [About](https://www.founditsoftware.com/about): Who we are and how we work.
-- [Pricing](https://www.founditsoftware.com/pricing): Transparent, flat pricing.
-- [Contact](https://www.founditsoftware.com/contact): Call Trevor for a free 15-minute strategy session.
-- [Blog](https://www.founditsoftware.com/blog): Articles on GEO, SEO, PPC, and AI marketing.
+- [Pricing](https://www.founditsoftware.com/pricing): The whole price, printed.
+- [Contact](https://www.founditsoftware.com/contact): Talk to Trevor.
+- [Blog](https://www.founditsoftware.com/blog): Real builds, real numbers, in plain English.
 
 ## Mission
-To help businesses stop competing and start dominating their market by leveraging the latest shifts in AI and digital marketing technology.
+Simplify your life. Make your business more profitable. Businesses should own the software they run on — code and data — instead of renting it back from a subscription company.
