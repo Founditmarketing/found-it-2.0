@@ -3,11 +3,11 @@ import ContactClient from './client';
 
 export const metadata: Metadata = {
   title: 'Contact | Found It Software',
-  description: 'Leave your number — Trevor calls you back, usually within 2 hours. Alexandria, LA.',
+  description: 'Leave your number — Trevor calls you back. Alexandria, LA.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact | Found It Software',
-    description: 'Leave your number — Trevor calls you back, usually within 2 hours. Alexandria, LA.',
+    description: 'Leave your number — Trevor calls you back. Alexandria, LA.',
     type: 'website',
     url: 'https://www.founditsoftware.com/contact',
     images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],

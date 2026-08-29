@@ -98,7 +98,7 @@ export async function POST(req: Request) {
           subject: 'Got it — Trevor’s on it',
           html: `
             <p style="margin:0 0 12px">Hey ${first},</p>
-            <p style="margin:0 0 12px">Your info just landed with Found It Software — Trevor will reach out shortly, usually within 2 hours during the day.</p>
+            <p style="margin:0 0 12px">Your info just landed with Found It Software — Trevor will reach out shortly.</p>
             <p style="margin:0 0 12px">On the call: tell us how it runs today and we&rsquo;ll show you what we&rsquo;d build if it were ours. Free, about 30 minutes, screen-shared. If it&rsquo;s not a fit, we tell you straight.</p>
             <p style="margin:0">— Trevor Ruby, Found It Software, Alexandria LA</p>
           `,

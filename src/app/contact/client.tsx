@@ -16,7 +16,7 @@ const fullAddress = `${BUSINESS.address.streetAddress}, ${BUSINESS.address.addre
 const contactMethods = [
   { icon: Mail, label: 'Email', value: BUSINESS.email, href: `mailto:${BUSINESS.email}` },
   { icon: MapPin, label: 'Office', value: fullAddress },
-  { icon: Clock, label: 'Response time', value: 'Usually within 2 hours' },
+  { icon: Clock, label: 'Response time', value: 'A human, not a queue' },
 ];
 
 export default function ContactClient() {

@@ -98,7 +98,7 @@ export function WichitaLPContent() {
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done. Tom will call you back, usually within 2 hours."
+        formSuccessNote="Done. Tom will call you back."
         formPrivacyNote="We reply within two hours."
         nextSteps={[
           'Leave your name and number.',

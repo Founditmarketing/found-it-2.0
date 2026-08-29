@@ -78,7 +78,7 @@ export function NativeLeadForm({
   privacyNote = 'We reply within two hours.',
   showBusiness = false,
   compact = false,
-  successNote = 'Trevor will call you back within 2 hours.',
+  successNote = 'Trevor will call you back.',
   qualify = 'optional',
   initialBand,
   trailLines,

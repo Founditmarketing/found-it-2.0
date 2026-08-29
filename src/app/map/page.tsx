@@ -96,10 +96,10 @@ export default function MapPage() {
                 source="map_page"
                 pageSlug="map"
                 heading="Start your Software Map"
-                subheading="Trevor texts you today to set the free 30-minute mapping session. The map is yours to keep whether or not you hire us."
+                subheading="Trevor texts you to set the free 30-minute mapping session. The map is yours to keep whether or not you hire us."
                 ctaLabel="Have Trevor Text Me"
                 qualify="optional"
-                successNote="Got it. Trevor texts you back today to set the fitting."
+                successNote="Got it. Trevor texts you to set the fitting."
                 privacyNote="No spam, no list. One human replies."
               />
             </div>

@@ -41,7 +41,7 @@ export default function ThankYouClient() {
             You&apos;re In.
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed mb-10">
-            We&apos;ve got your information. Trevor will call you back within 2 hours.
+            We&apos;ve got your information. Trevor will call you back.
           </p>
 
           {/* Next step: book a time */}

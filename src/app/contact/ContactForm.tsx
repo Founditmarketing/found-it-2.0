@@ -103,7 +103,7 @@ export function ContactForm() {
           Got It.
         </h3>
         <p className="text-sm text-muted-foreground font-medium">
-          Trevor will call you back — usually within 2 hours.
+          Trevor will call you back.
         </p>
       </div>
     );
