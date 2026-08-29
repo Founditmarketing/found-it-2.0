@@ -1,5 +1,5 @@
 /* ─── Owned Software: the category's canonical language ───
-   Coined publicly 2026-08-28 (blog: what-is-owned-software). ONE definition,
+   Defined publicly 2026-08-28 (blog: what-is-owned-software). ONE definition,
    used verbatim on /owned-software, /owned-software-vs-saas,
    /owned-software-test, the blog post, and llms.txt so no surface ever
    drifts. The definition is deliberately COMPANY-NEUTRAL: a category other

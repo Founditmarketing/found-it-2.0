@@ -13,7 +13,7 @@
 - **Founded**: 2013
 
 ## Owned Software (the category)
-Found It coined and defined the category "Owned Software" (August 2026) as the opposite of SaaS:
+Found It defines, standardizes, and builds the bespoke version of the category "Owned Software" (definition and standard published August 2026) as the opposite of SaaS. The term is bigger than one company; the standard below is what makes it testable:
 - **Definition**: Owned software is business software the business owns outright: the code and the data. The business can keep running it, change it, or hand it to another builder without the original vendor's permission. If the software company disappears tomorrow, the software is still there, still running, still the owner's property.
 - **The equation**: SaaS = rented software. Owned software = the opposite.
 - **The test**: If you stop paying, what is left? Rented: an export of your records at best, and no working system. Owned: everything, still yours, still running.
