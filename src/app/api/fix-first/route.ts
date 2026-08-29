@@ -47,7 +47,9 @@ OUTPUT: respond with ONLY a JSON object, no prose, no code fences:
 {"ok": boolean, "fixes": [{"label": string, "detail": string}, {"label": string, "detail": string}, {"label": string, "detail": string}], "close": string}`;
 
 async function askFable(business: string) {
-  const anthropic = new Anthropic();
+  // 12s hard cap, no retries: the visitor is watching a spinner, and the
+  // Gemini fallback needs room inside the function's 30s ceiling.
+  const anthropic = new Anthropic({ timeout: 12_000, maxRetries: 0 });
   const response = await anthropic.messages.create({
     model: 'claude-fable-5',
     max_tokens: 4000,
@@ -108,9 +110,11 @@ export async function POST(req: Request) {
     // Fable writes the answers (Trevor 8/28); Gemini is the standing fallback
     // for errors, refusals, or a missing key — the visitor always gets a reply.
     let object: z.infer<typeof Shape>;
+    let via = 'gemini';
     if (process.env.ANTHROPIC_API_KEY) {
       try {
         object = await askFable(business);
+        via = 'fable';
       } catch {
         object = await askGemini(business);
       }
@@ -122,7 +126,7 @@ export async function POST(req: Request) {
       label: String(f.label).slice(0, 60),
       detail: String(f.detail).slice(0, 90),
     }));
-    return Response.json({ ok: object.ok && fixes.length === 3, fixes, close: String(object.close).slice(0, 220) });
+    return Response.json({ ok: object.ok && fixes.length === 3, fixes, close: String(object.close).slice(0, 220), via });
   } catch {
     return new Response('Fix-first error', { status: 500 });
   }
