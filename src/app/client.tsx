@@ -31,7 +31,38 @@ export default function HomePage() {
           className="absolute left-1/2 top-16 -translate-x-1/2 w-[52rem] h-[26rem] rounded-full bg-primary/[0.07] blur-[120px] pointer-events-none"
         />
 
-        <div className="relative z-10 max-w-[1100px] mx-auto px-6">
+        {/* ═══ MOBILE HERO — its own animal (Trevor 8/28: "totally custom
+            for mobile"). Four-word claim, one support line, straight to the
+            console. No paragraph, no door cards, one CTA after the machine. ═══ */}
+        <div className="relative z-10 px-5 text-center md:hidden">
+          <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] font-black uppercase tracking-[0.35em] mb-4">
+            Owned Software &middot; Not SaaS
+          </p>
+          <h1 className="opacity-0 animate-reveal-up delay-200 text-[19vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white">
+            Five<br />Systems?<br />
+            <span className="text-primary">One. Yours.</span>
+          </h1>
+          <p className="opacity-0 animate-reveal-up-sm delay-300 mt-4 text-sm text-white/75 font-medium">
+            Built around your business. You own the code and the data.
+          </p>
+          <div className="opacity-0 animate-reveal-up delay-400 mt-8">
+            <FixFirst compact />
+          </div>
+          <div className="opacity-0 animate-reveal-up-sm delay-400 mt-8">
+            <Link
+              href="/map"
+              className="flex items-center justify-center w-full h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm active:opacity-90"
+            >
+              Show Me What You'd Build
+            </Link>
+            <p className="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+              Month-to-month &middot; You keep everything
+            </p>
+          </div>
+        </div>
+
+        {/* ═══ DESKTOP HERO — unchanged ═══ */}
+        <div className="relative z-10 max-w-[1100px] mx-auto px-6 hidden md:block">
           <div className="text-center mb-10 lg:mb-12">
             {/* THE CATEGORY (8/27 review): "Owned Software" is the claim —
                 SaaS rents, we hand over the keys. One line, said like a fact. */}

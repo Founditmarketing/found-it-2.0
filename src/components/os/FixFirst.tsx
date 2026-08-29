@@ -26,7 +26,7 @@ const DEFAULT_CARDS = [
 
 const CHAR_MS = 14; // typing speed, AskTheOS family
 
-export function FixFirst() {
+export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
   const [business, setBusiness] = useState('');
   const [phase, setPhase] = useState<'idle' | 'thinking' | 'done'>('idle');
   const [fixes, setFixes] = useState<Fix[] | null>(null);
@@ -149,13 +149,16 @@ export function FixFirst() {
   const showGenerated = phase === 'done' && fixes;
 
   return (
-    <div className="opacity-0 animate-reveal-up delay-400">
-      <p className="text-center text-sm font-black uppercase tracking-[0.25em] text-primary">
+    <div className={compact ? '' : 'opacity-0 animate-reveal-up delay-400'}>
+      <p className={`text-center font-black uppercase text-primary ${compact ? 'text-xs tracking-[0.2em]' : 'text-sm tracking-[0.25em]'}`}>
         What Would Yours Fix First?
       </p>
-      <p className="text-center text-sm text-muted-foreground font-medium mt-2 mb-6">
-        Tell it what you run. It writes what yours would fix.
-      </p>
+      {!compact && (
+        <p className="text-center text-sm text-muted-foreground font-medium mt-2 mb-6">
+          Tell it what you run. It writes what yours would fix.
+        </p>
+      )}
+      {compact && <div className="mb-4" />}
 
       {/* The ask: one joined command pill — input and trigger share the object. */}
       <form
@@ -245,13 +248,17 @@ export function FixFirst() {
               closeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
-            <Link
-              href="/map"
-              className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
-              onClick={() => trackCTAClick('fix_first_map')}
-            >
-              Show Me What You’d Build <ArrowRight className="w-3 h-3" />
-            </Link>
+            {/* Compact (mobile) already has the big /map button right below —
+                no duplicate link inside the answer. */}
+            {!compact && (
+              <Link
+                href="/map"
+                className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
+                onClick={() => trackCTAClick('fix_first_map')}
+              >
+                Show Me What You’d Build <ArrowRight className="w-3 h-3" />
+              </Link>
+            )}
             <button
               type="button"
               onClick={reset}
@@ -261,7 +268,7 @@ export function FixFirst() {
             </button>
           </div>
         </>
-      ) : (
+      ) : compact ? null : (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {DEFAULT_CARDS.map((c) => (
             <a
