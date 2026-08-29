@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { AskTheOS } from '@/components/os/AskTheOS';
-import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { FixFirst } from '@/components/os/FixFirst';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
@@ -390,10 +389,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          ASK THE OS — the demo beat, self-serve. VOICE FIRST (Trevor 8/29:
-          "let's just do the ai secretary thing"): the live secretary IS the
-          demo — she talks, answers from the demo books, and takes the number
-          herself. The text widget stays below for the mic-shy.
+          ASK THE OS — the demo beat, self-serve
       ═══════════════════════════════════════════ */}
       <section className="relative py-16 lg:py-24">
         <div className="max-w-[1000px] mx-auto px-6">
@@ -404,16 +400,11 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-10"
           >
-            <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
-              Live Demo &middot; Not a Video
-            </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-              Talk to One Right Now.
+              Ask It. It Answers.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              A real AI employee, live on this page &mdash; the same kind that answers a law
-              office&rsquo;s 9 PM calls. Ask her anything.{' '}
-              <span className="text-white font-bold">She&rsquo;ll take your number herself.</span>
+              Every Found It OS ships with an AI that reads your books. This one runs a demo book. Tap a question. Yours would answer from <span className="text-white font-bold">yours</span>.
             </p>
           </motion.div>
 
@@ -422,25 +413,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-[720px] mx-auto"
           >
-            <VoiceAgentWidget
-              pageSlug="home"
-              opener="Hey — I'm the AI employee that comes built into every Found It system. Ask me anything: what I do all day, what it costs, or who owes money in the demo books."
-              fallbackHref="/map"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease }}
-            className="mt-12"
-          >
-            <p className="text-center text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-5">
-              Rather type? Same brain, demo books:
-            </p>
             <AskTheOS />
           </motion.div>
 
