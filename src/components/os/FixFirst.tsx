@@ -151,7 +151,8 @@ export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
   return (
     <div className={compact ? '' : 'opacity-0 animate-reveal-up delay-400'}>
       <p className={`text-center font-black uppercase text-primary ${compact ? 'text-xs tracking-[0.2em]' : 'text-sm tracking-[0.25em]'}`}>
-        What Would Yours Fix First?
+        {/* Mobile runs the employee frame: an employee DOES. Desktop keeps Fix. */}
+        {compact ? 'What Would Yours Do First?' : 'What Would Yours Fix First?'}
       </p>
       {!compact && (
         <p className="text-center text-sm text-muted-foreground font-medium mt-2 mb-6">

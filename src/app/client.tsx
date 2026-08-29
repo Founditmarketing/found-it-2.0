@@ -38,12 +38,12 @@ export default function HomePage() {
           <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] font-black uppercase tracking-[0.35em] mb-4">
             Owned Software &middot; Not SaaS
           </p>
-          <h1 className="opacity-0 animate-reveal-up delay-200 text-[19vw] leading-[0.88] tracking-tight font-black font-heading uppercase italic text-white">
-            Five<br />Systems?<br />
-            <span className="text-primary">One. Yours.</span>
+          <h1 className="opacity-0 animate-reveal-up delay-200 text-[13.5vw] leading-[0.9] tracking-tight font-black font-heading uppercase italic text-white">
+            It Answers.<br />It Types.<br />It Chases.<br />
+            <span className="text-primary">You Own It.</span>
           </h1>
           <p className="opacity-0 animate-reveal-up-sm delay-300 mt-4 text-sm text-white/75 font-medium">
-            Built around your business. You own the code and the data.
+            An AI employee built around your business. The phone, the paperwork, the money owed. Handled.
           </p>
           <div className="opacity-0 animate-reveal-up delay-400 mt-8">
             <FixFirst compact />
