@@ -7,6 +7,10 @@ import { createCalendlyListener } from '@/lib/analytics';
 /* One env var moves the whole site to a different Ads account if the new
    campaign build's conversion ID ever differs from the legacy tag. */
 const AW_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-17848789749';
+/* GA4 rides the same gtag loader. Every track* helper in lib/analytics.ts
+   already sends with send_to: GA4_ID — this config line is what makes the
+   property receive them. Stream: founditsoftware.com (created 8/29). */
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || '';
 
 export const GoogleTag = () => {
     useEffect(() => {
@@ -31,6 +35,7 @@ export const GoogleTag = () => {
           gtag('js', new Date());
 
           gtag('config', '${AW_ID}');
+          ${GA4_ID ? `gtag('config', '${GA4_ID}');` : ''}
         `}
             </Script>
         </>
