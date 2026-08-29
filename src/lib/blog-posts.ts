@@ -19,6 +19,35 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'your-new-employee',
+        title: 'Your New Employee',
+        date: '2026-08-29',
+        excerpt: 'A desk seat around here runs about $2,500 a month. I was thinking I\'m selling software. I\'m not — I\'m selling employees. New hires that were never going to happen.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/your-new-employee-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A desk seat around here runs about <span style="color: #FF5500;">$2,500 a month.</span> Before taxes. Before training. Before the week in July when they're in Destin and the phone's ringing anyway.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I was thinking I'm selling software. <span style="color: #FF5500;">I'm not.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm selling employees — not replacements, <span style="color: #FF5500;">new hires that were never going to happen.</span> The work owners do at 9 PM.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The job <span style="color: #FF5500;">descriptions:</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>The night secretary.</strong> Kenneth's a one-man law firm. His system answers the 9 PM call, takes the story, books the consult, opens the file — then waits for his tap. She can't touch SEND, won't calculate a deadline, and can't touch a dollar of client money.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>The bid department.</strong> Big contractors pay whole departments to read state bid filings. Tyler pays nobody. His system reads Louisiana's paperwork every morning, prices clearing work off seventy-eight thousand lines of real winning bids, and put a multimillion-dollar road job on his board before his coffee got cold. It's banned from bidding. The handshake stays his.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>The auditor.</strong> The day one roofer's system went live, it read his books. Found $195,882.75 in open receivables. Caught a $19,000 error his old software never blinked at. Worked its first shift for free.</p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$195,882.75</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">found on the new hire's first shift — and the shift was free</div></div>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Strange employee. Works nights, never quits — <span style="color: #FF5500;">and it turns down work.</span> No payroll, no tax filing, ever. Half of custom software is knowing what to refuse.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And when a great employee walks, everything they knew walks with them. This one can't walk. You own it — <span style="color: #FF5500;">the code and the data, outright.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Nobody rents you your own business back.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
+`,
+    },
+    {
         slug: 'what-is-owned-software',
         title: 'SaaS Got a Name. Software Ownership Got IT Jargon.',
         date: '2026-08-28',
