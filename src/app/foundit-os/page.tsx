@@ -3,9 +3,9 @@ import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Found It OS — Custom Operating Systems for Local Businesses',
+  title: 'Found It OS — The AI Employee Your Business Owns',
   description:
-    `Found It OS is one AI system that runs your whole business, and you own it outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Alexandria, LA.`,
+    `Found It OS is an AI employee built around your business. It answers, it types, it chases what you're owed, and you own it outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Software',
@@ -30,12 +30,12 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and a built-in AI assistant in one system the client owns outright. It runs beside the old system until the books match to the penny, so the switch has zero downtime. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
+    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so the switch has zero downtime. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
   eyebrow: 'Found It OS',
-  headline: 'Stop Renting Your Software.',
-  headlineAccent: 'Own Your Whole System.',
+  headline: 'It Answers. It Types. It Chases.',
+  headlineAccent: 'You Own It.',
   intro:
-    `Try to leave the software you rent today. You might keep an export of your records. You don't keep the working system — not the register, not the workflows, not the thing that actually runs your day. Found It OS fixes that. One system built around how you run, and you own it outright. Nothing switches until it has run beside your old system and matched it to the penny.`,
+    `Found It OS is an AI employee built around your business. It answers the phone and takes a real message. It types the paperwork your people re-key today. It chases the estimates and the money owed so nobody has to. And unlike every subscription on your card, you own it outright: the code and the data. Nothing switches until it has run beside your old system and matched it to the penny.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
@@ -72,9 +72,9 @@ const data: PillarData = {
         'Your website and your system share one brain. Change a price once and it shows up everywhere.',
     },
     {
-      title: 'AI That Knows Your Business',
+      title: 'An AI Employee on Every Shift',
       detail:
-        'Ask in plain English. Who bought what, what is running low, who has not been in. It answers from your own books. It can read them. It cannot write them.',
+        'It answers the phone, drafts the follow-up texts, chases what you are owed, and files paperwork from a photo. Ask it anything about your books in plain English. It can read them. It cannot write them.',
     },
     {
       title: 'Books That Show Their Work',
@@ -118,7 +118,7 @@ const data: PillarData = {
   audience: [
     'Retail stores stuck on an aging register or terminal POS',
     'Repair and service shops running on paper tickets',
-    'Businesses renting software that fights them',
+    'Owners still doing office work at nine o’clock at night',
     'Owners whose customer list lives in someone’s head',
     'Companies quoted $50K+ by custom software shops',
     'Anyone who wants to own their system instead of renting it',
@@ -132,7 +132,7 @@ const data: PillarData = {
     'Service Tickets',
     'Scheduling',
     'Your Website',
-    'AI Assistant',
+    'The AI Employee',
   ],
   result: {
     headline: 'Before Anything Switches',
@@ -183,7 +183,12 @@ const data: PillarData = {
     {
       question: 'What exactly is Found It OS?',
       answer:
-        'One system for your whole business. Point of sale, inventory, customers, invoices, service tickets, and your website, with a built-in AI. Built around how you run, and you own it outright.',
+        'One system for your whole business. Point of sale, inventory, customers, invoices, service tickets, and your website, with an AI employee working inside it. Built around how you run, and you own it outright.',
+    },
+    {
+      question: 'What does "AI employee" actually mean?',
+      answer:
+        'Work the system does itself. It answers the phone and takes a real message. It drafts the follow-up texts on open estimates. It sends the payment reminders. It reads paperwork from a photo and files it. Your people approve what matters, and it never touches the books on its own.',
     },
     {
       question: 'What happens to my old system and my data?',
@@ -244,9 +249,9 @@ const data: PillarData = {
     { title: 'The Free Walkthrough, Explained', href: '/blog/what-is-a-software-map' },
     { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
   ],
-  finalCtaHeadline: 'See Your Business on Its Own OS',
+  finalCtaHeadline: 'See What Yours Would Do First',
   finalCtaSub:
-    `Tell us how your business runs today. The register, the paper, the workarounds. If yours is a fit, we show you what your own system would look like. If it's not, we tell you straight.`,
+    `Tell us how your business runs today. The phone, the paper, the chasing. If yours is a fit, we show you what your own AI employee would take off your people first. If it's not, we tell you straight.`,
 };
 
 export default function FoundItOSPillar() {
