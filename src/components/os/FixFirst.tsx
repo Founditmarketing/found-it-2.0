@@ -168,33 +168,25 @@ export function FixFirst() {
 
       {showGenerated ? (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          {/* No boxes (Trevor 8/28): three written lines — the bold wound
+              flows into its muted detail as one sentence the machine types. */}
+          <div className="max-w-xl mx-auto min-h-[10.5rem] space-y-5 text-left">
             {fixes!.map((f, i) => {
               const t = typed[i] ?? { label: '', detail: '' };
               const labelLive = t.label.length < f.label.length;
               const detailLive = !labelLive && t.detail.length < f.detail.length;
               return (
-                <Link
-                  key={i}
-                  href="/map"
-                  className="group bg-card/10 border border-primary/30 rounded-2xl px-6 py-6 text-center hover:border-primary/60 hover:bg-primary/[0.04] transition-colors flex flex-col justify-between min-h-[10rem]"
-                >
-                  <div>
-                    <p className="text-sm font-black text-foreground leading-snug">
+                <Link key={i} href="/map" className="group block">
+                  <p className="text-base sm:text-lg leading-relaxed">
+                    <span className="font-black text-foreground group-hover:text-primary transition-colors">
                       {t.label}
                       {labelLive && <span aria-hidden className="text-primary animate-pulse">▍</span>}
-                    </p>
-                    <p className="text-xs text-muted-foreground font-medium mt-1.5 leading-relaxed">
+                    </span>
+                    {!labelLive && t.detail && ' '}
+                    <span className="text-muted-foreground font-medium">
                       {t.detail}
                       {detailLive && <span aria-hidden className="text-primary animate-pulse">▍</span>}
-                    </p>
-                  </div>
-                  <p
-                    className={`text-[11px] text-primary font-bold uppercase tracking-wider mt-4 inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all duration-300 ${
-                      cardsDone > i ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    Show me <ArrowRight className="w-3 h-3" />
+                    </span>
                   </p>
                 </Link>
               );
