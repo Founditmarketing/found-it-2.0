@@ -57,7 +57,7 @@ export default function AboutPage() {
           <FounderByline
             size="lg"
             className="mb-8"
-            line="Founder. Builds every system himself, in Alexandria, Louisiana."
+            line="Founder. Alexandria, Louisiana."
           />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
             We Build the Software.{' '}

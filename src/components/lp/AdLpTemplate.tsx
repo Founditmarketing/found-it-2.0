@@ -145,7 +145,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
       <div className="max-w-3xl mx-auto px-4 -mt-2 mb-6">
         <FounderByline
           align="center"
-          line="He builds every system himself. He’s the one who calls you back."
+          line="He’s the one who calls you back."
         />
       </div>
 

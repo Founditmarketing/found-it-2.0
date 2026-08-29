@@ -81,7 +81,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               <FounderByline
                 align="center"
                 className="mt-6"
-                line="Founder, Found It Software. Builds every system himself."
+                line="Founder, Found It Software."
               />
             </header>
         </div>

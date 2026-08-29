@@ -20,7 +20,7 @@ const PX = { sm: 40, md: 56, lg: 96 } as const;
 
 export function FounderByline({
   size = 'md',
-  line = 'Founder. Builds every system himself — and he’s the one who calls you back.',
+  line = 'Founder. He’s the one who calls you back.',
   align = 'left',
   className = '',
 }: FounderBylineProps) {
