@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'The AI-Powered',
   headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
-    `Tekmetric is a good system. But you rent it forever, and your shop's history lives in their cloud. We build the AI-powered shop system you own. We already moved a real shop off a Tekmetric-class system, about ten years of records. On the way in, the AI found about $270K in forgotten, unbilled work. One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. You own it, code and data. Nothing switches until the new system runs beside your old one and matches it. The price is on this page.`,
+    `Tekmetric is a good system. But you rent it forever, and your shop's history lives in their cloud. We build the AI-powered shop system you own. We already moved a real shop off a Tekmetric-class system, about ten years of records. On the way in, the AI found about $270K in forgotten, unbilled work. One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. You own it, code and data. Nothing switches until the new system runs beside your old one and matches it.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
@@ -142,7 +142,7 @@ const data: PillarData = {
       { value: '~$270K', label: 'Unbilled Work Surfaced' },
     ],
     narrative:
-      'We fitted a full shop system for one Louisiana auto shop, running on about ten years of migrated records. During that migration, the system found about $270,000 in forgotten, unbilled work. The shop called it the parking lot. It was there the whole time. The old software just never showed it. A good migration can pay for itself before the new system goes live. What is sleeping in your old system?',
+      'We fitted a full shop system for one Louisiana auto shop, running on about ten years of migrated records. During that migration, the system found about $270,000 in forgotten, unbilled work. The shop called it the parking lot. It was there the whole time. The old software just never showed it. A good migration can pay for itself before the new system goes live.',
   },
   mistakesHeading: 'Why Shop Software Usually Goes Wrong',
   mistakes: [

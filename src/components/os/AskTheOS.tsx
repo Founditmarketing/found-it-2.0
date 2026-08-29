@@ -57,7 +57,7 @@ const ANSWERS: Answer[] = [
       { name: 'Unbilled work', note: '3 tickets', amount: '$6,250' },
       { name: 'Lapsed annual services', note: '5 customers', amount: '$2,250' },
     ],
-    footer: 'One real migration surfaced ~$270K of this for one shop. What’s in yours?',
+    footer: 'One real migration surfaced ~$270K of this for one shop.',
   },
   {
     id: 'penny',

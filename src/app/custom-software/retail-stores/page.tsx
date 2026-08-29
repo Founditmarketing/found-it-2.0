@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'The House System.',
   headlineAccent: 'A Register That Remembers.',
   intro:
-    `The House System was built for the established independent store whose operation is scattered. Inventory in the POS. Customer history in the processor's cloud. Layaway in a binder under the counter. Special orders in somebody's memory. If that is your store, this is your system. We call it the House System because it thinks in households, not transactions. The family that has bought from you for three generations is one story, not four hundred receipts. One system: the register, the inventory, the customer book, layaway, special orders, and an AI that answers from your own sales history. You own it outright. Your records get migrated in, and nothing switches until the new register runs beside your old one and matches it to the penny.`,
+    `The House System was built for the established independent store whose operation is scattered. Inventory in the POS. Customer history in the processor's cloud. Layaway in a binder under the counter. Special orders in somebody's memory. We call it the House System because it thinks in households, not transactions. One system: the register, the inventory, the customer book, layaway, special orders, and an AI that answers from your own sales history. You own it outright. Your records get migrated in, and nothing switches until the new register runs beside your old one and matches it to the penny.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
@@ -64,7 +64,7 @@ const data: PillarData = {
     {
       title: 'A Customer Book With a Memory',
       detail:
-        'Customers and households, with every purchase attached. We fitted this core to a Louisiana store open since 1946. Its staging register remembers who bought a washer in 2018.',
+        'Customers and households, with every purchase attached, back as far as your records go.',
     },
     {
       title: 'Layaway & Special Orders',

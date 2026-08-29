@@ -36,8 +36,8 @@ export default function ContactClient() {
             Send Your Number.{' '}<span className="text-primary">Trevor Calls You.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
-            No junior account managers. A straight answer on what would work for your business —
-            including whether we&apos;re the right fit to build it — usually within two hours.
+            A straight answer on what would work for your business —
+            and whether we&apos;re the right fit to build it.
           </p>
           <FounderByline
             align="center"

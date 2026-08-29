@@ -165,10 +165,10 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Sell more buildings and the price stays the same. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise} Compare that to software that takes a toll on every unit and holds your records if you try to leave.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Sell more buildings and the price stays the same. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
-    'We already built this for the shed industry. A full system fitted to a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
+    'We built this for a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
     `Real local businesses run their own systems right now.`,
     'You own 100% of the code and the data.',
   ],
@@ -202,7 +202,7 @@ const data: PillarData = {
     {
       question: 'Who owns the system?',
       answer:
-        'You do. The code, the data, the whole system. Rented shed software holds your order history and RTO book and dares you to switch. Ownership ends that.',
+        'You do. The code, the data, the whole system. Rented shed software holds your order history and RTO book. Ownership ends that.',
     },
     {
       question: 'Is this in production at a shed company today?',

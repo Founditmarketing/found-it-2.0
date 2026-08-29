@@ -164,7 +164,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Compare that to a rented website-and-DMS combo. Rent that never ends, for software you never own.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now, sales, service, and rentals in one system, for a Louisiana independent dealer.',

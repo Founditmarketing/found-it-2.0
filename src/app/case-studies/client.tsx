@@ -86,7 +86,7 @@ export default function CaseStudiesPage() {
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
             Local businesses across central Louisiana run on software we built. Every one
-            owns it outright. These aren&apos;t mockups. They&apos;re the real systems.
+            owns it outright.
           </p>
         </motion.div>
 

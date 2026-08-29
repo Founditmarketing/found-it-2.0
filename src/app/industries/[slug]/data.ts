@@ -203,7 +203,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         title: "An AI that reads the firm's books",
-        description: "Ask it plain questions. What's unbilled, which matters went quiet, how this June compares to last June. It reads and it answers. It cannot write an entry. The AI can't get in the books.",
+        description: "Ask it plain questions. What's unbilled, which matters went quiet, how this June compares to last June. It reads and it answers. It can't get in the books.",
       },
       {
         title: "You own it: code and data",
@@ -229,11 +229,11 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "Will it handle trust accounting or calculate court deadlines?",
-        answer: "No. Trust accounting and IOLTA stay where they are now. Deadline math stays with your lawyers and your docketing. The system runs intake, matters, documents, and billing. The AI answers questions about the firm's books, and it is read-only. It can look. It can never write an entry.",
+        answer: "No. Trust accounting and IOLTA stay where they are now. Deadline math stays with your lawyers and your docketing. The system runs intake, matters, documents, and billing.",
       },
       {
         question: "What does it cost, and am I locked into a contract?",
-        answer: "One public price, month-to-month. Clients stay because they love the system, not because they're locked in. Cancel anytime with 30 days' notice. The whole thing stays yours.",
+        answer: "One public price, month-to-month. Cancel anytime with 30 days' notice. The whole thing stays yours.",
       },
       {
         question: "Do you still do marketing for law firms?",

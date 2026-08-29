@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Contractor Job Management',
   headlineAccent: 'Software You Own Outright.',
   intro:
-    `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Annual service work slips because nobody got a reminder. Rented CRMs are built for everyone, so they fit nobody. Found It OS is the opposite. One system fitted to how your crews run jobs. The job board, the schedule, the customer book, the invoices, the website leads. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
+    `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Annual service work slips because nobody got a reminder. Found It OS is one system fitted to how your crews run jobs. The job board, the schedule, the customer book, the invoices, the website leads. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_contractors',
   formPageSlug: 'custom-software-contractors',
@@ -137,7 +137,7 @@ const data: PillarData = {
       { value: 'Annual', label: 'Service Reminders Working' },
     ],
     narrative:
-      'This is not a mockup. A specialty outdoor-equipment service company runs its whole field operation on a system we fitted. Every job, every customer, and annual service reminders so repeat revenue stops slipping. When a customer fills out the website form, the lead lands right on the desk inside the system. No inbox, no copy-paste, no lost slip of paper.',
+      'A specialty outdoor-equipment service company runs its whole field operation on a system we fitted. Every job, every customer, and annual service reminders so repeat revenue stops slipping. When a customer fills out the website form, the lead lands right on the desk inside the system. No inbox, no copy-paste, no lost slip of paper.',
   },
   mistakesHeading: 'Why Contractor Software Usually Goes Wrong',
   mistakes: [

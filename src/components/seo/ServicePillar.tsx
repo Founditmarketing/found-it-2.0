@@ -204,7 +204,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
               She comes with every system. She answers the phone, schedules estimates, and
-              enters customers into the database herself. Talk to her right now:
+              enters customers into the database herself.
             </p>
             <VoiceAgentWidget pageSlug={data.formPageSlug} />
           </section>

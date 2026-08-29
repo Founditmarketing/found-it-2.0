@@ -37,7 +37,7 @@ const data: PillarData = {
   headline: 'Built for Your Company —',
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this site.`,
+    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
@@ -169,7 +169,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'The Price Is on the Website',
   pricing:
-    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} A custom system fitted to your business, at a price you can read before you ever talk to us.`,
+    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,

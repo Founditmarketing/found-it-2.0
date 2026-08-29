@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'CoConstruct Is Being Retired.',
   headlineAccent: 'Own What Replaces It.',
   intro:
-    `CoConstruct is being retired. Every builder on it has to move somewhere. The only question is whether you land in another rented seat or in a system you own. We are building a builder OS right now. Draws, selections, change orders, sub scheduling. The takeoff line IS the estimate line. Come in as a design partner, get fitted first, and shape the system around how you build. Own it outright before CoConstruct goes dark. Your records get migrated in, and nothing switches until the new system runs beside your old one and matches it.`,
+    `CoConstruct is being retired. Every builder on it has to move somewhere. The only question is whether you land in another rented seat or in a system you own. We are building a builder OS right now. Draws, selections, change orders, sub scheduling. The takeoff line IS the estimate line. Come in as a design partner, get fitted first, and shape the system around how you build. Your records get migrated in, and nothing switches until the new system runs beside your old one and matches it.`,
   ctaLabel: 'Get My Design-Partner Fitting',
   formSource: 'service_custom_software_home_builders',
   formPageSlug: 'custom-software-home-builders',
@@ -137,7 +137,7 @@ const data: PillarData = {
       { value: 'Owned', label: 'Code & Data, Outright' },
     ],
     narrative:
-      'The builder OS is in fitting with a custom home builder right now. Design partners come in the same door. We map how your jobs run, you shape what gets built, and the system takes the shape of your operation while CoConstruct winds down. When it goes dark, you are already running a system that is yours. And the rule never bends: nothing switches until the new system runs beside your old one and matches it.',
+      'The builder OS is in fitting with a custom home builder right now. Design partners come in the same door. We map how your jobs run, you shape what gets built, and the system takes the shape of your operation while CoConstruct winds down. When it goes dark, you are already running a system that is yours.',
   },
   mistakesHeading: 'How Builders Get Burned Switching Software',
   mistakes: [
@@ -215,7 +215,7 @@ const data: PillarData = {
     { title: 'Custom Software for Contractors', href: '/custom-software/contractors' },
     { title: 'Custom Software for Shed Builders', href: '/custom-software/shed-builders' },
   ],
-  finalCtaHeadline: 'Get Fitted Before CoConstruct Goes Dark',
+  finalCtaHeadline: 'Move Before the Sunset',
   finalCtaSub:
     `Tell us how your jobs run today. The takeoffs, the draw schedules, the selection emails, the change orders on sticky notes. We will show you what your own builder OS would look like. Design partners get fitted first and shape what gets built.`,
 };

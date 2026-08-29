@@ -149,7 +149,7 @@ const data: PillarData = {
     {
       title: 'Renting forever',
       detail:
-        'Big-name platforms charge rent forever, raise prices when they want, and keep the working system if you try to leave — you walk out with an export, not the machine. They rent you your own business back.',
+        'Big-name platforms charge rent forever, raise prices when they want, and keep the working system if you try to leave. They rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
@@ -246,7 +246,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Business on Its Own OS',
   finalCtaSub:
-    `Tell us how your business runs today. The register, the paper, the workarounds. We build one business at a time, a handful of fittings a month. If yours is a fit, we show you what your own system would look like. If it's not, we tell you straight.`,
+    `Tell us how your business runs today. The register, the paper, the workarounds. If yours is a fit, we show you what your own system would look like. If it's not, we tell you straight.`,
 };
 
 export default function FoundItOSPillar() {

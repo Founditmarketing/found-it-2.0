@@ -214,8 +214,7 @@ export default function PricingClient() {
           <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Everything Else We Build</h3>
           <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 max-w-2xl">
             Two things, priced in writing before you pay. Found It no longer takes new marketing
-            clients. AI Search Optimization is the one exception, because being the answer when
-            someone asks an AI who to hire is worth paying for.
+            clients &mdash; AI Search Optimization is the one exception.
           </p>
           <div className="divide-y divide-border/10">
             {otherRows.map((row) => (
