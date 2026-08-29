@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { AskTheOS } from '@/components/os/AskTheOS';
+import { FixFirst } from '@/components/os/FixFirst';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
@@ -61,31 +62,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* What would yours fix first? Three doors into the same house. */}
-          <div className="opacity-0 animate-reveal-up delay-400">
-            <p className="text-center text-sm font-black uppercase tracking-[0.25em] text-primary mb-5">
-              What Would Yours Fix First?
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              {[
-                { label: 'Money you’re owed', detail: 'and can’t see', href: '#proof' },
-                { label: 'Work falling through the cracks', detail: 'quotes, follow-ups, reorders', href: '#reel' },
-                { label: 'Too many systems', detail: 'none of them talking', href: '#foundit-os' },
-              ].map((c) => (
-                <a
-                  key={c.href}
-                  href={c.href}
-                  className="group bg-card/10 border border-border/15 rounded-2xl px-6 py-5 text-center hover:border-primary/40 transition-colors"
-                >
-                  <p className="text-sm font-black text-foreground leading-snug">{c.label}</p>
-                  <p className="text-xs text-muted-foreground font-medium mt-1">{c.detail}</p>
-                  <p className="text-xs text-primary font-bold mt-3 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Show me <ArrowRight className="w-3 h-3" />
-                  </p>
-                </a>
-              ))}
-            </div>
-          </div>
+          {/* What would yours fix first? They name the business, the machine
+              that builds the software writes their three doors, live. The
+              static doors stay as the default state. (Trevor 8/28) */}
+          <FixFirst />
         </div>
       </section>
 
