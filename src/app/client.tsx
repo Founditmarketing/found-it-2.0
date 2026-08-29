@@ -43,7 +43,7 @@ export default function HomePage() {
             <span className="text-primary">You Own It.</span>
           </h1>
           <p className="opacity-0 animate-reveal-up-sm delay-300 mt-4 text-sm text-white/75 font-medium">
-            An AI employee built around your business. The phone, the paperwork, the money owed. Handled.
+            Custom software with an AI employee, built around your business. The phone, the paperwork, the money owed. Handled.
           </p>
           <div className="opacity-0 animate-reveal-up delay-400 mt-8">
             <FixFirst compact />
@@ -77,8 +77,8 @@ export default function HomePage() {
                 <span className="block opacity-0 animate-reveal-up text-primary" style={{ animationDelay: '0.9s' }}>You Own It.</span>
               </h1>
               <p className="opacity-0 animate-reveal-up-sm mt-6 text-lg text-white/80 font-medium max-w-md leading-relaxed" style={{ animationDelay: '1.1s' }}>
-                An AI employee built around your business. The phone, the paperwork,
-                the money owed. <span className="text-white font-bold">Handled.</span> And
+                Custom software with an AI employee, built around your business. The phone,
+                the paperwork, the money owed. <span className="text-white font-bold">Handled.</span> And
                 you own it outright. The code and the data.
               </p>
               <div className="opacity-0 animate-reveal-up-sm flex items-center gap-3 mt-8" style={{ animationDelay: '1.25s' }}>
