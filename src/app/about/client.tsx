@@ -124,8 +124,8 @@ export default function AboutPage() {
             The Team. <span className="text-primary">No Interns. No Handoffs.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
-            These are the people who actually work on your system. When you call, one of them picks
-            up — the same person who built it.
+            Founder-led, built and supported by a small senior team. Trevor stays directly involved
+            in every fitting — and when you call, a person who knows your system picks up.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {teamMembers.map((member) => (

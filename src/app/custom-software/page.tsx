@@ -38,10 +38,10 @@ const data: PillarData = {
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
     `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this site.`,
-  ctaLabel: 'Get Fitted',
+  ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
-  formHeading: 'Get Fitted',
+  formHeading: 'Start your Software Map',
   stats: [
     { value: 'Live', label: 'Real Systems Running Now' },
     { value: '6', label: 'Industries Fitted or In Fitting' },

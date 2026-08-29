@@ -36,10 +36,10 @@ const data: PillarData = {
   headlineAccent: 'Software You Own Outright.',
   intro:
     `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Annual service work slips because nobody got a reminder. Rented CRMs are built for everyone, so they fit nobody. Found It OS is the opposite. One system fitted to how your crews run jobs. The job board, the schedule, the customer book, the invoices, the website leads. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
-  ctaLabel: 'Get Fitted',
+  ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_contractors',
   formPageSlug: 'custom-software-contractors',
-  formHeading: 'Get Fitted',
+  formHeading: 'Start your Software Map',
   stats: [
     { value: 'Live', label: 'Real Systems Running Now' },
     { value: '1', label: 'Field-Service OS Live' },
@@ -181,7 +181,7 @@ const data: PillarData = {
     {
       question: 'Is this a Jobber or ServiceTitan alternative?',
       answer:
-        'Yes, with one big difference. Jobber and ServiceTitan are rentals. You pay as long as you use them and walk away with nothing. Found It OS is built around your operation, and you own it outright. If we ever part ways, the system stays yours and keeps running.',
+        'Yes, with one big difference. Jobber and ServiceTitan are rentals. You pay as long as you use them, and when you leave you might keep an export of your records — not the working system. Found It OS is built around your operation, and you own it outright. If we ever part ways, the system stays yours and keeps running.',
     },
     {
       question: 'Is this actually running for real field-service businesses?',

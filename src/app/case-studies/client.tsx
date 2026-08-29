@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { VideoTestimonials } from '@/components/portfolio/VideoTestimonials';
-import { PortfolioStrip } from '@/components/portfolio/PortfolioStrip';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -63,51 +61,6 @@ const apps: AppStudy[] = [
     src: '/os-screens/lawyer-os-prescription-v1.png',
     alt: 'Prescription Watch, every open file’s prescription date on one screen, entered by hand, red when ignored (demo data)',
     line: 'Three practice boards and settlement math to the penny. The docket never computes a deadline. A person enters every date, and it turns red if ignored. The demand letter drafts itself from the file. The trust ledger stays the lawyer’s.',
-  },
-];
-
-/* ─── The marketing record — still real, now the second act. */
-interface CaseStudy {
-  client: string;
-  industry: string;
-  story: string;
-}
-
-const marketingStudies: CaseStudy[] = [
-  {
-    client: 'National Equipment Dealer',
-    industry: 'Heavy Equipment',
-    story: 'Started with $5K/month. Google Ads, SEO, and a site built to sell turned a local dealership into a national volume dealer.',
-  },
-  {
-    client: 'Total Family Solutions',
-    industry: 'Healthcare',
-    story: 'They were invisible against billion-dollar giants. We got them to Top 3 in Maps, ahead of ZocDoc, Psychology Today, and BetterHelp in their market.',
-  },
-  {
-    client: 'Stone Automotive',
-    industry: 'Auto Repair',
-    story: 'Auto shops live and die by the phone. We drove 150+ calls a month from their Google Business Profile alone. Bays full, mechanics busy.',
-  },
-  {
-    client: 'Weiss & Goldring',
-    industry: 'Luxury Retail',
-    story: "Ask ChatGPT or Google AI for a luxury suit. Our client isn't on a list. They are the answer. That's AI search optimization.",
-  },
-  {
-    client: "Smoker's Heaven",
-    industry: 'Retail',
-    story: "Retail isn't about clicks. It's about people walking in the door. We drove 7+ new customers to the store daily from Google Maps.",
-  },
-  {
-    client: 'Sniper Off Road',
-    industry: 'Automotive',
-    story: 'We took the local Map Pack and turned it into big phone leads. One closed lead pays for the whole year of fees.',
-  },
-  {
-    client: 'Futrell Marine',
-    industry: 'Marine & Boat Sales',
-    story: 'A Louisiana dealer wanted to win outside their state. We launched in Rogers, Arkansas and took #1 in Google search and Maps. From zero presence.',
   },
 ];
 
@@ -214,43 +167,19 @@ export default function CaseStudiesPage() {
           </p>
         </motion.div>
 
-        {/* ─── The marketing record ─── */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-            Where We Came From: The Marketing Years
-          </h2>
-          <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
-            Thirteen years inside local businesses &mdash; ads, websites, phones &mdash; is how we
-            learned what actually needed to be built. The record stands, and it&rsquo;s history:
-            Found It no longer takes new marketing clients. Today we build the software.
-          </p>
-          <div className="space-y-6">
-            {marketingStudies.map((study, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04, duration: 0.6, ease: ease as any }}
-                className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl overflow-hidden"
-              >
-                <div className="px-6 lg:px-8 py-4 border-b border-border/10">
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{study.industry}</span>
-                  <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{study.client}</h3>
-                </div>
-                <div className="px-6 lg:px-8 py-6">
-                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{study.story}</p>
-                </div>
-              </motion.div>
-            ))}
+        {/* ─── Where we came from — the record moved to /marketing/results (8/29) ─── */}
+        <div className="mb-16 bg-card/10 border border-border/15 rounded-2xl px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-black uppercase italic tracking-tighter text-foreground">Where We Came From: The Marketing Years</h2>
+            <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
+              Thirteen years inside local businesses taught us what needed to be built. The record
+              stands &mdash; and it&rsquo;s history. Found It no longer takes new marketing clients.
+            </p>
           </div>
+          <Link href="/marketing/results" className="shrink-0 text-sm font-bold text-primary inline-flex items-center gap-1.5 hover:gap-3 transition-all">
+            See the record <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-
-        {/* Filmed client testimonials — click-to-play, no video bytes until pressed */}
-        <VideoTestimonials />
-
-        {/* Proof strip: real client builds, links to the /web-design portfolio */}
-        <PortfolioStrip />
 
         {/* CTA */}
         <motion.div

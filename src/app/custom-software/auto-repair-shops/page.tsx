@@ -36,10 +36,10 @@ const data: PillarData = {
   headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
     `Tekmetric is a good system. But you rent it forever, and your shop's history lives in their cloud. We build the AI-powered shop system you own. We already moved a real shop off a Tekmetric-class system, about ten years of records. On the way in, the AI found about $270K in forgotten, unbilled work. One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. You own it, code and data. Nothing switches until the new system runs beside your old one and matches it. The price is on this page.`,
-  ctaLabel: 'Get Fitted',
+  ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
-  formHeading: 'Get Fitted',
+  formHeading: 'Start your Software Map',
   stats: [
     { value: '~$270K', label: 'Unbilled Work Found in One Migration' },
     { value: '~10 Yrs', label: 'of Records Migrated In' },
@@ -149,7 +149,7 @@ const data: PillarData = {
     {
       title: 'Renting forever, leaving with nothing',
       detail:
-        'Shops renting Tekmetric-class systems pay every month and never own a thing. Leave, and years of work orders and customer history stay behind.',
+        'Shops renting Tekmetric-class systems pay every month and never own a thing. Leave, and you might get an export of your records — the working system that runs the shop stays theirs.',
     },
     {
       title: 'Generic software, forced workarounds',

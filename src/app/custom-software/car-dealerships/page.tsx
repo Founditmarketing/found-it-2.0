@@ -36,10 +36,10 @@ const data: PillarData = {
   headlineAccent: 'Inventory Pages.',
   intro:
     `You bought the car. You shot the photos, wrote it up, set the price. Then you pay rent every month to show it on a website you do not own. Leave, and the site and listings go with them. Found It OS ends that. One system for the whole lot. Inventory, website, sales desk, customer book, and whatever else your dealership runs. Your records migrated in. Owned by you outright. We are building exactly that right now for a Louisiana independent dealer, replacing a rented website-and-DMS combo.`,
-  ctaLabel: 'Get Fitted',
+  ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software_car_dealerships',
   formPageSlug: 'custom-software-car-dealerships',
-  formHeading: 'Get Fitted',
+  formHeading: 'Start your Software Map',
   stats: [
     { value: 'Live', label: 'Real Systems Running Now' },
     { value: '3', label: 'Departments, One System' },

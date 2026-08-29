@@ -36,10 +36,10 @@ const data: PillarData = {
   headlineAccent: 'Own Your Whole System.',
   intro:
     `Try to leave the software you rent today. You might keep an export of your records. You don't keep the working system — not the register, not the workflows, not the thing that actually runs your day. Found It OS fixes that. One system built around how you run, and you own it outright. Nothing switches until it has run beside your old system and matched it to the penny.`,
-  ctaLabel: 'Get Fitted',
+  ctaLabel: "Show Me What You’d Build",
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
-  formHeading: 'Get Fitted',
+  formHeading: 'Start your Software Map',
   /* THE GATE (Trevor 8/16): the fit check stands where the open form stood —
      qualified gets the form, NOT A FIT gets the kind dismissal, no capture. */
   fitGate: true,
