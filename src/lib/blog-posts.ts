@@ -22,7 +22,7 @@ export const blogPosts: Post[] = [
         slug: 'what-is-owned-software',
         title: 'SaaS Got a Name. Software Ownership Got IT Jargon.',
         date: '2026-08-28',
-        excerpt: 'SaaS renamed renting so smoothly nobody noticed the deal underneath. Software ownership got IT jargon instead: perpetual licenses, on-premise, self-hosted — all describing how you buy it or where it runs, never what you have. The name that matters is owned software, and what it needed was a standard. One question tells you which one you run on: if you stop paying, what\'s left?',
+        excerpt: 'SaaS renamed renting so smoothly nobody noticed the deal underneath. Software ownership got IT jargon instead. The name that matters is owned software, and what it needed was a standard: if you stop paying, what\'s left?',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/owned-software-og-v2.png',
@@ -51,17 +51,17 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It's already <span style="color: #FF5500;">running.</span></p>
 <div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$195,882.75</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">found in open receivables the day one owner's system went live and audited his own books</div></div>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That's a roofer's owned system auditing his own books the day it went live. Real Louisiana businesses run on software they own, right now, and the price is printed: ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} one-time migration and setup. Month to month. Cancel with 30 days notice and the system leaves with you. The code and the data.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That's a roofer's owned system auditing his own books the day it went live. Real Louisiana businesses run on software they own, right now. The code and the data.</p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Nobody rents you your own business back.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><a href="/owned-software" style="color: #FF5500; font-weight: 700;">The category, defined →</a> &nbsp;·&nbsp; <a href="/owned-software-test" style="color: #FF5500; font-weight: 700;">Take the Owned Software Test →</a> &nbsp;·&nbsp; <a href="/fit" style="color: #FF5500; font-weight: 700;">Sixty seconds tells you if you're who we build for →</a></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><a href="/owned-software" style="color: #FF5500; font-weight: 700;">The category, defined →</a></p>
 `,
     },
     {
         slug: 'quickbooks-replacement-software',
         title: 'I Took QuickBooks Apart Piece by Piece. Then I Built Books That Can\'t Lie.',
         date: '2026-08-26',
-        excerpt: 'A client\'s QuickBooks swore she was millions of dollars underwater. Her real balance was healthy. The books had just been allowed to drift from the bank for years, because rented software gets paid either way. So I took QuickBooks apart on the bench, kept the 700-year-old math, and threw out what lets books lie: history anybody can edit, and a bank match nobody enforces. A ledger nobody can rewrite. 134 tests prove the math on every change. AI does the filing. You own the whole thing.',
+        excerpt: 'Her QuickBooks swore she was millions of dollars underwater. Her real balance was healthy. So I took QuickBooks apart on the bench and rebuilt the one thing it was missing: books that can\'t lie.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/books-og-hook-v2.png',
@@ -81,7 +81,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">QuickBooks kept the seven-hundred-year-old math. Then it broke the one rule that made the math worth anything: <span style="color: #FF5500;">it lets anybody go back and edit history.</span> There's an audit log, sure. It writes the rewrite down. It doesn't refuse it. A self-checking system where the past can be rewritten isn't self-checking. It just feels like it.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I rebuilt all ten pieces and put them inside every Found It OS. Your shop system and your books, one login, talking to each other all day. It doesn't feed QuickBooks and it doesn't sit on top of it. <span style="color: #FF5500;">It takes its place.</span></p>
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/books-blog-payables-v1.png" alt="Bills and checks inside a Found It OS: open bills, the check register, and the green badge proving Accounts Payable ties to the penny (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That green line near the top is my favorite thing on the screen. <span style="color: #FF5500;">&ldquo;Accounts Payable ties to the penny.&rdquo;</span> The ledger and the open bills, checked against each other on every load, agreeing to the cent. That check running every day is exactly what would have caught my client's books the first month they drifted, instead of the fifth year. QuickBooks has no line like that. It could print the words, but on a ledger anybody can edit, <span style="color: #FF5500;">that line would be a claim, not a proof.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Look at the green line near the top. <span style="color: #FF5500;">&ldquo;Accounts Payable ties to the penny.&rdquo;</span> The ledger and the open bills, checked against each other on every load, agreeing to the cent. That check running every day is exactly what would have caught my client's books the first month they drifted, instead of the fifth year. QuickBooks has no line like that. It could print the words, but on a ledger anybody can edit, <span style="color: #FF5500;">that line would be a claim, not a proof.</span></p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">In this ledger, history <span style="color: #FF5500;">cannot be edited.</span> By anybody.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Once an entry is written, it's written. Not me, not you, not an employee having a bad day. The system physically won't do it. Make a mistake and you fix it in the open, with a reversal entry that carries its own date. The mistake shows and the fix shows.</p>
@@ -122,7 +122,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One last thing, and I am putting it in writing.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The next set of books we tear up is our own. Found It is moving its own company onto this engine. I won't ask you to run your business on books I won't run mine on. <span style="color: #FF5500;">That's the whole test.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, a nursery, a law office, a bail bonds office. <strong>If your books and your bank haven't agreed in a while, call me before you renew anything with a login.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The story is real and the client stays anonymous. Every screen shown of this engine runs demo data, every name and dollar on it invented. No client information, ever.</em></p>
 `,
     },
@@ -131,7 +131,7 @@ export const blogPosts: Post[] = [
         slug: 'government-bid-finder-tree-service',
         title: 'We Built a Tree Company a Machine That Finds Money.',
         date: '2026-08-27',
-        excerpt: 'There’s a road in Caldwell Parish the state is about to spend millions on, and every tree in the way has to come down first. The big contractors knew for weeks. Tyler Walls found out at breakfast — from a machine we built him that reads every bid the state ever published and prices his quote from what actually won. The smartest thing in it: it’s banned from bidding.',
+        excerpt: 'There’s a road in Caldwell Parish the state is about to spend millions on, and every tree in the way has to come down first. The big contractors knew for weeks. Tyler Walls found out at breakfast.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/walls-scout-og-v1.png',
@@ -181,13 +181,13 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I showed Tyler this at a lunch table.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">He signed at the lunch table.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the smartest thing in it? <span style="color: #FF5500;">It's banned from bidding.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One more thing. <span style="color: #FF5500;">It's banned from bidding.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It never submits a bid in his name, and it doesn't pretend to see private work that never gets published. It finds, it prices, it hands him the paper — <strong>the handshake stays his.</strong> Custom software is knowing what to refuse.</p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It lives inside the same black-and-orange system where his receptionist answers the phone and his invoices chase themselves. His code. His data. His name on the title.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Somewhere, a government computer is publishing money your industry never reads. <strong>Call me — I'll build you a machine that finds it.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Somewhere, a government computer is publishing money your industry never reads.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above shows Tyler's real system reading real public records — government bid data anyone can look up, source-linked under every figure. No customer information, ever.</em></p>
 `,
     },
@@ -196,14 +196,14 @@ export const blogPosts: Post[] = [
         slug: 'bail-bonds-management-software',
         title: 'She\'s Never Gonna Touch That Pen, Ever Again.',
         date: '2026-08-25',
-        excerpt: 'There\'s a pen on the front desk at DJ\'s Bail Bonds. It filled out every application in the parish for years. Last week DJ fired it. Applications that fill themselves out on the defendant\'s phone at midnight, payment plans that populate their own dates, and a robot that is BANNED from ever touching his phone.',
+        excerpt: 'There\'s a pen on the front desk at DJ\'s Bail Bonds. It filled out every application in the parish for years. Last week DJ fired it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/djs-og-hook-v1.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is the story of how a bail bonds office in my town got rid of handwritten paperwork. If your front desk copies the same names onto form after form all day, this is what the fix looks like.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is the story of how a bail bonds office in my town got rid of handwritten paperwork.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">There's a pen on the front desk at <span style="color: #FF5500;">DJ's Bail Bonds.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">For years, that pen filled out every application that came through the door. The woman who runs the front desk writes them all by hand, every working day: a defendant file, a co-signer file, three references for each, and the payment sheets. The same names, copied off one paper onto another paper, for years.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So we built DJ a system where the application fills itself out. When he saw where it was headed, he said it out loud, in front of everybody:</p>
@@ -245,7 +245,7 @@ export const blogPosts: Post[] = [
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/djs-blog-beside-v1.png" alt="The run-beside page: nightly totals from the old system logged next to the new one, matched to the penny (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The verdict doesn't come from me, and it doesn't come from a salesman. When the numbers have matched long enough to trust, <strong>DJ flips the switch himself.</strong></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And the best feature in the whole build is <span style="color: #FF5500;">a ban.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And one feature in the build is <span style="color: #FF5500;">a ban.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Everybody in America is selling robot phone receptionists this year. DJ's system is <strong>forbidden from ever answering his phone</strong>, and the ban is printed on its front screen where the whole office can read it. Here's why. Calls from the jail come collect. A human has to pick up, hear the operator, and accept the charges. If a robot answers, the collect call dies, and <span style="color: #FF5500;">that call was the whole business.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Anybody trying to sell a bail office an AI phone agent has never stood in one. We stood in one. The phone stays human, day and night, forever. <strong>Half of this job is knowing what to build. The other half is knowing what to refuse.</strong></p>
 
@@ -253,7 +253,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The software DJ rents today keeps his data. Every client, every payment, every file sits on their computers, and he pays every month to look at his own records. His new system is different. The code is his. The data is his. <span style="color: #FF5500;">His name is on the title, the same way it's on the building.</span> If he ever tells me to leave, he keeps all of it.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. We build systems like this for auto shops, roofers, a nursery, a law office, and now <span style="color: #FF5500;">a bail bonds office</span>. <strong>If your front desk still runs on a pen, call me before you buy anything with a login.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above is the real system running demo data. Every name and dollar on it is invented. No client information, ever.</em></p>
 `,
     },
@@ -301,7 +301,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code. The data. His name on the title. If he ever fires us, he keeps everything. The monthly fee is us taking care of it — like a good mechanic takes care of your truck.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, tree services, dealerships — and now <span style="color: #FF5500;">a law firm</span>. <strong>About to hire somebody just to keep the paperwork moving? Call me first.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen shows Kenneth’s real system running demo data — the names and cases on it are invented. No client information, ever.</em></p>
 `,
     },
@@ -309,7 +309,7 @@ export const blogPosts: Post[] = [
         slug: 'nursery-management-software',
         title: 'Her Books Were Lying to Her by Eight Figures. So I Rebuilt Them From the Bank.',
         date: '2026-08-25',
-        excerpt: 'A truck was loading for Austin and a hand-copied order dropped its last line — 44 plants, a thousand dollars in freight, almost gone. So I tore out the text-message-and-QuickBooks way a wholesale nursery runs and built her one system: catches every line, prices every broker by what actually lives, rebuilds the books her old software lied about — and she owns all of it.',
+        excerpt: 'A truck was loading for Austin and a hand-copied order dropped its last line — 44 plants, a thousand dollars in freight, almost gone. So we built her one system that catches every line. She owns all of it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/nursery-og-hook-v2.png',
@@ -327,7 +327,7 @@ export const blogPosts: Post[] = [
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-intake-focus-v1.png" alt="An order pasted in raw: every line captured, and the one the system couldn't read held in red instead of dropped (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">She pastes an order in exactly how it came — text, email, a photo of somebody's chicken scratch. Every line lands. Anything it can't read <span style="color: #FF5500;">turns red and stays put</span>, in her own words, instead of quietly vanishing. A dropped line rides on memory. <span style="color: #FF5500;">A red line never does.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The best call in the whole build is a thing it <span style="color: #FF5500;">refuses to print.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">There's a thing it <span style="color: #FF5500;">refuses to print.</span></p>
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-pull-sheet-focus-v1.png" alt="The crew's pull sheet: quantities, plants, sizes and trailer slot in big type — no customer name, no prices (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The crew's screen shows the PO, the plants, the sizes, the trailer slot — in type you can read across the yard. It won't show the customer's name and it won't show a price. <span style="color: #FF5500;">&ldquo;That's my business, not the crew's,&rdquo;</span> she said. Custom software is knowing what to build. It's also knowing what to leave off the paper lying in the gravel by the dock.</p>
 
@@ -352,7 +352,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code is hers. The data is hers. Her name is on the title the same way it's on the sign at the road. Fire me tomorrow and she walks out with the whole thing running.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Auto shops, roofers, a law office, a bail bonds office — and one very fast nursery. <strong>If your business runs on fifteen formats of paperwork and software that argues with you, call me before you renew anything with a login.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The screens are real. Every name and dollar on them is invented — her book never leaves her building.</em></p>
 `,
     },
@@ -380,13 +380,12 @@ export const blogPosts: Post[] = [
 
 <h3>The narrow slot</h3>
 <p>We live in the gap between them. AI just made genuinely custom software buildable at a price a real business can pay — the biggest repricing this industry has ever seen — and most people are using it to write LinkedIn captions.</p>
-<p>We used it to build local businesses their own operating systems. The code and the data, one hundred percent theirs. The price printed on the website: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month.</p>
+<p>We used it to build local businesses their own operating systems. The code and the data, one hundred percent theirs.</p>
 
 <h3>The part that's hardest to copy</h3>
-<p>Here's the part I'm proudest of, and it's the part nobody will follow us on: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
+<p>Here's the part nobody will follow us on: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
 <p>That's slow. That's expensive. That's why nobody does it.</p>
 <p>It's also the only honest way to hand somebody the keys to their own company.</p>
-<p>Want to see what yours would look like? <a href="/blog/what-is-a-software-map">This is how it starts</a>, or <a href="/lp/she-answers">ask our AI secretary out loud</a> and she'll take your number herself.</p>
 <p><strong>Nobody rents you your own business back.</strong></p>
 <p>— Trevor</p>
         `,
@@ -395,7 +394,7 @@ export const blogPosts: Post[] = [
         slug: 'rented-software-no-data-rights',
         title: 'The Rent Isn’t the Problem. The Hostage Is.',
         date: '2026-08-16',
-        excerpt: 'Rented software holds your customers, your invoices, and your history in a format you don’t own, at a price they set next year. Here is what “no data rights” actually costs — and the two questions that expose it.',
+        excerpt: 'Rented software holds your customers, your invoices, and your history in a format you don’t own, at a price they set next year. Two questions expose the whole deal.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/rented-software-hostage-v3.png',
@@ -421,12 +420,10 @@ export const blogPosts: Post[] = [
 <p>For rented software the honest answers are <em>nothing</em> and <em>no</em>. Every other term in the contract is decoration around those two answers.</p>
 
 <h3>The alternative exists now</h3>
-<p>Custom software used to cost $50,000 to $150,000 and take half a year — so renting was the only sane option. AI changed the economics. We build systems fitted to one business at a time, and the answers to the two questions flip: stop paying, and you keep <strong>everything — the code and the data, one hundred percent.</strong> The monthly fee is maintenance, not rent.</p>
-<p>The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. And nothing switches on day one — the new system runs beside your current software, penny-matched against it every night, until the numbers say you can leave and you say go. That's how the biggest roofer in central Louisiana moved his whole operation onto a system he owns — the same books that surfaced $195,882.75 sitting in open receivables and caught a $19,000 error his old software never saw.</p>
+<p>Custom software used to mean a big upfront project and months of building — so renting was the only sane option. AI changed the economics. We build systems fitted to one business at a time, and the answers to the two questions flip: stop paying, and you keep <strong>everything — the code and the data, one hundred percent.</strong> The monthly fee is maintenance, not rent.</p>
+<p>And nothing switches on day one — the new system runs beside your current software, penny-matched against it every night, until the numbers say you can leave and you say go. That's how the biggest roofer in central Louisiana moved onto a system he owns — the same books that surfaced $195,882.75 sitting in open receivables.</p>
 <p>Nobody should rent you your own business back.</p>
 
-<h3>See what yours would look like</h3>
-<p>Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight. <a href="/blog/what-is-a-software-map">This is how a fitting starts</a>. <a href="/contact">Send your number</a> and Trevor calls you, or <a href="/lp/she-answers">talk to our AI secretary</a> and she'll take it herself.</p>
         `,
     },
     {
@@ -456,10 +453,9 @@ export const blogPosts: Post[] = [
 <p>The map becomes the system. Here is the intake box from the middle of the map, running: an order pasted exactly as it came in, eight lines in, eight captured, the one it didn't recognize held in red instead of dropped. The screen shows demo data. The rule is hers — those 44 plants.</p>
 <p><img src="/os-screens/roxanne-os-intake-v2.png" alt="The nursery's order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p>The system runs <strong>beside</strong> the old software, penny-matched against it every night, and nothing switches until the numbers match and the owner says go. That's how we move a business: without betting it.</p>
-<p><strong>The system is yours. The code and the data, one hundred percent.</strong> The price is public — ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month to month. Nobody rents you your own business back.</p>
+<p><strong>The system is yours. The code and the data, one hundred percent.</strong> Nobody rents you your own business back.</p>
 
-<h3>See what yours would look like</h3>
-<p>Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared. If it's not a fit, we tell you straight. <a href="/contact">Send your number</a>, or <a href="/lp/she-answers">tell our AI secretary</a> and she'll set it up while you talk.</p>
+<p><a href="/map">Start yours here.</a></p>
         `,
     },
 ];
