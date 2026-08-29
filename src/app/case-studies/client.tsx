@@ -217,10 +217,12 @@ export default function CaseStudiesPage() {
         {/* ─── The marketing record ─── */}
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-            The Marketing Record
+            Where We Came From: The Marketing Years
           </h2>
           <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
-            Found It started in marketing. The record stands. Real clients, real numbers.
+            Thirteen years inside local businesses &mdash; ads, websites, phones &mdash; is how we
+            learned what actually needed to be built. The record stands, and it&rsquo;s history:
+            Found It no longer takes new marketing clients. Today we build the software.
           </p>
           <div className="space-y-6">
             {marketingStudies.map((study, i) => (

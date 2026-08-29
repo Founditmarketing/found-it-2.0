@@ -24,12 +24,15 @@ const stats = [
   { value: '0', label: 'Long-Term Contracts' },
 ];
 
+/* MARKETING SALES DEAD (8/26) finally applied here too (8/29 review caught
+   the lag): the retired marketing services are gone from What We Do. The
+   catalog is software plus the one AI Search exception — same as SERVICES
+   in site.ts. Never re-add a marketing service. */
 const services = [
   { name: 'Found It OS — Custom AI Software', desc: 'One system that runs your whole business. You own the code and the data.', href: '/foundit-os' },
-  { name: 'Google Ads Management', desc: 'Weekly optimization, real conversion tracking, transparent reporting.', href: '/google-ads-management' },
-  { name: 'Custom Web Design', desc: 'Fast, mobile-first websites that turn visitors into calls. You own everything.', href: '/web-design' },
-  { name: 'AI Search Optimization', desc: 'Get recommended by ChatGPT, Perplexity, and Google AI.', href: '/ai-search-optimization' },
-  { name: 'Social Media Management', desc: 'Real content, real strategy. We create it, you approve it.', href: '/social-media-management' },
+  { name: 'Custom App Development', desc: 'Native-feeling iOS and Android apps. You own 100% of the code.', href: '/app-development' },
+  { name: 'The Software Map', desc: 'Your whole operation on one page — every screen, every automation. Free in a fitting.', href: '/map' },
+  { name: 'AI Search Optimization', desc: 'When someone asks an AI who to hire, it should say you.', href: '/ai-search-optimization' },
 ];
 
 const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas', 'Wichita, Kansas'];

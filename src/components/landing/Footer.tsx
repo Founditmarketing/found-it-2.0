@@ -68,6 +68,7 @@ export function Footer() {
               <li><Link href="/pricing" className={linkClass}>Pricing</Link></li>
               <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
               <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>
+              <li><Link href="/security" className={linkClass}>Security &amp; Continuity</Link></li>
               <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
             </ul>
           </div>

@@ -155,6 +155,53 @@ export default function PricingClient() {
           </p>
         </motion.div>
 
+        {/* WHAT THE MONTHLY BUYS — the scope, in writing (8/29 review: an
+            open-ended monthly scares the skeptic AND overpromises to the
+            enthusiast; both readings are dangerous). Rules only from
+            established practice — the agreement's "new modules get added as
+            we agree on them" is the load-bearing sentence. */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="grid md:grid-cols-2 gap-4 mb-16"
+        >
+          <div className="bg-card/10 border border-primary/20 rounded-2xl p-6 lg:p-8">
+            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-primary mb-3">The Monthly Covers</p>
+            <ul className="space-y-2.5">
+              {[
+                'Hosting and nightly backups',
+                'Support — you text or call, a human answers',
+                'Bug fixes, security patches, and updates',
+                'Ongoing fitting: the small workflow improvements that come up as you run',
+                'New modules as we agree on them — that’s the point of ownership',
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground font-medium">{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-card/5 border border-border/15 rounded-2xl p-6 lg:p-8">
+            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-3">Priced Separately, Agreed First</p>
+            <ul className="space-y-2.5">
+              {[
+                'A major new module or a whole new division — scoped and priced before it’s built, never surprise-billed',
+                'Hardware: tablets, printers, check stock',
+                'Third-party services that bill on their own: phone lines, card processing, AI usage',
+                'Payroll and tax filing — never built, at any price. That work belongs to a person who signs their name to it',
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <span className="w-4 h-4 shrink-0 mt-0.5 text-faint font-black text-center leading-4">·</span>
+                  <span className="text-sm text-muted-foreground font-medium">{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
         {/* The rest of the catalog — visibly secondary by design. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
