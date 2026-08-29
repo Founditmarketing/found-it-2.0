@@ -66,13 +66,14 @@ export async function POST(req: Request) {
       system: SYSTEM,
       prompt: `The visitor runs: "${business}"`,
       temperature: 0.7,
-      // Gemini 2.5 spends its internal thinking from this same budget — 500
-      // starved the three-card reply mid-JSON while the short decline fit.
-      maxOutputTokens: 2500,
+      maxOutputTokens: 900,
       // Same relaxation as the concierge: default safety tiers trip on normal
       // shop talk (collections, kill treatments, bail bonds) and blank the reply.
+      // Thinking OFF: with it on, a hero interaction ran ~10s; three short
+      // lines don't need deliberation, they need to arrive.
       providerOptions: {
         google: {
+          thinkingConfig: { thinkingBudget: 0 },
           safetySettings: [
             { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
             { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
