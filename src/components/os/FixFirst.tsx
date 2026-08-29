@@ -26,7 +26,10 @@ const DEFAULT_CARDS = [
 
 const CHAR_MS = 14; // typing speed, AskTheOS family
 
-export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
+export function FixFirst({ compact = false, panel = false }: { compact?: boolean; panel?: boolean } = {}) {
+  // panel = the desktop machine window: no label (the chrome carries it),
+  // ghost preview lines before generation, otherwise compact behavior.
+  const slim = compact || panel;
   const [business, setBusiness] = useState('');
   const [phase, setPhase] = useState<'idle' | 'thinking' | 'done'>('idle');
   const [fixes, setFixes] = useState<Fix[] | null>(null);
@@ -149,12 +152,14 @@ export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
   const showGenerated = phase === 'done' && fixes;
 
   return (
-    <div className={compact ? '' : 'opacity-0 animate-reveal-up delay-400'}>
-      <p className={`text-center font-black uppercase text-primary ${compact ? 'text-xs tracking-[0.2em]' : 'text-sm tracking-[0.25em]'}`}>
-        {/* Mobile runs the employee frame: an employee DOES. Desktop keeps Fix. */}
-        {compact ? 'What Would Yours Do First?' : 'What Would Yours Fix First?'}
-      </p>
-      {!compact && (
+    <div className={slim ? '' : 'opacity-0 animate-reveal-up delay-400'}>
+      {!panel && (
+        <p className={`text-center font-black uppercase text-primary ${compact ? 'text-xs tracking-[0.2em]' : 'text-sm tracking-[0.25em]'}`}>
+          {/* The employee frame: an employee DOES. */}
+          {compact ? 'What Would Yours Do First?' : 'What Would Yours Fix First?'}
+        </p>
+      )}
+      {!slim && (
         <p className="text-center text-sm text-muted-foreground font-medium mt-2 mb-6">
           Tell it what you run. It writes what yours would fix.
         </p>
@@ -249,9 +254,9 @@ export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
               closeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
-            {/* Compact (mobile) already has the big /map button right below —
+            {/* Compact (mobile) and the panel have the big /map action nearby —
                 no duplicate link inside the answer. */}
-            {!compact && (
+            {!slim && (
               <Link
                 href="/map"
                 className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
@@ -269,6 +274,16 @@ export function FixFirst({ compact = false }: { compact?: boolean } = {}) {
             </button>
           </div>
         </>
+      ) : panel ? (
+        /* The waiting machine: dim ghost lines show where the answer lands. */
+        <div className="space-y-4 text-left opacity-35 select-none" aria-hidden>
+          {DEFAULT_CARDS.map((c) => (
+            <p key={c.href} className="text-base leading-relaxed">
+              <span className="font-black text-foreground">{c.label}</span>{' '}
+              <span className="text-muted-foreground font-medium">{c.detail}</span>
+            </p>
+          ))}
+        </div>
       ) : compact ? null : (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {DEFAULT_CARDS.map((c) => (

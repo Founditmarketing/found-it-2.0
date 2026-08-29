@@ -61,52 +61,65 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ═══ DESKTOP HERO — unchanged ═══ */}
-        <div className="relative z-10 max-w-[1100px] mx-auto px-6 hidden md:block">
-          <div className="text-center mb-10 lg:mb-12">
-            {/* THE CATEGORY (8/27 review): "Owned Software" is the claim —
-                SaaS rents, we hand over the keys. One line, said like a fact. */}
-            <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
-              Owned Software &middot; The Opposite of SaaS
-            </p>
-            <h1 className="opacity-0 animate-reveal-up delay-200 text-[10vw] sm:text-[7vw] md:text-[5.5vw] lg:text-[4vw] leading-[0.9] tracking-tight font-black font-heading uppercase italic text-white mb-6">
-              Your Business Shouldn&rsquo;t Take<br className="hidden sm:block" />{' '}
-              <span className="text-primary">Five Systems to Run.</span>
-            </h1>
-            <p className="opacity-0 animate-reveal-up-sm delay-300 text-base sm:text-lg lg:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
-              Found It replaces the software, the spreadsheets, the paper, and the things only
-              your employees know with <span className="text-white font-bold">one system built
-              around the way your business actually runs.</span> We migrate your records. It runs
-              beside what you use now. And you own it outright. The code and the data.
-            </p>
-
-            {/* CTA CONSOLIDATION (8/27 review): two named actions sitewide —
-                "Show Me What You'd Build" (the ask — Trevor 8/27: nobody
-                knows what a software map is; the map is the REVEAL on /map,
-                never the button) and "Are We a Fit?" (the filter). */}
-            <div className="opacity-0 animate-reveal-up-sm delay-400 flex flex-col sm:flex-row items-center justify-center gap-3 mt-9">
-              <Link
-                href="/map"
-                className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-              >
-                Show Me What You'd Build
-              </Link>
-              <Link
-                href="/fit"
-                className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 hover:text-foreground transition-colors"
-              >
-                Are We a Fit?
-              </Link>
+        {/* ═══ DESKTOP HERO — remade 8/28 ("add sizzle"): the employee frame,
+            verbs cascading in one at a time on the left; on the right, the
+            machine itself in a live console window, already typing. ═══ */}
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 hidden md:block">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+            <div className="text-left">
+              <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] lg:text-xs font-black uppercase tracking-[0.4em] mb-6">
+                Owned Software &middot; The Opposite of SaaS
+              </p>
+              <h1 className="font-black font-heading uppercase italic text-white leading-[0.92] tracking-tight text-[clamp(2.8rem,4.8vw,4.6rem)]">
+                <span className="block opacity-0 animate-reveal-up" style={{ animationDelay: '0.25s' }}>It Answers.</span>
+                <span className="block opacity-0 animate-reveal-up" style={{ animationDelay: '0.45s' }}>It Types.</span>
+                <span className="block opacity-0 animate-reveal-up" style={{ animationDelay: '0.65s' }}>It Chases.</span>
+                <span className="block opacity-0 animate-reveal-up text-primary" style={{ animationDelay: '0.9s' }}>You Own It.</span>
+              </h1>
+              <p className="opacity-0 animate-reveal-up-sm mt-6 text-lg text-white/80 font-medium max-w-md leading-relaxed" style={{ animationDelay: '1.1s' }}>
+                An AI employee built around your business. The phone, the paperwork,
+                the money owed. <span className="text-white font-bold">Handled.</span> And
+                you own it outright. The code and the data.
+              </p>
+              <div className="opacity-0 animate-reveal-up-sm flex items-center gap-3 mt-8" style={{ animationDelay: '1.25s' }}>
+                <Link
+                  href="/map"
+                  className="inline-flex items-center justify-center px-9 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+                >
+                  Show Me What You'd Build
+                </Link>
+                <Link
+                  href="/fit"
+                  className="inline-flex items-center justify-center px-7 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 hover:text-foreground transition-colors"
+                >
+                  Are We a Fit?
+                </Link>
+              </div>
+              <p className="opacity-0 animate-reveal-up-sm mt-6 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground" style={{ animationDelay: '1.35s' }}>
+                {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No long-term commitment
+              </p>
             </div>
-            <p className="opacity-0 animate-reveal-up-sm delay-400 mt-6 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
-              {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No long-term commitment
-            </p>
-          </div>
 
-          {/* What would yours fix first? They name the business, the machine
-              that builds the software writes their three doors, live. The
-              static doors stay as the default state. (Trevor 8/28) */}
-          <FixFirst />
+            {/* The machine window: chrome + the console, already typing. */}
+            <div className="opacity-0 animate-reveal-up" style={{ animationDelay: '0.7s' }}>
+              <div className="rounded-2xl overflow-hidden border border-border/25 bg-card/20 shadow-2xl shadow-black/50 backdrop-blur-sm">
+                <div className="flex items-center justify-between gap-3 px-4 py-2.5 bg-black/60 border-b border-border/15">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+                  </div>
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground">
+                    What Would Yours Do First?
+                  </p>
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                </div>
+                <div className="p-6 lg:p-7">
+                  <FixFirst panel />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
