@@ -95,9 +95,9 @@ export default function MapPage() {
               <LeadFormEmbed
                 source="map_page"
                 pageSlug="map"
-                heading="Tell us where to send it"
-                subheading="Trevor texts you back today to set the 30-minute fitting."
-                ctaLabel="Send Me My Map"
+                heading="Start your Software Map"
+                subheading="Trevor texts you today to set the free 30-minute mapping session. The map is yours to keep whether or not you hire us."
+                ctaLabel="Have Trevor Text Me"
                 qualify="optional"
                 successNote="Got it. Trevor texts you back today to set the fitting."
                 privacyNote="No spam, no list. One human replies."

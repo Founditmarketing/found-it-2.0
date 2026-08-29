@@ -57,7 +57,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="opacity-0 animate-reveal-up-sm delay-400 mt-5 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
-              {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No contracts
+              {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No long-term commitment
             </p>
           </div>
 
@@ -237,7 +237,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-8">
                 <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
                   <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.monthly}<span className="text-sm text-muted-foreground font-bold not-italic"> {OS_PRICING.monthlyLabel}</span></p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">Month-to-Month · No Contracts</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">Month-to-Month · No Long-Term Commitment</p>
                 </div>
                 <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
                   <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.setup}</p>
@@ -268,7 +268,9 @@ export default function HomePage() {
                 <p className="text-sm font-bold text-foreground leading-snug">
                   {OS_SLOTS.taken} of {OS_SLOTS.total} seats spoken for.{' '}
                   <span className="text-muted-foreground font-medium">
-                    At {OS_SLOTS.total} accounts we stop taking new ones.
+                    We onboard a few at a time &mdash; every system is migrated, run beside the
+                    old one, and proven before the next fitting opens. At {OS_SLOTS.total} accounts
+                    we stop taking new ones.
                   </span>
                 </p>
               </div>
@@ -307,7 +309,7 @@ export default function HomePage() {
               The Fleet.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Every one custom-built. Every one owned outright by the business that runs it.
+              Every one fitted to its business on the same proven core. Every one owned outright by the business that runs it.
             </p>
           </motion.div>
         </div>

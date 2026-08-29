@@ -30,14 +30,14 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. Installed in days, not quarters. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
+    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. First working screens in days, not quarters; cutover only after the parallel run proves it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Custom Software',
   // 8/18 audit: the old accent ("not for an industry") argued with our own
   // industry pages. The enemy is the AVERAGE company, not the vertical.
   headline: 'Built for Your Company —',
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. It installs in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this site.`,
+    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it. The price is published right on this site.`,
   ctaLabel: 'Get Fitted',
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',

@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Stop Renting Your Software.',
   headlineAccent: 'Own Your Whole System.',
   intro:
-    `Try to leave the software you rent today. You keep nothing. Not the register, not the inventory, not your own customer list. Found It OS fixes that. One system built around how you run, and you own it outright. Nothing switches until it has run beside your old system and matched it to the penny.`,
+    `Try to leave the software you rent today. You might keep an export of your records. You don't keep the working system — not the register, not the workflows, not the thing that actually runs your day. Found It OS fixes that. One system built around how you run, and you own it outright. Nothing switches until it has run beside your old system and matched it to the penny.`,
   ctaLabel: 'Get Fitted',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
@@ -149,7 +149,7 @@ const data: PillarData = {
     {
       title: 'Renting forever',
       detail:
-        'Big-name platforms charge rent forever, raise prices when they want, and hold your data if you try to leave. They rent you your own business back.',
+        'Big-name platforms charge rent forever, raise prices when they want, and keep the working system if you try to leave — you walk out with an export, not the machine. They rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
