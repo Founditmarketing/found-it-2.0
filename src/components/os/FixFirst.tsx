@@ -45,6 +45,31 @@ export function FixFirst() {
     return () => timers.current.forEach((t) => window.clearTimeout(t));
   }, []);
 
+  // The field announces itself: the placeholder types example businesses on a
+  // loop with a live caret, so the pill unmistakably reads as "type here."
+  const SAMPLES = ['tire shop', 'plant nursery', 'roofing crew', 'bail bonds office', 'equipment dealer', 'law office'];
+  const [ph, setPh] = useState('');
+  useEffect(() => {
+    if (reduce) { setPh('tire shop, plant nursery, roofing crew…'); return; }
+    let alive = true;
+    let si = 0;
+    const ids: number[] = [];
+    const later = (fn: () => void, ms: number) => { const id = window.setTimeout(() => { if (alive) fn(); }, ms); ids.push(id); };
+    function typeOut(word: string, i: number) {
+      setPh(word.slice(0, i));
+      if (i < word.length) later(() => typeOut(word, i + 1), 55);
+      else later(() => erase(word, word.length), 1600);
+    }
+    function erase(word: string, i: number) {
+      setPh(word.slice(0, i));
+      if (i > 0) later(() => erase(word, i - 1), 22);
+      else { si = (si + 1) % SAMPLES.length; later(() => typeOut(SAMPLES[si], 0), 350); }
+    }
+    typeOut(SAMPLES[0], 0);
+    return () => { alive = false; ids.forEach((id) => window.clearTimeout(id)); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduce]);
+
   function playTyping(fx: Fix[]) {
     timers.current.forEach((t) => window.clearTimeout(t));
     timers.current = [];
@@ -138,19 +163,30 @@ export function FixFirst() {
         className="max-w-xl mx-auto mb-8"
       >
         <div
-          className={`flex items-center gap-1 rounded-full border bg-white/[0.03] p-1.5 pl-5 transition-colors ${
-            phase === 'thinking' ? 'border-primary/50' : 'border-border/20 focus-within:border-primary/50'
+          className={`flex items-center gap-2 rounded-full border-2 bg-white/[0.06] p-1.5 pl-4 transition-all ${
+            phase === 'thinking'
+              ? 'border-primary/60'
+              : 'border-white/25 focus-within:border-primary/70 focus-within:shadow-[0_0_0_4px_rgba(255,85,0,0.15)] hover:border-white/40'
           }`}
         >
-          <input
-            type="text"
-            value={business}
-            onChange={(e) => setBusiness(e.target.value)}
-            maxLength={80}
-            placeholder="Tire shop, plant nursery, roofing crew…"
-            aria-label="What kind of business do you run?"
-            className="flex-1 min-w-0 h-10 bg-transparent text-sm font-medium text-foreground placeholder:text-muted-foreground caret-[#FF5500] selection:bg-primary/30 focus:outline-none"
-          />
+          <span aria-hidden className="font-mono text-primary font-black text-base select-none">&gt;</span>
+          <div className="relative flex-1 min-w-0">
+            <input
+              type="text"
+              value={business}
+              onChange={(e) => setBusiness(e.target.value)}
+              maxLength={80}
+              placeholder=""
+              aria-label="What kind of business do you run?"
+              className="w-full h-10 bg-transparent text-sm font-medium text-foreground caret-[#FF5500] selection:bg-primary/30 focus:outline-none"
+            />
+            {business.length === 0 && (
+              <span aria-hidden className="absolute inset-y-0 left-0 flex items-center text-sm font-medium text-white/50 pointer-events-none">
+                {ph}
+                {!reduce && <span className="text-primary animate-pulse">▍</span>}
+              </span>
+            )}
+          </div>
           <button
             type="submit"
             disabled={phase === 'thinking' || business.trim().length < 3}
