@@ -53,6 +53,10 @@ const faq = [
     a: 'The monthly buys work, not permission: hosting, nightly backups, support you can call, and new features as the business grows. Stop paying and the work stops. Not your software.',
   },
   {
+    q: 'What do I actually get if I leave?',
+    a: 'All six items of the Owned Software Standard: the complete runnable source-code repository, the production database and backups in a usable format, the hosting account or a documented transfer of deployment, the credentials and configuration documentation, the legal right for any developer to maintain and modify the system, and a plain list of the third-party services that still bill on their own. You get everything except the computer we typed it on.',
+  },
+  {
     q: 'Who builds owned software?',
     a: `Any builder can, and more should: the category is bigger than one company. ${FOUND_IT_METHOD} The price is printed: ${OS_PRICING.monthly} per month plus ${OS_PRICING.setup} one-time migration and setup, month to month.`,
   },
@@ -135,6 +139,44 @@ export default function OwnedSoftwarePage() {
           <Link href="/owned-software-test" className="text-sm text-primary font-bold hover:underline">
             Take the test →
           </Link>
+        </div>
+
+        {/* The standard — ownership as a checklist, not a sentence in a
+            contract (8/28, Trevor: "give them everything except my
+            computer"). Six items a departing client receives or controls.
+            The workshop line is the honest boundary: Found It's internal
+            build tooling stays home because the client's system doesn't
+            need it to run. */}
+        <div className="border border-primary/40 rounded-3xl p-7 lg:p-9 mb-12 bg-card/10">
+          <p className="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">
+            The Owned Software Standard
+          </p>
+          <p className="text-base text-muted-foreground font-medium leading-relaxed mb-6">
+            Ownership is testable. It is not a sentence in a contract; it is a handover you could
+            perform tomorrow. A business running owned software receives, or controls, all six:
+          </p>
+          <ol className="space-y-3 mb-6 list-none">
+            {[
+              'The complete, runnable source-code repository.',
+              'The production database and routine backups, in a usable format.',
+              'The hosting account, or a documented transfer of the deployment.',
+              'Credentials, environment configuration, and dependency documentation.',
+              'The legal right for any developer to maintain and modify the system.',
+              'A plain list of the third-party services that still bill on their own: hosting, phone lines, card processing, AI.',
+            ].map((item, i) => (
+              <li key={item} className="flex gap-4">
+                <span className="text-primary font-black font-mono text-sm shrink-0 mt-0.5">{i + 1}</span>
+                <p className="text-base text-foreground font-medium leading-relaxed">{item}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="text-base text-muted-foreground font-medium leading-relaxed">
+            Found It hands over all six. The only thing that stays home is our workshop: the
+            internal tools we use to build systems, which your system does not need to run.{' '}
+            <span className="text-foreground font-bold">
+              You get everything except the computer we typed it on.
+            </span>
+          </p>
         </div>
 
         {/* FAQ — visible mirror of the schema */}
