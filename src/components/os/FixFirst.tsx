@@ -6,11 +6,12 @@
    doors stay as the default; type a business and the machine that builds
    the software writes three fixes for THAT business, live. The generation
    is the demo — same play as Ask It, but about the visitor.
-   Polish pass 8/28: the input is the hero's second focal object — one joined
-   command pill, button inside; generated cards stagger in; the doors carry
-   less repeated chrome. */
+   8/28 night: the answer TYPES itself (Trevor: "wouldn't it be cooler…") —
+   card shells land empty, the machine fills them left to right with a live
+   caret, close line follows. Same per-char timer pattern as AskTheOS. */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { ArrowRight, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
 import { trackCTAClick } from '@/lib/analytics';
@@ -23,12 +24,54 @@ const DEFAULT_CARDS = [
   { label: 'Too many systems', detail: 'none of them talking', href: '#foundit-os' },
 ];
 
+const CHAR_MS = 14; // typing speed, AskTheOS family
+
 export function FixFirst() {
   const [business, setBusiness] = useState('');
   const [phase, setPhase] = useState<'idle' | 'thinking' | 'done'>('idle');
   const [fixes, setFixes] = useState<Fix[] | null>(null);
-  const [close, setClose] = useState('');
+  const [typed, setTyped] = useState<Fix[]>([]);
+  const [cardsDone, setCardsDone] = useState(0);
+  const [closeText, setCloseText] = useState('');
+  const [closeVisible, setCloseVisible] = useState(false);
   const [note, setNote] = useState('');
+  const reduce = useReducedMotion();
+  const timers = useRef<number[]>([]);
+
+  useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);
+
+  function playTyping(fx: Fix[]) {
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
+    if (reduce) {
+      setTyped(fx);
+      setCardsDone(3);
+      setCloseVisible(true);
+      return;
+    }
+    setTyped(fx.map(() => ({ label: '', detail: '' })));
+    setCardsDone(0);
+    setCloseVisible(false);
+    let start = 200;
+    fx.forEach((f, ci) => {
+      const labelMs = f.label.length * CHAR_MS;
+      const detailMs = f.detail.length * CHAR_MS;
+      f.label.split('').forEach((_, i) =>
+        timers.current.push(window.setTimeout(() =>
+          setTyped((prev) => prev.map((p, j) => (j === ci ? { ...p, label: f.label.slice(0, i + 1) } : p))),
+          start + i * CHAR_MS)));
+      f.detail.split('').forEach((_, i) =>
+        timers.current.push(window.setTimeout(() =>
+          setTyped((prev) => prev.map((p, j) => (j === ci ? { ...p, detail: f.detail.slice(0, i + 1) } : p))),
+          start + labelMs + 90 + i * CHAR_MS)));
+      const cardEnd = start + labelMs + 90 + detailMs;
+      timers.current.push(window.setTimeout(() => setCardsDone(ci + 1), cardEnd + 50));
+      // Next card starts before this one finishes — the sweep feels alive.
+      start += Math.round((labelMs + detailMs) * 0.65) + 90;
+    });
+    const allDone = start + Math.round((fx[2].label.length + fx[2].detail.length) * CHAR_MS * 0.35) + 250;
+    timers.current.push(window.setTimeout(() => setCloseVisible(true), allDone));
+  }
 
   async function generate() {
     const what = business.trim();
@@ -46,8 +89,9 @@ export function FixFirst() {
       const data = await r.json();
       if (data.ok && Array.isArray(data.fixes) && data.fixes.length === 3) {
         setFixes(data.fixes);
-        setClose(String(data.close || ''));
+        setCloseText(String(data.close || ''));
         setPhase('done');
+        playTyping(data.fixes);
       } else {
         // Not a business (or the model declined) — keep the doors, nudge plainly.
         setNote(data.close || 'Tell me what you actually run and I’ll take a real swing.');
@@ -60,8 +104,13 @@ export function FixFirst() {
   }
 
   function reset() {
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
     setFixes(null);
-    setClose('');
+    setTyped([]);
+    setCardsDone(0);
+    setCloseText('');
+    setCloseVisible(false);
     setNote('');
     setBusiness('');
     setPhase('idle');
@@ -120,29 +169,49 @@ export function FixFirst() {
       {showGenerated ? (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            {fixes!.map((f, i) => (
-              <Link
-                key={i}
-                href="/map"
-                style={{ animationDelay: `${i * 120}ms` }}
-                className="opacity-0 animate-reveal-up group bg-card/10 border border-primary/30 rounded-2xl px-6 py-6 text-center hover:border-primary/60 hover:bg-primary/[0.04] transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <p className="text-sm font-black text-foreground leading-snug">{f.label}</p>
-                  <p className="text-xs text-muted-foreground font-medium mt-1.5 leading-relaxed">{f.detail}</p>
-                </div>
-                <p className="text-[11px] text-primary font-bold uppercase tracking-wider mt-4 inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
-                  Show me <ArrowRight className="w-3 h-3" />
-                </p>
-              </Link>
-            ))}
+            {fixes!.map((f, i) => {
+              const t = typed[i] ?? { label: '', detail: '' };
+              const labelLive = t.label.length < f.label.length;
+              const detailLive = !labelLive && t.detail.length < f.detail.length;
+              return (
+                <Link
+                  key={i}
+                  href="/map"
+                  className="group bg-card/10 border border-primary/30 rounded-2xl px-6 py-6 text-center hover:border-primary/60 hover:bg-primary/[0.04] transition-colors flex flex-col justify-between min-h-[10rem]"
+                >
+                  <div>
+                    <p className="text-sm font-black text-foreground leading-snug">
+                      {t.label}
+                      {labelLive && <span aria-hidden className="text-primary animate-pulse">▍</span>}
+                    </p>
+                    <p className="text-xs text-muted-foreground font-medium mt-1.5 leading-relaxed">
+                      {t.detail}
+                      {detailLive && <span aria-hidden className="text-primary animate-pulse">▍</span>}
+                    </p>
+                  </div>
+                  <p
+                    className={`text-[11px] text-primary font-bold uppercase tracking-wider mt-4 inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all duration-300 ${
+                      cardsDone > i ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    Show me <ArrowRight className="w-3 h-3" />
+                  </p>
+                </Link>
+              );
+            })}
           </div>
-          {close && (
-            <p className="opacity-0 animate-reveal-up delay-300 text-center text-sm text-white/80 font-medium max-w-xl mx-auto mt-6 leading-relaxed">
-              {close}
-            </p>
-          )}
-          <div className="opacity-0 animate-reveal-up delay-400 flex items-center justify-center gap-6 mt-5">
+          <p
+            className={`text-center text-sm text-white/80 font-medium max-w-xl mx-auto mt-6 leading-relaxed transition-opacity duration-500 ${
+              closeVisible && closeText ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {closeText}
+          </p>
+          <div
+            className={`flex items-center justify-center gap-6 mt-5 transition-opacity duration-500 ${
+              closeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+          >
             <Link
               href="/map"
               className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
