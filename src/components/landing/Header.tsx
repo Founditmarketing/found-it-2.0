@@ -318,10 +318,23 @@ export function Header() {
   const [copiedHref, setCopiedHref] = React.useState<string | null>(null);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
+  /* Hold the logo 3s → GLOCK MODE (Trevor 8/28: the button is gone; the
+     station is a secret handshake now). The old secret AdWords menu moved
+     to holding the FOOTER wordmark — the header hold belongs to the music.
+     A fired hold also suppresses the logo's navigation on release. */
+  const holdFiredRef = React.useRef(false);
   const handlePressStart = () => {
+    holdFiredRef.current = false;
     timerRef.current = setTimeout(() => {
-      setSecretMenuOpen(true);
+      holdFiredRef.current = true;
+      window.dispatchEvent(new CustomEvent('glockmode:open'));
     }, 3000);
+  };
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (holdFiredRef.current) {
+      e.preventDefault();
+      holdFiredRef.current = false;
+    }
   };
 
   const copyUrl = (href: string) => {
@@ -350,6 +363,14 @@ export function Header() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // The secret AdWords menu now opens from the FOOTER wordmark hold (8/28) —
+  // the Footer dispatches this event; the panel still lives here.
+  React.useEffect(() => {
+    const open = () => setSecretMenuOpen(true);
+    window.addEventListener('secretmenu:open', open);
+    return () => window.removeEventListener('secretmenu:open', open);
   }, []);
 
   // Escape key to close menu
@@ -435,11 +456,14 @@ export function Header() {
             <Link
               href="/"
               className="font-black text-3xl tracking-tighter group relative select-none text-white z-[60] shrink-0 whitespace-nowrap"
+              style={{ WebkitTouchCallout: 'none' }}
               onMouseDown={handlePressStart}
               onMouseUp={handlePressEnd}
               onMouseLeave={handlePressEnd}
               onTouchStart={handlePressStart}
               onTouchEnd={handlePressEnd}
+              onClick={handleLogoClick}
+              onContextMenu={(e) => e.preventDefault()}
             >
               <motion.span whileHover={{ scale: 1.05 }} className="inline-block">
                 found it

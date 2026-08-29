@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { Phone, Mail, MapPin, Star, Facebook, Instagram, Linkedin, Twitter, Youtube, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 import { SafePhone, SafePhoneText } from '@/components/landing/SafePhone';
@@ -26,6 +27,30 @@ const headingClass =
 export function Footer() {
   // LINKS values are config-gated: render the review link only when a real URL is set.
   const googleReviewUrl: string = LINKS.googleBusinessProfile;
+
+  /* The secret AdWords menu's new home (8/28): hold THIS wordmark 3s.
+     The header logo's hold now belongs to Glock Mode. */
+  const secretTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const secretFired = React.useRef(false);
+  const secretStart = () => {
+    secretFired.current = false;
+    secretTimer.current = setTimeout(() => {
+      secretFired.current = true;
+      window.dispatchEvent(new CustomEvent('secretmenu:open'));
+    }, 3000);
+  };
+  const secretEnd = () => {
+    if (secretTimer.current) {
+      clearTimeout(secretTimer.current);
+      secretTimer.current = null;
+    }
+  };
+  const secretClick = (e: React.MouseEvent) => {
+    if (secretFired.current) {
+      e.preventDefault();
+      secretFired.current = false;
+    }
+  };
 
   return (
     <footer className="bg-background text-foreground pt-16 pb-8 relative overflow-hidden border-t border-border/10">
@@ -123,7 +148,18 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-border/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-5">
           <div className="flex items-center gap-2">
-            <Link href="/" className="font-black text-lg tracking-tighter text-foreground">
+            <Link
+              href="/"
+              className="font-black text-lg tracking-tighter text-foreground select-none"
+              style={{ WebkitTouchCallout: 'none' }}
+              onMouseDown={secretStart}
+              onMouseUp={secretEnd}
+              onMouseLeave={secretEnd}
+              onTouchStart={secretStart}
+              onTouchEnd={secretEnd}
+              onClick={secretClick}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               found it<span className="text-primary">.</span>
             </Link>
             <span className="text-faint text-xs font-mono">
