@@ -35,6 +35,9 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/owned-software-vs-saas', priority: 0.85, changeFrequency: 'weekly' },
   { path: '/owned-software-test', priority: 0.8, changeFrequency: 'monthly' },
 
+  // The Record — before/after case files (evidence page, 8/29/2026)
+  { path: '/before-after', priority: 0.8, changeFrequency: 'monthly' },
+
   // Service authority pillars (organic / GEO) — primary public service pages
   { path: '/foundit-os', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/custom-software', priority: 0.9, changeFrequency: 'weekly' },
