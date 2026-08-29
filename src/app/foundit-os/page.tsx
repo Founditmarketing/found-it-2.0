@@ -242,6 +242,7 @@ const data: PillarData = {
     },
   ],
   relatedReading: [
+    { title: 'Same Job Title. Different Deal. (vs the other AI employees)', href: '/blog/ai-employee-vs-ai-employee' },
     { title: 'Custom Software by Industry', href: '/custom-software' },
     { title: 'Auto Repair Shop Software You Own', href: '/custom-software/auto-repair-shops' },
     { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },

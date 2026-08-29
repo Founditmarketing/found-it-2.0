@@ -19,6 +19,62 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'ai-employee-vs-ai-employee',
+        title: 'Same Job Title. Different Deal.',
+        date: '2026-08-29',
+        excerpt: 'Viktor raised $75 million to put an AI hire in your Slack. Ours is built into a system you own. Same job title, very different deal. Five rows, side by side.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/ai-employee-vs-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">"AI employee" got crowded fast. Viktor just raised <span style="color: #FF5500;">$75 million</span> to put an AI coworker in your Slack and Teams, riding the 3,200+ tools it connects to. Their tagline is good: "Not a tool. A hire."</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 1.4em;">We build an AI employee too. Same job title. <span style="color: #FF5500; font-weight: 800;">Very different deal.</span> Here it is, side by side.</p>
+
+<div style="margin: 0 0 1em; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin-bottom: 0.6em;">Where it works</div>
+<p style="margin: 0 0 0.5em; opacity: 0.6; line-height: 1.4;"><b>Viktor:</b> in Slack and Teams, on top of the software you keep renting.</p>
+<p style="margin: 0; line-height: 1.4;"><b>Ours:</b> inside <span style="color: #FF5500;">one system built for your business.</span> It doesn't ride your software. It replaces it.</p>
+</div>
+
+<div style="margin: 0 0 1em; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin-bottom: 0.6em;">Built for</div>
+<p style="margin: 0 0 0.5em; opacity: 0.6; line-height: 1.4;"><b>Viktor:</b> everyone. The same Viktor for every company.</p>
+<p style="margin: 0; line-height: 1.4;"><b>Ours:</b> <span style="color: #FF5500;">one business at a time.</span> Yours knows your trucks, your tickets, your people.</p>
+</div>
+
+<div style="margin: 0 0 1em; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin-bottom: 0.6em;">The work</div>
+<p style="margin: 0 0 0.5em; opacity: 0.6; line-height: 1.4;"><b>Viktor:</b> reports, workflows, ad audits, edits across your apps.</p>
+<p style="margin: 0; line-height: 1.4;"><b>Ours:</b> <span style="color: #FF5500;">answers your phone. Types your paperwork. Chases what you're owed.</span></p>
+</div>
+
+<div style="margin: 0 0 1em; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin-bottom: 0.6em;">Your books</div>
+<p style="margin: 0 0 0.5em; opacity: 0.6; line-height: 1.4;"><b>Viktor:</b> plugged into Salesforce, HubSpot, Stripe, and whatever else holds your records.</p>
+<p style="margin: 0; line-height: 1.4;"><b>Ours:</b> reads your books. <span style="color: #FF5500;">Can never write them.</span> On purpose.</p>
+</div>
+
+<div style="margin: 0 0 1.4em; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin-bottom: 0.6em;">Stop paying</div>
+<p style="margin: 0 0 0.5em; opacity: 0.6; line-height: 1.4;"><b>Viktor:</b> the hire is gone with the login.</p>
+<p style="margin: 0; line-height: 1.4;"><b>Ours:</b> the system keeps running. <span style="color: #FF5500;">You own the code and the data.</span></p>
+</div>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">None of that makes Viktor a bad product. If your business lives in Slack, it might be a great one. But most of the businesses we build for don't live in Slack. They live in a shop, a yard, a truck, an office where the phone rings at 7 a.m. Their problem was never "too few integrations." It was five systems, none of them talking, and an office manager holding the whole thing together by hand.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So we don't perch an AI on top of the pile. We replace the pile with one system, put the employee inside it, and hand you the keys. <span style="color: #FF5500; font-weight: 800;">Owned software.</span> If you stop paying, what's left? With us: everything.</p>
+
+<div style="margin: 1.6em 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+<div style="border: 1px solid #333; border-radius: 14px; padding: 0.9em 1em; text-align: center;"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.2em; opacity: 0.5; margin-bottom: 0.4em;">THEIR LINE</div><div style="font-weight: 800; font-style: italic; text-transform: uppercase; opacity: 0.7;">"Not a tool. A hire."</div></div>
+<div style="background: #FF5500; border-radius: 14px; padding: 0.9em 1em; text-align: center; color: #000;"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.2em; opacity: 0.7; margin-bottom: 0.4em;">OURS</div><div style="font-weight: 800; font-style: italic; text-transform: uppercase;">Not a hire. Yours.</div></div>
+</div>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Want to see what yours would do first? Type your business into the box on <a href="/" style="color: #FF5500;">the homepage</a> and watch it answer. Then look at <a href="/foundit-os" style="color: #FF5500;">what the whole employee includes</a>.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
+<p style="font-size: 13px; opacity: 0.45; margin: 1.6em 0 0;">Viktor details from viktor.com and its May 2026 funding coverage. Trademarks belong to their owners.</p>
+`,
+    },
+    {
         slug: 'your-new-employee',
         title: 'Your New Employee',
         date: '2026-08-29',
