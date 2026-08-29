@@ -33,7 +33,7 @@ const fineDetail: { title: string; detail: string }[] = [
   {
     title: 'Why the $2M–$10M band',
     detail:
-      `Big enough that ${OS_PRICING.monthly} a month pays for itself fast. Small enough that the owner still runs the room. That is the whole method.`,
+      `Big enough that ${OS_PRICING.monthly} a month pays for itself fast. Small enough that the owner still runs the room. That is the whole method. Under the band but the office is drowning anyway? Take the fit check. Paper-heavy service businesses punch above their revenue.`,
   },
   {
     title: 'Why no restaurants',
