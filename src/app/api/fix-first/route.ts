@@ -66,7 +66,9 @@ export async function POST(req: Request) {
       system: SYSTEM,
       prompt: `The visitor runs: "${business}"`,
       temperature: 0.7,
-      maxOutputTokens: 900,
+      // Big ceiling on purpose: if the model ignores the zero thinking budget,
+      // its thoughts spend from this same pot and 900 truncated the JSON (500s).
+      maxOutputTokens: 2500,
       // Same relaxation as the concierge: default safety tiers trip on normal
       // shop talk (collections, kill treatments, bail bonds) and blank the reply.
       // Thinking OFF: with it on, a hero interaction ran ~10s; three short
