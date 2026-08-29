@@ -23,9 +23,13 @@ export default function HomePage() {
           The reel stayed the star of its own section below; it just no
           longer opens cold. No customer counts here, ever (retired 8/16).
       ═══════════════════════════════════════════ */}
-      <section className="relative pt-28 lg:pt-36 pb-14 lg:pb-20 overflow-hidden">
-        {/* Hero gradient wash */}
+      <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden">
+        {/* Hero gradient wash + one authored light source behind the headline */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-16 -translate-x-1/2 w-[52rem] h-[26rem] rounded-full bg-primary/[0.07] blur-[120px] pointer-events-none"
+        />
 
         <div className="relative z-10 max-w-[1100px] mx-auto px-6">
           <div className="text-center mb-10 lg:mb-12">
@@ -49,15 +53,21 @@ export default function HomePage() {
                 "Show Me What You'd Build" (the ask — Trevor 8/27: nobody
                 knows what a software map is; the map is the REVEAL on /map,
                 never the button) and "Are We a Fit?" (the filter). */}
-            <div className="opacity-0 animate-reveal-up-sm delay-400 flex justify-center mt-8">
+            <div className="opacity-0 animate-reveal-up-sm delay-400 flex flex-col sm:flex-row items-center justify-center gap-3 mt-9">
               <Link
                 href="/map"
                 className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
               >
                 Show Me What You'd Build
               </Link>
+              <Link
+                href="/fit"
+                className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 hover:text-foreground transition-colors"
+              >
+                Are We a Fit?
+              </Link>
             </div>
-            <p className="opacity-0 animate-reveal-up-sm delay-400 mt-5 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="opacity-0 animate-reveal-up-sm delay-400 mt-6 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
               {TRACK_RECORD.yearsInBusiness} years serving local businesses &middot; Month-to-month &middot; No long-term commitment
             </p>
           </div>
