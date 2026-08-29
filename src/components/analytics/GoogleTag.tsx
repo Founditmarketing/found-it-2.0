@@ -10,7 +10,10 @@ const AW_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-17848789749';
 /* GA4 rides the same gtag loader. Every track* helper in lib/analytics.ts
    already sends with send_to: GA4_ID — this config line is what makes the
    property receive them. Stream: founditsoftware.com (created 8/29). */
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || '';
+/* Fallback hardcoded like AW_ID above: measurement IDs are public by nature
+   (they ship in every page's HTML), and Vercel stored the env var as
+   Sensitive = runtime-only, which a NEXT_PUBLIC_ build-time inline never sees. */
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || 'G-KTTL0Y293M';
 
 export const GoogleTag = () => {
     useEffect(() => {
