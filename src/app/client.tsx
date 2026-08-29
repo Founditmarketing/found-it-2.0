@@ -270,7 +270,7 @@ export default function HomePage() {
                   <span className="text-muted-foreground font-medium">
                     We onboard a few at a time &mdash; every system is migrated, run beside the
                     old one, and proven before the next fitting opens. At {OS_SLOTS.total} accounts
-                    we stop taking new ones.
+                    we pause new fittings until this group is fully live.
                   </span>
                 </p>
               </div>

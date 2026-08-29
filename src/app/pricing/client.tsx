@@ -104,7 +104,7 @@ export default function PricingClient() {
                   <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
                   seats spoken for. We onboard a few at a time &mdash; every system is migrated,
                   run in parallel, and proven before the next fitting opens. At {FOUNDING.total}{' '}
-                  accounts we stop taking new ones.
+                  accounts we pause new fittings until this group is fully live.
                 </p>
               </div>
             </div>
