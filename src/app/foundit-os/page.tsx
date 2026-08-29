@@ -169,7 +169,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here. ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees. No add-ons. Month to month, and the system stays yours. ${OS_PRICING.promise} Custom software you own, without the custom software invoice.`,
+    `The whole price, printed right here. ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees. Major new divisions or standalone modules are scoped in writing before work begins. Month to month, and the system stays yours. ${OS_PRICING.promise} Custom software you own, without the custom software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,

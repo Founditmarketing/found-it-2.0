@@ -300,7 +300,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-sm font-bold text-foreground leading-snug">
-                  {OS_SLOTS.taken} of {OS_SLOTS.total} seats spoken for.{' '}
+                  {OS_SLOTS.taken} of {OS_SLOTS.total} onboarding openings committed.{' '}
                   <span className="text-muted-foreground font-medium">
                     We onboard a few at a time &mdash; every system is migrated, run beside the
                     old one, and proven before the next fitting opens. At {OS_SLOTS.total} accounts

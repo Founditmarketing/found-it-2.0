@@ -102,7 +102,7 @@ export default function PricingClient() {
                 </div>
                 <p className="text-sm font-medium text-muted-foreground">
                   <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
-                  seats spoken for. We onboard a few at a time &mdash; every system is migrated,
+                  onboarding openings committed. We onboard a few at a time &mdash; every system is migrated,
                   run in parallel, and proven before the next fitting opens. At {FOUNDING.total}{' '}
                   accounts we pause new fittings until this group is fully live.
                 </p>

@@ -169,7 +169,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. The migration brings your old records in. No per-writer fees, no add-ons. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. The migration brings your old records in. No per-writer fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
     'A shop system we built runs a real independent auto shop today, on about ten years of migrated records.',

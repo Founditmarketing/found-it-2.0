@@ -14,7 +14,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
    Public roster law: Trevor, Reece, Thomas. */
 const teamMembers = [
   { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
-  { name: 'Reece Roberts', role: 'Head of Search & Generative Optimization', image: '/reese-roberts.jpeg' },
+  { name: 'Reece Roberts', role: 'Head of Client Systems & AI Search', image: '/reese-roberts.jpeg' },
   { name: 'Thomas Dombrowski', role: 'Director of Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
 ] as { name: string; role: string; image: string; objectPosition?: string }[];
 
@@ -151,6 +151,19 @@ export default function AboutPage() {
                 </h3>
               </div>
             ))}
+          </div>
+          {/* Engineering block (8/28): the advisor's trust gap — technical capacity
+              must be visible. Role-based and honest; no invented people. */}
+          <div className="mt-6 bg-card/15 border border-border/20 rounded-[2rem] p-6 md:p-8">
+            <p className="text-[11px] text-primary font-mono font-black tracking-[0.2em] uppercase opacity-80 mb-2">
+              Engineering &amp; Systems
+            </p>
+            <p className="text-base text-muted-foreground font-medium leading-relaxed max-w-3xl">
+              Every Found It system is built on one shared, battle-tested core. Trevor engineers
+              each fitting personally, working with a senior development partner whose security
+              specification gates every build, plus dedicated build support for migrations and
+              testing. The people who build your system are the people who answer when it rings.
+            </p>
           </div>
           <p className="mt-6 text-sm text-muted-foreground font-medium">
             Think you belong here? We&rsquo;re a small senior team on purpose — but if you&rsquo;re

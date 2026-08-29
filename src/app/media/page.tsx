@@ -71,7 +71,7 @@ export default function MediaPage() {
           <p className="text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
             The opposite of SaaS. A Found It OS is one system that runs the whole company:{' '}
             <span className="text-foreground font-bold">the phone, the quotes, the schedule, the money.</span>{' '}
-            The owner buys it once and owns it outright, code and data. Nothing rented, nothing shared.
+            The business owns the system outright, code and data. The monthly covers hosting, support, maintenance, and fitting, not permission to use it.
             Leave with 30 days&apos; notice and the system leaves with you, still running.
           </p>
         </section>

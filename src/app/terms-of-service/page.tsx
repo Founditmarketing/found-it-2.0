@@ -41,15 +41,13 @@ export default function TermsOfService() {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">2. Services Provided</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
-                        <p>Found It Marketing LLC provides custom software and digital marketing services, which may include:</p>
+                        <p>Found It Marketing LLC, operating as Found It Software, provides custom software services, which may include:</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Custom AI software and business operating systems (Found It OS)</li>
                             <li>Custom web and mobile app development</li>
                             <li>Website design and development</li>
-                            <li>Search engine optimization (SEO)</li>
-                            <li>Paid advertising management</li>
-                            <li>CRM and automation setup</li>
-                            <li>Marketing consulting</li>
+                            <li>AI search optimization</li>
+                            <li>Continued service of existing marketing engagements</li>
                         </ul>
                         <p>The scope of services will be defined in individual agreements, proposals, or invoices.</p>
                     </div>
@@ -70,6 +68,7 @@ export default function TermsOfService() {
                     <h2 className="text-2xl font-black uppercase tracking-wide text-primary">4. Intellectual Property</h2>
                     <div className="prose dark:prose-invert max-w-none space-y-4 text-lg leading-relaxed text-muted-foreground">
                         <p>For custom software and development deliverables — including Found It OS, websites, and apps — the client owns the code and the data. If the engagement ends, the system stays with the client.</p>
+                        <p>Qualifying Found It OS engagements are governed by a signed agreement incorporating the Owned Software Standard published at <a href="/owned-software" className="underline decoration-primary/40 underline-offset-4">founditsoftware.com/owned-software</a>: the complete repository, the production data and backups, deployment control, credentials, documentation, modification rights, and a disclosure of third-party dependencies. Where this page and a signed agreement differ, the signed agreement controls.</p>
                         <p>Found It Marketing LLC retains ownership of its own name, branding, and pre-existing internal tools and processes.</p>
                     </div>
                 </section>
