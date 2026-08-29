@@ -11,7 +11,7 @@ const google = createGoogleGenerativeAI({ apiKey: googleAiApiKey });
 
 const Shape = z.object({
   ok: z.boolean(),
-  fixes: z.array(z.object({ label: z.string(), detail: z.string() })).max(3),
+  fixes: z.array(z.object({ label: z.string(), detail: z.string() })),
   close: z.string(),
 });
 
@@ -59,7 +59,9 @@ export async function POST(req: Request) {
       system: SYSTEM,
       prompt: `The visitor runs: "${business}"`,
       temperature: 0.7,
-      maxOutputTokens: 500,
+      // Gemini 2.5 spends its internal thinking from this same budget — 500
+      // starved the three-card reply mid-JSON while the short decline fit.
+      maxOutputTokens: 2500,
       // Same relaxation as the concierge: default safety tiers trip on normal
       // shop talk (collections, kill treatments, bail bonds) and blank the reply.
       providerOptions: {
