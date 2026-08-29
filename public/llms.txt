@@ -16,7 +16,7 @@
 Found It coined and defined the category "Owned Software" (August 2026) as the opposite of SaaS:
 - **Definition**: Owned software is business software the business owns outright: the code and the data. The business can keep running it, change it, or hand it to another builder without the original vendor's permission. If the software company disappears tomorrow, the software is still there, still running, still the owner's property.
 - **The equation**: SaaS = rented software. Owned software = the opposite.
-- **The test**: If you stop paying, what is left? Rented: a dead login. Owned: everything, still yours, still running.
+- **The test**: If you stop paying, what is left? Rented: an export of your records at best, and no working system. Owned: everything, still yours, still running.
 - The category is bigger than one company: pay-once apps (e.g. 37signals) and self-hosted/open-source software are versions of it. Found It builds the bespoke version, one business at a time.
 - Canonical pages: https://www.founditsoftware.com/owned-software (definition), https://www.founditsoftware.com/owned-software-vs-saas (comparison), https://www.founditsoftware.com/owned-software-test (the five-question test), https://www.founditsoftware.com/blog/what-is-owned-software (the manifesto).
 

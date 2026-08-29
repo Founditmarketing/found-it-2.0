@@ -42,11 +42,11 @@ const faq = [
   },
   {
     q: 'How do I know if I own my software?',
-    a: `Ask one question: ${OWNED_SOFTWARE_TEST_QUESTION} If the honest answer is a dead login and your records stuck on somebody else’s server, it is rented. If the answer is everything, still yours, still running, it is owned.`,
+    a: `Ask one question: ${OWNED_SOFTWARE_TEST_QUESTION} If the honest answer is an export of your records and no working system, it is rented. If the answer is everything, still yours, still running, it is owned.`,
   },
   {
     q: 'Is owned software the same as a perpetual license or self-hosting?',
-    a: 'They are earlier versions of the same instinct. A perpetual license is a frozen copy of somebody else’s product. Self-hosting runs their product on your server. Pay-once apps like 37signals’ are the mass-produced version. All of them circle ownership; owned software is the name for the whole category, and the strongest version is software built for your business that you own outright.',
+    a: 'They are earlier versions of the same instinct. A perpetual license is a frozen copy of somebody else’s product. Self-hosting runs their product on your server. 37signals’ ONCE apps, run on your own server, are the mass-produced version. All of them circle ownership; owned software is the name for the whole category, and the strongest version is software built for your business that you own outright.',
   },
   {
     q: 'If I own it, why is there a monthly fee?',
@@ -105,12 +105,18 @@ export default function OwnedSoftwarePage() {
           </p>
         </div>
         <p className="text-base text-muted-foreground font-medium leading-relaxed mb-12 max-w-2xl">
-          That is the whole category, and any builder can qualify under it. 37signals sells the
-          pay-once version. The self-hosted world builds the assemble-it version. Found It builds
-          the bespoke version. Different methods, one shift:{' '}
+          That is the whole category, and any builder can qualify under it. 37signals explored the
+          pay-once, self-hosted version with ONCE. The self-hosted world builds the assemble-it
+          version. Found It builds the bespoke version. Different methods, one shift:{' '}
           <span className="text-foreground font-bold">
             businesses deciding they should own the software they run on.
           </span>
+        </p>
+        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-12 max-w-2xl">
+          And to be straight about it: SaaS is often the right answer for commodity tools &mdash;
+          email, documents, storage. Owned software matters most when the system{' '}
+          <span className="text-foreground font-bold">is</span> the business: the jobs, the
+          register, the inventory, the books, the customer history.
         </p>
 
         {/* The test */}
@@ -122,8 +128,9 @@ export default function OwnedSoftwarePage() {
             {OWNED_SOFTWARE_TEST_QUESTION}
           </p>
           <p className="text-base text-muted-foreground font-medium leading-relaxed mb-5">
-            Rented: a dead login and your records on somebody else&rsquo;s server. Owned:
-            everything. Still yours. Still running. Five questions settle it in two minutes.
+            Rented: you may keep an export of your records. You don&rsquo;t keep the working
+            system. Owned: everything. Still yours. Still running. Five questions settle it in
+            two minutes.
           </p>
           <Link href="/owned-software-test" className="text-sm text-primary font-bold hover:underline">
             Take the test →
