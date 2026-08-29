@@ -38,7 +38,12 @@ export function FixFirst() {
   const reduce = useReducedMotion();
   const timers = useRef<number[]>([]);
 
-  useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);
+  useEffect(() => {
+    // Warm the function while the visitor reads the headline — the first
+    // submit then lands on a booted container instead of a cold start.
+    fetch('/api/fix-first').catch(() => {});
+    return () => timers.current.forEach((t) => window.clearTimeout(t));
+  }, []);
 
   function playTyping(fx: Fix[]) {
     timers.current.forEach((t) => window.clearTimeout(t));

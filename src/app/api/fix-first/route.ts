@@ -89,6 +89,12 @@ async function askGemini(business: string) {
   return object;
 }
 
+// Warm hit: the hero pings this on mount so the container is booted before
+// the visitor finishes typing. No model call, no cost.
+export async function GET() {
+  return new Response(null, { status: 204 });
+}
+
 export async function POST(req: Request) {
   try {
     if (!process.env.ANTHROPIC_API_KEY && !googleAiApiKey) {
