@@ -1148,7 +1148,7 @@ export function VoiceAgentWidget({
               <>
                 <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
                   {leadSaved
-                    ? 'Got it. Trevor will reach out, usually within 2 hours during the day.'
+                    ? 'Got it. Trevor will reach out.'
                     : 'She lives inside every system Trevor builds. Yours would answer calls like that.'}
                 </p>
                 <div className="mt-3.5 flex flex-wrap items-center gap-3">
@@ -1239,7 +1239,7 @@ export function VoiceAgentWidget({
               </>
             ) : (
               <p className="mt-4 text-[13px] sm:text-sm text-white/60 font-medium leading-snug">
-                Got it. Trevor will reach out, usually within 2 hours during the day.
+                Got it. Trevor will reach out.
               </p>
             )}
 
@@ -1265,8 +1265,7 @@ export function VoiceAgentWidget({
               She’s helping someone else right now.
             </p>
             <p className="text-[13px] sm:text-sm text-white/60 font-medium mt-1 leading-snug">
-              Ask her by text below. Or leave your info and Trevor calls you back himself, usually
-              within 2 hours.
+              Ask her by text below. Or leave your info and Trevor calls you back himself.
             </p>
             <div className="mt-3.5 flex flex-wrap items-center gap-3">
               <button

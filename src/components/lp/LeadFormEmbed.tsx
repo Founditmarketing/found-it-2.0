@@ -41,7 +41,7 @@ export function LeadFormEmbed({
   ctaLabel,
   compact = false,
   successNote,
-  privacyNote = 'We reply within two hours.',
+  privacyNote = 'No spam, no list. One human reads it.',
   qualify = 'optional',
   className = '',
 }: LeadFormEmbedProps) {

@@ -99,7 +99,7 @@ export function WichitaLPContent() {
         formQualify
         formFitGate
         formSuccessNote="Done. Tom will call you back."
-        formPrivacyNote="We reply within two hours."
+        formPrivacyNote="No spam, no list. One human replies."
         nextSteps={[
           'Leave your name and number.',
           "Tom calls you back. If your business is a fit, he walks it with you live, screen-shared, and shows you what we'd build. If not, he tells you straight.",

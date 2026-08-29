@@ -75,7 +75,8 @@ export function NativeLeadForm({
   heading,
   subheading,
   ctaLabel = 'Get My Call Back',
-  privacyNote = 'We reply within two hours.',
+  // De-clock law (Trevor 8/29): never promise a response time anywhere.
+  privacyNote = 'No spam, no list. One human reads it.',
   showBusiness = false,
   compact = false,
   successNote = 'Trevor will call you back.',

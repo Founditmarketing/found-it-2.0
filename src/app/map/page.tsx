@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
+import { MapQuestionnaire } from '@/components/map/MapQuestionnaire';
 import { MAP_VALUE } from '@/lib/site';
 
 /* THE MAP PAGE (8/27, Trevor: "CTA needs to be more bad ass"): the button
@@ -91,18 +91,10 @@ export default function MapPage() {
 
           {/* The form — the whole ask */}
           <div className="opacity-0 animate-reveal-up delay-300 order-1 lg:order-2 lg:sticky lg:top-28">
-            <div className="bg-card/10 backdrop-blur-xl border border-primary/20 rounded-3xl p-7 lg:p-9 shadow-2xl shadow-primary/10">
-              <LeadFormEmbed
-                source="map_page"
-                pageSlug="map"
-                heading="Start your Software Map"
-                subheading="Trevor texts you to set the free 30-minute mapping session. The map is yours to keep whether or not you hire us."
-                ctaLabel="Have Trevor Text Me"
-                qualify="optional"
-                successNote="Got it. Trevor texts you to set the fitting."
-                privacyNote="No spam, no list. One human replies."
-              />
-            </div>
+            {/* The questionnaire IS the form now (Trevor 8/29): the fitting
+                call's opening questions, answered before the call. Ends in the
+                same name+phone capture; answers ride the lead email. */}
+            <MapQuestionnaire source="map_questionnaire" pageSlug="map" />
             <p className="mt-5 text-center text-sm text-muted-foreground font-medium">
               Or text{' '}
               <a href="sms:+13187133781" className="text-primary font-bold hover:underline whitespace-nowrap">

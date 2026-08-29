@@ -50,7 +50,7 @@ interface LPFormSectionProps {
 
 export function LPFormSection({
   heading = 'Get Your Growth Plan',
-  subheading = "Tell us about your business and we'll deliver a custom growth plan within 24 hours.",
+  subheading = "Tell us about your business and we'll deliver a custom growth plan.",
   benefits = [
     'Full competitive analysis',
     'Custom strategy plan',

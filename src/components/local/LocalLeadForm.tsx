@@ -175,7 +175,7 @@ export function LocalLeadForm({
 
       <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
         <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
-        Free &amp; no obligation. We reply within 2 hours — and never sell your info.
+        Free &amp; no obligation. One human replies — and we never sell your info.
       </p>
     </div>
   );

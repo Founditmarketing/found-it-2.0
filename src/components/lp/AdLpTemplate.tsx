@@ -128,8 +128,8 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
         formCompact
         formQualify
         formFitGate
-        formSuccessNote="Done. We'll call you back, usually within 2 hours, to set up your walkthrough."
-        formPrivacyNote="We reply within two hours."
+        formSuccessNote="Done. Trevor calls you back to set up your walkthrough."
+        formPrivacyNote="No spam, no list. One human replies."
         voiceAgent={voiceHero}
         nextSteps={[
           'Leave your name and number.',
