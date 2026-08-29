@@ -5,7 +5,7 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Found It OS — The AI Employee Your Business Owns',
   description:
-    `Found It OS is custom software with an AI employee, built around your business. It answers, it types, it chases what you're owed, and you own it outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Alexandria, LA.`,
+    `Found It OS is custom software + AI employee, built around your business. It answers, it types, it chases what you're owed, and you own it outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Software',
@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'It Answers. It Types. It Chases.',
   headlineAccent: 'You Own It.',
   intro:
-    `Found It OS is custom software with an AI employee, built around your business. It answers the phone and takes a real message. It types the paperwork your people re-key today. It chases the estimates and the money owed so nobody has to. And unlike every subscription on your card, you own it outright: the code and the data. Nothing switches until it has run beside your old system and matched it to the penny.`,
+    `Found It OS is custom software + AI employee, built around your business. It answers the phone and takes a real message. It types the paperwork your people re-key today. It chases the estimates and the money owed so nobody has to. And unlike every subscription on your card, you own it outright: the code and the data. Nothing switches until it has run beside your old system and matched it to the penny.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
