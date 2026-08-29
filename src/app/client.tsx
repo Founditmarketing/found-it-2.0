@@ -6,7 +6,7 @@ import { AskTheOS } from '@/components/os/AskTheOS';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE, FOUNDING } from '@/lib/site';
+import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -266,11 +266,9 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-sm font-bold text-foreground leading-snug">
-                  {OS_SLOTS.taken} of {OS_SLOTS.total} founding seats spoken for.{' '}
+                  {OS_SLOTS.taken} of {OS_SLOTS.total} seats spoken for.{' '}
                   <span className="text-muted-foreground font-medium">
-                    The last {OS_SLOTS.total - OS_SLOTS.taken} sign at the founding{' '}
-                    <span className="text-foreground font-bold">{FOUNDING.price}/mo, for life</span>. At{' '}
-                    {OS_SLOTS.total} accounts we stop taking new ones.
+                    At {OS_SLOTS.total} accounts we stop taking new ones.
                   </span>
                 </p>
               </div>

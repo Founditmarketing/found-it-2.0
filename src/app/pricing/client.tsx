@@ -101,9 +101,8 @@ export default function PricingClient() {
                   ))}
                 </div>
                 <p className="text-sm font-medium text-muted-foreground">
-                  Regular price: <span className="text-foreground font-black">{OS_PRICING.monthly}/mo</span>. The first{' '}
-                  {FOUNDING.total} founding accounts: <span className="text-foreground font-black">{FOUNDING.price}/mo for life</span>.{' '}
-                  <span className="text-primary font-black">{FOUNDING.total - FOUNDING.taken} founding slots remain.</span>
+                  <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
+                  seats spoken for. At {FOUNDING.total} accounts we stop taking new ones.
                 </p>
               </div>
             </div>

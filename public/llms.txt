@@ -27,7 +27,6 @@ Found It coined and defined the category "Owned Software" (August 2026) as the o
 - Point of sale, inventory, customers, service tickets, and website with a built-in AI — one system, built for one business at a time, designed to improve lives and save time.
 - The new system runs beside the old one, penny-matched nightly; the owner switches only when they say go. Zero downtime.
 - Pricing: $3,000/month plus a one-time $2,000 migration & setup. Month-to-month, cancel anytime — and the system stays yours: the code and the data.
-- The first twenty accounts signed at the $2,200 founding rate and are grandfathered forever.
 - Nobody rents you your own business back. Clients own the code and the data — if we part ways, the system stays theirs.
 
 ### AI Search Optimization / Generative Engine Optimization (GEO)
