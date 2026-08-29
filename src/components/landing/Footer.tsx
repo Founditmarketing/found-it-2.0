@@ -70,15 +70,6 @@ export function Footer() {
               <li><Link href="/about#team" className={linkClass}>Team</Link></li>
               <li><Link href="/blog" className={linkClass}>Blog</Link></li>
               <li><Link href="/ai-visibility-check" className={linkClass}>AI Visibility Check</Link></li>
-              <li>
-                <Link
-                  href="/guide"
-                  onClick={() => trackGuideCTAClick('footer_tools')}
-                  className={linkClass}
-                >
-                  Free Guide (PDF)
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -124,13 +115,6 @@ export function Footer() {
               )}
               <Link href="/fit" className="block text-sm text-primary font-bold hover:underline">
                 See If Your Business Fits →
-              </Link>
-              <Link
-                href="/guide"
-                onClick={() => trackGuideCTAClick('footer_contact')}
-                className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold"
-              >
-                Download The Free Guide →
               </Link>
             </address>
           </div>

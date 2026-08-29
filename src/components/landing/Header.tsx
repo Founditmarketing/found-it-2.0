@@ -607,18 +607,8 @@ export function Header() {
                   </motion.div>
                 </Link>
 
-                {/* Paired secondary: the gated guide */}
-                <Link
-                  href="/guide"
-                  onClick={() => {
-                    trackGuideCTAClick('header_mobile');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl border border-border/40 text-foreground font-bold text-sm hover:bg-white/5 transition-colors min-h-[48px]"
-                >
-                  <Download className="w-4 h-4 text-primary" aria-hidden="true" />
-                  Download The Free Guide
-                </Link>
+                {/* Guide link retired 8/28 (Trevor: "get that free guide off") —
+                    /guide stays live by URL only. */}
 
                 {/* Copyright */}
                 <div className="flex items-center justify-center pt-1">

@@ -14,6 +14,13 @@ const TrevorConcierge = dynamic(
   () => import('@/components/concierge/TrevorConcierge').then((m) => m.TrevorConcierge),
   { ssr: false }
 );
+
+// Glock Mode (8/28): the station pill, bottom-left. Loads after hydration —
+// it's a fun switch, not critical path.
+const GlockMode = dynamic(
+  () => import('@/components/radio/GlockMode').then((m) => m.GlockMode),
+  { ssr: false }
+);
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isLP = pathname.startsWith('/lp');
@@ -41,6 +48,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
         <Footer />
       </div>
       <TrevorConcierge />
+      <GlockMode />
       <Toaster />
     </SmoothScrollProvider>
   );

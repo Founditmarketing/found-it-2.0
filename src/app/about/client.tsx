@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { GuideCta } from '@/components/GuideCta';
 import { FounderByline } from '@/components/FounderByline';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { AWARD, TRACK_RECORD, BUSINESS } from '@/lib/site';
@@ -253,7 +252,6 @@ export default function AboutPage() {
                 Book a Free Call
               </LiquidButton>
             </Link>
-            <GuideCta location="about_cta" className="max-w-sm sm:max-w-none" />
           </div>
         </motion.div>
 

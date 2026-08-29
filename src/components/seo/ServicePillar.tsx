@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { FitCheck } from '@/components/fit/FitCheck';
-import { GuideCta } from '@/components/GuideCta';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
@@ -131,7 +130,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <Link href="/contact" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
               Talk to Trevor
             </Link>
-            <GuideCta location={`pillar_hero_${data.formPageSlug}`} />
           </div>
         </header>
 
