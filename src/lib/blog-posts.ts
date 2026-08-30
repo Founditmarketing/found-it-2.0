@@ -19,6 +19,42 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'moving-our-own-books',
+        title: 'QuickBooks Lost $99,000 of My July. My Own Books Caught It.',
+        date: '2026-08-30',
+        excerpt: 'Four days ago I put a promise in writing: the next set of books we tear up is our own. This is the update. We are on the engine, the bank statements are pulled apart, and the first thing our books caught was a $99,000 hole in QuickBooks\' July.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/books-og-hook-v2.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Four days ago, at the bottom of <a href="/blog/quickbooks-replacement-software" style="color: #FF5500;">a post about taking QuickBooks apart</a>, I put a promise in writing: <em>the next set of books we tear up is our own. Found It is moving its own company onto this engine. I won't ask you to run your business on books I won't run mine on.</em></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A promise in writing earns an update in writing. <span style="color: #FF5500; font-weight: 800;">Here it is.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Found It's books run on our own engine. <span style="color: #FF5500;">Today. Right now.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every entry our company posts lands in the same append-only ledger we build for clients. Written is written. I can't edit my own history, and neither can anyone who works for me. When we get something wrong, the mistake stays on the page and the correction goes on the page next to it, dated. My books now live under the exact law I sell.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And we did to ourselves what we do to every client on day one. We pulled the real bank statements, seventeen of them, covering seven months across every account this company touches, and walked our own money line by line against our own ledger.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The bench test came home with us. <span style="color: #FF5500;">Here's what it caught.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$99,000</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">of my own July that QuickBooks silently lost. My books matched the bank to the penny.</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Read that again, because I sell software and this still stung. The plan was to run the new books beside QuickBooks and match them against each other. We couldn't. <span style="color: #FF5500;">QuickBooks' July was wrong by about ninety-nine thousand dollars,</span> quietly, with no alarm, no red line, nothing. The rent was paid, so the software was content. The only referee left was the bank statement, and against the bank, the new books tied to the penny.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It didn't stop there. One truck note had been hiding for seven straight months behind a bank descriptor that said nothing but &ldquo;Ext Trnsfr.&rdquo; QuickBooks had it filed as a nameless pile of Car &amp; Truck expense. The rebuild forced every vehicle note into the open: which truck, which lender, what's principal, what's interest. One loan on a vehicle we drive every week had never made it into QuickBooks at all. And two loans we thought we were still carrying <span style="color: #FF5500;">turned out to be paid off.</span> That's what walking your own statements buys you. Not a feeling. A list.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Eating our own cooking made the recipe better.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Running a real company's books, ours, forced the engine to grow up fast. Deposit slips that batch the drawer and the checks into the exact line the bank prints. A period lock, so closed months stay closed. Statement sign-off, where the ledger has to shake hands with the printed closing balance or refuse. Cash-basis reports, because that's what accountants actually file. A year-end close. A side door for a CPA's adjusting entries that still can't touch history. <span style="color: #FF5500;">Every one of those exists because our own books demanded it,</span> and every client's system inherits all of it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And a licensed CPA is walking the rebuilt books beside us, the same way your accountant would. Payroll and tax filing stay with humans, ours included, forever. Some work belongs to a person who signs her name to it.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What's <span style="color: #FF5500;">not</span> done. Because that's part of the update too.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">QuickBooks is still running. We haven't cancelled it, on purpose. The rule I give every client is that nothing gets unplugged until the new books and the old life have agreed long enough to trust, and the owner says go on his own clock. <span style="color: #FF5500;">That rule doesn't bend just because the owner is me.</span> The parallel run continues through September. When I say go, I'll write that down here too, and you'll know the subscription died because I'll be glad to tell you.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">One more thing coming. As of this weekend, systems we run for clients check their own books every midnight and keep the score, night after night, in a ledger a person can't type into. <a href="/the-record" style="color: #FF5500;">We built a page for it.</a> Our own books go on that same clock next. Same test, same referee, nowhere to hide.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not even Intuit. Not even to me.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
+`,
+    },
+    {
         slug: 'ai-employee-vs-ai-employee',
         title: 'Same Job Title. Different Deal.',
         date: '2026-08-29',
@@ -206,6 +242,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One last thing, and I am putting it in writing.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The next set of books we tear up is our own. Found It is moving its own company onto this engine. I won't ask you to run your business on books I won't run mine on. <span style="color: #FF5500;">That's the whole test.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Update, August 30:</strong> we kept the promise, and the first thing our own books caught was a $99,000 hole in QuickBooks' July. <a href="/blog/moving-our-own-books" style="color: #FF5500;">The full report is here.</a></p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The story is real and the client stays anonymous. Every screen shown of this engine runs demo data, every name and dollar on it invented. No client information, ever.</em></p>
