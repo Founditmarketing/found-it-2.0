@@ -37,6 +37,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
 
   // The Record — before/after case files (evidence page, 8/29/2026)
   { path: '/before-after', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/the-record', priority: 0.8, changeFrequency: 'weekly' },
 
   // Service authority pillars (organic / GEO) — primary public service pages
   { path: '/foundit-os', priority: 0.9, changeFrequency: 'weekly' },
