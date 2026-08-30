@@ -1,11 +1,12 @@
 'use client';
 
-/* ─── THE RECORD — the page (Trevor 8/29: "a whole page dedicated to this
-   concept"). Systems that publish their own receipts: the nightly check
-   writes one row, the page reads the rows, and the streak does the talking.
+/* ─── THE RECORD — restrained on purpose (Trevor 8/29: "more professional,
+   less salesy"). This page reads like an audit report, not a landing page:
+   the panel is the centerpiece, the copy is methodology, the close is a
+   pair of quiet links. Understatement is the credibility play here.
    HONESTY LAW: the panel below is a clearly-labeled DEMONSTRATION with
-   sample numbers — real client strips appear here one blessing at a time,
-   and their counters start at zero. No fake receipt ever renders as real. */
+   sample numbers — real client strips appear one blessing at a time, and
+   their counters start at zero. No fake receipt ever renders as real. */
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
@@ -65,36 +66,55 @@ function Counter({ to, prefix = '', play }: { to: number; prefix?: string; play:
   return <>{prefix}{n.toLocaleString()}</>;
 }
 
+const METHOD = [
+  {
+    n: '01',
+    t: 'The system writes it',
+    d: 'At midnight the system runs its own reconciliation: every dollar billed against every dollar collected and outstanding, to the cent. It writes one row with the date, the result, and the totals. There is no manual entry anywhere in the pipeline.',
+  },
+  {
+    n: '02',
+    t: 'A missing night is visible',
+    d: 'A Record renders only when its newest row is current. If a nightly check did not run, that gap shows here in place of a number. Nothing on this page can be a stale figure presented as tonight’s.',
+  },
+  {
+    n: '03',
+    t: 'A failed night stays on the ledger',
+    d: 'A night that does not reconcile resets the public streak, and the row remains in the ledger permanently. That is what makes the matched nights meaningful.',
+  },
+];
+
 export default function TheRecordClient() {
   const demoRef = useRef<HTMLDivElement>(null);
   const inView = useInView(demoRef, { once: true, amount: 0.4 });
 
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-24 relative overflow-hidden">
-      {/* one authored light source, same family as the homepage hero */}
+      {/* one authored light source, dimmer than the homepage hero */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-10 -translate-x-1/2 w-[54rem] h-[26rem] rounded-full bg-primary/[0.07] blur-[130px] pointer-events-none"
+        className="absolute left-1/2 top-10 -translate-x-1/2 w-[54rem] h-[26rem] rounded-full bg-primary/[0.05] blur-[130px] pointer-events-none"
       />
 
       <div className="max-w-[980px] mx-auto px-6 relative z-10">
-        {/* ── hero ── */}
+        {/* ── header ── */}
         <motion.header
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
-            Receipts, Not Reviews
+          <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.35em] text-muted-foreground mb-5">
+            Nightly reconciliation, published live
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black font-heading uppercase italic tracking-tighter leading-[0.88] mb-6">
             The Record<span className="text-primary">.</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            Every system we run checks its own books at midnight and keeps the score.
-            Nights matched to the penny. Money through the pipe. Discrepancies found.{' '}
-            <span className="text-white font-bold">No number on this page is ever typed by a person.</span>
+            Every system we operate reconciles its own books at midnight: billed against
+            collected and outstanding, to the cent. The result is written to a ledger and
+            published here.{' '}
+            <span className="text-white font-semibold">No number on this page is entered by hand.</span>
           </p>
         </motion.header>
 
@@ -158,93 +178,83 @@ export default function TheRecordClient() {
             </div>
           </div>
         </motion.div>
-        <p className="text-center text-xs text-muted-foreground font-medium mb-20">
-          Sample numbers, real mechanics. Each client&rsquo;s live Record appears below as they
-          put their name to it — and every counter starts at zero.
+        <p className="text-center text-xs text-muted-foreground font-medium mb-24">
+          Sample numbers, real mechanics. Client Records appear here as each owner signs off
+          on publishing, and every counter starts at zero.
         </p>
 
-        {/* ── how it stays honest ── */}
-        <motion.div
+        {/* ── methodology ── */}
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="mb-20"
+          className="mb-24"
         >
-          <h2 className="text-3xl lg:text-4xl font-black font-heading uppercase italic tracking-tighter text-center mb-10">
-            How a Number Earns This Page
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
+            Methodology
+          </p>
+          <h2 className="text-2xl lg:text-3xl font-black font-heading uppercase tracking-tight mb-8">
+            How these numbers are produced
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                t: 'The system writes it',
-                d: 'At midnight the system runs its own audit: every dollar billed against every dollar collected and owed, to the cent. It writes one row — the date, the result, the totals. Nobody types anything.',
-              },
-              {
-                t: 'A missing night shows',
-                d: 'The page refuses to render a Record whose newest row is stale. There is no such thing as a receipt from last month presented as today. If the check didn’t run, you’d see that too.',
-              },
-              {
-                t: 'A red night stays red',
-                d: 'If a night ever doesn’t match, the streak resets in public and the row stays in the ledger. That is exactly what makes the green ones worth something.',
-              },
-            ].map((c) => (
-              <div key={c.t} className="bg-card/15 border border-border/20 rounded-2xl p-6">
-                <h3 className="font-black text-foreground uppercase italic tracking-tight text-lg mb-3">
-                  {c.t}
-                </h3>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{c.d}</p>
+          <div className="divide-y divide-border/15 border-y border-border/15">
+            {METHOD.map((m) => (
+              <div key={m.n} className="grid grid-cols-[3rem_1fr] sm:grid-cols-[4rem_14rem_1fr] gap-x-4 gap-y-2 py-7">
+                <p className="font-mono text-sm font-semibold text-primary/80 pt-0.5">{m.n}</p>
+                <h3 className="font-bold text-foreground tracking-tight text-base">{m.t}</h3>
+                <p className="col-span-2 sm:col-span-1 text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
+                  {m.d}
+                </p>
               </div>
             ))}
           </div>
-        </motion.div>
+        </motion.section>
 
-        {/* ── why ── */}
-        <motion.div
+        {/* ── why it exists ── */}
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="text-center mb-20 max-w-2xl mx-auto"
+          className="mb-24 max-w-2xl"
         >
-          <h2 className="text-3xl lg:text-4xl font-black font-heading uppercase italic tracking-tighter mb-5">
-            Static Case Studies Age.<br />
-            <span className="text-primary">A Streak Grows.</span>
-          </h2>
-          <p className="text-base lg:text-lg text-white/80 font-medium leading-relaxed">
-            Anyone can write a case study. A counter that has to survive every midnight is a
-            different kind of claim. The systems on this page run real businesses in the wild —
-            registers, work orders, payment plans, real money — and each one proves itself again
-            tonight, or you&rsquo;ll see it didn&rsquo;t.
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
+            Why we publish it
           </p>
-        </motion.div>
+          <p className="text-base lg:text-lg text-white/80 font-medium leading-relaxed">
+            A written case study is the author&rsquo;s claim. A reconciliation streak is the
+            system&rsquo;s. The systems reported on this page run operating businesses, with
+            registers, work orders, and payment plans behind the figures, and every number is
+            re-earned each night.
+          </p>
+        </motion.section>
 
-        {/* ── close ── */}
-        <motion.div
+        {/* ── quiet close ── */}
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="text-center"
+          className="border-t border-border/15 pt-10"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-10">
             <Link
               href="/before-after"
-              className="inline-flex items-center justify-center gap-2 px-9 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
             >
-              See the Before &amp; After <ArrowRight className="w-4 h-4" />
+              What these systems replaced <ArrowRight className="w-4 h-4 text-primary" />
             </Link>
             <Link
               href="/map"
-              className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
             >
-              Show Me What You&rsquo;d Build
+              What a system for your business would include <ArrowRight className="w-4 h-4 text-primary" />
             </Link>
           </div>
-          <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
-            Owned software &middot; proven beside the old system &middot; then proven every night after
+          <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            Owned software · proven beside the old system · then proven every night after
           </p>
-        </motion.div>
+        </motion.section>
       </div>
     </main>
   );
