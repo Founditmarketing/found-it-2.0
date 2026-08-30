@@ -38,6 +38,9 @@ export interface PillarData {
   /** Hero placement (Trevor 8/29): on the OS page the secretary IS the pitch,
       so she demos in the hero itself; pages without this keep her mid-page. */
   voiceDemoHero?: boolean;
+  /** Hero comparison links (Trevor 8/29): the two fights people are already
+      having in their heads — DIY-with-AI and the rented AI employees. */
+  compareCtas?: { label: string; href: string }[];
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
@@ -136,6 +139,20 @@ export function ServicePillar({ data }: { data: PillarData }) {
               Watch It Run
             </Link>
           </div>
+
+          {data.compareCtas && data.compareCtas.length > 0 && (
+            <div className="flex flex-wrap gap-3 mt-5">
+              {data.compareCtas.map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="inline-flex items-center justify-center px-6 h-11 rounded-full border border-primary/35 bg-primary/[0.06] text-primary font-mono text-[11px] font-black uppercase tracking-[0.18em] hover:bg-primary/15 transition-colors"
+                >
+                  {c.label} &rarr;
+                </Link>
+              ))}
+            </div>
+          )}
 
           {data.voiceDemo && data.voiceDemoHero && (
             <div className="mt-12">

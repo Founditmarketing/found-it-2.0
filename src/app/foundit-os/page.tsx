@@ -51,6 +51,10 @@ const data: PillarData = {
   ],
   voiceDemo: true,
   voiceDemoHero: true,
+  compareCtas: [
+    { label: 'Compared to Grok', href: '/vs-grok' },
+    { label: 'Compared to Viktor', href: '/vs-viktor' },
+  ],
   automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
