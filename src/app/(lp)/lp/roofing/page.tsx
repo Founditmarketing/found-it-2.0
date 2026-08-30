@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       'One ledger for every roofing dollar — estimates, invoices, payments, and the book, tied job by job to the penny. Owned outright.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/roofing',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

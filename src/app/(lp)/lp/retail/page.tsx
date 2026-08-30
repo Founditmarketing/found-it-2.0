@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Sales, sizes, low stock, reorders — one custom system built around your store, and you own it: the code and the data. See what yours would look like, free.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/retail',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description: "One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. One published price.",
     images: [
       {
-        url: '/og-image-v3.png',
+        url: '/og-image-v4.png',
         width: 1200,
         height: 630,
         alt: 'Found It Software, custom systems local businesses own outright',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Found It Software | Simpler Business. More Money. You Own It.',
     description: "One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. One published price.",
-    images: ['/og-image-v3.png'],
+    images: ['/og-image-v4.png'],
   },
   robots: {
     index: true,

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'One custom system — customers, jobs, estimates, invoices, the books. Built around how you run. Owned outright.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/can-it',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

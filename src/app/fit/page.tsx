@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Five taps, one honest verdict: strong fit, borderline, or not a fit. We tell you straight either way.',
     type: 'website',
     url: 'https://www.founditsoftware.com/fit',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

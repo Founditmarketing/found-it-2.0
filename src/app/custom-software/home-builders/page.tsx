@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own before it goes dark. Draws, selections, change orders, sub scheduling. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/home-builders',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

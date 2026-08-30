@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'Repair orders, parts, payments, and the books — one shop management system fitted to how you run, owned outright. No per-seat fees.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/auto-shop',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

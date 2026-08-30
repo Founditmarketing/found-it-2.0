@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'The story and the team. Custom AI software company in Alexandria, LA — builders of Found It OS, systems local businesses own outright. 13+ years. No contracts.',
     type: 'website',
     url: 'https://www.founditsoftware.com/about',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

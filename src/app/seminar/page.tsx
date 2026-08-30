@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "What's real, what's junk, and what AI is already doing in Louisiana shops. Free, in a room, not on Zoom. September session in Alexandria.",
     type: 'website',
     url: 'https://www.founditsoftware.com/seminar',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

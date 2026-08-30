@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       `Four pages, plain English, zero tech specs — what you actually get with a custom business operating system you own. The whole price printed, and one job: ${OS_PRICING.promise}`,
     type: 'website',
     url: 'https://www.founditsoftware.com/guide',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

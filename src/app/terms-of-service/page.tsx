@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         description: 'Terms of Service for Found It Marketing LLC.',
         type: 'website',
         url: 'https://www.founditsoftware.com/terms-of-service',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
     },
 };
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: `One custom system that does the typing, chases what you're owed, and answers your phone. Simpler life. More money. You own it. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month.`,
     type: 'website',
     url: 'https://www.founditsoftware.com',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   alternates: { canonical: '/' },
 };

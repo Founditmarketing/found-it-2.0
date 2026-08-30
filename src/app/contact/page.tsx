@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Leave your number — Trevor calls you back. Alexandria, LA.',
     type: 'website',
     url: 'https://www.founditsoftware.com/contact',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

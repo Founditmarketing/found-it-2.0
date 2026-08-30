@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Found It OS has its price printed: $3,000/month plus a one-time $2,000 migration & setup — built to simplify your life and make your business more profitable. Marketing services are flat fees, scoped up front in writing. No hidden costs. No long-term contracts.',
     type: 'website',
     url: 'https://www.founditsoftware.com/pricing',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

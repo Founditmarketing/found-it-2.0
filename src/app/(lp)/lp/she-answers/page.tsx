@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Every missed call is a job that called somebody else. She answers, takes the message, and books your callback — talk to her live, then see what yours would look like, free.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/she-answers',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

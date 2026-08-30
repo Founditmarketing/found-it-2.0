@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'We don’t build for everyone. Who we take, who we turn down, and the 60-second fit check.',
     type: 'website',
     url: 'https://www.founditsoftware.com/who-we-build-for',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

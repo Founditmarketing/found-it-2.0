@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Your new system runs beside QuickBooks, penny-matched every night, until the numbers say you can switch. And what you switch to is yours — the code and the data.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/ditch-quickbooks',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

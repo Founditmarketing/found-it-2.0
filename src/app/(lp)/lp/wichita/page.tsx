@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       "Could your current software answer that in five seconds? Free thirty-minute call, screen-shared with Tom, our man in Wichita. We show you what we'd build if it were ours.",
     type: 'website',
     url: 'https://founditsoftware.com/lp/wichita',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

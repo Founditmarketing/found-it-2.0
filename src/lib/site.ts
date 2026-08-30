@@ -25,8 +25,8 @@ export const BUSINESS = {
   description:
     'Custom AI software company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems that improve lives and save time, owned outright by the client — plus custom app development and AI Search Optimization (GEO) so local businesses get recommended by AI. No long-term contracts; clients own their accounts, code, and data.',
   url: SITE_URL,
-  logo: `${SITE_URL}/og-image-v3.png`,
-  image: `${SITE_URL}/og-image-v3.png`,
+  logo: `${SITE_URL}/og-image-v4.png`,
+  image: `${SITE_URL}/og-image-v4.png`,
   email: 'trevor@founditmarketing.com',
   /** Secondary inbox kept for reference / contactPoint coverage. */
   altEmail: 'john@founditmarketing.com',

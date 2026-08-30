@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       'Who we are, what we build, the words, the colors, and the facts. One page.',
     type: 'website',
     url: 'https://www.founditsoftware.com/media',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

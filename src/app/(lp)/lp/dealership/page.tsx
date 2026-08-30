@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       'Distributor price files load automatically, every part reprices at your margin, and the counter cannot sell below cost. One system you own outright.',
     type: 'website',
     url: 'https://founditsoftware.com/lp/dealership',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
   robots: { index: false, follow: false },
 };

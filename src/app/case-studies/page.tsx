@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Real business operating systems for real local companies — and every one owns the code and the data.',
     type: 'website',
     url: 'https://www.founditsoftware.com/case-studies',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 

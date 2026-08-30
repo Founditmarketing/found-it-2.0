@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Check if ChatGPT, Perplexity, and Google AI recommend your business. Free instant check.',
     type: 'website',
     url: 'https://www.founditsoftware.com/ai-visibility-check',
-    images: [{ url: '/og-image-v3.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
   },
 };
 
