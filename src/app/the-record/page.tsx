@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import TheRecordClient from './client';
-import { founditRecord } from '@/lib/record-live';
+import { blessedClientRecords, founditRecord } from '@/lib/record-live';
 
 export const revalidate = 900; // live strips re-read every 15 minutes
 
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 export default async function TheRecordPage() {
   // Read at render, refuse-if-stale inside; a null simply doesn't render.
-  const foundit = await founditRecord();
-  return <TheRecordClient foundit={foundit} />;
+  // Client strips exist only after their owner's blessing lands as env.
+  const [foundit, clients] = await Promise.all([founditRecord(), blessedClientRecords()]);
+  return <TheRecordClient foundit={foundit} clients={clients} />;
 }

@@ -126,20 +126,18 @@ function LiveStrip({ record }: { record: LiveRecord }) {
               ))}
             </div>
           </div>
-          <div className="p-6 border-b lg:border-b-0 lg:border-r border-border/15">
-            <p className="font-heading font-black text-4xl tracking-tight">{record.entries.toLocaleString()}</p>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
-              Entries in<br />the journal
-            </p>
-          </div>
-          <div className="p-6 lg:border-r border-border/15">
-            <p className={`font-heading font-black text-4xl tracking-tight ${record.discrepancies === 0 ? 'text-emerald-400' : 'text-red-500'}`}>
-              {record.discrepancies}
-            </p>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
-              Discrepancies<br />last night
-            </p>
-          </div>
+          {record.stats.map((s, i) => (
+            <div key={s.label} className={`p-6 ${i === 0 ? 'border-b lg:border-b-0' : ''} lg:border-r border-border/15`}>
+              <p className={`font-heading font-black text-4xl tracking-tight ${
+                s.tone === 'green' ? 'text-emerald-400' : s.tone === 'red' ? 'text-red-500' : ''
+              }`}>
+                {s.value}
+              </p>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed whitespace-pre-line">
+                {s.label}
+              </p>
+            </div>
+          ))}
           <div className="p-6">
             <p className="font-heading font-black text-4xl tracking-tight">{record.lastNight.slice(5).replace('-', '/')}</p>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
@@ -156,7 +154,13 @@ function LiveStrip({ record }: { record: LiveRecord }) {
   );
 }
 
-export default function TheRecordClient({ foundit }: { foundit?: LiveRecord | null }) {
+export default function TheRecordClient({
+  foundit,
+  clients = [],
+}: {
+  foundit?: LiveRecord | null;
+  clients?: LiveRecord[];
+}) {
   const demoRef = useRef<HTMLDivElement>(null);
   const inView = useInView(demoRef, { once: true, amount: 0.4 });
 
@@ -255,8 +259,12 @@ export default function TheRecordClient({ foundit }: { foundit?: LiveRecord | nu
           on publishing, and every counter starts at zero.
         </p>
 
-        {/* ── the live strips — first name on the page is our own ── */}
+        {/* ── the live strips — first name on the page is our own,
+             every client below it put their own name there ── */}
         {foundit && <LiveStrip record={foundit} />}
+        {clients.map((c) => (
+          <LiveStrip key={c.name} record={c} />
+        ))}
 
         {/* ── methodology ── */}
         <motion.section
