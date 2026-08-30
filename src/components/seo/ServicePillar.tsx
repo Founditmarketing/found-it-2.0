@@ -35,6 +35,9 @@ export interface PillarData {
   /** Opt-in live AI-secretary demo under the definition (Trevor 8/16 —
    *  foundit-os + custom-software only). Attribution rides formPageSlug. */
   voiceDemo?: boolean;
+  /** Hero placement (Trevor 8/29): on the OS page the secretary IS the pitch,
+      so she demos in the hero itself; pages without this keep her mid-page. */
+  voiceDemoHero?: boolean;
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
@@ -127,16 +130,31 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <Link href={ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
               {data.ctaLabel}
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
-              Talk to Trevor
+            {/* Show, don't talk (Trevor 8/29): the secondary CTA points at proof —
+                the reel on this page, or the flagship's reel when there isn't one. */}
+            <Link href={data.automationReel ? '#watch' : '/foundit-os#watch'} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
+              Watch It Run
             </Link>
           </div>
+
+          {data.voiceDemo && data.voiceDemoHero && (
+            <div className="mt-12">
+              <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-2">
+                Live Demo &middot; Not a Video
+              </p>
+              <p className="text-muted-foreground font-medium text-sm sm:text-base leading-relaxed mb-5 max-w-2xl">
+                The AI secretary comes with every system. Tap the mic and ask her anything &mdash;
+                she&rsquo;ll take your number herself.
+              </p>
+              <VoiceAgentWidget pageSlug={data.formPageSlug} />
+            </div>
+          )}
         </header>
 
         {/* The floor, page-sized: this system's captures drift past right under
             the hero. Tapping any frame jumps to the full stages below. */}
         {data.automationReel && (
-          <section className="mb-16">
+          <section id="watch" className="mb-16 scroll-mt-24">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
               This Is What Automated <span className="text-primary">Looks Like.</span>
             </h2>
@@ -197,7 +215,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* The definition, made audible: every system ships with the AI
             secretary — here she is, live, right where the claim was made. */}
-        {data.voiceDemo && (
+        {data.voiceDemo && !data.voiceDemoHero && (
           <section className="mb-16">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
               The AI Secretary. <span className="text-primary">She&rsquo;s Live.</span>

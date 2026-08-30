@@ -50,6 +50,7 @@ const data: PillarData = {
     { value: '0 Hrs', label: 'Downtime at Switch' },
   ],
   voiceDemo: true,
+  voiceDemoHero: true,
   automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
