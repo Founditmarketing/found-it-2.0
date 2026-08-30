@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import type { LiveRecord } from '@/lib/record-live';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const NIGHTS = 41;
@@ -84,7 +85,78 @@ const METHOD = [
   },
 ];
 
-export default function TheRecordClient() {
+/** A live strip: real rows, read from the system's own database at render. */
+function LiveStrip({ record }: { record: LiveRecord }) {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease }}
+      className="mb-24"
+    >
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
+        Live · read from the ledger at render
+      </p>
+      <div className="rounded-3xl overflow-hidden border border-primary/25 bg-card/15 backdrop-blur-sm">
+        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-border/15 bg-black/40">
+          <div>
+            <p className="font-heading font-black uppercase italic tracking-tight text-lg">
+              {record.name}<span className="text-primary">.</span>
+            </p>
+            <p className="font-mono text-[11px] text-muted-foreground">{record.descriptor}</p>
+          </div>
+          <p className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-emerald-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            Live
+          </p>
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          <div className="p-6 border-b lg:border-b-0 lg:border-r border-border/15">
+            <p className="font-heading font-black text-5xl text-primary tracking-tight">{record.streak}</p>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
+              Night{record.streak === 1 ? '' : 's'} balanced<br />to the penny
+            </p>
+            <div className="flex flex-wrap gap-[3px] mt-4 max-w-[420px]" aria-hidden>
+              {record.nights.slice(0, 41).reverse().map((n) => (
+                <div
+                  key={n.date}
+                  className={`h-5 w-2 rounded-[3px] ${n.status === 'green' ? 'bg-emerald-400/75' : 'bg-red-500/80'}`}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="p-6 border-b lg:border-b-0 lg:border-r border-border/15">
+            <p className="font-heading font-black text-4xl tracking-tight">{record.entries.toLocaleString()}</p>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
+              Entries in<br />the journal
+            </p>
+          </div>
+          <div className="p-6 lg:border-r border-border/15">
+            <p className={`font-heading font-black text-4xl tracking-tight ${record.discrepancies === 0 ? 'text-emerald-400' : 'text-red-500'}`}>
+              {record.discrepancies}
+            </p>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
+              Discrepancies<br />last night
+            </p>
+          </div>
+          <div className="p-6">
+            <p className="font-heading font-black text-4xl tracking-tight">{record.lastNight.slice(5).replace('-', '/')}</p>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
+              Newest night<br />certified
+            </p>
+          </div>
+        </div>
+        <div className="px-6 py-3.5 border-t border-border/15 bg-black/30 font-mono text-[11.5px] text-muted-foreground">
+          Every figure above was read from this system&rsquo;s own append-only ledger when this page loaded.
+          No number was typed by a person. The counter started at zero and earns one night at a time.
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+export default function TheRecordClient({ foundit }: { foundit?: LiveRecord | null }) {
   const demoRef = useRef<HTMLDivElement>(null);
   const inView = useInView(demoRef, { once: true, amount: 0.4 });
 
@@ -182,6 +254,9 @@ export default function TheRecordClient() {
           Sample numbers, real mechanics. Client Records appear here as each owner signs off
           on publishing, and every counter starts at zero.
         </p>
+
+        {/* ── the live strips — first name on the page is our own ── */}
+        {foundit && <LiveStrip record={foundit} />}
 
         {/* ── methodology ── */}
         <motion.section

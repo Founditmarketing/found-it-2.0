@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import TheRecordClient from './client';
+import { founditRecord } from '@/lib/record-live';
+
+export const revalidate = 900; // live strips re-read every 15 minutes
 
 export const metadata: Metadata = {
   title: 'The Record — Nightly Reconciliation, Published Live',
@@ -16,6 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TheRecordPage() {
-  return <TheRecordClient />;
+export default async function TheRecordPage() {
+  // Read at render, refuse-if-stale inside; a null simply doesn't render.
+  const foundit = await founditRecord();
+  return <TheRecordClient foundit={foundit} />;
 }
