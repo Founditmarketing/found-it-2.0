@@ -31,11 +31,11 @@ function Ticks({ play }: { play: boolean }) {
     return () => window.clearInterval(t);
   }, [play, reduce]);
   return (
-    <div className="flex gap-[3px] mt-5" aria-hidden>
+    <div className="flex flex-wrap gap-[3px] mt-5 max-w-[420px]" aria-hidden>
       {Array.from({ length: NIGHTS }).map((_, i) => (
         <div
           key={i}
-          className={`h-6 w-[10px] rounded-[3px] transition-colors duration-200 ${
+          className={`h-5 w-2 rounded-[3px] transition-colors duration-200 ${
             i < lit ? (i === NIGHTS - 1 ? 'bg-primary' : 'bg-emerald-400/75') : 'bg-white/[0.06]'
           }`}
         />
@@ -116,8 +116,8 @@ export default function TheRecordClient() {
                 Demonstration · sample numbers
               </p>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-[1.5fr_1fr_0.9fr_0.9fr]">
-              <div className="p-6 lg:p-7 border-b lg:border-b-0 lg:border-r border-border/15 col-span-2 lg:col-span-1">
+            <div className="grid grid-cols-2 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,0.85fr)]">
+              <div className="p-6 lg:p-7 border-b lg:border-b-0 lg:border-r border-border/15 col-span-2 lg:col-span-1 min-w-0">
                 <p className="font-heading font-black text-5xl lg:text-6xl text-primary tracking-tight">
                   <Counter to={NIGHTS} play={inView} />
                 </p>
