@@ -14,11 +14,8 @@ import { useEffect, useRef, useState } from 'react';
    secretary is live (body.voice-live). Nothing autoplays, ever.
    The old secret AdWords menu moved to holding the FOOTER wordmark. */
 
-/* 8/31: Trevor picked the station's one song — "Rich Blessed N Savage"
-   (Key Glock). Track embeds are 152px tall vs the artist embed's 352. */
 const EMBED_URL =
-  'https://open.spotify.com/embed/track/1hP7IHJzTchMc50b01mMFc?utm_source=generator&theme=0';
-const EMBED_HEIGHT = 152;
+  'https://open.spotify.com/embed/artist/0RESbWvOMyua0yuyVrztJ5?utm_source=generator&theme=0';
 
 const COLLAPSE_MS = 240;
 
@@ -111,7 +108,7 @@ export function GlockMode() {
           title="Glock Mode on Spotify"
           src={EMBED_URL}
           width="100%"
-          height={EMBED_HEIGHT}
+          height="352"
           frameBorder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
