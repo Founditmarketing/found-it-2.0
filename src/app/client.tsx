@@ -323,76 +323,10 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          THE FLEET (8/27 review): not three examples — the factory floor.
-          Every nameplate is a real system already public on /case-studies
-          or the blog; every receipt line stays inside sanctioned copy.
-          Marquee duplicates the track for a seamless loop; pauses on hover.
-      ═══════════════════════════════════════════ */}
-      <section id="fleet" className="relative py-14 lg:py-24 overflow-hidden">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="text-center mb-10"
-          >
-            <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-4">
-              Live Systems &middot; Running Now
-            </p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-              The Fleet.
-            </h2>
-            <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-              Every one fitted to its business on the same proven core. Every one owned outright by the business that runs it.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="group relative">
-          <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-            {[0, 1].map((track) => (
-              <div key={track} className="flex shrink-0" aria-hidden={track === 1}>
-                {[
-                  { name: 'Edwards Roofing OS', trade: 'Roofing', receipt: '$195,882.75 found in open receivables' },
-                  { name: 'Roxanne’s OS', trade: 'Wholesale Nursery', receipt: 'Fifteen brokers’ texts, every line caught' },
-                  { name: 'Tony’s Shop OS', trade: 'European Auto Repair', receipt: 'Declined jobs priced for win-back' },
-                  { name: 'Flywheel OS', trade: 'Tire & Auto', receipt: 'Any tire quoted out the door in seconds' },
-                  { name: 'The House System', trade: 'Menswear Retail', receipt: 'An AI register you can ask out loud' },
-                  { name: 'Pro Carpet OS', trade: 'Carpet & Duct Cleaning', receipt: 'Every estimate chased to an answer' },
-                  { name: 'The Lawyer OS', trade: 'Law Firm', receipt: 'Deadlines turn red. Never guessed.' },
-                  { name: 'The Bail Bonds OS', trade: 'Bail Bonds', receipt: 'Banned from answering the phone. On purpose.' },
-                ].map((s) => (
-                  <div
-                    key={`${track}-${s.name}`}
-                    className="w-[300px] sm:w-[340px] shrink-0 mx-2.5 bg-card/10 backdrop-blur-sm border border-border/15 rounded-2xl px-7 py-6 hover:border-primary/30 transition-colors"
-                  >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-                      <p className="text-lg font-black italic tracking-tighter text-foreground leading-none truncate">{s.name}</p>
-                    </div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-faint mb-3">{s.trade}</p>
-                    <p className="text-sm text-muted-foreground font-medium leading-snug">{s.receipt}</p>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="text-center mt-10">
-          <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
-            See every system <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
           THE SHIP LOG — velocity as receipts (Trevor 8/31:
-          "let em know they cant keep up even if they tried")
-      ═══════════════════════════════════════════ */}
+          "let em know they cant keep up even if they tried").
+          The Fleet marquee came OUT the same day (Trevor: "two scrolly
+          things is too much and i like the new one") — one marquee max. */}
       <ShipLog />
 
       {/* ═══════════════════════════════════════════
