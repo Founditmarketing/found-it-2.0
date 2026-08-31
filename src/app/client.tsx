@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { AskTheOS } from '@/components/os/AskTheOS';
 import { FixFirst } from '@/components/os/FixFirst';
 import { AutomationReel } from '@/components/os/AutomationReel';
+import { ShipLog } from '@/components/os/ShipLog';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
@@ -387,6 +388,12 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          THE SHIP LOG — velocity as receipts (Trevor 8/31:
+          "let em know they cant keep up even if they tried")
+      ═══════════════════════════════════════════ */}
+      <ShipLog />
 
       {/* ═══════════════════════════════════════════
           ASK THE OS — the demo beat, self-serve
