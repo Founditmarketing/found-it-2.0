@@ -4,7 +4,7 @@ import WhoClient from './client';
 export const metadata: Metadata = {
   title: 'Who We Build For | Found It Software',
   description:
-    'We don’t build for everyone. Owner-operated businesses, roughly $2M–$10M, sick of renting software. Restaurants, payroll, and trust accounting we turn down — and say so.',
+    'We don’t build for everyone. Owner-operated businesses, roughly $1M–$20M, sick of renting software. Restaurants, payroll, and trust accounting we turn down — and say so.',
   alternates: { canonical: '/who-we-build-for' },
   openGraph: {
     title: 'Who We Build For | Found It Software',

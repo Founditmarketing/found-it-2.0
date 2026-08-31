@@ -15,7 +15,7 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const who = [
   'Owner-operated',
-  'Roughly $2M–$10M a year',
+  'Roughly $1M–$20M a year',
   'Sells parts, product, or service, on accounts and terms',
   'Sick of renting software',
   'The owner will sit with us for an hour',
@@ -31,7 +31,7 @@ const turnDown = [
 
 const fineDetail: { title: string; detail: string }[] = [
   {
-    title: 'Why the $2M–$10M band',
+    title: 'Why the $1M–$20M band',
     detail:
       `Big enough that ${OS_PRICING.monthly} a month pays for itself fast. Small enough that the owner still runs the room. That is the whole method. Under the band but the office is drowning anyway? Take the fit check. Paper-heavy service businesses punch above their revenue.`,
   },
