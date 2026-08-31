@@ -30,6 +30,10 @@ type CaseFile = {
   receiptLabel: string;
   stillTrue: string;
   img?: { src: string; alt: string };
+  /* Full desktop dashboards are illegible at phone width — imgPhone is a tight
+     crop of the story-relevant card (the Roxanne focus pattern), served below
+     sm with the full shot on sm+. */
+  imgPhone?: { src: string; alt: string };
 };
 
 const files: CaseFile[] = [
@@ -103,6 +107,10 @@ const files: CaseFile[] = [
       src: '/images/blog/djs-blog-today-v1.png',
       alt: 'The morning screen: money due, applications in flight, court dates (demo data)',
     },
+    imgPhone: {
+      src: '/images/blog/djs-blog-today-phone-v1.png',
+      alt: 'Zoomed: the money-due list — names, due dates, dollars — and an application filling itself in (demo data)',
+    },
   },
   {
     name: 'Doggett Law Firm',
@@ -127,6 +135,10 @@ const files: CaseFile[] = [
       src: '/images/blog/doggett-blog-today-focus-v1.png',
       alt: 'The morning screen: calls the secretary took, dates needing his eyes (demo data)',
     },
+    imgPhone: {
+      src: '/images/blog/doggett-blog-secretary-phone-v1.png',
+      alt: 'Zoomed: the secretary’s log — calls answered, drafts waiting for his approval, nothing sends itself (demo data)',
+    },
   },
   {
     name: 'Walls Tree Service',
@@ -150,6 +162,10 @@ const files: CaseFile[] = [
     img: {
       src: '/images/blog/walls-scout-board-v1.png',
       alt: 'The board: open public bids matched to clearing work, scored and priced',
+    },
+    imgPhone: {
+      src: '/images/blog/walls-scout-la557-phone-v1.png',
+      alt: 'Zoomed: LA 557 on the board — matched, scored, priced at $2.5M–$5M from real winning bids',
     },
   },
   {
@@ -258,13 +274,26 @@ export default function BeforeAfterPage() {
                       </p>
                     ))}
                   </div>
+                  {f.img && f.imgPhone && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={f.imgPhone.src}
+                      alt={f.imgPhone.alt}
+                      loading="lazy"
+                      className="sm:hidden -mx-5 w-[calc(100%+2.5rem)] max-w-none rounded-none border-y border-border/25 mb-5"
+                    />
+                  )}
                   {f.img && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={f.img.src}
                       alt={f.img.alt}
                       loading="lazy"
-                      className="-mx-5 w-[calc(100%+2.5rem)] max-w-none rounded-none border-y sm:mx-0 sm:w-full sm:max-w-full sm:rounded-xl sm:border border-border/25 mb-5"
+                      className={
+                        f.imgPhone
+                          ? 'hidden sm:block w-full rounded-xl border border-border/25 mb-5'
+                          : '-mx-5 w-[calc(100%+2.5rem)] max-w-none rounded-none border-y sm:mx-0 sm:w-full sm:max-w-full sm:rounded-xl sm:border border-border/25 mb-5'
+                      }
                     />
                   )}
                   <div className="border border-border/25 rounded-2xl px-4 sm:px-6 py-4 inline-block">
