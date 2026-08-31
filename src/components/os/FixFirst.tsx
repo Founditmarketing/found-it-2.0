@@ -50,9 +50,13 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
 
   // The field announces itself: the placeholder types example businesses on a
   // loop with a live caret, so the pill unmistakably reads as "type here."
+  // The loop yields the moment the field is focused (Trevor 8/29: "when
+  // someone clicks... stop typing") and resumes on blur if still empty.
   const SAMPLES = ['tire shop', 'plant nursery', 'roofing crew', 'bail bonds office', 'equipment dealer', 'law office'];
   const [ph, setPh] = useState('');
+  const [focused, setFocused] = useState(false);
   useEffect(() => {
+    if (focused) { setPh(''); return; }
     if (reduce) { setPh('tire shop, plant nursery, roofing crew…'); return; }
     let alive = true;
     let si = 0;
@@ -71,7 +75,7 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
     typeOut(SAMPLES[0], 0);
     return () => { alive = false; ids.forEach((id) => window.clearTimeout(id)); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reduce]);
+  }, [reduce, focused]);
 
   function playTyping(fx: Fix[]) {
     timers.current.forEach((t) => window.clearTimeout(t));
@@ -180,17 +184,21 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
         >
           <span aria-hidden className="font-mono text-primary font-black text-base select-none">&gt;</span>
           <div className="relative flex-1 min-w-0">
+            {/* text-base below md: iOS zooms into any focused input under
+                16px — 16px on phones kills the zoom, desktop keeps 14px. */}
             <input
               type="text"
               value={business}
               onChange={(e) => setBusiness(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
               maxLength={80}
               placeholder=""
               aria-label="What kind of business do you run?"
-              className="w-full h-10 bg-transparent text-sm font-medium text-foreground caret-[#FF5500] selection:bg-primary/30 focus:outline-none"
+              className="w-full h-10 bg-transparent text-base md:text-sm font-medium text-foreground caret-[#FF5500] selection:bg-primary/30 focus:outline-none"
             />
-            {business.length === 0 && (
-              <span aria-hidden className="absolute inset-y-0 left-0 flex items-center text-sm font-medium text-white/50 pointer-events-none">
+            {business.length === 0 && !focused && (
+              <span aria-hidden className="absolute inset-y-0 left-0 flex items-center text-base md:text-sm font-medium text-white/50 pointer-events-none">
                 {ph}
                 {!reduce && <span className="text-primary animate-pulse">▍</span>}
               </span>
