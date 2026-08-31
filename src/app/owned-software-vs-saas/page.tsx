@@ -83,8 +83,25 @@ export default function OwnedVsSaasPage() {
           whole table: <span className="text-foreground font-bold">{OWNED_SOFTWARE_TEST_QUESTION}</span>
         </p>
 
-        {/* The table */}
-        <div className="overflow-x-auto mb-14">
+        {/* The table, phone-sized: side-scrolling a comparison hides the
+            comparison — below md each row stacks as a card instead. */}
+        <div className="md:hidden space-y-4 mb-14">
+          {rows.map((r) => (
+            <div key={r.k} className="border border-border/15 rounded-2xl overflow-hidden bg-card/10">
+              <p className="px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-foreground bg-card/30 border-b border-border/10">{r.k}</p>
+              <div className="px-4 py-3 border-b border-border/10">
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground mb-1">SaaS (rented)</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{r.saas}</p>
+              </div>
+              <div className="px-4 py-3 bg-primary/[0.06] border-l-2 border-primary/60">
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mb-1">Owned software</p>
+                <p className="text-sm text-foreground font-medium leading-relaxed">{r.owned}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden md:block overflow-x-auto mb-14">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
               <tr>
@@ -118,13 +135,13 @@ export default function OwnedVsSaasPage() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/owned-software-test"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center text-center px-6 sm:px-8 min-h-14 py-3.5 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
           >
             Take the Owned Software Test
           </Link>
           <Link
             href="/owned-software"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
+            className="inline-flex items-center justify-center text-center px-6 sm:px-8 min-h-14 py-3.5 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
           >
             The Category, Defined
           </Link>

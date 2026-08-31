@@ -104,11 +104,11 @@ export default function OwnedSoftwarePage() {
           <p className="text-lg lg:text-xl text-foreground font-medium leading-relaxed mb-4">
             {OWNED_SOFTWARE_DEFINITION}
           </p>
-          <p className="text-lg lg:text-xl font-black text-primary italic tracking-tight">
+          <p className="text-lg lg:text-xl font-black text-primary italic tracking-tight text-balance">
             {OWNED_SOFTWARE_EQUATION}
           </p>
         </div>
-        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-12 max-w-2xl">
+        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
           That is the whole category, and any builder can qualify under it. 37signals explored the
           pay-once, self-hosted version with ONCE. The self-hosted world builds the assemble-it
           version. Found It builds the bespoke version. Different methods, one shift:{' '}
@@ -136,7 +136,7 @@ export default function OwnedSoftwarePage() {
             system. Owned: everything. Still yours. Still running. Five questions settle it in
             two minutes.
           </p>
-          <Link href="/owned-software-test" className="text-sm text-primary font-bold hover:underline">
+          <Link href="/owned-software-test" className="inline-block py-2 -my-2 text-base sm:text-sm text-primary font-bold hover:underline">
             Take the test →
           </Link>
         </div>

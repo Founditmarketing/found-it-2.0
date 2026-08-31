@@ -102,8 +102,25 @@ export default function VsGrokPage() {
           <span className="text-foreground font-bold">after the demo</span>.
         </p>
 
-        {/* The table */}
-        <div className="overflow-x-auto mb-14">
+        {/* The table, phone-sized: side-scrolling a comparison hides the
+            comparison — below md each row stacks as a card instead. */}
+        <div className="md:hidden space-y-4 mb-14">
+          {rows.map((r) => (
+            <div key={r.k} className="border border-border/15 rounded-2xl overflow-hidden bg-card/10">
+              <p className="px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-foreground bg-card/30 border-b border-border/10">{r.k}</p>
+              <div className="px-4 py-3 border-b border-border/10">
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground mb-1">DIY + Grok</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{r.diy}</p>
+              </div>
+              <div className="px-4 py-3 bg-primary/[0.06] border-l-2 border-primary/60">
+                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mb-1">A Found It build</p>
+                <p className="text-sm text-foreground font-medium leading-relaxed">{r.os}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden md:block overflow-x-auto mb-14">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
               <tr>

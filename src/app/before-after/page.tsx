@@ -203,8 +203,9 @@ export default function BeforeAfterPage() {
         <div className="space-y-14">
           {files.map((f) => (
             <article key={f.name} className="border border-border/20 rounded-3xl overflow-hidden bg-card/5">
-              {/* File header + status stamp */}
-              <div className="flex items-start justify-between gap-4 px-7 lg:px-9 pt-7">
+              {/* File header + status stamp — the stamp gets its own line on
+                  phones (RUNNING IN PARALLEL was crushing the title to ~90px) */}
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 px-5 sm:px-7 lg:px-9 pt-6 sm:pt-7">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.25em] text-faint">{f.trade}</p>
                   <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1">
@@ -213,7 +214,7 @@ export default function BeforeAfterPage() {
                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-faint mt-1">{f.filed}</p>
                 </div>
                 <span
-                  className={`shrink-0 font-mono text-[10px] font-black uppercase tracking-[0.2em] border rounded-md px-3 py-1.5 mt-1 ${
+                  className={`self-start order-first sm:order-none shrink-0 font-mono text-[10px] font-black uppercase tracking-[0.2em] border rounded-md px-3 py-1.5 sm:mt-1 ${
                     f.status === 'LIVE'
                       ? 'border-primary/60 text-primary'
                       : 'border-border/40 text-muted-foreground'
@@ -223,7 +224,7 @@ export default function BeforeAfterPage() {
                 </span>
               </div>
 
-              <div className="px-7 lg:px-9 py-7 space-y-7">
+              <div className="px-5 sm:px-7 lg:px-9 py-6 sm:py-7 space-y-7">
                 {/* BEFORE */}
                 <section>
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-3">Before</p>
@@ -263,11 +264,11 @@ export default function BeforeAfterPage() {
                       src={f.img.src}
                       alt={f.img.alt}
                       loading="lazy"
-                      className="w-full rounded-xl border border-border/25 mb-5"
+                      className="-mx-5 w-[calc(100%+2.5rem)] max-w-none rounded-none border-y sm:mx-0 sm:w-full sm:max-w-full sm:rounded-xl sm:border border-border/25 mb-5"
                     />
                   )}
-                  <div className="border border-border/25 rounded-2xl px-6 py-4 inline-block">
-                    <p className="text-3xl lg:text-4xl font-black italic tracking-tighter text-primary leading-none">
+                  <div className="border border-border/25 rounded-2xl px-4 sm:px-6 py-4 inline-block">
+                    <p className="text-2xl sm:text-3xl lg:text-4xl font-black italic tracking-tighter text-primary leading-none">
                       {f.receipt}
                     </p>
                     <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground mt-1.5">
@@ -277,7 +278,7 @@ export default function BeforeAfterPage() {
                 </section>
 
                 {/* STILL TRUE — the limits that make the wins believable */}
-                <section className="bg-background/40 border border-border/20 rounded-2xl px-6 py-5">
+                <section className="bg-background/40 border border-border/20 rounded-2xl px-4 sm:px-6 py-5">
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-2">Still True</p>
                   <p className="text-[15px] text-foreground font-medium leading-relaxed">{f.stillTrue}</p>
                 </section>

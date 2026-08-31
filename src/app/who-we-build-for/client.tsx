@@ -151,7 +151,7 @@ export default function WhoClient() {
           </p>
           <Link
             href="/fit"
-            className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center px-6 sm:px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs sm:text-sm whitespace-nowrap hover:opacity-90 transition-opacity"
           >
             Check Your Fit in 60 Seconds
           </Link>

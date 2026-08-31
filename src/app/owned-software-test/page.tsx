@@ -74,7 +74,8 @@ export default function OwnedSoftwareTestPage() {
           register, the jobs, the books, the customer list. No form on this page. Score yourself.
         </p>
         <p className="text-sm font-black uppercase tracking-[0.2em] text-muted-foreground mb-12">
-          Mostly left column = you rent your business. Mostly right = you own it.
+          {/* Orientation-neutral: on phones the columns stack, so "left/right" lies. */}
+          Mostly RENTED answers = you rent your business. Mostly OWNED = you own it.
         </p>
 
         <div className="space-y-5 mb-14">
@@ -112,13 +113,13 @@ export default function OwnedSoftwareTestPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/fit"
-              className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center text-center px-6 sm:px-8 min-h-14 py-3.5 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
               See What Owning Yours Looks Like
             </Link>
             <Link
               href="/owned-software"
-              className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
+              className="inline-flex items-center justify-center text-center px-6 sm:px-8 min-h-14 py-3.5 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
             >
               What Is Owned Software?
             </Link>

@@ -95,7 +95,7 @@ function LiveStrip({ record }: { record: LiveRecord }) {
       transition={{ duration: 0.6, ease }}
       className="mb-24"
     >
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.35em] text-muted-foreground mb-3">
         Live · read from the ledger at render
       </p>
       <div className="rounded-3xl overflow-hidden border border-primary/25 bg-card/15 backdrop-blur-sm">
@@ -112,7 +112,9 @@ function LiveStrip({ record }: { record: LiveRecord }) {
           </p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4">
-          <div className="p-6 border-b lg:border-b-0 lg:border-r border-border/15">
+          {/* Streak cell spans full width on mobile — same bounded-strip fix
+              as the demo panel (5695e41), so a long streak's ticks can wrap. */}
+          <div className="p-6 border-b lg:border-b-0 lg:border-r border-border/15 col-span-2 lg:col-span-1 min-w-0">
             <p className="font-heading font-black text-5xl text-primary tracking-tight">{record.streak}</p>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
               Night{record.streak === 1 ? '' : 's'} balanced<br />to the penny
@@ -127,8 +129,8 @@ function LiveStrip({ record }: { record: LiveRecord }) {
             </div>
           </div>
           {record.stats.map((s, i) => (
-            <div key={s.label} className={`p-6 ${i === 0 ? 'border-b lg:border-b-0' : ''} lg:border-r border-border/15`}>
-              <p className={`font-heading font-black text-4xl tracking-tight ${
+            <div key={s.label} className={`p-6 border-b lg:border-b-0 ${i === 0 ? 'border-r' : 'lg:border-r'} border-border/15`}>
+              <p className={`font-heading font-black text-3xl sm:text-4xl tracking-tight ${
                 s.tone === 'green' ? 'text-emerald-400' : s.tone === 'red' ? 'text-red-500' : ''
               }`}>
                 {s.value}
@@ -139,7 +141,7 @@ function LiveStrip({ record }: { record: LiveRecord }) {
             </div>
           ))}
           <div className="p-6">
-            <p className="font-heading font-black text-4xl tracking-tight">{record.lastNight.slice(5).replace('-', '/')}</p>
+            <p className="font-heading font-black text-3xl sm:text-4xl tracking-tight">{record.lastNight.slice(5).replace('-', '/')}</p>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
               Newest night<br />certified
             </p>
@@ -180,7 +182,7 @@ export default function TheRecordClient({
           transition={{ duration: 0.7, ease }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.35em] text-muted-foreground mb-5">
+          <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.22em] sm:tracking-[0.35em] text-muted-foreground mb-5">
             Nightly reconciliation, published live
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black font-heading uppercase italic tracking-tighter leading-[0.88] mb-6">
@@ -204,8 +206,8 @@ export default function TheRecordClient({
           className="mb-4"
         >
           <div className="rounded-3xl overflow-hidden border border-border/20 bg-card/15 backdrop-blur-sm">
-            <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-border/15 bg-black/40">
-              <p className="font-heading font-black uppercase italic tracking-tight text-lg">
+            <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4 px-6 py-4 border-b border-border/15 bg-black/40">
+              <p className="font-heading font-black uppercase italic tracking-tight text-lg whitespace-nowrap">
                 The Record<span className="text-primary">.</span>
               </p>
               <p className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">
@@ -223,7 +225,7 @@ export default function TheRecordClient({
                 <Ticks play={inView} />
               </div>
               <div className="p-6 lg:p-7 border-r border-border/15">
-                <p className="font-heading font-black text-4xl lg:text-5xl tracking-tight">
+                <p className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight">
                   <Counter to={184220} prefix="$" play={inView} />
                 </p>
                 <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
@@ -231,15 +233,15 @@ export default function TheRecordClient({
                 </p>
               </div>
               <div className="p-6 lg:p-7 lg:border-r border-border/15">
-                <p className="font-heading font-black text-4xl lg:text-5xl tracking-tight">
+                <p className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight">
                   <Counter to={312} play={inView} />
                 </p>
                 <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
                   Orders through<br />the pipe
                 </p>
               </div>
-              <div className="p-6 lg:p-7 border-t lg:border-t-0 border-border/15 col-span-2 lg:col-span-1">
-                <p className="font-heading font-black text-4xl lg:text-5xl tracking-tight text-emerald-400">0</p>
+              <div className="p-6 lg:p-7 border-t lg:border-t-0 border-border/15 col-span-2 lg:col-span-1 text-center lg:text-left">
+                <p className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-emerald-400">0</p>
                 <p className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground mt-2 leading-relaxed">
                   Discrepancies<br />found
                 </p>
@@ -321,17 +323,19 @@ export default function TheRecordClient({
           className="border-t border-border/15 pt-10"
         >
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-10">
+            {/* Arrows ride inline with the last word so a wrapped label
+                doesn't strand the icon at the far edge. */}
             <Link
               href="/before-after"
-              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
+              className="text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
             >
-              What these systems replaced <ArrowRight className="w-4 h-4 text-primary" />
+              What these systems replaced<ArrowRight className="inline w-4 h-4 ml-1.5 align-[-3px] text-primary" />
             </Link>
             <Link
               href="/map"
-              className="inline-flex items-center gap-2 text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
+              className="text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
             >
-              What a system for your business would include <ArrowRight className="w-4 h-4 text-primary" />
+              What a system for your business would include<ArrowRight className="inline w-4 h-4 ml-1.5 align-[-3px] text-primary" />
             </Link>
           </div>
           <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
