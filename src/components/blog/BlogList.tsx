@@ -21,9 +21,10 @@ export function BlogList() {
     );
   }
 
-  const visiblePosts = [...blogPosts]
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 5);
+  /* Full catalog (Trevor 8/31: "show all posts in the list") — every post in
+     blog-posts.ts is software-era; the marketing-days posts were never
+     migrated into this file, so nothing needs filtering. */
+  const visiblePosts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <div className="max-w-[900px]">
