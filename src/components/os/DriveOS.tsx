@@ -317,7 +317,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
     const t = setTimeout(() => {
       idleFired.current = true;
       dispatch({ t: 'idlePay', time: clock(new Date()) });
-      setToast('Payment just landed · $838.90 — A. Fontenot');
+      setToast('Payment landed · $838.90');
       pulse();
       const clear = setTimeout(() => setToast(null), 4500);
       return () => clearTimeout(clear);
@@ -337,7 +337,11 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
   // computed live, on purpose — abs+round kills float residue and -$0.00
   const difference = Math.abs(Math.round((billed - collected - open) * 100) / 100);
 
+  const [slideDir, setSlideDir] = useState(1);
   const go = (t: TabId) => {
+    const from = TABS.findIndex((x) => x.id === tab);
+    const to = TABS.findIndex((x) => x.id === t);
+    setSlideDir(to >= from ? 1 : -1);
     setTab(t);
     setVisited((v) => new Set(v).add(t));
   };
@@ -367,7 +371,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
               <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
             </div>
             <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] text-white/70 truncate">
-              {SHOP} <span className="text-white/30">·</span> Found It OS
+              {SHOP}<span className="hidden sm:inline"> <span className="text-white/30">·</span> Found It OS</span>
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -391,6 +395,23 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
             </span>
           </div>
         </div>
+
+        {/* phones: the whisper slot is desktop-only, so moments that matter
+            drop in as a pill — the shop working on its own must be SEEN */}
+        <AnimatePresence>
+          {toast && (
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              className="md:hidden absolute left-1/2 -translate-x-1/2 top-14 z-30 bg-emerald-400 text-black font-mono text-[10px] font-black uppercase tracking-[0.1em] px-4 py-2 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.6)] whitespace-nowrap max-w-[88vw] overflow-hidden text-ellipsis"
+              role="status"
+            >
+              {toast}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* one ring of light per committed action */}
         <AnimatePresence>
@@ -472,13 +493,13 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
           </nav>
 
           {/* panel */}
-          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-235px)] max-sm:min-h-[420px]' : 'h-[500px]'} overflow-y-auto overscroll-contain p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
+          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-205px)] max-sm:min-h-[440px]' : 'h-[500px]'} overflow-y-auto overscroll-contain p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tab}
-                initial={reduce ? false : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? undefined : { opacity: 0, y: -8 }}
+                initial={reduce ? false : { opacity: 0, x: 26 * slideDir }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={reduce ? undefined : { opacity: 0, x: -22 * slideDir }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
               >
                 {tab === 'today' && (
@@ -583,11 +604,23 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                         type="button"
                         disabled={s.cart.length === 0}
                         onClick={() => { dispatch({ t: 'ring', time: t() }); pulse(); }}
-                        className="mt-3 w-full h-12 rounded-xl bg-primary text-black font-black uppercase tracking-wider text-sm disabled:opacity-30 hover:opacity-90 active:scale-[0.99] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        className="mt-3 w-full h-12 rounded-xl bg-primary text-black font-black uppercase tracking-wider text-sm max-sm:hidden disabled:opacity-30 hover:opacity-90 active:scale-[0.99] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       >
                         Ring it
                       </button>
                     </div>
+
+                    {s.cart.length > 0 && (
+                      <div className="sm:hidden sticky bottom-0 -mx-4 mt-3 px-4 py-3 bg-black/85 backdrop-blur-md border-t border-white/[0.08] z-10">
+                        <button
+                          type="button"
+                          onClick={() => { dispatch({ t: 'ring', time: t() }); pulse(); }}
+                          className="w-full h-12 rounded-xl bg-primary text-black font-black uppercase tracking-wider text-sm hover:opacity-90 active:scale-[0.99] transition-all"
+                        >
+                          Ring it · {money(s.cart.reduce((n, i) => n + SERVICES[i].price, 0))}
+                        </button>
+                      </div>
+                    )}
 
                     {s.ringCount > 0 && (
                       <motion.div
@@ -618,7 +651,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                           exit={{ opacity: 0, y: 20 }}
                           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                           style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 6px), 95% 100%, 90% calc(100% - 5px), 85% 100%, 80% calc(100% - 5px), 75% 100%, 70% calc(100% - 5px), 65% 100%, 60% calc(100% - 5px), 55% 100%, 50% calc(100% - 5px), 45% 100%, 40% calc(100% - 5px), 35% 100%, 30% calc(100% - 5px), 25% 100%, 20% calc(100% - 5px), 15% 100%, 10% calc(100% - 5px), 5% 100%, 0 calc(100% - 5px))' }}
-                          className="absolute right-2 bottom-2 w-60 text-left bg-[#F4EFE6] text-[#141414] rounded-t-lg p-4 pb-5 shadow-[0_18px_50px_rgba(0,0,0,0.6)] font-mono cursor-pointer"
+                          className="absolute right-2 bottom-2 max-sm:bottom-20 w-60 text-left bg-[#F4EFE6] text-[#141414] rounded-t-lg p-4 pb-5 shadow-[0_18px_50px_rgba(0,0,0,0.6)] font-mono cursor-pointer"
                           aria-label="Receipt printed — tap to see it land in the books"
                         >
                           <p className="text-[10px] font-black uppercase tracking-[0.18em] text-center">{SHOP}</p>
@@ -660,7 +693,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                             <button
                               type="button"
                               onClick={() => dispatch({ t: 'draft', id: d.id })}
-                              className="inline-flex items-center px-4 h-9 rounded-full border border-primary/50 text-primary font-black uppercase tracking-wider text-[10px] hover:bg-primary/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                              className="inline-flex items-center px-4 h-11 sm:h-9 rounded-full border border-primary/50 text-primary font-black uppercase tracking-wider text-[10px] hover:bg-primary/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                             >
                               Have her chase it
                             </button>
@@ -675,7 +708,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                                 <button
                                   type="button"
                                   onClick={() => { dispatch({ t: 'send', id: d.id, time: t() }); pulse(); }}
-                                  className="inline-flex items-center px-4 h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                  className="inline-flex items-center px-4 h-11 sm:h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                                 >
                                   Approve &amp; send
                                 </button>
@@ -733,14 +766,14 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                               <button
                                 type="button"
                                 onClick={() => { dispatch({ t: 'correct', id: s.editWarn!, time: t() }); pulse(); setStamp(true); setTimeout(() => setStamp(false), 1600); }}
-                                className="px-4 h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                className="px-4 h-11 sm:h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                               >
                                 Post a correction
                               </button>
                               <button
                                 type="button"
                                 onClick={() => dispatch({ t: 'dismissWarn' })}
-                                className="px-4 h-9 rounded-full border border-white/[0.15] text-white/70 font-black uppercase tracking-wider text-[10px] hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                                className="px-4 h-11 sm:h-9 rounded-full border border-white/[0.15] text-white/70 font-black uppercase tracking-wider text-[10px] hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                               >
                                 Leave it
                               </button>
@@ -773,7 +806,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                               type="button"
                               aria-label={`Try to edit: ${e.label}`}
                               onClick={() => dispatch({ t: 'tryEdit', id: e.id })}
-                              className="opacity-40 group-hover:opacity-100 transition-opacity text-white/60 hover:text-primary px-1 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                              className="opacity-40 group-hover:opacity-100 transition-opacity text-white/60 hover:text-primary p-2 -m-1 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                             >
                               <Pencil className="w-3.5 h-3.5" aria-hidden />
                             </button>
@@ -808,7 +841,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
               type="button"
               onClick={() => go(id)}
               aria-current={tab === id ? 'page' : undefined}
-              className={`flex-1 flex flex-col items-center gap-1 py-2.5 text-[9px] font-black uppercase tracking-[0.08em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary ${
+              className={`flex-1 flex flex-col items-center gap-1 py-3 text-[9px] font-black uppercase tracking-[0.08em] transition-all active:scale-90 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary ${
                 tab === id ? 'text-primary' : 'text-white/45'
               }`}
             >
