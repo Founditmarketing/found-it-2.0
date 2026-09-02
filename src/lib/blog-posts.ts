@@ -19,6 +19,98 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'i-fired-quickbooks',
+        title: 'I Fired QuickBooks. In Week One, My New Ledger Asked a $70,000 Question.',
+        date: '2026-09-02',
+        excerpt: 'I thought I had a bookkeeping-discipline problem. It turned out my software was asking me to do the software\u2019s job. In one day my own ledger drafted the month, asked me 49 plain-English questions, tied every account to the bank to the cent, and surfaced a $70,000 gap between what we believed and what reality could prove.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/books-og-hook-v2.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em>I thought I had a bookkeeping-discipline problem. It turned out my software was asking me to do the software&rsquo;s job.</em></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Last week, I opened my books in front of my business coach.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">They looked anemic.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not catastrophically wrong. Almost worse than that: <span style="color: #FF5500; font-weight: 800;">three weeks behind.</span> The ordinary, embarrassing kind of behind that makes you start explaining before anyone has even asked.</p>
+<div style="margin: 1.4em 0; padding: 0.9em 1.2em; border-left: 3px solid #FF5500; opacity: 0.75; font-style: italic;"><p style="margin:0 0 0.3em;">I&rsquo;ve been busy.</p><p style="margin:0 0 0.3em;">The transactions are all there.</p><p style="margin:0;">I&rsquo;ll catch everything up this weekend.</p></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every business owner speaks this dialect.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I left the meeting feeling dumb. Then, after the embarrassment wore off, I realized something:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">My books were not behind because I did not care about my numbers.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">They were behind because keeping them current had become a recurring clerical punishment. QuickBooks was not just software I rented. It was a chore I rented&mdash;every month, forever.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And rented chores are remarkably easy to skip.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So I did the most founder-like thing possible.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">I fired it.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Fired, in my house, means what it means in yours: it stopped being where my books live. The subscription is still on&mdash;<a href="/blog/moving-our-own-books" style="color: #FF5500;">my own rule</a> says the old system runs beside the new one until they&rsquo;ve agreed long enough to trust, and that rule doesn&rsquo;t bend for me. But as of this month, the ledger of record is mine. The severance is scheduled.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I made my company live by its own sales pitch</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Found It Software builds operating systems that businesses own outright: registers, customer records, workflows, reporting, and accounting ledgers.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not another generic app with your logo pasted on top. Software fitted around the way a particular business actually works&mdash;and owned by that business when it is finished.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We had been developing our accounting ledger using my own company as the test case. But after that meeting, &ldquo;test case&rdquo; was no longer good enough.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It was time to put our actual books on it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">No demo data. No carefully staged transactions. No brochure promises.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Real money. Real mistakes. Real consequences.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The software did the bookkeeping. <span style="color: #FF5500;">I supplied the truth.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I exported the bank activity.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">There were <span style="color: #FF5500; font-weight: 800;">247 bank transactions.</span> The ledger drafted them into 142 accounting entries. Then, instead of forcing me through 142 rows of accounting language, it isolated the 49 things only I could know and asked me about them in plain English:</p>
+<div style="margin: 1.4em 0; padding: 0.9em 1.2em; border-left: 3px solid #FF5500; opacity: 0.75; font-style: italic;"><p style="margin:0 0 0.3em;">Who was check 1001 written to?</p><p style="margin:0 0 0.3em;">Was the truck expense business or personal?</p><p style="margin:0;">Do you recognize this $42 charge from Lithuania?</p></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The system did not ask me to become a bookkeeper.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It asked me to remember my own life.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I answered all 49 questions in one long, text-message-style reply&mdash;fragments, rough grammar, bad punctuation, the whole crime scene.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The software matched each answer to the right transaction.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Then it did something I had not expected to appreciate:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">It refused to finish.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It would not post a single entry while even one question remained unanswered. Most software is eager to tell you the job is done. This system had to prove it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Once every question had an answer, it posted the entire month and reconciled the books against the actual bank accounts.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not approximately.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not &ldquo;close enough.&rdquo;</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">To the cent.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And it printed the proof.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Then came the <span style="color: #FF5500;">$70,000 question</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">While reconciling the accounts, the ledger compared what our books claimed we had against what the bank could actually prove we had.</p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$70,000</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the gap, on one account, between what the old books believed and what the bank could prove.</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not seventy dollars.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Seventy thousand.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Nobody knew.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">To be clear, that does not mean QuickBooks invented the discrepancy. The more important point is that our old process had allowed a discrepancy that large to survive. It had become part of the scenery: a number carried forward because it had been carried forward before.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The new ledger would not let it hide.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Its rule is brutally simple:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Every account must tie to external reality.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">If the bank says one thing and the books say another, the books are not finished. No amount of confidence, familiarity, or green checkmarks can turn a mismatch into a balance.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The software did not discover $70,000 in forgotten cash.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It discovered something more useful:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">a $70,000 gap between what we believed and what reality could prove.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That is what good accounting software should do. Not politely store your assumptions.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Challenge them.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">A ledger should remember its scars</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Our ledger cannot be silently rewritten.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Not by an employee. Not by an accountant. Not even by me.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That does not mean mistakes are permanent. It means corrections are honest.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When something is wrong, you do not erase the old entry and pretend it never happened. You make a new entry that records what changed, who changed it, when they changed it, and why.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Because truth does not require people to be perfect.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">It requires their mistakes to leave footprints.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Cash and accrual accounting are not maintained as two competing versions of the company. They are two views of the same underlying journal. Flip a toggle and you can see either one, while the system maintains a standing mathematical proof that, once the timing differences settle, both views arrive at the same penny.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">My accountant still handles the judgment: tax treatment, compliance, interpretation, strategy.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The ledger handles the discipline: completeness, traceability, and proof.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">My accountant interprets the rules. The software guards the facts.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">This is bigger than bookkeeping</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Most businesses rent the systems that contain their memory.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Their customers. Their jobs. Their transactions. Their estimates. Their financial history. Their way of doing business.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">They pay every month to retain access to their own past. When the software does not fit, they bend the company until it does. When the price goes up, they pay it. When a feature disappears, they adapt. When they want to leave, they begin negotiating for exports of information that belonged to them all along.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We build the opposite.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Software shaped around the business.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Software the business controls.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Software the business owns.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And I am telling you this because I sell it&mdash;but I no longer have to ask anyone to believe the sales pitch.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When someone asks whether owned software is real, I do not hand them a brochure.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I open my own books.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Live.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Current to today.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every question answered. Every correction visible. Every account tied to the bank to the cent.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The best sales argument I have is no longer an argument.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It is a ledger that refuses to pretend.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Don&rsquo;t take my word for it. Take the ledger&rsquo;s.</span></p>
+`,
+    },
+    {
         slug: 'crazy-or-genius',
         title: 'Crazy, or Early?',
         date: '2026-09-01',
