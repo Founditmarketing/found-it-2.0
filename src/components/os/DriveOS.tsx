@@ -64,7 +64,7 @@ const SEED_ENTRIES: Entry[] = [
 const NIGHT_LOG = [
   ['9:02 PM', 'Answered the phone. Took the whole story. Booked 7:30 AM.'],
   ['11:47 PM', 'Drafted 3 payment reminders. Waiting for your tap.'],
-  ['12:00 AM', 'Books checked against books. Difference: $0.00.'],
+  ['12:00 AM', 'Billed = collected + open. Difference: $0.00.'],
   ['2:14 AM', 'Audit pass: found $1,362.50 finished but never invoiced.'],
 ] as const;
 
@@ -230,12 +230,17 @@ function clock(d: Date | null) {
   return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 }
 
+function greeting(d: Date | null) {
+  const h = (d ?? new Date()).getHours();
+  return h < 12 ? 'Morning' : h < 17 ? 'Afternoon' : 'Evening';
+}
+
 /** Spring number: counts to value on mount / change. Remembers its last
     value per slot so returning to a tab doesn't re-count from zero. */
 const AMOUNT_MEMORY = new Map<string, number>();
 function Amount({ k, value, className }: { k: string; value: number; className?: string }) {
   const reduce = useReducedMotion();
-  const start = AMOUNT_MEMORY.get(k) ?? 0;
+  const start = AMOUNT_MEMORY.get(k) ?? value * 0.65;
   const [shown, setShown] = useState(reduce ? value : start);
   const prev = useRef(start);
   useEffect(() => {
@@ -479,10 +484,10 @@ export function DriveOS() {
                 {tab === 'today' && (
                   <div>
                     <p className="text-xl sm:text-2xl font-black italic tracking-tight text-white mb-1">
-                      Morning, boss.
+                      {greeting(now)}, boss.
                     </p>
                     <p className="text-[13px] text-white/50 font-medium mb-5">
-                      While you slept, the shift ran. Here&rsquo;s the shop at {t()}.
+                      Here&rsquo;s what happened while you were away.
                     </p>
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
@@ -583,6 +588,25 @@ export function DriveOS() {
                         Ring it
                       </button>
                     </div>
+
+                    {s.ringCount > 0 && (
+                      <motion.div
+                        initial={reduce ? false : { opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-4 rounded-2xl border border-primary/40 bg-primary/[0.07] p-4"
+                      >
+                        <p className="text-[14px] font-black italic tracking-tight text-white mb-1">
+                          One sale. The journal, the books, today&rsquo;s totals — all updated.
+                        </p>
+                        <p className="text-[12px] text-white/60 font-medium mb-3">Nothing re-keyed. Nothing carried between systems by hand.</p>
+                        <a
+                          href="#lead-form"
+                          className="inline-flex items-center gap-2 px-4 h-10 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[11px] hover:opacity-90 transition-opacity"
+                        >
+                          That was theirs. Show me mine →
+                        </a>
+                      </motion.div>
+                    )}
 
                     <AnimatePresence>
                       {s.receipt && (

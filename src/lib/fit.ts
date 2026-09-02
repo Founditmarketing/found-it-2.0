@@ -41,7 +41,7 @@ export const FIT_QUESTIONS: FitQuestion[] = [
       { value: 'dealer-parts', label: 'Dealer / parts & equipment' },
       { value: 'trade', label: 'Trade or service work' },
       { value: 'retail', label: 'Retail store' },
-      { value: 'restaurant', label: 'Restaurant or bar' },
+      { value: 'restaurant', label: 'Restaurant or bar (usually not a fit)' },
       { value: 'other', label: 'Something else' },
     ],
   },

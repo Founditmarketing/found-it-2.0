@@ -42,9 +42,21 @@ export interface PillarData {
   /** Hero comparison links (Trevor 8/29): the two fights people are already
       having in their heads — DIY-with-AI and the rented AI employees. */
   compareCtas?: { label: string; href: string }[];
-  /** Drive the OS (Trevor 9/2, flagship only): the drivable demo OS takes the
-      first viewport — the h1 hands straight to the machine, prose follows. */
+  /** Drive the OS (Trevor 9/2, flagship only): promise first, then the
+      machine as evidence — framed so nobody mistakes the demo for a template. */
   driveOs?: boolean;
+  /** One-sentence product definition rendered under the h1 (before any demo). */
+  heroDefinition?: string;
+  /** Small mono price line under the hero CTAs. */
+  heroPriceLine?: string;
+  /** Named proof directly after the hero (receipts, link, honest qualifier). */
+  proof?: { kicker: string; headline: string; headlineAccent: string; stats: { value: string; label: string }[]; href: string; hrefLabel: string; qualifier: string };
+  /** One-line narration between demo worlds (tire shop → nursery reel). */
+  reelTransition?: string;
+  /** Compact trust block sourced from /security facts. */
+  trust?: { headline: string; headlineAccent: string; items: { title: string; detail: string }[] };
+  /** The offer as a decisive card instead of a paragraph. */
+  offerCard?: { monthly: string; setup: string; bullets: string[]; promise: string; kicker: string };
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
@@ -53,8 +65,8 @@ export interface PillarData {
   /** Who it's for. */
   audienceHeading?: string;
   audience?: string[];
-  chipsHeading: string;
-  chips: string[];
+  chipsHeading?: string;
+  chips?: string[];
   result?: {
     headline: string;
     stats: { value: string; label: string }[];
@@ -71,8 +83,8 @@ export interface PillarData {
   /** Pricing / what to expect. */
   pricingHeading?: string;
   pricing?: string;
-  whyUsHeading: string;
-  whyUs: string[];
+  whyUsHeading?: string;
+  whyUs?: string[];
   faqHeading: string;
   faq: { question: string; answer: string }[];
   relatedReading?: { title: string; href: string }[];
@@ -130,12 +142,11 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.headline}{' '}
             <span className="text-primary">{data.headlineAccent}</span>
           </h1>
-          {data.driveOs && (
-            <div className="mt-8 mb-8">
-              <DriveOS />
-            </div>
-          )}
-          {!data.driveOs && (
+          {data.heroDefinition ? (
+            <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
+              {data.heroDefinition}
+            </p>
+          ) : (
             <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
               {data.intro}
             </p>
@@ -151,24 +162,28 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </Link>
           </div>
 
-          {data.compareCtas && data.compareCtas.length > 0 && (
-            <div className="flex flex-wrap gap-3 mt-5">
-              {data.compareCtas.map((c) => (
-                <Link
-                  key={c.href}
-                  href={c.href}
-                  className="inline-flex items-center justify-center px-6 h-11 rounded-full border border-primary/35 bg-primary/[0.06] text-primary font-mono text-[11px] font-black uppercase tracking-[0.18em] hover:bg-primary/15 transition-colors"
-                >
-                  {c.label} &rarr;
-                </Link>
-              ))}
-            </div>
+          {data.heroPriceLine && (
+            <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+              {data.heroPriceLine}
+            </p>
           )}
 
           {data.driveOs && (
-            <p className="mt-10 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-              {data.intro}
-            </p>
+            <div className="mt-12">
+              {/* The frame that keeps the demo from commoditizing the product
+                  (9/2 critique, Trevor-endorsed): name the fit before the toy. */}
+              <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground">
+                There is no generic <span className="text-primary">Found It OS.</span>
+              </h2>
+              <p className="mt-2 mb-2 text-base text-muted-foreground font-medium max-w-2xl">
+                This one was fitted to a tire &amp; auto shop. Yours would be built around
+                the way <span className="text-foreground font-bold">your</span> business runs.
+              </p>
+              <p className="mb-5 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-primary">
+                Drive one &middot; sample data &middot; live behavior
+              </p>
+              <DriveOS />
+            </div>
           )}
 
           {data.voiceDemo && data.voiceDemoHero && (
@@ -185,6 +200,29 @@ export function ServicePillar({ data }: { data: PillarData }) {
           )}
         </header>
 
+        {data.proof && (
+          <section className="mb-16">
+            <p className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-primary mb-4">{data.proof.kicker}</p>
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+              {data.proof.headline} <span className="text-primary">{data.proof.headlineAccent}</span>
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              {data.proof.stats.map((st) => (
+                <div key={st.value} className="bg-card/15 border border-border/20 rounded-3xl p-7">
+                  <p className="text-3xl sm:text-4xl font-black italic tracking-tighter text-primary tabular-nums mb-2">{st.value}</p>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{st.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+              <Link href={data.proof.href} className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-primary hover:gap-3 transition-all">
+                {data.proof.hrefLabel} →
+              </Link>
+              <p className="text-xs text-faint font-medium">{data.proof.qualifier}</p>
+            </div>
+          </section>
+        )}
+
         {/* The floor, page-sized: this system's captures drift past right under
             the hero. Tapping any frame jumps to the full stages below. */}
         {data.automationReel && (
@@ -193,6 +231,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
               This Is What Automated <span className="text-primary">Looks Like.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-8 max-w-2xl">
+              {data.reelTransition && (
+                <span className="block text-foreground font-bold mb-2">{data.reelTransition}</span>
+              )}
               One day inside a business that runs on a Found It OS. From 8:02 AM to the next morning,
               nobody at the desk. Everything that moves, moves by itself.
             </p>
@@ -250,13 +291,13 @@ export function ServicePillar({ data }: { data: PillarData }) {
         {/* The definition, made audible: every system ships with the AI
             secretary — here she is, live, right where the claim was made. */}
         {data.voiceDemo && !data.voiceDemoHero && (
-          <section className="mb-16">
+          <section id="talk-to-her" className="mb-16 scroll-mt-24">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
-              The AI Secretary. <span className="text-primary">She&rsquo;s Live.</span>
+              One part of the system answers the phone. <span className="text-primary">Talk to it.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
-              She comes with every system. She answers the phone, schedules estimates, and
-              enters customers into the database herself.
+              The secretary from the demo above is real, and she&rsquo;s live on this page. She
+              answers, books, and files &mdash; one job among the many the system works.
             </p>
             <VoiceAgentWidget pageSlug={data.formPageSlug} />
           </section>
@@ -316,6 +357,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Chips */}
+        {data.chips && data.chips.length > 0 && (
         <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
             {data.chipsHeading}
@@ -328,6 +370,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             ))}
           </div>
         </section>
+        )}
 
         {/* Result */}
         {data.result && (
@@ -366,8 +409,52 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </section>
         )}
 
+        {data.trust && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+              {data.trust.headline} <span className="text-primary">{data.trust.headlineAccent}</span>
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {data.trust.items.map((it) => (
+                <div key={it.title} className="bg-card/10 border border-border/20 rounded-2xl p-6">
+                  <h3 className="text-sm font-black uppercase italic tracking-tighter text-foreground mb-2">{it.title}</h3>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{it.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {data.offerCard && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+              {data.pricingHeading || 'The Whole Price'}
+            </h2>
+            <div className="bg-card/15 border border-primary/30 rounded-3xl p-8 lg:p-10">
+              <p className="text-4xl sm:text-5xl font-black italic tracking-tighter text-foreground">
+                {data.offerCard.monthly}<span className="text-xl text-muted-foreground font-bold">/month</span>
+              </p>
+              <p className="text-base font-bold text-muted-foreground mt-1 mb-6">
+                + {data.offerCard.setup} once, for migration and setup
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 mb-7">
+                {data.offerCard.bullets.map((bLine) => (
+                  <li key={bLine} className="flex items-start gap-2.5 text-sm font-medium text-foreground/85">
+                    <span className="text-primary font-black mt-px">✓</span> {bLine}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-base font-black italic tracking-tight text-foreground mb-1">{data.offerCard.promise}</p>
+              <p className="text-sm text-muted-foreground font-medium mb-6">{data.offerCard.kicker}</p>
+              <Link href="#lead-form" className="inline-flex items-center justify-center px-8 h-13 py-3.5 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                Check My Fit
+              </Link>
+            </div>
+          </section>
+        )}
+
         {/* Pricing / what to expect */}
-        {data.pricing && (
+        {!data.offerCard && data.pricing && (
           <section className="mb-16">
             <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
               {data.pricingHeading || 'What to Expect'}
@@ -379,6 +466,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Why us */}
+        {data.whyUs && data.whyUs.length > 0 && (
         <section className="mb-16">
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.whyUsHeading}
@@ -392,6 +480,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             ))}
           </div>
         </section>
+        )}
 
         {/* Lead form */}
         <section id="lead-form" className="mb-16 scroll-mt-28">
@@ -430,6 +519,25 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </section>
 
         {/* Related reading */}
+        {data.compareCtas && data.compareCtas.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+              Compare<span className="text-primary">.</span>
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {data.compareCtas.map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="inline-flex items-center justify-center px-6 h-11 rounded-full border border-primary/35 bg-primary/[0.06] text-primary font-mono text-[11px] font-black uppercase tracking-[0.18em] hover:bg-primary/15 transition-colors"
+                >
+                  {c.label} &rarr;
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
         {data.relatedReading && data.relatedReading.length > 0 && (
           <section>
             <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-6">Keep Reading</h2>

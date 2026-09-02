@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ServicePillar, type PillarData } from '@/components/seo/ServicePillar';
-import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Found It OS — The AI Employee Your Business Owns',
@@ -30,13 +30,16 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so the switch has zero downtime. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
-  eyebrow: 'The Flagship',
+    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so there is no rip-and-replace weekend. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
+  eyebrow: 'The Software Version of Your Business',
   headline: 'It Answers. It Types. It Chases.',
   headlineAccent: 'You Own It.',
   intro:
     `Found It OS is custom software + AI employee, built around your business. It answers the phone and takes a real message. It types the paperwork your people re-key today. It chases the estimates and the money owed so nobody has to. And unlike every subscription on your card, you own it outright: the code and the data. Nothing switches until it has run beside your old system and matched it to the penny.`,
-  ctaLabel: "Show Me What You’d Build",
+  heroDefinition:
+    `We study how your company actually runs and build one operating system around it — the phone, the paperwork, the customers, the jobs, the money, the books — with an AI employee working inside. Nothing switches until it has run beside your old system and matched it to the penny.`,
+  heroPriceLine: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup · Month-to-month · You own the code and data`,
+  ctaLabel: 'Show Me Mine',
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
   formHeading: 'Start your Software Map',
@@ -47,15 +50,27 @@ const data: PillarData = {
     { value: 'Live', label: 'Systems Running Now' },
     { value: 'To the ¢', label: 'Matched Every Night' },
     { value: '100%', label: 'Yours. Code & Data' },
-    { value: '0 Hrs', label: 'Downtime at Switch' },
+    { value: 'None', label: 'Rip-and-Replace Weekend' },
   ],
   voiceDemo: true,
-  voiceDemoHero: true,
   driveOs: true,
   compareCtas: [
     { label: 'Compared to Grok', href: '/vs-grok' },
     { label: 'Compared to Viktor', href: '/vs-viktor' },
   ],
+  proof: {
+    kicker: 'Named result · Edwards Roofing, Central Louisiana',
+    headline: "It doesn't just look good.",
+    headlineAccent: 'It finds what the old system missed.',
+    stats: [
+      { value: '$195,882.75', label: 'surfaced in open receivables the day the system read the books' },
+      { value: '$19,000', label: 'bookkeeping error caught — carried for years by the old software' },
+    ],
+    href: '/case-studies/edwards-roofing',
+    hrefLabel: 'Read the case study',
+    qualifier: 'Actual result from one client. Results depend on the business and its records.',
+  },
+  reelTransition: 'That was a tire shop. This is a nursery. Every Found It OS is different, because every business is.',
   automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
@@ -68,9 +83,9 @@ const data: PillarData = {
         'We study how your business really runs. Then we build the system around it.',
     },
     {
-      title: 'The Whole Operation',
+      title: 'The Operational Core',
       detail:
-        'Point of sale, inventory, customers, invoices, service tickets, scheduling. Whatever your business runs on, in one system.',
+        'Customers, sales, jobs, inventory, invoicing, service, scheduling — and the books that feed your accountant. Payroll, taxes, and trust accounting stay with the licensed professionals responsible for them.',
     },
     {
       title: 'Your Website, Wired In',
@@ -111,7 +126,7 @@ const data: PillarData = {
       step: '03',
       title: 'You Say Go',
       detail:
-        'Nothing switches until the numbers match day after day and you say go. The switch takes zero downtime.',
+        'Nothing switches until the numbers match day after day and you say go. No scary cutover weekend, no lost data.',
     },
     {
       step: '04',
@@ -120,25 +135,14 @@ const data: PillarData = {
         'Nightly backups, support you can actually call, and new features as your business grows. Local, reachable, in person when you need us.',
     },
   ],
-  audienceHeading: 'Who This Is For',
+  audienceHeading: 'Built for the Owner Who Still Knows How Everything Works',
   audience: [
-    'Retail stores stuck on an aging register or terminal POS',
-    'Repair and service shops running on paper tickets',
-    'Owners still doing office work at nine o’clock at night',
-    'Owners whose customer list lives in someone’s head',
-    'Companies quoted $50K+ by custom software shops',
-    'Anyone who wants to own their system instead of renting it',
-  ],
-  chipsHeading: 'What It Can Run',
-  chips: [
-    'Point of Sale',
-    'Inventory',
-    'Customer Database',
-    'Invoicing',
-    'Service Tickets',
-    'Scheduling',
-    'Your Website',
-    'The AI Employee',
+    'Owner-led companies, roughly $1M–$20M a year',
+    'Where paper, spreadsheets, or one indispensable employee still carries part of the operation',
+    'Dealer & retail — register, inventory, customer book, invoicing',
+    'Trade & service — calls, estimates, scheduling, jobs, collections',
+    'Wholesale & accounts — orders, pull sheets, terms, receivables',
+    'The owner sits in the fitting. That’s where the system comes from.',
   ],
   result: {
     headline: 'Before Anything Switches',
@@ -173,17 +177,45 @@ const data: PillarData = {
         'Most switches mean a scary weekend cutover and lost data. We never rip anything out.',
     },
   ],
-  pricingHeading: 'What It Costs',
-  pricing:
-    `The whole price, printed right here. ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees. Major new divisions or standalone modules are scoped in writing before work begins. Month to month, and the system stays yours. ${OS_PRICING.promise} Custom software you own, without the custom software invoice.`,
-  whyUsHeading: 'Why Businesses Choose Found It OS',
-  whyUs: [
-    `Local businesses running or being fitted on their own systems right now.`,
-    'You own 100% of the code and the data.',
-    'Proven beside your old system until both sets of books agree, night after night.',
-    'Built-in AI that answers questions about your own business in plain English.',
-    `${TRACK_RECORD.yearsInBusiness} years building for local businesses.`,
-  ],
+  trust: {
+    headline: 'Built like your business depends on it.',
+    headlineAccent: 'Because it does.',
+    items: [
+      {
+        title: 'One business, one isolated database',
+        detail: 'Your records never share a database with another company’s. Nightly backups with point-in-time recovery.',
+      },
+      {
+        title: 'A ledger nobody can silently rewrite',
+        detail: 'Money history is append-only. Corrections post on the record; originals stay visible.',
+      },
+      {
+        title: 'The AI reads. It cannot spend or rewrite history.',
+        detail: 'Drafts wait for the owner’s tap. It never touches the books on its own.',
+      },
+      {
+        title: 'If Found It disappears, your system doesn’t',
+        detail: 'You hold the code, the data, the accounts, and the transfer documentation.',
+      },
+    ],
+  },
+  pricingHeading: 'The Whole Price',
+  offerCard: {
+    monthly: OS_PRICING.monthly,
+    setup: OS_PRICING.setup,
+    bullets: [
+      'Month-to-month — no long-term contract',
+      'Hosting and nightly backups',
+      'Support from a human who knows the system',
+      'Security fixes and updates',
+      'Ongoing workflow improvements',
+      'The code and the data remain yours',
+      'Major new divisions scoped in writing first',
+      'No per-register or per-seat fees',
+    ],
+    promise: OS_PRICING.promise,
+    kicker: 'The system earns the next month, every month.',
+  },
   faqHeading: 'Found It OS FAQ',
   faq: [
     {
@@ -207,44 +239,14 @@ const data: PillarData = {
         'You do. The code, the data, all of it. If we ever part ways, it stays yours and keeps running.',
     },
     {
-      question: 'How long does a fitting take?',
-      answer:
-        'Weeks, not months. You get a firm timeline at your fitting. Nothing switches until you say go.',
-    },
-    {
       question: 'What does it cost?',
       answer:
         `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-register fees, no surprise add-ons.`,
     },
     {
-      question: 'Do you take every business that asks?',
-      answer:
-        "No. We build one business at a time, a handful of new fittings a month. If it's not a fit, we say so and tell you what we'd do instead.",
-    },
-    {
       question: "What if it doesn't work out?",
       answer:
         "Then you cancel with thirty days' notice. The system keeps running, and everything in it is still yours.",
-    },
-    {
-      question: 'What does the monthly cover?',
-      answer:
-        'Backups, support, and new features. The system and the data are already yours, so the monthly buys upkeep, not access.',
-    },
-    {
-      question: 'Is it safe? Who can see what?',
-      answer:
-        'Everyone gets their own login, limited to their role. The front desk sees the front desk. The books stay with the owner. The AI can read your books. It cannot write to them. Backed up every night. Your data, period.',
-    },
-    {
-      question: 'My business is too complicated for software. Can you really fit it?',
-      answer:
-        'Complicated is where custom software wins. Off-the-rack systems break exactly where your business gets interesting. Those weird parts are what we study first, and the system gets built around them.',
-    },
-    {
-      question: 'Do I need a technical person on staff?',
-      answer:
-        'No. It is built for the people already behind your counter. We handle backups and support. If you ever take it in-house, you inherit a system you fully own.',
     },
   ],
   relatedReading: [
