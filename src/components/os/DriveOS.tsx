@@ -361,7 +361,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
         <div className="absolute inset-0 bg-[radial-gradient(50%_60%_at_80%_90%,rgba(52,211,153,0.06),transparent_70%)]" />
       </div>
 
-      <div id="drive-os" className={`relative rounded-3xl border border-primary/25 ${appMode ? 'max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0' : ''} bg-[#0B0B0B]/90 backdrop-blur-sm shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_10px_30px_-10px_rgba(255,85,0,0.15)] overflow-hidden [background-image:linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:44px_44px]`}>
+      <div id="drive-os" className={`relative rounded-3xl border border-primary/25 ${appMode ? 'max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0 max-sm:overflow-visible' : ''} bg-[#0B0B0B]/90 backdrop-blur-sm shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_10px_30px_-10px_rgba(255,85,0,0.15)] overflow-hidden [background-image:linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:44px_44px]`}>
         {/* chrome */}
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-white/[0.07] bg-black/50">
           <div className="flex items-center gap-3 min-w-0">
@@ -493,7 +493,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
           </nav>
 
           {/* panel */}
-          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-205px)] max-sm:min-h-[440px]' : 'h-[500px]'} overflow-y-auto p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
+          <div className="relative flex-1 min-w-0 sm:h-[520px] max-sm:min-h-[380px] sm:overflow-y-auto p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tab}
@@ -611,7 +611,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                     </div>
 
                     {s.cart.length > 0 && (
-                      <div className="sm:hidden sticky bottom-0 -mx-4 mt-3 px-4 py-3 bg-black/85 backdrop-blur-md border-t border-white/[0.08] z-10">
+                      <div className="sm:hidden sticky bottom-[calc(58px_+_max(env(safe-area-inset-bottom),6px))] -mx-4 mt-3 px-4 py-3 bg-black/85 backdrop-blur-md border-t border-white/[0.08] z-10">
                         <button
                           type="button"
                           onClick={() => { dispatch({ t: 'ring', time: t() }); pulse(); }}
@@ -834,7 +834,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
         </div>
 
         {/* tab bar (mobile) */}
-        <nav aria-label="Demo OS sections" className={`sm:hidden flex border-t border-white/[0.07] bg-black/60 ${appMode ? 'pb-[max(env(safe-area-inset-bottom),6px)]' : ''}`}>
+        <nav aria-label="Demo OS sections" className={`sm:hidden flex sticky bottom-0 z-20 border-t border-white/[0.07] bg-black/85 backdrop-blur-md ${appMode ? 'pb-[max(env(safe-area-inset-bottom),6px)]' : ''}`}>
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
