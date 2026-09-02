@@ -43,60 +43,6 @@ export const railDesktops: OsRailItem[] = [
     kind: 'Wholesale Nursery',
   },
   {
-    src: '/os-screens/lonestar-os-desk-v1.png',
-    alt: 'Lonestar OS desk — 30-day sold total, the pipeline from unprocessed to delivered, and escalations a human should look at (demo data)',
-    title: 'Lonestar OS',
-    kind: 'Shed Builder',
-  },
-  {
-    src: '/os-screens/lonestar-os-line-v1.png',
-    alt: 'Lonestar OS line board — every build from unprocessed to delivered with dollars on each column',
-    title: 'Lonestar OS',
-    kind: 'Shed Builder',
-  },
-  {
-    src: '/os-screens/lonestar-os-counter-v1.png',
-    alt: 'Lonestar OS sales counter — a kicked-back sale with the fix spelled out, and the seller’s month running total',
-    title: 'Lonestar OS',
-    kind: 'Shed Builder',
-  },
-  {
-    src: '/os-screens/lonestar-os-order-v1.png',
-    alt: 'Lonestar OS order — serial plate, money collected vs balance, site readiness, and sign-now or send-the-link',
-    title: 'Lonestar OS',
-    kind: 'Shed Builder',
-  },
-  {
-    src: '/os-screens/lacaze-os-ticket-v1.png',
-    alt: 'LaCaze OS repair ticket — the advance track, a machined total, and one-tap payment for an outdoor power dealership',
-    title: 'LaCaze OS',
-    kind: 'Outdoor Power Dealer',
-  },
-  {
-    src: '/os-screens/lacaze-os-invoices-v1.png',
-    alt: 'LaCaze OS invoice rack — commercial billing on terms with overdue invoices running hot',
-    title: 'LaCaze OS',
-    kind: 'Outdoor Power Dealer',
-  },
-  {
-    src: '/os-screens/lacaze-os-paid-v1.png',
-    alt: 'LaCaze OS paid ticket — the PAID stamp with tender and date, and the journal entry linked into the books',
-    title: 'LaCaze OS',
-    kind: 'Outdoor Power Dealer',
-  },
-  {
-    src: '/os-screens/lacaze-os-statement-v1.png',
-    alt: 'LaCaze OS customer statement — every open invoice on one page with a bank-payment link on each',
-    title: 'LaCaze OS',
-    kind: 'Outdoor Power Dealer',
-  },
-  {
-    src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS dashboard — the parking lot of declined jobs, priced and ready for win-back texts',
-    title: 'Tony’s Shop OS',
-    kind: 'European Auto Repair',
-  },
-  {
     src: '/os-screens/flywheel-os-quote-v1.png',
     alt: 'Flywheel OS quote screen — a tire size typed in and every supplier priced out the door in seconds',
     title: 'Flywheel OS',
@@ -167,34 +113,6 @@ export const railPhones: OsRailItem[] = [
     alt: 'Roxanne’s OS crew board on a phone — loads by trailer slot, one big PRINT each',
     title: 'The Print Board',
     kind: 'Roxanne’s OS · Nursery',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/lonestar-os-run-mobile-v1.png',
-    alt: 'Lonestar OS driver run on a phone — accept the handoff, see the shed, the address, and the over-width warning',
-    title: 'The Run',
-    kind: 'Lonestar OS · Sheds',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/lonestar-os-wizard-mobile-v1.png',
-    alt: 'Lonestar OS delivery wizard on a phone — serial plate, pass/fail inspection, site photos before the drop',
-    title: 'The Delivery',
-    kind: 'Lonestar OS · Sheds',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/lacaze-os-ticket-mobile-v1.png',
-    alt: 'LaCaze OS repair ticket on a phone — the counter runs the whole ticket from a pocket',
-    title: 'The Ticket',
-    kind: 'LaCaze OS · Dealer',
-    portrait: true,
-  },
-  {
-    src: '/os-screens/lacaze-os-statement-mobile-v1.png',
-    alt: 'LaCaze OS customer statement on a phone — open invoices with pay-by-bank links',
-    title: 'The Statement',
-    kind: 'LaCaze OS · Dealer',
     portrait: true,
   },
   {
@@ -269,19 +187,13 @@ export const railPhones: OsRailItem[] = [
    Criteria: money visibly moving, a rule visibly enforced, or a thing
    visibly happening — never a grid at rest. */
 const SPECTACULAR_DESKTOP = new Set([
-  '/os-screens/lonestar-os-desk-v1.png',     // 30-day sold + escalations a human should look at
-  '/os-screens/lonestar-os-line-v1.png',     // every build, dollars on every column
   '/os-screens/roxanne-os-intake-v2.png',    // lines in = lines captured, the odd one held in red
-  '/os-screens/lacaze-os-paid-v1.png',       // the PAID stamp writing itself into the books
   '/os-screens/flywheel-os-quote-v1.png',    // a tire size in, every supplier priced out the door
-  '/os-screens/lonestar-os-counter-v1.png',  // a sale kicked back with the fix spelled out
   '/os-screens/lawyer-os-prescription-v1.png', // the rule printed on the page: no computed deadlines
 ]);
 const SPECTACULAR_PHONE = new Set([
-  '/os-screens/lonestar-os-run-mobile-v1.png',      // the driver's day with the over-width warning
   '/os-screens/roxanne-os-crew-mobile-v2.png',      // loads by trailer slot, one big PRINT
   '/os-screens/flywheel-os-mobile-quick-v2.png',    // snap-the-sidewall quote
-  '/os-screens/lacaze-os-statement-mobile-v1.png',  // open invoices with pay-by-bank links
   '/os-screens/lawyer-os-pay-mobile-v1.png',        // a law client's honest pay link
 ]);
 export const railSpectacular: OsRailItem[] = railDesktops.filter((s) => SPECTACULAR_DESKTOP.has(s.src));

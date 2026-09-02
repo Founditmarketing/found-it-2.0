@@ -28,13 +28,6 @@ const apps: AppStudy[] = [
     line: 'Orders come in as texts in fifteen formats. Paste one in. Every line gets caught or flagged in red, never dropped. The money owed sits on one screen, oldest first, with pull sheets and a crew print board behind it.',
   },
   {
-    title: 'Tony’s Shop OS',
-    trade: 'European Auto Repair',
-    src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS dashboard. The parking lot of declined jobs, priced and ready for win-back texts',
-    line: 'The whole shop in one system. Repair orders, declined jobs priced for win-back texts, and an AI secretary on the phones after hours.',
-  },
-  {
     title: 'Flywheel OS',
     trade: 'Tire & Auto Shop',
     src: '/os-screens/flywheel-os-quote-v1.png',

@@ -18,11 +18,6 @@ const marketingLinks = [
    the strongest cross-trade shots, honestly labeled. */
 const DEFAULT_SCREENS: { src: string; alt: string; caption: string }[] = [
   {
-    src: '/os-screens/lonestar-os-desk-v1.png',
-    alt: 'Lonestar OS desk, 30-day sold total, the build pipeline, and escalations a human should look at (demo data)',
-    caption: 'A shed builder’s desk. Thirty days of sales, every build on the line, and the problems pulled to the top.',
-  },
-  {
     src: '/os-screens/roxanne-os-intake-v2.png',
     alt: 'Order intake, an order pasted as it came in, every line captured, the odd one held in red (demo data)',
     caption: 'A nursery’s order intake. Paste the order as it came in. Every line captured, the odd one held in red, never dropped.',
