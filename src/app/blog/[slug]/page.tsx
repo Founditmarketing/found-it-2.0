@@ -78,11 +78,20 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                 {post.title}
               </h1>
               <time dateTime={post.date} className="text-muted-foreground"><ClientSideFormattedDate dateString={post.date} /></time>
-              <FounderByline
-                align="center"
-                className="mt-6"
-                line="Founder, Found It Software."
-              />
+              {/* A machine-authored post can't wear Trevor's face — the byline
+                  contradicting "this was not written by a person" kills the bit. */}
+              {post.author === 'The Machine' ? (
+                <div className="mt-6 text-sm font-bold">
+                  <p className="text-foreground">By the AI inside Found It Software</p>
+                  <p className="text-muted-foreground mt-1">Published by Trevor Ruby</p>
+                </div>
+              ) : (
+                <FounderByline
+                  align="center"
+                  className="mt-6"
+                  line="Founder, Found It Software."
+                />
+              )}
             </header>
         </div>
 
