@@ -180,7 +180,10 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 the way <span className="text-foreground font-bold">your</span> business runs.
               </p>
               <p className="mb-5 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-primary">
-                Drive one &middot; sample data &middot; live behavior
+                Drive one &middot; sample data &middot; live behavior &middot;{' '}
+                <Link href="/drive" className="underline underline-offset-4 hover:text-foreground transition-colors">
+                  open it on its own stage →
+                </Link>
               </p>
               <DriveOS />
             </div>

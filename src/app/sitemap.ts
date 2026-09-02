@@ -33,6 +33,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   // The Owned Software category pages (defined 8/28/2026 — the citation targets)
   { path: '/owned-software', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/owned-software-vs-saas', priority: 0.85, changeFrequency: 'weekly' },
+  { path: '/drive', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/vs-grok', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/vs-viktor', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/owned-software-test', priority: 0.8, changeFrequency: 'monthly' },
