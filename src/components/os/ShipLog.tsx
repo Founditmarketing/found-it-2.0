@@ -15,6 +15,8 @@ const ROW_A = [
   ['AUG 22', 'She learns to read the site out loud'],
   ['AUG 28', 'FixFirst: type your business, it writes the fixes'],
   ['AUG 28', 'The Owned Software Standard, in writing'],
+  ['SEP 1', 'The machine posts its own odds on the boss'],
+  ['SEP 2', 'The site deletes its own bragging — 45 lines'],
 ] as const;
 
 const ROW_B = [
@@ -24,6 +26,8 @@ const ROW_B = [
   ['AUG 30', 'vs Grok and vs Viktor, side by side'],
   ['AUG 30', 'The secretary takes over the link previews'],
   ['AUG 31', 'The whole site re-cut for phones'],
+  ['SEP 1', 'The full blog catalog, back on the shelf'],
+  ['SEP 2', 'ALL-CAPS links learn to find lowercase pages'],
 ] as const;
 
 const SHIPS = ROW_A.length + ROW_B.length;
@@ -59,13 +63,13 @@ export function ShipLog() {
     <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-10">
         <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5">
-          The Ship Log · August · All of It Real
+          The Ship Log · Since Aug 14 · All of It Real
         </p>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
           Try to Keep Up.
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          Everything below shipped this month, and every line is live right now — on this
+          Everything below shipped in the last three weeks, and every line is live right now — on this
           site or inside a client&rsquo;s system.
         </p>
       </div>
@@ -83,7 +87,7 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} ships &middot; 18 days &middot; <span className="text-primary">yours runs at the same pace</span>
+        {SHIPS} ships &middot; 20 days &middot; <span className="text-primary">yours runs at the same pace</span>
       </p>
 
       <style>{`
