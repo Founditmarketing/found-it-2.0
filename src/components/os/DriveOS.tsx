@@ -493,7 +493,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
           </nav>
 
           {/* panel */}
-          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-205px)] max-sm:min-h-[440px]' : 'h-[500px]'} overflow-y-auto overscroll-contain p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
+          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-205px)] max-sm:min-h-[440px]' : 'h-[500px]'} overflow-y-auto p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tab}
