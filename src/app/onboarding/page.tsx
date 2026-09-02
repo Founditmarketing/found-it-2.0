@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import OnboardingClient from './client';
 
 export const metadata: Metadata = {
-  title: "Don't Fill Out a Form. Talk. | Found It Software",
+  title: "Don't Fill Out a Form. Talk.",
   description:
     'New-client onboarding, spoken: press the button, tell us how your business runs, and the system sorts it into the right boxes while you talk. You fix anything it got wrong. Done.',
   alternates: { canonical: '/onboarding' },
