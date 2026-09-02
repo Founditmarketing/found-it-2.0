@@ -32,7 +32,7 @@ const defaultSteps: Step[] = [
     number: '03',
     title: 'Launch & Optimize',
     description:
-      'We launch, track every metric, and continuously optimize. You see real leads, real results, real ROI.',
+      'We launch, track every metric, and continuously optimize. You see every lead and what each one cost.',
   },
 ];
 

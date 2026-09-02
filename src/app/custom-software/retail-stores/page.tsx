@@ -54,7 +54,7 @@ const data: PillarData = {
     {
       title: 'The Register',
       detail:
-        'Rings sales, returns, and exchanges on one screen your staff learns fast. Every ticket lands in a permanent journal your accountant can check.',
+        'Rings sales, returns, and exchanges on one screen. Every ticket lands in a permanent journal your accountant can check.',
     },
     {
       title: 'Inventory That Matches the Floor',

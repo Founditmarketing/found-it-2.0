@@ -46,7 +46,7 @@ const faq = [
   },
   {
     q: 'Is owned software the same as a perpetual license or self-hosting?',
-    a: 'They are earlier versions of the same instinct. A perpetual license is a frozen copy of somebody else’s product. Self-hosting runs their product on your server. 37signals’ ONCE apps, run on your own server, are the mass-produced version. All of them circle ownership; owned software is the name for the whole category, and the strongest version is software built for your business that you own outright.',
+    a: 'They are earlier versions of the same instinct. A perpetual license is a frozen copy of somebody else’s product. Self-hosting runs their product on your server. 37signals’ ONCE apps, run on your own server, are the mass-produced version. All of them circle ownership; owned software is the name for the whole category. The bespoke version adds the one thing the others cannot: it is built around how your business actually runs.',
   },
   {
     q: 'If I own it, why is there a monthly fee?',

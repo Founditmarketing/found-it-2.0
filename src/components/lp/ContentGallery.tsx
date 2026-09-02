@@ -25,7 +25,7 @@ export function ContentGallery() {
       <div className="max-w-[1440px] mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: ease as any }} className="text-center mb-16">
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Content We Create</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">Real Content. Real Results.</h2>
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">What We Post.</h2>
         </motion.div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {posts.map((post, i) => {

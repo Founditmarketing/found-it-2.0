@@ -71,7 +71,7 @@ export function AISearchHero() {
             </div>
 
             <motion.p variants={fadeRise} className="text-base sm:text-lg md:text-xl text-white/70 font-medium mb-8 leading-relaxed max-w-3xl">
-              60% of Google searches now end without a click. ChatGPT has 500M+ weekly users. AI is the new search engine. We make sure your business is the answer.
+              60% of Google searches now end without a click. ChatGPT has 500M+ weekly users. AI is the new search engine. We build the signals that make your business the answer.
             </motion.p>
 
             <motion.div variants={fadeRise} className="flex flex-col sm:flex-row items-start gap-4">

@@ -235,7 +235,7 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">Be the Answer AI Gives</p>
             </div>
             <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
-              When someone asks ChatGPT who to hire in your trade, the same team makes sure it says you.
+              When someone asks ChatGPT who to hire in your trade, the same team does the work that gets you named.
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
               {marketingLinks.map((m) => (

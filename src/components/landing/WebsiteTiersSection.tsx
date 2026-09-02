@@ -46,7 +46,7 @@ const tiers: WebsiteTier[] = [
     name: 'Ignite',
     hook: 'Launch with confidence.',
     description:
-      'Professional template-based design infused with your brand identity. Mobile-optimized, lightning-fast, and SEO-ready from day one.',
+      'Professional template-based design infused with your brand identity. Mobile-optimized, fast, and SEO-ready from day one.',
     icon: Rocket,
     features: [
       'Brand-integrated responsive design',

@@ -63,7 +63,7 @@ export function GEOPricing({ businessName }: GEOPricingProps) {
             <h3 className="text-lg font-black uppercase italic tracking-tighter mb-2 text-foreground">SEO + GEO Bundle</h3>
             <p className="text-4xl font-black text-primary italic tracking-tighter mb-1">$2,500<span className="text-lg text-faint">/mo</span></p>
             <p className="text-xs text-faint font-bold mb-6">Combined</p>
-            <p className="text-sm text-muted-foreground font-medium leading-relaxed">Complete local domination — traditional search + AI search. Most clients choose this.</p>
+            <p className="text-sm text-muted-foreground font-medium leading-relaxed">Both layers — traditional search + AI search.</p>
           </motion.div>
         </div>
 

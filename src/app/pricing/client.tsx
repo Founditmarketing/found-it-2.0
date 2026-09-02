@@ -57,7 +57,7 @@ export default function PricingClient() {
             <span className="text-primary">Printed.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            Almost nobody in custom software will put a number on the page. Here&rsquo;s ours.
+            Custom software almost never comes with a public price. Here&rsquo;s ours.
           </p>
           {/* The one fit-check line on this page (by law: exactly one). */}
           <p className="mt-4">

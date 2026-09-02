@@ -48,8 +48,8 @@ export default function GuidePage() {
           English. What one custom system replaces, the whole price printed ({OS_PRICING.monthly}
           /mo plus {OS_PRICING.setup} {OS_PRICING.setupLabel}), how the fitting works, and the one
           job the system is built for: <span className="text-foreground font-bold">{OS_PRICING.promise}</span>{' '}
-          Local businesses across Louisiana are already running on
-          systems they own. Read it in two minutes, hand it to your business partner.
+          The case studies on this site are Louisiana businesses running
+          systems they own today. Read it in two minutes, hand it to your business partner.
         </p>
       </div>
 

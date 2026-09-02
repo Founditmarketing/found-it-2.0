@@ -62,7 +62,7 @@ interface LPHeroProps {
 const defaultBadges = [
   { icon: Shield, text: 'No Long-Term Commitment' },
   { icon: Star, text: '13+ Years' },
-  { icon: Clock, text: '24hr Response' },
+  { icon: Clock, text: 'Month-to-Month' },
 ];
 
 export function LPHero({

@@ -290,7 +290,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">In this ledger, history <span style="color: #FF5500;">cannot be edited.</span> By anybody.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Once an entry is written, it's written. Not me, not you, not an employee having a bad day. The system physically won't do it. Make a mistake and you fix it in the open, with a reversal entry that carries its own date. The mistake shows and the fix shows.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Before anybody tells me that's extreme, look at where you already trust it. Your <span style="color: #FF5500;">bank</span> keeps its books this way. The bank never edits a transaction, it posts a correction, and that is why you believe your statement. Courthouses keep records this way. Every set of books the world actually trusts works this way. About the only place editable history survives is the accounting software small businesses rent, and that's not a coincidence. <span style="color: #FF5500;">That's the defect.</span> Ask an auditor what she wants from a set of books and she'll describe ours: books that show their work.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Before anybody tells me that's extreme, look at where you already trust it. Your <span style="color: #FF5500;">bank</span> keeps its books this way. The bank never edits a transaction, it posts a correction, and that is why you believe your statement. Courthouses keep records this way. Every set of books the world actually trusts works this way. About the only place editable history survives is the accounting software small businesses rent, and that's not a coincidence. <span style="color: #FF5500;">That's the defect.</span> What an auditor wants from a set of books is a complete history nobody can quietly rewrite — books that show their work. That's what append-only means.</p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The math proves itself, <span style="color: #FF5500;">134 different ways,</span> every time we touch it.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Accounting has laws. Debits match credits. The balance sheet balances. Money never appears from nowhere and never disappears to nowhere. We wrote 134 tests that stand guard over those laws, and every time we change a single line of code, all 134 run and re-prove the math before the change is allowed to ship. One fails, nothing ships. Your old software asks you to take its word for it. <span style="color: #FF5500;">Mine has to show its proof.</span></p>
@@ -453,7 +453,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And one feature in the build is <span style="color: #FF5500;">a ban.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Everybody in America is selling robot phone receptionists this year. DJ's system is <strong>forbidden from ever answering his phone</strong>, and the ban is printed on its front screen where the whole office can read it. Here's why. Calls from the jail come collect. A human has to pick up, hear the operator, and accept the charges. If a robot answers, the collect call dies, and <span style="color: #FF5500;">that call was the whole business.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Anybody trying to sell a bail office an AI phone agent has never stood in one. We stood in one. The phone stays human, day and night, forever. <strong>Half of this job is knowing what to build. The other half is knowing what to refuse.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We stood in that office — that's why the ban exists. The phone stays human, day and night, forever. <strong>Half of this job is knowing what to build. The other half is knowing what to refuse.</strong></p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One more thing, and it's the part the big software companies <span style="color: #FF5500;">can't say out loud.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The software DJ rents today keeps his data. Every client, every payment, every file sits on their computers, and he pays every month to look at his own records. His new system is different. The code is his. The data is his. <span style="color: #FF5500;">His name is on the title, the same way it's on the building.</span> If he ever tells me to leave, he keeps all of it.</p>
@@ -539,7 +539,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It knows what a dead plant <span style="color: #FF5500;">actually costs her.</span></p>
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-inventory-focus-v1.png" alt="Living inventory: plants in, still alive, lost, and cost per surviving plant by broker (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Plants die — in the heat, in a wet week, on the truck. The ones that live carry the cost of the ones that didn't. So it does the math no off-the-shelf nursery software will touch: <span style="color: #FF5500;">cost per surviving plant</span>, by plant, by broker. The cheapest sticker price and the cheapest plant are rarely the same broker — and now she can prove which is which <span style="color: #FF5500;">before</span> she buys.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Plants die — in the heat, in a wet week, on the truck. The ones that live carry the cost of the ones that didn't. So it does the math her old software never did: <span style="color: #FF5500;">cost per surviving plant</span>, by plant, by broker. The cheapest sticker price and the cheapest plant are rarely the same broker — and now she can prove which is which <span style="color: #FF5500;">before</span> she buys.</p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">She walks the yard and talks. <span style="color: #FF5500;">The sheet fills itself.</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Fifteen acres of what's ready changes by the day, and she used to sit and type all of it. Now she walks the rows saying what's coming on — and the system lifts the plants out of the talk, matches them to her list, and lays every line in front of her to okay before a customer ever sees it. She's still the boss of every line. <span style="color: #FF5500;">She just stopped being the typist.</span></p>
@@ -564,9 +564,9 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'why-they-cant-compete',
-        title: 'Why They Can’t Compete',
+        title: 'The One Thing They Can’t Sell You',
         date: '2026-08-16',
-        excerpt: 'A software company cannot sell you software you own — it would kill them. Why the incumbents can’t follow us into ownership, and the slow, expensive habit that’s hardest to copy.',
+        excerpt: 'A software company cannot sell you software you own — it would kill them. Why a subscription company cannot sell you software you own, and the slow, expensive habit that proves it.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/why-they-cant-compete-v1.png',
@@ -582,16 +582,15 @@ export const blogPosts: Post[] = [
 <h3>Why the incumbents can't follow</h3>
 <p>Their business model is renting you your own business back. The shop software, the roofing software, the nursery software — every one of them holds your customer list hostage and charges you monthly for the privilege of looking at it.</p>
 <p>The day they sell you ownership is the day their valuation dies. They will never do it. Not because they can't build it. <strong>Because they can't survive it.</strong> Ownership isn't a feature they haven't gotten to — it's the one thing the subscription model cannot ship.</p>
-<p>And the agencies? Still selling websites and calling it strategy.</p>
 
 <h3>The narrow slot</h3>
-<p>We live in the gap between them. AI just made genuinely custom software buildable at a price a real business can pay — the biggest repricing this industry has ever seen — and most people are using it to write LinkedIn captions.</p>
+<p>We live in the gap between them. AI just made genuinely custom software buildable at a price a real business can pay. We used it to build local businesses their own operating systems.</p>
 <p>We used it to build local businesses their own operating systems. The code and the data, one hundred percent theirs.</p>
 
-<h3>The part that's hardest to copy</h3>
-<p>Here's the part nobody will follow us on: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
-<p>That's slow. That's expensive. That's why nobody does it.</p>
-<p>It's also the only honest way to hand somebody the keys to their own company.</p>
+<h3>The slow, expensive habit</h3>
+<p>Here's the slowest, most expensive part of how we work: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
+<p>That's slow. That's expensive.</p>
+<p>It's the only way we've found to hand somebody the keys without betting their company.</p>
 <p><strong>Nobody rents you your own business back.</strong></p>
 <p>— Trevor</p>
         `,

@@ -44,7 +44,7 @@ const data: PillarData = {
      qualified gets the form, NOT A FIT gets the kind dismissal, no capture. */
   fitGate: true,
   stats: [
-    { value: 'Live', label: 'Real Systems Running Now' },
+    { value: 'Live', label: 'Systems Running Now' },
     { value: 'To the ¢', label: 'Matched Every Night' },
     { value: '100%', label: 'Yours. Code & Data' },
     { value: '0 Hrs', label: 'Downtime at Switch' },
@@ -177,7 +177,7 @@ const data: PillarData = {
     `The whole price, printed right here. ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-register fees. Major new divisions or standalone modules are scoped in writing before work begins. Month to month, and the system stays yours. ${OS_PRICING.promise} Custom software you own, without the custom software invoice.`,
   whyUsHeading: 'Why Businesses Choose Found It OS',
   whyUs: [
-    `Real local businesses running or being fitted on their own systems right now.`,
+    `Local businesses running or being fitted on their own systems right now.`,
     'You own 100% of the code and the data.',
     'Proven beside your old system until both sets of books agree, night after night.',
     'Built-in AI that answers questions about your own business in plain English.',
@@ -243,7 +243,7 @@ const data: PillarData = {
     {
       question: 'Do I need a technical person on staff?',
       answer:
-        'No. It is built for the people already behind your counter. We handle backups and support. If you ever take it in-house, you inherit a clean system you fully own.',
+        'No. It is built for the people already behind your counter. We handle backups and support. If you ever take it in-house, you inherit a system you fully own.',
     },
   ],
   relatedReading: [

@@ -42,7 +42,7 @@ export function AIMarketingLPContent() {
 
       <SocialProof
         heading="Local businesses"
-        headingAccent="trust us to run their pipeline."
+        headingAccent="run their pipeline on this."
         stats={[
           { value: '<5 sec', label: 'Lead follow-up speed' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },

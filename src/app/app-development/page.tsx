@@ -81,7 +81,7 @@ const data: PillarData = {
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems.`,
     '2026 CLEDA Highest Traded Revenue Award winner.',
     'You own 100% of the source code, IP, and developer accounts.',
-    'Fixed prices and firm dates. No scope creep.',
+    'Fixed prices and firm dates, approved in full before any work begins.',
     'A local team you can actually reach, through launch and beyond.',
     'In-person blueprints across Louisiana and East Texas.',
   ],

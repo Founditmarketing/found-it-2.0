@@ -16,8 +16,8 @@ interface JohnCTAProps {
 }
 
 export function JohnCTA({
-  heading = "Talk to Trevor — He'll Build Your Strategy Personally",
-  body = "Trevor has spent 13+ years helping service businesses dominate their local markets. Every strategy session is conducted by him personally — no junior account managers, no runaround.",
+  heading = "Talk to Trevor",
+  body = "Trevor has run this company for 13+ years. When you call, you talk to him — no junior account managers, no runaround.",
   ctaLabel = 'Schedule My Free Call',
 }: JohnCTAProps) {
   return (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Custom Business Software — Fitted to One Business at a Time | Found It Software',
     description:
-      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records professionally migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
+      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -30,14 +30,14 @@ const data: PillarData = {
     { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are professionally migrated in, and nothing switches until the new system has run beside the old one and matched it. First working screens in days, not quarters; cutover only after the parallel run proves it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
+    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are migrated in, and nothing switches until the new system has run beside the old one and matched it. First working screens in days, not quarters; cutover only after the parallel run proves it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Custom Software',
   // 8/18 audit: the old accent ("not for an industry") argued with our own
   // industry pages. The enemy is the AVERAGE company, not the vertical.
   headline: 'Built for Your Company —',
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records professionally migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it.`,
+    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it.`,
   ctaLabel: "Show Me What You’d Build",
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
@@ -63,7 +63,7 @@ const data: PillarData = {
     {
       title: 'Your Records, Migrated In',
       detail:
-        'Years of customers, jobs, and invoices come with you — professionally migrated into the new system, not abandoned in the old one.',
+        'Years of customers, jobs, and invoices come with you — migrated into the new system, not abandoned in the old one.',
     },
     {
       title: 'The Whole Operation',
@@ -98,7 +98,7 @@ const data: PillarData = {
       step: '02',
       title: 'The Migration',
       detail:
-        'Your existing records — customers, jobs, invoices, history — are professionally migrated into the new system. Nothing gets abandoned.',
+        'Your existing records — customers, jobs, invoices, history — are migrated into the new system. Nothing gets abandoned.',
     },
     {
       step: '03',
@@ -175,7 +175,7 @@ const data: PillarData = {
     `Real local businesses running or being fitted on their own systems right now.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data.',
-    'Your records get professionally migrated in — and nothing switches until the new system has run beside the old one and matched it.',
+    'Your records get migrated in — and nothing switches until the new system has run beside the old one and matched it.',
     'Built-in AI that answers questions about your own business in plain English.',
     `A local Alexandria team you can actually reach — ${AWARD.year} ${AWARD.label} Award winner.`,
   ],
@@ -189,12 +189,12 @@ const data: PillarData = {
     {
       question: 'Is this an alternative to Tekmetric, ShedSuite, or Buildertrend?',
       answer:
-        'Yes — that is exactly the seat it takes. Those are capable systems, but they are rented, and they are built for an industry rather than for your business. A Found It OS install is fitted to one business — yours — you own it outright, and your records come with you: professionally migrated in, not abandoned. Nothing switches until the new system has run beside your current one and matched it.',
+        'Yes — that is exactly the seat it takes. Those are capable systems, but they are rented, and they are built for an industry rather than for your business. A Found It OS install is fitted to one business — yours — you own it outright, and your records come with you: migrated in, not abandoned. Nothing switches until the new system has run beside your current one and matched it.',
     },
     {
       question: 'What happens to my years of records when I switch?',
       answer:
-        'They come with you. Migration is part of the fitting — your customers, jobs, invoices, and history get professionally migrated into the new system, so day one starts with everything you have built, not a blank screen. One of our live installs, a Louisiana auto shop, runs entirely on its own migrated records.',
+        'They come with you. Migration is part of the fitting — your customers, jobs, invoices, and history get migrated into the new system, so day one starts with everything you have built, not a blank screen. One of our live installs, a Louisiana auto shop, runs entirely on its own migrated records.',
     },
     {
       question: 'How long does it take to install?',

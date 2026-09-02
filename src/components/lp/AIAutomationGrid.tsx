@@ -64,7 +64,7 @@ export function AIAutomationGrid({
   eyebrow = 'It Is Not Just Chatbots',
   heading = 'AI Can Run Your',
   headingAccent = 'Entire Marketing Engine.',
-  subheading = 'Most agencies sell you one bot and call it a day. We build connected AI systems across every channel that brings you customers.',
+  subheading = 'Connected AI systems across every channel that brings you customers.',
   areas = defaultAreas,
 }: AIAutomationGridProps) {
   return (

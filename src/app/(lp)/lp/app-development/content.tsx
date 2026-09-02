@@ -40,8 +40,8 @@ export function AppDevelopmentLPContent() {
       />
 
       <SocialProof
-        heading="Builds owners"
-        headingAccent="can count on."
+        heading="Owners who hired us,"
+        headingAccent="in their own words."
         stats={[
           { value: `${TRACK_RECORD.yearsInBusiness}`, label: 'Years building software' },
           { value: `${TRACK_RECORD.googleRating}★`, label: 'Average Google rating' },
@@ -87,7 +87,7 @@ export function AppDevelopmentLPContent() {
           {
             number: '03',
             title: 'Development & Launch',
-            description: "We engineer a lightning-fast, native-feeling app for iOS and Android, handle the App Store submissions, and hit the delivery date we put in writing.",
+            description: "We build a fast, native-feeling app for iOS and Android, handle the App Store submissions, and hit the delivery date we put in writing.",
           },
         ]}
       />

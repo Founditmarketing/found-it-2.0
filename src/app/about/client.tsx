@@ -67,7 +67,7 @@ export default function AboutPage() {
             Found It Software is a custom AI software company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite.
           </p>
           <p className="mt-4 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Today we build those systems for real businesses — the shop, the crew, the yard, the store: your jobs, your registers, your dispatch board, your customer book, with your years of records professionally migrated in, not abandoned. Ask your system a question in plain English and it answers from your own data. Your first working screens are live in days, not quarters — cutover only happens after the parallel run proves it — and the price is on the website. <span className="text-foreground font-bold">You&rsquo;ll never rent software that almost fits again.</span>
+            Today we build those systems for real businesses — the shop, the crew, the yard, the store: your jobs, your registers, your dispatch board, your customer book, with your years of records migrated in, not abandoned. Ask your system a question in plain English and it answers from your own data. Your first working screens are live in days, not quarters — cutover only happens after the parallel run proves it — and the price is on the website. <span className="text-foreground font-bold">You&rsquo;ll never rent software that almost fits again.</span>
           </p>
 
           {/* Award trust chip */}
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 Now I build one thing: <span className="text-foreground font-bold">software that local businesses own.</span> One system that runs the whole operation — the tickets, the invoices, the books, the phone — fitted to how you actually work. The code and the data are yours, written into a two-page contract you can read without a lawyer. Your new system runs beside the old one, matched to the penny, until you say go. <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
               </p>
               <p>
-                Today, real Louisiana businesses run their whole day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand — and they stay.
+                Today, real Louisiana businesses run their whole day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand. The door stays open on purpose.
               </p>
               <p>
                 We&apos;re in Alexandria. I&apos;ll drive to your shop, sit across the table, and show you your own numbers on a screen before I ask you for anything.
@@ -159,8 +159,8 @@ export default function AboutPage() {
               Engineering &amp; Systems
             </p>
             <p className="text-base text-muted-foreground font-medium leading-relaxed max-w-3xl">
-              Every Found It system is built on one shared, battle-tested core. Trevor engineers
-              each fitting personally, working with a senior development partner whose security
+              Every Found It system is built on one shared core already running in production across Louisiana businesses. Each fitting is made
+              with a senior development partner whose security
               specification gates every build, plus dedicated build support for migrations and
               testing. The people who build your system are the people who answer when it rings.
             </p>
@@ -208,7 +208,7 @@ export default function AboutPage() {
             Where We Work
           </h2>
           <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
-            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, up into southern Arkansas, or around Wichita, Kansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, we deliver the same senior-level work remotely.
+            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, up into southern Arkansas, or around Wichita, Kansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, the same team does the same work remotely.
           </p>
           <div className="flex flex-wrap gap-3">
             {serviceArea.map((region, i) => (

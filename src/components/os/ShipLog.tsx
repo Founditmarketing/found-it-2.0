@@ -66,8 +66,7 @@ export function ShipLog() {
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
           Everything below shipped this month, and every line is live right now — on this
-          site or inside a client&rsquo;s system. The big platforms do this quarterly.{' '}
-          <span className="text-white font-bold">Your competitors don&rsquo;t do it at all.</span>
+          site or inside a client&rsquo;s system.
         </p>
       </div>
 

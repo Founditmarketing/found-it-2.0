@@ -135,7 +135,7 @@ export default function SeminarClient() {
             Owner-operators doing $1M+ a year who&apos;d rather watch it work than read about it.
           </p>
           <p className="text-sm text-muted-foreground font-medium max-w-xl mx-auto">
-            We take a few businesses a month. The seminar is where we meet the ones worth taking.
+            We take a few businesses a month. The seminar is where we usually meet them first.
           </p>
         </motion.div>
 

@@ -72,7 +72,7 @@ function GoogleGlyph() {
 export function SocialProof({
   eyebrow = 'Proof',
   heading = 'Local businesses',
-  headingAccent = 'trust us to run their pipeline.',
+  headingAccent = 'run their pipeline on this.',
   stats = defaultStats,
   testimonials,
 }: SocialProofProps) {

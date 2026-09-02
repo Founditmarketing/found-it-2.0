@@ -148,7 +148,7 @@ export const industries: Record<string, IndustryData> = {
     faqs: [
       {
         question: "What happens to my client book if I leave kvCORE or Follow Up Boss?",
-        answer: "Usually a CSV export and good luck. With a system you own, the question disappears. The code and the data are yours from day one. Nobody rents you your own business back.",
+        answer: "Usually whatever their export tool gives you. With a system you own, the question disappears. The code and the data are yours from day one. Nobody rents you your own business back.",
       },
       {
         question: "Do we have to switch everything at once?",
@@ -237,7 +237,7 @@ export const industries: Record<string, IndustryData> = {
       },
       {
         question: "Do you still do marketing for law firms?",
-        answer: "We retired the marketing side to build software full time. The one exception is AI Search Optimization: when somebody asks ChatGPT for a lawyer in your parish, we make sure it says you. Everything else we build is the system itself.",
+        answer: "We retired the marketing side to build software full time. The one exception is AI Search Optimization: when somebody asks ChatGPT for a lawyer in your parish, we do the work that gets you named. Everything else we build is the system itself.",
       },
     ],
     formSource: "industry_lawyers",

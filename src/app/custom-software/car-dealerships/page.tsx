@@ -206,7 +206,7 @@ const data: PillarData = {
     {
       question: 'Do I need a technical person on staff?',
       answer:
-        'No. The people already working your lot can run it. We handle backups and support. If you ever take it in-house, you inherit a clean system you fully own.',
+        'No. The people already working your lot can run it. We handle backups and support. If you ever take it in-house, you inherit a system you fully own.',
     },
   ],
   relatedReading: [
