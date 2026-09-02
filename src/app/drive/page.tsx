@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { DriveOS } from '@/components/os/DriveOS';
+import { DriveAppMode } from './app-mode';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { OS_PRICING } from '@/lib/site';
 
@@ -29,28 +30,34 @@ export const metadata: Metadata = {
 
 export default function DrivePage() {
   return (
-    <main className="bg-transparent text-foreground pt-28 lg:pt-36 pb-24 relative overflow-hidden">
+    <main className="bg-transparent text-foreground pt-5 sm:pt-28 lg:pt-36 pb-24 relative overflow-hidden">
+      <DriveAppMode />
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.04] rounded-full blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.03] rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-8">
-          <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4">
+        <div className="text-center mb-4 sm:mb-8">
+          <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-4">
             Drive One &middot; Sample Data &middot; Live Behavior
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-4">
+          <h1 className="hidden sm:block text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-4">
             A Found It OS <span className="text-primary">You Can Touch.</span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
+          {/* phone: one short line, then the app owns the screen */}
+          <p className="sm:hidden text-[13px] text-muted-foreground font-medium leading-snug px-2">
+            Fitted to a tire &amp; auto shop. Every name invented, every behavior real.{' '}
+            <span className="text-foreground font-bold">Yours would be different.</span>
+          </p>
+          <p className="hidden sm:block text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
             There is no generic Found It OS. This one was fitted to a tire &amp; auto shop —
             every name invented, every behavior real. Ring a sale. Try to edit the books.{' '}
             <span className="text-foreground font-bold">Yours would be built around your business.</span>
           </p>
         </div>
 
-        <DriveOS />
+        <DriveOS appMode />
 
         <div id="lead-form" className="text-center mt-12 scroll-mt-28">
           <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-6">

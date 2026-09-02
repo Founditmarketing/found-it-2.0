@@ -235,3 +235,13 @@
 }
 /* The AI secretary is on the line (any page): the chat launcher steps aside so it never covers her bar. */
 body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; pointer-events: none !important; }
+
+/* ─── /drive as a native app on phones (Trevor 9/2) ───
+   Under sm the machine owns the screen: site header and the Ask Trevor
+   launcher step aside. Desktop keeps the full site chrome. */
+@media (max-width: 639px) {
+  body.drive-app header,
+  body.drive-app .concierge-fab {
+    display: none !important;
+  }
+}

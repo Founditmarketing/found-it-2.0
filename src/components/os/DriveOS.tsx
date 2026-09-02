@@ -283,7 +283,7 @@ const WHISPERS = [
   'she has the phones tonight',
 ] as const;
 
-export function DriveOS() {
+export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
   const [s, dispatch] = useReducer(reducer, INITIAL);
   const [tab, setTab] = useState<TabId>('today');
   const [visited, setVisited] = useState<Set<TabId>>(() => new Set(['today']));
@@ -352,12 +352,12 @@ export function DriveOS() {
       className="relative"
     >
       {/* ambient light the window sits in */}
-      <div aria-hidden className="absolute -inset-8 sm:-inset-12 pointer-events-none">
+      <div aria-hidden className={`absolute -inset-8 sm:-inset-12 pointer-events-none ${appMode ? 'hidden sm:block' : ''}`}>
         <div className="absolute inset-0 bg-[radial-gradient(60%_70%_at_30%_20%,rgba(255,85,0,0.14),transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(50%_60%_at_80%_90%,rgba(52,211,153,0.06),transparent_70%)]" />
       </div>
 
-      <div id="drive-os" className="relative rounded-3xl border border-primary/25 bg-[#0B0B0B]/90 backdrop-blur-sm shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_10px_30px_-10px_rgba(255,85,0,0.15)] overflow-hidden [background-image:linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:44px_44px]">
+      <div id="drive-os" className={`relative rounded-3xl border border-primary/25 ${appMode ? 'max-sm:-mx-4 max-sm:rounded-none max-sm:border-x-0' : ''} bg-[#0B0B0B]/90 backdrop-blur-sm shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8),0_10px_30px_-10px_rgba(255,85,0,0.15)] overflow-hidden [background-image:linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] [background-size:44px_44px]`}>
         {/* chrome */}
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3 border-b border-white/[0.07] bg-black/50">
           <div className="flex items-center gap-3 min-w-0">
@@ -472,7 +472,7 @@ export function DriveOS() {
           </nav>
 
           {/* panel */}
-          <div className="relative flex-1 min-w-0 h-[500px] sm:h-[520px] overflow-y-auto overscroll-contain p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]">
+          <div className={`relative flex-1 min-w-0 sm:h-[520px] ${appMode ? 'max-sm:h-[calc(100dvh-235px)] max-sm:min-h-[420px]' : 'h-[500px]'} overflow-y-auto overscroll-contain p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,85,0,0.4)_transparent]`}>
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={tab}
@@ -801,7 +801,7 @@ export function DriveOS() {
         </div>
 
         {/* tab bar (mobile) */}
-        <nav aria-label="Demo OS sections" className="sm:hidden flex border-t border-white/[0.07] bg-black/60">
+        <nav aria-label="Demo OS sections" className={`sm:hidden flex border-t border-white/[0.07] bg-black/60 ${appMode ? 'pb-[max(env(safe-area-inset-bottom),6px)]' : ''}`}>
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
