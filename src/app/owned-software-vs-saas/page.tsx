@@ -9,12 +9,12 @@ import { OWNED_SOFTWARE_DEFINITION, OWNED_SOFTWARE_TEST_QUESTION } from '@/lib/o
    jobs) — an honest column is what makes the rest citable. */
 
 export const metadata: Metadata = {
-  title: 'Owned Software vs SaaS: The Honest Side-by-Side',
+  title: 'Owned Software vs SaaS: The Side-by-Side',
   description:
-    'SaaS is rented software: fast to start, never yours. Owned software is the opposite: the business holds the code and the data. The honest comparison, including where SaaS wins.',
+    'SaaS is rented software: fast to start, never yours. Owned software is the opposite: the business holds the code and the data. The full comparison, including where SaaS wins.',
   alternates: { canonical: '/owned-software-vs-saas' },
   openGraph: {
-    title: 'Owned Software vs SaaS: The Honest Side-by-Side',
+    title: 'Owned Software vs SaaS: The Side-by-Side',
     description: 'Including the column where SaaS wins. If you stop paying, what is left?',
     type: 'website',
     url: 'https://www.founditsoftware.com/owned-software-vs-saas',
@@ -79,7 +79,7 @@ export default function OwnedVsSaasPage() {
           Owned Software <span className="text-primary">vs SaaS.</span>
         </h1>
         <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-12">
-          The honest version, including the row where SaaS wins. One question runs through the
+          The whole table, including the row where SaaS wins. One question runs through the
           whole table: <span className="text-foreground font-bold">{OWNED_SOFTWARE_TEST_QUESTION}</span>
         </p>
 

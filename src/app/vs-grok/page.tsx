@@ -51,7 +51,7 @@ const rows = [
   },
   {
     k: 'In a year',
-    diy: 'Everyone is quietly back on the spreadsheets.',
+    diy: 'Nobody is fixing it anymore, and the crew drifts back to the spreadsheets.',
     os: 'An employee your business owns outright.',
   },
 ];

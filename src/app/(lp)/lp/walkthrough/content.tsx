@@ -24,7 +24,7 @@ export function WalkthroughLPContent() {
         headline: 'Who Owes You Money',
         headlineAccent: 'Right Now?',
         subheadline:
-          "Could your current software answer that in five seconds? Ours can. And that's only one question. We put your whole operation into one custom system: customers, jobs, estimates, invoices, the books. Built around the way you actually work. And you own it. Sign up below and we'll show you what yours would look like, free. Hire us or don't.",
+          "Could your current software answer that in five seconds? Ours can. And that's only one question. We put your whole operation into one custom system: customers, jobs, estimates, invoices, the books. Built around the way you actually work. And you own it. Sign up below and we'll show you what yours would look like, free. If it's not a fit, we tell you straight.",
       }}
     />
   );

@@ -181,7 +181,7 @@ export default function OwnedSoftwarePage() {
 
         {/* FAQ — visible mirror of the schema */}
         <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
-          Straight Answers
+          Questions, Answered
         </h2>
         <div className="space-y-6 mb-14">
           {faq.map((f) => (
