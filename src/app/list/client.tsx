@@ -111,7 +111,7 @@ const ITEMS_GATED: Item[] = [
   {
     n: '10',
     head: 'The builder eats his own cooking.',
-    body: 'We fired QuickBooks at our own company. A month of books answered in two text messages, tied to the bank to the cent. The software even caught its own $92.39 mistake and refused to say done until the numbers proved themselves. The whole receipt is on the blog: QuickBooks Is Cancelled.',
+    body: 'We fired QuickBooks at our own company. A month of books answered in two text messages, tied to the bank to the cent. The software even caught its own $92.39 mistake and refused to say done until the numbers proved themselves. The whole receipt is a three-part field report on the blog.',
   },
 ];
 
