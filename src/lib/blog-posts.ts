@@ -19,6 +19,41 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'quickbooks-is-cancelled',
+        title: 'QuickBooks Is Cancelled. My Books Answered in Two Text Messages.',
+        date: '2026-09-02',
+        excerpt:
+            'A month ago I fired QuickBooks and promised to write it down when the job was finished. This is that post: a month of bookkeeping answered in two texts, the night my software argued with itself over $92.39 and won, and the day the old subscription finally died.',
+        author: 'Trevor Ruby',
+        authorImage: '/team-member-1.jpeg',
+        image: '/images/blog/qb-part2-og-hook-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A month ago I wrote about firing QuickBooks and putting my own books on software I own. I said I&rsquo;d write it down here when I finished the job. <span style="color: #FF5500; font-weight: 800;">This is that post.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Bookkeeping by text message</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Since then my books have swallowed two bank accounts and two credit cards, every transaction. Here is the entire amount of work I personally did: <span style="color: #FF5500; font-weight: 800;">I answered two text messages.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The system read the statements, drafted every entry, and asked me only the questions a machine should never guess at. Who was that check to. Is this charge yours. Is the guy you PayPal&rsquo;d a vendor or a friend.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The second batch was 26 questions. My entire answer, word for word:</p>
+<div style="margin: 1.4em 0; padding: 0.9em 1.2em; border-left: 3px solid #FF5500; opacity: 0.75; font-style: italic;"><p style="margin:0;">&ldquo;FRIEND, - 2 personal - biz - draw is fine&rdquo;</p></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It understood. It posted 285 entries. The books balanced <span style="color: #FF5500; font-weight: 800;">to the cent.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The night the software argued with itself</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">My favorite part of this month is a part where something went wrong.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When the system finished posting, it refused to say &ldquo;done.&rdquo; Its own proof step said one account had moved by less than it should have, so it failed the whole run and said so out loud.</p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$92.39</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the gap the software refused to ignore. It turned out to be a real bug in its own checker &mdash; found, fixed, and re-proven the same night.</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Think about what happened there. The software caught its own mistake, refused to call the job finished, and would not shut up until the numbers proved themselves. <span style="color: #FF5500; font-weight: 800;">QuickBooks never once did that for me.</span> It just sat there being wrong about seventy thousand dollars.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What the books actually say now</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every dollar in and out of this company is on a ledger that cannot be erased. Not by me, not by anybody. Mistakes get corrected in the open, with a new entry that says who fixed what and why.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And because the books are current instead of three weeks behind, I know exactly what runs this company:</p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(40px, 7vw, 68px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$33,627.78</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">what my software spent on AI compute last month, across 167 charges. Not a typo, and I&rsquo;m not embarrassed by it.</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That bill is the employee that read my statements, drafted my entries, asked me 26 questions, and caught its own $92.39 mistake at eleven at night. I know what it costs <span style="color: #FF5500; font-weight: 800;">because my books are real now.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The cancel</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Today I cancelled QuickBooks.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">No export panic, no migration weekend, no consultant. The books were already mine. They ran beside QuickBooks for weeks, matched to the penny, until the old software had exactly one job left: charging me monthly for the privilege of being behind.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">My accountant keeps the taxes. The software keeps the truth. And <span style="color: #FF5500; font-weight: 800;">nobody rents me my own books back.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">If you want to see it, ask me. I don&rsquo;t hand people a brochure. I open the ledger, live, current to today, tied to the bank to the cent, and let it talk.</p>
+`,
+    },
+    {
         slug: 'i-fired-quickbooks',
         title: 'I Fired QuickBooks. In Week One, My New Ledger Asked a $70,000 Question.',
         date: '2026-09-02',
