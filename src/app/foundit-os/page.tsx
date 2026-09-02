@@ -31,7 +31,7 @@ const data: PillarData = {
   ],
   schemaDescription:
     `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so the switch has zero downtime. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
-  eyebrow: 'Found It OS',
+  eyebrow: 'The Flagship',
   headline: 'It Answers. It Types. It Chases.',
   headlineAccent: 'You Own It.',
   intro:

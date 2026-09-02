@@ -131,13 +131,15 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <span className="text-primary">{data.headlineAccent}</span>
           </h1>
           {data.driveOs && (
-            <div className="mt-8 mb-10">
+            <div className="mt-8 mb-8">
               <DriveOS />
             </div>
           )}
-          <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            {data.intro}
-          </p>
+          {!data.driveOs && (
+            <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
+              {data.intro}
+            </p>
+          )}
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mt-10">
             <Link href={ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
               {data.ctaLabel}
@@ -161,6 +163,12 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 </Link>
               ))}
             </div>
+          )}
+
+          {data.driveOs && (
+            <p className="mt-10 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
+              {data.intro}
+            </p>
           )}
 
           {data.voiceDemo && data.voiceDemoHero && (

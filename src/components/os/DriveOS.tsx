@@ -27,6 +27,7 @@ import {
   BookOpenCheck,
   CircleDollarSign,
   LayoutDashboard,
+  Pencil,
   PhoneCall,
   Receipt,
 } from 'lucide-react';
@@ -56,7 +57,7 @@ type Debtor = {
 const SEED_ENTRIES: Entry[] = [
   { id: 's1', time: '7:58 AM', label: 'Nightly backup verified', amount: 0, by: 'the system', kind: 'note' },
   { id: 's2', time: '8:12 AM', label: '4 tires + alignment — J. Broussard, rung at the counter', amount: 741.48, by: 'the system', kind: 'sale' },
-  { id: 's3', time: '9:41 AM', label: 'Payment received — inv #2189, T. Guidry', amount: 486.2, by: 'the system', kind: 'payment' },
+  { id: 's3', time: '9:41 AM', label: 'Payment received — inv #2189, T. Guidry', amount: 412.75, by: 'the system', kind: 'payment' },
   { id: 's4', time: '10:05 AM', label: 'Synthetic oil change — walk-in, rung at the counter', amount: 89.95, by: 'the system', kind: 'sale' },
 ];
 
@@ -111,7 +112,8 @@ type A =
   | { t: 'correct'; id: string; time: string }
   | { t: 'dismissWarn' }
   | { t: 'draft'; id: string }
-  | { t: 'send'; id: string; time: string };
+  | { t: 'send'; id: string; time: string }
+  | { t: 'idlePay'; time: string };
 
 function money(n: number) {
   return n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
@@ -120,7 +122,7 @@ function money(n: number) {
 function reducer(s: S, a: A): S {
   switch (a.t) {
     case 'add':
-      return { ...s, cart: [...s.cart, a.i] };
+      return { ...s, cart: [...s.cart, a.i], receipt: null };
     case 'clear':
       return { ...s, cart: [] };
     case 'ring': {
@@ -155,7 +157,7 @@ function reducer(s: S, a: A): S {
       const entry: Entry = {
         id: 'c' + Date.now(),
         time: a.time,
-        label: `Correction posted against “${target.label.slice(0, 28)}…” — original stays`,
+        label: 'Correction posted — the original entry stays on the record',
         amount: -target.amount,
         by: 'you',
         kind: 'correction',
@@ -180,6 +182,25 @@ function reducer(s: S, a: A): S {
           },
         ],
       };
+    case 'idlePay': {
+      const d = s.debtors.find((x) => x.id === 'd2');
+      if (!d) return s;
+      return {
+        ...s,
+        debtors: s.debtors.filter((x) => x.id !== 'd2'),
+        entries: [
+          ...s.entries,
+          {
+            id: 'p' + Date.now(),
+            time: a.time,
+            label: 'Payment received — inv #2221, A. Fontenot paid in full',
+            amount: d.amount,
+            by: 'the system',
+            kind: 'payment',
+          },
+        ],
+      };
+    }
   }
 }
 
@@ -209,11 +230,14 @@ function clock(d: Date | null) {
   return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 }
 
-/** Spring number: counts to value on mount / change. */
-function Amount({ value, className }: { value: number; className?: string }) {
+/** Spring number: counts to value on mount / change. Remembers its last
+    value per slot so returning to a tab doesn't re-count from zero. */
+const AMOUNT_MEMORY = new Map<string, number>();
+function Amount({ k, value, className }: { k: string; value: number; className?: string }) {
   const reduce = useReducedMotion();
-  const [shown, setShown] = useState(reduce ? value : 0);
-  const prev = useRef(0);
+  const start = AMOUNT_MEMORY.get(k) ?? 0;
+  const [shown, setShown] = useState(reduce ? value : start);
+  const prev = useRef(start);
   useEffect(() => {
     if (reduce) { setShown(value); return; }
     const from = prev.current;
@@ -230,6 +254,7 @@ function Amount({ value, className }: { value: number; className?: string }) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [value, reduce]);
+  useEffect(() => { AMOUNT_MEMORY.set(k, value); }, [k, value]);
   return <span className={className}>{money(shown)}</span>;
 }
 
@@ -245,12 +270,55 @@ type TabId = (typeof TABS)[number]['id'];
 
 /* ─── the machine ─── */
 
+/* Chrome whisper: the OS murmurs what it did while nobody watched. */
+const WHISPERS = [
+  'penny-matched at 12:00 AM',
+  '3 drafts waiting on your tap',
+  'backup verified 7:58 AM',
+  'she has the phones tonight',
+] as const;
+
 export function DriveOS() {
   const [s, dispatch] = useReducer(reducer, INITIAL);
   const [tab, setTab] = useState<TabId>('today');
   const [visited, setVisited] = useState<Set<TabId>>(() => new Set(['today']));
   const now = useNow();
   const reduce = useReducedMotion();
+
+  /* sizzle: boot, whispers, idle life, action pulse, correction stamp */
+  const [booted, setBooted] = useState(false);
+  const [whisper, setWhisper] = useState(0);
+  const [toast, setToast] = useState<string | null>(null);
+  const [pulseKey, setPulseKey] = useState(0);
+  const [stamp, setStamp] = useState(false);
+  const pulse = () => setPulseKey((k) => k + 1);
+
+  useEffect(() => {
+    const t = setTimeout(() => setBooted(true), reduce ? 0 : 1150);
+    return () => clearTimeout(t);
+  }, [reduce]);
+
+  useEffect(() => {
+    if (!booted) return;
+    const t = setInterval(() => setWhisper((w) => (w + 1) % WHISPERS.length), 4500);
+    return () => clearInterval(t);
+  }, [booted]);
+
+  /* The shop keeps working while the visitor watches: ~9s in, a payment
+     lands on its own — the demo of "runs itself" nobody has to click. */
+  const idleFired = useRef(false);
+  useEffect(() => {
+    if (!booted || idleFired.current) return;
+    const t = setTimeout(() => {
+      idleFired.current = true;
+      dispatch({ t: 'idlePay', time: clock(new Date()) });
+      setToast('Payment just landed · $838.90 — A. Fontenot');
+      pulse();
+      const clear = setTimeout(() => setToast(null), 4500);
+      return () => clearTimeout(clear);
+    }, 9000);
+    return () => clearTimeout(t);
+  }, [booted]);
 
   const collected = useMemo(
     () => s.entries.filter((e) => e.amount !== 0).reduce((n, e) => n + e.amount, 0),
@@ -261,7 +329,8 @@ export function DriveOS() {
     [s.debtors]
   );
   const billed = collected + open;
-  const difference = billed - collected - open; // computed live, on purpose
+  // computed live, on purpose — abs+round kills float residue and -$0.00
+  const difference = Math.abs(Math.round((billed - collected - open) * 100) / 100);
 
   const go = (t: TabId) => {
     setTab(t);
@@ -297,12 +366,78 @@ export function DriveOS() {
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <span className="hidden md:inline-flex items-center overflow-hidden" aria-live="polite">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={toast ?? whisper}
+                  initial={reduce ? false : { opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                  transition={{ duration: 0.25 }}
+                  className={`font-mono text-[10px] uppercase tracking-[0.12em] ${toast ? 'text-emerald-400 font-black' : 'text-white/50'}`}
+                >
+                  {toast ?? WHISPERS[whisper]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
             <span className="hidden sm:inline font-mono text-[11px] text-white/45 tabular-nums">{clock(now)}</span>
             <span className="bg-primary text-black font-mono text-[9px] sm:text-[10px] font-black uppercase tracking-[0.16em] px-2.5 py-1 rounded-full">
               Demo data · Drive it
             </span>
           </div>
         </div>
+
+        {/* one ring of light per committed action */}
+        <AnimatePresence>
+          {pulseKey > 0 && (
+            <motion.div
+              key={pulseKey}
+              aria-hidden
+              initial={{ opacity: 0.7 }}
+              animate={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.9, ease: 'easeOut' }}
+              className="absolute inset-0 rounded-3xl ring-2 ring-primary/70 pointer-events-none z-30"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* boot: the machine wakes up once */}
+        <AnimatePresence>
+          {!booted && (
+            <motion.div
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+              className="absolute inset-0 z-40 bg-[#070707] flex flex-col items-center justify-center overflow-hidden"
+              aria-hidden
+            >
+              <motion.p
+                initial={reduce ? false : { opacity: 0 }}
+                animate={{ opacity: [0, 1, 0.4, 1] }}
+                transition={{ duration: 0.6, times: [0, 0.4, 0.6, 1] }}
+                className="font-heading font-black italic uppercase tracking-tight text-2xl sm:text-3xl text-white"
+              >
+                Found It <span className="text-primary">OS</span>
+              </motion.p>
+              <motion.p
+                initial={reduce ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.45 }}
+                className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40"
+              >
+                Fitted to {SHOP}
+              </motion.p>
+              {!reduce && (
+                <motion.div
+                  initial={{ top: '-8%' }}
+                  animate={{ top: '108%' }}
+                  transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+                  className="absolute left-0 right-0 h-10 bg-gradient-to-b from-transparent via-primary/15 to-transparent"
+                />
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="flex flex-col sm:flex-row">
           {/* rail (desktop) */}
@@ -326,7 +461,7 @@ export function DriveOS() {
                 )}
               </button>
             ))}
-            <p className="mt-auto px-3 pb-1 font-mono text-[9px] uppercase tracking-[0.14em] leading-relaxed text-white/25">
+            <p className="mt-auto px-3 pb-1 font-mono text-[9px] uppercase tracking-[0.14em] leading-relaxed text-white/45">
               Every tap here is the real behavior
             </p>
           </nav>
@@ -352,11 +487,11 @@ export function DriveOS() {
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
                         <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/40 mb-1.5">Collected today</p>
-                        <Amount value={collected} className="text-xl sm:text-2xl font-black tracking-tight text-emerald-400 tabular-nums" />
+                        <Amount k="collected" value={collected} className="text-xl sm:text-2xl font-black tracking-tight text-emerald-400 tabular-nums" />
                       </div>
                       <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
                         <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/40 mb-1.5">Owed, oldest first</p>
-                        <Amount value={open} className="text-xl sm:text-2xl font-black tracking-tight text-primary tabular-nums" />
+                        <Amount k="open" value={open} className="text-xl sm:text-2xl font-black tracking-tight text-primary tabular-nums" />
                       </div>
                     </div>
                     <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-white/40 mb-3">Overnight, by the secretary</p>
@@ -368,12 +503,25 @@ export function DriveOS() {
                         </li>
                       ))}
                     </ul>
+                    {s.entries.some((e) => e.by !== 'the system' && !SEED_ENTRIES.includes(e)) && (
+                      <>
+                        <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-primary mt-5 mb-3">Since you got here</p>
+                        <ul className="space-y-2">
+                          {s.entries.filter((e) => e.by !== 'the system' && !SEED_ENTRIES.includes(e)).map((e) => (
+                            <li key={e.id} className="flex gap-3 items-baseline">
+                              <span className="font-mono text-[10px] text-primary/80 tabular-nums w-16 shrink-0">{e.time}</span>
+                              <span className="text-[13px] font-medium leading-snug text-white/75">{e.label}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                     <button
                       type="button"
                       onClick={() => go('register')}
                       className="mt-6 inline-flex items-center gap-2 px-5 h-11 rounded-full bg-primary text-black font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                     >
-                      Ring a sale yourself →
+                      {s.ringCount > 0 ? 'Ring another →' : 'Ring a sale yourself →'}
                     </button>
                   </div>
                 )}
@@ -390,7 +538,7 @@ export function DriveOS() {
                           key={sv.label}
                           type="button"
                           onClick={() => dispatch({ t: 'add', i })}
-                          className="text-left rounded-xl border border-white/[0.09] bg-white/[0.03] hover:border-primary/50 hover:bg-primary/[0.06] active:scale-[0.98] transition-all px-3.5 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                          className="text-left rounded-xl border border-white/[0.09] bg-white/[0.03] hover:border-primary/50 hover:bg-primary/[0.06] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0 transition-all px-3.5 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                         >
                           <p className="text-[12.5px] font-bold text-white/85 leading-tight mb-1">{sv.label}</p>
                           <p className="font-mono text-[11px] text-primary tabular-nums">{money(sv.price)}</p>
@@ -409,7 +557,7 @@ export function DriveOS() {
                         )}
                       </div>
                       {s.cart.length === 0 ? (
-                        <p className="text-[13px] text-white/35 font-medium">Empty. The 4-tire set is the crowd favorite.</p>
+                        <p className="text-[13px] text-white/50 font-medium">Empty. The 4-tire set is the crowd favorite.</p>
                       ) : (
                         <ul className="space-y-1 mb-3">
                           {s.cart.map((i, k) => (
@@ -429,7 +577,7 @@ export function DriveOS() {
                       <button
                         type="button"
                         disabled={s.cart.length === 0}
-                        onClick={() => dispatch({ t: 'ring', time: t() })}
+                        onClick={() => { dispatch({ t: 'ring', time: t() }); pulse(); }}
                         className="mt-3 w-full h-12 rounded-xl bg-primary text-black font-black uppercase tracking-wider text-sm disabled:opacity-30 hover:opacity-90 active:scale-[0.99] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       >
                         Ring it
@@ -445,7 +593,8 @@ export function DriveOS() {
                           animate={{ opacity: 1, y: 0, rotate: -1.5 }}
                           exit={{ opacity: 0, y: 20 }}
                           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-                          className="absolute right-2 bottom-2 w-60 text-left bg-[#F4EFE6] text-[#141414] rounded-lg p-4 shadow-[0_18px_50px_rgba(0,0,0,0.6)] font-mono cursor-pointer"
+                          style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 6px), 95% 100%, 90% calc(100% - 5px), 85% 100%, 80% calc(100% - 5px), 75% 100%, 70% calc(100% - 5px), 65% 100%, 60% calc(100% - 5px), 55% 100%, 50% calc(100% - 5px), 45% 100%, 40% calc(100% - 5px), 35% 100%, 30% calc(100% - 5px), 25% 100%, 20% calc(100% - 5px), 15% 100%, 10% calc(100% - 5px), 5% 100%, 0 calc(100% - 5px))' }}
+                          className="absolute right-2 bottom-2 w-60 text-left bg-[#F4EFE6] text-[#141414] rounded-t-lg p-4 pb-5 shadow-[0_18px_50px_rgba(0,0,0,0.6)] font-mono cursor-pointer"
                           aria-label="Receipt printed — tap to see it land in the books"
                         >
                           <p className="text-[10px] font-black uppercase tracking-[0.18em] text-center">{SHOP}</p>
@@ -501,12 +650,12 @@ export function DriveOS() {
                               <div className="flex items-center gap-3">
                                 <button
                                   type="button"
-                                  onClick={() => dispatch({ t: 'send', id: d.id, time: t() })}
+                                  onClick={() => { dispatch({ t: 'send', id: d.id, time: t() }); pulse(); }}
                                   className="inline-flex items-center px-4 h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                                 >
                                   Approve &amp; send
                                 </button>
-                                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/35">Draft · waiting on you</span>
+                                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/50">Draft · waiting on you</span>
                               </div>
                             </div>
                           )}
@@ -522,7 +671,21 @@ export function DriveOS() {
                 )}
 
                 {tab === 'books' && (
-                  <div>
+                  <div className="relative">
+                    <AnimatePresence>
+                      {stamp && (
+                        <motion.div
+                          aria-hidden
+                          initial={reduce ? false : { opacity: 0, scale: 1.6, rotate: -14 }}
+                          animate={{ opacity: 1, scale: 1, rotate: -8 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ type: 'spring', stiffness: 300, damping: 16 }}
+                          className="absolute right-2 top-10 z-10 border-4 border-primary text-primary font-mono text-[11px] font-black uppercase tracking-[0.18em] px-4 py-2 rounded-lg bg-black/70 pointer-events-none"
+                        >
+                          Correction posted<br />original stays
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                     <p className="text-lg sm:text-xl font-black italic tracking-tight text-white mb-1">The books.</p>
                     <p className="text-[13px] text-white/50 font-medium mb-4">
                       Every line permanent. Go ahead — try the little pencil.
@@ -545,7 +708,7 @@ export function DriveOS() {
                             <div className="flex gap-2.5">
                               <button
                                 type="button"
-                                onClick={() => dispatch({ t: 'correct', id: s.editWarn!, time: t() })}
+                                onClick={() => { dispatch({ t: 'correct', id: s.editWarn!, time: t() }); pulse(); setStamp(true); setTimeout(() => setStamp(false), 1600); }}
                                 className="px-4 h-9 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                               >
                                 Post a correction
@@ -571,8 +734,8 @@ export function DriveOS() {
                           animate={{ opacity: 1, x: 0 }}
                           className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 ${e.by === 'you' ? 'bg-primary/[0.06]' : ''}`}
                         >
-                          <span className="font-mono text-[10px] text-white/35 tabular-nums w-16 shrink-0">{e.time}</span>
-                          <span className={`flex-1 min-w-0 truncate text-[12.5px] font-medium ${e.kind === 'correction' ? 'text-primary' : 'text-white/75'}`}>
+                          <span className="font-mono text-[10px] text-white/50 tabular-nums w-16 shrink-0">{e.time}</span>
+                          <span className={`flex-1 min-w-0 text-[12.5px] font-medium ${e.kind === 'correction' ? 'text-primary' : 'truncate text-white/75'}`}>
                             {e.label}
                             {e.by === 'you' && <span className="ml-2 font-mono text-[9px] uppercase tracking-[0.12em] text-primary/80">you</span>}
                           </span>
@@ -586,9 +749,9 @@ export function DriveOS() {
                               type="button"
                               aria-label={`Try to edit: ${e.label}`}
                               onClick={() => dispatch({ t: 'tryEdit', id: e.id })}
-                              className="opacity-40 sm:opacity-0 group-hover:opacity-60 transition-opacity font-mono text-[11px] text-white/60 hover:text-primary px-1 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                              className="opacity-40 group-hover:opacity-100 transition-opacity text-white/60 hover:text-primary px-1 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
                             >
-                              ✎
+                              <Pencil className="w-3.5 h-3.5" aria-hidden />
                             </button>
                           )}
                         </motion.li>
@@ -672,6 +835,20 @@ function SecretaryPanel({ started }: { started: boolean }) {
             {line}
           </motion.li>
         ))}
+        {started && shown < CALL_SCRIPT.length && !reduce && (
+          <li
+            aria-hidden
+            className={`flex gap-1.5 items-center rounded-2xl px-4 py-3 w-fit ${
+              CALL_SCRIPT[shown][0] === 'os'
+                ? 'ml-auto bg-primary/[0.12] border border-primary/30'
+                : 'bg-white/[0.05] border border-white/[0.08]'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce [animation-delay:0ms]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce [animation-delay:150ms]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 animate-bounce [animation-delay:300ms]" />
+          </li>
+        )}
       </ul>
       {shown >= CALL_SCRIPT.length && (
         <motion.div initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }}>
