@@ -5,6 +5,7 @@ import { FitCheck } from '@/components/fit/FitCheck';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
+import { DriveOS } from '@/components/os/DriveOS';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -41,6 +42,9 @@ export interface PillarData {
   /** Hero comparison links (Trevor 8/29): the two fights people are already
       having in their heads — DIY-with-AI and the rented AI employees. */
   compareCtas?: { label: string; href: string }[];
+  /** Drive the OS (Trevor 9/2, flagship only): the drivable demo OS takes the
+      first viewport — the h1 hands straight to the machine, prose follows. */
+  driveOs?: boolean;
   includedHeading: string;
   included: { title: string; detail: string }[];
   approachHeading: string;
@@ -126,6 +130,11 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.headline}{' '}
             <span className="text-primary">{data.headlineAccent}</span>
           </h1>
+          {data.driveOs && (
+            <div className="mt-8 mb-10">
+              <DriveOS />
+            </div>
+          )}
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             {data.intro}
           </p>
@@ -155,7 +164,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           )}
 
           {data.voiceDemo && data.voiceDemoHero && (
-            <div className="mt-12">
+            <div id="talk-to-her" className="mt-12 scroll-mt-24">
               <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-2">
                 Live Demo &middot; Not a Video
               </p>

@@ -51,6 +51,7 @@ const data: PillarData = {
   ],
   voiceDemo: true,
   voiceDemoHero: true,
+  driveOs: true,
   compareCtas: [
     { label: 'Compared to Grok', href: '/vs-grok' },
     { label: 'Compared to Viktor', href: '/vs-viktor' },
