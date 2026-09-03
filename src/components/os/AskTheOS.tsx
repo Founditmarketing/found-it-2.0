@@ -90,10 +90,24 @@ const ANSWERS: Answer[] = [
   },
 ];
 
+/* Free-typed questions land on the staged answers by keyword — order matters
+   (specific phrasings before the greedy money catch-all). No match never fakes
+   an answer; the demo only speaks lines it actually has. */
+const MATCHERS: [RegExp, string][] = [
+  [/penny|books match|match.*book|reconcil/i, 'penny'],
+  [/compare|last year|last week|this week/i, 'compare'],
+  [/estimate|quote/i, 'quiet'],
+  [/been back|in a year|dormant|inactive|been a while|12 month|twelve month/i, 'yearout'],
+  [/sleep|old system|declined|forgotten|unbilled|lapsed/i, 'sleeping'],
+  [/owe|unpaid|outstanding|receivab|money/i, 'owes'],
+];
+
 export function AskTheOS() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [typed, setTyped] = useState('');
   const [answerVisible, setAnswerVisible] = useState(false);
+  const [query, setQuery] = useState('');
+  const [miss, setMiss] = useState(false);
   const reduce = useReducedMotion();
   const hostRef = useRef<HTMLDivElement>(null);
   const inView = useInView(hostRef, { once: true, amount: 0.45 });
@@ -151,6 +165,48 @@ export function AskTheOS() {
       </div>
 
       <div className="p-5 sm:p-7 lg:p-9">
+        {/* Type it yourself — the ad's beat, live */}
+        <form
+          className="mb-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const hit = MATCHERS.find(([re]) => re.test(query));
+            if (hit) {
+              setMiss(false);
+              trackDemoTap(hit[1] + '-typed');
+              ask(hit[1]);
+              setQuery('');
+            } else {
+              setMiss(true);
+            }
+          }}
+        >
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                if (miss) setMiss(false);
+              }}
+              placeholder="Ask the books a question…"
+              aria-label="Type a question for the demo OS"
+              className="flex-1 min-w-0 rounded-full bg-black/40 border border-border/25 px-4 py-2.5 font-mono text-base md:text-sm text-foreground placeholder:text-faint focus:outline-none focus:border-primary/60 transition-colors"
+            />
+            <button
+              type="submit"
+              className="shrink-0 rounded-full bg-primary text-primary-foreground px-5 text-xs font-black uppercase tracking-wider hover:opacity-90 transition-opacity"
+            >
+              Ask
+            </button>
+          </div>
+          {miss && (
+            <p className="mt-2 font-mono text-[11px] text-faint">
+              The demo books know these six — tap one below, or try &ldquo;who owes me money right now?&rdquo;
+            </p>
+          )}
+        </form>
+
         {/* Question chips */}
         <div className="flex flex-wrap gap-2.5 mb-7" role="group" aria-label="Ask the OS a question">
           {ANSWERS.map((a) => {
