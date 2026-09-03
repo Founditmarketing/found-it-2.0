@@ -286,6 +286,7 @@ export const blogPosts: Post[] = [
 </div>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Want to see what yours would do first? Type your business into the box on <a href="/" style="color: #FF5500;">the homepage</a> and watch it answer. Then look at <a href="/foundit-os" style="color: #FF5500;">what the whole employee includes</a>.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><a href="/vs-viktor" style="color: #FF5500; font-weight: 700;">The short version, drawn and side by side &rarr;</a></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: 13px; opacity: 0.45; margin: 1.6em 0 0;">Viktor details from viktor.com and its May 2026 funding coverage. Trademarks belong to their owners.</p>
 `,
