@@ -7,7 +7,7 @@
 
 import { REVENUE_BANDS, OS_PRICING } from './site';
 
-export type Vertical = 'dealer-parts' | 'trade' | 'retail' | 'restaurant' | 'other';
+export type Vertical = 'dealer-parts' | 'trade' | 'law-professional' | 'retail' | 'restaurant' | 'other';
 export type RunsOn = 'rented' | 'qb-paper' | 'spreadsheets' | 'nothing';
 export type Who = 'owner' | 'manager' | 'send-info';
 export type Books = 'clean' | 'behind' | 'dont-ask';
@@ -40,6 +40,7 @@ export const FIT_QUESTIONS: FitQuestion[] = [
     options: [
       { value: 'dealer-parts', label: 'Dealer / parts & equipment' },
       { value: 'trade', label: 'Trade or service work' },
+      { value: 'law-professional', label: 'Law firm / professional practice' },
       { value: 'retail', label: 'Retail store' },
       { value: 'restaurant', label: 'Restaurant or bar (usually not a fit)' },
       { value: 'other', label: 'Something else' },
