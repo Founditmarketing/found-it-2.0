@@ -18,10 +18,10 @@ export const maxDuration = 30;
 const google = createGoogleGenerativeAI({ apiKey: googleAiApiKey });
 
 const personSchema = z.object({
-  name: z.string().default(''),
-  role: z.string().default(''),
-  cell: z.string().default(''),
-  email: z.string().default(''),
+  name: z.string().max(400).default(''),
+  role: z.string().max(400).default(''),
+  cell: z.string().max(400).default(''),
+  email: z.string().max(400).default(''),
   officeGeneral: z
     .boolean()
     .default(false)
@@ -29,26 +29,26 @@ const personSchema = z.object({
 });
 
 const fieldsSchema = z.object({
-  businessLegal: z.string().default(''),
-  businessGoesBy: z.string().default(''),
-  address: z.string().default(''),
-  mainPhone: z.string().default(''),
-  businessEmail: z.string().default(''),
-  website: z.string().default(''),
+  businessLegal: z.string().max(400).default(''),
+  businessGoesBy: z.string().max(400).default(''),
+  address: z.string().max(400).default(''),
+  mainPhone: z.string().max(400).default(''),
+  businessEmail: z.string().max(400).default(''),
+  website: z.string().max(400).default(''),
   people: z.array(personSchema).max(8).default([]),
-  toolsToday: z.string().default('').describe('software and systems they run on today, comma separated'),
-  toolThatHurts: z.string().default(''),
-  jobsComeIn: z.string().default(''),
-  whoAnswers: z.string().default(''),
-  estimatesToday: z.string().default(''),
-  howTheyGetPaid: z.string().default(''),
-  crews: z.string().default(''),
-  services: z.string().default(''),
-  accessNotes: z.string().default('').describe('anything about logins, domains, exports, who holds the passwords'),
-  oneThing: z.string().default('').describe('the ONE thing they most want fixed in the first two weeks'),
-  kickoffTimes: z.string().default(''),
-  reachNumber: z.string().default(''),
-  anythingElse: z.string().default(''),
+  toolsToday: z.string().max(400).default('').describe('software and systems they run on today, comma separated'),
+  toolThatHurts: z.string().max(400).default(''),
+  jobsComeIn: z.string().max(400).default(''),
+  whoAnswers: z.string().max(400).default(''),
+  estimatesToday: z.string().max(400).default(''),
+  howTheyGetPaid: z.string().max(400).default(''),
+  crews: z.string().max(400).default(''),
+  services: z.string().max(400).default(''),
+  accessNotes: z.string().max(400).default('').describe('anything about logins, domains, exports, who holds the passwords'),
+  oneThing: z.string().max(400).default('').describe('the ONE thing they most want fixed in the first two weeks'),
+  kickoffTimes: z.string().max(400).default(''),
+  reachNumber: z.string().max(400).default(''),
+  anythingElse: z.string().max(400).default(''),
 });
 
 export type OnboardingFields = z.infer<typeof fieldsSchema>;
@@ -90,7 +90,7 @@ const FIELD_LABELS: [keyof OnboardingFields, string][] = [
 
 export async function POST(req: Request) {
   const ip = clientIp(req);
-  if (!rateLimit(`onboarding:${ip}`, 12, 10 * 60 * 1000)) {
+  if (!rateLimit(`onboarding:${ip}`, 12, 10 * 60 * 1000) || !rateLimit('onboarding:global', 100, 10 * 60 * 1000)) {
     return NextResponse.json({ error: 'Give it a minute and try again.' }, { status: 429 });
   }
 
@@ -110,6 +110,8 @@ export async function POST(req: Request) {
     try {
       const { object } = await generateObject({
         model: google('gemini-2.5-flash'),
+        maxOutputTokens: 2048,
+        providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
         schema: fieldsSchema,
         system:
           'You sort a business owner\'s spoken rambling into onboarding fields for their new custom software. HARD RULES: use ONLY what was actually said; when something was not mentioned, leave the field an empty string; NEVER invent names, numbers, tools, or facts; keep the owner\'s own words and phrasing where you can; phone numbers formatted (318) 555-0100 style when digits were given. The speech-to-text may have mangled words — fix obvious mishearings only when the intent is unmistakable.',
@@ -126,7 +128,7 @@ export async function POST(req: Request) {
     if (!parsed.success) return NextResponse.json({ error: 'Bad request.' }, { status: 400 });
     if (parsed.data.hp) return NextResponse.json({ ok: true });
     const f = parsed.data.fields;
-    const biz = f.businessGoesBy || f.businessLegal || 'New client';
+    const biz = (f.businessGoesBy || f.businessLegal || 'New client').replace(/\s+/g, ' ').slice(0, 80);
 
     const rows = FIELD_LABELS.filter(([k]) => String(f[k] ?? '').trim())
       .map(

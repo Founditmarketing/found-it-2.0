@@ -71,7 +71,9 @@ export async function POST(req: Request) {
   if (parsed.hp) return NextResponse.json({ actions: [] });
 
   const ip = clientIp(req);
-  if (!rateLimit(`ownermode:${ip}`, 20, 5 * 60 * 1000)) {
+  // per-IP lane plus a per-instance global ceiling: fan-out multiplies
+  // instances, not the spend any one instance can drive.
+  if (!rateLimit(`ownermode:${ip}`, 20, 5 * 60 * 1000) || !rateLimit('ownermode:global', 200, 5 * 60 * 1000)) {
     return NextResponse.json({ error: 'slow down' }, { status: 429 });
   }
 
@@ -81,6 +83,8 @@ export async function POST(req: Request) {
       schema: outSchema,
       system: SYSTEM,
       prompt: `The reader says: "${parsed.command.replace(/"/g, "'")}"`,
+      maxOutputTokens: 500,
+      providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
     });
 
     // The server, not the model, holds the clamps.
