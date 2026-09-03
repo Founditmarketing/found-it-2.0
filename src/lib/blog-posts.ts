@@ -739,72 +739,105 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'why-they-cant-compete',
-        title: 'The One Thing They Can’t Sell You',
+        title: 'They Can Copy Every Feature Except the Exit.',
+        seoTitle: 'Why SaaS Cannot Sell You Owned Software | Found It',
+        seoDescription: 'They can copy the AI, the workflows, the screens. They cannot let you leave with the working system without becoming a different company. The exit is the deal.',
         date: '2026-08-16',
-        excerpt: 'A software company cannot sell you software you own — it would kill them. Why a subscription company cannot sell you software you own, and the slow, expensive habit that proves it.',
+        excerpt: 'Any software company can add AI now. Give them enough engineers and they can copy nearly every screen we ship. The one thing they cannot copy without becoming a different company: what happens when you leave.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/why-they-cant-compete-v1.png',
+        hideHero: true,
         content: `
-<p>A software company cannot sell you software you own. <strong>It would kill them.</strong></p>
-<p>That's the whole answer to why we shipped what we shipped this month.</p>
+<p style="font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55; margin: 0 0 1.2em;">Why they can't compete \u00b7 owned software</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The data may be yours. The working system is not.</p>
 
-<h3>The receipts</h3>
-<p>In the last thirty days we put live systems in front of a European auto shop, a roofer, a tree service, an equipment dealer, a concrete lab, and a carpet-and-duct company. Not demos with fake data. Their real books, their real customers, their real money.</p>
-<p>One of those systems found <strong>$268,000</strong> sitting in a work queue nobody was watching.</p>
-<p>Another audited a roofer's books to the penny and surfaced <strong>$195,882.75</strong> in open receivables — money finished, earned, and quietly written off in the owner's head. <a href="/case-studies/edwards-roofing">His name's on it.</a></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Any software company can add AI now. They can make the phone answer. Draft the quote. Chase the invoice. Put a chat box over the books. Give them enough engineers and enough time, and they can copy nearly every screen we ship.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">There is one thing they cannot copy without becoming a different company:</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">What happens when you leave.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Most subscription software says your data is yours. Some companies even make it easy to export. Good \u2014 you should be able to leave with your records. But what comes out? Customers in rows. Jobs in rows. Invoices in rows. The scheduler does not come with them. Neither do the automations, the phone logic, the permissions, the forms, the ledger rules, or the odd little workflow your company spent fifteen years teaching itself.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">You can take the data. <span style="color: #FF5500; font-weight: 800;">You cannot take the machine that knew what to do with it.</span> A CSV is not a company.</p>
 
-<h3>Why the incumbents can't follow</h3>
-<p>Their business model is renting you your own business back. The shop software, the roofing software, the nursery software — every one of them holds your customer list hostage and charges you monthly for the privilege of looking at it.</p>
-<p>The day they sell you ownership is the day their valuation dies. They will never do it. Not because they can't build it. <strong>Because they can't survive it.</strong> Ownership isn't a feature they haven't gotten to — it's the one thing the subscription model cannot ship.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The subscription model is not broken.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It is working exactly as designed. You pay for access. The software company keeps the asset. That is often a perfectly good arrangement \u2014 we rent email, file storage, and plenty of other software, and when the job is basically the same for everybody, renting a good tool usually makes sense.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The question changes when the software becomes the memory of the business. Who called. What they needed. What was quoted. Who is scheduled. What has been completed. What got invoiced. Who still owes money. What the books say happened. At that point, <strong>&ldquo;your data is yours&rdquo;</strong> and <strong>&ldquo;your system is yours&rdquo;</strong> are not the same sentence.</p>
 
-<h3>The narrow slot</h3>
-<p>We live in the gap between them. AI just made genuinely custom software buildable at a price a real business can pay. We used it to build local businesses their own operating systems.</p>
-<p>We used it to build local businesses their own operating systems. The code and the data, one hundred percent theirs.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Why can't they just add ownership?</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Could a large software company hand over the source code, production database, deployment control, credentials, documentation, and the right to use another developer? Of course. The problem is not engineering. <strong>The problem is economics.</strong> Recurring software revenue depends on recurring access. Hand the customer the working system, and renewal stops being the key to the front door.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Ownership is not one more feature they have not gotten around to building.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">It is a different transaction.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">To make ownership standard, they would have to change how the product is built, priced, supported, sold, and valued. They can do that. They cannot do it and remain the company they are. <strong>That is what I mean by can't.</strong></p>
 
-<h3>The slow, expensive habit</h3>
-<p>Here's the slowest, most expensive part of how we work: we run the new system <strong>beside</strong> the old one. Penny-matched. Every night. For as long as it takes — until the owner looks at both screens, sees the same number, and says go.</p>
-<p>That's slow. That's expensive.</p>
-<p>It's the only way we've found to hand somebody the keys without betting their company.</p>
-<p><strong>Nobody rents you your own business back.</strong></p>
-<p>— Trevor</p>
-        `,
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Found It charges monthly too.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is where the whole argument falls apart if I dodge the obvious question. Found It charges ${OS_PRICING.monthly} a month. So how is that not rent?</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Because the monthly payment buys work. Hosting. Backups. Support. Security patches. Updates. Continued fitting. The new modules we agree to build as the business changes. Stop paying us and that work stops. <span style="color: #FF5500; font-weight: 800;">Not the software.</span> The owner keeps the runnable source repository, the production database and backups, deployment control, credentials, documentation, and the legal right to hand the system to another developer \u2014 <a href="/owned-software" style="color: #FF5500; font-weight: 700;">in writing</a>.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">There are still bills. Cloud infrastructure costs money. Phone lines cost money. Card processing costs money. AI usage costs money. Ownership does not make infrastructure free. It means we are not the tollbooth standing between an owner and the business he already owns.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">We start with the exit.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is not theoretical software. Live systems run in front of a roofer, a wholesale nursery, a bail bonds office, a one-man law firm, and a tree service \u2014 real customers, real records, real money, and the named ones are <a href="/before-after" style="color: #FF5500; font-weight: 700;">on the record</a>.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">At Edwards Roofing, the first audit surfaced <a href="/case-studies/edwards-roofing" style="color: #FF5500; font-weight: 700;">$195,882.75 in open receivables</a> and a <a href="/case-studies/edwards-roofing" style="color: #FF5500; font-weight: 700;">$19,000 bookkeeping error</a>. The new system ran beside the old one and matched the money night after night.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Those results prove the system can do useful work. They do not prove ownership. <span style="color: #FF5500; font-weight: 800;">The exit proves ownership.</span> A beautiful dashboard does not prove ownership, and a source-code clause does not prove the software is any good. You need both. That is why the slowest, most expensive part of our process happens before the switch: both systems run, both produce their numbers, and we match the money to the bank every night, down to the penny, until the owner looks at both screens and says go. Owning a broken system is not freedom. It is just a different problem.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The actual advantage.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The big platforms can copy the AI. They can copy the workflow. They can add the feature, lower the price, and make the demonstration beautiful. They can even put <strong>YOUR DATA IS YOURS</strong> in bold letters. But to copy the deal, they have to let the customer leave with the product. They have to build an exit where the business keeps running and the software company is no longer necessary. They have to sell the asset their business was built to retain.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Everything else is a feature.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The exit is the deal.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">They can copy what the system does. <span style="color: #FF5500;">They cannot copy who keeps it.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">\u2014 Trevor<br />Found It Software, Alexandria, Louisiana.</p>
+`,
     },
     {
         slug: 'rented-software-no-data-rights',
-        title: 'The Rent Isn’t the Problem. The Hostage Is.',
+        title: 'The Rent Isn\u2019t the Problem. The Exit Is.',
+        seoTitle: 'Do You Own Your Business Software? The Exit Test',
+        seoDescription: 'An export is not a working system. Ask two questions to learn whether your business owns its software \u2014 or only rents access to its operating memory.',
         date: '2026-08-16',
-        excerpt: 'Rented software holds your customers, your invoices, and your history in a format you don’t own, at a price they set next year. Two questions expose the whole deal.',
+        excerpt: 'You can export the records. You can\u2019t export the business. You may own every record in the database and still not own the system that makes those records useful \u2014 two questions expose the whole deal.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/rented-software-hostage-v3.png',
+        image: '/images/blog/exit-test-og-v1.png',
+        hideHero: true,
         content: `
-<p>Here is the deal you signed, in plain English: you pay every month to use their software, and everything that software knows — your customers, your invoices, your job history, seven years of your business's memory — lives in their format, on their servers, under their terms.</p>
-<p>You rent the tool. They hold the memory. That's the deal, and almost every small business in America is in it.</p>
+<p style="font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55; margin: 0 0 1.2em;">The exit test \u00b7 owned software</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">You may own every record in the database and still not own the system that makes those records useful.</p>
 
-<h3>The price is whatever they say next</h3>
-<p>When your records live inside their product, you don't negotiate — you receive announcements. QuickBooks Online's list prices rose four times in three years: the Plus plan went from $85 a month in 2023 to $140 by August 2026 — up 65% — and Advanced went from $200 to $340. Those are public numbers with dates on them; go check.</p>
-<p>Nobody's saying the software stopped working. It got more expensive because leaving is harder than paying. When the switching cost is the product, the price has no ceiling.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Here is the deal most business owners signed without ever saying it out loud: you pay to use the software. Then you spend years teaching it your company \u2014 customers, invoices, jobs, notes, attachments, permissions, workflows, and all the strange little exceptions that make your business yours. Then one day, you leave.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What comes with you?</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Usually, the records. <span style="color: #FF5500;">Not the working system.</span></p>
 
-<h3>They can retire the product out from under you</h3>
-<p>QuickBooks Desktop customers didn't decide to leave Desktop — Intuit stopped selling it in 2024 and put support on a countdown. When the countdown ends, tax tables freeze and bank feeds disconnect. Thousands of businesses got moved to a product they didn't choose, at a higher price, on somebody else's schedule.</p>
-<p>That's what "no data rights" means in practice. Not that you can't see your data — that you can't <em>stay</em> where it is, and you can't take it somewhere real.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #333; border: 1px solid #333; border-radius: 16px; overflow: hidden; margin: 2em 0;"><div style="background: #141414; padding: 0.8em 1em; font-family: monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6;">An export may include</div><div style="background: #141414; padding: 0.8em 1em; font-family: monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #FF5500;">A working system includes</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; opacity: 0.7;">Customers and vendors</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; font-weight: 700; color: #fff;"><span style="color: #FF5500;">&#10003;</span>&nbsp; The running application</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; opacity: 0.7;">Invoices and transactions</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; font-weight: 700; color: #fff;"><span style="color: #FF5500;">&#10003;</span>&nbsp; Workflows and automation</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; opacity: 0.7;">Reports and attachments</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; font-weight: 700; color: #fff;"><span style="color: #FF5500;">&#10003;</span>&nbsp; Permissions and approval rules</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; opacity: 0.7;">Historical records</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; font-weight: 700; color: #fff;"><span style="color: #FF5500;">&#10003;</span>&nbsp; The screens your employees actually use</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; opacity: 0.7;">Files and spreadsheets</div><div style="background: #0b0b0b; padding: 0.85em 1em; font-size: 15px; font-weight: 700; color: #fff;"><span style="color: #FF5500;">&#10003;</span>&nbsp; Deployment, code, and configuration</div></div>
 
-<h3>The export is not your data</h3>
-<p>Every platform will tell you that you can export any time. What comes out is a spreadsheet of shadows: the attachments don't come, the history doesn't come, the workflows and custom fields and everything that made it <em>your</em> system doesn't come. The export exists so the claim "it's your data" is technically true — and practically useless.</p>
-<p>Your operational memory in a format only their software can fully read is not your data. It's their leverage.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">An export is not ownership.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Let's be fair. Most cloud software does let you export information. QuickBooks Online, for example, lets you export reports, lists, and attachments \u2014 and after cancellation, a subscription generally stays readable for a year. That is useful. <strong>It is also not continuity.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The export does not answer the phone. It does not preserve the screens your employees know, run the automations, enforce the permissions, connect the integrations, or know what is supposed to happen next. It tells you what happened. It does not make the next thing happen. <span style="color: #FF5500; font-weight: 800;">A spreadsheet is a record of the business after the machinery is gone.</span></p>
 
-<h3>Two questions that expose the whole thing</h3>
-<p>Ask any software vendor these two questions:</p>
-<p><strong>"If I stop paying, what do I keep?"</strong> and <strong>"Can I run this without you?"</strong></p>
-<p>For rented software the honest answers are <em>nothing</em> and <em>no</em>. Every other term in the contract is decoration around those two answers.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The two-question test.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Before you put the middle of your company inside any software, ask the vendor two questions: <span style="color: #FF5500; font-weight: 800;">&ldquo;If I stop paying you, what keeps working?&rdquo;</span> and <span style="color: #FF5500; font-weight: 800;">&ldquo;Could I hand the whole system to another builder tomorrow?&rdquo;</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">If the first answer is &ldquo;you can export your data,&rdquo; ask the second question again. If you leave with records but no running application, you own the records. You do not own the software. <strong>You rent it.</strong></p>
 
-<h3>The alternative exists now</h3>
-<p>Custom software used to mean a big upfront project and months of building — so renting was the only sane option. AI changed the economics. We build systems fitted to one business at a time, and the answers to the two questions flip: stop paying, and you keep <strong>everything — the code and the data, one hundred percent.</strong> The monthly fee is maintenance, not rent.</p>
-<p>And nothing switches on day one — the new system runs beside your current software, penny-matched against it every night, until the numbers say you can leave and you say go. That's how the biggest roofer in central Louisiana moved onto a system he owns — the same books that surfaced $195,882.75 sitting in open receivables.</p>
-<p>Nobody should rent you your own business back.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The price isn't the test.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">The exit is.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is not an argument against rented software, and it is not an argument that rented software is expensive. Email should probably be rented. Documents and commodity storage should probably be rented. Payroll and tax filing belong with systems and people whose entire job is keeping up with rules that change. The problem begins when rented software becomes <strong>the middle of the business</strong> \u2014 the jobs, the register, the inventory, the books, the customer history, the particular way the company actually operates. At that point, leaving is no longer canceling an app. It is rebuilding part of the company.</p>
 
-        `,
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What ownership means here.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When we say a business owns its software, we do not mean there is a sentence buried in a contract saying the data belongs to you. <span style="color: #FF5500; font-weight: 800;">We mean there is a handover you could perform tomorrow.</span> Not screenshots. Not a folder of spreadsheets. The working system:</p>
+
+<div style="border: 1px solid #FF5500; border-radius: 16px; padding: 1.2em 1.4em; margin: 2em 0;"><p style="font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #FF5500; margin: 0 0 0.9em;">The handover, itemized</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>The complete, runnable source-code repository</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>The production database and routine backups</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>The hosting account, or a documented deployment transfer</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>The credentials, configuration, and dependency documentation</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>The legal right to give the system to another developer</p><p style="font-size: clamp(16px, 2.2vw, 19px); line-height: 1.4; margin: 0 0 0.55em;"><span style="display: inline-block; width: 14px; height: 14px; border: 2px solid #FF5500; border-radius: 4px; margin-right: 0.6em; vertical-align: -1px;"></span>A plain list of every third-party service the system still depends on</p></div>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Found It still charges monthly \u2014 we are not pretending hosting, security, support, backups, and continued development happen for free. Found It OS is <strong>${OS_PRICING.monthly} per month</strong>, plus <strong>${OS_PRICING.setup} once</strong> for migration and setup. The monthly buys work. Stop paying and the work stops. <span style="color: #FF5500; font-weight: 800;">Not your ownership.</span> The company keeps the code and the data, and can move the system, maintain it elsewhere, or hand it to another qualified builder. Hosting and outside services still cost what they cost \u2014 ownership does not mean the machinery runs for free. It means you choose who runs it.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Ownership without a safe exit is only a theory.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We also do not ask a business to rip out the system it depends on. The new system runs beside the old one. The records move in, the numbers are compared, the books are matched to the bank. Nothing switches because we say the build is finished \u2014 it switches when the evidence says it is ready and the owner says go. And if that owner leaves us six months or six years later, the same rule applies: the relationship can end. The system does not disappear with it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Any vendor can say &ldquo;your data is yours.&rdquo; Ask them to show you the exit. What leaves with you? Will it still run? Can another builder take over without asking the original company for permission?</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Ownership is not what survives while you are paying.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Ownership is what survives after you stop.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Put your current software through the exit test.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Five questions. No form. No email required. Score the system your business actually depends on.</p>
+<p style="margin: 1.2em 0 2em;"><a href="/owned-software-test" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Take the Owned Software Test &rarr;</a></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Trevor Ruby runs Found It Software in Alexandria, Louisiana. Found It builds custom business operating systems that the businesses own outright.</p>
+`,
     },
     {
         slug: 'what-is-a-software-map',
