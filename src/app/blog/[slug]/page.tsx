@@ -15,6 +15,10 @@ const VoiceAgentWidget = dynamic(() =>
   import('@/components/lp/VoiceAgentWidget').then((m) => m.VoiceAgentWidget),
 );
 
+/* Owner Mode proves itself on the article about Owner Mode. Code-split the
+   same way: only that post's bundle carries the demo. */
+const OwnerModeDemo = dynamic(() => import('@/components/blog/OwnerModeDemo'));
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
   if (!post) return {};
@@ -109,8 +113,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
+      {post.slug === 'giving-owners-full-control' && <OwnerModeDemo />}
+
       <article className="max-w-3xl mx-auto px-6">
         <div
+          id="post-body"
           className="prose dark:prose-invert prose-lg max-w-none mx-auto prose-headings:font-heading prose-headings:text-foreground prose-a:text-primary prose-a:font-semibold prose-strong:text-foreground"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
