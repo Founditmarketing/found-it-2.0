@@ -2,21 +2,24 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { OS_PRICING } from '@/lib/site';
 
-/* ─── /vs-viktor — the other AI employees, a fair fight ───
-   "Viktor & friends" = the rented-AI-employee category: agents that sit on
-   top of the SaaS stack you already pay for. The honest row (speed to
-   start) goes to them; the rest of the table is what happens to a hire
-   that lives inside someone else's subscription. Content matches the
-   vs-viktor graphic (Trevor-approved 8/29). */
+/* ─── /vs-viktor — same job title, opposite deal (9/3 rebuild to the 9.6 spec) ───
+   The old version argued "generic vs custom." The real divide is architectural:
+   they add intelligence ACROSS the existing stack; we rebuild the operating
+   environment around the business, with the AI INSIDE it. Five stacked
+   comparison blocks (Viktor neutral-left, Found It orange-right), then the
+   format breaks for the one insight that's about the reader's own company:
+   the software does not talk — the office manager translates. Viktor is
+   treated fairly on purpose; the conclusion is stronger for it. Provenance
+   line keeps the claims honest. */
 
 export const metadata: Metadata = {
-  title: 'Found It OS vs Viktor: The Rented AI Employee vs the One You Own',
+  title: 'Found It OS vs Viktor: Same Job Title, Opposite Deal',
   description:
-    'Viktor-style AI employees work the software you rent. A Found It OS is an AI employee that IS the software — built around your business, and yours outright. The fair comparison.',
+    'Viktor adds an AI employee across the software you rent. Found It rebuilds the operating environment around your business, with the AI inside it — and you own the code and the data. A fair comparison.',
   alternates: { canonical: '/vs-viktor' },
   openGraph: {
-    title: 'The Rented One vs the One You Own',
-    description: 'Two good hires. Only one is yours.',
+    title: 'Same Job Title. Opposite Deal.',
+    description: 'They work across what you rent. Ours works inside what you own.',
     type: 'website',
     url: 'https://www.founditsoftware.com/vs-viktor',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -24,36 +27,76 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const rows = [
+/* The same five functions appear on both sides on purpose — same job,
+   opposite architecture. Viktor's half is a dashed outline because it isn't
+   really one system; the wires are the product. Ours is one solid container
+   because the containment is the product. */
+const TILES = ['PHONE', 'ESTIMATES', 'INVOICES', 'CUSTOMERS', 'BOOKS'];
+
+function ViktorDiagram() {
+  const tileY = [26, 26, 26, 122, 122];
+  const tileX = [16, 166, 316, 90, 240];
+  const cx = 233;
+  const cy = 96;
+  return (
+    <svg viewBox="0 0 466 190" role="img" aria-label="Viktor: five separate rented apps, an AI working across them through wires" className="w-full h-auto">
+      <rect x="2" y="2" width="462" height="186" rx="18" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5" strokeDasharray="7 6" />
+      {TILES.map((t, i) => (
+        <g key={t}>
+          <line x1={tileX[i] + 67} y1={tileY[i] + 21} x2={cx} y2={cy} stroke="rgba(255,255,255,0.18)" strokeWidth="1.2" />
+          <rect x={tileX[i]} y={tileY[i]} width="134" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.16)" />
+          <text x={tileX[i] + 67} y={tileY[i] + 26} textAnchor="middle" fontFamily="monospace" fontSize="12" fontWeight="700" letterSpacing="1.5" fill="rgba(255,255,255,0.6)">{t}</text>
+        </g>
+      ))}
+      <rect x={cx - 36} y={cy - 15} width="72" height="30" rx="15" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" />
+      <text x={cx} y={cy + 4} textAnchor="middle" fontFamily="monospace" fontSize="11" fontWeight="800" letterSpacing="1.5" fill="rgba(255,255,255,0.75)">VIKTOR</text>
+    </svg>
+  );
+}
+
+function FoundItDiagram() {
+  const tileY = [26, 26, 26, 122, 122];
+  const tileX = [16, 166, 316, 90, 240];
+  return (
+    <svg viewBox="0 0 466 190" role="img" aria-label="Found It OS: the same five functions inside one solid owned system, AI inside, no wires" className="w-full h-auto">
+      <rect x="2" y="2" width="462" height="186" rx="18" fill="rgba(255,85,0,0.04)" stroke="rgba(255,85,0,0.65)" strokeWidth="2" />
+      {TILES.map((t, i) => (
+        <g key={t}>
+          <rect x={tileX[i]} y={tileY[i]} width="134" height="42" rx="10" fill="rgba(255,85,0,0.06)" stroke="rgba(255,85,0,0.3)" />
+          <circle cx={tileX[i] + 14} cy={tileY[i] + 21} r="3" fill="#FF5500" />
+          <text x={tileX[i] + 74} y={tileY[i] + 26} textAnchor="middle" fontFamily="monospace" fontSize="12" fontWeight="700" letterSpacing="1.5" fill="rgba(255,255,255,0.88)">{t}</text>
+        </g>
+      ))}
+      <text x="233" y="102" textAnchor="middle" fontFamily="monospace" fontSize="11" fontWeight="800" letterSpacing="2" fill="#FF5500">ONE SYSTEM · AI INSIDE</text>
+    </svg>
+  );
+}
+
+const blocks = [
   {
     k: 'What it is',
-    them: 'An AI employee for the software you rent.',
-    os: 'An AI employee that IS the software.',
+    them: 'A genuinely good AI employee hired into the software you rent. It lives in Slack and Teams and works your existing apps.',
+    os: 'The office and the employee in one. We rebuild the operating environment around the business, with the AI inside it.',
   },
   {
-    k: 'It works on',
-    them: 'The ten apps you already pay for, through their APIs.',
-    os: 'One system built around how your business actually runs.',
+    k: 'How it works',
+    them: 'Across the stack — your CRM, your email, your QuickBooks, through their APIs. The connections are the product.',
+    os: 'There is no stack. One system built around how the business actually runs. The containment is the product.',
   },
   {
     k: 'Your books',
     them: 'Reads your QuickBooks.',
-    os: 'Replaces it — a permanent ledger tied to the bank, to the penny.',
+    os: 'Replaces it — a permanent ledger tied to the bank, to the penny, that nobody can quietly edit.',
   },
   {
     k: 'Speed to start',
     them: 'Days. Plug it into the stack you have. This row is honestly theirs.',
-    os: 'Weeks. A fitting, a migration, a parallel run.',
+    os: 'Weeks. A fitting, a migration, a parallel run until the numbers agree.',
   },
   {
-    k: 'If the vendor disappears',
-    them: 'The employee disappears with it.',
-    os: 'Yours keeps running. The code and the data stay.',
-  },
-  {
-    k: 'If you stop paying',
-    them: 'Access ends.',
-    os: 'The work stops. Not your software.',
+    k: 'When the paying stops',
+    them: 'The employee, the workflows, and the memory of your business leave with the subscription.',
+    os: 'The work stops. Not your software. The code and the data were yours from day one.',
   },
 ];
 
@@ -64,7 +107,7 @@ const faq = [
   },
   {
     q: 'How is a Found It OS different from Viktor?',
-    a: 'Viktor is a worker hired into someone else’s office: it works on top of the subscriptions you already pay for, and it exists only as long as its own subscription does. A Found It OS is the office and the worker in one — custom software built around your business with the AI employee inside it, and you own the code and the data outright.',
+    a: 'The divide is architectural. Viktor adds intelligence across the existing stack — it is a worker hired into someone else’s office, and it exists as long as its subscription does. A Found It OS rebuilds the operating environment around the business: custom software with the AI employee inside it, and you own the code and the data outright. Found It is built for a business whose software stack is the problem.',
   },
   {
     q: 'Why does ownership matter if both do the work?',
@@ -95,60 +138,83 @@ export default function VsViktorPage() {
       </div>
 
       <div className="max-w-[1000px] mx-auto px-6 relative z-10">
-        <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-          AI Employees &middot; A Fair Fight
-        </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-          The Rented One <span className="text-primary">vs the One You Own.</span>
+          Same Job Title. <span className="text-primary">Opposite Deal.</span>
         </h1>
         <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-12">
-          Viktor and tools like it are real AI employees — hired into the software you rent.
-          Ours is hired into software{' '}
-          <span className="text-foreground font-bold">you own</span>. Same job title,
-          different deal.
+          Viktor and tools like it are real AI employees. They add intelligence{' '}
+          <span className="text-foreground font-bold">across</span> the software you rent. We rebuild the
+          operating environment around the business, with the AI{' '}
+          <span className="text-foreground font-bold">inside</span> it — and you own it.
         </p>
 
-        {/* The table, phone-sized: side-scrolling a comparison hides the
-            comparison — below md each row stacks as a card instead. */}
-        <div className="md:hidden space-y-4 mb-14">
-          {rows.map((r) => (
-            <div key={r.k} className="border border-border/15 rounded-2xl overflow-hidden bg-card/10">
-              <p className="px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-foreground bg-card/30 border-b border-border/10">{r.k}</p>
-              <div className="px-4 py-3 border-b border-border/10">
-                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground mb-1">Viktor &amp; friends</p>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{r.them}</p>
-              </div>
-              <div className="px-4 py-3 bg-primary/[0.06] border-l-2 border-primary/60">
-                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mb-1">Found It OS</p>
-                <p className="text-sm text-foreground font-medium leading-relaxed">{r.os}</p>
+        {/* The subtitle, drawn: same five functions both sides on purpose. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mb-16">
+          <div>
+            <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em] text-muted-foreground mb-3">Viktor</p>
+            <ViktorDiagram />
+            <p className="mt-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">Across what you rent.</p>
+          </div>
+          <div>
+            <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em] text-primary mb-3">Found It OS</p>
+            <FoundItDiagram />
+            <p className="mt-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-primary">Inside what you own.</p>
+          </div>
+        </div>
+
+        {/* Five stacked comparison blocks — Viktor in neutral on the left,
+            Found It in orange on the right; a table would flatten the argument. */}
+        <div className="space-y-5 mb-16">
+          {blocks.map((b) => (
+            <div key={b.k} className="border border-border/15 rounded-2xl overflow-hidden bg-card/5">
+              <p className="px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.18em] text-foreground bg-card/30 border-b border-border/10">{b.k}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-border/10">
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-muted-foreground mb-1.5">Viktor</p>
+                  <p className="text-[15px] text-muted-foreground font-medium leading-relaxed">{b.them}</p>
+                </div>
+                <div className="px-5 py-4 bg-primary/[0.05]">
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mb-1.5">Found It OS</p>
+                  <p className="text-[15px] text-foreground font-medium leading-relaxed">{b.os}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="hidden md:block overflow-x-auto mb-14">
-          <table className="w-full text-left border-collapse min-w-[640px]">
-            <thead>
-              <tr>
-                <th className="py-3 pr-4 text-xs font-black uppercase tracking-[0.2em] text-faint border-b-2 border-border/30 w-[22%]"></th>
-                <th className="py-3 pr-4 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground border-b-2 border-border/30 w-[39%]">Viktor &amp; friends</th>
-                <th className="py-3 text-xs font-black uppercase tracking-[0.2em] text-primary border-b-2 border-primary/50 w-[39%]">Found It OS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.k} className="align-top">
-                  <td className="py-4 pr-4 text-sm font-black text-foreground border-b border-border/10">{r.k}</td>
-                  <td className="py-4 pr-4 text-sm text-muted-foreground font-medium border-b border-border/10">{r.them}</td>
-                  <td className="py-4 text-sm text-foreground font-medium border-b border-border/10">{r.os}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Break the comparison format: the one insight that's about the
+            reader's own office, not about either vendor. */}
+        <div className="border-y border-border/15 py-14 md:py-20 mb-16 text-center">
+          <p className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-3">
+            The software does not talk.
+          </p>
+          <p className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-primary mb-8">
+            The office manager translates.
+          </p>
+          <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
+            Walk into most offices and watch what actually happens all day: somebody reads one screen and retypes
+            it into another. Explains app three to app four. Carries the number from the estimate program to the
+            invoice program to the books. The stack does not talk to itself — a person translates. Viktor automates
+            the translating, and that is honest work. <span className="text-foreground font-bold">We remove the need
+            for it.</span> Found It is built for the business whose software stack is the problem.{' '}
+            <span className="text-foreground font-bold">We build the thing the stack was trying to be.</span>
+          </p>
         </div>
 
-        <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-14">
-          Two good hires. <span className="text-primary">Only one is yours.</span>
+        {/* Tagline face-off */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-6">
+          <div>
+            <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2">Their tagline</p>
+            <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter text-muted-foreground">&ldquo;Not a tool. A hire.&rdquo;</p>
+          </div>
+          <div>
+            <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-2">Ours</p>
+            <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter text-foreground">Not a hire. <span className="text-primary">Yours.</span></p>
+          </div>
+        </div>
+        <p className="text-sm text-faint font-medium italic leading-relaxed max-w-2xl mb-14">
+          Viktor details are drawn from its public product pages and its May 19, 2026 Series A announcement.
+          Found It details reflect the current Found It OS ownership, security, and continuity terms.
         </p>
 
         {/* FAQ */}
