@@ -1,36 +1,41 @@
 'use client';
 
 /* ─── Try Owner Mode on this page ───
- * The article about Owner Mode proves itself: the reader edits the page
- * with plain-language commands. Four commands really change their local
- * copy of the page; the fifth is refused, because the structure is
- * protected. Every change is logged, every change is reversible, and
- * nothing ever leaves the reader's browser. No theater: this demo
- * speaks a small fixed vocabulary and says so out loud. */
+ * The article about Owner Mode proves itself, for real: the reader's
+ * plain-English request goes to a live model (/api/ownermode) that
+ * translates intention into a bounded set of safe page operations and
+ * refuses the structural stuff. Changes touch only this browser's copy,
+ * every one is logged, and Reset puts it all back. If the API is down
+ * or rate-limited, a small local parser keeps the demo honest instead
+ * of dead. No HTML ever crosses the wire: ops carry plain text and hex
+ * colors, applied via textContent and inline styles only. */
 
 import { useRef, useState } from 'react';
 
-type LogEntry = { text: string; kind: 'done' | 'refused' };
+type LogEntry = { text: string; kind: 'done' | 'refused' | 'note' };
+type Op = { op: string; color: string; text: string; scale: number };
 
 const SUGGESTED = [
-  'Make the headline less dramatic.',
-  'Turn the orange blue.',
-  'Add a banner that says 20% off through Friday.',
-  'Make the introduction shorter.',
+  'Make the headline braver.',
+  'Turn the orange to forest green.',
+  'Add a banner about free shipping through Friday.',
+  'Make the text a little bigger.',
   'Delete the navigation.',
 ];
 
-const BLUE = '#2F7BFF';
 const ORANGE = '#FF5500';
 
 export default function OwnerModeDemo() {
   const [input, setInput] = useState('');
   const [log, setLog] = useState<LogEntry[]>([]);
   const [touched, setTouched] = useState(false);
+  const [busy, setBusy] = useState(false);
   const headline = useRef<string | null>(null);
-  const recolored = useRef<{ el: HTMLElement; prop: 'color' | 'background'; old: string }[]>([]);
+  const accentNodes = useRef<{ el: HTMLElement; prop: 'color' | 'background'; old: string }[] | null>(null);
+  const accent = useRef(ORANGE);
   const hidden = useRef<HTMLElement[]>([]);
   const banner = useRef<HTMLElement | null>(null);
+  const scaled = useRef(false);
 
   const body = () => document.getElementById('post-body');
   const push = (text: string, kind: LogEntry['kind']) => {
@@ -38,90 +43,159 @@ export default function OwnerModeDemo() {
     if (kind === 'done') setTouched(true);
   };
 
-  const run = (raw: string) => {
-    const c = raw.toLowerCase();
+  /* Find every inline orange once; recolors after that re-paint the same nodes. */
+  const collectAccent = (el: HTMLElement) => {
+    if (accentNodes.current) return;
+    accentNodes.current = [];
+    el.querySelectorAll<HTMLElement>('[style]').forEach((n) => {
+      const st = n.getAttribute('style') || '';
+      if (/color:\s*#ff5500/i.test(st) && !/background/i.test(st)) {
+        accentNodes.current!.push({ el: n, prop: 'color', old: n.style.color });
+      }
+      if (/background:\s*#ff5500/i.test(st)) {
+        accentNodes.current!.push({ el: n, prop: 'background', old: n.style.background });
+      }
+    });
+  };
+
+  const apply = (a: Op) => {
     const el = body();
     if (!el) return;
-
-    if (/(nav|navigation|menu)/.test(c) && /(delete|remove|kill|hide)/.test(c)) {
-      push('That is part of the protected structure. Owner Mode cannot change it.', 'refused');
-      return;
-    }
-    if (/headline|title/.test(c)) {
-      const h1 = document.querySelector('h1');
-      if (h1) {
-        if (headline.current === null) headline.current = h1.textContent;
-        h1.textContent = 'The business had the truth.';
-        push('Headline calmed down.', 'done');
-      }
-      return;
-    }
-    if (/orange|blue|color|colour/.test(c)) {
-      if (recolored.current.length === 0) {
-        el.querySelectorAll<HTMLElement>('[style]').forEach((n) => {
-          const s = n.getAttribute('style') || '';
-          if (/color:\s*#ff5500/i.test(s) && !/background/i.test(s)) {
-            recolored.current.push({ el: n, prop: 'color', old: n.style.color });
-            n.style.color = BLUE;
-          }
-          if (/background:\s*#ff5500/i.test(s)) {
-            recolored.current.push({ el: n, prop: 'background', old: n.style.background });
-            n.style.background = BLUE;
-          }
+    switch (a.op) {
+      case 'setAccent': {
+        collectAccent(el);
+        accent.current = a.color;
+        accentNodes.current!.forEach(({ el: n, prop }) => {
+          if (prop === 'color') n.style.color = a.color;
+          else n.style.background = a.color;
         });
-        push(`Accent turned blue. ${recolored.current.length} places, one command.`, 'done');
-      } else {
-        push('Already blue. Reset to go back.', 'done');
-      }
-      return;
-    }
-    if (/banner|sale|% off|20/.test(c)) {
-      if (!banner.current) {
-        const b = document.createElement('div');
-        b.textContent = '20% OFF THROUGH FRIDAY';
-        b.setAttribute(
-          'style',
-          `margin: 0 0 1.5em; padding: 14px 18px; border-radius: 12px; background: ${
-            recolored.current.length ? BLUE : ORANGE
-          }; color: #0A0A0A; font-weight: 800; letter-spacing: 0.08em; text-align: center;`,
+        if (banner.current) banner.current.style.background = a.color;
+        push(
+          a.color.toUpperCase() === ORANGE
+            ? 'Accent back to orange, where it belongs.'
+            : `Accent repainted, ${accentNodes.current!.length} places with one sentence.`,
+          'done',
         );
-        el.prepend(b);
-        banner.current = b;
-        push('Banner is up.', 'done');
-      } else {
-        push('The banner is already up.', 'done');
+        break;
       }
-      return;
-    }
-    if (/intro|introduction|shorter|short/.test(c)) {
-      if (hidden.current.length === 0) {
-        const ps = el.querySelectorAll<HTMLElement>('p');
-        for (let i = 1; i <= 3 && i < ps.length; i++) {
-          hidden.current.push(ps[i]);
-          ps[i].style.display = 'none';
+      case 'setHeadline': {
+        const h1 = document.querySelector('h1');
+        if (h1 && a.text) {
+          if (headline.current === null) headline.current = h1.textContent;
+          h1.textContent = a.text;
+          push('Headline rewritten.', 'done');
         }
-        push('Introduction trimmed. Your copy only.', 'done');
-      } else {
-        push('Already trimmed. Reset to bring it back.', 'done');
+        break;
       }
-      return;
+      case 'addBanner': {
+        if (!banner.current) {
+          const b = document.createElement('div');
+          b.setAttribute(
+            'style',
+            'margin: 0 0 1.5em; padding: 14px 18px; border-radius: 12px; color: #0A0A0A; font-weight: 800; letter-spacing: 0.08em; text-align: center;',
+          );
+          el.prepend(b);
+          banner.current = b;
+        }
+        banner.current.textContent = a.text || '20% OFF THROUGH FRIDAY';
+        banner.current.style.background = accent.current;
+        push('Banner is up.', 'done');
+        break;
+      }
+      case 'removeBanner': {
+        if (banner.current) {
+          banner.current.remove();
+          banner.current = null;
+          push('Banner is down.', 'done');
+        }
+        break;
+      }
+      case 'trimIntro': {
+        if (hidden.current.length === 0) {
+          const ps = el.querySelectorAll<HTMLElement>('p');
+          for (let i = 1; i <= 3 && i < ps.length; i++) {
+            hidden.current.push(ps[i]);
+            ps[i].style.display = 'none';
+          }
+          push('Introduction trimmed. Your copy only.', 'done');
+        }
+        break;
+      }
+      case 'restoreIntro': {
+        hidden.current.forEach((p) => (p.style.display = ''));
+        hidden.current = [];
+        push('Introduction restored.', 'done');
+        break;
+      }
+      case 'textScale': {
+        el.style.fontSize = `${a.scale}%`;
+        scaled.current = a.scale !== 100;
+        push(`Body text at ${a.scale} percent.`, 'done');
+        break;
+      }
+      case 'say':
+        if (a.text) push(a.text, 'note');
+        break;
+      case 'refuse':
+        push(a.text || 'That is part of the protected structure. Owner Mode cannot change it.', 'refused');
+        break;
     }
-    push('Owner Mode on this page knows five commands. The real one is not so limited.', 'refused');
+  };
+
+  /* The net under the wire: a tiny local parser so a rate limit or outage
+     degrades to the five classics instead of a dead input. */
+  const fallback = (raw: string) => {
+    const c = raw.toLowerCase();
+    if (/(nav|menu)/.test(c)) return apply({ op: 'refuse', color: '', text: '', scale: 100 });
+    if (/headline|title/.test(c))
+      return apply({ op: 'setHeadline', color: '', text: 'The business had the truth.', scale: 100 });
+    if (/blue|green|color|colour|orange/.test(c))
+      return apply({ op: 'setAccent', color: /green/.test(c) ? '#1F7A4D' : /orange/.test(c) ? ORANGE : '#2F7BFF', text: '', scale: 100 });
+    if (/banner|sale|shipping|off/.test(c))
+      return apply({ op: 'addBanner', color: '', text: 'FREE SHIPPING THROUGH FRIDAY', scale: 100 });
+    if (/bigger|larger/.test(c)) return apply({ op: 'textScale', color: '', text: '', scale: 112 });
+    if (/smaller/.test(c)) return apply({ op: 'textScale', color: '', text: '', scale: 92 });
+    if (/intro|shorter/.test(c)) return apply({ op: 'trimIntro', color: '', text: '', scale: 100 });
+    push('Owner Mode did not catch that one. Try one of the suggestions.', 'note');
+  };
+
+  const run = async (raw: string) => {
+    if (busy) return;
+    setBusy(true);
+    try {
+      const res = await fetch('/api/ownermode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command: raw }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const data: { actions: Op[] } = await res.json();
+      if (!data.actions?.length) fallback(raw);
+      else data.actions.forEach(apply);
+    } catch {
+      fallback(raw);
+    } finally {
+      setBusy(false);
+    }
   };
 
   const reset = () => {
     const h1 = document.querySelector('h1');
     if (h1 && headline.current !== null) h1.textContent = headline.current;
     headline.current = null;
-    recolored.current.forEach(({ el, prop, old }) => {
+    accentNodes.current?.forEach(({ el, prop, old }) => {
       if (prop === 'color') el.style.color = old;
       else el.style.background = old;
     });
-    recolored.current = [];
+    accentNodes.current = null;
+    accent.current = ORANGE;
     hidden.current.forEach((p) => (p.style.display = ''));
     hidden.current = [];
     banner.current?.remove();
     banner.current = null;
+    const el = body();
+    if (el && scaled.current) el.style.fontSize = '';
+    scaled.current = false;
     setLog([]);
     setTouched(false);
   };
@@ -133,13 +207,13 @@ export default function OwnerModeDemo() {
           Try Owner Mode on this page
         </p>
         <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
-          Tell this article what to change. Four of these really change your local copy of the page.
-          One is refused. That refusal is the whole idea.
+          Tell this article what to change, in your own words. A live AI restyles your local copy of
+          the page. Ask it to touch the structure and watch it refuse. That refusal is the whole idea.
         </p>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (input.trim()) {
+            if (input.trim() && !busy) {
               run(input.trim());
               setInput('');
             }
@@ -149,14 +223,16 @@ export default function OwnerModeDemo() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type a change..."
-            className="flex-1 h-12 rounded-full bg-background/60 border border-border/30 px-5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50"
+            placeholder={busy ? 'Owner Mode is working...' : 'Type any change...'}
+            disabled={busy}
+            className="flex-1 h-12 rounded-full bg-background/60 border border-border/30 px-5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60"
           />
           <button
             type="submit"
-            className="px-6 h-12 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity"
+            disabled={busy}
+            className="px-6 h-12 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity disabled:opacity-60"
           >
-            Change it
+            {busy ? '...' : 'Change it'}
           </button>
         </form>
         <div className="flex flex-wrap gap-2 mb-1">
@@ -164,8 +240,9 @@ export default function OwnerModeDemo() {
             <button
               key={s}
               type="button"
+              disabled={busy}
               onClick={() => run(s)}
-              className="text-xs font-semibold text-muted-foreground border border-border/30 rounded-full px-3.5 py-1.5 hover:border-primary/50 hover:text-foreground transition-colors"
+              className="text-xs font-semibold text-muted-foreground border border-border/30 rounded-full px-3.5 py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
             >
               {s}
             </button>
@@ -177,10 +254,10 @@ export default function OwnerModeDemo() {
               <p key={i} className="text-sm font-medium leading-snug">
                 <span
                   className={`font-mono text-[10px] font-black uppercase tracking-[0.15em] mr-2 ${
-                    l.kind === 'done' ? 'text-emerald-400' : 'text-amber-400'
+                    l.kind === 'done' ? 'text-emerald-400' : l.kind === 'refused' ? 'text-amber-400' : 'text-sky-400'
                   }`}
                 >
-                  {l.kind === 'done' ? 'Changed' : 'Refused'}
+                  {l.kind === 'done' ? 'Changed' : l.kind === 'refused' ? 'Refused' : 'Owner Mode'}
                 </span>
                 {l.text}
               </p>
@@ -200,8 +277,8 @@ export default function OwnerModeDemo() {
           </div>
         )}
         <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/70 leading-relaxed">
-          Changes live only in your browser, and this demo speaks a small vocabulary on purpose.
-          The real Owner Mode speaks English and runs a business.
+          A live AI on a short leash: it restyles this page and nothing else, only in your browser.
+          The real Owner Mode runs a business.
         </p>
       </div>
     </div>
