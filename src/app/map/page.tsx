@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/map' },
 };
 
-export default function MapPage() {
+export default function MapPage({ searchParams }: { searchParams?: { why?: string } }) {
+  /* A reader arriving from the Owner Mode article carries their own words
+     in ?why= — greet them with their thought instead of a blank form. */
+  const why = (searchParams?.why || '').slice(0, 200);
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-32 md:pb-44 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -27,6 +30,17 @@ export default function MapPage() {
       <div className="max-w-[1050px] mx-auto px-6 relative z-10">
         {/* The promise, kept */}
         <div className="text-center mb-24 lg:mb-32">
+          {why && (
+            <div className="mb-8 mx-auto max-w-2xl border border-primary/30 bg-primary/[0.06] rounded-2xl px-6 py-4 text-left">
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-1">You said</p>
+              <p className="text-base md:text-lg font-bold text-foreground">
+                &ldquo;I still have to call somebody to {why}&rdquo;
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground font-medium">
+                Good. That is exactly what the map is for. Now show us the business behind it.
+              </p>
+            </div>
+          )}
           <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
             The Software Map &middot; Free in a 30-Minute Fitting
           </p>

@@ -250,10 +250,11 @@ export default function OwnerModeDemo() {
     <div className="max-w-3xl mx-auto px-6 mb-14">
       <div ref={box} className="border border-border/25 rounded-[1.75rem] bg-card/10 p-5 md:p-8">
         <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-2">
-          Try Owner Mode on this page
+          This page has an Owner Mode
         </p>
         <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
-          This article edits itself when you ask. <span className="text-foreground font-bold">Tap an example below</span> and watch the page change. The last one gets refused on purpose.
+          Ask it to change something. It can alter the article you are seeing. It cannot touch the
+          website around it. <span className="text-foreground font-bold">Tap an example to see.</span>
         </p>
         <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground mb-2">Tap one to try it</p>
         <div className="grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2 mb-1 pr-10 sm:pr-0">
@@ -325,8 +326,8 @@ export default function OwnerModeDemo() {
           </div>
         )}
         <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/70 leading-relaxed">
-          A live AI on a short leash: it restyles this page and nothing else, only in your browser.
-          The real Owner Mode runs a business.
+          An AI with one job and hard walls: it can change this page for you, but it cannot touch
+          the site around it. Owner Mode, in miniature. Changes live only in your browser.
         </p>
       </div>
     </div>
