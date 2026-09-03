@@ -60,6 +60,28 @@ const ANSWERS: Answer[] = [
     footer: 'One real migration surfaced ~$270K of this for one shop.',
   },
   {
+    id: 'quiet',
+    question: 'Which estimates never got answered?',
+    lead: 'Three estimates sitting quiet — $21,730 waiting on a nudge.',
+    rows: [
+      { name: 'D. Thibodeaux', note: 'Metal roof, sent 5/14', amount: '$14,800.00', tag: '17 days quiet' },
+      { name: 'K. Hebert', note: 'Repair + patch, sent 5/22', amount: '$4,680.00', tag: '9 days quiet' },
+      { name: 'A. Broussard', note: 'Gutter add-on, sent 5/26', amount: '$2,250.00', tag: '5 days quiet' },
+    ],
+    footer: 'Each one has a follow-up drafted — nothing sends without your tap.',
+  },
+  {
+    id: 'yearout',
+    question: 'Who hasn’t been back in a year?',
+    lead: 'Three regulars, gone quiet for over a year.',
+    rows: [
+      { name: 'P. Arceneaux', note: 'Annual service, every fall until last year', amount: '$450.00', tag: '13 months' },
+      { name: 'J. Melancon', note: 'Two service calls, then nothing', amount: '$710.00', tag: '15 months' },
+      { name: 'C. Duplechin', note: 'Install, no service since', amount: '$385.00', tag: '19 months' },
+    ],
+    footer: 'Three names, each one a tap from a “been a while” text you approve first.',
+  },
+  {
     id: 'penny',
     question: 'Do the books match?',
     lead: 'Matched to the penny — 14 nights straight.',
