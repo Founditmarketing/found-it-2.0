@@ -202,7 +202,7 @@ export default function OwnerModeDemo() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 mb-14">
-      <div className="border border-border/25 rounded-[1.75rem] bg-card/10 p-6 md:p-8">
+      <div className="border border-border/25 rounded-[1.75rem] bg-card/10 p-5 md:p-8">
         <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-2">
           Try Owner Mode on this page
         </p>
@@ -218,31 +218,31 @@ export default function OwnerModeDemo() {
               setInput('');
             }
           }}
-          className="flex gap-2 mb-3"
+          className="flex flex-col sm:flex-row gap-2 mb-3"
         >
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={busy ? 'Owner Mode is working...' : 'Type any change...'}
             disabled={busy}
-            className="flex-1 h-12 rounded-full bg-background/60 border border-border/30 px-5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60"
+            className="flex-1 h-12 w-full rounded-full bg-background/60 border border-border/30 px-5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60"
           />
           <button
             type="submit"
             disabled={busy}
-            className="px-6 h-12 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity disabled:opacity-60"
+            className="px-6 h-12 w-full sm:w-auto whitespace-nowrap rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity disabled:opacity-60"
           >
             {busy ? '...' : 'Change it'}
           </button>
         </form>
-        <div className="flex flex-wrap gap-2 mb-1">
+        <div className="grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2 mb-1 pr-10 sm:pr-0">
           {SUGGESTED.map((s) => (
             <button
               key={s}
               type="button"
               disabled={busy}
               onClick={() => run(s)}
-              className="text-xs font-semibold text-muted-foreground border border-border/30 rounded-full px-3.5 py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
+              className="text-left text-[13px] sm:text-xs font-semibold text-muted-foreground border border-border/30 rounded-2xl sm:rounded-full px-4 py-2.5 sm:px-3.5 sm:py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
             >
               {s}
             </button>
