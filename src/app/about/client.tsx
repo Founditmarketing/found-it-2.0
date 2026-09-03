@@ -87,6 +87,54 @@ const PAIRS = [
   ['Selective by necessity.', 'Not the right answer for every company, every workflow, or every budget.'],
 ];
 
+/* ─── The claims audit — marketing does not get write access (9/3).
+   Statuses are human-checked and DATED, never dressed up as live feeds;
+   the audit is allowed to catch our own copy, and has. ─── */
+const AUDIT_DATE = 'Checked by a person · Sep 3, 2026';
+const CLAIMS = [
+  {
+    claim: '“You own the code and the data.”',
+    status: 'PROVED IN WRITING',
+    tone: 'text-emerald-400',
+    note: 'The public standard and the terms name the repository, database and backups, deployment, credentials, documentation, and modification rights. Limitation: public language proves the promise being made — the signed client agreement is what controls.',
+    receipt: { label: 'Read the standard', href: '/owned-software' },
+  },
+  {
+    claim: '“Every system reconciles its own books nightly.”',
+    status: 'PROVED',
+    tone: 'text-emerald-400',
+    note: 'The habit is published, machine-written, and dated — including the nights that fail.',
+    receipt: { label: 'Open The Record', href: '/the-record' },
+  },
+  {
+    claim: '“13+ years in business.”',
+    status: 'QUALIFIED',
+    tone: 'text-amber-400',
+    note: 'Thirteen years inside local businesses is true — as a marketing company. Found It Software is new. Related facts, not the same fact. This page now says it the accepted way: thirteen years inside local businesses, building owned software since 2026.',
+  },
+  {
+    claim: '“No interns. No handoffs.”',
+    status: 'REJECTED AS WRITTEN',
+    tone: 'text-red-400',
+    note: 'A slogan a visitor couldn’t audit. Retired Sep 3, 2026 and replaced with named accountability — the stage map above says who owns what, and who covers.',
+  },
+  {
+    claim: '“If Found It disappears, your system doesn’t.”',
+    status: 'DESIGNED FOR · NOT YET DRILL-PROVED',
+    tone: 'text-amber-400',
+    note: 'The exit package is defined and written down. An independent handoff drill — another developer restoring a system from the package alone, timed — has not been completed yet. When it is, the date and the result go here, pass or fail.',
+    receipt: { label: 'What the package holds', href: '/security' },
+  },
+];
+
+/* ─── NOT YET — the future kept in the correct tense (9/3) ─── */
+const NOT_YET = [
+  ['Five years of software operating history', 'Not possible yet. Found It Software is new, and no wording can hurry that.'],
+  ['A completed independent developer handoff drill', 'Not yet. Every client holds the right and the package; nobody has needed to use them.'],
+  ['National scale', 'Not proved. Louisiana, Mississippi, East Texas, southern Arkansas, Wichita. That’s the earned map.'],
+  ['Zero mistakes', 'Will never be claimed. See the rules we paid for, below.'],
+];
+
 /* ─── Scar tissue — real incidents, real rule changes, all on the record ─── */
 const SCARS = [
   {
@@ -466,6 +514,36 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
+        {/* ─── The claims audit ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. Every claim below carries its status and its receipt — and the audit is allowed to catch our own copy. It has.">
+            Marketing does not get <span className="text-primary">write access.</span>
+          </SectionHeading>
+          <div className="border border-border/20 rounded-[2rem] overflow-hidden divide-y divide-border/15 bg-card/5">
+            {CLAIMS.map((c) => (
+              <div key={c.claim} className="px-6 md:px-8 py-6">
+                <div className="flex flex-col md:flex-row md:items-baseline gap-1.5 md:gap-6 mb-2">
+                  <p className="flex-1 text-base md:text-lg font-black tracking-tight text-foreground">{c.claim}</p>
+                  <p className={`font-mono text-[11px] font-black uppercase tracking-[0.15em] ${c.tone} shrink-0`}>{c.status}</p>
+                </div>
+                <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed max-w-3xl">{c.note}</p>
+                {c.receipt && (
+                  <Link href={c.receipt.href} className="mt-2 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                    {c.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-faint">{AUDIT_DATE} · Nothing here is dressed up as a live feed.</p>
+        </motion.div>
+
         {/* ─── Scar tissue ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -530,6 +608,32 @@ export default function AboutPage() {
           </details>
         </motion.div>
 
+        {/* ─── NOT YET — the tense kept honest ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading sub="Most About pages convert the future into past tense. This one keeps the tense correct. Items move to the audit above only with a date and a receipt.">
+            What we have <span className="text-primary">not earned yet.</span>
+          </SectionHeading>
+          <div className="space-y-5 max-w-2xl">
+            {NOT_YET.map(([thing, truth]) => (
+              <div key={thing}>
+                <p className="text-lg md:text-xl font-black tracking-tight text-foreground leading-snug">
+                  {thing} <span className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-amber-400 ml-2 align-middle">Not yet</span>
+                </p>
+                <p className="text-base text-muted-foreground font-medium leading-snug">{truth}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-2xl text-base md:text-lg text-foreground font-bold leading-relaxed">
+            The systems are real. The scale is not yet proved.
+          </p>
+        </motion.div>
+
         {/* ─── The ask ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -538,6 +642,11 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="text-center py-16 border-t border-border/10"
         >
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-relaxed max-w-xl mx-auto mb-10">
+            Audit summary — new software company · thirteen years inside local businesses · small team ·
+            AI used heavily · humans accountable · real systems running · ownership written down ·
+            long-term scale not yet proved. That&rsquo;s the company.
+          </p>
           <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
             Bring us <span className="text-primary">the ugly part.</span>
           </h2>
