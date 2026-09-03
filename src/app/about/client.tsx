@@ -239,7 +239,7 @@ function DisappearDemo() {
           <button
             type="button"
             onClick={() => setGone(true)}
-            className="px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 active:scale-[0.98] transition-all"
+            className="px-10 h-16 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm md:text-base shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.98] transition-all"
           >
             Make Found It Disappear
           </button>
@@ -249,7 +249,7 @@ function DisappearDemo() {
             animate={{ opacity: 1 }}
             transition={{ delay: reduce ? 0 : 2.6, duration: 0.6 }}
           >
-            <p className="text-xl md:text-2xl font-black uppercase italic tracking-tighter text-foreground">
+            <p className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground">
               The builder left. <span className="text-primary">The business didn&rsquo;t.</span>
             </p>
             <p className="mt-2 text-sm text-muted-foreground font-medium">
@@ -321,11 +321,21 @@ export default function AboutPage() {
             </Link>
           </div>
           {/* Live strip — every figure has one source of truth, none typed here */}
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint border-y border-border/15 py-3">
-            <span>Alexandria · <LocalTime /></span>
-            <span>Last ship · <span className="text-foreground/80">{LATEST_SHIP[0]}</span></span>
-            <span>Long-term contracts · <span className="text-foreground/80">0</span></span>
-            <span>Month-to-month · <span className="text-foreground/80">every account</span></span>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 border-y border-border/15">
+            {[
+              ['Alexandria', <LocalTime key="t" />],
+              ['Last ship', LATEST_SHIP[0]],
+              ['Long-term contracts', '0'],
+              ['Month-to-month', 'every account'],
+            ].map(([label, value], i) => (
+              <div
+                key={i}
+                className={`py-5 px-4 md:px-6 border-border/10 ${i > 0 ? 'border-l max-md:[&:nth-child(odd)]:border-l-0' : ''} ${i > 1 ? 'max-md:border-t' : ''}`}
+              >
+                <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">{label}</p>
+                <p className="font-mono text-sm md:text-base font-black uppercase tracking-[0.08em] text-foreground/90 tabular-nums">{value}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -341,17 +351,17 @@ export default function AboutPage() {
           <SectionHeading sub="Nothing below asks you to take our word. Each one opens the record it lives in.">
             What is true <span className="text-primary">right now.</span>
           </SectionHeading>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border/15 border border-border/15">
             {[
               { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
               { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
               { k: 'A machine you can drive', line: 'A working demo OS — sample data, live behavior. Ring a sale. Try to edit the books.', cta: 'Drive it', href: '/drive' },
               { k: 'The deal itself', line: 'Own the code and the data, month to month, six-item handover if you ever leave.', cta: 'Read the standard', href: '/owned-software' },
             ].map((c) => (
-              <Link key={c.k} href={c.href} className="group border border-border/20 bg-card/10 rounded-[1.75rem] p-6 md:p-7 hover:border-primary/35 transition-colors">
-                <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-3">{c.k}</p>
-                <p className="text-lg font-bold text-foreground leading-snug tracking-tight">{c.line}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+              <Link key={c.k} href={c.href} className="group bg-background p-7 md:p-10 hover:bg-card/30 transition-colors">
+                <p className="font-mono text-[10px] font-black uppercase tracking-[0.22em] text-faint mb-5">{c.k}</p>
+                <p className="text-xl md:text-2xl font-bold text-foreground leading-snug tracking-tight text-balance">{c.line}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
                   {c.cta} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                 </span>
               </Link>
@@ -479,7 +489,13 @@ export default function AboutPage() {
           <SectionHeading sub="The most important thing about Found It is what happens without Found It. Go ahead.">
             Make us <span className="text-primary">disappear.</span>
           </SectionHeading>
-          <DisappearDemo />
+          <div className="relative">
+            <div aria-hidden className="absolute -inset-8 md:-inset-14 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_30%,rgba(255,85,0,0.10),transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(45%_55%_at_80%_90%,rgba(52,211,153,0.05),transparent_70%)]" />
+            </div>
+            <DisappearDemo />
+          </div>
         </motion.div>
 
         {/* ─── What we are / what we are not ─── */}
@@ -519,7 +535,7 @@ export default function AboutPage() {
             One more thing, since some folks wonder. This company belongs to{' '}
             <span className="text-foreground font-bold">Jesus Christ</span>. We&rsquo;re not ashamed of Him, and
             we&rsquo;re not going to sell you with Him either. We just try to build like we&rsquo;ll answer for the
-            work &mdash; because we will. We fall short plenty. The door stays open anyway.
+            work &mdash; because we will.
           </p>
         </motion.div>
 
@@ -534,23 +550,26 @@ export default function AboutPage() {
           <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. Every claim below carries its status and its receipt — and the audit is allowed to catch our own copy. It has.">
             Marketing does not get <span className="text-primary">write access.</span>
           </SectionHeading>
-          <div className="border border-border/20 rounded-[2rem] overflow-hidden divide-y divide-border/15 bg-card/5">
+          <div className="border-t border-border/15">
             {CLAIMS.map((c) => (
-              <div key={c.claim} className="px-6 md:px-8 py-6">
-                <div className="flex flex-col md:flex-row md:items-baseline gap-1.5 md:gap-6 mb-2">
-                  <p className="flex-1 text-base md:text-lg font-black tracking-tight text-foreground">{c.claim}</p>
-                  <p className={`font-mono text-[11px] font-black uppercase tracking-[0.15em] ${c.tone} shrink-0`}>{c.status}</p>
+              <div key={c.claim} className="py-8 md:py-10 border-b border-border/15 md:grid md:grid-cols-[1fr_auto] md:gap-10 md:items-start">
+                <div className="max-w-2xl">
+                  <p className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-snug mb-3 text-balance">{c.claim}</p>
+                  <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{c.note}</p>
+                  {c.receipt && (
+                    <Link href={c.receipt.href} className="mt-3 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                      {c.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                    </Link>
+                  )}
                 </div>
-                <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed max-w-3xl">{c.note}</p>
-                {c.receipt && (
-                  <Link href={c.receipt.href} className="mt-2 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
-                    {c.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
-                  </Link>
-                )}
+                <p className={`mt-4 md:mt-1.5 inline-flex items-center gap-2 font-mono text-[11px] font-black uppercase tracking-[0.15em] ${c.tone} shrink-0`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-current shrink-0" aria-hidden />
+                  {c.status}
+                </p>
               </div>
             ))}
           </div>
-          <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-faint">{AUDIT_DATE} · Nothing here is dressed up as a live feed.</p>
+          <p className="mt-5 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-faint">{AUDIT_DATE} · Nothing here is dressed up as a live feed.</p>
         </motion.div>
 
         {/* ─── Scar tissue ─── */}
@@ -564,20 +583,17 @@ export default function AboutPage() {
           <SectionHeading sub="Not the branding kind of vulnerability. The kind where reality happened and the product changed.">
             Rules we paid for.
           </SectionHeading>
-          <div className="space-y-4">
+          <div className="border-t border-border/15">
             {SCARS.map((s) => (
-              <div key={s.date} className="border border-border/20 bg-card/10 rounded-[1.75rem] p-6 md:p-8">
-                <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">{s.date}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  <div>
-                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">What happened</p>
-                    <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.happened}</p>
-                  </div>
-                  <div>
-                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">What changed</p>
-                    <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.changed}</p>
-                    <p className="mt-2 text-sm font-bold text-foreground">Enforced: {s.enforced}</p>
-                    <Link href={s.receipt.href} className="mt-2 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+              <div key={s.date} className="py-9 md:py-12 border-b border-border/15 md:grid md:grid-cols-[200px_1fr] md:gap-12">
+                <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-primary leading-relaxed mb-5 md:mb-0 md:pt-1">{s.date}</p>
+                <div className="max-w-2xl">
+                  <p className="text-base md:text-lg text-foreground/90 font-medium leading-relaxed">{s.happened}</p>
+                  <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.2em] text-emerald-400/90 mb-1.5">What changed</p>
+                  <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">{s.changed}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <p className="text-sm font-bold text-foreground">Enforced: {s.enforced}</p>
+                    <Link href={s.receipt.href} className="inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
                       {s.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
                     </Link>
                   </div>
@@ -628,18 +644,18 @@ export default function AboutPage() {
           <SectionHeading sub="Most About pages convert the future into past tense. This one keeps the tense correct. Items move to the audit above only with a date and a receipt.">
             What we have <span className="text-primary">not earned yet.</span>
           </SectionHeading>
-          <div className="space-y-5 max-w-2xl">
+          <div className="border-t border-border/15 max-w-3xl">
             {NOT_YET.map(([thing, truth]) => (
-              <div key={thing}>
-                <p className="text-lg md:text-xl font-black tracking-tight text-foreground leading-snug">
-                  {thing} <span className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-amber-400 ml-2 align-middle">Not yet</span>
+              <div key={thing} className="py-7 md:py-8 border-b border-border/15">
+                <p className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-snug text-balance">
+                  {thing} <span className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-amber-400 ml-2.5 align-middle whitespace-nowrap">Not yet</span>
                 </p>
-                <p className="text-base text-muted-foreground font-medium leading-snug">{truth}</p>
+                <p className="mt-1.5 text-base md:text-lg text-muted-foreground font-medium leading-snug max-w-2xl">{truth}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 max-w-2xl text-base md:text-lg text-foreground font-bold leading-relaxed">
-            The systems are real. The scale is not yet proved.
+          <p className="mt-10 max-w-2xl text-xl md:text-2xl font-black uppercase italic tracking-tight text-foreground">
+            The systems are real. <span className="text-primary">The scale is not yet proved.</span>
           </p>
         </motion.div>
 
@@ -649,14 +665,14 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="text-center py-16 border-t border-border/10"
+          className="text-center py-20 md:py-28 border-t border-border/10"
         >
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-relaxed max-w-xl mx-auto mb-10">
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-loose max-w-xl mx-auto mb-12">
             Audit summary — new software company · thirteen years inside local businesses · small team ·
             AI used heavily · humans accountable · real systems running · ownership written down ·
             long-term scale not yet proved. That&rsquo;s the company.
           </p>
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
             Bring us <span className="text-primary">the ugly part.</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-xl mx-auto mb-8">
