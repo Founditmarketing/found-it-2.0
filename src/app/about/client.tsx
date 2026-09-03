@@ -14,8 +14,8 @@ const ease = [0.16, 1, 0.3, 1] as const;
    Public roster law: Trevor, Reece, Thomas. */
 const teamMembers = [
   { name: 'Trevor Ruby', role: 'Founder / Builder', image: '/trevorruby.jpeg' },
-  { name: 'Reece Roberts', role: 'Support', image: '/reese-roberts.jpeg' },
-  { name: 'Thomas Dombrowski', role: 'Backup Support', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
+  { name: 'Reece Roberts', role: 'Client Systems', image: '/reese-roberts.jpeg' },
+  { name: 'Thomas Dombrowski', role: 'Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
 ] as { name: string; role: string; image: string; objectPosition?: string }[];
 
 const stats = [
