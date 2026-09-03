@@ -245,3 +245,31 @@ body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; poin
     display: none !important;
   }
 }
+
+/* ─── Dead-tap lag fix (9/3, sitewide): taps must land NOW ───
+   touch-action: manipulation strips the browser's double-tap-zoom wait
+   (~350ms on iOS) from every control — the single biggest source of taps
+   feeling dead, worst on rapid taps like the demo register. The default
+   gray tap flash becomes a faint brand tint so every tap is acknowledged
+   instantly even on controls that only have hover styles, and button text
+   stops getting long-press-selected mid-tap. */
+a,
+button,
+[role='button'],
+input,
+select,
+textarea,
+label,
+summary {
+  touch-action: manipulation;
+}
+a,
+button,
+[role='button'],
+summary {
+  -webkit-tap-highlight-color: rgba(255, 85, 0, 0.12);
+}
+button {
+  -webkit-user-select: none;
+  user-select: none;
+}
