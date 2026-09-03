@@ -13,6 +13,39 @@ import { OS_PRICING, OS_SLOTS, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
+/* Three Fittings — one source of truth, rendered twice: a 3-col grid on
+   desktop, a snap-scroll swipe deck on phones (9/3, Trevor: "looks good on
+   computer but remake the section for phone"). */
+const FITTINGS = [
+  {
+    kind: 'The Roofer',
+    before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
+    after: 'His system audited his own books the day it went live.',
+    number: '$195,882.75',
+    numberLabel: 'found in open receivables',
+    href: '/case-studies/edwards-roofing',
+    link: 'Read the case study',
+  },
+  {
+    kind: 'The Nursery',
+    before: 'Fifteen brokers texting orders in, hand-copied to paper. 44 plants nearly missed the truck.',
+    after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
+    number: 'Lines in = lines on the sheet',
+    numberLabel: 'the rule the system enforces',
+    href: '/blog/what-is-a-software-map',
+    link: 'See how her system was built',
+  },
+  {
+    kind: 'The Shed Builder',
+    before: 'A Texas shed maker with dealer lots, shops, and drivers, renting the software that ran it all.',
+    after: 'Sales counter to delivery on one system he will own outright.',
+    number: 'Sale → build → delivered',
+    numberLabel: 'one pipeline, one login',
+    href: '/foundit-os',
+    link: 'See Found It OS',
+  },
+] as const;
+
 export default function HomePage() {
   return (
     <div className="bg-transparent text-foreground relative overflow-hidden">
@@ -145,36 +178,9 @@ export default function HomePage() {
               Real businesses, real numbers. This is what happens when the system fits.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {[
-              {
-                kind: 'The Roofer',
-                before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
-                after: 'His system audited his own books the day it went live.',
-                number: '$195,882.75',
-                numberLabel: 'found in open receivables',
-                href: '/case-studies/edwards-roofing',
-                link: 'Read the case study',
-              },
-              {
-                kind: 'The Nursery',
-                before: 'Fifteen brokers texting orders in, hand-copied to paper. 44 plants nearly missed the truck.',
-                after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
-                number: 'Lines in = lines on the sheet',
-                numberLabel: 'the rule the system enforces',
-                href: '/blog/what-is-a-software-map',
-                link: 'See how her system was built',
-              },
-              {
-                kind: 'The Shed Builder',
-                before: 'A Texas shed maker with dealer lots, shops, and drivers, renting the software that ran it all.',
-                after: 'Sales counter to delivery on one system he will own outright.',
-                number: 'Sale → build → delivered',
-                numberLabel: 'one pipeline, one login',
-                href: '/foundit-os',
-                link: 'See Found It OS',
-              },
-            ].map((f, i) => (
+          {/* Desktop: the three-up grid, unchanged. */}
+          <div className="hidden lg:grid grid-cols-3 gap-5">
+            {FITTINGS.map((f, i) => (
               <motion.div
                 key={f.kind}
                 initial={{ opacity: 0, y: 25 }}
@@ -196,6 +202,46 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Phones: a swipe deck — one fitting per card, snap-scroll, the
+              next card peeking so the thumb knows what to do. Three tall
+              stacked cards read like homework; three swipes read like a
+              deck of receipts. */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="lg:hidden"
+          >
+            <div className="-mx-6 px-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {FITTINGS.map((f, i) => (
+                <div
+                  key={f.kind}
+                  className="snap-center shrink-0 w-[82vw] max-w-[340px] bg-card/10 backdrop-blur-sm border border-border/15 rounded-3xl p-6 flex flex-col"
+                >
+                  <div className="flex items-baseline justify-between mb-4">
+                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary">{f.kind}</p>
+                    <p className="font-mono text-[10px] font-bold text-faint tabular-nums">{i + 1}/{FITTINGS.length}</p>
+                  </div>
+                  <p className="text-[13px] text-muted-foreground font-medium leading-snug mb-2.5">{f.before}</p>
+                  <p className="text-[13px] text-foreground font-bold leading-snug mb-5">{f.after}</p>
+                  <div className="mt-auto pt-4 border-t border-border/15">
+                    <p className="text-2xl font-black text-primary italic tracking-tighter leading-tight">{f.number}</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1 mb-3.5">{f.numberLabel}</p>
+                    <Link href={f.href} className="text-xs text-primary font-bold inline-flex items-center gap-1.5">
+                      {f.link} <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+              {/* trailing breather so card 3 can snap center */}
+              <div aria-hidden className="shrink-0 w-2" />
+            </div>
+            <p className="mt-3 text-center font-mono text-[10px] font-black uppercase tracking-[0.24em] text-faint">
+              swipe <span className="text-primary">→</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 
