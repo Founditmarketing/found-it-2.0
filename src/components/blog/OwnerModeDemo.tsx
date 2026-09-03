@@ -36,8 +36,31 @@ export default function OwnerModeDemo() {
   const hidden = useRef<HTMLElement[]>([]);
   const banner = useRef<HTMLElement | null>(null);
   const scaled = useRef(false);
+  const box = useRef<HTMLDivElement>(null);
 
   const body = () => document.getElementById('post-body');
+  const calm = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* every change announces itself: the touched element glows for a beat */
+  const pulse = (n: HTMLElement) => {
+    if (calm()) return;
+    n.animate(
+      [{ filter: 'brightness(1.8)' }, { filter: 'brightness(1)' }],
+      { duration: 750, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+    );
+  };
+  const shake = () => {
+    if (calm() || !box.current) return;
+    box.current.animate(
+      [
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(-7px)' },
+        { transform: 'translateX(6px)' },
+        { transform: 'translateX(-4px)' },
+        { transform: 'translateX(0)' },
+      ],
+      { duration: 420, easing: 'ease-out' },
+    );
+  };
   const push = (text: string, kind: LogEntry['kind']) => {
     setLog((l) => [...l, { text, kind }]);
     if (kind === 'done') setTouched(true);
@@ -66,8 +89,10 @@ export default function OwnerModeDemo() {
         collectAccent(el);
         accent.current = a.color;
         accentNodes.current!.forEach(({ el: n, prop }) => {
+          n.style.transition = 'color 0.6s ease, background 0.6s ease';
           if (prop === 'color') n.style.color = a.color;
           else n.style.background = a.color;
+          pulse(n);
         });
         if (banner.current) banner.current.style.background = a.color;
         push(
@@ -83,7 +108,17 @@ export default function OwnerModeDemo() {
         if (h1 && a.text) {
           if (headline.current === null) headline.current = h1.textContent;
           h1.textContent = a.text;
-          push('Headline rewritten.', 'done');
+          h1.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'center' });
+          if (!calm())
+            h1.animate(
+              [
+                { transform: 'scale(0.96)', opacity: 0.4 },
+                { transform: 'scale(1.03)', opacity: 1 },
+                { transform: 'scale(1)' },
+              ],
+              { duration: 600, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+            );
+          push('Headline rewritten. Look up.', 'done');
         }
         break;
       }
@@ -99,6 +134,15 @@ export default function OwnerModeDemo() {
         }
         banner.current.textContent = a.text || '20% OFF THROUGH FRIDAY';
         banner.current.style.background = accent.current;
+        if (!calm())
+          banner.current.animate(
+            [
+              { transform: 'translateY(-16px) scale(0.97)', opacity: 0 },
+              { transform: 'none', opacity: 1 },
+            ],
+            { duration: 480, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+          );
+        pulse(banner.current);
         push('Banner is up.', 'done');
         break;
       }
@@ -128,6 +172,7 @@ export default function OwnerModeDemo() {
         break;
       }
       case 'textScale': {
+        el.style.transition = 'font-size 0.45s ease';
         el.style.fontSize = `${a.scale}%`;
         scaled.current = a.scale !== 100;
         push(`Body text at ${a.scale} percent.`, 'done');
@@ -137,6 +182,7 @@ export default function OwnerModeDemo() {
         if (a.text) push(a.text, 'note');
         break;
       case 'refuse':
+        shake();
         push(a.text || 'That is part of the protected structure. Owner Mode cannot change it.', 'refused');
         break;
     }
@@ -202,7 +248,7 @@ export default function OwnerModeDemo() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 mb-14">
-      <div className="border border-border/25 rounded-[1.75rem] bg-card/10 p-5 md:p-8">
+      <div ref={box} className="border border-border/25 rounded-[1.75rem] bg-card/10 p-5 md:p-8">
         <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-2">
           Try Owner Mode on this page
         </p>
@@ -265,7 +311,7 @@ export default function OwnerModeDemo() {
               </p>
             ))}
             {touched && (
-              <p className="pt-2 text-base font-black uppercase italic tracking-tight text-foreground">
+              <p className="pt-3 text-lg md:text-xl font-black uppercase italic tracking-tight text-foreground animate-in fade-in slide-in-from-bottom-2 duration-500">
                 You changed the page. <span className="text-primary">You never touched the website.</span>
               </p>
             )}
