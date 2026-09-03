@@ -209,6 +209,22 @@ export default function OwnerModeDemo() {
         <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
           This article edits itself when you ask. <span className="text-foreground font-bold">Tap an example below</span> and watch the page change. The last one gets refused on purpose.
         </p>
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground mb-2">Tap one to try it</p>
+        <div className="grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2 mb-1 pr-10 sm:pr-0">
+          {SUGGESTED.map((s) => (
+            <button
+              key={s}
+              type="button"
+              disabled={busy}
+              onClick={() => run(s)}
+              className="text-left text-[13px] sm:text-xs font-semibold text-muted-foreground border border-border/30 rounded-2xl sm:rounded-full px-4 py-2.5 sm:px-3.5 sm:py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
+            >
+              <span className="text-primary font-black mr-1.5" aria-hidden>&rsaquo;</span>
+              {s}
+            </button>
+          ))}
+        </div>
+
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -217,7 +233,7 @@ export default function OwnerModeDemo() {
               setInput('');
             }
           }}
-          className="flex flex-col sm:flex-row gap-2 mb-3"
+          className="flex flex-col sm:flex-row gap-2 mt-3"
         >
           <input
             value={input}
@@ -234,21 +250,6 @@ export default function OwnerModeDemo() {
             {busy ? '...' : 'Change it'}
           </button>
         </form>
-        <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground mb-2">Tap one to try it</p>
-        <div className="grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2 mb-1 pr-10 sm:pr-0">
-          {SUGGESTED.map((s) => (
-            <button
-              key={s}
-              type="button"
-              disabled={busy}
-              onClick={() => run(s)}
-              className="text-left text-[13px] sm:text-xs font-semibold text-muted-foreground border border-border/30 rounded-2xl sm:rounded-full px-4 py-2.5 sm:px-3.5 sm:py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
-            >
-              <span className="text-primary font-black mr-1.5" aria-hidden>&rsaquo;</span>
-              {s}
-            </button>
-          ))}
-        </div>
         {log.length > 0 && (
           <div className="mt-4 border-t border-border/20 pt-4 space-y-1.5">
             {log.map((l, i) => (
