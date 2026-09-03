@@ -30,7 +30,7 @@ export const blogPosts: Post[] = [
         authorImage: '/trevorruby.jpeg',
         excerpt:
             'Thirteen years in marketing taught me the secret nobody in marketing says out loud: it is best done in house. The tools were the problem. So I am building the fix: full control of your site and your marketing, on a plane that cannot crash.',
-        image: '/images/blog/fullcontrol-og-v1.png',
+        image: '/images/blog/fullcontrol-og-v2.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I did marketing for other businesses for thirteen years. Started in 2013 in Bogata, Texas, population 1,000 and change. SEO, ads, websites, the whole trade. So believe me when I tell you the secret I was not supposed to say out loud:</p>
