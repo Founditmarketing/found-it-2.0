@@ -29,10 +29,9 @@ const EMPTY: Fields = {
 
 const PROMPTS = [
   'What does the business go by, and who runs it?',
-  'Who works the office and who works the field? Names and cells.',
-  'What software and paper do you run on today? Which one do you hate?',
-  'How does a job come in, get estimated, get done, and get paid?',
-  'The one thing that made you say yes: what has to work in the first two weeks?',
+  'What do you run on today — and which part do you hate?',
+  'How does a job come in, get done, and get paid?',
+  'What has to work in the first two weeks?',
 ];
 
 const FIELD_META: { key: keyof Fields; label: string; wide?: boolean }[] = [
@@ -200,9 +199,8 @@ export default function OnboardingClient() {
           </h1>
           {stage === 'talk' && (
             <p className="mt-5 text-white/60 max-w-[520px] mx-auto text-base leading-relaxed">
-              Press the button and tell us about your business like you&apos;d tell a friend at
-              the counter. Ramble. Jump around. The system sorts your words into the right
-              boxes, you fix anything it got wrong, and you&apos;re done.
+              Press the button and ramble. We sort your words into the boxes &mdash; you fix
+              anything we got wrong.
             </p>
           )}
         </div>
@@ -249,13 +247,13 @@ export default function OnboardingClient() {
               value={interim ? `${transcript} ${interim}`.trim() : transcript}
               onChange={(e) => setTranscript(e.target.value)}
               rows={7}
-              placeholder="Your words land here. You can type or fix anything by hand too."
+              placeholder="Your words land here. Type or fix anything by hand."
               className="w-full rounded-xl border border-white/10 bg-black/40 p-4 text-[15px] leading-relaxed text-white placeholder:text-white/25 focus:border-primary/60 focus:outline-none"
             />
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
               <p className="text-xs text-white/40 max-w-[320px]">
-                Blanks are fine. Whatever you don&apos;t mention, we catch on the kickoff call.
+                Blanks are fine &mdash; we catch them on the kickoff call.
               </p>
               <button
                 type="button"
@@ -275,8 +273,7 @@ export default function OnboardingClient() {
             <div className="mb-6 rounded-xl border border-primary/30 bg-primary/[0.06] px-5 py-4">
               <p className="text-sm text-white/80">
                 <span className="font-black text-primary uppercase tracking-wider">Here&apos;s what we heard.</span>{' '}
-                Fix anything. Blanks are fine — we catch them on the kickoff call. Nothing was
-                invented: if you didn&apos;t say it, the box stayed empty.
+                Fix anything. If you didn&apos;t say it, the box stayed empty.
               </p>
             </div>
 

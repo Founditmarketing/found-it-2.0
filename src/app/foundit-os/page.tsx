@@ -35,9 +35,9 @@ const data: PillarData = {
   headline: 'It Answers. It Types. It Chases.',
   headlineAccent: 'You Own It.',
   intro:
-    `Found It OS is custom software + AI employee, built around your business. It answers the phone and takes a real message. It types the paperwork your people re-key today. It chases the estimates and the money owed so nobody has to. And unlike every subscription on your card, you own it outright: the code and the data. Nothing switches until it has run beside your old system and matched it to the penny.`,
+    `Custom software + AI employee, built around your business. It answers the phone, types the paperwork, and chases what you're owed. You own it outright — the code and the data.`,
   heroDefinition:
-    `We study how your company actually runs and build one operating system around it — the phone, the paperwork, the customers, the jobs, the money, the books — with an AI employee working inside. Nothing switches until it has run beside your old system and matched it to the penny.`,
+    `We study how your company actually runs and build one system around it — phone, paperwork, customers, jobs, books — with an AI employee inside.`,
   heroPriceLine: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup · Month-to-month · You own the code and data`,
   ctaLabel: 'Show Me Mine',
   formSource: 'service_foundit_os',
@@ -74,7 +74,7 @@ const data: PillarData = {
   automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',
   definition:
-    'A business operating system is one piece of software that runs your whole operation. Sales, inventory, customers, invoices, service work, and your website in one place, not five subscriptions taped together. Big platforms sell off the rack, built for everyone. Found It OS is made to measure. We study how your business works, then build the system around it. One screen your team uses. One customer list. An AI that answers questions about your business in plain English. And you own it all. The code, the data, everything.',
+    'One piece of software that runs the whole operation — sales, inventory, customers, invoices, service, website — instead of five subscriptions taped together. Big platforms sell off the rack. This one is made to measure. And you own it all: the code, the data, everything.',
   includedHeading: 'What Every Found It OS Includes',
   included: [
     {
@@ -95,7 +95,7 @@ const data: PillarData = {
     {
       title: 'An AI Employee on Every Shift',
       detail:
-        'It answers the phone, drafts the follow-up texts, chases what you are owed, and files paperwork from a photo. Ask it anything about your books in plain English. It can read them. It cannot write them.',
+        'Answers the phone, drafts follow-ups, chases what you’re owed, files paperwork from a photo. It can read your books. It cannot write them.',
     },
     {
       title: 'Books That Show Their Work',
@@ -114,25 +114,25 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We come to your business and walk every flow. How a sale rings, how inventory moves, what lives on paper. That is what we build from.',
+        'We come to your business and walk every flow — how a sale rings, how inventory moves, what lives on paper.',
     },
     {
       step: '02',
       title: 'Built Beside Your Old System',
       detail:
-        'Your old system keeps running. The new one runs beside it. Every night we check the two against each other. Same sales, same totals, line by line.',
+        'Your old system keeps running. The new one runs beside it, checked against it every night, line by line.',
     },
     {
       step: '03',
       title: 'You Say Go',
       detail:
-        'Nothing switches until the numbers match day after day and you say go. No scary cutover weekend, no lost data.',
+        'Nothing switches until the numbers match night after night — and you say go.',
     },
     {
       step: '04',
       title: 'We Stay On',
       detail:
-        'Nightly backups, support you can actually call, and new features as your business grows. Local, reachable, in person when you need us.',
+        'Nightly backups, support you can actually call, new features as you grow.',
     },
   ],
   audienceHeading: 'Built for the Owner Who Still Knows How Everything Works',
@@ -152,19 +152,19 @@ const data: PillarData = {
       { value: '$0.00', label: 'Difference Before You Switch' },
     ],
     narrative:
-      'The new system has to earn it. It runs beside the register you trust until the nightly difference is zero. Then you say go.',
+      'The new system has to earn it. Nightly difference hits zero, then you say go.',
   },
   mistakesHeading: 'Why Business Software Usually Goes Wrong',
   mistakes: [
     {
       title: 'Renting forever',
       detail:
-        'Big-name platforms charge rent forever, raise prices when they want, and keep the working system if you try to leave. They rent you your own business back.',
+        'Big platforms charge rent forever and keep the working system if you leave. They rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
       detail:
-        'Off-the-shelf systems are built for everyone, so they fit no one. Your team keeps half the business on paper and in their heads.',
+        'Built for everyone, so it fits no one. Half the business stays on paper and in people’s heads.',
     },
     {
       title: 'The custom software invoice',
@@ -174,7 +174,7 @@ const data: PillarData = {
     {
       title: 'Rip-and-replace migrations',
       detail:
-        'Most switches mean a scary weekend cutover and lost data. We never rip anything out.',
+        'Most switches mean a scary weekend and lost data. We never rip anything out.',
     },
   ],
   trust: {
@@ -226,12 +226,12 @@ const data: PillarData = {
     {
       question: 'What does "AI employee" actually mean?',
       answer:
-        'Work the system does itself. It answers the phone and takes a real message. It drafts the follow-up texts on open estimates. It sends the payment reminders. It reads paperwork from a photo and files it. Your people approve what matters, and it never touches the books on its own.',
+        'Work the system does itself: answers the phone, drafts follow-ups, sends payment reminders, files paperwork from a photo. Your people approve what matters. It never touches the books on its own.',
     },
     {
       question: 'What happens to my old system and my data?',
       answer:
-        'Nothing yet. Your old system keeps running while Found It OS runs beside it, checked against it every night. Your data, even handwritten invoices, comes in during the fitting. You switch when the numbers match and you say go.',
+        'Nothing yet. It keeps running while Found It OS runs beside it, checked nightly. Your data comes in during the fitting — even the handwritten invoices. You switch when the numbers match.',
     },
     {
       question: 'Who owns the system?',
@@ -256,11 +256,11 @@ const data: PillarData = {
     { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
     { title: 'Custom App Development', href: '/app-development' },
     { title: 'The Free Walkthrough, Explained', href: '/blog/what-is-a-software-map' },
-    { title: 'The Rent Isn’t the Problem. The Hostage Is.', href: '/blog/rented-software-no-data-rights' },
+    { title: 'The Rent Isn’t the Problem. The Exit Is.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'See What Yours Would Do First',
   finalCtaSub:
-    `Tell us how your business runs today. The phone, the paper, the chasing. If yours is a fit, we show you what your own AI employee would take off your people first. If it's not, we tell you straight.`,
+    `Tell us how your business runs today. If it's a fit, we show you what your AI employee would take off your people first. If it's not, we say so.`,
 };
 
 export default function FoundItOSPillar() {
