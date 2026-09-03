@@ -23,6 +23,40 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'giving-owners-full-control',
+        title: "I'm Giving Owners Full Control.",
+        date: 'September 3, 2026',
+        author: 'Trevor Ruby',
+        authorImage: '/trevorruby.jpeg',
+        excerpt:
+            'Thirteen years in marketing taught me the secret nobody in marketing says out loud: it is best done in house. The tools were the problem. So I am building the fix: full control of your site and your marketing, on a plane that cannot crash.',
+        image: '/images/blog/fullcontrol-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I did marketing for other businesses for thirteen years. Started in 2013 in Bogata, Texas, population 1,000 and change. SEO, ads, websites, the whole trade. So believe me when I tell you the secret I was not supposed to say out loud:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><span style="color: #FF5500; font-weight: 800;">Marketing is best done in house.</span> It always was.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Nobody knows the business like the owner. Nobody is closer to what happened this week, the job you just finished, the truck you just bought, the crew photo from this morning. And nobody cares more. Ask it straight: who cares more about your business, a marketing company or you? You already know.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A very successful man told me once that in all his companies, outsourced marketing never beat in-house marketing. Not once. I have thirteen years of receipts that say he is right.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">So why does everybody outsource it?</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Because the tools are built for professionals. You know your way around a Facebook post, but a real ad account is a different animal, and it changes constantly. What worked yesterday quietly stops working today. Owners do not have time to babysit that. So they hand the whole thing to somebody like me, lose the closeness and the care, and pay for the privilege.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The tools were the problem. The tools just changed.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The plane that can't crash</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Last night I built something for my brother. He runs a store that does about $40 million a year online, and he likes to tinker with his website at eleven o'clock at night. That used to be a terrifying sentence. A website is a tower of code, and one wrong move by a well-meaning owner can knock it over, and that costs him real money the next morning.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So I gave him <span style="color: #FF5500; font-weight: 800;">full control with a floor he cannot fall through.</span> He talks to the AI and changes anything he wants. The sale banner, the photos, the colors, the words. And the structure stays safe, because the system will not let him touch it. He flies the plane. <span style="color: #FF5500; font-weight: 800;">The plane cannot crash.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The moment it worked I knew this was bigger than one website.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The marketing engine</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Here is what we are building now, and I mean now, the first one is already underway for a real customer:</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">You speak a post into your phone. We just finished this job, put five dollars on it. The system drafts the post and the picture, shows you exactly what will go out and what it will spend, and waits for your tap. Nothing publishes and not one dollar moves without your thumb on it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">One approval, and it goes <span style="color: #FF5500; font-weight: 800;">everywhere at once.</span> Facebook, Instagram, your Google profile, the rest as they come online. And the posts that deserve it become properly targeted ads, with the targeting handled at an expert level automatically, inside spending caps that are written into the software itself.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We already do every piece of this by hand today. What is new is putting it in one machine and handing the controls to the person who should have had them all along: <span style="color: #FF5500; font-weight: 800;">the owner.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The honest part</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The engine is being built, not being sold as finished. The first version goes into a real customer's system in the next few weeks, and like everything we ship, it will earn its keep in public or it will not. That is how we work. We cancelled our own QuickBooks in front of everybody; we are not going to start hedging now.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">And yes, I see the joke. The marketing guy is building the machine that replaces marketing guys. I did thirteen years of it. The business owner with the right controls beats me at my own game, because he was always holding the two things I could never buy: the knowledge and the care.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every Found It OS gets this wing. <span style="color: #FF5500; font-weight: 800;">You own it, like everything else we build.</span> Nobody rents you your own megaphone back.</p>
+<div style="margin: 2em 0 0.5em; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none;">See what your system would look like &rarr;</a><a href="/about" style="display: inline-block; border: 2px solid #333; color: inherit; font-weight: 700; padding: 12px 22px; border-radius: 12px; text-decoration: none;">Meet the company with the walls off &rarr;</a></div>
+`,
+    },
+    {
         slug: 'quickbooks-is-cancelled',
         title: 'My Software Caught Itself Being Wrong. So I Cancelled QuickBooks.',
         date: '2026-09-02',
