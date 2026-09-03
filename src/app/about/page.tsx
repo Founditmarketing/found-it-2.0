@@ -4,11 +4,11 @@ import AboutPage from './client';
 export const metadata: Metadata = {
   // Absolute: opts out of the layout's retired-brand title template.
   title: { absolute: 'About | Found It Software' },
-  description: 'The story and the team. Custom AI software company in Alexandria, LA — builders of Found It OS, systems local businesses own outright. 13+ years. Month-to-month, no long-term commitment.',
+  description: 'The company with the walls off: who has the keyboard, what is true right now, the rules we paid for, and the button that makes Found It disappear while your system keeps running. Alexandria, Louisiana.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About | Found It Software',
-    description: 'The story and the team. Custom AI software company in Alexandria, LA — builders of Found It OS, systems local businesses own outright. 13+ years. No contracts.',
+    description: 'Who has the keyboard, what is true right now, the rules we paid for — and the button that makes Found It disappear while your system keeps running.',
     type: 'website',
     url: 'https://www.founditsoftware.com/about',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],

@@ -28,7 +28,14 @@ const ROW_B = [
   ['AUG 31', 'The whole site re-cut for phones'],
   ['SEP 1', 'The full blog catalog, back on the shelf'],
   ['SEP 2', 'ALL-CAPS links learn to find lowercase pages'],
+  ['SEP 2', 'The drivable OS gets its own stage at /drive'],
+  ['SEP 3', 'The secretary learns to be interrupted'],
+  ['SEP 3', 'The About page takes its walls off'],
 ] as const;
+
+/** Newest entry — the About page's live strip reads it so "last ship" has
+ *  exactly one source of truth. */
+export const LATEST_SHIP = ROW_B[ROW_B.length - 1];
 
 const SHIPS = ROW_A.length + ROW_B.length;
 
@@ -60,7 +67,7 @@ function Row({ items, reverse = false }: { items: ReadonlyArray<readonly [string
 
 export function ShipLog() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden">
+    <section id="ship-log" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-24">
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-10">
         <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5">
           The Ship Log · Since Aug 14 · All of It Real

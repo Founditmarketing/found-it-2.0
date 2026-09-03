@@ -1,43 +1,245 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Trophy } from 'lucide-react';
+/* ─── /about — THE COMPANY WITH THE WALLS OFF (9/3 rebuild) ───
+   The old page was a biography: story, portrait, letter, headshots, stats.
+   This one is due diligence you can enjoy. Four questions, answered with
+   receipts: who touches my system, how does this company really operate,
+   what are they honest enough to admit, what happens to me if they fail.
+   Centerpiece: the visitor makes Found It disappear and watches the
+   business system keep running. Every number links to its record; nothing
+   here is typed-in truth that can silently go stale — the live strip reads
+   the ship log, the receipts link The Record, /drive, /owned-software.
+   Trevor's law for this page: humility, and no shame about Christ. */
+
+import { useEffect, useState } from 'react';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FounderByline } from '@/components/FounderByline';
-import { LiquidButton } from '@/components/ui/LiquidButton';
-import { AWARD, TRACK_RECORD, BUSINESS } from '@/lib/site';
+import { LATEST_SHIP } from '@/components/os/ShipLog';
+import { AWARD, BUSINESS } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* The team lives HERE now — /team 301s to /about#team (merged 8/16).
-   Public roster law: Trevor, Reece, Thomas. */
-const teamMembers = [
-  { name: 'Trevor Ruby', role: 'Founder / Builder', image: '/trevorruby.jpeg' },
-  { name: 'Reece Roberts', role: 'Client Systems', image: '/reese-roberts.jpeg' },
-  { name: 'Thomas Dombrowski', role: 'Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
-] as { name: string; role: string; image: string; objectPosition?: string }[];
+/* Public roster law: Trevor, Reece, Thomas. /team 301s to /about#team. */
+const FACES: Record<string, { image: string; pos?: string }> = {
+  Trevor: { image: '/trevorruby.jpeg' },
+  Reece: { image: '/reese-roberts.jpeg' },
+  Thomas: { image: '/thomas-dombrowski.jpeg', pos: 'center 10%' },
+};
 
-const stats = [
-  { value: TRACK_RECORD.yearsInBusiness, label: 'Years in Business' },
-  { value: TRACK_RECORD.googleRating, label: 'Rating on Google' },
-  { value: '0', label: 'Long-Term Contracts' },
+/* ─── The lifecycle of a client system — accountability, not job titles ─── */
+const STAGES = [
+  {
+    id: 'fitting',
+    title: 'The Fitting',
+    people: ['Trevor'],
+    owns: 'Learning how your business actually moves. Deciding what belongs in the first build. The final product judgment.',
+    notOwns: 'Accounting policy, payroll, or taxes — your accountant keeps those, always. And pretending to understand a workflow you haven’t shown him.',
+    reach: 'Text (318) 713-3781. Trevor answers.',
+  },
+  {
+    id: 'map',
+    title: 'The Map',
+    people: ['Trevor'],
+    owns: 'Your whole operation on one page — every screen, every automation we’d build. Saying “generic software is the better answer” out loud when it is.',
+    notOwns: 'Charging for it. The map takes about thirty minutes and it’s yours either way.',
+  },
+  {
+    id: 'build',
+    title: 'The Build',
+    people: ['Trevor'],
+    owns: 'Every screen fitted to your business, built on one shared production core already running real companies — login, backups, and security are lived-in, not reinvented from an empty folder. AI writes code all day here; humans decide what should exist, test the money, and answer for it.',
+    notOwns: 'Your data. It’s yours from day one, and nobody experiments on your live books.',
+  },
+  {
+    id: 'migration',
+    title: 'The Migration',
+    people: ['Trevor', 'Reece'],
+    owns: 'Your years of records moved in, then the new system running beside the old one, matched to the penny every night.',
+    notOwns: 'The cutover date. Nothing switches until the numbers agree, night after night, and you say go.',
+  },
+  {
+    id: 'nightly',
+    title: 'The Nightly Check',
+    people: [],
+    owns: 'The system reconciles its own books every night and the habit is published. Corrections post as new lines; the original entry stays on the record.',
+    notOwns: 'Editing history. It isn’t allowed to, even for us.',
+    receipt: { label: 'Open The Record', href: '/the-record' },
+  },
+  {
+    id: 'support',
+    title: 'Support',
+    people: ['Reece', 'Thomas'],
+    owns: 'The phone when it rings. Reece owns client systems, Thomas owns the relationship, and you always know who owns the problem.',
+    notOwns: 'An anonymous queue. There isn’t one — Trevor reads every thread.',
+    reach: 'Same number: (318) 713-3781.',
+  },
 ];
 
-/* MARKETING SALES DEAD (8/26) finally applied here too (8/29 review caught
-   the lag): the retired marketing services are gone from What We Do. The
-   catalog is software plus the one AI Search exception — same as SERVICES
-   in site.ts. Never re-add a marketing service. */
-const services = [
-  { name: 'Found It OS — Custom AI Software', desc: 'One system that runs your whole business. You own the code and the data.', href: '/foundit-os' },
-  { name: 'Custom App Development', desc: 'Native-feeling iOS and Android apps. You own 100% of the code.', href: '/app-development' },
-  { name: 'The Software Map', desc: 'Your whole operation on one page — every screen, every automation. Free in a fitting.', href: '/map' },
-  { name: 'AI Search Optimization', desc: 'When someone asks an AI who to hire, it should say you.', href: '/ai-search-optimization' },
+/* ─── What we are / what we are not ─── */
+const PAIRS = [
+  ['A small, named company.', 'Not a platform with four hundred people and nobody responsible.'],
+  ['One shared production core, fitted to each business.', 'Not every login screen and backup routine reinvented from an empty folder.'],
+  ['AI-assisted engineering.', 'Not an unsupervised machine making business decisions and hoping nobody notices.'],
+  ['Owned software with continuing support.', 'Not a monthly payment for permission to keep using your own system.'],
+  ['A new software company built from thirteen years inside local businesses.', 'Not a thirteen-year-old software platform.'],
+  ['Selective by necessity.', 'Not the right answer for every company, every workflow, or every budget.'],
 ];
 
-const serviceArea = ['Louisiana', 'Mississippi', 'East Texas', 'Southern Arkansas', 'Wichita, Kansas'];
+/* ─── Scar tissue — real incidents, real rule changes, all on the record ─── */
+const SCARS = [
+  {
+    date: 'AUG 2026',
+    happened: 'We moved our own books off QuickBooks. Reconciliation passed every check — and July was still sitting $99,000 away from what the bank could prove. Nobody knew.',
+    changed: 'Books must tie to outside reality, not just to themselves. The owner sees the money — first screen, every morning.',
+    enforced: 'The nightly check, in code.',
+    receipt: { label: 'Read the field report', href: '/blog/moving-our-own-books' },
+  },
+  {
+    date: 'DAY ONE, EDWARDS ROOFING',
+    happened: 'The first penny-audit of a client’s books surfaced $195,882.75 sitting in open receivables and a $19,000 bookkeeping error the old software never saw.',
+    changed: 'No system cuts over on trust. The new one runs beside the old one, reconciled to the penny every night, until the owner says go.',
+    enforced: 'The migration gate, on every fitting.',
+    receipt: { label: 'Read the case study', href: '/case-studies/edwards-roofing' },
+  },
+  {
+    date: 'STANDING RULE',
+    happened: 'Everywhere we looked, business software let people quietly edit history — and quietly is how $99,000 goes missing.',
+    changed: 'Our ledgers are append-only. Try to edit an entry and the system refuses: a correction posts as a new line, the original stays on the record.',
+    enforced: 'In code. Try it yourself on the demo.',
+    receipt: { label: 'Drive the demo OS', href: '/drive' },
+  },
+];
+
+/* ─── The six items that walk out the door with you (/owned-software, verbatim) ─── */
+const HANDOVER = [
+  'The complete runnable source-code repository',
+  'The production database and backups, in a usable format',
+  'The hosting account, or a documented transfer of deployment',
+  'The credentials and configuration documentation',
+  'The legal right for any developer to maintain and modify the system',
+  'A plain list of the third-party services that still bill on their own',
+];
+
+/** Alexandria's clock, live. Renders a dash until mounted so SSR never lies. */
+function LocalTime() {
+  const [time, setTime] = useState('');
+  useEffect(() => {
+    const fmt = () =>
+      new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
+    setTime(fmt());
+    const t = setInterval(() => setTime(fmt()), 20_000);
+    return () => clearInterval(t);
+  }, []);
+  return <span className="tabular-nums">{time || '—'}</span>;
+}
+
+/** The centerpiece: the visitor removes Found It and the business keeps running. */
+function DisappearDemo() {
+  const [gone, setGone] = useState(false);
+  const reduce = useReducedMotion();
+  return (
+    <div className="border border-border/25 rounded-[2rem] overflow-hidden bg-card/10">
+      <div className="grid grid-cols-1 sm:grid-cols-2">
+        {/* Found It side */}
+        <div className={`p-6 md:p-8 border-b sm:border-b-0 sm:border-r border-border/20 transition-all duration-700 ${gone ? 'opacity-35 saturate-0' : ''}`}>
+          <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2">Found It Software</p>
+          <p className="flex items-center gap-2 text-lg font-black uppercase italic tracking-tight text-foreground">
+            <span className={`w-2.5 h-2.5 rounded-full ${gone ? 'bg-red-500/80' : 'bg-emerald-400 animate-pulse'}`} aria-hidden />
+            {gone ? 'Offline' : 'Online'}
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground font-medium leading-relaxed">
+            {gone
+              ? 'Support stopped. Invoices from us stopped. That’s all that stopped.'
+              : 'Builds, support, new features, the nightly watch.'}
+          </p>
+        </div>
+        {/* The business side */}
+        <div className="p-6 md:p-8">
+          <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2">Your Business System</p>
+          <p className="flex items-center gap-2 text-lg font-black uppercase italic tracking-tight text-foreground">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden />
+            Running
+          </p>
+          <ul className="mt-3 space-y-1.5" aria-live="polite">
+            {HANDOVER.map((item, i) => (
+              <AnimatePresence key={item}>
+                {gone && (
+                  <motion.li
+                    initial={reduce ? false : { opacity: 0, x: -18 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: reduce ? 0 : 0.25 + i * 0.35, duration: 0.45, ease: ease as any }}
+                    className="flex items-start gap-2 text-sm font-medium text-foreground/90"
+                  >
+                    <span className="text-emerald-400 font-black mt-px" aria-hidden>✓</span>
+                    {item}
+                  </motion.li>
+                )}
+              </AnimatePresence>
+            ))}
+            {!gone && (
+              <li className="text-sm text-muted-foreground font-medium leading-relaxed">
+                Your registers, your books, your customers, your phone — on code and data your business owns.
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+      <div className="p-6 md:p-8 border-t border-border/20 text-center">
+        {!gone ? (
+          <button
+            type="button"
+            onClick={() => setGone(true)}
+            className="px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 active:scale-[0.98] transition-all"
+          >
+            Make Found It Disappear
+          </button>
+        ) : (
+          <motion.div
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: reduce ? 0 : 2.6, duration: 0.6 }}
+          >
+            <p className="text-xl md:text-2xl font-black uppercase italic tracking-tighter text-foreground">
+              The builder left. <span className="text-primary">The business didn&rsquo;t.</span>
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground font-medium">
+              That is not a metaphor. It is the deal &mdash; thirty days&rsquo; notice, and all six items above go with you.
+            </p>
+            <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/owned-software" className="inline-flex items-center justify-center px-6 h-12 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity">
+                Open the Owned Software Standard
+              </Link>
+              <Link href="/security" className="inline-flex items-center justify-center px-6 h-12 rounded-full border border-border/30 text-foreground/90 font-black uppercase tracking-wider text-xs hover:border-primary/50 transition-colors">
+                What happens if we fail
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => setGone(false)}
+              className="mt-4 font-mono text-[11px] uppercase tracking-[0.15em] text-faint hover:text-foreground transition-colors"
+            >
+              Resume support →
+            </button>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SectionHeading({ children, sub }: { children: React.ReactNode; sub?: string }) {
+  return (
+    <div className="mb-8">
+      <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground">{children}</h2>
+      {sub && <p className="mt-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{sub}</p>}
+    </div>
+  );
+}
 
 export default function AboutPage() {
+  const [openStage, setOpenStage] = useState<string>('fitting');
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -46,208 +248,289 @@ export default function AboutPage() {
       </div>
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
 
-        {/* Hero */}
+        {/* ─── Hero: no origin myth, no founder mythology ─── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="mb-20"
+          className="mb-16"
         >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Our Story</p>
-          <FounderByline
-            size="lg"
-            className="mb-8"
-            line="Founder. Alexandria, Louisiana."
-          />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            We Build the Software.{' '}
-            <span className="text-primary">You Own It.</span>
+            Small enough <span className="text-primary block">to see all of it.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Found It Software is a custom AI software company in Alexandria, Louisiana. Our flagship is <Link href="/foundit-os" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Found It OS</Link> — one system that runs your whole business, and you own it outright. We started with one frustration: too many good local businesses were getting locked into contracts, handed off to interns, and held hostage by agencies that owned their accounts. So we built the opposite.
+            No origin myth. No culture manifesto. Just the people, the work, the rules, and the exit.
+            Found It builds operating systems around real businesses, and the client owns the code and the data.
+            This page shows what that sentence requires.
           </p>
-          <p className="mt-4 text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Today we build those systems for real businesses — the shop, the crew, the yard, the store: your jobs, your registers, your dispatch board, your customer book, with your years of records migrated in, not abandoned. Ask your system a question in plain English and it answers from your own data. Your first working screens are live in days, not quarters — cutover only happens after the parallel run proves it — and the price is on the website. <span className="text-foreground font-bold">You&rsquo;ll never rent software that almost fits again.</span>
-          </p>
-
-          {/* Award trust chip */}
-          <div className="mt-8 inline-flex items-center gap-3 bg-amber-400/10 border border-amber-400/25 rounded-2xl px-5 py-3">
-            <Trophy className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
-            <span className="text-sm font-bold text-foreground leading-tight">
-              {AWARD.year} {AWARD.full} <span className="text-muted-foreground font-medium">— {AWARD.issuer}</span>
-            </span>
-          </div>
-        </motion.div>
-
-        {/* A Note From Trevor */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
-            A Note From Trevor
-          </h2>
-          <div className="bg-card/10 border border-border/20 rounded-[2rem] p-8 lg:p-10 border-l-4 border-l-primary">
-            <div className="space-y-5 text-base lg:text-lg text-muted-foreground font-medium leading-relaxed">
-              <p>
-                Last July, QuickBooks lost track of $99,000 of my own money. My books matched the bank to the penny — the software just lost it. I only caught it because building software is my whole job. That was the day this stopped being a marketing company.
-              </p>
-              <p>
-                Now I build one thing: <span className="text-foreground font-bold">software that local businesses own.</span> One system that runs the whole operation — the tickets, the invoices, the books, the phone — fitted to how you actually work. The code and the data are yours, written into a two-page contract you can read without a lawyer. Your new system runs beside the old one, matched to the penny, until you say go. <span className="text-foreground font-bold">Nobody rents you your own business back.</span>
-              </p>
-              <p>
-                Today, real Louisiana businesses run their whole day on systems they own — repair shops, roofers, dealerships, a $4M nursery. In {AWARD.year}, the Central Louisiana Economic Development Alliance named us the region&apos;s Highest Traded Revenue company. But the number I actually watch is simpler: our clients can leave any month with everything in hand. The door stays open on purpose.
-              </p>
-              <p>
-                We&apos;re in Alexandria. I&apos;ll drive to your shop, sit across the table, and show you your own numbers on a screen before I ask you for anything.
-              </p>
-            </div>
-            <p className="mt-6 text-sm font-black uppercase italic tracking-tighter text-primary">
-              — Trevor Ruby, Founder
-            </p>
-          </div>
-        </motion.div>
-
-        {/* The Team — merged from /team (8/16). Faces follow the voice. */}
-        <motion.div
-          id="team"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20 scroll-mt-28"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
-            The Team. <span className="text-primary">No Interns. No Handoffs.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
-            Founder-led, built and supported by a small senior team. Trevor stays directly involved
-            in every fitting — and when you call, a person who knows your system picks up.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {teamMembers.map((member) => (
-              <div
-                key={member.name}
-                className="group bg-card/15 border border-border/20 rounded-[2rem] p-5 hover:border-primary/30 transition-colors"
-              >
-                <div className="relative w-full aspect-[4/5] mb-5 overflow-hidden rounded-3xl bg-muted/30">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ objectPosition: member.objectPosition || 'center' }}
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                </div>
-                <p className="text-[11px] text-primary font-mono font-black tracking-[0.2em] uppercase opacity-80 mb-1">
-                  {member.role}
-                </p>
-                <h3 className="text-xl font-black text-foreground uppercase italic tracking-tight">
-                  {member.name}
-                </h3>
-              </div>
-            ))}
-          </div>
-          {/* Engineering block (8/28): the advisor's trust gap — technical capacity
-              must be visible. Role-based and honest; no invented people. */}
-          <div className="mt-6 bg-card/15 border border-border/20 rounded-[2rem] p-6 md:p-8">
-            <p className="text-[11px] text-primary font-mono font-black tracking-[0.2em] uppercase opacity-80 mb-2">
-              Engineering &amp; Systems
-            </p>
-            <p className="text-base text-muted-foreground font-medium leading-relaxed max-w-3xl">
-              Every Found It system is built on one shared core already running in production across Louisiana businesses. Each fitting is made
-              with a senior development partner whose security
-              specification gates every build, plus dedicated build support for migrations and
-              testing. The people who build your system are the people who answer when it rings.
-            </p>
-          </div>
-          <p className="mt-6 text-sm text-muted-foreground font-medium">
-            Think you belong here? We&rsquo;re a small senior team on purpose — but if you&rsquo;re
-            serious about this work and near Alexandria,{' '}
-            <a
-              href={`mailto:${BUSINESS.email}`}
-              className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors"
-            >
-              email Trevor
+          <div className="mt-7 flex flex-col sm:flex-row gap-4">
+            <a href="#inside" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+              Come Inside
             </a>
-            .
-          </p>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {stats.map((stat, i) => (
-              <div key={i} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
-                <p className="text-3xl font-black text-primary italic tracking-tighter">{stat.value}</p>
-                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{stat.label}</p>
-              </div>
-            ))}
+            <Link href="/owned-software" className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors">
+              Read the Two-Page Deal
+            </Link>
+          </div>
+          {/* Live strip — every figure has one source of truth, none typed here */}
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint border-y border-border/15 py-3">
+            <span>Alexandria · <LocalTime /></span>
+            <span>Last ship · <span className="text-foreground/80">{LATEST_SHIP[0]}</span></span>
+            <span>Long-term contracts · <span className="text-foreground/80">0</span></span>
+            <span>Month-to-month · <span className="text-foreground/80">every account</span></span>
           </div>
         </motion.div>
 
-        {/* Where We Work */}
+        {/* ─── What is true right now — receipts, not assertions ─── */}
         <motion.div
+          id="inside"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
+          className="mb-24 scroll-mt-28"
         >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
-            Where We Work
-          </h2>
-          <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mb-8">
-            We&apos;re a local team first. If you&apos;re in Louisiana, Mississippi, East Texas, up into southern Arkansas, or around Wichita, Kansas, we&apos;ll come to you, sit down at your office, and build your strategy face-to-face. Everywhere else, the same team does the same work remotely.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {serviceArea.map((region, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-2 bg-card/15 border border-primary/20 rounded-full px-4 py-2 text-sm font-bold text-foreground"
-              >
-                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden="true" />
-                {region}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
-            What We Do
-          </h2>
+          <SectionHeading sub="Nothing below asks you to take our word. Each one opens the record it lives in.">
+            What is true <span className="text-primary">right now.</span>
+          </SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {services.map((svc, i) => (
-              <Link key={i} href={svc.href} className="group bg-card/10 border border-border/20 rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
-                <h3 className="text-sm font-black uppercase italic tracking-tighter text-foreground mb-1 group-hover:text-primary transition-colors">{svc.name}</h3>
-                <p className="text-xs text-muted-foreground font-medium leading-relaxed">{svc.desc}</p>
-                <span className="text-xs text-primary font-bold flex items-center gap-1 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more <ArrowRight className="w-3 h-3" />
+            {[
+              { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
+              { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
+              { k: 'A machine you can drive', line: 'A working demo OS — sample data, live behavior. Ring a sale. Try to edit the books.', cta: 'Drive it', href: '/drive' },
+              { k: 'The deal itself', line: 'Own the code and the data, month to month, six-item handover if you ever leave.', cta: 'Read the standard', href: '/owned-software' },
+            ].map((c) => (
+              <Link key={c.k} href={c.href} className="group border border-border/20 bg-card/10 rounded-[1.75rem] p-6 md:p-7 hover:border-primary/35 transition-colors">
+                <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-3">{c.k}</p>
+                <p className="text-lg font-bold text-foreground leading-snug tracking-tight">{c.line}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                  {c.cta} <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
                 </span>
               </Link>
             ))}
           </div>
         </motion.div>
 
-        {/* CTA */}
+        {/* ─── Who has the keyboard — accountability, not titles ─── */}
+        <motion.div
+          id="team"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24 scroll-mt-28"
+        >
+          <SectionHeading sub="Not job titles — the life of your system, stage by stage, with the person who answers for each one. No anonymous queue anywhere in it.">
+            Who has <span className="text-primary">the keyboard.</span>
+          </SectionHeading>
+          <div className="border border-border/20 rounded-[2rem] overflow-hidden divide-y divide-border/15 bg-card/5">
+            {STAGES.map((s, i) => {
+              const open = openStage === s.id;
+              return (
+                <div key={s.id}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenStage(open ? '' : s.id)}
+                    aria-expanded={open}
+                    className="w-full flex items-center gap-4 px-6 md:px-8 py-5 text-left hover:bg-card/20 transition-colors"
+                  >
+                    <span className={`font-mono text-xs font-black tabular-nums ${open ? 'text-primary' : 'text-faint'}`}>{i + 1}</span>
+                    <span className="flex-1 text-lg md:text-xl font-black uppercase italic tracking-tight text-foreground">{s.title}</span>
+                    <span className="flex -space-x-2">
+                      {s.people.map((p) => (
+                        <span key={p} className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-background">
+                          <Image src={FACES[p].image} alt={p} fill className="object-cover" style={{ objectPosition: FACES[p].pos || 'center' }} sizes="32px" />
+                        </span>
+                      ))}
+                      {s.people.length === 0 && (
+                        <span className="w-8 h-8 rounded-full border-2 border-background bg-primary/20 flex items-center justify-center font-mono text-[9px] font-black text-primary">OS</span>
+                      )}
+                    </span>
+                    <span className={`text-primary font-black transition-transform ${open ? 'rotate-90' : ''}`} aria-hidden>›</span>
+                  </button>
+                  {open && (
+                    <div className="px-6 md:px-8 pb-6 pt-1 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                      <div>
+                        <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-emerald-400/90 mb-1.5">
+                          {s.people.length ? s.people.join(' + ') + ' owns' : 'The system owns'}
+                        </p>
+                        <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.owns}</p>
+                      </div>
+                      <div>
+                        <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-red-400/80 mb-1.5">Does not own</p>
+                        <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.notOwns}</p>
+                        {s.reach && <p className="mt-2 text-sm font-bold text-foreground">{s.reach}</p>}
+                        {s.receipt && (
+                          <Link href={s.receipt.href} className="mt-2 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                            {s.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-5 text-sm text-muted-foreground font-medium max-w-2xl">
+            Trevor Ruby, founder &mdash; he builds. Reece Roberts &mdash; client systems. Thomas Dombrowski &mdash; client
+            relations. Three people, on purpose. If you&rsquo;re serious about this work and near Alexandria,{' '}
+            <a href={`mailto:${BUSINESS.email}`} className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">email Trevor</a>.
+          </p>
+        </motion.div>
+
+        {/* ─── Origin: a ledger, not a movie ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading>There was no <span className="text-primary">lightning-bolt day.</span></SectionHeading>
+          <div className="max-w-2xl space-y-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed mb-8">
+            <p>For thirteen years, Found It worked inside local businesses as a marketing company.</p>
+            <p>AI lowered the cost of building serious custom software enough to make it practical for those same businesses.</p>
+            <p>We built one system. Then another. The software became the work.</p>
+            <p>In 2026, we stopped taking new marketing clients and made Found It Software the company.</p>
+            <p className="text-foreground font-bold">That&rsquo;s the whole origin story.</p>
+          </div>
+          <div className="border-l border-border/25 pl-6 space-y-4 font-medium">
+            {[
+              ['2013', 'Found It Marketing opens in Alexandria.'],
+              ['2026', 'The first owned systems ship. The dated record is the ship log.'],
+              ['AUG 2026', 'New marketing work ends. Found It Software is the company.'],
+              ['TODAY', 'Systems building and running across Louisiana — the named ones are in the case studies.'],
+            ].map(([d, t]) => (
+              <p key={d} className="text-sm md:text-base text-muted-foreground">
+                <span className="font-mono text-xs font-black uppercase tracking-[0.15em] text-primary mr-3">{d}</span>{t}
+              </p>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-muted-foreground font-medium max-w-2xl">
+            The $99,000 QuickBooks story is real &mdash; it&rsquo;s evidence, not the origin.{' '}
+            <Link href="/blog/moving-our-own-books" className="text-foreground font-bold underline decoration-primary/40 underline-offset-4 hover:decoration-primary transition-colors">Read the field report</Link>.
+          </p>
+        </motion.div>
+
+        {/* ─── The centerpiece ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading sub="The most important thing about Found It is what happens without Found It. Go ahead.">
+            Make us <span className="text-primary">disappear.</span>
+          </SectionHeading>
+          <DisappearDemo />
+        </motion.div>
+
+        {/* ─── What we are / what we are not ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading>What we are. <span className="text-primary">What we are not.</span></SectionHeading>
+          <div className="space-y-6">
+            {PAIRS.map(([are, not]) => (
+              <div key={are} className="max-w-2xl">
+                <p className="text-lg md:text-xl font-black tracking-tight text-foreground leading-snug">{are}</p>
+                <p className="text-base md:text-lg text-muted-foreground font-medium leading-snug">{not}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-2xl text-base text-muted-foreground font-medium leading-relaxed">
+            On the AI, plainly: it lets a small team build at a speed that used to take a much larger one. It writes
+            code, drafts tests, reads documentation, and helps inspect systems. Humans decide what should exist,
+            control access, test the money, sit across the table, and stay accountable when something breaks.
+          </p>
+        </motion.div>
+
+        {/* ─── The quiet block. Trevor's, verbatim in spirit. ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24 max-w-2xl"
+        >
+          <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
+            One more thing, since some folks wonder. This company belongs to{' '}
+            <span className="text-foreground font-bold">Jesus Christ</span>. We&rsquo;re not ashamed of Him, and
+            we&rsquo;re not going to sell you with Him either. We just try to build like we&rsquo;ll answer for the
+            work &mdash; because we will. We fall short plenty. The door stays open anyway.
+          </p>
+        </motion.div>
+
+        {/* ─── Scar tissue ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading sub="Not the branding kind of vulnerability. The kind where reality happened and the product changed.">
+            Rules we paid for.
+          </SectionHeading>
+          <div className="space-y-4">
+            {SCARS.map((s) => (
+              <div key={s.date} className="border border-border/20 bg-card/10 rounded-[1.75rem] p-6 md:p-8">
+                <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">{s.date}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                  <div>
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">What happened</p>
+                    <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.happened}</p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">What changed</p>
+                    <p className="text-sm md:text-[15px] text-muted-foreground font-medium leading-relaxed">{s.changed}</p>
+                    <p className="mt-2 text-sm font-bold text-foreground">Enforced: {s.enforced}</p>
+                    <Link href={s.receipt.href} className="mt-2 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                      {s.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ─── The place ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-24"
+        >
+          <SectionHeading>Alexandria is not <span className="text-primary">a branding adjective.</span></SectionHeading>
+          <div className="max-w-2xl space-y-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
+            <p>
+              <span className="text-foreground font-bold">{BUSINESS.address.streetAddress}, Alexandria, Louisiana {BUSINESS.address.postalCode}.</span>{' '}
+              Call first &mdash; we may be at somebody&rsquo;s shop.
+            </p>
+            <p>
+              If you&rsquo;re in Louisiana, Mississippi, East Texas, southern Arkansas, or around Wichita, we&rsquo;ll
+              drive to you and sit at your table. Everywhere else, the same people do the same work remotely.
+            </p>
+          </div>
+          <details className="mt-6 max-w-2xl group">
+            <summary className="cursor-pointer font-mono text-[11px] font-black uppercase tracking-[0.2em] text-faint hover:text-foreground transition-colors list-none">
+              Outside record <span className="text-primary group-open:hidden">+</span><span className="text-primary hidden group-open:inline">−</span>
+            </summary>
+            <p className="mt-3 text-sm text-muted-foreground font-medium leading-relaxed">
+              {AWARD.year} {AWARD.full} &mdash; awarded to Found It by the {AWARD.issuer}, for the region&rsquo;s
+              highest traded revenue. It&rsquo;s the one plaque we&rsquo;ll mention; receipts age better than awards.
+            </p>
+          </details>
+        </motion.div>
+
+        {/* ─── The ask ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -255,20 +538,22 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="text-center py-16 border-t border-border/10"
         >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Fifteen Minutes{' '}
-            <span className="text-primary">With Trevor.</span>
+          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+            Bring us <span className="text-primary">the ugly part.</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            A conversation about your business.
+          <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-xl mx-auto mb-8">
+            The spreadsheet. The notebook. The employee who knows everything. The invoice nobody followed up.
+            Show us how the work really moves, and we&rsquo;ll tell you whether software should touch it.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto max-w-sm">
-              <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Book a Free Call
-              </LiquidButton>
-            </Link>
-          </div>
+          <Link href="/map" className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+            Show Us How It Runs
+          </Link>
+          <p className="mt-5 text-sm text-muted-foreground font-medium">
+            About thirty minutes. The map is yours either way. If generic software is the better answer, we say so.
+          </p>
+          <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
+            Or text (318) 713-3781. Trevor answers.
+          </p>
         </motion.div>
 
       </div>
