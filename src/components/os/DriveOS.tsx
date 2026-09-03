@@ -348,6 +348,69 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
 
   const t = () => clock(now ?? new Date());
 
+  /* "cool looking but just ok" fix (Trevor 9/3): the demo answers you, the
+     demo tracks what you've tried, the demo wears your name. All of it reads
+     the live reducer state — nothing canned, the arithmetic spine untouched. */
+  const [shop, setShop] = useState(SHOP);
+  const [naming, setNaming] = useState(false);
+  const [nameDraft, setNameDraft] = useState('');
+  const [asked, setAsked] = useState(false);
+  const [triedCheat, setTriedCheat] = useState(false);
+  const [askQ, setAskQ] = useState('');
+  const [askAnswer, setAskAnswer] = useState<{ lead: string; rows?: { l: string; v: string }[] } | null>(null);
+  const [askMiss, setAskMiss] = useState(false);
+  useEffect(() => { if (s.editWarn) setTriedCheat(true); }, [s.editWarn]);
+  const landed = s.entries.some((e) => e.id.startsWith('p'));
+  const sentChase = s.debtors.some((d) => d.status === 'sent');
+  const drives: { done: boolean; label: string; goTo: TabId; hint?: string }[] = [
+    { done: s.ringCount > 0, label: 'Ring a sale yourself', goTo: 'register' },
+    { done: triedCheat, label: 'Try to cheat the books', goTo: 'books' },
+    { done: asked, label: 'Ask the books a question', goTo: 'books' },
+    { done: sentChase, label: 'Send a chase — your tap, not hers', goTo: 'money' },
+    { done: landed, label: 'Catch money landing on its own', goTo: 'today', hint: 'just wait — the shop works while you look around' },
+  ];
+  const doneCount = drives.filter((d) => d.done).length;
+
+  /* Answers computed from the live books — rings you just made are in them. */
+  const askBooks = (raw: string) => {
+    const q = raw.trim();
+    if (!q) return;
+    if (/match|difference|balanc|penny|reconcil|check/i.test(q)) {
+      setAskAnswer({
+        lead: `Billed ${money(billed)} = collected + open. Difference: ${money(difference)}.`,
+        rows: [{ l: 'Checked every night, automatically', v: '12:00 AM' }],
+      });
+    } else if (/owe|unpaid|outstanding|receivab|money|late/i.test(q)) {
+      setAskAnswer({
+        lead: `${s.debtors.length} open invoice${s.debtors.length === 1 ? '' : 's'} — ${money(open)} out there right now.`,
+        rows: s.debtors.map((d) => ({ l: `${d.name} · ${d.age}`, v: money(d.amount) })),
+      });
+    } else if (/today|collect|made|ring|rang|sale|revenue|bank/i.test(q)) {
+      const you = s.entries.filter((e) => e.by === 'you' && e.amount > 0).reduce((n, e) => n + e.amount, 0);
+      setAskAnswer({
+        lead: `Collected today: ${money(collected)}.`,
+        rows: you > 0 ? [{ l: 'Rung by you, just now', v: money(you) }] : undefined,
+      });
+    } else {
+      setAskMiss(true);
+      setAskAnswer(null);
+      return;
+    }
+    setAskMiss(false);
+    setAsked(true);
+    setAskQ('');
+  };
+
+  const saveName = () => {
+    const clean = nameDraft.replace(/[<>]/g, '').trim().slice(0, 28);
+    setNaming(false);
+    if (!clean || clean === shop) return;
+    setShop(clean);
+    setToast(`Fitted to ${clean}`);
+    pulse();
+    setTimeout(() => setToast(null), 3200);
+  };
+
   return (
     <motion.div
       initial={reduce ? false : { opacity: 0, y: 28, scale: 0.985 }}
@@ -371,7 +434,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
               <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
             </div>
             <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.18em] text-white/70 truncate">
-              {SHOP}<span className="hidden sm:inline"> <span className="text-white/30">·</span> Found It OS</span>
+              {shop}<span className="hidden sm:inline"> <span className="text-white/30">·</span> Found It OS</span>
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -451,7 +514,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                 transition={{ delay: 0.45 }}
                 className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40"
               >
-                Fitted to {SHOP}
+                Fitted to {shop}
               </motion.p>
               {!reduce && (
                 <motion.div
@@ -507,9 +570,38 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                     <p className="text-xl sm:text-2xl font-black italic tracking-tight text-white mb-1">
                       {greeting(now)}, boss.
                     </p>
-                    <p className="text-[13px] text-white/50 font-medium mb-5">
+                    <p className="text-[13px] text-white/50 font-medium mb-2">
                       Here&rsquo;s what happened while you were away.
                     </p>
+                    <div className="flex items-center gap-2.5 mb-5 flex-wrap min-h-[30px]">
+                      {!naming ? (
+                        <>
+                          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">{shop} · demo books</span>
+                          <button
+                            type="button"
+                            onClick={() => { setNaming(true); setNameDraft(''); }}
+                            className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-primary hover:opacity-80 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                          >
+                            put your name on it →
+                          </button>
+                        </>
+                      ) : (
+                        <form onSubmit={(e) => { e.preventDefault(); saveName(); }} className="flex items-center gap-2">
+                          <input
+                            value={nameDraft}
+                            onChange={(e) => setNameDraft(e.target.value)}
+                            maxLength={28}
+                            placeholder="Your shop&rsquo;s name"
+                            autoFocus
+                            aria-label="Put your shop's name on the demo"
+                            className="w-48 rounded-full bg-black/40 border border-primary/40 px-3.5 py-1.5 font-mono text-base sm:text-[11px] text-white placeholder:text-white/30 focus:outline-none focus:border-primary transition-colors"
+                          />
+                          <button type="submit" className="px-3.5 py-1.5 rounded-full bg-primary text-black font-mono text-[10px] font-black uppercase tracking-wider hover:opacity-90">
+                            Fit it
+                          </button>
+                        </form>
+                      )}
+                    </div>
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
                         <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/40 mb-1.5">Collected today</p>
@@ -519,6 +611,46 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                         <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/40 mb-1.5">Owed, oldest first</p>
                         <Amount k="open" value={open} className="text-xl sm:text-2xl font-black tracking-tight text-primary tabular-nums" />
                       </div>
+                    </div>
+                    <div className={`rounded-2xl border p-4 mb-6 transition-colors duration-500 ${doneCount === 5 ? 'border-emerald-400/50 bg-emerald-400/[0.06]' : 'border-primary/25 bg-primary/[0.04]'}`}>
+                      <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-white/40 mb-2.5">
+                        Drive it · <span className={doneCount === 5 ? 'text-emerald-400' : 'text-primary'}>{doneCount}/5</span>
+                      </p>
+                      {doneCount === 5 ? (
+                        <div>
+                          <p className="text-[14px] font-black italic tracking-tight text-emerald-400 mb-1">
+                            You just ran a shop for two minutes. The books kept up with every move.
+                          </p>
+                          <a href="#lead-form" className="text-[13px] font-bold text-white underline decoration-emerald-400/50 underline-offset-4 hover:decoration-emerald-400 transition-colors">
+                            That was theirs — now see yours →
+                          </a>
+                        </div>
+                      ) : (
+                        <ul className="space-y-2">
+                          {drives.map((d) => (
+                            <li key={d.label}>
+                              <button
+                                type="button"
+                                onClick={() => go(d.goTo)}
+                                className="flex items-center gap-2.5 text-left group focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary rounded"
+                              >
+                                <span
+                                  className={`w-4 h-4 rounded-full border flex items-center justify-center text-[9px] font-black shrink-0 transition-colors ${
+                                    d.done ? 'bg-emerald-400 border-emerald-400 text-black' : 'border-white/25 text-transparent group-hover:border-primary/60'
+                                  }`}
+                                  aria-hidden
+                                >
+                                  ✓
+                                </span>
+                                <span className={`text-[12.5px] font-medium transition-colors ${d.done ? 'text-white/40 line-through decoration-white/25' : 'text-white/80 group-hover:text-white'}`}>
+                                  {d.label}
+                                  {!d.done && d.hint && <span className="block font-mono text-[9px] uppercase tracking-[0.1em] text-white/35">{d.hint}</span>}
+                                </span>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                     <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-white/40 mb-3">Overnight, by the secretary</p>
                     <ul className="space-y-2.5">
@@ -654,7 +786,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                           className="absolute right-2 bottom-2 max-sm:bottom-20 w-60 text-left bg-[#F4EFE6] text-[#141414] rounded-t-lg p-4 pb-5 shadow-[0_18px_50px_rgba(0,0,0,0.6)] font-mono cursor-pointer"
                           aria-label="Receipt printed — tap to see it land in the books"
                         >
-                          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-center">{SHOP}</p>
+                          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-center">{shop}</p>
                           <p className="text-[9px] uppercase tracking-[0.12em] text-center text-black/50 mb-2">Ticket #{s.receipt.n} · {t()}</p>
                           <div className="border-t border-dashed border-black/30 my-2" />
                           {s.receipt.lines.map((l) => (
@@ -701,7 +833,7 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                           {d.status === 'draft' && (
                             <div className="rounded-xl bg-black/40 border border-white/[0.07] p-3">
                               <p className="text-[12px] text-white/70 font-medium leading-relaxed mb-2">
-                                &ldquo;Hey {d.name.split(' ')[0]} — {SHOP} here. {d.job.split(',')[0]} is still open,{' '}
+                                &ldquo;Hey {d.name.split(' ')[0]} — {shop} here. {d.job.split(',')[0]} is still open,{' '}
                                 {money(d.amount)}. Want a payment link?&rdquo;
                               </p>
                               <div className="flex items-center gap-3">
@@ -745,8 +877,65 @@ export function DriveOS({ appMode = false }: { appMode?: boolean } = {}) {
                     </AnimatePresence>
                     <p className="text-lg sm:text-xl font-black italic tracking-tight text-white mb-1">The books.</p>
                     <p className="text-[13px] text-white/50 font-medium mb-4">
-                      Every line permanent. Go ahead — try the little pencil.
+                      Every line permanent. Go ahead — try the little pencil. Or just ask.
                     </p>
+                    <form onSubmit={(e) => { e.preventDefault(); askBooks(askQ); }} className="mb-4">
+                      <div className="flex gap-2">
+                        <input
+                          value={askQ}
+                          onChange={(e) => { setAskQ(e.target.value); if (askMiss) setAskMiss(false); }}
+                          placeholder="Ask the books…"
+                          aria-label="Ask the demo books a question in plain English"
+                          className="flex-1 min-w-0 rounded-full bg-black/40 border border-white/[0.12] px-4 py-2.5 font-mono text-base sm:text-[12px] text-white placeholder:text-white/35 focus:outline-none focus:border-primary/60 transition-colors"
+                        />
+                        <button type="submit" className="shrink-0 px-4 rounded-full bg-primary text-black font-black uppercase tracking-wider text-[10px] hover:opacity-90 transition-opacity">
+                          Ask
+                        </button>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {['Who owes me money right now?', 'Do the books match?', 'What did we collect today?'].map((c) => (
+                          <button
+                            key={c}
+                            type="button"
+                            onClick={() => askBooks(c)}
+                            className="rounded-full border border-white/[0.12] px-3 py-1 font-mono text-[10px] text-white/60 hover:border-primary/50 hover:text-white transition-colors"
+                          >
+                            {c}
+                          </button>
+                        ))}
+                      </div>
+                      {askMiss && (
+                        <p className="mt-2 font-mono text-[10px] text-white/45">
+                          These demo books know money owed, matching, and today — tap a question above.
+                        </p>
+                      )}
+                      <AnimatePresence>
+                        {askAnswer && (
+                          <motion.div
+                            initial={reduce ? false : { opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            className="mt-3 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.05] p-3.5"
+                            aria-live="polite"
+                          >
+                            <p className="text-[13px] font-bold text-emerald-400 mb-1.5">{askAnswer.lead}</p>
+                            {askAnswer.rows && (
+                              <ul className="space-y-1">
+                                {askAnswer.rows.map((r) => (
+                                  <li key={r.l} className="flex justify-between gap-3 text-[12px] font-medium text-white/70">
+                                    <span className="truncate">{r.l}</span>
+                                    <span className="font-mono tabular-nums shrink-0">{r.v}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/40">
+                              Answered from these books, live — including what you just did
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </form>
                     <div aria-live="polite">
                       <AnimatePresence>
                         {s.editWarn && (
