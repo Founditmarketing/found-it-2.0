@@ -13,9 +13,9 @@ const ease = [0.16, 1, 0.3, 1] as const;
 /* The team lives HERE now — /team 301s to /about#team (merged 8/16).
    Public roster law: Trevor, Reece, Thomas. */
 const teamMembers = [
-  { name: 'Trevor Ruby', role: 'Founder', image: '/trevorruby.jpeg' },
-  { name: 'Reece Roberts', role: 'Head of Client Systems & AI Search', image: '/reese-roberts.jpeg' },
-  { name: 'Thomas Dombrowski', role: 'Director of Client Relations', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
+  { name: 'Trevor Ruby', role: 'Founder / Builder', image: '/trevorruby.jpeg' },
+  { name: 'Reece Roberts', role: 'Support', image: '/reese-roberts.jpeg' },
+  { name: 'Thomas Dombrowski', role: 'Backup Support', image: '/thomas-dombrowski.jpeg', objectPosition: 'center 10%' },
 ] as { name: string; role: string; image: string; objectPosition?: string }[];
 
 const stats = [

@@ -11,6 +11,10 @@ export type Post = {
   image: string;
   /** Skip the big hero image; the post opens straight on its first line. */
   hideHero?: boolean;
+  /** Browser-tab/search title when it should differ from the visible headline
+   *  (keyword SEO lives here, the headline stays human). OG keeps `title`. */
+  seoTitle?: string;
+  seoDescription?: string;
   /** Opt-in: mount the live AI secretary (VoiceAgentWidget) under the body,
    *  above Keep Reading. Leads post to /api/lead under `source`; `opener` is
    *  her first line on that post. Posts without it render exactly as before. */
@@ -380,9 +384,11 @@ export const blogPosts: Post[] = [
 
     {
         slug: 'government-bid-finder-tree-service',
-        title: 'We Built a Tree Company a Machine That Finds Money.',
+        title: 'The Big Contractors Had a Bid Department. We Built Tyler One.',
+        seoTitle: 'Tree Service Government Bid Finder | Walls Case Study',
+        seoDescription: 'How Walls Tree Service\u2019s owned software finds public jobs, compares 78,019 bid-tab lines, identifies prime contractors, and drafts source-backed sub-quotes.',
         date: '2026-08-27',
-        excerpt: 'There’s a road in Caldwell Parish the state is about to spend millions on, and every tree in the way has to come down first. The big contractors knew for weeks. Tyler Walls found out at breakfast.',
+        excerpt: 'The work was public. The advantage belonged to companies that could afford someone to see it. So we built Walls Tree Service its own bid department \u2014 and a road job landed on Tyler\u2019s board before his coffee got cold.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
         image: '/images/blog/walls-scout-og-v1.png',
@@ -391,58 +397,91 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Alexandria, Louisiana.</p>
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">There's a road in Caldwell Parish called LA 557.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The state is about to spend <span style="color: #FF5500;">$2.5 to $5 million</span> on it.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">And every tree in the way <span style="color: #FF5500;">has to come down first.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The state advertised the job at <span style="color: #FF5500;">$2.5 to $5 million.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Buried in the package is a line Tyler Walls knows how to do:</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Clearing and grubbing.</span></p>
 
-<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">SEPT 9</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the day bids open — it's been sitting in a public filing system for weeks, written for lawyers, read by nobody with a chainsaw</div></div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The advertisement reads: clearing and grubbing, grading, drainage structures, base course, pavement patching, milling, asphalt overlay, and related work. One of those is tree work. The rest is why nobody with a chainsaw ever reads it.</p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The big contractors already know about it. They pay whole departments to read government paperwork. That's the cheat code, and it's why the same names win everything.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Not because they're better with a saw.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Because they're the only ones who know the work exists.</span></p>
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">SEPT 9</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">the day bids open \u2014 it sat in a public filing system for weeks, written for lawyers, read by nobody with a chainsaw</div></div>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">So we built Walls Tree Service a bid department.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">A machine that finds money.</span></p>
+<p style="font-family: monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; border: 1px solid #333; border-radius: 8px; padding: 0.6em 0.9em; margin: 0 0 1.6em;">LA 557 \u00b7 SCOUT sweep Aug 15, 2026 \u00b7 Letting Sept 9, 2026 \u00b7 <a href="https://wwwapps.dotd.la.gov/engineering/lettings/" target="_blank" rel="noopener" style="color: #FF5500;">Source: Louisiana DOTD</a></p>
 
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-board-v1.png" alt="The Board: a sweeping radar, open public bids matched to clearing work, scored and priced — every figure traced to a public record" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The project was not a secret. The date was public. The scope was public. The documents were public. That's the strange part.</p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It reads the government's filing cabinets every day so Tyler never has to. Every job scored, priced, and traced to the public record. LA 557 was on his board <span style="color: #FF5500;">before his coffee got cold.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Tyler had a tree company to run.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">His Tuesday already had crews, customers, equipment, and whatever the weather dropped in somebody's yard. He did not start a tree company out of a lifelong interest in procurement portals.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Big contractors pay whole departments to watch lettings, read bid packages, and track pricing before the first machine reaches the road.</p>
 
-<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$50M&ndash;$81M</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">sitting on his board the week I wrote this — nine live jobs</div></div>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">They don't always win because they're better with a saw.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Sometimes they win because they can afford more people to know the work exists.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Now the part that should make the big boys sweat.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When Louisiana lets a road job, it publishes <strong>every bidder's price on every line item.</strong> What winning actually cost. Public. Going back years. Read by no one.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">So we built Tyler the department.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">We call it SCOUT.</span></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Calling it a bid finder makes it sound ordinary \u2014 bid-finding platforms already exist. SCOUT was built to do something narrower and more useful: <strong>understand Walls Tree Service well enough to throw away everything that doesn't fit.</strong> It knows the work Tyler does, the territory he serves, and the project sizes worth his time. Every day it reads the filing cabinets, rejects the noise, scores what's left, and shows its reasons.</p>
+
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-board-v1.png" alt="The Board: open public bids matched to clearing work, scored and priced \u2014 every figure traced to a public record" style="border-radius: 12px; border: 1px solid #333;" /></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">LA 557 landed with the scope, the parish, the letting date, the estimated range, a match score, and links back to the source. Not \u201chere is a project\u201d \u2014 <span style="color: #FF5500;">here is why this one belongs on your desk.</span> It was on his board before his coffee got cold.</p>
+
+<div style="margin: 2em 0; padding: 1em 1.2em; border: 1px solid #333; border-radius: 16px;"><div style="font-size: clamp(44px, 8vw, 76px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$50.5M&ndash;$81M</div><div style="font-size: clamp(15px, 2vw, 18px); opacity: 0.8; margin-top: 0.4em;">combined advertised value of the nine matched projects on his board the week I wrote this \u2014 not nine contracts won, and not money promised to Walls</div></div>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That distinction is not fine print. Nine public construction projects containing work his company may be fit to perform \u2014 pipeline, not revenue. <strong>The difference between the two is the difference between intelligence and hype.</strong></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Finding the work is half the job.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A job you never see earns nothing. A job you price badly can earn less.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">When Louisiana opens road bids, it publishes how every bidder priced every line item. Not what the work secretly cost anybody \u2014 <strong>what each contractor offered to charge.</strong> The market's own paper trail. Public. Going back years. Read by no one.</p>
+
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Tyler's machine has read <span style="color: #FF5500;">78,019 of those lines.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">756 projects. 24 months. Every figure linked to the bid tab it came from.</p>
 
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-context-v1.png" alt="What clearing sold for: winning unit prices off real bid tabs — every figure linked to the public record it came from" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-context-v1.png" alt="What clearing sold for: winning unit prices off real bid tabs \u2014 every figure linked to the public record it came from" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">So he's not guessing what clearing goes for. <span style="color: #FF5500;">He's reading the market's own receipts.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">For clearing work it pulls the comparable projects, isolates the winning unit prices, and shows the range and the median \u2014 the source printed under every number. And when the record is too thin, the box stays blank.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">A blank box is cheaper than a confident lie.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One tap turns it into a paper.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One tap makes a first draft.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Not a final bid.</span></p>
 
-<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-quote-v1.png" alt="The sub-quote: the letting's clearing lines priced from winning bids, on one page for the prime contractor" style="border-radius: 12px; border: 1px solid #333;" /></p>
+<p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-quote-v1.png" alt="The sub-quote: the letting's clearing lines priced from winning bids, sources printed with the paper" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The job's clearing lines, priced at what winners bid, sources printed on page two. A prime calls — Tyler hands him a priced sub-quote <span style="color: #FF5500;">the same hour.</span> No history on an item? The box comes up blank. <strong>This machine doesn't invent numbers.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A Walls-branded sub-quote, its suggested price informed by comparable winning bids, the records behind it printed with the paper. Then Tyler does the part the software must not pretend to do: he reads the plans, walks the scope, prices access, equipment, crew time, and risk \u2014 and decides what number he's willing to put his name behind.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It even tells him <span style="color: #FF5500;">who to call.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The software handles the memory.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Tyler handles the judgment.</span></p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Then it tells him who buys the work.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Walls Tree Service doesn't need to become the company paving the highway. It needs to be the clearing subcontractor the winning prime knows to call. SCOUT tracks <strong>71 prime contractors</strong> who won jobs with clearing inside \u2014 <strong>277 wins in the last 24 months, $22.6 million of clearing-item value on their winning tabs</strong> \u2014 phone numbers exactly as published on the bid results.</p>
 
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/walls-scout-primes-v1.png" alt="Primes to call: contractors who won jobs with clearing inside, phone numbers exactly as published on the bid results" style="border-radius: 12px; border: 1px solid #333;" /></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Seventy-one contractors won jobs around here with clearing buried inside. Their phone numbers, straight off the public record. <span style="color: #FF5500;">Tap one and it's ringing.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">\u201cThere may be government work somewhere\u201d just became: here's the project, here's what comparable work sold for, here's who buys it, here's the number. <span style="color: #FF5500;">Tap it and it's ringing.</span> At that point it isn't a PDF anymore. It's a person Tyler can talk to.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I showed Tyler this at a lunch table.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">He signed at the lunch table.</span></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I put it in front of Tyler at lunch.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">He signed at the same table.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Most software demos explain what a system might do later. This one had already done it \u2014 found the work, assembled the pricing history, and put the buyers' phone numbers on the screen before Tyler had bought anything. He wasn't buying another dashboard. He was giving his company a department it had never been big enough to hire.</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One more thing. <span style="color: #FF5500;">It's banned from bidding.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It never submits a bid in his name, and it doesn't pretend to see private work that never gets published. It finds, it prices, it hands him the paper — <strong>the handshake stays his.</strong> Custom software is knowing what to refuse.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One rule: <span style="color: #FF5500;">SCOUT is not allowed to bid.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It can find, filter, compare, and draft. It cannot submit a bid, agree to a scope, pick Tyler's final price, sign his name, or pretend a public database has walked the jobsite. The handshake stays his. <strong>Custom software is knowing what to refuse.</strong></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It lives inside the same black-and-orange system where his receptionist answers the phone and his invoices chase themselves. His code. His data. His name on the title.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It lives inside the same black-and-orange system where his receptionist answers the phone and his invoices follow up. Built around Walls Tree Service. Walls owns the code, the data, and the operating rules.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana. Somewhere, a government computer is publishing money your industry never reads.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above shows Tyler's real system reading real public records — government bid data anyone can look up, source-linked under every figure. No customer information, ever.</em></p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">This isn't a story about tree software.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every small business has a department it needs but can't quite justify hiring. Filings nobody reads. Quotes nobody follows up. Invoices nobody catches. Calls nobody answers after hours. Numbers nobody reconciles until something goes wrong.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Big companies solve it with headcount.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Small companies solve it with the owner staying late.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That gap used to be normal. It's becoming optional. Somewhere, a public computer is publishing work your company would want. The work isn't hidden \u2014 nobody at your company has been assigned to see it. Now that job can belong to software. The decision still belongs to you.</p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What department is your business missing?</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Show us the repetitive work, the buried information, the missed opportunity nobody at your company has time to own.</p>
+<p style="margin: 1.2em 0 2em;"><a href="/map" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Us the Bottleneck &rarr;</a></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above is Walls Tree Service's real system reading source-linked public records \u2014 government bid data anyone can look up. The project ranges shown are total advertised construction values, not projected Walls Tree Service revenue. No customer information, ever.</em></p>
 `,
     },
-
     {
         slug: 'bail-bonds-management-software',
         title: 'She\'s Never Gonna Touch That Pen, Ever Again.',
