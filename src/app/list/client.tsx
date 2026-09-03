@@ -659,7 +659,7 @@ export default function ListClient() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7, ease }}
-          className="mt-12 border-l-4 border-primary bg-card/20 rounded-r-2xl px-6 py-6"
+          className="mt-32 md:mt-44 border-l-4 border-primary bg-card/20 rounded-r-2xl px-6 py-6"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3">
             A text I got last week
@@ -696,8 +696,9 @@ export default function ListClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, ease }}
           id="watch"
-          className="mt-14 scroll-mt-28"
+          className="mt-32 md:mt-44 scroll-mt-28"
         >
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
             Don&rsquo;t take my word for it
           </p>
@@ -712,14 +713,14 @@ export default function ListClient() {
         </div>
 
         {/* ─── Items 01–03, open ─── */}
-        <div className="mt-20 space-y-16 sm:space-y-20">
+        <div className="mt-32 md:mt-44 space-y-16 sm:space-y-20">
           {ITEMS_OPEN.map((item) => (
             <Entry key={item.n} item={item} animate />
           ))}
         </div>
 
         {/* ─── The gate, or the rest of the list ─── */}
-        <div className="mt-20">
+        <div className="mt-32 md:mt-44">
           {unlocked ? (
             <motion.div
               initial={justUnlocked ? { opacity: 0, y: 16 } : false}
@@ -753,8 +754,9 @@ export default function ListClient() {
               </div>
 
               {/* ─── The catch ─── */}
-              <div className="pt-4 border-t border-primary/20">
-                <h2 className="font-heading text-3xl font-black uppercase italic tracking-tighter text-foreground mb-5">
+              <div className="pt-10 md:pt-14 border-t border-primary/20">
+                <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+                <h2 className="font-heading text-4xl font-black uppercase italic tracking-tighter text-foreground mb-5">
                   The HVAC guy was right.
                 </h2>
                 <p className="text-[17px] leading-relaxed text-foreground/85">
@@ -780,7 +782,8 @@ export default function ListClient() {
             Item 01, live. Closes the article in BOTH states — after the gate
             when locked, after the doctrine line when open. Her card is the
             only UI here: no band, no button, an editorial lead-in and her. */}
-        <div className="mt-20 pt-10 border-t border-white/10">
+        <div className="mt-32 md:mt-44 pt-10 border-t border-white/10">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
             Which one?
           </p>

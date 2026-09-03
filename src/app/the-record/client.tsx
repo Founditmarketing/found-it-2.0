@@ -93,7 +93,7 @@ function LiveStrip({ record }: { record: LiveRecord }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease }}
-      className="mb-24"
+      className="mb-32 md:mb-44"
     >
       <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] sm:tracking-[0.35em] text-muted-foreground mb-3">
         Live · read from the ledger at render
@@ -180,7 +180,7 @@ export default function TheRecordClient({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease }}
-          className="text-center mb-16"
+          className="text-center mb-24 md:mb-32"
         >
           <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.22em] sm:tracking-[0.35em] text-muted-foreground mb-5">
             Nightly reconciliation, published live
@@ -256,7 +256,7 @@ export default function TheRecordClient({
             </div>
           </div>
         </motion.div>
-        <p className="text-center text-xs text-muted-foreground font-medium mb-24">
+        <p className="text-center text-xs text-muted-foreground font-medium mb-32 md:mb-44">
           Sample numbers, real mechanics. Client Records appear here as each owner signs off
           on publishing, and every counter starts at zero.
         </p>
@@ -274,12 +274,13 @@ export default function TheRecordClient({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
             Methodology
           </p>
-          <h2 className="text-2xl lg:text-3xl font-black font-heading uppercase tracking-tight mb-8">
+          <h2 className="text-3xl lg:text-4xl font-black font-heading uppercase tracking-tight mb-8">
             How these numbers are produced
           </h2>
           <div className="divide-y divide-border/15 border-y border-border/15">
@@ -301,8 +302,9 @@ export default function TheRecordClient({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="mb-24 max-w-2xl"
+          className="mb-32 md:mb-44 max-w-2xl"
         >
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground mb-3">
             Why we publish it
           </p>

@@ -49,7 +49,7 @@ export default function PricingClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center mb-16"
+          className="text-center mb-24 md:mb-32"
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Found It OS Pricing</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
@@ -140,9 +140,10 @@ export default function PricingClient() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="bg-card/10 border border-border/20 rounded-3xl p-8 lg:p-10 mb-16"
+          className="bg-card/10 border border-border/20 rounded-3xl p-8 lg:p-10 mb-32 md:mb-44"
         >
-          <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
             If You Own It, Why Is There a Monthly Fee?
           </h2>
           <p className="text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
@@ -165,7 +166,7 @@ export default function PricingClient() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="grid md:grid-cols-2 gap-4 mb-16"
+          className="grid md:grid-cols-2 gap-4 mb-32 md:mb-44"
         >
           <div className="bg-card/10 border border-primary/20 rounded-2xl p-6 lg:p-8">
             <p className="text-[9px] font-black uppercase tracking-[0.3em] text-primary mb-3">The Monthly Covers</p>
@@ -208,7 +209,7 @@ export default function PricingClient() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="bg-card/5 border border-border/10 rounded-2xl p-6 lg:p-8 mb-16"
+          className="bg-card/5 border border-border/10 rounded-2xl p-6 lg:p-8 mb-32 md:mb-44"
         >
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Beyond the OS</p>
           <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Everything Else We Build</h3>
@@ -237,7 +238,8 @@ export default function PricingClient() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="text-center py-16 border-t border-border/10"
         >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
             Show Us How Your Business Runs.
           </h2>
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">

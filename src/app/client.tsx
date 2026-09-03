@@ -24,7 +24,7 @@ export default function HomePage() {
           The reel stayed the star of its own section below; it just no
           longer opens cold. No customer counts here, ever (retired 8/16).
       ═══════════════════════════════════════════ */}
-      <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden">
+      <section className="relative pt-28 lg:pt-36 pb-20 md:pb-28 overflow-hidden">
         {/* Hero gradient wash + one authored light source behind the headline */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
         <div
@@ -128,7 +128,7 @@ export default function HomePage() {
           THREE FITTINGS — proof before demonstration. Another owner's
           numbers open the sale; our screens close it below.
       ═══════════════════════════════════════════ */}
-      <section id="proof" className="relative py-14 lg:py-24 scroll-mt-20">
+      <section id="proof" className="relative py-16 md:py-28 scroll-mt-20">
         <div className="max-w-[1100px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
               Three Fittings.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
@@ -202,7 +203,7 @@ export default function HomePage() {
           THE REEL — the demonstration, now that the sale has started.
           (8/19): automations in motion, not dashboards at rest.
       ═══════════════════════════════════════════ */}
-      <section id="reel" className="relative py-14 lg:py-24 scroll-mt-20">
+      <section id="reel" className="relative py-16 md:py-28 scroll-mt-20">
         <div className="max-w-[1100px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -211,7 +212,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-10 lg:mb-12"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5 uppercase italic">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] text-foreground mb-5 uppercase italic">
               Watch It Work.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -245,7 +247,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           FLAGSHIP — Found It OS, the site's primary offer
       ═══════════════════════════════════════════ */}
-      <section id="foundit-os" className="relative py-12 lg:py-20 scroll-mt-20">
+      <section id="foundit-os" className="relative py-16 md:py-28 scroll-mt-20">
         <div className="max-w-[1000px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -256,7 +258,8 @@ export default function HomePage() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
             <div className="relative z-10 p-8 lg:p-12">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter leading-[0.9] text-foreground mb-5">
+              <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] text-foreground mb-5">
                 One System Runs Your Whole Business. And You Own It.
               </h2>
               <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
@@ -332,7 +335,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           ASK THE OS — the demo beat, self-serve
       ═══════════════════════════════════════════ */}
-      <section className="relative py-16 lg:py-24">
+      <section className="relative py-16 md:py-28">
         <div className="max-w-[1000px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -341,7 +344,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
               Ask It. It Answers.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
@@ -391,11 +395,12 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease }}
           >
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
             <p className="text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mb-4">
               We don&rsquo;t build this for everyone.{' '}
               <Link href="/fit" className="text-primary hover:underline">Check your fit in 60 seconds</Link>
             </p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
               Walk Out With the Map.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">

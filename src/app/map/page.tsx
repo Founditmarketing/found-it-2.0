@@ -19,14 +19,14 @@ export const metadata: Metadata = {
 
 export default function MapPage() {
   return (
-    <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-24 relative overflow-hidden">
+    <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-32 md:pb-44 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-[1050px] mx-auto px-6 relative z-10">
         {/* The promise, kept */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-24 lg:mb-32">
           <p className="opacity-0 animate-reveal-up-sm delay-200 text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
             The Software Map &middot; Free in a 30-Minute Fitting
           </p>
@@ -43,6 +43,7 @@ export default function MapPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           {/* What the paper says */}
           <div className="opacity-0 animate-reveal-up delay-400 order-2 lg:order-1">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
             <p className="text-xs font-black uppercase tracking-[0.25em] text-primary mb-5">
               What&rsquo;s On It
             </p>

@@ -38,7 +38,7 @@ export default function DrivePage() {
       </div>
 
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-4 sm:mb-8">
+        <div className="text-center mb-4 sm:mb-16">
           <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-4">
             Drive One &middot; Sample Data &middot; Live Behavior
           </p>
@@ -59,8 +59,9 @@ export default function DrivePage() {
 
         <DriveOS appMode />
 
-        <div id="lead-form" className="text-center mt-12 scroll-mt-28">
-          <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-6">
+        <div id="lead-form" className="text-center mt-32 md:mt-44 scroll-mt-28">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+          <p className="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-6">
             That was theirs. <span className="text-primary">Now see yours.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -82,8 +83,9 @@ export default function DrivePage() {
           </p>
         </div>
 
-        <div id="talk-to-her" className="mt-16 scroll-mt-24 max-w-[820px] mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground text-center">
+        <div id="talk-to-her" className="mt-32 md:mt-44 scroll-mt-24 max-w-[820px] mx-auto">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
+          <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground text-center">
             One part of the system answers the phone. <span className="text-primary">Talk to it.</span>
           </h2>
           <p className="text-base text-muted-foreground font-medium leading-relaxed mb-6 max-w-xl mx-auto text-center">

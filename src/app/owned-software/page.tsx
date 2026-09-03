@@ -116,7 +116,7 @@ export default function OwnedSoftwarePage() {
             businesses deciding they should own the software they run on.
           </span>
         </p>
-        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-12 max-w-2xl">
+        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-32 md:mb-44 max-w-2xl">
           And to be straight about it: SaaS is often the right answer for commodity tools &mdash;
           email, documents, storage. Owned software matters most when the system{' '}
           <span className="text-foreground font-bold">is</span> the business: the jobs, the
@@ -124,7 +124,7 @@ export default function OwnedSoftwarePage() {
         </p>
 
         {/* The test */}
-        <div className="bg-card/10 border border-border/15 rounded-3xl p-7 lg:p-9 mb-12">
+        <div className="bg-card/10 border border-border/15 rounded-3xl p-7 lg:p-9 mb-32 md:mb-44">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">
             The Owned Software Test
           </p>
@@ -147,7 +147,7 @@ export default function OwnedSoftwarePage() {
             The workshop line is the honest boundary: Found It's internal
             build tooling stays home because the client's system doesn't
             need it to run. */}
-        <div className="border border-primary/40 rounded-3xl p-7 lg:p-9 mb-12 bg-card/10">
+        <div className="border border-primary/40 rounded-3xl p-7 lg:p-9 mb-32 md:mb-44 bg-card/10">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">
             The Owned Software Standard
           </p>
@@ -180,10 +180,11 @@ export default function OwnedSoftwarePage() {
         </div>
 
         {/* FAQ — visible mirror of the schema */}
-        <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
+        <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+        <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
           Questions, Answered
         </h2>
-        <div className="space-y-6 mb-14">
+        <div className="space-y-6 mb-32 md:mb-44">
           {faq.map((f) => (
             <div key={f.q} className="border-b border-border/15 pb-6">
               <h3 className="text-lg font-black tracking-tight text-foreground mb-2">{f.q}</h3>
@@ -193,7 +194,7 @@ export default function OwnedSoftwarePage() {
         </div>
 
         {/* Cross-links */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-14">
+        <div className="grid sm:grid-cols-3 gap-4 mb-24 md:mb-32">
           {[
             { title: 'Owned Software vs SaaS', sub: 'The side-by-side', href: '/owned-software-vs-saas' },
             { title: 'The Manifesto', sub: 'Why the category needed a name', href: '/blog/what-is-owned-software' },
