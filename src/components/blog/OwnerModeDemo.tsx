@@ -207,8 +207,7 @@ export default function OwnerModeDemo() {
           Try Owner Mode on this page
         </p>
         <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
-          Tell this article what to change, in your own words. A live AI restyles your local copy of
-          the page. Ask it to touch the structure and watch it refuse. That refusal is the whole idea.
+          This article edits itself when you ask. <span className="text-foreground font-bold">Tap an example below</span> and watch the page change. The last one gets refused on purpose.
         </p>
         <form
           onSubmit={(e) => {
@@ -223,7 +222,7 @@ export default function OwnerModeDemo() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={busy ? 'Owner Mode is working...' : 'Type any change...'}
+            placeholder={busy ? 'Owner Mode is working...' : 'Or type your own change...'}
             disabled={busy}
             className="flex-1 h-12 w-full rounded-full bg-background/60 border border-border/30 px-5 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60"
           />
@@ -235,6 +234,7 @@ export default function OwnerModeDemo() {
             {busy ? '...' : 'Change it'}
           </button>
         </form>
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground mb-2">Tap one to try it</p>
         <div className="grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2 mb-1 pr-10 sm:pr-0">
           {SUGGESTED.map((s) => (
             <button
@@ -244,6 +244,7 @@ export default function OwnerModeDemo() {
               onClick={() => run(s)}
               className="text-left text-[13px] sm:text-xs font-semibold text-muted-foreground border border-border/30 rounded-2xl sm:rounded-full px-4 py-2.5 sm:px-3.5 sm:py-1.5 hover:border-primary/50 hover:text-foreground transition-colors disabled:opacity-60"
             >
+              <span className="text-primary font-black mr-1.5" aria-hidden>&rsaquo;</span>
               {s}
             </button>
           ))}
