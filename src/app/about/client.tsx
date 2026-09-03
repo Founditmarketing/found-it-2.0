@@ -458,7 +458,7 @@ export default function AboutPage() {
             <div className="space-y-8 md:space-y-10">
               {[
                 ['2013', 'Found It Marketing opens in Bogata, Texas.', 'Population 1,000 and change.'],
-                ['LATER', 'The company moves to Alexandria, Louisiana.', 'And grows up inside Cenla businesses.'],
+                ['AUG 15, 2015', 'The company moves to Alexandria, Louisiana.', 'And grows up inside Cenla businesses.'],
                 ['2026', 'The first owned systems ship.', 'The dated record is the ship log.'],
                 ['AUG 2026', 'New marketing work ends.', 'Found It Software is the company.'],
                 ['TODAY', 'Systems building and running across Louisiana.', 'The named ones are in the case studies.'],
