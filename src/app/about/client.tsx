@@ -279,9 +279,10 @@ function DisappearDemo() {
 
 function SectionHeading({ children, sub }: { children: React.ReactNode; sub?: string }) {
   return (
-    <div className="mb-8">
-      <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground">{children}</h2>
-      {sub && <p className="mt-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{sub}</p>}
+    <div className="mb-10 md:mb-12">
+      <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+      <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground text-balance">{children}</h2>
+      {sub && <p className="mt-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{sub}</p>}
     </div>
   );
 }
@@ -301,9 +302,9 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="mb-16"
+          className="mb-24 md:mb-32"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-7">
             Small enough <span className="text-primary block">to see all of it.</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
@@ -335,12 +336,12 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24 scroll-mt-28"
+          className="mb-32 md:mb-44 scroll-mt-28"
         >
           <SectionHeading sub="Nothing below asks you to take our word. Each one opens the record it lives in.">
             What is true <span className="text-primary">right now.</span>
           </SectionHeading>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
               { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
               { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
@@ -365,7 +366,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24 scroll-mt-28"
+          className="mb-32 md:mb-44 scroll-mt-28"
         >
           <SectionHeading sub="Not job titles — the life of your system, stage by stage, with the person who answers for each one. No anonymous queue anywhere in it.">
             Who has <span className="text-primary">the keyboard.</span>
@@ -432,7 +433,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading>There was no <span className="text-primary">lightning-bolt day.</span></SectionHeading>
           <div className="max-w-2xl space-y-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed mb-8">
@@ -440,20 +441,26 @@ export default function AboutPage() {
             <p>AI lowered the cost of building serious custom software enough to make it practical for those same businesses.</p>
             <p>We built one system. Then another. The software became the work.</p>
             <p>In 2026, we stopped taking new marketing clients and made Found It Software the company.</p>
-            <p className="text-foreground font-bold">That&rsquo;s the whole origin story.</p>
+            <p className="pt-2 text-xl md:text-2xl font-black uppercase italic tracking-tight text-foreground">That&rsquo;s the whole origin story.</p>
           </div>
-          <div className="border-l border-border/25 pl-6 space-y-4 font-medium">
-            {[
-              ['2013', 'Found It Marketing opens in Bogata, Texas. Population 1,000 and change.'],
-              ['LATER', 'The company moves to Alexandria, Louisiana and grows up inside Cenla businesses.'],
-              ['2026', 'The first owned systems ship. The dated record is the ship log.'],
-              ['AUG 2026', 'New marketing work ends. Found It Software is the company.'],
-              ['TODAY', 'Systems building and running across Louisiana — the named ones are in the case studies.'],
-            ].map(([d, t]) => (
-              <p key={d} className="text-sm md:text-base text-muted-foreground">
-                <span className="font-mono text-xs font-black uppercase tracking-[0.15em] text-primary mr-3">{d}</span>{t}
-              </p>
-            ))}
+          <div className="relative pl-8 md:pl-10">
+            <div className="absolute left-[5px] md:left-[6px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border/40 to-primary/60" aria-hidden />
+            <div className="space-y-8 md:space-y-10">
+              {[
+                ['2013', 'Found It Marketing opens in Bogata, Texas.', 'Population 1,000 and change.'],
+                ['LATER', 'The company moves to Alexandria, Louisiana.', 'And grows up inside Cenla businesses.'],
+                ['2026', 'The first owned systems ship.', 'The dated record is the ship log.'],
+                ['AUG 2026', 'New marketing work ends.', 'Found It Software is the company.'],
+                ['TODAY', 'Systems building and running across Louisiana.', 'The named ones are in the case studies.'],
+              ].map(([d, t, sub]) => (
+                <div key={d} className="relative">
+                  <span className="absolute -left-8 md:-left-10 top-[7px] w-[11px] h-[11px] md:w-[13px] md:h-[13px] rounded-full bg-primary shadow-[0_0_14px_rgba(255,85,0,0.5)]" aria-hidden />
+                  <p className="font-mono text-xs md:text-sm font-black uppercase tracking-[0.2em] text-primary mb-1">{d}</p>
+                  <p className="text-lg md:text-2xl font-black tracking-tight text-foreground leading-snug">{t}</p>
+                  <p className="text-sm md:text-base text-muted-foreground font-medium">{sub}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <p className="mt-6 text-sm text-muted-foreground font-medium max-w-2xl">
             The $99,000 QuickBooks story is real &mdash; it&rsquo;s evidence, not the origin.{' '}
@@ -467,7 +474,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading sub="The most important thing about Found It is what happens without Found It. Go ahead.">
             Make us <span className="text-primary">disappear.</span>
@@ -481,7 +488,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading>What we are. <span className="text-primary">What we are not.</span></SectionHeading>
           <div className="space-y-6">
@@ -505,9 +512,10 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24 max-w-2xl"
+          className="mb-32 md:mb-44 max-w-xl mx-auto text-center py-14 md:py-16 border-y border-border/15"
         >
-          <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mx-auto mb-8" aria-hidden />
+          <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed">
             One more thing, since some folks wonder. This company belongs to{' '}
             <span className="text-foreground font-bold">Jesus Christ</span>. We&rsquo;re not ashamed of Him, and
             we&rsquo;re not going to sell you with Him either. We just try to build like we&rsquo;ll answer for the
@@ -521,7 +529,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. Every claim below carries its status and its receipt — and the audit is allowed to catch our own copy. It has.">
             Marketing does not get <span className="text-primary">write access.</span>
@@ -551,7 +559,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading sub="Not the branding kind of vulnerability. The kind where reality happened and the product changed.">
             Rules we paid for.
@@ -585,7 +593,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading>Alexandria is not <span className="text-primary">a branding adjective.</span></SectionHeading>
           <div className="max-w-2xl space-y-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
@@ -615,7 +623,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-24"
+          className="mb-32 md:mb-44"
         >
           <SectionHeading sub="Most About pages convert the future into past tense. This one keeps the tense correct. Items move to the audit above only with a date and a receipt.">
             What we have <span className="text-primary">not earned yet.</span>
