@@ -5,11 +5,14 @@ import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from './ClientSideFormattedDate';
 
 /**
- * Server-rendered blog listing — three newest posts as stacked horizontal
- * rows (Trevor 8/25: "horizontal rectangles, stacked, cleaner"). Thumb left,
- * words right, the whole row is one tap target. Older posts stay live at
- * their URLs, just unlisted. NOT a client component — pages must paint
- * without JS; motion is pure CSS.
+ * The reading room (9/3 redesign — Trevor: "not memorable, just a list of
+ * links with weird pics"). The old rows crammed 1200×630 poster cards into
+ * tall thumbnail slivers; the crops were the weird pics. The fix uses what
+ * this blog actually owns: headlines. The newest post runs its poster at
+ * TRUE aspect, full width. Every other post joins a big-type ledger —
+ * date rail, headline at display size, one-line excerpt, hairlines — the
+ * same ledger language as /about. The titles are the artwork.
+ * Still a server component: paints without JS.
  */
 export function BlogList() {
   if (!blogPosts || blogPosts.length === 0) {
@@ -21,14 +24,12 @@ export function BlogList() {
     );
   }
 
-  /* Full catalog (Trevor 8/31: "show all posts in the list") — every post in
-     blog-posts.ts is software-era; the marketing-days posts were never
-     migrated into this file, so nothing needs filtering. */
-  const visiblePosts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));
+  const sorted = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date));
+  const [latest, ...rest] = sorted;
 
   return (
     <div className="max-w-[900px]">
-      <div className="mb-8 lg:mb-14 min-w-0">
+      <div className="mb-10 lg:mb-16 min-w-0">
         <h1 className="text-[7vw] sm:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 lg:mb-6">
           Plain-English Notes<br />
           <span className="text-primary">For Business Owners.</span>
@@ -38,53 +39,63 @@ export function BlogList() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 lg:gap-5 animate-fade-in-up">
-        {visiblePosts.map((post, i) => (
+      {/* The newest post wears its poster at the ratio it was designed at. */}
+      <Link href={`/blog/${latest.slug}`} className="group block mb-14 lg:mb-20 animate-fade-in-up">
+        <div className="relative aspect-[1200/630] rounded-2xl lg:rounded-3xl overflow-hidden border border-border/25 group-hover:border-primary/40 transition-colors duration-500">
+          <Image
+            src={latest.image}
+            alt={latest.title}
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 900px"
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+          />
+        </div>
+        <div className="mt-5 lg:mt-7">
+          <p className="font-mono text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
+            Latest ·{' '}
+            <time dateTime={latest.date} className="text-muted-foreground">
+              <ClientSideFormattedDate dateString={latest.date} />
+            </time>
+          </p>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground uppercase italic tracking-tighter leading-[0.95] group-hover:text-primary transition-colors duration-300 text-balance">
+            {latest.title}
+          </h2>
+          <p className="mt-3 text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl line-clamp-2">
+            {latest.excerpt}
+          </p>
+          <span className="mt-4 inline-flex items-center gap-2 text-xs font-black text-primary uppercase tracking-[0.2em]">
+            Read the post
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </span>
+        </div>
+      </Link>
+
+      {/* The ledger: every other post as its headline, full size. */}
+      <div className="border-t border-border/15">
+        {rest.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group relative flex items-stretch gap-4 sm:gap-6 min-w-0 bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl lg:rounded-3xl p-3.5 sm:p-5 shadow-lg hover:border-primary/40 transition-all duration-500 overflow-hidden"
+            className="group grid grid-cols-1 md:grid-cols-[130px_1fr] gap-x-8 gap-y-1.5 py-8 lg:py-10 border-b border-border/15 hover:bg-card/10 transition-colors duration-300 md:-mx-5 md:px-5 rounded-lg"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-            <div className="relative w-24 sm:w-40 lg:w-48 self-stretch min-h-[6.5rem] sm:min-h-[8rem] shrink-0 rounded-xl lg:rounded-2xl overflow-hidden">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                priority={i === 0}
-                sizes="(max-width: 640px) 96px, 192px"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-            </div>
-
-            <div className="relative z-10 flex flex-col justify-center min-w-0 py-0.5 flex-grow">
-              <div className="flex items-center gap-2 mb-1.5">
-                {i === 0 && (
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary-foreground bg-primary px-2 py-0.5 rounded-full">
-                    Latest
-                  </span>
-                )}
-                <time
-                  dateTime={post.date}
-                  className="text-[10px] sm:text-[11px] text-muted-foreground font-mono font-bold uppercase tracking-[0.15em]"
-                >
-                  <ClientSideFormattedDate dateString={post.date} />
-                </time>
-              </div>
-
-              <h2 className="text-base sm:text-xl lg:text-2xl font-black text-foreground uppercase italic tracking-tight leading-tight line-clamp-3 sm:line-clamp-2 group-hover:text-primary transition-colors duration-300">
+            <time
+              dateTime={post.date}
+              className="font-mono text-[11px] text-muted-foreground font-bold uppercase tracking-[0.15em] md:pt-2.5"
+            >
+              <ClientSideFormattedDate dateString={post.date} />
+            </time>
+            <div className="min-w-0">
+              <h2 className="text-xl sm:text-2xl lg:text-[2rem] font-black text-foreground uppercase italic tracking-tighter leading-[1.02] group-hover:text-primary transition-colors duration-300 text-balance">
                 {post.title}
               </h2>
-
-              <p className="hidden sm:block text-sm text-muted-foreground font-medium leading-relaxed line-clamp-1 mt-2">
+              <p className="mt-2 text-sm lg:text-[15px] text-muted-foreground font-medium leading-relaxed line-clamp-2 max-w-2xl">
                 {post.excerpt}
               </p>
-
-              <div className="mt-2.5 inline-flex items-center text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.2em]">
-                Read The Post
-                <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-black text-primary uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 max-md:opacity-60 transition-opacity duration-300">
+                Read the post
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
           </Link>
         ))}
