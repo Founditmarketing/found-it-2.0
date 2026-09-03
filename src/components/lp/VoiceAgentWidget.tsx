@@ -189,6 +189,18 @@ const MIC_REOPEN_TAIL_MS = 400;
  *  ever missed, the mic comes back on its own. */
 const MIC_MAX_MUTE_MS = 20_000;
 
+/* ─── Barge-in (9/2 — "she needs to hear someone while she's speaking") ───
+   The half-duplex gate stays (8/19 law: echo must never start turns), but a
+   LOCAL loud-speech detector can now open it mid-sentence. The meter reads a
+   clone of the mic stream — the WebRTC track is silenced while she talks,
+   the clone never is — so the detector hears the room even when she can't.
+   Deliberately stiff: echo leak and cross-talk sit under BARGE_LEVEL after
+   echo cancellation; a visitor who actually raises their voice clears it.
+   "Not super easily — make them really speak up." */
+const BARGE_LEVEL = 0.4;        // meter level (min(1, RMS*4)); speech floor is 0.16
+const BARGE_SUSTAIN_MS = 450;   // must hold the level this long, continuously-ish
+const BARGE_COOLDOWN_MS = 1_500;
+
 export function VoiceAgentWidget({
   pageSlug, source: sourceOverride, opener, className = '', fallbackHref = '#lp-form',
   mode = 'talk', script, idleTitle, idleLines, sticky = false, warm = false,
@@ -253,6 +265,9 @@ export function VoiceAgentWidget({
   const rafRef = useRef<number | null>(null);
   const barRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const loudMsRef = useRef(0);
+  const bargeMsRef = useRef(0);
+  const bargeAtRef = useRef(0);
+  const meterStreamRef = useRef<MediaStream | null>(null);
   const lastServerHeardRef = useRef(0);
   const missedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Slow-network plumbing.
@@ -299,6 +314,24 @@ export function VoiceAgentWidget({
     if (watchdogRef.current) { clearTimeout(watchdogRef.current); watchdogRef.current = null; }
   };
 
+  /** The visitor spoke up loud enough, long enough, while she was talking:
+   *  stop her generation, flush her buffered audio, and open the mic NOW —
+   *  the visitor is mid-sentence and the server needs to start hearing it.
+   *  The stopped/cleared handler skips its usual clear-and-wait when a barge
+   *  just fired, so the visitor's first words aren't wiped at +400ms. */
+  const bargeIn = () => {
+    const dc = dcRef.current;
+    if (!dc || dc.readyState !== 'open') return;
+    bargeAtRef.current = Date.now();
+    bargeMsRef.current = 0;
+    dc.send(JSON.stringify({ type: 'response.cancel' }));
+    dc.send(JSON.stringify({ type: 'output_audio_buffer.clear' }));
+    closeAi();
+    clearMicGateTimers();
+    setMicOpen(true);
+    trackCTAClick(`voice_barge_in_${pageSlug}`);
+  };
+
   /* ─── Teardown ─── */
   const cleanup = useCallback(() => {
     if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
@@ -329,6 +362,8 @@ export function VoiceAgentWidget({
     pcRef.current = null;
     micRef.current?.getTracks().forEach((t) => t.stop());
     micRef.current = null;
+    meterStreamRef.current?.getTracks().forEach((t) => t.stop());
+    meterStreamRef.current = null;
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.srcObject = null;
@@ -422,6 +457,16 @@ export function VoiceAgentWidget({
       for (let i = 0; i < BAR_SHAPE.length; i++) {
         const el = barRefs.current[i];
         if (el) el.style.height = `${3 + level * BAR_SHAPE[i] * 13}px`;
+      }
+      // Barge-in: only counts while she talks, only at real volume, and it
+      // drains fast on quiet — a cough or the TV doesn't cut her off, a
+      // visitor who raises their voice for half a second does.
+      if (herTalkingRef.current && Date.now() - bargeAtRef.current > BARGE_COOLDOWN_MS) {
+        if (level > BARGE_LEVEL) bargeMsRef.current += dt;
+        else bargeMsRef.current = Math.max(0, bargeMsRef.current - dt * 3);
+        if (bargeMsRef.current > BARGE_SUSTAIN_MS) bargeIn();
+      } else {
+        bargeMsRef.current = 0;
       }
       // Speech-ish input accumulates; silence decays it twice as fast.
       if (level > 0.16) loudMsRef.current += dt;
@@ -626,13 +671,18 @@ export function VoiceAgentWidget({
         // spawned a NEW response on top of itself. interrupt_response:false
         // stops her being cut off; it does not stop echo from starting
         // turns. So the mic track closes while she talks — a sales-room
-        // speakerphone does the same thing, and the UI already says
-        // "let her finish."
+        // speakerphone does the same thing. Since 9/2 the LOCAL barge-in
+        // detector (clone stream, BARGE_LEVEL) is the one way through:
+        // really speak up and bargeIn() reopens this gate mid-sentence.
         setMicOpen(false);
         break;
       case 'output_audio_buffer.stopped':
       case 'output_audio_buffer.cleared':
         setHerTalking(false);
+        // A barge just opened the mic on purpose — the visitor is mid-word.
+        // Skip the clear-and-wait: clearing at +400ms would wipe the very
+        // speech that earned the interruption.
+        if (Date.now() - bargeAtRef.current < BARGE_COOLDOWN_MS) break;
         // Reopen after the room's echo tail dies, and drop anything the
         // server buffered between her last word and the mute landing.
         if (unmuteTimerRef.current) clearTimeout(unmuteTimerRef.current);
@@ -680,6 +730,8 @@ export function VoiceAgentWidget({
     setAfterStatus((s) => (s === 'error' ? 'idle' : s));
     leadCountRef.current = 0;
     loudMsRef.current = 0;
+    bargeMsRef.current = 0;
+    bargeAtRef.current = 0;
     lastServerHeardRef.current = Date.now();
     trackCTAClick(`voice_agent_start_${pageSlug}`);
 
@@ -710,7 +762,13 @@ export function VoiceAgentWidget({
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 512;
       analyser.smoothingTimeConstant = 0.6;
-      ctx.createMediaStreamSource(mic).connect(analyser);
+      // The meter listens to a CLONE of the mic: cloned tracks keep their own
+      // enabled flag, so the half-duplex gate silences only what the server
+      // hears — the room stays audible locally, which is what lets the
+      // barge-in detector work while she's talking.
+      const meterStream = mic.clone();
+      meterStreamRef.current = meterStream;
+      ctx.createMediaStreamSource(meterStream).connect(analyser);
       audioCtxRef.current = ctx;
       analyserRef.current = analyser;
     } catch { /* meter is progressive enhancement */ }
@@ -835,7 +893,7 @@ export function VoiceAgentWidget({
   const liveStatus = herTalking && youTalking
     ? 'She hears you. Let her finish…'
     : herTalking
-    ? (mode === 'narrate' ? 'She’s reading the list…' : 'She’s talking…')
+    ? (mode === 'narrate' ? 'She’s reading the list…' : 'She’s talking — speak up to cut in.')
     : youTalking
     ? 'She hears you…'
     : missed
