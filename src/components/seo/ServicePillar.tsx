@@ -133,7 +133,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </nav>
 
         {/* Hero */}
-        <header className="mb-14">
+        <header className="mb-24 md:mb-32">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
             <PersonalizedChip />
@@ -204,9 +204,10 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </header>
 
         {data.proof && (
-          <section className="mb-16">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
             <p className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-primary mb-4">{data.proof.kicker}</p>
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
               {data.proof.headline} <span className="text-primary">{data.proof.headlineAccent}</span>
             </h2>
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
@@ -229,8 +230,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         {/* The floor, page-sized: this system's captures drift past right under
             the hero. Tapping any frame jumps to the full stages below. */}
         {data.automationReel && (
-          <section id="watch" className="mb-16 scroll-mt-24">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
+          <section id="watch" className="mb-32 md:mb-44 scroll-mt-24">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
               This Is What Automated <span className="text-primary">Looks Like.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-8 max-w-2xl">
@@ -245,7 +247,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Stats */}
-        <section aria-label="Track record" className="mb-16">
+        <section aria-label="Track record" className="mb-32 md:mb-44">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {data.stats.map((s) => (
               <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
@@ -258,11 +260,14 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Demo video — a screen tour of the actual system */}
         {data.demoVideo && (
-          <section aria-label="Product demo" className="mb-16">
+          <section aria-label="Product demo" className="mb-32 md:mb-44">
             {data.demoVideo.heading && (
-              <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-                {data.demoVideo.heading}
-              </h2>
+              <>
+                <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+                <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter text-foreground mb-2">
+                  {data.demoVideo.heading}
+                </h2>
+              </>
             )}
             {data.demoVideo.sub && (
               <p className="text-muted-foreground font-medium mb-6 max-w-2xl">{data.demoVideo.sub}</p>
@@ -282,8 +287,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Definition — answer-first for AI Overviews */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
             {data.definitionHeading}
           </h2>
           <div className="border-l-4 border-primary pl-6">
@@ -294,8 +300,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         {/* The definition, made audible: every system ships with the AI
             secretary — here she is, live, right where the claim was made. */}
         {data.voiceDemo && !data.voiceDemoHero && (
-          <section id="talk-to-her" className="mb-16 scroll-mt-24">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
+          <section id="talk-to-her" className="mb-32 md:mb-44 scroll-mt-24">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 text-foreground">
               One part of the system answers the phone. <span className="text-primary">Talk to it.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
@@ -307,8 +314,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* What's included */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.includedHeading}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -322,8 +330,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </section>
 
         {/* Approach */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.approachHeading}
           </h2>
           {data.approachIntro && (
@@ -344,8 +353,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Who it's for */}
         {data.audience && data.audience.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
               {data.audienceHeading || "Who It's For"}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -361,8 +371,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Chips */}
         {data.chips && data.chips.length > 0 && (
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
             {data.chipsHeading}
           </h2>
           <div className="flex flex-wrap gap-3">
@@ -377,8 +388,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Result */}
         {data.result && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
               {data.result.headline}
             </h2>
             <div className="bg-card/15 border border-border/20 rounded-3xl p-8 lg:p-10">
@@ -397,8 +409,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Common mistakes */}
         {data.mistakes && data.mistakes.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
               {data.mistakesHeading || 'Common Mistakes We Fix'}
             </h2>
             <div className="space-y-4">
@@ -413,8 +426,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {data.trust && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
               {data.trust.headline} <span className="text-primary">{data.trust.headlineAccent}</span>
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -429,8 +443,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {data.offerCard && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
               {data.pricingHeading || 'The Whole Price'}
             </h2>
             <div className="bg-card/15 border border-primary/30 rounded-3xl p-8 lg:p-10">
@@ -458,8 +473,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Pricing / what to expect */}
         {!data.offerCard && data.pricing && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
               {data.pricingHeading || 'What to Expect'}
             </h2>
             <div className="bg-card/15 border border-border/20 rounded-2xl p-6 lg:p-8">
@@ -470,8 +486,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Why us */}
         {data.whyUs && data.whyUs.length > 0 && (
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.whyUsHeading}
           </h2>
           <div className="space-y-5">
@@ -486,10 +503,11 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Lead form */}
-        <section id="lead-form" className="mb-16 scroll-mt-28">
+        <section id="lead-form" className="mb-32 md:mb-44 scroll-mt-28">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
-              <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
+              <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+              <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
                 {data.finalCtaHeadline}
               </h2>
               <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6">{data.finalCtaSub}</p>
@@ -507,8 +525,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </section>
 
         {/* FAQ */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
+        <section className="mb-32 md:mb-44">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.faqHeading}
           </h2>
           <div className="space-y-8">
@@ -523,8 +542,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Related reading */}
         {data.compareCtas && data.compareCtas.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+          <section className="mb-32 md:mb-44">
+            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+            <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
               Compare<span className="text-primary">.</span>
             </h2>
             <div className="flex flex-wrap gap-3">
