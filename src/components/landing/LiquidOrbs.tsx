@@ -21,10 +21,10 @@ interface Orb {
   pulseFreq: number;
 }
 
+// Brightest oranges only — the darker mid-oranges go russet-brown at low
+// alpha on the near-black ground (the "hazy" complaint, 9/3).
 const COLORS: [number, number, number][] = [
-  [255, 85, 0],
-  [249, 115, 22],
-  [234, 88, 12],
+  [255, 100, 20],
   [255, 140, 32],
 ];
 
@@ -91,7 +91,10 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
 
     const init = () => {
       orbs.length = 0;
-      const count = w < 640 ? 4 : 5;
+      // De-haze (9/3): big dim orange at low alpha reads as brown smog on a
+      // near-black ground. Fewer, smaller orbs whose light stays close to the
+      // core — embers, not clouds.
+      const count = w < 640 ? 2 : 3;
       const base = Math.min(Math.max(w, h), 1100);
       for (let i = 0; i < count; i++) {
         orbs.push({
@@ -99,7 +102,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
           y: Math.random() * h,
           vx: 0,
           vy: 0,
-          r: base * (0.16 + Math.random() * 0.2),
+          r: base * (0.09 + Math.random() * 0.08),
           color: COLORS[i % COLORS.length],
           phase: Math.random() * Math.PI * 2,
           driftFreq: 0.6 + Math.random() * 0.8,
@@ -111,9 +114,12 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
     const drawOrb = (x: number, y: number, r: number, col: [number, number, number], peak: number) => {
       if (r <= 0) return;
       const a = peak * intensity;
+      // Steep falloff: the old 0.5→28% stop smeared a brown mid-tone across
+      // half the viewport. Light hugs the core; the ground stays black.
       const g = c.createRadialGradient(x, y, 0, x, y, r);
       g.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},${a})`);
-      g.addColorStop(0.5, `rgba(${col[0]},${col[1]},${col[2]},${a * 0.28})`);
+      g.addColorStop(0.28, `rgba(${col[0]},${col[1]},${col[2]},${a * 0.35})`);
+      g.addColorStop(0.6, `rgba(${col[0]},${col[1]},${col[2]},${a * 0.07})`);
       g.addColorStop(1, `rgba(${col[0]},${col[1]},${col[2]},0)`);
       c.fillStyle = g;
       c.beginPath();
@@ -127,7 +133,7 @@ export function LiquidOrbs({ className = '', intensity = 1 }: LiquidOrbsProps) {
       c.globalCompositeOperation = 'lighter';
       for (const o of orbs) {
         const pr = o.r * (1 + Math.sin(t * 0.015 * o.pulseFreq + o.phase) * 0.08);
-        drawOrb(o.x, o.y, pr, o.color, 0.18);
+        drawOrb(o.x, o.y, pr, o.color, 0.16);
       }
       c.globalCompositeOperation = 'source-over';
     };

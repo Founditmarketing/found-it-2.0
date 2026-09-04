@@ -97,7 +97,13 @@ export function ShipLog() {
         {SHIPS} ships &middot; 20 days &middot; <span className="text-primary">yours runs at the same pace</span>
       </p>
 
-      <style>{`
+      {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes
+          the `>` combinators in style text while the client doesn't, and the
+          mismatch made React throw away and re-render the whole document —
+          every page flashed background-only for seconds before hydrating. */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .shiplog-track { animation: shiplog-scroll 55s linear infinite; }
         .shiplog-track.shiplog-reverse { animation-direction: reverse; }
         .shiplog-row:hover .shiplog-track { animation-play-state: paused; }
@@ -110,7 +116,9 @@ export function ShipLog() {
           .shiplog-track > div[data-copy="1"] { display: none; }
           .shiplog-track > div { flex-wrap: wrap; justify-content: center; }
         }
-      `}</style>
+      `,
+        }}
+      />
     </section>
   );
 }

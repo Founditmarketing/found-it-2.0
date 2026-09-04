@@ -6,7 +6,6 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { trackStickyCTAClick, trackBookingClick, initScrollDepth } from '@/lib/analytics';
 import { isBookingUrl } from '@/lib/booking';
-import { LiquidOrbs } from '@/components/landing/LiquidOrbs';
 
 interface LPLayoutProps {
   children: React.ReactNode;
@@ -53,9 +52,10 @@ export function LPLayout({
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* ─── Interactive liquid-light orbs ─── */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <LiquidOrbs />
+      {/* ─── Static ground (orbs retired 9/3 — they read as brown haze on
+          near-black; the hero's own glow is the page's light source) ─── */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#020202]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_-10%,rgba(255,100,20,0.06),transparent_70%)]" />
       </div>
 
       {/* ─── Content ─── */}
