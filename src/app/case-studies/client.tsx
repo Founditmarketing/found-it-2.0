@@ -50,10 +50,38 @@ const apps: AppStudy[] = [
   },
   {
     title: 'The Lawyer OS',
-    trade: 'Law Firm',
+    trade: 'Law Firm · Built with Doggett Law, Alexandria',
     src: '/os-screens/lawyer-os-prescription-v1.png',
     alt: 'Prescription Watch, every open file’s prescription date on one screen, entered by hand, red when ignored (demo data)',
     line: 'Three practice boards and settlement math to the penny. The docket never computes a deadline. A person enters every date, and it turns red if ignored. The demand letter drafts itself from the file. The trust ledger stays the lawyer’s.',
+  },
+  {
+    title: 'Tony’s Shop OS',
+    trade: 'European Auto Repair',
+    src: '/os-screens/tonys-shop-os-v1.png',
+    alt: 'Tony’s Shop OS board. Repair orders, parts, and the day’s money on one screen',
+    line: 'Tekmetric, reverse-engineered for a European auto shop. Repair orders, parts, the counter, and the day’s money on one screen. Running at the shop every day.',
+  },
+  {
+    title: 'LaCaze Outdoor OS',
+    trade: 'Outdoor Equipment Dealership',
+    src: '/os-screens/lacaze-os-ticket-v1.png',
+    alt: 'LaCaze Outdoor OS service ticket. A mower written up with parts and labor on one ticket',
+    line: 'Service writes the ticket. The office sends the invoice and the statement. The owner sees the money. One system for the whole dealership, and the dealership owns it.',
+  },
+  {
+    title: 'Lonestar OS',
+    trade: 'Storage Buildings',
+    src: '/os-screens/lonestar-os-v1.png',
+    alt: 'Lonestar OS order desk. A building order moving from the counter to the production line',
+    line: 'Replaced a rented two-app stack that cost about twenty grand a year. An order walks from the counter to the line to the delivery run without being typed twice.',
+  },
+  {
+    title: 'ECW Field OS',
+    trade: 'Windmill Sales & Service',
+    src: '/os-screens/ecw-field-os-v1.png',
+    alt: 'ECW Field OS. Jobs and crew days run from the phone in the truck',
+    line: 'A field OS for windmill crews. Jobs, days, and money run from the phone in the truck. The website’s question form drops real leads straight onto this board.',
   },
 ];
 
@@ -92,12 +120,17 @@ export default function CaseStudiesPage() {
           className="mb-14 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
         >
           <div className="grid md:grid-cols-2 items-stretch">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/cory-ownership-poster-v4.jpg"
-              alt="Cory Edwards of Edwards Roofing on camera"
-              className="w-full h-full object-cover min-h-[220px]"
-            />
+            {/* the testimonial itself, not a still of it — press play, hear the man */}
+            <video
+              controls
+              preload="none"
+              playsInline
+              poster="/cory-ownership-poster-v4.jpg"
+              className="w-full h-full object-cover min-h-[220px] bg-black"
+              aria-label="Cory Edwards of Edwards Roofing, on camera, on owning his software"
+            >
+              <source src="/cory-ownership-v4.mp4" type="video/mp4" />
+            </video>
             <div className="p-6 lg:p-8">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction</span>
               <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1 mb-4">
@@ -140,6 +173,59 @@ export default function CaseStudiesPage() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* ─── We ran it on ourselves first ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-20 rounded-2xl border border-border/20 bg-card/15 p-6 lg:p-10"
+        >
+          <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">The First Customer Was Us</span>
+          <blockquote className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground leading-[1.05] mt-3 mb-4 [text-wrap:balance]">
+            &ldquo;QuickBooks silently lost $99k of my July.{' '}
+            <span className="text-primary">My books matched the bank to the penny.</span>&rdquo;
+          </blockquote>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-2xl">
+            Trevor Ruby, on Found It&apos;s own books. We run our whole company on the same kind of
+            system we sell &mdash; and automating ourselves saved us between three and four hundred
+            thousand dollars this year. Every claim on this page has a reconciliation behind it.
+          </p>
+          <Link
+            href="/blog/moving-our-own-books"
+            className="inline-flex items-center gap-2 mt-4 text-sm font-black uppercase tracking-wide text-primary hover:underline"
+          >
+            Read that story <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        </motion.div>
+
+        {/* ─── The proof, in writing ─── */}
+        <div className="mb-20">
+          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-5">
+            The Proof, <span className="text-primary">In Writing.</span>
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { href: '/blog/i-fired-quickbooks', tag: 'Field report', title: 'I Fired QuickBooks. In Week One, My New Ledger Asked a $70,000 Question.' },
+              { href: '/blog/giving-owners-full-control', tag: 'Owner Mode', title: 'The Business Had the Truth. The Agency Had the Password.' },
+              { href: '/blog/bail-bonds-management-software', tag: 'Bail bonds', title: 'She’s Never Gonna Touch That Pen, Ever Again.' },
+              { href: '/blog/government-bid-finder-tree-service', tag: 'Tree service', title: 'The Big Contractors Had a Bid Department. We Built Tyler One.' },
+            ].map((post) => (
+              <Link
+                key={post.href}
+                href={post.href}
+                className="group bg-card/10 border border-border/15 rounded-2xl px-5 py-4 flex items-center justify-between gap-3 hover:border-primary/40 transition-colors"
+              >
+                <div className="min-w-0">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{post.tag}</span>
+                  <p className="text-sm font-bold text-foreground leading-snug">{post.title}</p>
+                </div>
+                <ArrowRight className="w-4 h-4 shrink-0 text-primary group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* ─── Ownership band ─── */}
