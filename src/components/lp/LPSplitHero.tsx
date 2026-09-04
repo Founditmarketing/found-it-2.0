@@ -90,7 +90,6 @@ interface LPSplitHeroProps {
  *  cookie naming some other town reads as a lie on the first line. */
 const SERVED_CITIES = new Set([
   'Alexandria', 'Pineville', 'Boyce', 'Ball', 'Woodworth', 'Lecompte',
-  'Wichita', 'Derby', 'Andover', 'Newton', 'Haysville',
 ]);
 
 export function LPSplitHero({

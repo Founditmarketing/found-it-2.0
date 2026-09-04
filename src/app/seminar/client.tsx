@@ -189,7 +189,7 @@ export default function SeminarClient() {
           className="text-center"
         >
           <p className="text-xs text-faint font-medium mb-6">
-            The Owner&apos;s Room meets monthly. Alexandria first. Wichita later.
+            The Owner&apos;s Room meets monthly. Alexandria first.
           </p>
           <Link
             href="/fit"

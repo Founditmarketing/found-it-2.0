@@ -12,6 +12,8 @@ const nextConfig = {
   // and keeping every old ad/email link alive.
   async redirects() {
     return [
+      // Wichita OFF the site (Trevor 9/4): the Kansas experiment LP is gone.
+      { source: '/lp/wichita', destination: '/lp/walkthrough', permanent: true },
       // THE MAP IS OFF THE SITE (Trevor 9/4): page deleted, every CTA points
       // at the walkthrough. Old ads/links land there too.
       { source: '/map', destination: '/lp/walkthrough', permanent: true },
