@@ -37,7 +37,7 @@ const data: PillarData = {
   headline: 'Built for Your Company —',
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, and built for an “industry” instead of for you. We build the opposite: custom AI-powered operating systems fitted to one business at a time. Your jobs, your register, your dispatch board, your customer book — with your years of records migrated in, not abandoned. Your first working screens are live in days, not quarters, and nothing switches until the new system has run beside your old one and matched it.`,
+    `Every local business runs on somebody else’s software — generic, rented, built for an “industry.” We build the opposite: an AI-powered operating system fitted to one business at a time, your records migrated in, first working screens live in days. Nothing switches until it runs beside your old system and matches it.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
@@ -52,7 +52,7 @@ const data: PillarData = {
   automationReel: true,
   definitionHeading: 'What Is Custom Business Software?',
   definition:
-    'Custom business software is a system built around how one specific business actually runs — its jobs, its register, its customer book — instead of a rented product built for an industry average. Off-the-shelf systems make you work their way; whatever doesn’t fit ends up on paper, in spreadsheets, or in somebody’s head. A custom system is the reverse: we map how your business really works, build the software around that, and migrate your existing records into it so day one starts with your history, not a blank screen. Ours goes one step further — a built-in AI you can ask questions in plain English, and it answers from your own data. And when it’s done, you own it. The code, the data, everything.',
+    'A system built around how one business actually runs — its jobs, its register, its customer book — instead of a rented industry average. We map how yours works, build around that, migrate your records in so day one starts with your history, and put an AI on top that answers from your own data in plain English. When it’s done, you own it. The code, the data, everything.',
   includedHeading: 'What Every System We Build Includes',
   included: [
     {
