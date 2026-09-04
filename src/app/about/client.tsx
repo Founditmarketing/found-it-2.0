@@ -39,11 +39,11 @@ const STAGES = [
     reach: 'Text (318) 713-3781. Trevor answers.',
   },
   {
-    id: 'plan',
-    title: 'The First Build Plan',
+    id: 'walkthrough',
+    title: 'The Walkthrough',
     people: ['Trevor'],
-    owns: 'The first system worth building, on one page — what it replaces, what stays human, and what it costs. Saying “generic software is the better answer” out loud when it is.',
-    notOwns: 'Charging for it. The session takes about thirty minutes and the plan is yours either way.',
+    owns: 'The first system worth building — what it replaces, what stays human, what it costs. Shown working on screen, not described on paper. And saying “generic software is the better answer” out loud when it is.',
+    notOwns: 'Charging for it. Thirty minutes, screen-shared, free.',
   },
   {
     id: 'build',
@@ -740,8 +740,8 @@ export default function AboutPage() {
             Start the 60-Second Fit Check
           </Link>
           <p className="mt-5 text-sm text-muted-foreground font-medium">
-            When there&rsquo;s a fit: thirty minutes with Trevor, and your one-page First Build Plan is
-            yours either way. If generic software is the better answer, we say so.
+            When there&rsquo;s a fit: thirty minutes with Trevor, and he shows you the first system
+            we&rsquo;d build &mdash; working, on screen. If generic software is the better answer, we say so.
           </p>
           <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
             Or text (318) 713-3781. Trevor answers.

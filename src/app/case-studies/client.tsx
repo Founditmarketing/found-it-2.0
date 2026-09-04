@@ -665,8 +665,8 @@ export default function CaseStudiesPage() {
           <div className="h-px w-24 bg-primary mx-auto my-8" aria-hidden />
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
             Show us the work your current software still leaves behind. Thirty minutes with
-            Trevor, and you leave with your one-page First Build Plan &mdash; whether you hire
-            us or not. No generic demo. No pitch deck. Straight answer.
+            Trevor and you see the first system we&rsquo;d build for you &mdash; working screens,
+            not slideware. No pitch deck. Straight answer.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Solid primary on purpose (reviewer 9/4: outlined = secondary) */}

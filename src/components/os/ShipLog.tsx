@@ -73,7 +73,7 @@ export function ShipLog() {
           The Ship Log · Since Aug 14 · All of It Real
         </p>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-          Try to Keep Up.
+          Keep Up.
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
           Everything below shipped in the last three weeks, and every line is live right now — on this
