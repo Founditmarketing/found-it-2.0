@@ -37,6 +37,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/vs-grok', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/vs-viktor', priority: 0.85, changeFrequency: 'monthly' },
   { path: '/owned-software-test', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/it-just-works', priority: 0.8, changeFrequency: 'weekly' },
 
   // The Record — before/after case files (evidence page, 8/29/2026)
   { path: '/before-after', priority: 0.8, changeFrequency: 'monthly' },
