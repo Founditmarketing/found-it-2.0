@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
             the way up.
           </p>
           {/* The proof strip — counts DERIVED from the case-file record, never hand-typed */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 border-y border-border/15 divide-x divide-border/10">
+          <div className="grid grid-cols-3 sm:grid-cols-5 border-y border-border/15 divide-x divide-border/10">
             {[
               { n: String(CASE_COUNTS.total), l: 'case files' },
               { n: String(CASE_COUNTS.live), l: 'live' },
@@ -244,7 +244,12 @@ export default function CaseStudiesPage() {
             One real screen recording, then three signature moves replayed on a loop &mdash; demo
             values, real mechanics.
           </p>
-          <div className="grid gap-10">
+          {/* Phones: the machines become a swipe deck (CSS relayout only, so
+              the live demos mount once). sm+: the stacked grid — with
+              minmax(0,1fr) so a demo table or video's intrinsic width can
+              never push the column past the viewport (the 412px-on-390px
+              horizontal-scroll bug the phone audit caught). */}
+          <div className="max-sm:-mx-6 max-sm:px-6 max-sm:flex max-sm:gap-4 max-sm:overflow-x-auto max-sm:snap-x max-sm:snap-mandatory max-sm:pb-2 max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden sm:grid sm:gap-10 sm:grid-cols-[minmax(0,1fr)]">
 
             {/* the real one leads */}
             <motion.div
@@ -253,7 +258,7 @@ export default function CaseStudiesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: ease as any }}
-              className="scroll-mt-28 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
+              className="max-sm:snap-center max-sm:shrink-0 max-sm:w-[88vw] max-sm:min-w-0 scroll-mt-28 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
             >
               <div className="px-5 pt-5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -284,10 +289,10 @@ export default function CaseStudiesPage() {
               { num: '02', id: 'flywheel-demo', side: 'right' as const, width: 'lg:max-w-[88%] lg:ml-auto', label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', before: 'That used to be three supplier calls and twenty minutes of hold music.', el: <TireQuoteDemo /> },
               { num: '03', id: 'procarpet-demo', side: 'left' as const, width: 'lg:max-w-[88%] lg:mr-auto', label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', before: 'That estimate used to die in a text thread.', el: <ChaseDemo /> },
             ].map((demo) => (
-              <div key={demo.id} id={demo.id} className={`relative scroll-mt-28 ${demo.width}`}>
+              <div key={demo.id} id={demo.id} className={`relative max-sm:snap-center max-sm:shrink-0 max-sm:w-[88vw] max-sm:min-w-0 scroll-mt-28 ${demo.width}`}>
                 <span
                   aria-hidden
-                  className={`absolute -top-10 ${demo.side === 'left' ? '-left-6' : '-right-6'} z-0 select-none pointer-events-none font-black italic tracking-tighter text-foreground/[0.04] text-[9rem] lg:text-[12rem] leading-none`}
+                  className={`max-sm:hidden absolute -top-10 ${demo.side === 'left' ? '-left-6' : '-right-6'} z-0 select-none pointer-events-none font-black italic tracking-tighter text-foreground/[0.04] text-[9rem] lg:text-[12rem] leading-none`}
                 >
                   {demo.num}
                 </span>
@@ -310,13 +315,17 @@ export default function CaseStudiesPage() {
                 </motion.div>
               </div>
             ))}
+            <div aria-hidden className="sm:hidden shrink-0 w-2" />
           </div>
+          <p className="sm:hidden mt-3 text-center font-mono text-[10px] font-black uppercase tracking-[0.24em] text-faint">
+            swipe <span className="text-primary">→</span>
+          </p>
         </div>
 
         {/* ─── ACT III · THE LIVE ONE ─── */}
       </div>
 
-      <section className="relative bg-black/40 border-y border-primary/30 py-24 mb-20 z-10">
+      <section className="relative bg-black/40 border-y border-primary/30 py-14 md:py-24 mb-14 md:mb-20 z-10">
         <div className="max-w-[1000px] mx-auto px-6">
           <span className="relative flex h-3 w-3 mb-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -366,7 +375,7 @@ export default function CaseStudiesPage() {
       <div className="max-w-[1000px] mx-auto px-6 relative z-10">
 
         {/* ─── The confession, uncaged ─── */}
-        <section className="relative mb-20 py-24">
+        <section className="relative mb-14 md:mb-20 py-12 md:py-24">
           <span aria-hidden className="absolute -top-10 -left-4 select-none pointer-events-none text-[14rem] font-black text-primary/[0.07] leading-none">&ldquo;</span>
           <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">The First Customer Was Us</span>
           <blockquote className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.95] mt-4">
@@ -439,7 +448,47 @@ export default function CaseStudiesPage() {
         {/* The six case files — statuses and receipts read from the same
             record /before-after renders; the counts in the hero derive from
             this array too. Nothing on this page can drift from the files. */}
-        <div className="mb-8 border-t border-border/15">
+        {/* Phones: dossier rows — stamp + name + receipt visible, the rest on
+            tap (the About claims-audit pattern; native disclosure, no JS) */}
+        <div className="md:hidden mb-8 border-t border-border/15">
+          {CASE_FILES.map((f) => (
+            <details key={f.name} className="group border-b border-border/15">
+              <summary className="list-none cursor-pointer py-5 flex items-start justify-between gap-3 [&::-webkit-details-marker]:hidden">
+                <span className="min-w-0">
+                  <span
+                    className={`inline-block font-mono text-[9px] font-black uppercase tracking-[0.18em] border rounded-md px-2 py-0.5 mb-2 ${
+                      f.status === 'LIVE' ? 'border-primary/60 text-primary' : 'border-border/40 text-muted-foreground'
+                    }`}
+                  >
+                    {f.status}
+                  </span>
+                  <span className="block text-lg font-black uppercase italic tracking-tight text-foreground leading-tight">{f.name}</span>
+                  <span className="block text-xl font-black italic tracking-tighter text-primary leading-tight mt-1.5">{f.receipt}</span>
+                </span>
+                <span className="text-primary font-black transition-transform group-open:rotate-90 mt-7" aria-hidden>›</span>
+              </summary>
+              <div className="pb-5">
+                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-primary">{f.trade}</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-faint mt-0.5 mb-3">{f.filed}</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-3">{f.receiptLabel}</p>
+                {REFUSALS[f.name] && (
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-3">
+                    <span className="font-mono text-[9px] font-black uppercase tracking-[0.18em] text-faint mr-2 whitespace-nowrap">Still true</span>
+                    {REFUSALS[f.name]}
+                  </p>
+                )}
+                <Link
+                  href="/before-after"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wide text-primary hover:underline"
+                >
+                  Open the file <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </details>
+          ))}
+        </div>
+        {/* md+: the open ledger, unchanged */}
+        <div className="hidden md:block mb-8 border-t border-border/15">
           {CASE_FILES.map((f) => (
             <div key={f.name} className="py-6 border-b border-border/15 grid gap-3 md:grid-cols-[230px_1fr] md:gap-8">
               <div>
@@ -492,7 +541,7 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* ─── The fleet, two shelves ─── */}
-        <div className="mb-20">
+        <div className="mb-14 md:mb-20">
           <ActHeader>
             The Rest Of <span className="text-primary">The Fleet.</span>
           </ActHeader>
@@ -550,7 +599,7 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* ─── The proof, in writing ─── */}
-        <div className="mb-20">
+        <div className="mb-14 md:mb-20">
           <ActHeader>
             The Proof, <span className="text-primary">In Writing.</span>
           </ActHeader>
@@ -577,7 +626,7 @@ export default function CaseStudiesPage() {
         </div>
 
         {/* ─── The age, addressed head-on ─── */}
-        <div className="mb-20 border border-border/20 rounded-3xl p-7 md:p-10 bg-card/5">
+        <div className="mb-14 md:mb-20 border border-border/20 rounded-3xl p-6 md:p-10 bg-card/5">
           <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-5">
             The Software Company Is New.{' '}
             <span className="text-primary">The Scar Tissue Is Not.</span>
@@ -604,7 +653,7 @@ export default function CaseStudiesPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center py-20 border-t border-border/10"
+          className="text-center py-14 md:py-20 border-t border-border/10"
         >
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
             You&rsquo;ve Seen What We Built for Them.{' '}
