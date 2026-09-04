@@ -39,11 +39,11 @@ const STAGES = [
     reach: 'Text (318) 713-3781. Trevor answers.',
   },
   {
-    id: 'map',
-    title: 'The Map',
+    id: 'plan',
+    title: 'The First Build Plan',
     people: ['Trevor'],
-    owns: 'Your whole operation on one page — every screen, every automation we’d build. Saying “generic software is the better answer” out loud when it is.',
-    notOwns: 'Charging for it. The map takes about thirty minutes and it’s yours either way.',
+    owns: 'The first system worth building, on one page — what it replaces, what stays human, and what it costs. Saying “generic software is the better answer” out loud when it is.',
+    notOwns: 'Charging for it. The session takes about thirty minutes and the plan is yours either way.',
   },
   {
     id: 'build',
@@ -170,6 +170,14 @@ const HANDOVER = [
   'A plain list of the third-party services that still bill on their own',
 ];
 
+/* ─── The four truths — one source, rendered twice (phone deck / sm+ grid) ─── */
+const TRUTHS = [
+  { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
+  { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
+  { k: 'A machine you can drive', line: 'A working demo OS — sample data, live behavior. Ring a sale. Try to edit the books.', cta: 'Drive it', href: '/drive' },
+  { k: 'The deal itself', line: 'Own the code and the data, month to month, six-item handover if you ever leave.', cta: 'Read the standard', href: '/owned-software' },
+];
+
 /** Alexandria's clock, live. Renders a dash until mounted so SSR never lies. */
 function LocalTime() {
   const [time, setTime] = useState('');
@@ -279,10 +287,10 @@ function DisappearDemo() {
 
 function SectionHeading({ children, sub }: { children: React.ReactNode; sub?: string }) {
   return (
-    <div className="mb-10 md:mb-12">
-      <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
+    <div className="mb-7 md:mb-12">
+      <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-5 md:mb-7" aria-hidden />
       <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground text-balance">{children}</h2>
-      {sub && <p className="mt-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{sub}</p>}
+      {sub && <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl">{sub}</p>}
     </div>
   );
 }
@@ -302,7 +310,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: ease as any }}
-          className="mb-24 md:mb-32"
+          className="mb-16 md:mb-32"
         >
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-7">
             Small enough <span className="text-primary block">to see all of it.</span>
@@ -346,18 +354,40 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44 scroll-mt-28"
+          className="mb-20 md:mb-44 scroll-mt-28"
         >
           <SectionHeading sub="Nothing below asks you to take our word. Each one opens the record it lives in.">
             What is true <span className="text-primary">right now.</span>
           </SectionHeading>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border/15 border border-border/15">
-            {[
-              { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
-              { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
-              { k: 'A machine you can drive', line: 'A working demo OS — sample data, live behavior. Ring a sale. Try to edit the books.', cta: 'Drive it', href: '/drive' },
-              { k: 'The deal itself', line: 'Own the code and the data, month to month, six-item handover if you ever leave.', cta: 'Read the standard', href: '/owned-software' },
-            ].map((c) => (
+          {/* Phones: a swipe deck (the Three Fittings pattern) — four truths
+              in one screen instead of four screens of stacked cells */}
+          <div className="sm:hidden">
+            <div className="-mx-6 px-6 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {TRUTHS.map((c, i) => (
+                <Link
+                  key={c.k}
+                  href={c.href}
+                  className="snap-center shrink-0 w-[80vw] max-w-[330px] bg-card/10 border border-border/15 rounded-2xl p-6 flex flex-col"
+                >
+                  <div className="flex items-baseline justify-between mb-4">
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint">{c.k}</p>
+                    <p className="font-mono text-[10px] font-bold text-faint tabular-nums">{i + 1}/{TRUTHS.length}</p>
+                  </div>
+                  <p className="text-lg font-bold text-foreground leading-snug tracking-tight">{c.line}</p>
+                  <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                    {c.cta} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                  </span>
+                </Link>
+              ))}
+              <div aria-hidden className="shrink-0 w-2" />
+            </div>
+            <p className="mt-3 text-center font-mono text-[10px] font-black uppercase tracking-[0.24em] text-faint">
+              swipe <span className="text-primary">→</span>
+            </p>
+          </div>
+          {/* sm+: the truth grid, unchanged */}
+          <div className="hidden sm:grid sm:grid-cols-2 gap-px bg-border/15 border border-border/15">
+            {TRUTHS.map((c) => (
               <Link key={c.k} href={c.href} className="group bg-background p-7 md:p-10 hover:bg-card/30 transition-colors">
                 <p className="font-mono text-[10px] font-black uppercase tracking-[0.22em] text-faint mb-5">{c.k}</p>
                 <p className="text-xl md:text-2xl font-bold text-foreground leading-snug tracking-tight text-balance">{c.line}</p>
@@ -376,7 +406,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44 scroll-mt-28"
+          className="mb-20 md:mb-44 scroll-mt-28"
         >
           <SectionHeading sub="Not job titles — the life of your system, stage by stage, with the person who answers for each one. No anonymous queue anywhere in it.">
             Who has <span className="text-primary">the keyboard.</span>
@@ -390,7 +420,7 @@ export default function AboutPage() {
                     type="button"
                     onClick={() => setOpenStage(open ? '' : s.id)}
                     aria-expanded={open}
-                    className="w-full flex items-center gap-4 px-6 md:px-8 py-5 text-left hover:bg-card/20 transition-colors"
+                    className="w-full flex items-center gap-3 md:gap-4 px-5 md:px-8 py-4 md:py-5 text-left hover:bg-card/20 transition-colors"
                   >
                     <span className={`font-mono text-xs font-black tabular-nums ${open ? 'text-primary' : 'text-faint'}`}>{i + 1}</span>
                     <span className="flex-1 text-lg md:text-xl font-black uppercase italic tracking-tight text-foreground">{s.title}</span>
@@ -443,7 +473,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading>There was no <span className="text-primary">lightning-bolt day.</span></SectionHeading>
           <div className="max-w-2xl space-y-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed mb-8">
@@ -455,7 +485,7 @@ export default function AboutPage() {
           </div>
           <div className="relative pl-8 md:pl-10">
             <div className="absolute left-[5px] md:left-[6px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border/40 to-primary/60" aria-hidden />
-            <div className="space-y-8 md:space-y-10">
+            <div className="space-y-6 md:space-y-10">
               {[
                 ['2013', 'Found It Marketing opens in Bogata, Texas.', 'Population 1,000 and change.'],
                 ['AUG 15, 2015', 'The company moves to Alexandria, Louisiana.', 'And grows up inside Cenla businesses.'],
@@ -484,7 +514,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading sub="The most important thing about Found It is what happens without Found It. Go ahead.">
             Make us <span className="text-primary">disappear.</span>
@@ -504,10 +534,10 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading>What we are. <span className="text-primary">What we are not.</span></SectionHeading>
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {PAIRS.map(([are, not]) => (
               <div key={are} className="max-w-2xl">
                 <p className="text-lg md:text-xl font-black tracking-tight text-foreground leading-snug">{are}</p>
@@ -528,7 +558,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44 max-w-xl mx-auto text-center py-14 md:py-16 border-y border-border/15"
+          className="mb-20 md:mb-44 max-w-xl mx-auto text-center py-10 md:py-16 border-y border-border/15"
         >
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mx-auto mb-8" aria-hidden />
           <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed">
@@ -545,12 +575,39 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. Every claim below carries its status and its receipt — and the audit is allowed to catch our own copy. It has.">
             Marketing does not get <span className="text-primary">write access.</span>
           </SectionHeading>
-          <div className="border-t border-border/15">
+          {/* Phones: the audit stays scannable — status + claim visible, the
+              finding on tap. Native disclosure, no JS. */}
+          <div className="md:hidden border-t border-border/15">
+            {CLAIMS.map((c) => (
+              <details key={c.claim} className="group border-b border-border/15">
+                <summary className="list-none cursor-pointer py-5 flex items-start justify-between gap-3 [&::-webkit-details-marker]:hidden">
+                  <span className="min-w-0">
+                    <span className={`flex items-center gap-2 font-mono text-[10px] font-black uppercase tracking-[0.15em] ${c.tone} mb-1.5`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-current shrink-0" aria-hidden />
+                      {c.status}
+                    </span>
+                    <span className="block text-lg font-black tracking-tight text-foreground leading-snug">{c.claim}</span>
+                  </span>
+                  <span className="text-primary font-black transition-transform group-open:rotate-90 mt-6" aria-hidden>›</span>
+                </summary>
+                <div className="pb-5">
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{c.note}</p>
+                  {c.receipt && (
+                    <Link href={c.receipt.href} className="mt-3 inline-flex items-center gap-1.5 text-sm text-primary font-black uppercase tracking-wide">
+                      {c.receipt.label} <ArrowRight className="w-3.5 h-3.5" aria-hidden />
+                    </Link>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+          {/* md+: the open ledger, unchanged */}
+          <div className="hidden md:block border-t border-border/15">
             {CLAIMS.map((c) => (
               <div key={c.claim} className="py-8 md:py-10 border-b border-border/15 md:grid md:grid-cols-[1fr_auto] md:gap-10 md:items-start">
                 <div className="max-w-2xl">
@@ -578,15 +635,15 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading sub="Not the branding kind of vulnerability. The kind where reality happened and the product changed.">
             Rules we paid for.
           </SectionHeading>
           <div className="border-t border-border/15">
             {SCARS.map((s) => (
-              <div key={s.date} className="py-9 md:py-12 border-b border-border/15 md:grid md:grid-cols-[200px_1fr] md:gap-12">
-                <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-primary leading-relaxed mb-5 md:mb-0 md:pt-1">{s.date}</p>
+              <div key={s.date} className="py-7 md:py-12 border-b border-border/15 md:grid md:grid-cols-[200px_1fr] md:gap-12">
+                <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-primary leading-relaxed mb-3 md:mb-0 md:pt-1">{s.date}</p>
                 <div className="max-w-2xl">
                   <p className="text-base md:text-lg text-foreground/90 font-medium leading-relaxed">{s.happened}</p>
                   <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.2em] text-emerald-400/90 mb-1.5">What changed</p>
@@ -609,7 +666,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading>Alexandria is not <span className="text-primary">a branding adjective.</span></SectionHeading>
           <div className="max-w-2xl space-y-4 text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
@@ -639,14 +696,14 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-32 md:mb-44"
+          className="mb-20 md:mb-44"
         >
           <SectionHeading sub="Most About pages convert the future into past tense. This one keeps the tense correct. Items move to the audit above only with a date and a receipt.">
             What we have <span className="text-primary">not earned yet.</span>
           </SectionHeading>
           <div className="border-t border-border/15 max-w-3xl">
             {NOT_YET.map(([thing, truth]) => (
-              <div key={thing} className="py-7 md:py-8 border-b border-border/15">
+              <div key={thing} className="py-5 md:py-8 border-b border-border/15">
                 <p className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-snug text-balance">
                   {thing} <span className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-amber-400 ml-2.5 align-middle whitespace-nowrap">Not yet</span>
                 </p>
@@ -665,9 +722,9 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="text-center py-20 md:py-28 border-t border-border/10"
+          className="text-center py-14 md:py-28 border-t border-border/10"
         >
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-loose max-w-xl mx-auto mb-12">
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-loose max-w-xl mx-auto mb-8 md:mb-12">
             Audit summary — new software company · thirteen years inside local businesses · small team ·
             AI used heavily · humans accountable · real systems running · ownership written down ·
             long-term scale not yet proved. That&rsquo;s the company.
@@ -679,11 +736,12 @@ export default function AboutPage() {
             The spreadsheet. The notebook. The employee who knows everything. The invoice nobody followed up.
             Show us how the work really moves, and we&rsquo;ll tell you whether software should touch it.
           </p>
-          <Link href="/fit" className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-            Show Us How It Runs
+          <Link href="/fit" className="inline-flex items-center justify-center w-full sm:w-auto px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+            Start the 60-Second Fit Check
           </Link>
           <p className="mt-5 text-sm text-muted-foreground font-medium">
-            About thirty minutes. The map is yours either way. If generic software is the better answer, we say so.
+            When there&rsquo;s a fit: thirty minutes with Trevor, and your one-page First Build Plan is
+            yours either way. If generic software is the better answer, we say so.
           </p>
           <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
             Or text (318) 713-3781. Trevor answers.
