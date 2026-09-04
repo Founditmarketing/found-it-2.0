@@ -26,7 +26,7 @@ export default function ExitTestCTA({
   const router = useRouter();
   const go = () => {
     const v = runs.trim().slice(0, 200);
-    router.push(v ? `/map?why=${encodeURIComponent(`my business currently runs on ${v}`)}` : '/map');
+    router.push(v ? `/lp/walkthrough?why=${encodeURIComponent(`my business currently runs on ${v}`)}` : '/lp/walkthrough');
   };
   return (
     <div className="max-w-3xl mx-auto px-6 mt-4 mb-8">

@@ -23,7 +23,7 @@ export const BUSINESS = {
   legalName: 'Found It Marketing LLC',
   tagline: 'Custom software your business owns.',
   description:
-    'Custom AI software company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems, owned outright by the client, built to simplify the owner’s life and make the business more profitable — plus custom app development and AI Search Optimization (GEO) so local businesses get recommended by AI. No long-term contracts; clients own their accounts, code, and data.',
+    'Custom AI software company in Alexandria, Louisiana. Builds Found It OS — custom business operating systems, owned outright by the client, built to simplify the owner’s life and make the business more profitable — plus custom app development. No long-term contracts; clients own their accounts, code, and data.',
   url: SITE_URL,
   logo: `${SITE_URL}/og-image-v4.png`,
   image: `${SITE_URL}/og-image-v4.png`,
@@ -86,14 +86,6 @@ export const REVENUE_BANDS = [
   { label: '$5M+ / yr', qualified: true },
 ] as const;
 
-/* ─── The software map's published price ───
-   Trevor 8/14: the map is a FIRST-PARTY $2,000 engagement on its own —
-   price-is-public doctrine applied to the map itself. This is a real,
-   honorable offer: if someone hands us $2,000 for just the map, we deliver
-   just the map. It comes free when a fitting starts, which is how the ad
-   funnel gives it away without cheapening it.
-   RESTRAINT LAW: say it ONCE per page, as plain fact, at the point of the
-   ask — never as a "$2,000 VALUE!" starburst. */
 /* ─── Founding accounts counter ───
    The first twenty accounts signed at $2,200 and are grandfathered forever.
    `taken` is the ONE number to update as founding spots fill. Retire the
@@ -106,6 +98,9 @@ export const FOUNDING = {
   price: '$2,200',
 } as const;
 
+/* RETIRED (Trevor 9/4): the map is OFF the site - page deleted, every CTA
+   re-pointed at /lp/walkthrough, explainer post removed. Nothing renders
+   this; never bring the map framing back. */
 export const MAP_VALUE = {
   standalone: '$2,000',
   /** The one sentence, reused verbatim so the number can never drift. */
@@ -179,12 +174,14 @@ export const SAME_AS = [
 ] as const;
 
 /** Topics the brand is an authority on — strengthens entity understanding for LLMs. */
-/* MARKETING SALES DEAD (Trevor, 2026-08-26): zero new marketing accounts, ever
-   forward. The SOLE marketing service still for sale is AI Search Optimization
-   at $1,500/mo standard, $3,200/mo premium / large market. Google Ads, web
-   design as a service, social media, and AI lead response were removed from
-   this list, SERVICES, nav, footer, sitemap, llms.txt, and the AI scripts.
-   Never reintroduce them as offers. */
+/* MARKETING SALES DEAD (Trevor, 2026-08-26; completed 2026-09-04): zero new
+   marketing accounts, ever forward — and as of 9/4 that includes AI Search
+   Optimization. No marketing service of any kind is for sale to new clients.
+   Google Ads, web design as a service, social media, AI lead response, and AI
+   Search were all removed from SERVICES, nav, footer, pricing, sitemap,
+   llms.txt, and the AI scripts. Never reintroduce them as offers. KNOWS_ABOUT
+   below is knowledge/entity authority, not an offer list — it may keep SEO/GEO
+   as topics. */
 export const KNOWS_ABOUT = [
   'Custom AI Software',
   'Business Operating Systems',
@@ -216,13 +213,12 @@ export const AREA_SERVED: ServiceArea[] = [
 /** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */
 export const SERVICE_SHORT_LABELS: Record<string, string> = {
   'foundit-os': 'Found It OS',
-  'ai-search-optimization': 'AI Search / SEO',
   'app-development': 'App Development',
 };
 
-/* ─── AI Search Optimization pricing (the sole marketing offer) ───
-   Set by Trevor 2026-08-26 with the MARKETING SALES DEAD law. Printed, like
-   every price here. */
+/* ─── AI Search Optimization pricing — RETIRED AS AN OFFER (Trevor, 9/4) ───
+   No new AI SEO or marketing clients, period. Kept only as the rate existing
+   accounts are billed at; nothing on the site renders this. Never re-list. */
 export const AISEO_PRICING = {
   standard: '$1,500',
   premium: '$3,200',
@@ -239,8 +235,11 @@ export interface ServiceDef {
 
 /** Canonical service catalog — referenced by Service schema + sitemap + llms.txt.
     MARKETING SALES DEAD (8/26): Google Ads, Web Design, Social Media, and AI
-    Lead Response were removed as offers. Software plus AI Search Optimization
-    is the whole catalog. Never re-add a marketing service here. */
+    Lead Response were removed as offers. AI SEARCH RETIRED TOO (Trevor, 9/4):
+    zero marketing services of any kind for new clients — AI Search
+    Optimization came off the catalog, nav, footer, pricing, sitemap, schema,
+    llms.txt, and the AI scripts. Existing accounts are serviced; nothing is
+    sold. Software is the whole catalog. Never re-add a marketing service. */
 export const SERVICES: ServiceDef[] = [
   {
     name: 'Found It OS — Custom Business Operating Systems',
@@ -248,13 +247,6 @@ export const SERVICES: ServiceDef[] = [
     serviceType: 'Custom Business Operating System',
     description:
       'Custom operating systems built one business at a time — point of sale, inventory, customers, website, and a built-in AI in a single system clients own outright. Fitted in weeks with zero-downtime, penny-matched migration.',
-  },
-  {
-    name: 'AI Search Optimization (GEO)',
-    slug: 'ai-search-optimization',
-    serviceType: 'Generative Engine Optimization',
-    description:
-      'Generative Engine Optimization to get your business recommended by ChatGPT, Perplexity, and Google AI Overviews through entity authority and structured data. $1,500/month standard, $3,200/month premium and large markets.',
   },
   {
     name: 'Custom App Development',

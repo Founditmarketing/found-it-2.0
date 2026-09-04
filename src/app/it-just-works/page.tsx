@@ -140,7 +140,7 @@ export default function ItJustWorksPage() {
             Drive One Yourself
           </Link>
           <Link
-            href="/map"
+            href="/lp/walkthrough"
             className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
           >
             Start Yours

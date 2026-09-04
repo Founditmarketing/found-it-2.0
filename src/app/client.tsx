@@ -8,7 +8,7 @@ import { AutomationReel } from '@/components/os/AutomationReel';
 import { ShipLog } from '@/components/os/ShipLog';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, TRACK_RECORD, MAP_VALUE } from '@/lib/site';
+import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 
 // World-class intro animation bezier
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
           <div className="opacity-0 animate-reveal-up-sm delay-400 mt-8">
             <Link
-              href="/map"
+              href="/lp/walkthrough"
               className="flex items-center justify-center w-full h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm active:opacity-90"
             >
               Show Me What You'd Build
@@ -117,7 +117,7 @@ export default function HomePage() {
               </p>
               <div className="opacity-0 animate-reveal-up-sm flex items-center gap-3 mt-8" style={{ animationDelay: '1.25s' }}>
                 <Link
-                  href="/map"
+                  href="/lp/walkthrough"
                   className="inline-flex items-center justify-center px-9 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
                 >
                   Show Me What You'd Build
@@ -336,7 +336,7 @@ export default function HomePage() {
               {/* Seats strip REMOVED (Trevor 9/4: "take the 14/20 accounts
                   thing down") — do not restore the OS_SLOTS bar. */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-                <Link href="/map" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                <Link href="/lp/walkthrough" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
                   Show Me What You'd Build
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
@@ -393,7 +393,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-8 max-w-sm sm:max-w-none mx-auto"
           >
             <Link
-              href="/map"
+              href="/lp/walkthrough"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
               Show Me What You'd Build
@@ -424,16 +424,16 @@ export default function HomePage() {
               <Link href="/fit" className="text-primary hover:underline">Check your fit in 60 seconds</Link>
             </p>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
-              Walk Out With the Map.
+              See The App We'd Build For You.
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              Show us how your business runs today. We&rsquo;ll hand you the map of what
-              we&rsquo;d build &mdash; every screen, every automation, on paper. About thirty
-              minutes, screen-shared, and the map is yours to keep either way;{' '}
-              {MAP_VALUE.line}. If it&rsquo;s not a fit, we tell you straight.
+              Show us how your business runs today. We&rsquo;ll show you the app we&rsquo;d
+              build if we owned your company &mdash; every screen, every automation. Free,
+              about thirty minutes, screen-shared. If it&rsquo;s not a fit, we tell you
+              straight.
             </p>
             <div className="flex justify-center">
-              <Link href="/map" className="w-full sm:w-auto max-w-sm">
+              <Link href="/lp/walkthrough" className="w-full sm:w-auto max-w-sm">
                 <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
                   Show Me What You'd Build
                 </LiquidButton>

@@ -234,7 +234,7 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
               const labelLive = t.label.length < f.label.length;
               const detailLive = !labelLive && t.detail.length < f.detail.length;
               return (
-                <Link key={i} href="/map" className="group block">
+                <Link key={i} href="/lp/walkthrough" className="group block">
                   <p className="text-base sm:text-lg leading-relaxed">
                     <span className="font-black text-foreground group-hover:text-primary transition-colors">
                       {t.label}
@@ -266,7 +266,7 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
                 no duplicate link inside the answer. */}
             {!slim && (
               <Link
-                href="/map"
+                href="/lp/walkthrough"
                 className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
                 onClick={() => trackCTAClick('fix_first_map')}
               >

@@ -12,6 +12,14 @@ const nextConfig = {
   // and keeping every old ad/email link alive.
   async redirects() {
     return [
+      // THE MAP IS OFF THE SITE (Trevor 9/4): page deleted, every CTA points
+      // at the walkthrough. Old ads/links land there too.
+      { source: '/map', destination: '/lp/walkthrough', permanent: true },
+      { source: '/blog/what-is-a-software-map', destination: '/blog/nursery-management-software', permanent: true },
+      // AI SEO / marketing RETIRED for new clients (Trevor 9/4): selling
+      // pages deleted; legacy marketing redirects chain through here.
+      { source: '/ai-search-optimization', destination: '/foundit-os', permanent: true },
+      { source: '/ai-visibility-check', destination: '/', permanent: true },
       // /team merged into /about (8/16) — old links land on the team section.
       {
         source: '/team',

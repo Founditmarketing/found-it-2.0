@@ -1,4 +1,4 @@
-import { MAP_VALUE, OS_PRICING } from './site';
+import { OS_PRICING } from './site';
 
 export type Post = {
   slug: string;
@@ -545,7 +545,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What department is your business missing?</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Show us the repetitive work, the buried information, the missed opportunity nobody at your company has time to own.</p>
-<p style="margin: 1.2em 0 2em;"><a href="/map" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Us the Bottleneck &rarr;</a></p>
+<p style="margin: 1.2em 0 2em;"><a href="/lp/walkthrough" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Us the Bottleneck &rarr;</a></p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above is Walls Tree Service's real system reading source-linked public records \u2014 government bid data anyone can look up. The project ranges shown are total advertised construction values, not projected Walls Tree Service revenue. No customer information, ever.</em></p>
 `,
@@ -680,7 +680,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What should your system take off the desk — and what should it never touch?</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Show us one call your firm misses after hours, one document your people still build by hand, and one question clients call to ask again and again. We'll map the first workflow we would build — and the hard boundaries we would put around it.</p>
-<p style="margin: 1.2em 0 1em;"><a href="/map" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Map My Firm &rarr;</a></p>
+<p style="margin: 1.2em 0 1em;"><a href="/lp/walkthrough" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Me My Firm&rsquo;s App &rarr;</a></p>
 <p style="font-family: monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; margin: 0 0 1.6em;">${OS_PRICING.monthly}/month + ${OS_PRICING.setup} setup · Month-to-month · Your firm owns the code and data</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen shows Kenneth’s real system running demo data — the names and cases on it are invented. No client information, ever.</em></p>
@@ -839,37 +839,5 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">\u2014 Trevor<br />Found It Software, Alexandria, Louisiana</p>
 `,
-    },
-    {
-        slug: 'what-is-a-software-map',
-        title: 'What Is A Software Map?',
-        date: '2026-08-15',
-        excerpt: 'Every system we build starts with one page. Here is a real one — drawn this week for a wholesale nursery in central Louisiana — and how to read it.',
-        author: 'Trevor Ruby',
-        authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/what-is-a-software-map-v3.png',
-        content: `
-<p>Every system we build starts the same way: one page.</p>
-<p>We call it the software map. It answers the only question that matters: <strong>if we owned your company, what app would we build?</strong> Thirty minutes on a video call, screen-shared, walking your operation. It goes on one page. You keep it. (${MAP_VALUE.line} — it opens every fitting we do.)</p>
-
-<h3>A real one</h3>
-<p>This week: Jane (not her real name), a wholesale plant nursery in central Louisiana. Trucks, crews, fifteen brokers texting orders in fifteen formats. The business lives in eight places at once — a QuickBooks she never opens, Google Sheets, Apple Notes screenshots texted to the crew, a drawer of old invoices, and her own memory.</p>
-<p>The week before we met, one hand-copied order missed its last line. Forty-four plants nearly didn't make the truck to Austin. Healthy business. Wrong software.</p>
-<p>Here's the map:</p>
-<p><img src="/images/blog/roxanne-software-map-v1.png" alt="One nursery's system — a real software map: eight places the business lives today, and what one owned system replaces, piece by piece" style="border-radius: 12px; border: 1px solid #333;" /></p>
-
-<h3>How to read it</h3>
-<p><strong>The top is today</strong> — every place the business lives, in the owner's own words. Most businesses find eight. Yours has a list like this whether it's written down or not.</p>
-<p><strong>The middle is the map</strong>: each piece, replaced by one part of one system. Texted orders become paste-in intake where every line is captured and anything unrecognized flags red — never silently dropped. That rule exists because of those 44 plants. Handwritten pull sheets become printed ones with trailer assignments on them. Who-owes-you stops hiding in the bookkeeper's QuickBooks and stands on one screen, oldest first, every morning.</p>
-<p><strong>The tags — built, next, later — are the tell.</strong> A real map states its order. A promise of everything at once is a brochure.</p>
-
-<h3>After the map</h3>
-<p>The map becomes the system. Here is the intake box from the middle of the map, running: an order pasted exactly as it came in, eight lines in, eight captured, the one it didn't recognize held in red instead of dropped. The screen shows demo data. The rule is hers — those 44 plants.</p>
-<p><img src="/os-screens/roxanne-os-intake-v2.png" alt="The nursery's order intake — an order pasted exactly as it came in, eight lines in and eight captured, the odd one held in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
-<p>The system runs <strong>beside</strong> the old software, penny-matched against it every night, and nothing switches until the numbers match and the owner says go. That's how we move a business: without betting it.</p>
-<p><strong>The system is yours. The code and the data, one hundred percent.</strong> Nobody rents you your own business back.</p>
-
-<p><a href="/map">Start yours here.</a></p>
-        `,
     },
 ];

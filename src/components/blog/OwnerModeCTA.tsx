@@ -14,7 +14,7 @@ export default function OwnerModeCTA() {
   const router = useRouter();
   const go = () => {
     const v = why.trim().slice(0, 200);
-    router.push(v ? `/map?why=${encodeURIComponent(v)}` : '/map');
+    router.push(v ? `/lp/walkthrough?why=${encodeURIComponent(v)}` : '/lp/walkthrough');
   };
   return (
     <div className="max-w-3xl mx-auto px-6 mt-4 mb-8">

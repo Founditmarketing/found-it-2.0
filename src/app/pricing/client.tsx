@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { AISEO_PRICING, OS_PRICING } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 /* 8/18 audit rebuild: this is FOUND IT OS pricing — one number, one thought.
-   MARKETING SALES DEAD (8/26): the marketing rows are gone. The only services
-   below the OS are AI Search Optimization (the sole marketing offer, prices
-   printed from AISEO_PRICING) and Custom App Development (software). Never
-   re-add a marketing row. */
+   MARKETING SALES DEAD (8/26, completed 9/4): every marketing row is gone —
+   AI Search Optimization came off 9/4 (Trevor: no AI SEO or marketing for new
+   clients, period). The only service below the OS is Custom App Development
+   (software). Never re-add a marketing row. */
 
 /* Outcome-first, one objection dead per line (8/19, Trevor: "we can do
    better"). Declaratives only — restraint law bans staging the buyer's
@@ -25,13 +25,8 @@ const osFeatures = [
   'Month to month. The system earns the next month, every month',
 ];
 
-/* The two services that exist beside the OS. Prices printed, per doctrine. */
+/* The one service that exists beside the OS. Price model printed, per doctrine. */
 const otherRows = [
-  {
-    name: 'AI Search Optimization',
-    model: `${AISEO_PRICING.standard}/mo standard, ${AISEO_PRICING.premium}/mo ${AISEO_PRICING.premiumLabel}`,
-    href: '/ai-search-optimization',
-  },
   { name: 'Custom App Development', model: 'Fixed project price, set on a free call', href: '/app-development' },
 ];
 
@@ -193,8 +188,8 @@ export default function PricingClient() {
           <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Beyond the OS</p>
           <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Everything Else We Build</h3>
           <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 max-w-2xl">
-            Two things, priced in writing before you pay. Found It no longer takes new marketing
-            clients &mdash; AI Search Optimization is the one exception.
+            Priced in writing before you pay. Found It builds software &mdash; we no longer take
+            new marketing clients of any kind.
           </p>
           <div className="divide-y divide-border/10">
             {otherRows.map((row) => (

@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     'Found It OS',
     'custom software Alexandria LA',
     'law practice management software',
-    'AI search optimization',
   ],
   openGraph: {
     type: 'website',

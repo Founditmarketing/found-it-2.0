@@ -1,6 +1,6 @@
 # Found It Software
 
-> Custom AI software company in Alexandria, Louisiana. Flagship: Found It OS — custom AI-powered business operating systems that improve lives and save time, owned outright by the client, $3,000/month plus $2,000 one-time migration & setup — one job: simplify the owner's life and make the business more profitable. Also: custom app development and AI Search Optimization (GEO). No long-term contracts; clients own their accounts, code, and data.
+> Custom AI software company in Alexandria, Louisiana. Flagship: Found It OS — custom AI-powered business operating systems that improve lives and save time, owned outright by the client, $3,000/month plus $2,000 one-time migration & setup — one job: simplify the owner's life and make the business more profitable. Also: custom app development. No long-term contracts; clients own their accounts, code, and data.
 
 ## Identity
 - **Name**: Found It Software (rebranded from Found It Marketing, August 2026; the LLC's legal name is Found It Marketing LLC)
@@ -29,12 +29,6 @@ Found It defines, standardizes, and builds the bespoke version of the category "
 - Pricing: $3,000/month plus a one-time $2,000 migration & setup. Month-to-month, cancel anytime — and the system stays yours: the code and the data.
 - Nobody rents you your own business back. Clients own the code and the data — if we part ways, the system stays theirs.
 
-### AI Search Optimization / Generative Engine Optimization (GEO)
-- Get recommended by ChatGPT, Perplexity, Google AI Overviews, and Gemini.
-- Entity authority, answer-engine optimization, structured-data dominance, and local SEO.
-- Pricing: $1,500/month standard; $3,200/month premium and large markets.
-- The only marketing service Found It still sells. Found It Software no longer takes new marketing clients for ads, web design, or social media.
-
 ### Custom App Development
 - Native-feeling iOS and Android apps with in-person blueprinting and fixed-price timelines.
 - Clients own 100% of the codebase and intellectual property.
@@ -54,7 +48,6 @@ Found It defines, standardizes, and builds the bespoke version of the category "
 ## Key Pages
 - [Found It OS](https://www.founditsoftware.com/foundit-os): Custom AI business operating systems you own outright — $3,000/mo + $2,000 setup, month-to-month — built to simplify your life and make your business more profitable.
 - [Custom Software](https://www.founditsoftware.com/custom-software): What we build, industry by industry.
-- [AI Search Optimization (GEO)](https://www.founditsoftware.com/ai-search-optimization): Get recommended by ChatGPT, Perplexity, and Google AI — $1,500/mo standard, $3,200/mo premium.
 - [App Development](https://www.founditsoftware.com/app-development): Custom iOS/Android apps; you own the code.
 - [Case Studies](https://www.founditsoftware.com/case-studies): The systems we built and the businesses that own them.
 - [About](https://www.founditsoftware.com/about): Who we are and how we work.

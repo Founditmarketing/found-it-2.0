@@ -66,7 +66,7 @@ export default function DrivePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/map"
+              href="/lp/walkthrough"
               className="inline-flex items-center justify-center px-9 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
               Show Me Mine

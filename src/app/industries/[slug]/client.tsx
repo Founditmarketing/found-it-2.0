@@ -9,10 +9,8 @@ import type { IndustryData } from './data';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-/* MARKETING SALES DEAD (8/26): AI Search is the only marketing offer left. */
-const marketingLinks = [
-  { label: 'AI Search / SEO', href: '/ai-search-optimization' },
-];
+/* MARKETING SALES DEAD (8/26; completed 9/4): no marketing offers remain —
+   the AI Search chip and its band are gone. Never re-add. */
 
 /* Industries without their own sanctioned captures still open with pictures:
    the strongest cross-trade shots, honestly labeled. */
@@ -224,22 +222,6 @@ export default function IndustryPageClient({ data }: { data: IndustryData }) {
               <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
             </Link>
           )}
-          <div className="bg-card/5 border border-border/10 rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-            <div className="shrink-0">
-              <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">One More Thing</p>
-              <p className="text-sm font-black uppercase italic tracking-tighter text-foreground">Be the Answer AI Gives</p>
-            </div>
-            <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-grow">
-              When someone asks ChatGPT who to hire in your trade, the same team does the work that gets you named.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 shrink-0">
-              {marketingLinks.map((m) => (
-                <Link key={m.href} href={m.href} className="text-xs text-primary font-bold hover:underline whitespace-nowrap">
-                  {m.label} →
-                </Link>
-              ))}
-            </div>
-          </div>
         </motion.div>
 
         {/* ── Lead form ── */}

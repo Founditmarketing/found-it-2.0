@@ -56,11 +56,9 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   // social-media-management, ai-marketing, marketing-alexandria,
   // central-louisiana-web-design, pineville-seo, and the marketing /lp/*
   // pages are now permanent redirects — removed from the sitemap.
-  { path: '/ai-search-optimization', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/app-development', priority: 0.9, changeFrequency: 'weekly' },
 
   // Tools / lead magnets
-  { path: '/ai-visibility-check', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/guide', priority: 0.6, changeFrequency: 'monthly' },
 
   // Blog index

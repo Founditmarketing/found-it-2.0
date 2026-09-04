@@ -96,7 +96,6 @@ export function Footer() {
             <ul className="space-y-3">
               <li><Link href="/about" className={linkClass}>About</Link></li>
               <li><Link href="/blog" className={linkClass}>Blog</Link></li>
-              <li><Link href="/ai-visibility-check" className={linkClass}>AI Visibility Check</Link></li>
             </ul>
           </div>
 
