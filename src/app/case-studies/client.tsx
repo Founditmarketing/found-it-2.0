@@ -206,7 +206,9 @@ export default function CaseStudiesPage() {
               transition={{ duration: 1.2, ease: ease as any }}
               className="relative w-full rounded-none lg:rounded-xl max-sm:aspect-[4/3] max-sm:object-cover max-sm:object-left-top"
             />
-            <span className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
+            {/* bottom-right, clear of the board's own top bar (its QA Bench
+                pill lives top-right and the chips were colliding with it) */}
+            <span className="absolute bottom-3 right-3 z-10 flex flex-col items-end gap-1.5">
               <span className="rounded-full bg-black/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 shown with demo values
               </span>
