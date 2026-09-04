@@ -622,10 +622,12 @@ export default function CaseStudiesPage() {
             us or not. No generic demo. No pitch deck. Straight answer.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/fit">
-              <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Show Me My App
-              </LiquidButton>
+            {/* Solid primary on purpose (reviewer 9/4: outlined = secondary) */}
+            <Link
+              href="/fit"
+              className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity shadow-2xl shadow-primary/20"
+            >
+              Start the 60-Second Fit Check
             </Link>
           </div>
         </motion.div>

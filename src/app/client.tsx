@@ -442,10 +442,13 @@ export default function HomePage() {
                 hire us or not.
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Link href="/fit" className="w-full sm:w-auto">
-                  <LiquidButton className="w-full sm:w-auto px-10 h-16 text-base tracking-[0.06em] shadow-2xl shadow-primary/25">
-                    Start the 60-Second Fit Check
-                  </LiquidButton>
+                {/* Solid primary on purpose (reviewer 9/4: the outlined
+                    liquid button reads as a secondary action) */}
+                <Link
+                  href="/fit"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-base hover:opacity-90 transition-opacity shadow-2xl shadow-primary/25"
+                >
+                  Start the 60-Second Fit Check
                 </Link>
                 <Link
                   href="/drive"
