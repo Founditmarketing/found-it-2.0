@@ -61,13 +61,14 @@ export default function ShipwrightArtifact() {
         ))}
       </div>
 
-      {/* the artifact, under stage light */}
+      {/* The artifact. Clean Stage Rule (background-clean-stage, 9/3): dim
+          orange over near-black reads as brown mud — the radial "stage
+          light" and the primary-tinted card field both broke it and turned
+          the whole region swampy on real screens. The ground stays neutral;
+          the pop lives in the border, the tight edge shadow, the orange
+          type, and the chips. */}
       <div className="relative">
-        <div
-          aria-hidden
-          className="absolute -inset-6 sm:-inset-10 pointer-events-none bg-[radial-gradient(55%_65%_at_50%_35%,rgba(255,85,0,0.10),transparent_70%)]"
-        />
-        <div className="relative border border-primary/30 rounded-2xl bg-primary/[0.04] overflow-hidden shadow-[0_0_80px_-24px] shadow-primary/40">
+        <div className="relative border border-primary/30 rounded-2xl bg-card/15 overflow-hidden shadow-[0_0_50px_-26px] shadow-primary/30">
           <div className="px-5 sm:px-7 pt-5 flex flex-wrap items-baseline justify-between gap-2">
             <p className={`${MONO} text-primary tracking-[0.24em]`}>Shipwright · Cycle 01</p>
             <p className={`${MONO} text-faint`}>Real client · name withheld at the owner’s request</p>
