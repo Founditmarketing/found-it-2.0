@@ -25,9 +25,9 @@ export const blogPosts: Post[] = [
     {
         slug: 'self-improving-software',
         title: 'My Software Wrote Its Own Work Order. Then It Asked Permission.',
-        seoTitle: 'Self-Improving Software That Asks Permission First: The Shipwright',
+        seoTitle: 'My Software Wrote Its Own Work Order',
         seoDescription:
-            'An owned operating system studied its own gaps, found 114 abandoned carts worth $498,691.18 in gross cart value, wrote a two-and-a-half-day work order, and stopped for owner approval.',
+            'Cycle one found 114 abandoned checkouts carrying $498,691.18 in gross cart value, wrote a 2.5-day work order, and changed nothing without approval.',
         date: '2026-09-04',
         author: 'Trevor Ruby',
         authorImage: '/trevorruby.jpeg',
@@ -37,9 +37,10 @@ export const blogPosts: Post[] = [
         hideHero: true,
         content: `
 <p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">Field report &middot; The Shipwright &middot; cycle one</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every Monday before dawn, one of the operating systems we built researches its own next improvement and writes one work order: what to build, why the owner will feel it, how many days. Then it stops. <span style="color: #FF5500; font-weight: 800;">Nothing happens until a human says yes.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every week, before dawn, one of the operating systems we built researches its own next improvement and writes one work order: what to build, why the owner will feel it, how many days. Then it stops. <span style="color: #FF5500; font-weight: 800;">Nothing happens until a human says yes.</span></p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">It does not rewrite itself.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It studies the business — a national e-commerce dealer, a real client, name withheld at his request — writes one work order, and waits behind a human gate. Cycle one ran last night. Three feeds — its own gap lists, what the market shipped, what new technology unlocks — all pointed at the same dead handoff.</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0; color: #FF5500;">Self-improving should never mean self-authorizing.</p>
 <div style="margin: 2em 0; padding: 1.2em 1.4em; border: 1px solid #333; border-radius: 16px; text-align: center;"><div style="font-size: clamp(48px, 9vw, 88px); font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #FF5500;">$498,691.18</div><div style="font-size: clamp(13px, 1.8vw, 16px); letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-top: 0.6em;">Gross cart value &middot; fourteen days &middot; 114 carts</div><div style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.5; margin-top: 0.5em;">Not booked revenue &middot; not a recovery forecast</div></div>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Some of those carts were never coming back. But 114 reached checkout and left, the system already had a board showing every one — and the board got looked at, never worked.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The system did not find money. <span style="color: #FF5500;">It found the place where information stopped and work was supposed to begin.</span></p>
@@ -55,10 +56,12 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">We call it the Shipwright because a shipwright does not sail the ship. He finds the next plank and brings the captain the work order. She never stops being the captain's ship.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The honest part</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">One cycle. Nothing built, nobody called, scoreboard $0.00. That is the correct state for a system that asks first. When the scoreboard says something real, I will publish it — small numbers too.</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0; color: #FF5500;">The machine can become more capable every week. The business never becomes less yours.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What would yours propose?</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What would yours find first?</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Somewhere in your operation there is a board showing real money that never gets worked. Your software should be the one that finds it.</p>
-<div style="margin: 2em 0 0.5em; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;">Start the 60-Second Fit Check &rarr;</a></div>
+<div style="margin: 2em 0 0; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;">Show Me What Mine Would Find &rarr;</a></div>
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; margin: 0.9em 0 0.5em;">The 60-second fit check starts it &middot; straight answer</p>
 `,
     },
     {

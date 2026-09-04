@@ -19,7 +19,7 @@ const STATUS = {
 };
 
 const ORDER_ROWS: [string, string][] = [
-  ['Cycle', 'Monday, before dawn · cycle one'],
+  ['Cycle', 'Before dawn · cycle one'],
   ['Sources read', 'Its own gap lists and screen-usage events · what the e-commerce market shipped that week · what new technology unlocks'],
   ['Evidence', '114 carts reached checkout and left in fourteen days · $498,691.18 gross cart value · the board showing them was looked at, never worked'],
   ['Selected', 'A morning call queue — the five biggest walkaways, ranked by dollars, freshness, and whether the customer has bought before. Phone numbers first; an AI-drafted script in the company’s own voice.'],
@@ -143,7 +143,11 @@ export default function ShipwrightArtifact() {
 
                   {/* the gate — one word, the owner's */}
                   <div className="px-5 sm:px-7 py-6 text-center">
-                    <p className={`${MONO} text-faint mb-4`}>Gap lists · market · new unlocks → one ranked proposal → the gate</p>
+                    <p className={`${MONO} text-faint mb-4`}>
+                      observe → rank → propose →{' '}
+                      <span className="text-amber-400 border border-amber-400/50 rounded px-1.5 py-0.5">owner gate</span>{' '}
+                      → build → prove → remember
+                    </p>
                     <div className="flex items-center justify-center gap-4">
                       <span className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase italic tracking-tighter text-2xl" aria-hidden>
                         Go
