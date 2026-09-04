@@ -79,7 +79,9 @@ export default function ShipwrightArtifact() {
             </p>
             <p className="mt-3 text-2xl sm:text-3xl font-black italic tracking-tighter text-primary leading-none">
               $498,691.18
-              <span className="ml-3 align-middle text-sm font-bold not-italic text-muted-foreground tracking-normal">114 carts · est. 2.5 days</span>
+              <span className="block sm:inline mt-1.5 sm:mt-0 sm:ml-3 sm:align-middle text-sm font-bold not-italic text-muted-foreground tracking-normal">
+                114 carts · est. 2.5 days
+              </span>
             </p>
             <p className={`${MONO} text-faint mt-2`}>Gross cart value — not booked revenue, not a recovery forecast</p>
             <p className="mt-4 inline-flex items-center gap-2 rounded-md border border-amber-400/50 px-3 py-1.5">
