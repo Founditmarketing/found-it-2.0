@@ -1,8 +1,9 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING } from '@/lib/site';
@@ -16,21 +17,34 @@ const OwnerModeDemo = dynamic(() => import('@/components/blog/OwnerModeDemo'));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* ─── The fleet — one line each, no screenshots. The page above already
-   proved the software moves; this is the roll call. ─── */
-const fleet: { name: string; trade: string; line: string }[] = [
-  { name: 'Roxanne’s OS', trade: 'Wholesale nursery', line: 'Eats text orders in fifteen formats. Caught or flagged, never dropped.' },
-  { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.' },
+/* ─── The fleet — one line each, cross-wired up to the moving proof. ─── */
+const fleet: { name: string; trade: string; line: string; anchor?: string }[] = [
+  { name: 'Roxanne’s OS', trade: 'Wholesale nursery', line: 'Eats text orders in fifteen formats. Caught or flagged, never dropped.', anchor: '#roxanne-demo' },
+  { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.', anchor: '#flywheel-demo' },
   { name: 'The House System', trade: 'Menswear retail', line: 'An AI point-of-sale. Ask the store questions out loud.' },
-  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.' },
-  { name: 'The Lawyer OS', trade: 'Law · built with Doggett Law, Alexandria', line: 'Practice boards, settlement math to the penny, a docket that never computes a deadline.' },
-  { name: 'Tony’s Shop OS', trade: 'European auto repair', line: 'Tekmetric, reverse-engineered. Running at the shop every day.' },
+  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.', anchor: '#procarpet-demo' },
+  { name: 'The Lawyer OS', trade: 'Law · built with Doggett Law, Alexandria', line: 'Practice boards, settlement math to the penny — and deadlines stay in the lawyer’s hands, on purpose.' },
+  { name: 'Tony’s Shop OS', trade: 'European auto repair', line: 'Tekmetric, reverse-engineered. Running at the shop every day.', anchor: '#tonys-demo' },
   { name: 'LaCaze Outdoor OS', trade: 'Equipment dealership', line: 'Ticket to invoice to statement, one system, dealership-owned.' },
   { name: 'Lonestar OS', trade: 'Storage buildings', line: 'Replaced a rented two-app stack that cost about twenty grand a year.' },
   { name: 'ECW Field OS', trade: 'Windmill crews', line: 'Jobs, days, and money from the phone in the truck.' },
 ];
 
+function ActHeader({ kicker, children }: { kicker?: string; children: React.ReactNode }) {
+  return (
+    <div className="mb-6">
+      {kicker && <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{kicker}</span>}
+      <div className="flex items-center gap-6 mt-1">
+        <h2 className="text-3xl sm:text-5xl font-black uppercase italic tracking-tighter text-foreground shrink-0">{children}</h2>
+        <span className="h-px flex-1 bg-border/20" aria-hidden />
+      </div>
+    </div>
+  );
+}
+
 export default function CaseStudiesPage() {
+  const [coryPlaying, setCoryPlaying] = useState(false);
+
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -39,16 +53,32 @@ export default function CaseStudiesPage() {
       </div>
       <div className="max-w-[1000px] mx-auto px-6 relative z-10">
 
-        {/* Hero */}
+        {/* ─── ACT I · THE TAPE ─── */}
+
+        {/* Hero — two beats */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: ease as any }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: ease as any }}
           className="mb-14"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6 [text-wrap:balance]">
-            Don&apos;t Read About It.{' '}
-            <span className="text-primary">Watch It Work.</span>
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: ease as any }}
+            >
+              Don&apos;t Read About It.
+            </motion.span>{' '}
+            <motion.span
+              className="inline-block text-primary"
+              initial={{ opacity: 0, scale: 1.03, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              transition={{ delay: 0.25, duration: 0.6, ease: ease as any }}
+            >
+              Watch It Work.
+            </motion.span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
             Real businesses run on software we built, and they own every line of it. No slides on
@@ -57,34 +87,49 @@ export default function CaseStudiesPage() {
           </p>
         </motion.div>
 
-        {/* ─── Cory, on camera ─── */}
+        {/* Cory — the number is the headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-14 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
+          className="mb-4 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
         >
           <div className="grid md:grid-cols-2 items-stretch">
-            <video
-              controls
-              preload="none"
-              playsInline
-              poster="/cory-ownership-poster-v4.jpg"
-              className="w-full h-full object-cover min-h-[220px] bg-black"
-              aria-label="Cory Edwards of Edwards Roofing, on camera, on owning his software"
-            >
-              <source src="/cory-ownership-v4.mp4" type="video/mp4" />
-            </video>
+            <div className="relative">
+              <video
+                controls
+                preload="none"
+                playsInline
+                poster="/cory-ownership-poster-v4.jpg"
+                onPlay={() => setCoryPlaying(true)}
+                className="w-full h-full object-cover min-h-[220px] bg-black"
+                aria-label="Cory Edwards of Edwards Roofing, on camera, on owning his software"
+              >
+                <source src="/cory-ownership-v4.mp4" type="video/mp4" />
+              </video>
+              {!coryPlaying && (
+                <>
+                  <div className="absolute inset-0 grid place-items-center pointer-events-none">
+                    <span className="grid place-items-center h-16 w-16 rounded-full border-2 border-primary bg-black/50">
+                      <Play className="w-6 h-6 text-primary fill-primary" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <span className="absolute bottom-3 left-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white pointer-events-none">
+                    0:38 · sound on
+                  </span>
+                </>
+              )}
+            </div>
             <div className="p-6 lg:p-8">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction · On Camera</span>
-              <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1 mb-4">
-                Edwards Roofing
+              <h2 className="text-4xl lg:text-5xl font-black uppercase italic tracking-tighter text-primary mt-1">
+                $195,882.75
               </h2>
+              <p className="text-sm font-bold text-foreground mb-1">Found sitting in open receivables at Edwards Roofing.</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-4">Cory Edwards · Owner</p>
               <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-5">
-                The biggest roofer in Cenla runs his whole company on a system he owns. The
-                penny-audit of his books found <span className="text-white font-bold">$195,882.75</span>{' '}
-                sitting in open receivables. It also caught a{' '}
+                The penny-audit of the biggest roofer in Cenla found it &mdash; plus a{' '}
                 <span className="text-white font-bold">$19,000</span> bookkeeping error his old
                 software never saw. Press play. He&apos;ll tell you himself.
               </p>
@@ -98,104 +143,205 @@ export default function CaseStudiesPage() {
           </div>
         </motion.div>
 
-        {/* ─── The newest build ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-14 rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/os-screens/chill-os-today-v1.png"
-            alt="Mission control for a national e-commerce dealer. Live gauges, abandoned carts with names, and authorized money aging toward expiry, on one dark board (shown with demo values)"
-            className="w-full border-b border-border/10"
-          />
-          <div className="p-6 lg:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Built In The Last Thirty Days · E-Commerce</span>
-            <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1 mb-3">
-              Mission Control For A National Dealer
-            </h2>
-            <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
-              A national DIY mini-split dealer&apos;s command deck. The day&apos;s money against last
-              week, live. Shoppers who reached checkout and walked, by name, with their carts saved.
-              Authorized cards nobody collected, counting down to the day they expire. An AI
-              secretary reads the whole board and drafts the follow-ups; a person always sends.
-              Every number on this screen is a demo value &mdash; the real board runs the real store,
-              beside their old system, matched nightly. <span className="text-white font-semibold">Nothing switches until the owner says switch.</span>
-            </p>
-          </div>
-        </motion.div>
+        {/* first door, at the first belief peak */}
+        <div className="mb-14 text-right">
+          <Link href="/lp/walkthrough" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
+            See what we&apos;d build for yours &mdash; free, 30 minutes <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        </div>
 
-        {/* ─── Watch it work ─── */}
+        {/* Mission control — full bleed, title on the image */}
         <div className="mb-14">
-          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-            Watch It <span className="text-primary">Work.</span>
-          </h2>
-          <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
-            Three signature moves, replayed on a loop. This is what the software actually does all
-            day &mdash; demo values, real mechanics.
+          <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-[1500px] mb-8">
+            <div className="absolute -inset-x-20 bottom-0 h-1/2 bg-primary/[0.06] blur-[100px] pointer-events-none" aria-hidden />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <motion.img
+              src="/os-screens/chill-os-today-v1.png"
+              alt="Mission control for a national e-commerce dealer. Live gauges, abandoned carts with names, and authorized money aging toward expiry, on one dark board (shown with demo values)"
+              initial={{ scale: 1.04, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: ease as any }}
+              className="relative w-full rounded-none lg:rounded-xl max-sm:aspect-[4/3] max-sm:object-cover max-sm:object-left-top"
+            />
+            <span className="absolute top-3 right-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              shown with demo values
+            </span>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 lg:p-10">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Built In The Last Thirty Days · E-Commerce</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase italic tracking-tighter text-foreground mt-1">
+                Mission Control For A National Dealer
+              </h2>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
+            The real board runs the real store, beside their old system, matched nightly. A national
+            DIY mini-split dealer&apos;s command deck: the day&apos;s money against last week, live.
+            Shoppers who reached checkout and walked, by name, with their carts saved. Authorized
+            cards nobody collected, counting down to the day they expire. An AI secretary reads the
+            whole board and drafts the follow-ups; a person always sends. Every number on this
+            screen is a demo value.
           </p>
-          <div className="grid gap-6">
+          <p className="text-sm font-bold text-white mt-3">Nothing switches until the owner says switch.</p>
+        </div>
+
+        {/* ─── ACT II · THE MACHINES ─── */}
+
+        <div className="mb-14">
+          <ActHeader kicker="Recorded And Replayed">
+            Watch It <span className="text-primary">Work.</span>
+          </ActHeader>
+          <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
+            One real screen recording, then three signature moves replayed on a loop &mdash; demo
+            values, real mechanics.
+          </p>
+          <div className="grid gap-10">
+
+            {/* the real one leads */}
+            <motion.div
+              id="tonys-demo"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: ease as any }}
+              className="scroll-mt-28 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
+            >
+              <div className="px-5 pt-5">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">Tony&apos;s Shop OS · Screen-Recorded At The Shop</span>
+                <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">This one isn&apos;t animated. It&apos;s the real system.</h3>
+                <p className="text-xs text-muted-foreground font-medium italic mt-1">Tekmetric, reverse-engineered &mdash; running at the shop every day.</p>
+              </div>
+              <div className="p-5">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/tonys-os-demo-poster.jpg"
+                  className="w-full rounded-xl border border-border/20"
+                  aria-label="Screen recording of Tony's Shop OS running"
+                >
+                  <source src="/tonys-os-demo-v2.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </motion.div>
+
+            {/* the three recreations, zig-zagged behind ghost numerals */}
             {[
-              { label: 'Roxanne’s OS · Wholesale Nursery', title: 'It eats the messy text order.', el: <ParseOrderDemo /> },
-              { label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', el: <TireQuoteDemo /> },
-              { label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', el: <ChaseDemo /> },
+              { num: '01', id: 'roxanne-demo', side: 'left' as const, width: '', label: 'Roxanne’s OS · Wholesale Nursery', title: 'It eats the messy text order.', before: 'Today somebody retypes that text and the jasmine gets dropped.', el: <ParseOrderDemo /> },
+              { num: '02', id: 'flywheel-demo', side: 'right' as const, width: 'lg:max-w-[88%] lg:ml-auto', label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', before: 'That used to be three supplier calls and twenty minutes of hold music. The demo runs fast; in the shop it’s thirty seconds.', el: <TireQuoteDemo /> },
+              { num: '03', id: 'procarpet-demo', side: 'left' as const, width: 'lg:max-w-[88%] lg:mr-auto', label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', before: 'That estimate used to die in a text thread.', el: <ChaseDemo /> },
             ].map((demo) => (
-              <motion.div
-                key={demo.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: ease as any }}
-                className="rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
-              >
-                <div className="px-5 pt-5">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{demo.label}</span>
-                  <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{demo.title}</h3>
-                </div>
-                <div className="p-5">{demo.el}</div>
-              </motion.div>
+              <div key={demo.id} id={demo.id} className={`relative scroll-mt-28 ${demo.width}`}>
+                <span
+                  aria-hidden
+                  className={`absolute -top-10 ${demo.side === 'left' ? '-left-6' : '-right-6'} z-0 select-none pointer-events-none font-black italic tracking-tighter text-foreground/[0.04] text-[9rem] lg:text-[12rem] leading-none`}
+                >
+                  {demo.num}
+                </span>
+                <motion.div
+                  initial={{ opacity: 0, x: demo.side === 'left' ? -24 : 24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: ease as any }}
+                  className="relative z-10 rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
+                >
+                  <div className="px-5 pt-5">
+                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{demo.label}</span>
+                    <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{demo.title}</h3>
+                    <p className="text-xs text-muted-foreground font-medium italic mt-1">{demo.before}</p>
+                  </div>
+                  <div className="p-5">{demo.el}</div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* ─── The live one ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20"
-        >
-          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-            This One Isn&apos;t A Recording. <span className="text-primary">It&apos;s Live.</span>
-          </h2>
+        {/* ─── ACT III · THE LIVE ONE ─── */}
+      </div>
+
+      <section className="relative bg-black/40 border-y border-primary/30 py-24 mb-20 z-10">
+        <div className="max-w-[1000px] mx-auto px-6">
+          <span className="relative flex h-3 w-3 mb-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
+          </span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: ease as any }}
+            className="text-4xl sm:text-6xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground"
+          >
+            This One Isn&apos;t A Recording.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6, ease: ease as any }}
+            className="text-5xl sm:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-primary mb-6"
+          >
+            It&apos;s Live.
+          </motion.p>
           <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
             Every system we build carries an AI with real levers and hard walls. Here&apos;s one
-            holding the controls of this very page. Tell it what to change.
+            holding the controls of this very page.
           </p>
-          <OwnerModeDemo />
-        </motion.div>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <span className="rounded-full bg-primary px-3 py-1 text-xs font-black text-black">Try: &ldquo;Make the headline bigger&rdquo;</span>
+            <span className="text-sm text-muted-foreground font-medium">
+              Then ask it for something it shouldn&apos;t do. Watch it refuse. That wall ships in
+              every OS we build.
+            </span>
+          </div>
+          <div className="rounded-2xl shadow-[0_0_80px_-20px] shadow-primary/40">
+            <OwnerModeDemo />
+          </div>
+          <div className="mt-6">
+            <Link href="/lp/walkthrough" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
+              That AI works for our customers all day. Get yours &mdash; the 30-minute walkthrough{' '}
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-        {/* ─── We ran it on ourselves first ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20 rounded-2xl border border-border/20 bg-card/15 p-6 lg:p-10"
-        >
+      <div className="max-w-[1000px] mx-auto px-6 relative z-10">
+
+        {/* ─── The confession, uncaged ─── */}
+        <section className="relative mb-20 py-24">
+          <span aria-hidden className="absolute -top-10 -left-4 select-none pointer-events-none text-[14rem] font-black text-primary/[0.07] leading-none">&ldquo;</span>
           <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">The First Customer Was Us</span>
-          <blockquote className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground leading-[1.05] mt-3 mb-4 [text-wrap:balance]">
-            &ldquo;QuickBooks silently lost $99k of my July.{' '}
-            <span className="text-primary">My books matched the bank to the penny.</span>&rdquo;
+          <blockquote className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.95] mt-4">
+            <div className="overflow-hidden">
+              <motion.span
+                className="block text-foreground"
+                initial={{ y: '0.7em', opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: ease as any }}
+              >
+                &ldquo;QuickBooks silently lost $99k of my July.
+              </motion.span>
+            </div>
+            <div className="overflow-hidden">
+              <motion.span
+                className="block text-primary"
+                initial={{ y: '0.7em', opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.7, ease: ease as any }}
+              >
+                My books matched the bank to the penny.&rdquo;
+              </motion.span>
+            </div>
           </blockquote>
-          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            Trevor Ruby, on Found It&apos;s own books. We run our whole company on the same kind of
-            system we sell &mdash; and automating ourselves saved us between three and four hundred
-            thousand dollars this year. Every claim on this page has a reconciliation behind it.
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-4">Trevor Ruby · Found It&apos;s own books</p>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-2xl mt-4">
+            We run our whole company on the same kind of system we sell. Every claim on this page
+            has a reconciliation behind it. The whole reconciliation is in the story.
           </p>
           <Link
             href="/blog/moving-our-own-books"
@@ -203,13 +349,13 @@ export default function CaseStudiesPage() {
           >
             Read that story <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
-        </motion.div>
+        </section>
 
         {/* ─── The fleet ─── */}
         <div className="mb-20">
-          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-5">
+          <ActHeader>
             The Rest Of <span className="text-primary">The Fleet.</span>
-          </h2>
+          </ActHeader>
           <div className="divide-y divide-border/10 border-y border-border/10">
             {fleet.map((f) => (
               <div key={f.name} className="py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
@@ -217,7 +363,12 @@ export default function CaseStudiesPage() {
                   <p className="text-sm font-black uppercase italic tracking-tight text-foreground">{f.name}</p>
                   <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">{f.trade}</p>
                 </div>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{f.line}</p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed flex-1">{f.line}</p>
+                {f.anchor && (
+                  <a href={f.anchor} className="shrink-0 text-[10px] font-black uppercase tracking-[0.18em] text-primary hover:underline">
+                    watch above ↑
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -225,9 +376,9 @@ export default function CaseStudiesPage() {
 
         {/* ─── The proof, in writing ─── */}
         <div className="mb-20">
-          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-5">
+          <ActHeader>
             The Proof, <span className="text-primary">In Writing.</span>
-          </h2>
+          </ActHeader>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { href: '/blog/i-fired-quickbooks', tag: 'Field report', title: 'I Fired QuickBooks. In Week One, My New Ledger Asked a $70,000 Question.' },
@@ -250,36 +401,23 @@ export default function CaseStudiesPage() {
           </div>
         </div>
 
-        {/* ─── Ownership band ─── */}
+        {/* ─── The finale — one ending, one button ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 1.08 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-16 rounded-2xl border border-border/20 bg-card/15 p-6 lg:p-8 text-center"
+          transition={{ duration: 0.8, ease: ease as any }}
+          className="text-center py-20 border-t border-border/10"
         >
-          <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-3">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
             Every One Of Them <span className="text-primary">Owns It.</span>
           </h2>
-          <p className="text-sm text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            The code and the data, one hundred percent. Nobody rents you your own business back.
-            The price is public: {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
-            {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            The code and the data, one hundred percent. Nobody rents you your own business back.{' '}
+            {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup} {OS_PRICING.setupLabel},
+            month-to-month. One job: {OS_PRICING.promise}
           </p>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="text-center py-16 border-t border-border/10"
-        >
-          <h2 className="text-2xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Get A System{' '}
-            <span className="text-primary">Like These.</span>
-          </h2>
+          <div className="h-px w-24 bg-primary mx-auto my-8" aria-hidden />
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
             We&apos;ll show you the app we&apos;d build if we owned your company. Free, about thirty
             minutes, screen-shared. If it&apos;s not a fit, we tell you straight.
@@ -287,7 +425,7 @@ export default function CaseStudiesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/lp/walkthrough">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Let's Talk
+                Show Me My App
               </LiquidButton>
             </Link>
           </div>
