@@ -19,7 +19,7 @@ const STATUS = {
 };
 
 const ORDER_ROWS: [string, string][] = [
-  ['Cycle', 'Before dawn · cycle one'],
+  ['Cycle', 'Cycle one · fired by hand, Sep 4 · first automatic run Monday, 5:31 AM Central'],
   ['Sources read', 'Its own gap lists and screen-usage events · what the e-commerce market shipped that week · what new technology unlocks'],
   ['Evidence', '114 carts reached checkout and left in fourteen days · $498,691.18 gross cart value · the board showing them was looked at, never worked'],
   ['Selected', 'A morning call queue — the five biggest walkaways, ranked by dollars, freshness, and whether the customer has bought before. Phone numbers first; an AI-drafted script in the company’s own voice.'],
