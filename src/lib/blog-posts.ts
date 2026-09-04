@@ -545,7 +545,7 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What department is your business missing?</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Show us the repetitive work, the buried information, the missed opportunity nobody at your company has time to own.</p>
-<p style="margin: 1.2em 0 2em;"><a href="/lp/walkthrough" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Us the Bottleneck &rarr;</a></p>
+<p style="margin: 1.2em 0 2em;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Us the Bottleneck &rarr;</a></p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen above is Walls Tree Service's real system reading source-linked public records \u2014 government bid data anyone can look up. The project ranges shown are total advertised construction values, not projected Walls Tree Service revenue. No customer information, ever.</em></p>
 `,
@@ -680,7 +680,7 @@ export const blogPosts: Post[] = [
 
 <p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">What should your system take off the desk — and what should it never touch?</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Show us one call your firm misses after hours, one document your people still build by hand, and one question clients call to ask again and again. We'll map the first workflow we would build — and the hard boundaries we would put around it.</p>
-<p style="margin: 1.2em 0 1em;"><a href="/lp/walkthrough" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Me My Firm&rsquo;s App &rarr;</a></p>
+<p style="margin: 1.2em 0 1em;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.9em 1.6em; border-radius: 999px; text-decoration: none;">Show Me My Firm&rsquo;s App &rarr;</a></p>
 <p style="font-family: monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; margin: 0 0 1.6em;">${OS_PRICING.monthly}/month + ${OS_PRICING.setup} setup · Month-to-month · Your firm owns the code and data</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">Every screen shows Kenneth’s real system running demo data — the names and cases on it are invented. No client information, ever.</em></p>

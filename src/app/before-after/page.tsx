@@ -146,7 +146,7 @@ export default function BeforeAfterPage() {
             Every screen above runs demo data; every dollar figure happened. Yours is the next file.
           </p>
           <Link
-            href="/lp/walkthrough"
+            href="/fit"
             className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
           >
             Show Me What You&rsquo;d Build

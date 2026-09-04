@@ -36,7 +36,7 @@ const data: PillarData = {
   headlineAccent: 'A Register That Remembers.',
   intro:
     `The House System was built for the established independent store whose operation is scattered. Inventory in the POS. Customer history in the processor's cloud. Layaway in a binder under the counter. Special orders in somebody's memory. We call it the House System because it thinks in households, not transactions. One system: the register, the inventory, the customer book, layaway, special orders, and an AI that answers from your own sales history. You own it outright. Your records get migrated in, and nothing switches until the new register runs beside your old one and matches it to the penny.`,
-  ctaLabel: "Show Me What You’d Build",
+  ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
   formHeading: 'Start your Software Map',

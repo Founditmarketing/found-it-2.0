@@ -36,7 +36,7 @@ const data: PillarData = {
   headlineAccent: 'Every Building You Sell.',
   intro:
     `Most shed software charges per unit. The more buildings you move, the bigger the bill. And your orders, dealer records, and RTO contracts live on someone else's servers. Found It OS is the other way. One system fitted to how your yard runs. Orders, dealer lots, the build queue, delivery scheduling, rent-to-own tracking. You own it outright, code and data. We built exactly this for a Texas shed manufacturer replacing a ShedSuite-class system. Nothing switches until the new system runs beside your old one and matches it.`,
-  ctaLabel: "Show Me What You’d Build",
+  ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_shed_builders',
   formPageSlug: 'custom-software-shed-builders',
   formHeading: 'Start your Software Map',

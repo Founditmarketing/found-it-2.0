@@ -334,7 +334,7 @@ export default function TheRecordClient({
               What these systems replaced<ArrowRight className="inline w-4 h-4 ml-1.5 align-[-3px] text-primary" />
             </Link>
             <Link
-              href="/lp/walkthrough"
+              href="/fit"
               className="text-sm font-bold text-foreground/90 hover:text-primary transition-colors"
             >
               What a system for your business would include<ArrowRight className="inline w-4 h-4 ml-1.5 align-[-3px] text-primary" />

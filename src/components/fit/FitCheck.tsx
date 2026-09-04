@@ -237,7 +237,7 @@ export function FitCheck({
                 pageSlug={pageSlug}
                 heading={heading}
                 subheading={subheading}
-                ctaLabel={ctaLabel ?? "Let's Talk"}
+                ctaLabel={ctaLabel ?? 'Show Me My First Build'}
                 compact
                 initialBand={answers.revenue}
                 trailLines={verdict ? fitTrail(answers as FitAnswers, verdict) : undefined}
@@ -322,7 +322,7 @@ export function FitCheck({
                 pageSlug={pageSlug}
                 heading="See What Yours Would Look Like"
                 subheading="Tell us how it runs today. We'll show you what we'd build if it were ours. Free, about thirty minutes, screen-shared."
-                ctaLabel="Let's Talk"
+                ctaLabel="Show Me My First Build"
                 compact
                 initialBand={answers.revenue}
                 trailLines={fitTrail(answers as FitAnswers, verdict)}
@@ -350,7 +350,7 @@ export function FitCheck({
                 pageSlug={pageSlug}
                 heading="See What Yours Would Look Like"
                 subheading="Worth the call to find out. If it's not a fit, we tell you straight."
-                ctaLabel="Let's Talk"
+                ctaLabel="Show Me My First Build"
                 compact
                 initialBand={answers.revenue}
                 trailLines={fitTrail(answers as FitAnswers, verdict)}

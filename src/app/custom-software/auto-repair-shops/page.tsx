@@ -36,7 +36,7 @@ const data: PillarData = {
   headlineAccent: 'Tekmetric Alternative You Own.',
   intro:
     `Tekmetric is a good system. But you rent it forever, and your shop's history lives in their cloud. We build the AI-powered shop system you own. We already moved a real shop off a Tekmetric-class system, about ten years of records. On the way in, the AI found about $270K in forgotten, unbilled work. One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. You own it, code and data. Nothing switches until the new system runs beside your old one and matches it.`,
-  ctaLabel: "Show Me What You’d Build",
+  ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_auto_repair_shops',
   formPageSlug: 'custom-software-auto-repair-shops',
   formHeading: 'Start your Software Map',

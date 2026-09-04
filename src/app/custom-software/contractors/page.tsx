@@ -36,7 +36,7 @@ const data: PillarData = {
   headlineAccent: 'Software You Own Outright.',
   intro:
     `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Annual service work slips because nobody got a reminder. Found It OS is one system fitted to how your crews run jobs. The job board, the schedule, the customer book, the invoices, the website leads. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
-  ctaLabel: "Show Me What You’d Build",
+  ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_contractors',
   formPageSlug: 'custom-software-contractors',
   formHeading: 'Start your Software Map',

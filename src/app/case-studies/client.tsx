@@ -187,7 +187,7 @@ export default function CaseStudiesPage() {
 
         {/* first door, at the first belief peak */}
         <div className="mb-14 text-right">
-          <Link href="/lp/walkthrough" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
+          <Link href="/fit" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
             See what we&apos;d build for yours &mdash; free, 30 minutes <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </div>
@@ -355,7 +355,7 @@ export default function CaseStudiesPage() {
             <OwnerModeDemo />
           </div>
           <div className="mt-6">
-            <Link href="/lp/walkthrough" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
+            <Link href="/fit" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
               That AI works for our customers all day. Get yours &mdash; the 30-minute walkthrough{' '}
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
@@ -607,7 +607,8 @@ export default function CaseStudiesPage() {
           className="text-center py-20 border-t border-border/10"
         >
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
-            Every File Ends The Same Way. <span className="text-primary">The Owner Keeps It.</span>
+            You&rsquo;ve Seen What We Built for Them.{' '}
+            <span className="text-primary">Now Bring Us the Ugly Part.</span>
           </h2>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             The code and the data, one hundred percent. Nobody rents you your own business back.{' '}
@@ -616,11 +617,12 @@ export default function CaseStudiesPage() {
           </p>
           <div className="h-px w-24 bg-primary mx-auto my-8" aria-hidden />
           <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            We&apos;ll show you the app we&apos;d build if we owned your company. Free, about thirty
-            minutes, screen-shared. If it&apos;s not a fit, we tell you straight.
+            Show us the work your current software still leaves behind. Thirty minutes with
+            Trevor, and you leave with your one-page First Build Plan &mdash; whether you hire
+            us or not. No generic demo. No pitch deck. Straight answer.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/lp/walkthrough">
+            <Link href="/fit">
               <LiquidButton className="px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
                 Show Me My App
               </LiquidButton>

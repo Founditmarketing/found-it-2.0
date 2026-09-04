@@ -124,7 +124,7 @@ export default function MissingPage() {
             Yours to keep either way.
           </p>
           <Link
-            href="/lp/walkthrough"
+            href="/fit"
             className="inline-flex items-center gap-3 bg-primary text-black font-black uppercase tracking-wide text-sm sm:text-base px-8 py-4 rounded-full hover:scale-[1.03] transition-transform"
           >
             Get Your Software Map <ArrowRight className="w-5 h-5" />

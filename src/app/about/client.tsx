@@ -679,7 +679,7 @@ export default function AboutPage() {
             The spreadsheet. The notebook. The employee who knows everything. The invoice nobody followed up.
             Show us how the work really moves, and we&rsquo;ll tell you whether software should touch it.
           </p>
-          <Link href="/lp/walkthrough" className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+          <Link href="/fit" className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
             Show Us How It Runs
           </Link>
           <p className="mt-5 text-sm text-muted-foreground font-medium">

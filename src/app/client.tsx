@@ -84,10 +84,10 @@ export default function HomePage() {
           </div>
           <div className="opacity-0 animate-reveal-up-sm delay-400 mt-8">
             <Link
-              href="/lp/walkthrough"
+              href="/fit"
               className="flex items-center justify-center w-full h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm active:opacity-90"
             >
-              Show Me What You'd Build
+              Start the 60-Second Fit Check
             </Link>
             <p className="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
               Month-to-month &middot; You keep everything
@@ -117,16 +117,16 @@ export default function HomePage() {
               </p>
               <div className="opacity-0 animate-reveal-up-sm flex items-center gap-3 mt-8" style={{ animationDelay: '1.25s' }}>
                 <Link
-                  href="/lp/walkthrough"
+                  href="/fit"
                   className="inline-flex items-center justify-center px-9 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
                 >
-                  Show Me What You'd Build
+                  Start the 60-Second Fit Check
                 </Link>
                 <Link
-                  href="/fit"
+                  href="/drive"
                   className="inline-flex items-center justify-center px-7 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 hover:text-foreground transition-colors"
                 >
-                  Are We a Fit?
+                  Drive One Yourself
                 </Link>
               </div>
               <p className="opacity-0 animate-reveal-up-sm mt-6 text-xs font-black uppercase tracking-[0.2em] text-muted-foreground" style={{ animationDelay: '1.35s' }}>
@@ -336,8 +336,8 @@ export default function HomePage() {
               {/* Seats strip REMOVED (Trevor 9/4: "take the 14/20 accounts
                   thing down") — do not restore the OS_SLOTS bar. */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-                <Link href="/lp/walkthrough" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-                  Show Me What You'd Build
+                <Link href="/fit" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+                  Start the 60-Second Fit Check
                 </Link>
                 <Link href="/foundit-os" className="inline-flex items-center gap-2 text-sm text-primary font-bold hover:gap-3 transition-all">
                   See Found It OS <ArrowRight className="w-4 h-4" />
@@ -393,60 +393,123 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mt-8 max-w-sm sm:max-w-none mx-auto"
           >
             <Link
-              href="/lp/walkthrough"
+              href="/fit"
               className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
             >
-              Show Me What You'd Build
+              Start the 60-Second Fit Check
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          BOTTOM CTA
-      ═══════════════════════════════════════════ */}
-      <section className="relative py-24 lg:py-40 overflow-hidden">
-        {/* CTA ambient */}
+      {/* ═══════════════════════════════════════
+          BOTTOM CTA — THE FIRST BUILD PLAN (9/4 reviewer spec: sell the
+          deliverable, not an invented noun; the button tells the truth
+          about the next step). Plan preview = sanctioned Doggett-file
+          facts from src/lib/case-files.ts, never a decorative mock.
+      ═══════════════════════════════════════ */}
+      <section className="relative py-24 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[40vh] bg-primary/[0.03] rounded-full blur-[100px]" />
         </div>
 
-        <div className="max-w-[700px] mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
-          >
-            <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mb-4">
-              We don&rsquo;t build this for everyone.{' '}
-              <Link href="/fit" className="text-primary hover:underline">Check your fit in 60 seconds</Link>
-            </p>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
-              See The App We'd Build For You.
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground font-medium mb-10 max-w-lg mx-auto leading-relaxed">
-              Show us how your business runs today. We&rsquo;ll show you the app we&rsquo;d
-              build if we owned your company &mdash; every screen, every automation. Free,
-              about thirty minutes, screen-shared. If it&rsquo;s not a fit, we tell you
-              straight.
-            </p>
-            <div className="flex justify-center">
-              <Link href="/lp/walkthrough" className="w-full sm:w-auto max-w-sm">
-                <LiquidButton className="w-full sm:w-auto px-12 h-16 text-base sm:text-lg tracking-[0.08em] shadow-2xl shadow-primary/25">
-                  Show Me What You'd Build
-                </LiquidButton>
+        <div className="max-w-[1100px] mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+            {/* the offer */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease }}
+            >
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-6">
+                60-Second Fit Check &middot; For Businesses That Have Outgrown Their Software
+              </p>
+              <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.88] mb-5 text-foreground">
+                Bring Us the Ugly Part.
+              </h2>
+              <p className="text-base text-muted-foreground font-medium italic mb-5 leading-relaxed">
+                The spreadsheet. The duplicate entry. The estimate nobody followed up. The report
+                only one person knows how to make.
+              </p>
+              <p className="text-lg text-muted-foreground font-medium mb-8 leading-relaxed">
+                Show us the work your current software still leaves behind. When there&rsquo;s a
+                real fit, Trevor spends 30 minutes with you and shows you the{' '}
+                <span className="text-foreground font-bold">first system we&rsquo;d build around
+                your business</span> &mdash; what it replaces, what stays human, how we&rsquo;d
+                prove it beside your current software, and what it costs. You leave with a one-page{' '}
+                <span className="text-foreground font-bold">First Build Plan</span>, whether you
+                hire us or not.
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Link href="/fit" className="w-full sm:w-auto">
+                  <LiquidButton className="w-full sm:w-auto px-10 h-16 text-base tracking-[0.06em] shadow-2xl shadow-primary/25">
+                    Start the 60-Second Fit Check
+                  </LiquidButton>
+                </Link>
+                <Link
+                  href="/drive"
+                  className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
+                >
+                  Drive One Yourself
+                </Link>
+              </div>
+              <p className="mt-5 text-sm font-bold text-foreground">
+                No generic demo. No pitch deck. <span className="text-primary">You keep the plan.</span>
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground font-medium">
+                Or text{' '}
+                <a href="sms:+13187133781" className="text-primary font-bold hover:underline whitespace-nowrap">
+                  (318) 713-3781
+                </a>
+                . Trevor answers.
+              </p>
+            </motion.div>
+
+            {/* the deliverable, shown — a real file, abridged */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.8, ease }}
+              className="border border-border/25 rounded-3xl bg-card/10 backdrop-blur-sm p-6 md:p-8"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <p className="font-mono text-[10px] font-black uppercase tracking-[0.24em] text-primary">
+                  Your First Build Plan
+                </p>
+                <p className="font-mono text-[9px] font-black uppercase tracking-[0.16em] text-faint">
+                  A real one &middot; the Doggett file
+                </p>
+              </div>
+              <div className="divide-y divide-border/15">
+                {[
+                  ['Problem', 'The 9 PM call went to voicemail. He was about to hire somebody just to catch it.'],
+                  ['First system', 'An AI secretary fitted to the firm.'],
+                  ['It handles', 'Answers after hours, takes the story, books the consult, opens the file, drafts the welcome text.'],
+                  ['Stays human', 'Nothing sends without his tap. She will not calculate a deadline and cannot touch a dollar of client money.'],
+                ].map(([k, v]) => (
+                  <div key={k} className="py-3.5 grid grid-cols-[105px_1fr] gap-4 items-baseline">
+                    <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-faint">{k}</p>
+                    <p className="text-sm text-muted-foreground font-medium leading-relaxed">{v}</p>
+                  </div>
+                ))}
+                <div className="py-3.5 grid grid-cols-[105px_1fr] gap-4 items-baseline">
+                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-faint">The receipt</p>
+                  <p className="text-sm font-bold text-foreground leading-relaxed">
+                    <span className="text-primary font-black italic">$2,500/mo</span> &mdash; the desk
+                    seat he didn&rsquo;t have to hire.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/before-after"
+                className="inline-flex items-center gap-1.5 mt-4 text-xs font-black uppercase tracking-wide text-primary hover:underline"
+              >
+                Open the full file <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
-            <p className="mt-6 text-sm text-muted-foreground font-medium">
-              Or text{' '}
-              <a href="sms:+13187133781" className="text-primary font-bold hover:underline whitespace-nowrap">
-                (318) 713-3781
-              </a>
-              . Trevor answers.
-            </p>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

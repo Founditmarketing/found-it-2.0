@@ -234,7 +234,7 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
               const labelLive = t.label.length < f.label.length;
               const detailLive = !labelLive && t.detail.length < f.detail.length;
               return (
-                <Link key={i} href="/lp/walkthrough" className="group block">
+                <Link key={i} href="/fit" className="group block">
                   <p className="text-base sm:text-lg leading-relaxed">
                     <span className="font-black text-foreground group-hover:text-primary transition-colors">
                       {t.label}
@@ -262,15 +262,15 @@ export function FixFirst({ compact = false, panel = false }: { compact?: boolean
               closeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
-            {/* Compact (mobile) and the panel have the big /map action nearby —
+            {/* Compact (mobile) and the panel have the big fit-check action nearby —
                 no duplicate link inside the answer. */}
             {!slim && (
               <Link
-                href="/lp/walkthrough"
+                href="/fit"
                 className="text-xs font-black uppercase tracking-wider text-primary inline-flex items-center gap-1 hover:gap-2 transition-all"
                 onClick={() => trackCTAClick('fix_first_map')}
               >
-                Show Me What You’d Build <ArrowRight className="w-3 h-3" />
+                Start the 60-Second Fit Check <ArrowRight className="w-3 h-3" />
               </Link>
             )}
             <button

@@ -229,7 +229,7 @@ export default function VsViktorPage() {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
-            href="/lp/walkthrough"
+            href="/fit"
             className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
           >
             Show Me What You&rsquo;d Build
