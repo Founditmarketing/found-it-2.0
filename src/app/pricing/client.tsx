@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { AISEO_PRICING, FOUNDING, OS_PRICING } from '@/lib/site';
+import { AISEO_PRICING, OS_PRICING } from '@/lib/site';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -84,29 +84,8 @@ export default function PricingClient() {
               <p className="text-xl font-black text-muted-foreground italic tracking-tighter mt-1">
                 + {OS_PRICING.setup} <span className="text-sm font-bold not-italic">{OS_PRICING.setupLabel}</span>
               </p>
-              {/* The founding-accounts counter — pips read 14/20 from
-                  FOUNDING in lib/site.ts (one number to bump as spots fill).
-                  Retire the whole block once taken === total. */}
-              <div className="mt-4">
-                <div className="flex items-center gap-1.5 mb-2">
-                  {Array.from({ length: FOUNDING.total }, (_, k) => (
-                    <span
-                      key={k}
-                      className={`h-3 w-3 rounded-[4px] ${
-                        k < FOUNDING.taken
-                          ? 'bg-primary'
-                          : 'border border-primary/40 bg-transparent'
-                      }`}
-                    />
-                  ))}
-                </div>
-                <p className="text-sm font-medium text-muted-foreground">
-                  <span className="text-foreground font-black">{FOUNDING.taken} of {FOUNDING.total}</span>{' '}
-                  onboarding openings committed. We onboard a few at a time &mdash; every system is migrated,
-                  run in parallel, and proven before the next fitting opens. At {FOUNDING.total}{' '}
-                  accounts we pause new fittings until this group is fully live.
-                </p>
-              </div>
+              {/* Founding-accounts counter REMOVED (Trevor 9/4: "take the
+                  14/20 accounts thing down") — do not restore. */}
             </div>
             {/* The promise stands alone — a declaration, not a labeled
                 footnote. Verbatim, once on this page. */}
