@@ -109,6 +109,7 @@ A single-accent dark system: orange commands, emerald verifies, cream is paper, 
 
 ### Neutral
 - **Ink Ground** (#000000): page background (dark theme `--background`).
+- **The Clean Stage Rule (9/3/2026).** The global ground stays black: the drifting orange-orb canvas was retired because dim orange over near-black always reads russet-brown — as smog at large radii, as water stains at small ones. Ambient light is *static and intentional only*: ClientBackground carries one warm breath at top-center (`rgba(255,100,20,0.06)` radial, ellipse at 50% −10%) plus the faint grid; pages may add their own fixed washes at ≤ primary/[0.07]. Never reintroduce moving glow or any orange wash dim enough to go brown.
 - **Ink Panel** (#0A0A0A / #0B0B0B): cards, the OS window shell.
 - **Foreground White** (hsl(0 0% 98%)): primary text.
 - **Muted Foreground** (hsl(0 0% 63.9%)): secondary text at full opacity.
