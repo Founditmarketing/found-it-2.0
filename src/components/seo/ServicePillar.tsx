@@ -33,17 +33,17 @@ export interface PillarData {
   /** Answer-first definition block (great for AI Overviews). */
   definitionHeading: string;
   definition: string;
-  /** Opt-in live AI-secretary demo under the definition (Trevor 8/16 —
+  /** Opt-in live AI-secretary demo under the definition (Trevor 8/16 â€”
    *  foundit-os + custom-software only). Attribution rides formPageSlug. */
   voiceDemo?: boolean;
   /** Hero placement (Trevor 8/29): on the OS page the secretary IS the pitch,
       so she demos in the hero itself; pages without this keep her mid-page. */
   voiceDemoHero?: boolean;
   /** Hero comparison links (Trevor 8/29): the two fights people are already
-      having in their heads — DIY-with-AI and the rented AI employees. */
+      having in their heads â€” DIY-with-AI and the rented AI employees. */
   compareCtas?: { label: string; href: string }[];
   /** Drive the OS (Trevor 9/2, flagship only): promise first, then the
-      machine as evidence — framed so nobody mistakes the demo for a template. */
+      machine as evidence â€” framed so nobody mistakes the demo for a template. */
   driveOs?: boolean;
   /** One-sentence product definition rendered under the h1 (before any demo). */
   heroDefinition?: string;
@@ -51,7 +51,7 @@ export interface PillarData {
   heroPriceLine?: string;
   /** Named proof directly after the hero (receipts, link, honest qualifier). */
   proof?: { kicker: string; headline: string; headlineAccent: string; stats: { value: string; label: string }[]; href: string; hrefLabel: string; qualifier: string };
-  /** One-line narration between demo worlds (tire shop → nursery reel). */
+  /** One-line narration between demo worlds (tire shop â†’ nursery reel). */
   reelTransition?: string;
   /** Compact trust block sourced from /security facts. */
   trust?: { headline: string; headlineAccent: string; items: { title: string; detail: string }[] };
@@ -72,10 +72,10 @@ export interface PillarData {
     stats: { value: string; label: string }[];
     narrative: string;
   };
-  /** 8/19: play the AutomationReel above the fold — automations in motion
+  /** 8/19: play the AutomationReel above the fold â€” automations in motion
    *  instead of dashboards at rest. foundit-os + custom-software. */
   automationReel?: boolean;
-  /** Optional demo video — a screen tour of the system, shown high on the page. */
+  /** Optional demo video â€” a screen tour of the system, shown high on the page. */
   demoVideo?: { src: string; poster?: string; heading?: string; sub?: string };
   /** Common mistakes / what we fix. */
   mistakesHeading?: string;
@@ -92,7 +92,7 @@ export interface PillarData {
   finalCtaHeadline: string;
   finalCtaSub: string;
   /** THE GATE (Trevor 8/16): render the fit-check quiz in place of the open
-   *  form — the software-map funnel only (/foundit-os). NOT A FIT captures
+   *  form â€” the software-map funnel only (/foundit-os). NOT A FIT captures
    *  nothing. */
   fitGate?: boolean;
 }
@@ -155,7 +155,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <Link href={ctaHref} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
               {data.ctaLabel}
             </Link>
-            {/* Show, don't talk (Trevor 8/29): the secondary CTA points at proof —
+            {/* Show, don't talk (Trevor 8/29): the secondary CTA points at proof â€”
                 the reel on this page, or the flagship's reel when there isn't one. */}
             <Link href={data.automationReel ? '#watch' : '/foundit-os#watch'} className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-card/40 border border-border/20 text-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/30 transition-colors">
               Watch It Run
@@ -182,7 +182,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               <p className="mb-5 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-primary">
                 Drive one &middot; sample data &middot; live behavior &middot;{' '}
                 <Link href="/drive" className="underline underline-offset-4 hover:text-foreground transition-colors">
-                  open it on its own stage →
+                  open it on its own stage â†’
                 </Link>
               </p>
               <DriveOS />
@@ -220,7 +220,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
               <Link href={data.proof.href} className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-primary hover:gap-3 transition-all">
-                {data.proof.hrefLabel} →
+                {data.proof.hrefLabel} â†’
               </Link>
               <p className="text-xs text-faint font-medium">{data.proof.qualifier}</p>
             </div>
@@ -258,7 +258,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
         </section>
 
-        {/* Demo video — a screen tour of the actual system */}
+        {/* Demo video â€” a screen tour of the actual system */}
         {data.demoVideo && (
           <section aria-label="Product demo" className="mb-32 md:mb-44">
             {data.demoVideo.heading && (
@@ -286,7 +286,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </section>
         )}
 
-        {/* Definition — answer-first for AI Overviews */}
+        {/* Definition â€” answer-first for AI Overviews */}
         <section className="mb-32 md:mb-44">
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
@@ -298,7 +298,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         </section>
 
         {/* The definition, made audible: every system ships with the AI
-            secretary — here she is, live, right where the claim was made. */}
+            secretary â€” here she is, live, right where the claim was made. */}
         {data.voiceDemo && !data.voiceDemoHero && (
           <section id="talk-to-her" className="mb-32 md:mb-44 scroll-mt-24">
             <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
@@ -359,9 +359,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
               {data.audienceHeading || "Who It's For"}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {data.audience.map((item) => (
+              {data.audience.slice(0, 4).map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">✓</span>
+                  <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">âœ“</span>
                   <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
                 </div>
               ))}
@@ -415,7 +415,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               {data.mistakesHeading || 'Common Mistakes We Fix'}
             </h2>
             <div className="space-y-4">
-              {data.mistakes.map((m) => (
+              {data.mistakes.slice(0, 3).map((m) => (
                 <div key={m.title} className="bg-card/10 border border-border/20 rounded-2xl p-6">
                   <h3 className="text-sm font-black uppercase italic tracking-tighter text-foreground mb-2">{m.title}</h3>
                   <p className="text-sm text-muted-foreground font-medium leading-relaxed">{m.detail}</p>
@@ -458,7 +458,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 mb-7">
                 {data.offerCard.bullets.map((bLine) => (
                   <li key={bLine} className="flex items-start gap-2.5 text-sm font-medium text-foreground/85">
-                    <span className="text-primary font-black mt-px">✓</span> {bLine}
+                    <span className="text-primary font-black mt-px">âœ“</span> {bLine}
                   </li>
                 ))}
               </ul>
@@ -494,7 +494,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           <div className="space-y-5">
             {data.whyUs.map((item, i) => (
               <div key={i} className="flex items-start gap-4">
-                <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">✓</span>
+                <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">âœ“</span>
                 <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
               </div>
             ))}
@@ -531,7 +531,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.faqHeading}
           </h2>
           <div className="space-y-8">
-            {data.faq.map((f) => (
+            {data.faq.slice(0, 4).map((f) => (
               <div key={f.question}>
                 <h3 className="text-base font-black text-foreground mb-2">{f.question}</h3>
                 <p className="text-sm text-muted-foreground font-medium leading-relaxed">{f.answer}</p>
@@ -567,7 +567,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <ul className="space-y-3">
               {data.relatedReading.map((r) => (
                 <li key={r.href}>
-                  <Link href={r.href} className="text-primary font-bold hover:underline text-sm">{r.title} →</Link>
+                  <Link href={r.href} className="text-primary font-bold hover:underline text-sm">{r.title} â†’</Link>
                 </li>
               ))}
             </ul>
