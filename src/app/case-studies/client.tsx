@@ -1,88 +1,33 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
+import { OS_PRICING } from '@/lib/site';
+import ParseOrderDemo from '@/components/case-studies/ParseOrderDemo';
+import TireQuoteDemo from '@/components/case-studies/TireQuoteDemo';
+import ChaseDemo from '@/components/case-studies/ChaseDemo';
+
+/* The live bounded-AI demo proves itself on this page too — code-split so
+   the chunk only ships here and on the Owner Mode article. */
+const OwnerModeDemo = dynamic(() => import('@/components/blog/OwnerModeDemo'));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* ─── The apps — the systems themselves, described only by what their
-   public captures show. Screens come from the sanctioned os-screens set;
-   every line stays inside what's already public on the rails. */
-interface AppStudy {
-  title: string;
-  trade: string;
-  src: string;
-  alt: string;
-  line: string;
-}
-
-const apps: AppStudy[] = [
-  {
-    title: 'Roxanne’s OS',
-    trade: 'Wholesale Nursery',
-    src: '/os-screens/roxanne-os-money-v2.png',
-    alt: 'Roxanne’s OS receivables dashboard. Money owed to the nursery, aging buckets, and who owes what (demo data)',
-    line: 'Orders come in as texts in fifteen formats. Paste one in. Every line gets caught or flagged in red, never dropped. The money owed sits on one screen, oldest first, with pull sheets and a crew print board behind it.',
-  },
-  {
-    title: 'Flywheel OS',
-    trade: 'Tire & Auto Shop',
-    src: '/os-screens/flywheel-os-quote-v1.png',
-    alt: 'Flywheel OS quote screen. A tire size typed in and every supplier priced out the door in seconds',
-    line: 'Type a tire size. Every supplier priced out the door in seconds. The 30-second quote, the board, and the day’s money on one screen.',
-  },
-  {
-    title: 'The House System',
-    trade: 'Menswear Retail · Atelier Edition',
-    src: '/os-screens/house-system-v1.png',
-    alt: 'The House System register. A ticket rung with three lines and a live total',
-    line: 'An AI point-of-sale. The register on iPad, iPhone, or computer. A client book that knows the clients. A store you can ask questions out loud. Also fitted to a luxury atelier.',
-  },
-  {
-    title: 'Pro Carpet OS',
-    trade: 'Carpet & Duct Cleaning',
-    src: '/os-screens/procarpet-os-v1.png',
-    alt: 'Pro Carpet OS desk. Estimate follow-up texts drafted and waiting for one-tap approval',
-    line: 'Follow-up texts drafted, waiting for one-tap approval. It chases every estimate out the door. The week board runs the jobs.',
-  },
-  {
-    title: 'The Lawyer OS',
-    trade: 'Law Firm · Built with Doggett Law, Alexandria',
-    src: '/os-screens/lawyer-os-prescription-v1.png',
-    alt: 'Prescription Watch, every open file’s prescription date on one screen, entered by hand, red when ignored (demo data)',
-    line: 'Three practice boards and settlement math to the penny. The docket never computes a deadline. A person enters every date, and it turns red if ignored. The demand letter drafts itself from the file. The trust ledger stays the lawyer’s.',
-  },
-  {
-    title: 'Tony’s Shop OS',
-    trade: 'European Auto Repair',
-    src: '/os-screens/tonys-shop-os-v1.png',
-    alt: 'Tony’s Shop OS board. Repair orders, parts, and the day’s money on one screen',
-    line: 'Tekmetric, reverse-engineered for a European auto shop. Repair orders, parts, the counter, and the day’s money on one screen. Running at the shop every day.',
-  },
-  {
-    title: 'LaCaze Outdoor OS',
-    trade: 'Outdoor Equipment Dealership',
-    src: '/os-screens/lacaze-os-ticket-v1.png',
-    alt: 'LaCaze Outdoor OS service ticket. A mower written up with parts and labor on one ticket',
-    line: 'Service writes the ticket. The office sends the invoice and the statement. The owner sees the money. One system for the whole dealership, and the dealership owns it.',
-  },
-  {
-    title: 'Lonestar OS',
-    trade: 'Storage Buildings',
-    src: '/os-screens/lonestar-os-v1.png',
-    alt: 'Lonestar OS order desk. A building order moving from the counter to the production line',
-    line: 'Replaced a rented two-app stack that cost about twenty grand a year. An order walks from the counter to the line to the delivery run without being typed twice.',
-  },
-  {
-    title: 'ECW Field OS',
-    trade: 'Windmill Sales & Service',
-    src: '/os-screens/ecw-field-os-v1.png',
-    alt: 'ECW Field OS. Jobs and crew days run from the phone in the truck',
-    line: 'A field OS for windmill crews. Jobs, days, and money run from the phone in the truck. The website’s question form drops real leads straight onto this board.',
-  },
+/* ─── The fleet — one line each, no screenshots. The page above already
+   proved the software moves; this is the roll call. ─── */
+const fleet: { name: string; trade: string; line: string }[] = [
+  { name: 'Roxanne’s OS', trade: 'Wholesale nursery', line: 'Eats text orders in fifteen formats. Caught or flagged, never dropped.' },
+  { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.' },
+  { name: 'The House System', trade: 'Menswear retail', line: 'An AI point-of-sale. Ask the store questions out loud.' },
+  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.' },
+  { name: 'The Lawyer OS', trade: 'Law · built with Doggett Law, Alexandria', line: 'Practice boards, settlement math to the penny, a docket that never computes a deadline.' },
+  { name: 'Tony’s Shop OS', trade: 'European auto repair', line: 'Tekmetric, reverse-engineered. Running at the shop every day.' },
+  { name: 'LaCaze Outdoor OS', trade: 'Equipment dealership', line: 'Ticket to invoice to statement, one system, dealership-owned.' },
+  { name: 'Lonestar OS', trade: 'Storage buildings', line: 'Replaced a rented two-app stack that cost about twenty grand a year.' },
+  { name: 'ECW Field OS', trade: 'Windmill crews', line: 'Jobs, days, and money from the phone in the truck.' },
 ];
 
 export default function CaseStudiesPage() {
@@ -102,16 +47,17 @@ export default function CaseStudiesPage() {
           className="mb-14"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6 [text-wrap:balance]">
-            The Systems We Built.{' '}
-            <span className="text-primary">The Businesses That Own Them.</span>
+            Don&apos;t Read About It.{' '}
+            <span className="text-primary">Watch It Work.</span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
-            Local businesses across central Louisiana run on software we built. Every one
-            owns it outright.
+            Real businesses run on software we built, and they own every line of it. No slides on
+            this page. A customer on camera, systems doing their jobs, and one live AI you can
+            order around yourself.
           </p>
         </motion.div>
 
-        {/* ─── Featured: Edwards Roofing ─── */}
+        {/* ─── Cory, on camera ─── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +66,6 @@ export default function CaseStudiesPage() {
           className="mb-14 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
         >
           <div className="grid md:grid-cols-2 items-stretch">
-            {/* the testimonial itself, not a still of it — press play, hear the man */}
             <video
               controls
               preload="none"
@@ -132,7 +77,7 @@ export default function CaseStudiesPage() {
               <source src="/cory-ownership-v4.mp4" type="video/mp4" />
             </video>
             <div className="p-6 lg:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction</span>
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction · On Camera</span>
               <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1 mb-4">
                 Edwards Roofing
               </h2>
@@ -141,7 +86,7 @@ export default function CaseStudiesPage() {
                 penny-audit of his books found <span className="text-white font-bold">$195,882.75</span>{' '}
                 sitting in open receivables. It also caught a{' '}
                 <span className="text-white font-bold">$19,000</span> bookkeeping error his old
-                software never saw.
+                software never saw. Press play. He&apos;ll tell you himself.
               </p>
               <Link
                 href="/case-studies/edwards-roofing"
@@ -153,27 +98,86 @@ export default function CaseStudiesPage() {
           </div>
         </motion.div>
 
-        {/* ─── The apps ─── */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-20">
-          {apps.map((app, i) => (
-            <motion.div
-              key={app.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (i % 2) * 0.05, duration: 0.6, ease: ease as any }}
-              className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl overflow-hidden"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={app.src} alt={app.alt} loading="lazy" className="w-full aspect-[16/10] object-cover object-top border-b border-border/10" />
-              <div className="p-5">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{app.trade}</span>
-                <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground mb-2">{app.title}</h3>
-                <p className="text-[13px] text-muted-foreground font-medium leading-relaxed">{app.line}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* ─── The newest build ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-14 rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/os-screens/chill-os-today-v1.png"
+            alt="Mission control for a national e-commerce dealer. Live gauges, abandoned carts with names, and authorized money aging toward expiry, on one dark board (shown with demo values)"
+            className="w-full border-b border-border/10"
+          />
+          <div className="p-6 lg:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Built In The Last Thirty Days · E-Commerce</span>
+            <h2 className="text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mt-1 mb-3">
+              Mission Control For A National Dealer
+            </h2>
+            <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
+              A national DIY mini-split dealer&apos;s command deck. The day&apos;s money against last
+              week, live. Shoppers who reached checkout and walked, by name, with their carts saved.
+              Authorized cards nobody collected, counting down to the day they expire. An AI
+              secretary reads the whole board and drafts the follow-ups; a person always sends.
+              Every number on this screen is a demo value &mdash; the real board runs the real store,
+              beside their old system, matched nightly. <span className="text-white font-semibold">Nothing switches until the owner says switch.</span>
+            </p>
+          </div>
+        </motion.div>
+
+        {/* ─── Watch it work ─── */}
+        <div className="mb-14">
+          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
+            Watch It <span className="text-primary">Work.</span>
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
+            Three signature moves, replayed on a loop. This is what the software actually does all
+            day &mdash; demo values, real mechanics.
+          </p>
+          <div className="grid gap-6">
+            {[
+              { label: 'Roxanne’s OS · Wholesale Nursery', title: 'It eats the messy text order.', el: <ParseOrderDemo /> },
+              { label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', el: <TireQuoteDemo /> },
+              { label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', el: <ChaseDemo /> },
+            ].map((demo) => (
+              <motion.div
+                key={demo.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: ease as any }}
+                className="rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
+              >
+                <div className="px-5 pt-5">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{demo.label}</span>
+                  <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{demo.title}</h3>
+                </div>
+                <div className="p-5">{demo.el}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {/* ─── The live one ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: ease as any }}
+          className="mb-20"
+        >
+          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-2">
+            This One Isn&apos;t A Recording. <span className="text-primary">It&apos;s Live.</span>
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
+            Every system we build carries an AI with real levers and hard walls. Here&apos;s one
+            holding the controls of this very page. Tell it what to change.
+          </p>
+          <OwnerModeDemo />
+        </motion.div>
 
         {/* ─── We ran it on ourselves first ─── */}
         <motion.div
@@ -200,6 +204,24 @@ export default function CaseStudiesPage() {
             Read that story <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </motion.div>
+
+        {/* ─── The fleet ─── */}
+        <div className="mb-20">
+          <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-5">
+            The Rest Of <span className="text-primary">The Fleet.</span>
+          </h2>
+          <div className="divide-y divide-border/10 border-y border-border/10">
+            {fleet.map((f) => (
+              <div key={f.name} className="py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                <div className="sm:w-56 shrink-0">
+                  <p className="text-sm font-black uppercase italic tracking-tight text-foreground">{f.name}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">{f.trade}</p>
+                </div>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{f.line}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ─── The proof, in writing ─── */}
         <div className="mb-20">
@@ -234,7 +256,7 @@ export default function CaseStudiesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20 rounded-2xl border border-border/20 bg-card/15 p-6 lg:p-8 text-center"
+          className="mb-16 rounded-2xl border border-border/20 bg-card/15 p-6 lg:p-8 text-center"
         >
           <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-3">
             Every One Of Them <span className="text-primary">Owns It.</span>
@@ -245,20 +267,6 @@ export default function CaseStudiesPage() {
             {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
           </p>
         </motion.div>
-
-        {/* ─── Where we came from — the record moved to /marketing/results (8/29) ─── */}
-        <div className="mb-16 bg-card/10 border border-border/15 rounded-2xl px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <h2 className="text-lg font-black uppercase italic tracking-tighter text-foreground">Where We Came From: The Marketing Years</h2>
-            <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
-              Thirteen years inside local businesses taught us what needed to be built. The record
-              stands &mdash; and it&rsquo;s history. Found It no longer takes new marketing clients.
-            </p>
-          </div>
-          <Link href="/marketing/results" className="shrink-0 text-sm font-bold text-primary inline-flex items-center gap-1.5 hover:gap-3 transition-all">
-            See the record <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
 
         {/* CTA */}
         <motion.div
