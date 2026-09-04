@@ -6,7 +6,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
-import { OS_PRICING } from '@/lib/site';
+import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
+import { CASE_FILES, CASE_COUNTS } from '@/lib/case-files';
 import ParseOrderDemo from '@/components/case-studies/ParseOrderDemo';
 import TireQuoteDemo from '@/components/case-studies/TireQuoteDemo';
 import ChaseDemo from '@/components/case-studies/ChaseDemo';
@@ -17,18 +18,36 @@ const OwnerModeDemo = dynamic(() => import('@/components/blog/OwnerModeDemo'));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* ─── The fleet — one line each, cross-wired up to the moving proof. ─── */
-const fleet: { name: string; trade: string; line: string; anchor?: string }[] = [
-  { name: 'Roxanne’s OS', trade: 'Wholesale nursery', line: 'Eats text orders in fifteen formats. Caught or flagged, never dropped.', anchor: '#roxanne-demo' },
-  { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.', anchor: '#flywheel-demo' },
-  { name: 'The House System', trade: 'Menswear retail', line: 'An AI point-of-sale. Ask the store questions out loud.' },
-  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.', anchor: '#procarpet-demo' },
-  { name: 'The Lawyer OS', trade: 'Law · built with Doggett Law, Alexandria', line: 'Practice boards, settlement math to the penny — and deadlines stay in the lawyer’s hands, on purpose.' },
+/* ─── The fleet, honestly split (9/4) ───
+   Two shelves, because the old single roll call let a skeptic assume every
+   row was live — and let one row (Lonestar's "replaced") claim more than any
+   source asserts. IN USE = systems with everyday-use copy already published
+   elsewhere on the site. WORKSHOP = sold, building, or staging: capability
+   lines only, no status invented, and they move up when their owners say
+   the sentence. */
+const fleetInUse: { name: string; trade: string; line: string; anchor?: string; door?: { label: string; href: string } }[] = [
   { name: 'Tony’s Shop OS', trade: 'European auto repair', line: 'Tekmetric, reverse-engineered. Running at the shop every day.', anchor: '#tonys-demo' },
-  { name: 'LaCaze Outdoor OS', trade: 'Equipment dealership', line: 'Ticket to invoice to statement, one system, dealership-owned.' },
-  { name: 'Lonestar OS', trade: 'Storage buildings', line: 'Replaced a rented two-app stack that cost about twenty grand a year.' },
+  { name: 'LaCaze Outdoor OS', trade: 'Equipment dealership', line: 'Ticket to invoice to statement, one system, dealership-owned.', door: { label: 'Its nightly record', href: '/the-record' } },
   { name: 'ECW Field OS', trade: 'Windmill crews', line: 'Jobs, days, and money from the phone in the truck.' },
 ];
+const fleetWorkshop: { name: string; trade: string; line: string; anchor?: string; door?: { label: string; href: string } }[] = [
+  { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.', anchor: '#flywheel-demo' },
+  { name: 'The House System', trade: 'Menswear retail', line: 'An AI point-of-sale. Ask the store questions out loud.', door: { label: 'The retail build', href: '/custom-software/retail-stores' } },
+  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.', anchor: '#procarpet-demo' },
+  { name: 'Lonestar OS', trade: 'Storage buildings', line: 'Built to replace a rented two-app stack. Nothing switches until the owner says switch.' },
+];
+
+/* Per-file refusal lines for the ledger — VERBATIM contiguous substrings of
+   each file's stillTrue in src/lib/case-files.ts (the law: refusals are
+   drawn from the record, never authored fresh). */
+const REFUSALS: Record<string, string> = {
+  'Edwards Roofing': 'He can leave any month, with 30 days’ notice, and the whole system leaves with him — code and data.',
+  'Roxanne’s OS': 'Prices never print on crew-facing paper — her rule, written into the code.',
+  'DJ’s Bail Bonds': 'The system is banned from answering his phone — the ban is printed on its front screen.',
+  'Doggett Law Firm': 'She will not calculate a deadline and cannot touch a dollar of client money.',
+  'Walls Tree Service': 'It is banned from bidding.',
+  'The Books Case': 'Payroll and tax filing are never built, at any price.',
+};
 
 function ActHeader({ kicker, children }: { kicker?: string; children: React.ReactNode }) {
   return (
@@ -80,11 +99,31 @@ export default function CaseStudiesPage() {
               Watch It Work.
             </motion.span>
           </h1>
-          <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
-            Real businesses run on software we built, and they own every line of it. No slides on
-            this page. A customer on camera, systems doing their jobs, and one live AI you can
-            order around yourself.
+          <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed mb-6">
+            No slides on this page. A customer on camera, systems doing their jobs, one live AI you
+            can order around yourself &mdash; and a status on everything, because a screenshot is
+            not a case study.
           </p>
+          <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
+            The software company is new &mdash; <span className="text-foreground font-bold">August 2026</span>.
+            We don&apos;t have five years of software history. We have the first month, opened all
+            the way up.
+          </p>
+          {/* The proof strip — counts DERIVED from the case-file record, never hand-typed */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 border-y border-border/15 divide-x divide-border/10">
+            {[
+              { n: String(CASE_COUNTS.total), l: 'case files' },
+              { n: String(CASE_COUNTS.live), l: 'live' },
+              { n: String(CASE_COUNTS.parallel), l: 'running in parallel' },
+              { n: TRACK_RECORD.yearsInBusiness, l: 'years inside local businesses' },
+              { n: '0', l: 'long-term contracts' },
+            ].map((s) => (
+              <div key={s.l} className="py-4 px-3 text-center">
+                <p className="text-2xl sm:text-3xl font-black italic tracking-tighter text-foreground leading-none tabular-nums">{s.n}</p>
+                <p className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-faint mt-1.5 leading-tight">{s.l}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Cory — the number is the headline */}
@@ -122,7 +161,10 @@ export default function CaseStudiesPage() {
               )}
             </div>
             <div className="p-6 lg:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction · On Camera</span>
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction · On Camera</span>
+                <span className="font-mono text-[9px] font-black uppercase tracking-[0.18em] border border-primary/60 text-primary rounded-md px-2 py-0.5">Live · Filed Aug 2026</span>
+              </div>
               <h2 className="text-4xl lg:text-5xl font-black uppercase italic tracking-tighter text-primary mt-1">
                 $195,882.75
               </h2>
@@ -164,8 +206,13 @@ export default function CaseStudiesPage() {
               transition={{ duration: 1.2, ease: ease as any }}
               className="relative w-full rounded-none lg:rounded-xl max-sm:aspect-[4/3] max-sm:object-cover max-sm:object-left-top"
             />
-            <span className="absolute top-3 right-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              shown with demo values
+            <span className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
+              <span className="rounded-full bg-black/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                shown with demo values
+              </span>
+              <span className="rounded-full bg-black/70 px-2.5 py-1 font-mono text-[9px] font-black uppercase tracking-[0.18em] text-muted-foreground">
+                running beside the old system
+              </span>
             </span>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 lg:p-10">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Built In The Last Thirty Days · E-Commerce</span>
@@ -207,7 +254,10 @@ export default function CaseStudiesPage() {
               className="scroll-mt-28 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
             >
               <div className="px-5 pt-5">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">Tony&apos;s Shop OS · Screen-Recorded At The Shop</span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">Tony&apos;s Shop OS · Screen-Recorded At The Shop</span>
+                  <span className="font-mono text-[9px] font-black uppercase tracking-[0.16em] border border-primary/60 text-primary rounded-md px-2 py-0.5">Real screen recording</span>
+                </div>
                 <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">This one isn&apos;t animated. It&apos;s the real system.</h3>
                 <p className="text-xs text-muted-foreground font-medium italic mt-1">Tekmetric, reverse-engineered &mdash; running at the shop every day.</p>
               </div>
@@ -229,7 +279,7 @@ export default function CaseStudiesPage() {
             {/* the three recreations, zig-zagged behind ghost numerals */}
             {[
               { num: '01', id: 'roxanne-demo', side: 'left' as const, width: '', label: 'Roxanne’s OS · Wholesale Nursery', title: 'It eats the messy text order.', before: 'Today somebody retypes that text and the jasmine gets dropped.', el: <ParseOrderDemo /> },
-              { num: '02', id: 'flywheel-demo', side: 'right' as const, width: 'lg:max-w-[88%] lg:ml-auto', label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', before: 'That used to be three supplier calls and twenty minutes of hold music. The demo runs fast; in the shop it’s thirty seconds.', el: <TireQuoteDemo /> },
+              { num: '02', id: 'flywheel-demo', side: 'right' as const, width: 'lg:max-w-[88%] lg:ml-auto', label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', before: 'That used to be three supplier calls and twenty minutes of hold music.', el: <TireQuoteDemo /> },
               { num: '03', id: 'procarpet-demo', side: 'left' as const, width: 'lg:max-w-[88%] lg:mr-auto', label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', before: 'That estimate used to die in a text thread.', el: <ChaseDemo /> },
             ].map((demo) => (
               <div key={demo.id} id={demo.id} className={`relative scroll-mt-28 ${demo.width}`}>
@@ -247,7 +297,10 @@ export default function CaseStudiesPage() {
                   className="relative z-10 rounded-2xl border border-border/20 bg-card/15 overflow-hidden"
                 >
                   <div className="px-5 pt-5">
-                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{demo.label}</span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">{demo.label}</span>
+                      <span className="font-mono text-[9px] font-black uppercase tracking-[0.16em] border border-border/40 text-muted-foreground rounded-md px-2 py-0.5">Recreation · demo values</span>
+                    </div>
                     <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{demo.title}</h3>
                     <p className="text-xs text-muted-foreground font-medium italic mt-1">{demo.before}</p>
                   </div>
@@ -340,24 +393,111 @@ export default function CaseStudiesPage() {
           </blockquote>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-4">Trevor Ruby · Found It&apos;s own books</p>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-2xl mt-4">
-            We run our whole company on the same kind of system we sell. Every claim on this page
-            has a reconciliation behind it. The whole reconciliation is in the story.
+            We run our whole company on the same kind of system we sell &mdash; and it polices
+            itself. Posting our books, its checker caught a{' '}
+            <span className="text-white font-bold">$92.39</span> discrepancy in its own work and
+            refused to certify the run. No green checkmark, no &ldquo;close enough.&rdquo; We fixed
+            the bug. It ran again. Difference: <span className="text-white font-bold">$0.00</span>.
           </p>
-          <Link
-            href="/blog/moving-our-own-books"
-            className="inline-flex items-center gap-2 mt-4 text-sm font-black uppercase tracking-wide text-primary hover:underline"
-          >
-            Read that story <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
+          <p className="text-base font-black uppercase italic tracking-tight text-foreground mt-4 max-w-2xl">
+            A bug is not a scandal. <span className="text-primary">A green checkmark over a bug is.</span>
+          </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+            <Link
+              href="/blog/moving-our-own-books"
+              className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline"
+            >
+              Read that story <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/blog/quickbooks-is-cancelled"
+              className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline"
+            >
+              The night it caught itself <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
         </section>
 
-        {/* ─── The fleet ─── */}
+        {/* ─── ACT IV · THE FILES ─── */}
+
+        {/* The evidence standard — the bar every file below meets */}
+        <div className="mb-10">
+          <ActHeader kicker="The Standard">
+            A Screenshot Is Not <span className="text-primary">A Case Study.</span>
+          </ActHeader>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
+            Every file below carries a status &mdash; live, or running beside the old system &mdash;
+            a receipt with the pennies on, and the thing the system{' '}
+            <span className="text-foreground font-bold">refuses</span> to do. When a screen shows
+            demo data, it says so. When a client stays anonymous, it says why. When a system still
+            runs beside the old one, we don&apos;t call it finished.
+          </p>
+        </div>
+
+        {/* The six case files — statuses and receipts read from the same
+            record /before-after renders; the counts in the hero derive from
+            this array too. Nothing on this page can drift from the files. */}
+        <div className="mb-8 border-t border-border/15">
+          {CASE_FILES.map((f) => (
+            <div key={f.name} className="py-6 border-b border-border/15 grid gap-3 md:grid-cols-[230px_1fr] md:gap-8">
+              <div>
+                <span
+                  className={`inline-block font-mono text-[9px] font-black uppercase tracking-[0.18em] border rounded-md px-2 py-0.5 mb-2 ${
+                    f.status === 'LIVE' ? 'border-primary/60 text-primary' : 'border-border/40 text-muted-foreground'
+                  }`}
+                >
+                  {f.status}
+                </span>
+                <p className="text-base font-black uppercase italic tracking-tight text-foreground leading-tight">{f.name}</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-primary mt-0.5">{f.trade}</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-faint mt-1">{f.filed}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="text-2xl sm:text-3xl font-black italic tracking-tighter text-primary leading-none">
+                  {f.receipt}
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground not-italic mt-1.5">
+                    {f.receiptLabel}
+                  </span>
+                </p>
+                {REFUSALS[f.name] && (
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">
+                    <span className="font-mono text-[9px] font-black uppercase tracking-[0.18em] text-faint mr-2 whitespace-nowrap">Still true</span>
+                    {REFUSALS[f.name]}
+                  </p>
+                )}
+                <Link
+                  href="/before-after"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wide text-primary hover:underline"
+                >
+                  Open the file <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* three doors out of the evidence room */}
+        <div className="mb-20 flex flex-wrap gap-x-8 gap-y-2">
+          <Link href="/before-after" className="text-xs font-black uppercase tracking-[0.14em] text-primary hover:underline">
+            The full files →
+          </Link>
+          <Link href="/the-record" className="text-xs font-black uppercase tracking-[0.14em] text-primary hover:underline">
+            The live nightly record →
+          </Link>
+          <Link href="/it-just-works" className="text-xs font-black uppercase tracking-[0.14em] text-primary hover:underline">
+            Fully in use, per the owners →
+          </Link>
+        </div>
+
+        {/* ─── The fleet, two shelves ─── */}
         <div className="mb-20">
           <ActHeader>
             The Rest Of <span className="text-primary">The Fleet.</span>
           </ActHeader>
+
+          <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2 mt-8">In use every day</p>
           <div className="divide-y divide-border/10 border-y border-border/10">
-            {fleet.map((f) => (
+            {fleetInUse.map((f) => (
               <div key={f.name} className="py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
                 <div className="sm:w-56 shrink-0">
                   <p className="text-sm font-black uppercase italic tracking-tight text-foreground">{f.name}</p>
@@ -369,9 +509,42 @@ export default function CaseStudiesPage() {
                     watch above ↑
                   </a>
                 )}
+                {f.door && (
+                  <Link href={f.door.href} className="shrink-0 text-[10px] font-black uppercase tracking-[0.18em] text-primary hover:underline">
+                    {f.door.label} →
+                  </Link>
+                )}
               </div>
             ))}
           </div>
+
+          <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2 mt-10">
+            In the workshop · sold, building, or staging
+          </p>
+          <div className="divide-y divide-border/10 border-y border-border/10">
+            {fleetWorkshop.map((f) => (
+              <div key={f.name} className="py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                <div className="sm:w-56 shrink-0">
+                  <p className="text-sm font-black uppercase italic tracking-tight text-foreground">{f.name}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">{f.trade}</p>
+                </div>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed flex-1">{f.line}</p>
+                {f.anchor && (
+                  <a href={f.anchor} className="shrink-0 text-[10px] font-black uppercase tracking-[0.18em] text-primary hover:underline">
+                    watch the recreation ↑
+                  </a>
+                )}
+                {f.door && (
+                  <Link href={f.door.href} className="shrink-0 text-[10px] font-black uppercase tracking-[0.18em] text-primary hover:underline">
+                    {f.door.label} →
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground font-medium mt-3">
+            Workshop systems move up to the files when their owners say the sentence &mdash; not before.
+          </p>
         </div>
 
         {/* ─── The proof, in writing ─── */}
@@ -401,6 +574,28 @@ export default function CaseStudiesPage() {
           </div>
         </div>
 
+        {/* ─── The age, addressed head-on ─── */}
+        <div className="mb-20 border border-border/20 rounded-3xl p-7 md:p-10 bg-card/5">
+          <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-5">
+            The Software Company Is New.{' '}
+            <span className="text-primary">The Scar Tissue Is Not.</span>
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl mb-4">
+            Found It Software became the company in August 2026. Before that, Found It spent
+            thirteen years inside local businesses &mdash; the phones, the leads, the handoffs, the
+            places work quietly falls through. AI lowered the cost of serious custom software
+            enough to make these systems practical for the same kind of businesses. Not thirteen
+            years as a software platform. Thirteen years inside local businesses, finally building
+            what they needed.
+          </p>
+          <p className="text-sm text-foreground font-medium leading-relaxed max-w-3xl">
+            A new company has no history to point at. It has files. Whether to trust us isn&apos;t
+            something I can say &mdash; it&apos;s something the files above either prove or
+            don&apos;t. <span className="font-bold">Read them.</span>
+          </p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-4">&mdash; Trevor</p>
+        </div>
+
         {/* ─── The finale — one ending, one button ─── */}
         <motion.div
           initial={{ opacity: 0, scale: 1.08 }}
@@ -410,7 +605,7 @@ export default function CaseStudiesPage() {
           className="text-center py-20 border-t border-border/10"
         >
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
-            Every One Of Them <span className="text-primary">Owns It.</span>
+            Every File Ends The Same Way. <span className="text-primary">The Owner Keeps It.</span>
           </h2>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             The code and the data, one hundred percent. Nobody rents you your own business back.{' '}
