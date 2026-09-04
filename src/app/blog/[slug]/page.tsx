@@ -26,6 +26,10 @@ const ExportDemo = dynamic(() => import('@/components/blog/ExportDemo'));
 const CancelDemo = dynamic(() => import('@/components/blog/CancelDemo'));
 const ExitTestCTA = dynamic(() => import('@/components/blog/ExitTestCTA'));
 
+/* The Shipwright's cycle-one artifact: scoreboard, redacted work order,
+   authority matrix — the document shown, not described. */
+const ShipwrightArtifact = dynamic(() => import('@/components/blog/ShipwrightArtifact'));
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
   if (!post) return {};
@@ -123,6 +127,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       {post.slug === 'giving-owners-full-control' && <OwnerModeDemo />}
       {post.slug === 'why-they-cant-compete' && <ExportDemo />}
       {post.slug === 'rented-software-no-data-rights' && <CancelDemo />}
+      {post.slug === 'self-improving-software' && <ShipwrightArtifact />}
 
       <article className="max-w-3xl mx-auto px-6">
         <div
