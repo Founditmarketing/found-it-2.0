@@ -10,7 +10,6 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 import { CASE_FILES, CASE_COUNTS } from '@/lib/case-files';
 import ParseOrderDemo from '@/components/case-studies/ParseOrderDemo';
 import TireQuoteDemo from '@/components/case-studies/TireQuoteDemo';
-import ChaseDemo from '@/components/case-studies/ChaseDemo';
 
 /* The live bounded-AI demo proves itself on this page too — code-split so
    the chunk only ships here and on the Owner Mode article. */
@@ -31,9 +30,9 @@ const fleetInUse: { name: string; trade: string; line: string; anchor?: string; 
   { name: 'ECW Field OS', trade: 'Windmill crews', line: 'Jobs, days, and money from the phone in the truck.' },
 ];
 const fleetWorkshop: { name: string; trade: string; line: string; anchor?: string; door?: { label: string; href: string } }[] = [
+  { name: 'Matteo Perin', trade: 'Luxury atelier', line: 'The House System fitted to a bespoke atelier. Runs beside his books every night, matched to the penny. Go-live is his call, in person.' },
   { name: 'Flywheel OS', trade: 'Tire & auto', line: 'The 30-second quote, every supplier priced out the door.', anchor: '#flywheel-demo' },
   { name: 'The House System', trade: 'Menswear retail', line: 'An AI point-of-sale. Ask the store questions out loud.', door: { label: 'The retail build', href: '/custom-software/retail-stores' } },
-  { name: 'Pro Carpet OS', trade: 'Carpet & duct', line: 'The follow-up machine. It never forgets, a person always sends.', anchor: '#procarpet-demo' },
   { name: 'Lonestar OS', trade: 'Storage buildings', line: 'Built to replace a rented two-app stack. Nothing switches until the owner says switch.' },
 ];
 
@@ -241,7 +240,7 @@ export default function CaseStudiesPage() {
             Watch It <span className="text-primary">Work.</span>
           </ActHeader>
           <p className="text-sm text-muted-foreground font-medium mb-6 max-w-2xl">
-            One real screen recording, then three signature moves replayed on a loop &mdash; demo
+            One real screen recording, then two signature moves replayed on a loop &mdash; demo
             values, real mechanics.
           </p>
           {/* Phones: the machines become a swipe deck (CSS relayout only, so
@@ -287,7 +286,6 @@ export default function CaseStudiesPage() {
             {[
               { num: '01', id: 'roxanne-demo', side: 'left' as const, width: '', label: 'Roxanne’s OS · Wholesale Nursery', title: 'It eats the messy text order.', before: 'Today somebody retypes that text and the jasmine gets dropped.', el: <ParseOrderDemo /> },
               { num: '02', id: 'flywheel-demo', side: 'right' as const, width: 'lg:max-w-[88%] lg:ml-auto', label: 'Flywheel OS · Tire & Auto', title: 'The 30-second quote.', before: 'That used to be three supplier calls and twenty minutes of hold music.', el: <TireQuoteDemo /> },
-              { num: '03', id: 'procarpet-demo', side: 'left' as const, width: 'lg:max-w-[88%] lg:mr-auto', label: 'Pro Carpet OS · Service', title: 'The follow-up machine that never forgets.', before: 'That estimate used to die in a text thread.', el: <ChaseDemo /> },
             ].map((demo) => (
               <div key={demo.id} id={demo.id} className={`relative max-sm:snap-center max-sm:shrink-0 max-sm:w-[88vw] max-sm:min-w-0 scroll-mt-28 ${demo.width}`}>
                 <span
