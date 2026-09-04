@@ -199,15 +199,14 @@ export interface ServiceArea {
   sameAs?: string;
 }
 
+/* CENLA ONLY FOR NOW (Trevor 9/4): the served area is Central Louisiana.
+   Lake Charles and the multi-state entries came out; remote work stays
+   available everywhere but is not an areaServed claim. Widen this list only
+   when Trevor says the map grew. */
 export const AREA_SERVED: ServiceArea[] = [
   { type: 'City', name: 'Alexandria', sameAs: 'https://en.wikipedia.org/wiki/Alexandria,_Louisiana' },
   { type: 'City', name: 'Pineville', sameAs: 'https://en.wikipedia.org/wiki/Pineville,_Louisiana' },
-  { type: 'City', name: 'Lake Charles', sameAs: 'https://en.wikipedia.org/wiki/Lake_Charles,_Louisiana' },
   { type: 'AdministrativeArea', name: 'Central Louisiana', sameAs: 'https://en.wikipedia.org/wiki/Central_Louisiana' },
-  { type: 'State', name: 'Louisiana', sameAs: 'https://en.wikipedia.org/wiki/Louisiana' },
-  { type: 'State', name: 'Mississippi' },
-  { type: 'State', name: 'Texas' },
-  { type: 'State', name: 'Arkansas' },
 ];
 
 /** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */

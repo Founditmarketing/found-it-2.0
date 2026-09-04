@@ -83,7 +83,7 @@ const data: PillarData = {
     'You own 100% of the source code, IP, and developer accounts.',
     'Fixed prices and firm dates, approved in full before any work begins.',
     'A local team you can actually reach, through launch and beyond.',
-    'In-person blueprints across Louisiana and East Texas.',
+    'In-person blueprints across Central Louisiana.',
   ],
   faqHeading: 'App Development FAQ',
   faq: [

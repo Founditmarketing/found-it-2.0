@@ -131,7 +131,7 @@ const CLAIMS = [
 const NOT_YET = [
   ['Five years of software operating history', 'Not possible yet. Found It Software is new, and no wording can hurry that.'],
   ['A completed independent developer handoff drill', 'Not yet. Every client holds the right and the package; nobody has needed to use them.'],
-  ['National scale', 'Not proved. Louisiana, Mississippi, East Texas, southern Arkansas. That’s the earned map.'],
+  ['National scale', 'Not proved. Central Louisiana is the earned map, for now.'],
   ['Zero mistakes', 'Will never be claimed. See the rules we paid for, below.'],
 ];
 
@@ -675,8 +675,8 @@ export default function AboutPage() {
               Call first &mdash; we may be at somebody&rsquo;s shop.
             </p>
             <p>
-              If you&rsquo;re in Louisiana, Mississippi, East Texas, or southern Arkansas, we&rsquo;ll
-              drive to you and sit at your table. Everywhere else, the same people do the same work remotely.
+              If you&rsquo;re in Central Louisiana, we&rsquo;ll drive to you and sit at your table.
+              Everywhere else, the same people do the same work remotely.
             </p>
           </div>
           <details className="mt-6 max-w-2xl group">
