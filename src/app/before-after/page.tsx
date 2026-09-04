@@ -4,9 +4,9 @@ import { CASE_FILES } from '@/lib/case-files';
 
 /* THE RECORD (Trevor 8/29: "before and after they TRUST, not one that looks
    cool"). Six case files in one strict format: BEFORE (dated facts + the
-   owner's words) â†’ THE WORK (the method, stated every time) â†’ AFTER (the
-   real screen + the receipt with its pennies on) â†’ STILL TRUE (what stayed
-   human or refused â€” the limits that make the wins believable). Status
+   owner's words) → THE WORK (the method, stated every time) → AFTER (the
+   real screen + the receipt with its pennies on) → STILL TRUE (what stayed
+   human or refused — the limits that make the wins believable). Status
    stamped honestly per file. No animation, no adjectives: dates, pennies,
    quotes, screens, refusals. Everything here is already public on the blog
    or case studies; statuses come from what those pages assert. */
@@ -14,7 +14,7 @@ import { CASE_FILES } from '@/lib/case-files';
 export const metadata: Metadata = {
   title: 'Before & After: The Record',
   description:
-    'Six businesses. What they ran on before. What they run on now. Every number as it happened â€” receipts, screens, and the limits we kept. No adjectives.',
+    'Six businesses. What they ran on before. What they run on now. Every number as it happened — receipts, screens, and the limits we kept. No adjectives.',
   alternates: { canonical: '/before-after' },
 };
 
@@ -26,7 +26,7 @@ export default function BeforeAfterPage() {
       </div>
 
       <div className="max-w-[860px] mx-auto px-6 relative z-10">
-        {/* Header â€” three lines, no theatrics */}
+        {/* Header — three lines, no theatrics */}
         <div className="mb-14">
           <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-5">
             Before &amp; After &middot; The Record
@@ -43,7 +43,7 @@ export default function BeforeAfterPage() {
         <div className="space-y-14">
           {CASE_FILES.map((f) => (
             <article key={f.name} className="border border-border/20 rounded-3xl overflow-hidden bg-card/5">
-              {/* File header + status stamp â€” the stamp gets its own line on
+              {/* File header + status stamp — the stamp gets its own line on
                   phones (RUNNING IN PARALLEL was crushing the title to ~90px) */}
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 px-5 sm:px-7 lg:px-9 pt-6 sm:pt-7">
                 <div>
@@ -82,7 +82,7 @@ export default function BeforeAfterPage() {
                   </div>
                 </section>
 
-                {/* THE WORK â€” the method, stated every time */}
+                {/* THE WORK — the method, stated every time */}
                 <section className="border-l-2 border-primary/40 pl-5">
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">The Work</p>
                   <p className="text-[15px] text-foreground font-medium leading-relaxed">{f.work}</p>
@@ -130,7 +130,7 @@ export default function BeforeAfterPage() {
                   </div>
                 </section>
 
-                {/* STILL TRUE â€” the limits that make the wins believable */}
+                {/* STILL TRUE — the limits that make the wins believable */}
                 <section className="bg-background/40 border border-border/20 rounded-2xl px-4 sm:px-6 py-5">
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-faint mb-2">Still True</p>
                   <p className="text-[15px] text-foreground font-medium leading-relaxed">{f.stillTrue}</p>
@@ -140,7 +140,7 @@ export default function BeforeAfterPage() {
           ))}
         </div>
 
-        {/* Close â€” one quiet line */}
+        {/* Close — one quiet line */}
         <div className="mt-16 text-center">
           <p className="text-sm text-muted-foreground font-medium mb-5">
             Every screen above runs demo data; every dollar figure happened. Yours is the next file.
@@ -149,7 +149,7 @@ export default function BeforeAfterPage() {
             href="/fit"
             className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
           >
-            Show Me What You&rsquo;d Build
+            Start the 60-Second Fit Check
           </Link>
         </div>
       </div>
