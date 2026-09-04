@@ -256,7 +256,7 @@ const data: PillarData = {
     { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
     { title: 'Custom App Development', href: '/app-development' },
     { title: 'The Free Walkthrough, Explained', href: '/blog/what-is-a-software-map' },
-    { title: 'The Rent Isn’t the Problem. The Exit Is.', href: '/blog/rented-software-no-data-rights' },
+    { title: 'You Can Export the Nouns. They Keep the Verbs.', href: '/blog/rented-software-no-data-rights' },
   ],
   finalCtaHeadline: 'See What Yours Would Do First',
   finalCtaSub:

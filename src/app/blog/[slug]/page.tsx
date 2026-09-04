@@ -23,6 +23,7 @@ const OwnerModeCTA = dynamic(() => import('@/components/blog/OwnerModeCTA'));
 /* Same pattern for the exit argument: the export demo proves the distinction
    before the essay argues it, and the CTA carries the reader's stack to /map. */
 const ExportDemo = dynamic(() => import('@/components/blog/ExportDemo'));
+const CancelDemo = dynamic(() => import('@/components/blog/CancelDemo'));
 const ExitTestCTA = dynamic(() => import('@/components/blog/ExitTestCTA'));
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -121,6 +122,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       {post.slug === 'giving-owners-full-control' && <OwnerModeDemo />}
       {post.slug === 'why-they-cant-compete' && <ExportDemo />}
+      {post.slug === 'rented-software-no-data-rights' && <CancelDemo />}
 
       <article className="max-w-3xl mx-auto px-6">
         <div
@@ -132,6 +134,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       {post.slug === 'giving-owners-full-control' && <OwnerModeCTA />}
       {post.slug === 'why-they-cant-compete' && <ExitTestCTA />}
+      {post.slug === 'rented-software-no-data-rights' && (
+        <ExitTestCTA
+          heading={<>What stops working if you cancel <span className="text-primary">tonight?</span></>}
+          sub="Tell us what your business runs on. We’ll show you what exports, what goes dark, and what an owned system would need to keep running."
+          button="Run the Cancellation Test"
+        />
+      )}
 
       {/* Her — below the body, above Keep Reading, only on posts that opt in. */}
       {post.voice && (

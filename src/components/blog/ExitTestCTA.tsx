@@ -9,7 +9,19 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function ExitTestCTA() {
+export default function ExitTestCTA({
+  heading = (
+    <>
+      What survives if you cancel <span className="text-primary">tomorrow?</span>
+    </>
+  ),
+  sub = 'Tell us what your business runs on. We’ll map what exports, what stops working, and what one owned system would need to replace.',
+  button = 'Run the Exit Test',
+}: {
+  heading?: React.ReactNode;
+  sub?: string;
+  button?: string;
+}) {
   const [runs, setRuns] = useState('');
   const router = useRouter();
   const go = () => {
@@ -20,12 +32,9 @@ export default function ExitTestCTA() {
     <div className="max-w-3xl mx-auto px-6 mt-4 mb-8">
       <div className="border border-border/25 rounded-[1.75rem] bg-card/10 p-6 md:p-8">
         <p className="text-xl md:text-2xl font-black uppercase italic tracking-tighter text-foreground mb-2">
-          What survives if you cancel <span className="text-primary">tomorrow?</span>
+          {heading}
         </p>
-        <p className="text-sm text-muted-foreground font-medium mb-4">
-          Tell us what your business runs on. We&rsquo;ll map what exports, what stops working, and what
-          one owned system would need to replace.
-        </p>
+        <p className="text-sm text-muted-foreground font-medium mb-4">{sub}</p>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -48,7 +57,7 @@ export default function ExitTestCTA() {
             type="submit"
             className="px-8 h-12 w-full sm:w-auto whitespace-nowrap rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs hover:opacity-90 transition-opacity"
           >
-            Run the Exit Test
+            {button}
           </button>
         </form>
       </div>
