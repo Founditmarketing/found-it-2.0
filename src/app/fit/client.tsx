@@ -18,9 +18,11 @@ export default function FitClient() {
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             The Fit Check
           </p>
+          {/* Message-matches the house close: the door says "Bring us the
+              ugly part" — this page asks for exactly that, once. */}
           <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">
-            Sixty Seconds.{' '}
-            <span className="text-primary">Straight Answer.</span>
+            Bring Us{' '}
+            <span className="text-primary">the Ugly Part.</span>
           </h1>
         </div>
 

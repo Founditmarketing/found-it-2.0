@@ -45,6 +45,160 @@ export interface FitCheckProps {
   className?: string;
 }
 
+/* ─── THE TAILOR DOOR (Trevor 9/5: "all we really need to know is your
+   problems briefly so we can get to solveing them... this assistance is
+   part of the luxury") ───
+   The /fit front door: ONE sentence about the ugly part, and the machine
+   does the sorting (/api/tailor applies the same hard walls the quiz
+   enforces). Qualified hands over a number and is done; NOT-A-FIT stays a
+   kind dismissal that captures nothing; the chip quiz survives one tap away
+   as the deterministic instrument, and any API failure degrades into it. */
+function TailorDoor({
+  source,
+  pageSlug,
+  onQuiz,
+}: {
+  source: string;
+  pageSlug: string;
+  onQuiz: (note?: string) => void;
+}) {
+  const [problem, setProblem] = useState('');
+  const [phase, setPhase] = useState<'ask' | 'busy' | 'heard' | 'no'>('ask');
+  const [read, setRead] = useState<{ fit: string; heard: string; firstTarget: string; reason: string } | null>(null);
+
+  const submit = async () => {
+    const p = problem.trim();
+    if (p.length < 8 || phase === 'busy') return;
+    setPhase('busy');
+    try {
+      const res = await fetch('/api/tailor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ problem: p }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      if (!data.heard) throw new Error('empty');
+      setRead(data);
+      setPhase(data.fit === 'no' ? 'no' : 'heard');
+    } catch {
+      onQuiz('The tailor stepped out for a moment, five quick taps instead.');
+    }
+  };
+
+  if (phase === 'heard' && read) {
+    return (
+      <motion.div key="heard" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
+        <div className="bg-card/15 backdrop-blur-xl border border-primary/30 rounded-2xl p-6 lg:p-8 mb-6 shadow-2xl shadow-primary/10">
+          <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-3">
+            Taken down
+          </p>
+          <p className="text-lg lg:text-xl font-black italic tracking-tight text-foreground leading-snug mb-5">
+            &ldquo;{read.heard}&rdquo;
+          </p>
+          {read.firstTarget && (
+            <>
+              <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-1.5">
+                First target &middot; pending the walkthrough
+              </p>
+              <p className="text-sm text-foreground font-bold leading-relaxed">{read.firstTarget}</p>
+            </>
+          )}
+        </div>
+        <NativeLeadForm
+          source={source}
+          pageSlug={pageSlug}
+          heading="Leave the number. Trevor calls."
+          subheading="That's everything we need from you."
+          ctaLabel="Take It From Here"
+          compact
+          trailLines={[
+            `Tailor intake: "${problem.trim().slice(0, 300)}"`,
+            `Heard: ${read.heard}`,
+            read.firstTarget ? `First target: ${read.firstTarget}` : '',
+            `AI fit read: ${read.fit}`,
+          ].filter(Boolean)}
+        />
+        <p className="mt-5 text-center text-xs font-bold text-muted-foreground">
+          <button type="button" onClick={() => setPhase('ask')} className="hover:text-primary transition-colors">
+            Not quite what you said? Edit it →
+          </button>
+          <span className="mx-2 text-faint">·</span>
+          <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
+            Prefer taps? Sixty seconds →
+          </button>
+        </p>
+      </motion.div>
+    );
+  }
+
+  if (phase === 'no' && read) {
+    return (
+      <motion.div key="no" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
+        {/* The kind dismissal — sells nothing, captures nothing. */}
+        <div className="bg-card/15 backdrop-blur-xl border border-border/30 rounded-2xl p-8 lg:p-10 text-center">
+          <h2 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-4">
+            Not Our Lane.
+          </h2>
+          <p className="text-base text-muted-foreground font-medium leading-relaxed max-w-md mx-auto mb-4">{read.reason}</p>
+          <p className="text-sm text-foreground font-bold mb-6">
+            No hard feelings. Most good businesses aren&apos;t ours to build.
+          </p>
+          <p className="text-xs font-bold text-muted-foreground">
+            <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
+              Think we misread it? Five quick taps →
+            </button>
+          </p>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div key="ask" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
+      <div className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8">
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">
+          One sentence is enough
+        </p>
+        <label htmlFor="ugly-part" className="block text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-4 leading-tight">
+          What&apos;s the ugly part?
+        </label>
+        <textarea
+          id="ugly-part"
+          value={problem}
+          onChange={(e) => setProblem(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              submit();
+            }
+          }}
+          rows={3}
+          disabled={phase === 'busy'}
+          placeholder="The thing that eats your evenings. Paper orders, the phone nobody answers, the pile nobody bills…"
+          className="w-full rounded-xl bg-background/60 border border-border/30 px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60 resize-none"
+        />
+        <button
+          type="button"
+          onClick={submit}
+          disabled={phase === 'busy' || problem.trim().length < 8}
+          className="mt-4 w-full sm:w-auto inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:shadow-none"
+        >
+          {phase === 'busy' ? 'Reading it…' : 'Hand It Over'}
+        </button>
+        <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">
+          No prep &middot; no packet &middot; the rest gets sized on the walkthrough
+        </p>
+      </div>
+      <p className="mt-4 text-center text-xs font-bold text-muted-foreground">
+        <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
+          Prefer taps? The sixty-second version →
+        </button>
+      </p>
+    </motion.div>
+  );
+}
+
 export function FitCheck({
   variant = 'page',
   source,
@@ -67,6 +221,12 @@ export function FitCheck({
     answers: {},
   });
   const { step, answers } = quiz;
+  /* Page variant leads with the tailor door; the chip quiz is one tap away
+     (and the landing spot if the tailor API is down). Embed slots keep the
+     quiz — an LP form slot is already a commitment point. */
+  const [entry, setEntry] = useState<{ mode: 'tailor' | 'quiz'; note?: string }>({
+    mode: variant === 'page' ? 'tailor' : 'quiz',
+  });
 
   const done = step >= FIT_QUESTIONS.length;
   const q = FIT_QUESTIONS[Math.min(step, FIT_QUESTIONS.length - 1)];
@@ -265,7 +425,19 @@ export function FitCheck({
     );
   }
 
-  /* ─── PAGE: the full /fit experience, unchanged ─── */
+  /* ─── PAGE: the tailor door first, the quiz one tap away ─── */
+  if (entry.mode === 'tailor') {
+    return (
+      <AnimatePresence mode="wait">
+        <TailorDoor
+          source={`${source}_tailor`}
+          pageSlug={pageSlug}
+          onQuiz={(note) => setEntry({ mode: 'quiz', ...(note ? { note } : {}) })}
+        />
+      </AnimatePresence>
+    );
+  }
+
   return (
     <AnimatePresence mode="wait">
       {!done ? (
@@ -277,6 +449,9 @@ export function FitCheck({
           transition={{ duration: 0.3, ease }}
           className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
         >
+          {entry.note && (
+            <p className="mb-4 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">{entry.note}</p>
+          )}
           <div className="flex items-center justify-between mb-6 min-h-[28px]">
             {step > 0 ? (
               backButton
