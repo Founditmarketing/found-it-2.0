@@ -12,6 +12,8 @@ const nextConfig = {
   // and keeping every old ad/email link alive.
   async redirects() {
     return [
+      // Cory Edwards de-featured (Trevor 9/5, temporary - he returns later).
+      { source: '/case-studies/edwards-roofing', destination: '/case-studies', permanent: false },
       // Wichita OFF the site (Trevor 9/4): the Kansas experiment LP is gone.
       { source: '/lp/wichita', destination: '/lp/walkthrough', permanent: true },
       // THE MAP IS OFF THE SITE (Trevor 9/4): page deleted, every CTA points

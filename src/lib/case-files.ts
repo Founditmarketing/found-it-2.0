@@ -27,27 +27,6 @@ export type CaseFile = {
 
 export const CASE_FILES: CaseFile[] = [
   {
-    name: 'Edwards Roofing',
-    trade: 'Roofing & Construction · Central Louisiana',
-    status: 'LIVE',
-    filed: 'Filed August 2026',
-    before: [
-      'Jobs lived in one app, invoices in another, receivables in nobody’s.',
-      'Finished, earned work sat unpaid where no screen could show it.',
-    ],
-    work:
-      'One system fitted to how the company runs. His records migrated in. The day it went live, it audited his own books.',
-    after: [
-      'Jobs, invoices, and money owed on one screen, oldest first, every morning.',
-      'The audit also caught a $19,000 bookkeeping error his old software never saw.',
-    ],
-    receipt: '$195,882.75',
-    receiptLabel: 'found in open receivables the day the system went live',
-    stillTrue:
-      'He can leave any month, with 30 days’ notice, and the whole system leaves with him — code and data. That door stays open on purpose.',
-    img: { src: '/cory-ownership-poster-v4.jpg', alt: 'Cory Edwards of Edwards Roofing' },
-  },
-  {
     name: 'Roxanne’s OS',
     trade: 'Wholesale Nursery · Central Louisiana',
     status: 'LIVE',

@@ -151,19 +151,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
 
       {/* Proof directly under the hero — a named local business and numbers
           too specific to be invented. Specificity beats skepticism. */}
-      <FounderVideo
-        eyebrow="Real Local Business. Real Numbers."
-        heading="The Biggest Roofer In Cenla"
-        headingAccent="Owns His Whole System."
-        body="Cory Edwards, Edwards Roofing. His system found $195,882.75 sitting in open receivables. It caught a $19,000 bookkeeping error his old software never saw. Here's what he says about owning it."
-        videoSrc="/cory-ownership-v4.mp4"
-        poster="/cory-ownership-poster-v4.jpg"
-        founderName="Cory Edwards"
-        captionText="Watch the 20-sec clip"
-        ctaText="Let's Talk"
-        ctaHref="#lp-form"
-        secondaryLink={{ label: 'See how Edwards Roofing runs theirs', href: '/case-studies/edwards-roofing' }}
-      />
+      {/* Cory proof block OFF (Trevor 9/5) */}
 
       {/* The mirror — make them say "that's my company" before any mechanism
           talk. Six places → one system (8/14 audit). */}

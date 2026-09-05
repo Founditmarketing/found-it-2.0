@@ -145,13 +145,6 @@ const SCARS = [
     receipt: { label: 'Read the field report', href: '/blog/moving-our-own-books' },
   },
   {
-    date: 'DAY ONE, EDWARDS ROOFING',
-    happened: 'The first penny-audit of a client’s books surfaced $195,882.75 sitting in open receivables and a $19,000 bookkeeping error the old software never saw.',
-    changed: 'No system cuts over on trust. The new one runs beside the old one, reconciled to the penny every night, until the owner says go.',
-    enforced: 'The migration gate, on every fitting.',
-    receipt: { label: 'Read the case study', href: '/case-studies/edwards-roofing' },
-  },
-  {
     date: 'STANDING RULE',
     happened: 'Everywhere we looked, business software let people quietly edit history — and quietly is how $99,000 goes missing.',
     changed: 'Our ledgers are append-only. Try to edit an entry and the system refuses: a correction posts as a new line, the original stays on the record.',

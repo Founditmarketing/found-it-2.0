@@ -18,15 +18,6 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
    computer but remake the section for phone"). */
 const FITTINGS = [
   {
-    kind: 'The Roofer',
-    before: 'Jobs in one app, invoices in another, receivables in nobody’s.',
-    after: 'His system audited his own books the day it went live.',
-    number: '$195,882.75',
-    numberLabel: 'found in open receivables',
-    href: '/case-studies/edwards-roofing',
-    link: 'Read the case study',
-  },
-  {
     kind: 'The Nursery',
     before: 'Fifteen brokers texting orders in, hand-copied to paper. 44 plants nearly missed the truck.',
     after: 'Paste the text in. Every line captured. Anything odd flags red instead of falling off.',
@@ -179,7 +170,7 @@ export default function HomePage() {
             </p>
           </motion.div>
           {/* Desktop: the three-up grid, unchanged. */}
-          <div className="hidden lg:grid grid-cols-3 gap-5">
+          <div className="hidden lg:grid grid-cols-2 gap-5 max-w-[780px] mx-auto">
             {FITTINGS.map((f, i) => (
               <motion.div
                 key={f.kind}

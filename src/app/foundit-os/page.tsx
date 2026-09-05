@@ -58,18 +58,6 @@ const data: PillarData = {
     { label: 'Compared to Grok', href: '/vs-grok' },
     { label: 'Compared to Viktor', href: '/vs-viktor' },
   ],
-  proof: {
-    kicker: 'Named result · Edwards Roofing, Central Louisiana',
-    headline: "It doesn't just look good.",
-    headlineAccent: 'It finds what the old system missed.',
-    stats: [
-      { value: '$195,882.75', label: 'surfaced in open receivables the day the system read the books' },
-      { value: '$19,000', label: 'bookkeeping error caught — carried for years by the old software' },
-    ],
-    href: '/case-studies/edwards-roofing',
-    hrefLabel: 'Read the case study',
-    qualifier: 'Actual result from one client. Results depend on the business and its records.',
-  },
   reelTransition: 'That was a tire shop. This is a nursery. Every Found It OS is different, because every business is.',
   automationReel: true,
   definitionHeading: 'What Is a Business Operating System?',

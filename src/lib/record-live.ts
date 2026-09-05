@@ -109,7 +109,7 @@ export async function founditRecord(): Promise<LiveRecord | null> {
 
 /** The fixed roster of strip slots. A slot only lights when its
  *  RECORD_STRIP_<ID> env exists (set at blessing time, never before). */
-const CLIENT_SLOTS = ["EDWARDS", "LACAZE", "TONYS", "ECW"] as const;
+const CLIENT_SLOTS = ["LACAZE", "TONYS", "ECW"] as const;
 
 type StripConfig = {
   url: string;      // the system's /api/record endpoint

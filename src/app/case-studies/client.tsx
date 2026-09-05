@@ -1,9 +1,8 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
@@ -40,7 +39,6 @@ const fleetWorkshop: { name: string; trade: string; line: string; anchor?: strin
    each file's stillTrue in src/lib/case-files.ts (the law: refusals are
    drawn from the record, never authored fresh). */
 const REFUSALS: Record<string, string> = {
-  'Edwards Roofing': 'He can leave any month, with 30 days’ notice, and the whole system leaves with him — code and data.',
   'Roxanne’s OS': 'Prices never print on crew-facing paper — her rule, written into the code.',
   'DJ’s Bail Bonds': 'The system is banned from answering his phone — the ban is printed on its front screen.',
   'Doggett Law Firm': 'She will not calculate a deadline and cannot touch a dollar of client money.',
@@ -61,7 +59,6 @@ function ActHeader({ kicker, children }: { kicker?: string; children: React.Reac
 }
 
 export default function CaseStudiesPage() {
-  const [coryPlaying, setCoryPlaying] = useState(false);
 
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
@@ -99,8 +96,8 @@ export default function CaseStudiesPage() {
             </motion.span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed mb-6">
-            No slides on this page. A customer on camera, systems doing their jobs, one live AI you
-            can order around yourself &mdash; and a status on everything, because a screenshot is
+            No slides on this page. Systems doing their jobs, one live AI you can order around
+            yourself &mdash; and a status on everything, because a screenshot is
             not a case study.
           </p>
           <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
@@ -125,64 +122,7 @@ export default function CaseStudiesPage() {
           </div>
         </motion.div>
 
-        {/* Cory — the number is the headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-4 rounded-2xl border border-primary/30 bg-primary/[0.05] overflow-hidden"
-        >
-          <div className="grid md:grid-cols-2 items-stretch">
-            <div className="relative">
-              <video
-                controls
-                preload="none"
-                playsInline
-                poster="/cory-ownership-poster-v4.jpg"
-                onPlay={() => setCoryPlaying(true)}
-                className="w-full h-full object-cover min-h-[220px] bg-black"
-                aria-label="Cory Edwards of Edwards Roofing, on camera, on owning his software"
-              >
-                <source src="/cory-ownership-v4.mp4" type="video/mp4" />
-              </video>
-              {!coryPlaying && (
-                <>
-                  <div className="absolute inset-0 grid place-items-center pointer-events-none">
-                    <span className="grid place-items-center h-16 w-16 rounded-full border-2 border-primary bg-black/50">
-                      <Play className="w-6 h-6 text-primary fill-primary" aria-hidden="true" />
-                    </span>
-                  </div>
-                  <span className="absolute bottom-3 left-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white pointer-events-none">
-                    0:38 · sound on
-                  </span>
-                </>
-              )}
-            </div>
-            <div className="p-6 lg:p-8">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Roofing & Construction · On Camera</span>
-                <span className="font-mono text-[9px] font-black uppercase tracking-[0.18em] border border-primary/60 text-primary rounded-md px-2 py-0.5">Live · Filed Aug 2026</span>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black uppercase italic tracking-tighter text-primary mt-1">
-                $195,882.75
-              </h2>
-              <p className="text-sm font-bold text-foreground mb-1">Found sitting in open receivables at Edwards Roofing.</p>
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-4">Cory Edwards · Owner</p>
-              <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-5">
-                The penny-audit of the biggest roofer in Cenla found it &mdash; plus a{' '}
-                <span className="text-white font-bold">$19,000</span> bookkeeping error his old
-                software never saw. Press play. He&apos;ll tell you himself.
-              </p>
-              <Link
-                href="/case-studies/edwards-roofing"
-                className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline"
-              >
-                Read the case study <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+        {/* Cory hero block OFF (Trevor 9/5) — saved in git, restore when he says so */}
 
         {/* first door, at the first belief peak */}
         <div className="mb-14 text-right">

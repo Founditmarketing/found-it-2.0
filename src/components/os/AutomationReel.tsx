@@ -536,7 +536,7 @@ const SCATTER = [{ l: 0, y: 0, r: -4 }, { l: 42, y: 22, r: 2 }, { l: 8, y: 74, r
 function W6({ step, reg }: ZoneProps) {
   return (
     <>
-      <p className={`${label} mb-3 flex items-center gap-1.5`}><Banknote className="h-3 w-3" /> Edwards Roofing · the drawer</p>
+      <p className={`${label} mb-3 flex items-center gap-1.5`}><Banknote className="h-3 w-3" /> A roofing company · the drawer</p>
       <div className="relative h-[170px] max-w-[340px]">
         {SLIPS.map((s, i) => (
           <motion.div

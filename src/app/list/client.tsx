@@ -11,7 +11,7 @@ import { AutomationReel } from '@/components/os/AutomationReel';
 
 /* THE TOO GOOD TO BE TRUE LIST — premium dark editorial article with a
    paywall-style gate after item 03. Copy law: list copy is FINAL; the only
-   client name is Cory Edwards and every figure is a sanctioned one already
+   client name is a Central Louisiana roofer and every figure is a sanctioned one already
    public on the Edwards case study; never any refund/guarantee language,
    never a price. The gate costs ONE thing — a cell number — and posts to
    the house /api/lead pipe: same rails, same inbox, same pixels. The page
@@ -37,7 +37,7 @@ One. Your phone, answered at 9 p.m. Calls and texts after close get answered and
 Two. Your paperwork reads itself. Snap a photo of a ticket and it's typed in before you're back in the truck.
 Three. Your books post themselves. Ring up a sale and the books write themselves. One dealership matched QuickBooks to the penny, all 37 accounts.
 Four. Your prices protect themselves. Load your suppliers' price lists and nothing sells below cost again.
-Five. Your lost money gets found. It found a tree service 268 thousand dollars. It found Cory Edwards of Edwards Roofing 195 thousand, 882 dollars and 75 cents he'd already earned.
+Five. Your lost money gets found. It found a tree service 268 thousand dollars. It found a Central Louisiana roofer 195 thousand, 882 dollars and 75 cents he'd already earned.
 Six. Your invoices collect themselves. The bill goes out by text, the customer taps Pay, and the money lands in your account.
 Seven. You can ask your business anything. Who owes me the most? Straight answer, from your own records.
 Eight. Your follow-ups happen without you. The thank-you, the reminder, the quote nobody answered. Handled.
@@ -86,7 +86,7 @@ const ITEMS_GATED: Item[] = [
   {
     n: '05',
     head: 'Your lost money gets found.',
-    body: "Forgotten jobs and unpaid invoices get pulled onto one screen. It found a tree service $268,000. It found Cory Edwards of Edwards Roofing $195,882.75 he'd already earned. It also caught a $19,000 bookkeeping error his old software never saw.",
+    body: "Forgotten jobs and unpaid invoices get pulled onto one screen. It found a tree service $268,000. It found a Central Louisiana roofer $195,882.75 he'd already earned. It also caught a $19,000 bookkeeping error his old software never saw.",
   },
   {
     n: '06',
