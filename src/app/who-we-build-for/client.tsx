@@ -3,30 +3,37 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Check, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { OS_PRICING } from '@/lib/site';
+import TheAsk from '@/components/TheAsk';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-/* WHO WE BUILD FOR — the selective posture as a page. SPARSE by law: the
-   main read lands in a glance; the longer WHY lives behind "The fine
-   detail". Every turn-down is TRUE (no theater), and the fit check is the
-   door. */
+/* WHO WE BUILD FOR — recognition first (9/5 rebuild on the external critique,
+   filtered through Trevor: "dont take all of his advicce remember simplicity
+   and beauty and dont overwhelm us with lots of words"). The old page led
+   with the rejection ("We Don't Build For Everyone" + criteria + exclusions)
+   — a filter, not an invitation. Now: the owner recognizes himself in four
+   questions, sees two real builds, hears the price flat (Gucci law), and the
+   walls stay TRUE but compact — one mono strip, with the full WHY in the
+   fine-detail cabinet. "Sick of renting software" is GONE as a qualification:
+   ownership is the payoff, never the entrance exam. The house close ends it. */
 
-const who = [
-  'Owner-operated',
-  'Roughly $1M–$20M a year',
-  'Sells parts, product, or service, on accounts and terms',
-  'Sick of renting software',
-  'The owner will sit with us for an hour',
+const QUESTIONS = [
+  'Where’s that order?',
+  'Did they pay?',
+  'What did we promise?',
+  'Who’s following up?',
 ];
 
-const turnDown = [
-  'Restaurants',
-  'Payroll or taxes. Your accountant keeps those, always',
-  'Trust or escrow accounting',
-  'Owners who won’t be in the room',
-  'Anyone shopping for the cheapest option',
+const RECOGNIZE = [
+  'Owner-run',
+  'Roughly $1M–$20M a year',
+  'Dealers',
+  'Contractors',
+  'Wholesale',
+  'Retail',
+  'Professional practices',
 ];
 
 const fineDetail: { title: string; detail: string }[] = [
@@ -53,7 +60,7 @@ const fineDetail: { title: string; detail: string }[] = [
   {
     title: 'Why the owner has to be in the room',
     detail:
-      'A fitting maps how the business really runs. Only the owner knows that. Only the owner can decide to change it. An info packet cannot.',
+      'A fitting maps how the business really runs, and only the owner can decide to change it. Bring the office manager or the bookkeeper too — the person who knows where it gets stuck is what makes the map true. An info packet cannot.',
   },
   {
     title: 'Why not the cheapest option',
@@ -72,89 +79,128 @@ export default function WhoClient() {
       </div>
 
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
-        {/* Hero */}
+        {/* Hero — recognition, not requirements */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease }}
-          className="text-center mb-14"
+          className="mb-14 md:mb-20"
         >
           <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-            Who It&apos;s For
+            Who We Build For
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-5">
-            We Don&apos;t Build{' '}
-            <span className="text-primary">For Everyone.</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-8">
+            For the Owner{' '}
+            <span className="text-primary">Everyone Still Has to Ask.</span>
           </h1>
-          <p className="text-lg text-muted-foreground font-medium max-w-xl mx-auto">
-            One business at a time, a handful of new fittings a month. The list stays short on purpose.
+
+          {/* The four questions, as objects */}
+          <div className="flex flex-wrap gap-2 mb-8" aria-label={QUESTIONS.join(' ')}>
+            {QUESTIONS.map((q) => (
+              <span
+                key={q}
+                className="inline-flex items-center h-9 px-4 rounded-full border border-border/30 bg-card/20 font-mono text-[11px] sm:text-xs font-black uppercase tracking-[0.12em] text-muted-foreground"
+              >
+                {q}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-6">
+            Your business has grown.{' '}
+            <span className="text-primary">Too much of the system is still you.</span>
+          </p>
+          <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed">
+            We build the system around how you run &mdash; custom software with an AI employee
+            inside. <span className="text-foreground font-bold">And you own the code and the data.</span>
           </p>
         </motion.div>
 
-        {/* Who / who not */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="bg-card/15 backdrop-blur-xl border border-primary/25 rounded-2xl p-6 lg:p-8"
-          >
-            <h2 className="text-xl font-black uppercase italic tracking-tighter text-primary mb-5">
-              Who We Build For
-            </h2>
-            <ul className="space-y-4">
-              {who.map((line) => (
-                <li key={line} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 text-primary" aria-hidden="true" />
-                  </span>
-                  <span className="text-sm text-foreground font-bold leading-relaxed">{line}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6, ease }}
-            className="bg-card/10 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
-          >
-            <h2 className="text-xl font-black uppercase italic tracking-tighter text-foreground mb-5">
-              Who We Turn Down
-            </h2>
-            <ul className="space-y-4">
-              {turnDown.map((line) => (
-                <li key={line} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-md bg-card/40 border border-border/30 flex items-center justify-center shrink-0 mt-0.5">
-                    <X className="w-3 h-3 text-muted-foreground" aria-hidden="true" />
-                  </span>
-                  <span className="text-sm text-muted-foreground font-bold leading-relaxed">{line}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Close + CTA */}
+        {/* Recognize your business — chips, not criteria */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease }}
-          className="text-center mb-16"
+          className="mb-14 md:mb-20"
         >
-          <p className="text-base text-foreground font-bold mb-6">
-            Either way, the look is free. We show you what we'd build, and you decide.
+          <p className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-primary mb-4">
+            Recognize your business?
           </p>
+          <div className="flex flex-wrap gap-2">
+            {RECOGNIZE.map((r) => (
+              <span
+                key={r}
+                className="inline-flex items-center h-8 px-3.5 rounded-full border border-primary/25 bg-primary/[0.06] font-mono text-[11px] font-black uppercase tracking-[0.12em] text-foreground/90"
+              >
+                {r}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Two real builds — different businesses, different software */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-14 md:mb-20"
+        >
           <Link
-            href="/fit"
-            className="inline-flex items-center justify-center px-6 sm:px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs sm:text-sm whitespace-nowrap hover:opacity-90 transition-opacity"
+            href="/blog/nursery-management-software"
+            className="group bg-card/10 border border-border/20 rounded-2xl p-6 lg:p-7 hover:border-primary/40 transition-colors"
           >
-            Check Your Fit in 60 Seconds
+            <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-2">A wholesale nursery</p>
+            <p className="text-base font-black uppercase italic tracking-tighter text-foreground leading-tight">
+              Messy broker orders become checked pull sheets{' '}
+              <span className="text-primary group-hover:ml-1 transition-all" aria-hidden>→</span>
+            </p>
           </Link>
+          <Link
+            href="/case-studies"
+            className="group bg-card/10 border border-border/20 rounded-2xl p-6 lg:p-7 hover:border-primary/40 transition-colors"
+          >
+            <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-2">An auto shop</p>
+            <p className="text-base font-black uppercase italic tracking-tighter text-foreground leading-tight">
+              The service desk, live on its own migrated records{' '}
+              <span className="text-primary group-hover:ml-1 transition-all" aria-hidden>→</span>
+            </p>
+          </Link>
+        </motion.div>
+
+        {/* The room */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease }}
+          className="mb-14 md:mb-20"
+        >
+          <p className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-3">
+            Bring the person who knows{' '}
+            <span className="text-primary">where it gets stuck.</span>
+          </p>
+          <p className="text-base text-muted-foreground font-medium max-w-2xl leading-relaxed">
+            The owner in the room to say go &mdash; and the office manager or bookkeeper who lives
+            in it every day.
+          </p>
+        </motion.div>
+
+        {/* The number and the walls — stated flat */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease }}
+          className="mb-10"
+        >
+          <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2">
+            {OS_PRICING.monthly}/mo + {OS_PRICING.setup} setup &middot; Month-to-Month &middot; Printed on Purpose
+          </p>
+          <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint">
+            No Restaurants &middot; No Payroll &middot; No Tax Filing &middot; No Trust Accounting &middot; Ever
+          </p>
         </motion.div>
 
         {/* The fine detail — the clearly-marked door for the thorough reader */}
@@ -198,6 +244,9 @@ export default function WhoClient() {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );
