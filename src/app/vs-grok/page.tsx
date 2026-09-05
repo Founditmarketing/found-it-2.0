@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'The AI is the same. The finish line isn’t.',
     type: 'website',
     url: 'https://www.founditsoftware.com/vs-grok',
-    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-vs-grok-v1.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

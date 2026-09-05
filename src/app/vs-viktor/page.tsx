@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: 'They work across what you rent. Ours works inside what you own.',
     type: 'website',
     url: 'https://www.founditsoftware.com/vs-viktor',
-    images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-vs-viktor-v1.png', width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };
