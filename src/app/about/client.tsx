@@ -187,6 +187,7 @@ function SectionHeading({ children, sub }: { children: React.ReactNode; sub?: st
 
 export default function AboutPage() {
   const [openStage, setOpenStage] = useState<string>('fitting');
+  const reduce = useReducedMotion();
   return (
     <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -195,46 +196,88 @@ export default function AboutPage() {
       </div>
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
 
-        {/* ─── Hero: no origin myth, no founder mythology ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: ease as any }}
-          className="mb-16 md:mb-32"
-        >
+        {/* ─── Hero: no origin myth, no founder mythology — performed (9/5,
+            "not inspired"): the claim lands, then the proof strip stamps in
+            cell by cell between rails that draw themselves. The clock cell
+            is genuinely live (the ONE RULE holds). ─── */}
+        <div className="mb-16 md:mb-32">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-7">
-            Small enough <span className="text-primary block">to see all of it.</span>
+            <motion.span
+              className="block"
+              initial={reduce ? false : { opacity: 0, y: 30, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 120, damping: 18 }}
+            >
+              Small enough
+            </motion.span>
+            <motion.span
+              className="block text-primary"
+              initial={reduce ? false : { opacity: 0, y: 30, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.14, type: 'spring', stiffness: 120, damping: 18 }}
+            >
+              to see all of it.
+            </motion.span>
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
-            No origin myth. No culture manifesto. Just the people, the work, the rules, and the exit.
-            Found It builds operating systems around real businesses, and the client owns the code and the data.
-          </p>
-          <div className="mt-7 flex flex-col sm:flex-row gap-4">
-            <a href="#inside" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
+          <motion.p
+            className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl"
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42, duration: 0.5, ease: ease as any }}
+          >
+            No origin myth. No culture manifesto. The people, the work, the rules, and the exit.
+          </motion.p>
+          <motion.div
+            className="mt-7 flex flex-col sm:flex-row gap-4"
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.58, duration: 0.5, ease: ease as any }}
+          >
+            <a href="#inside" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all">
               Come Inside
             </a>
             <Link href="/owned-software" className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors">
               Read the Two-Page Deal
             </Link>
+          </motion.div>
+          {/* Live strip — rails draw, cells stamp; every figure has one
+              source of truth, none typed here */}
+          <div className="mt-12">
+            <motion.div
+              aria-hidden
+              className="h-px bg-border/15 origin-left"
+              initial={reduce ? false : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.75, duration: 0.6, ease: ease as any }}
+            />
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              {[
+                ['Alexandria', <LocalTime key="t" />],
+                ['Last ship', LATEST_SHIP[0]],
+                ['Long-term contracts', '0'],
+                ['Month-to-month', 'every account'],
+              ].map(([label, value], i) => (
+                <motion.div
+                  key={i}
+                  className={`py-5 px-4 md:px-6 border-border/10 ${i > 0 ? 'border-l max-md:[&:nth-child(odd)]:border-l-0' : ''} ${i > 1 ? 'max-md:border-t' : ''}`}
+                  initial={reduce ? false : { opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 + i * 0.15, type: 'spring', stiffness: 300, damping: 16 }}
+                >
+                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">{label}</p>
+                  <p className="font-mono text-sm md:text-base font-black uppercase tracking-[0.08em] text-foreground/90 tabular-nums">{value}</p>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              aria-hidden
+              className="h-px bg-border/15 origin-right"
+              initial={reduce ? false : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.75, duration: 0.6, ease: ease as any }}
+            />
           </div>
-          {/* Live strip — every figure has one source of truth, none typed here */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 border-y border-border/15">
-            {[
-              ['Alexandria', <LocalTime key="t" />],
-              ['Last ship', LATEST_SHIP[0]],
-              ['Long-term contracts', '0'],
-              ['Month-to-month', 'every account'],
-            ].map(([label, value], i) => (
-              <div
-                key={i}
-                className={`py-5 px-4 md:px-6 border-border/10 ${i > 0 ? 'border-l max-md:[&:nth-child(odd)]:border-l-0' : ''} ${i > 1 ? 'max-md:border-t' : ''}`}
-              >
-                <p className="font-mono text-[9px] font-black uppercase tracking-[0.2em] text-faint mb-1.5">{label}</p>
-                <p className="font-mono text-sm md:text-base font-black uppercase tracking-[0.08em] text-foreground/90 tabular-nums">{value}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        </div>
 
         {/* ─── What is true right now — receipts, not assertions ─── */}
         <motion.div
