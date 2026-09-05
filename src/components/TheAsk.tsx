@@ -15,9 +15,12 @@ import Link from 'next/link';
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function TheAsk({
+  /* Desire-first since 9/5 (Trevor: "what about those who want the latest
+     greatest shit thats what im fucking selling") — the house ask sells the
+     want; the door still takes the ugly part too. */
   headline = (
     <>
-      Bring us <span className="text-primary">the ugly part.</span>
+      Tell us what you <span className="text-primary">want built.</span>
     </>
   ),
   sub = (

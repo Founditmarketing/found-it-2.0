@@ -65,12 +65,22 @@ export async function POST(req: Request) {
       .join('');
 
     const resend = new Resend(process.env.RESEND_API_KEY);
+    if (!process.env.RESEND_API_KEY) {
+      console.error('[lead] RESEND_API_KEY is not set — leads cannot be delivered');
+      return NextResponse.json({ error: 'Failed to capture lead.' }, { status: 500 });
+    }
     const who = lead.businessName || lead.name || lead.email || 'Unknown';
     // Guide downloads ride the same hardened pipe but must be tellable at a
     // glance in the inbox — a PDF grab is a lighter intent than a walkthrough
     // or call request, and the follow-up call is a different conversation.
     const isGuideDownload = lead.source.startsWith('lp_guide_download');
-    await resend.emails.send({
+    /* Resend v3+ does NOT throw on failure — it returns { error }. Ignoring
+       that return meant a dead key or broken domain reported ok:true to the
+       visitor while delivering NOTHING (9/5, Trevor: "no wonder i dont get
+       any leads... find out if they for real"). A lead send that fails now
+       fails LOUDLY so the visitor sees the error path with the phone number
+       instead of a fake thank-you. */
+    const { error: sendError } = await resend.emails.send({
       from: 'Found It Marketing <contact@founditmarketing.com>',
       // Both inboxes on purpose: founditmarketing is the official book,
       // gmail is the one that buzzes the phone — a lead should never wait
@@ -83,6 +93,10 @@ export async function POST(req: Request) {
         ${rows}
       `,
     });
+    if (sendError) {
+      console.error('[lead] resend send failed:', JSON.stringify(sendError));
+      return NextResponse.json({ error: 'Failed to capture lead.' }, { status: 500 });
+    }
 
     // Speed-to-lead, made visible: leads that come with an email get an
     // instant confirmation while they're still on the page (the voice
@@ -92,7 +106,7 @@ export async function POST(req: Request) {
     if (lead.email && !isGuideDownload) {
       try {
         const first = escapeHtml((lead.name || '').trim().split(/\s+/)[0] || 'there');
-        await resend.emails.send({
+        const { error: confError } = await resend.emails.send({
           from: 'Found It Software <contact@founditmarketing.com>',
           to: [lead.email],
           subject: 'Got it — Trevor’s on it',
@@ -103,7 +117,7 @@ export async function POST(req: Request) {
             <p style="margin:0">— Trevor Ruby, Found It Software, Alexandria LA</p>
           `,
         });
-        confirmationEmailed = true;
+        confirmationEmailed = !confError;
       } catch { /* best-effort only */ }
     }
 

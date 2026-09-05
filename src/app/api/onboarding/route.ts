@@ -155,12 +155,18 @@ export async function POST(req: Request) {
 
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      await resend.emails.send({
+      /* Resend returns { error } instead of throwing — check it, or a dead
+         key reports success while delivering nothing (9/5 lead-pipe law). */
+      const { error: sendError } = await resend.emails.send({
         from: 'Found It Software <contact@founditmarketing.com>',
         to: ['trevor@founditmarketing.com', 'trevorruby@gmail.com'],
         subject: `ONBOARDING: ${biz}`,
         html,
       });
+      if (sendError) {
+        console.error('[onboarding] resend send failed:', JSON.stringify(sendError));
+        return NextResponse.json({ error: "Didn't send. Try once more." }, { status: 502 });
+      }
     } catch {
       return NextResponse.json({ error: "Didn't send. Try once more." }, { status: 502 });
     }

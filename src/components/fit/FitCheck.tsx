@@ -45,14 +45,45 @@ export interface FitCheckProps {
   className?: string;
 }
 
-/* ─── THE TAILOR DOOR (Trevor 9/5: "all we really need to know is your
-   problems briefly so we can get to solveing them... this assistance is
-   part of the luxury") ───
-   The /fit front door: ONE sentence about the ugly part, and the machine
-   does the sorting (/api/tailor applies the same hard walls the quiz
-   enforces). Qualified hands over a number and is done; NOT-A-FIT stays a
-   kind dismissal that captures nothing; the chip quiz survives one tap away
-   as the deterministic instrument, and any API failure degrades into it. */
+/* ─── THE WANT DOOR (9/5, Trevor: "what if they jyust want bad ass
+   custom software... the latest greatest shit thats what im fucking
+   selling") ───
+   The /fit front door sells desire, not desperation: six wants as tappable
+   objects — tap one and the machine answers instantly with the first build
+   (deterministic, sanctioned capability lines, no API latency). The free
+   text stays as "say it your way" and runs through /api/tailor with the
+   same hard walls; pain is welcome but never the price of admission.
+   NOT-A-FIT still captures nothing; the chip quiz stays one tap away and
+   catches any API failure. */
+
+const WANTS: { title: string; sub: string; first: string }[] = [
+  {
+    title: 'The phone answered at midnight',
+    sub: 'Booked, filed, and waiting with your coffee.',
+    first: 'The phone — answered, booked, and filed before anyone calls back.',
+  },
+  {
+    title: 'The whole shop in one system',
+    sub: 'Register to website, one brain. Yours.',
+    first: 'One system — register, jobs, customers, books — built around how you run.',
+  },
+  {
+    title: 'Every dollar chased',
+    sub: 'Polite reminders that never sleep.',
+    first: 'Receivables — reminded, collected, and quiet the second the money lands.',
+  },
+  {
+    title: 'Orders that type themselves',
+    sub: 'Texts, emails, chicken scratch — captured.',
+    first: 'Order intake — every line lands, the unreadable ones held in red.',
+  },
+  {
+    title: 'Books that prove themselves',
+    sub: 'Tied to the bank, checked nightly.',
+    first: 'A ledger that ties to the bank and refuses to pretend.',
+  },
+];
+
 function TailorDoor({
   source,
   pageSlug,
@@ -65,6 +96,11 @@ function TailorDoor({
   const [problem, setProblem] = useState('');
   const [phase, setPhase] = useState<'ask' | 'busy' | 'heard' | 'no'>('ask');
   const [read, setRead] = useState<{ fit: string; heard: string; firstTarget: string; reason: string } | null>(null);
+
+  const pickWant = (w: { title: string; first: string }) => {
+    setRead({ fit: 'want', heard: w.title, firstTarget: w.first, reason: '' });
+    setPhase('heard');
+  };
 
   const submit = async () => {
     const p = problem.trim();
@@ -82,7 +118,7 @@ function TailorDoor({
       setRead(data);
       setPhase(data.fit === 'no' ? 'no' : 'heard');
     } catch {
-      onQuiz('The tailor stepped out for a moment, five quick taps instead.');
+      onQuiz('The line hiccupped — five quick taps instead.');
     }
   };
 
@@ -91,7 +127,7 @@ function TailorDoor({
       <motion.div key="heard" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
         <div className="bg-card/15 backdrop-blur-xl border border-primary/30 rounded-2xl p-6 lg:p-8 mb-6 shadow-2xl shadow-primary/10">
           <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-3">
-            Taken down
+            Commissioned
           </p>
           <p className="text-lg lg:text-xl font-black italic tracking-tight text-foreground leading-snug mb-5">
             &ldquo;{read.heard}&rdquo;
@@ -99,7 +135,7 @@ function TailorDoor({
           {read.firstTarget && (
             <>
               <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-1.5">
-                First target &middot; pending the walkthrough
+                The first build &middot; sized on the walkthrough
               </p>
               <p className="text-sm text-foreground font-bold leading-relaxed">{read.firstTarget}</p>
             </>
@@ -113,17 +149,17 @@ function TailorDoor({
           ctaLabel="Take It From Here"
           compact
           trailLines={[
-            `Tailor intake: "${problem.trim().slice(0, 300)}"`,
-            `Heard: ${read.heard}`,
-            read.firstTarget ? `First target: ${read.firstTarget}` : '',
+            read.fit === 'want' ? `Want picked: "${read.heard}"` : `Tailor intake: "${problem.trim().slice(0, 300)}"`,
+            read.fit === 'want' ? '' : `Heard: ${read.heard}`,
+            read.firstTarget ? `First build: ${read.firstTarget}` : '',
             `AI fit read: ${read.fit}`,
           ].filter(Boolean)}
         />
         <p className="mt-5 text-center text-xs font-bold text-muted-foreground">
           <button type="button" onClick={() => setPhase('ask')} className="hover:text-primary transition-colors">
-            Not quite what you said? Edit it →
+            Pick different →
           </button>
-          <span className="mx-2 text-faint">·</span>
+          <span className="mx-2 text-faint">&middot;</span>
           <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
             Prefer taps? Sixty seconds →
           </button>
@@ -157,42 +193,77 @@ function TailorDoor({
   return (
     <motion.div key="ask" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
       <div className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8">
-        <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">
-          One sentence is enough
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-5">
+          Point at it &middot; one tap
         </p>
-        <label htmlFor="ugly-part" className="block text-2xl lg:text-3xl font-black uppercase italic tracking-tighter text-foreground mb-4 leading-tight">
-          What&apos;s the ugly part?
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-7">
+          {WANTS.map((w, i) => (
+            <motion.button
+              key={w.title}
+              type="button"
+              onClick={() => pickWant(w)}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 + i * 0.07, type: 'spring', stiffness: 260, damping: 22 }}
+              className="group text-left rounded-xl border border-border/25 bg-card/20 px-5 py-4 hover:border-primary/50 hover:bg-primary/[0.05] active:scale-[0.99] transition-all"
+            >
+              <span className="block text-[15px] font-black uppercase italic tracking-tighter text-foreground leading-tight group-hover:text-primary transition-colors">
+                {w.title}
+              </span>
+              <span className="mt-1 block font-mono text-[10px] font-black uppercase tracking-[0.12em] text-faint">
+                {w.sub}
+              </span>
+            </motion.button>
+          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 + WANTS.length * 0.07, type: 'spring', stiffness: 260, damping: 22 }}
+            className="rounded-xl border border-primary/35 bg-primary/[0.06] px-5 py-4"
+          >
+            <span className="block text-[15px] font-black uppercase italic tracking-tighter text-primary leading-tight">
+              Something nobody else has
+            </span>
+            <span className="mt-1 block font-mono text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground">
+              Say it below. We fit it.
+            </span>
+          </motion.div>
+        </div>
+
+        <label htmlFor="want-line" className="block font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground mb-2.5">
+          Or say it your way
         </label>
-        <textarea
-          id="ugly-part"
-          value={problem}
-          onChange={(e) => setProblem(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault();
-              submit();
-            }
-          }}
-          rows={3}
-          disabled={phase === 'busy'}
-          placeholder="The thing that eats your evenings. Paper orders, the phone nobody answers, the pile nobody bills…"
-          className="w-full rounded-xl bg-background/60 border border-border/30 px-4 py-3.5 text-base text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60 resize-none"
-        />
-        <button
-          type="button"
-          onClick={submit}
-          disabled={phase === 'busy' || problem.trim().length < 8}
-          className="mt-4 w-full sm:w-auto inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:shadow-none"
-        >
-          {phase === 'busy' ? 'Reading it…' : 'Hand It Over'}
-        </button>
+        <div className="flex flex-col sm:flex-row gap-2">
+          <input
+            id="want-line"
+            value={problem}
+            onChange={(e) => setProblem(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                submit();
+              }
+            }}
+            disabled={phase === 'busy'}
+            placeholder="The thing you want built — or the thing you want gone…"
+            className="flex-1 h-13 min-h-[52px] w-full rounded-full bg-background/60 border border-border/30 px-5 text-base text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 disabled:opacity-60"
+          />
+          <button
+            type="button"
+            onClick={submit}
+            disabled={phase === 'busy' || problem.trim().length < 8}
+            className="px-8 min-h-[52px] w-full sm:w-auto whitespace-nowrap rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:shadow-none"
+          >
+            {phase === 'busy' ? 'Reading it…' : 'Hand It Over'}
+          </button>
+        </div>
         <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">
-          No prep &middot; no packet &middot; the rest gets sized on the walkthrough
+          No prep &middot; no forms &middot; the rest gets sized on the walkthrough
         </p>
       </div>
       <p className="mt-4 text-center text-xs font-bold text-muted-foreground">
         <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
-          Prefer taps? The sixty-second version →
+          Prefer taps all the way? The sixty-second version →
         </button>
       </p>
     </motion.div>
