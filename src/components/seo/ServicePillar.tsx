@@ -49,6 +49,10 @@ export interface PillarData {
   driveOs?: boolean;
   /** One-sentence product definition rendered under the h1 (before any demo). */
   heroDefinition?: string;
+  /** The definition as an object instead of a sentence (Trevor 9/5, communication
+      law: "wordy too much blaaaa info - use visual"): dim chips → one orange chip.
+      When present, replaces the hero paragraph entirely. */
+  heroChips?: { items: string[]; result: string };
   /** Small mono price line under the hero CTAs. */
   heroPriceLine?: string;
   /** Named proof directly after the hero (receipts, link, honest qualifier). */
@@ -59,11 +63,14 @@ export interface PillarData {
   trust?: { headline: string; headlineAccent: string; items: { title: string; detail: string }[] };
   /** The offer as a decisive card instead of a paragraph. */
   offerCard?: { monthly: string; setup: string; bullets: string[]; promise: string; kicker: string };
-  includedHeading: string;
-  included: { title: string; detail: string }[];
-  approachHeading: string;
+  /* included/approach optional since 9/5 (Trevor: the flagship "can't decide
+     what it is... if it's a demo then that's what it needs to be") — the demo
+     page drops the informational sections; SEO pillar pages keep them. */
+  includedHeading?: string;
+  included?: { title: string; detail: string }[];
+  approachHeading?: string;
   approachIntro?: string;
-  approach: { step: string; title: string; detail: string }[];
+  approach?: { step: string; title: string; detail: string }[];
   /** Who it's for. */
   audienceHeading?: string;
   audience?: string[];
@@ -89,6 +96,9 @@ export interface PillarData {
   whyUs?: string[];
   faqHeading: string;
   faq: { question: string; answer: string }[];
+  /** Demo-page FAQ: tap-to-open rows instead of full blocks (9/5). The full
+      answers still render in the DOM (and the FAQ JSON-LD), just folded. */
+  faqCompact?: boolean;
   relatedReading?: { title: string; href: string }[];
   formHeading: string;
   finalCtaHeadline: string;
@@ -164,7 +174,21 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.headline}{' '}
             <span className="text-primary">{data.headlineAccent}</span>
           </h1>
-          {data.heroDefinition ? (
+          {data.heroChips ? (
+            <div className="flex flex-wrap items-center gap-2 max-w-2xl" aria-label={data.heroChips.items.join(', ') + ' — ' + data.heroChips.result}>
+              {data.heroChips.items.map((w) => (
+                <span key={w} className="inline-flex items-center h-8 px-3.5 rounded-full border border-border/30 bg-card/20 font-mono text-[11px] font-black uppercase tracking-[0.14em] text-muted-foreground">
+                  {w}
+                </span>
+              ))}
+              <span className="text-primary font-black text-lg mx-1" aria-hidden>
+                →
+              </span>
+              <span className="inline-flex items-center h-9 px-4 rounded-full bg-primary text-primary-foreground font-mono text-[11px] font-black uppercase tracking-[0.14em]">
+                {data.heroChips.result}
+              </span>
+            </div>
+          ) : data.heroDefinition ? (
             <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
               {data.heroDefinition}
             </p>
@@ -315,6 +339,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* What's included */}
+        {data.included && data.included.length > 0 && (
         <section className="mb-32 md:mb-44">
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
@@ -329,8 +354,10 @@ export function ServicePillar({ data }: { data: PillarData }) {
             ))}
           </div>
         </section>
+        )}
 
         {/* Approach */}
+        {data.approach && data.approach.length > 0 && (
         <section className="mb-32 md:mb-44">
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
@@ -351,6 +378,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             ))}
           </div>
         </section>
+        )}
 
         {/* Who it's for */}
         {data.audience && data.audience.length > 0 && (
@@ -531,14 +559,28 @@ export function ServicePillar({ data }: { data: PillarData }) {
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.faqHeading}
           </h2>
-          <div className="space-y-8">
-            {data.faq.slice(0, 4).map((f) => (
-              <div key={f.question}>
-                <h3 className="text-base font-black text-foreground mb-2">{f.question}</h3>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{f.answer}</p>
-              </div>
-            ))}
-          </div>
+          {data.faqCompact ? (
+            <div>
+              {data.faq.slice(0, 4).map((f) => (
+                <details key={f.question} className="group border-b border-border/15">
+                  <summary className="flex items-center justify-between gap-4 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-base font-black text-foreground">{f.question}</h3>
+                    <span className="text-primary font-black text-xl shrink-0 transition-transform group-open:rotate-45" aria-hidden>+</span>
+                  </summary>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed pb-5">{f.answer}</p>
+                </details>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-8">
+              {data.faq.slice(0, 4).map((f) => (
+                <div key={f.question}>
+                  <h3 className="text-base font-black text-foreground mb-2">{f.question}</h3>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Related reading */}

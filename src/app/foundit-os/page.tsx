@@ -36,8 +36,13 @@ const data: PillarData = {
   headlineAccent: 'You Own It.',
   intro:
     `Custom software + AI employee, built around your business. It answers the phone, types the paperwork, and chases what you're owed. You own it outright — the code and the data.`,
-  heroDefinition:
-    `We study how your company actually runs and build one system around it — phone, paperwork, customers, jobs, books — with an AI employee inside.`,
+  /* Hero paragraph OFF (Trevor 9/5: "wordy too much blaaaa info - use
+     visual") — the sentence became the chip equation below; the machine
+     above shows the rest. schemaDescription keeps the words for SEO. */
+  heroChips: {
+    items: ['Phone', 'Paperwork', 'Customers', 'Jobs', 'Books'],
+    result: 'One System · Yours',
+  },
   heroPriceLine: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup · Month-to-month · You own the code and data`,
   ctaLabel: 'Show Me Mine',
   formSource: 'service_foundit_os',
@@ -63,66 +68,10 @@ const data: PillarData = {
   /* Definition + audience + related-reading sections OFF (Trevor 9/5,
      communication law: let the machine speak). The definition text lives on
      in schemaDescription; heroDefinition answers on-page under the h1. */
-  includedHeading: 'What Every Found It OS Includes',
-  included: [
-    {
-      title: 'Fitted, Not Templated',
-      detail:
-        'We study how you actually run. Then we build around it.',
-    },
-    {
-      title: 'The Operational Core',
-      detail:
-        'Customers, sales, jobs, inventory, invoicing, scheduling — and the books that feed your accountant. Payroll and taxes stay with your licensed pros.',
-    },
-    {
-      title: 'Your Website, Wired In',
-      detail:
-        'Change a price once. It shows up everywhere.',
-    },
-    {
-      title: 'An AI Employee on Every Shift',
-      detail:
-        'Answers the phone, chases what you’re owed, files paperwork from a photo. Reads your books. Cannot write them.',
-    },
-    {
-      title: 'Books That Show Their Work',
-      detail:
-        'Every sale and edit lands in one permanent journal. Your accountant can check every penny.',
-    },
-    {
-      title: 'You Own It',
-      detail:
-        'The code, the data, the system. If we ever part ways, it stays yours.',
-    },
-  ],
-  approachHeading: 'How a Fitting Works',
-  approach: [
-    {
-      step: '01',
-      title: 'The Fitting',
-      detail:
-        'We come to your building and walk every flow — sale, inventory, paper.',
-    },
-    {
-      step: '02',
-      title: 'Built Beside Your Old System',
-      detail:
-        'The new one runs beside your old one, checked against it every night.',
-    },
-    {
-      step: '03',
-      title: 'You Say Go',
-      detail:
-        'Nothing switches until the numbers match night after night — and you say go.',
-    },
-    {
-      step: '04',
-      title: 'We Stay On',
-      detail:
-        'Nightly backups, support you can actually call, new features as you grow.',
-    },
-  ],
+  /* THE DEMO PAGE (Trevor 9/5: "if its a demo then thats what it needs to
+     be"). included + approach + mistakes + trust sections OFF this page -
+     the industry pillars, /owned-software and /security carry them. What
+     stays is only what a visitor can DRIVE, HEAR, WATCH or DECIDE ON. */
   result: {
     headline: 'Before Anything Switches',
     stats: [
@@ -132,51 +81,6 @@ const data: PillarData = {
     ],
     narrative:
       'The new system has to earn it. Nightly difference hits zero, then you say go.',
-  },
-  mistakesHeading: 'Why Business Software Usually Goes Wrong',
-  mistakes: [
-    {
-      title: 'Renting forever',
-      detail:
-        'Leave, and they keep the working system. They rent you your own business back.',
-    },
-    {
-      title: 'Generic software, forced workarounds',
-      detail:
-        'Built for everyone, so it fits no one. Half the business stays on paper.',
-    },
-    {
-      title: 'The custom software invoice',
-      detail:
-        '$50,000–$150,000, 3–6 months, then 15–20% a year forever. A local business was never their customer.',
-    },
-    {
-      title: 'Rip-and-replace migrations',
-      detail:
-        'Most switches mean a scary weekend and lost data. We never rip anything out.',
-    },
-  ],
-  trust: {
-    headline: 'Built like your business depends on it.',
-    headlineAccent: 'Because it does.',
-    items: [
-      {
-        title: 'One business, one isolated database',
-        detail: 'Never shared with another company. Nightly backups, point-in-time recovery.',
-      },
-      {
-        title: 'A ledger nobody can silently rewrite',
-        detail: 'Money history is append-only. Originals stay visible.',
-      },
-      {
-        title: 'The AI reads. It cannot spend or rewrite history.',
-        detail: 'Drafts wait for the owner’s tap. It never touches the books on its own.',
-      },
-      {
-        title: 'If Found It disappears, your system doesn’t',
-        detail: 'You hold the code, the data, the accounts, and the transfer documentation.',
-      },
-    ],
   },
   pricingHeading: 'The Whole Price',
   offerCard: {
@@ -193,6 +97,7 @@ const data: PillarData = {
     kicker: 'The system earns the next month, every month.',
   },
   faqHeading: 'Found It OS FAQ',
+  faqCompact: true,
   faq: [
     {
       question: 'What exactly is Found It OS?',
