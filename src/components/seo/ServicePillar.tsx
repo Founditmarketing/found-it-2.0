@@ -134,6 +134,26 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
         {/* Hero */}
         <header className="mb-24 md:mb-32">
+          {/* THE MACHINE FIRST (Trevor 9/5: "PUT THE DRIVEABLE OS AT THE VERY
+              TOP OF THE OS PAGE"). The 9/2 name-the-fit-before-the-toy law
+              survives as the one-line frame above it. */}
+          {data.driveOs && (
+            <div className="mb-14 md:mb-20">
+              <p className="mb-4 font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-primary leading-relaxed">
+                There is no generic Found It OS &middot; this one was fitted to a tire &amp; auto
+                shop &middot; yours gets fitted to <span className="text-foreground">you</span>
+              </p>
+              <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-[1440px] px-3 sm:px-6">
+                <DriveOS />
+              </div>
+              <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-faint">
+                Drive it &middot; sample data &middot; live behavior &middot;{' '}
+                <Link href="/drive" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">
+                  open it on its own stage →
+                </Link>
+              </p>
+            </div>
+          )}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
             <PersonalizedChip />
@@ -166,32 +186,6 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
               {data.heroPriceLine}
             </p>
-          )}
-
-          {data.driveOs && (
-            <div className="mt-12">
-              {/* The frame that keeps the demo from commoditizing the product
-                  (9/2 critique, Trevor-endorsed): name the fit before the toy. */}
-              <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground">
-                There is no generic <span className="text-primary">Found It OS.</span>
-              </h2>
-              <p className="mt-2 mb-2 text-base text-muted-foreground font-medium max-w-2xl">
-                This one was fitted to a tire &amp; auto shop. Yours would be built around
-                the way <span className="text-foreground font-bold">your</span> business runs.
-              </p>
-              <p className="mb-5 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-primary">
-                Drive one &middot; sample data &middot; live behavior &middot;{' '}
-                <Link href="/drive" className="underline underline-offset-4 hover:text-foreground transition-colors">
-                  open it on its own stage →
-                </Link>
-              </p>
-              {/* Full-bleed stage (Trevor 9/5: "full width... like the Chill
-                  dashboard") — the mission-control breakout pattern: the copy
-                  stays column-width, the machine takes the room. */}
-              <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-[1440px] px-3 sm:px-6">
-                <DriveOS />
-              </div>
-            </div>
           )}
 
           {data.voiceDemo && data.voiceDemoHero && (
