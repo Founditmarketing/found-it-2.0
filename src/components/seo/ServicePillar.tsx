@@ -30,9 +30,11 @@ export interface PillarData {
   formSource: string;
   formPageSlug: string;
   stats: { value: string; label: string }[];
-  /** Answer-first definition block (great for AI Overviews). */
-  definitionHeading: string;
-  definition: string;
+  /** Answer-first definition block (great for AI Overviews). Optional since
+      9/5 (communication law): the flagship lets the machine + heroDefinition
+      answer; schemaDescription keeps the SEO text either way. */
+  definitionHeading?: string;
+  definition?: string;
   /** Opt-in live AI-secretary demo under the definition (Trevor 8/16 —
    *  foundit-os + custom-software only). Attribution rides formPageSlug. */
   voiceDemo?: boolean;
@@ -238,8 +240,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               {data.reelTransition && (
                 <span className="block text-foreground font-bold mb-2">{data.reelTransition}</span>
               )}
-              One day inside a business that runs on a Found It OS. From 8:02 AM to the next morning,
-              nobody at the desk. Everything that moves, moves by itself.
+              One day inside a business on a Found It OS. Nobody at the desk.
             </p>
             <AutomationReel />
           </section>
@@ -286,6 +287,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Definition — answer-first for AI Overviews */}
+        {data.definition && (
         <section className="mb-32 md:mb-44">
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-5 text-foreground">
@@ -295,6 +297,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <p className="text-lg text-muted-foreground font-medium leading-relaxed">{data.definition}</p>
           </div>
         </section>
+        )}
 
         {/* The definition, made audible: every system ships with the AI
             secretary — here she is, live, right where the claim was made. */}
@@ -305,8 +308,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               One part of the system answers the phone. <span className="text-primary">Talk to it.</span>
             </h2>
             <p className="text-lg text-muted-foreground font-medium leading-relaxed mb-6 max-w-2xl">
-              The secretary from the demo above is real, and she&rsquo;s live on this page. She
-              answers, books, and files &mdash; one job among the many the system works.
+              She&rsquo;s real and she&rsquo;s live on this page. Ask her anything.
             </p>
             <VoiceAgentWidget pageSlug={data.formPageSlug} />
           </section>

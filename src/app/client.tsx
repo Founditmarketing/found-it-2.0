@@ -295,35 +295,32 @@ export default function HomePage() {
             className="relative bg-card/10 backdrop-blur-xl border border-primary/20 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
-            <div className="relative z-10 p-8 lg:p-12">
+            <div className="relative z-10 p-8 lg:p-14">
               <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] text-foreground mb-5">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] text-foreground mb-4">
                 One System Runs Your Whole Business. And You Own It.
               </h2>
-              <p className="text-muted-foreground font-medium text-base lg:text-lg leading-relaxed mb-8 max-w-2xl">
-                The register, the inventory, the customers, the website, and an AI that knows all of it. The AI reads your books. It cannot write them. It runs beside your old system, matched to the penny, until you say go.{' '}
-                <span className="text-foreground font-bold">Nobody rents you your own business back.</span>{' '}
-                The monthly pays for hosting, support, and new features. Stop paying and the work stops. Not your software.
+              <p className="text-foreground font-bold text-base lg:text-lg mb-10 md:mb-12">
+                Nobody rents you your own business back.
               </p>
 
-              {/* The whole price, printed */}
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-3">
-                What It Costs
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 mb-8">
-                <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
-                  <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.monthly}<span className="text-sm text-muted-foreground font-bold not-italic"> {OS_PRICING.monthlyLabel}</span></p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">Month-to-Month · No Long-Term Commitment</p>
-                </div>
-                <div className="flex-1 bg-background/40 border border-border/20 rounded-2xl px-6 py-4">
-                  <p className="text-2xl lg:text-3xl font-black text-primary italic tracking-tighter">{OS_PRICING.setup}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{OS_PRICING.setupLabel}</p>
-                </div>
-                <div className="flex-1 bg-primary/10 border border-primary/25 rounded-2xl px-6 py-4">
-                  <p className="text-lg lg:text-xl font-black text-foreground italic tracking-tighter leading-tight">{OS_PRICING.promise}</p>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-primary mt-1">One Job</p>
-                </div>
+              {/* The price as an object (Trevor 9/5, communication law:
+                  the paragraph died, the numbers got the stage). */}
+              <div className="flex flex-wrap items-baseline gap-x-7 gap-y-3 mb-4">
+                <p className="text-6xl md:text-7xl lg:text-[104px] font-black italic tracking-tighter text-primary tabular-nums leading-none">
+                  {OS_PRICING.monthly}<span className="text-xl lg:text-2xl text-muted-foreground font-bold not-italic tracking-tight">/mo</span>
+                </p>
+                <p className="text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter text-foreground tabular-nums leading-none">
+                  <span className="text-faint font-bold not-italic">+</span> {OS_PRICING.setup}
+                  <span className="text-sm lg:text-base text-muted-foreground font-bold not-italic tracking-tight"> setup &middot; once</span>
+                </p>
               </div>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-black italic tracking-tighter leading-[1.05] text-foreground max-w-2xl mb-4">
+                {OS_PRICING.promise}
+              </p>
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint mb-10 md:mb-12">
+                Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
+              </p>
 
               {/* Seats strip REMOVED (Trevor 9/4: "take the 14/20 accounts
                   thing down") — do not restore the OS_SLOTS bar. */}

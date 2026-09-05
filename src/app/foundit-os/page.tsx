@@ -60,40 +60,40 @@ const data: PillarData = {
   ],
   reelTransition: 'That was a tire shop. This is a nursery. Every Found It OS is different, because every business is.',
   automationReel: true,
-  definitionHeading: 'What Is a Business Operating System?',
-  definition:
-    'One piece of software that runs the whole operation — sales, inventory, customers, invoices, service, website — instead of five subscriptions taped together. Big platforms sell off the rack. This one is made to measure. And you own it all: the code, the data, everything.',
+  /* Definition + audience + related-reading sections OFF (Trevor 9/5,
+     communication law: let the machine speak). The definition text lives on
+     in schemaDescription; heroDefinition answers on-page under the h1. */
   includedHeading: 'What Every Found It OS Includes',
   included: [
     {
       title: 'Fitted, Not Templated',
       detail:
-        'We study how your business really runs. Then we build the system around it.',
+        'We study how you actually run. Then we build around it.',
     },
     {
       title: 'The Operational Core',
       detail:
-        'Customers, sales, jobs, inventory, invoicing, service, scheduling — and the books that feed your accountant. Payroll, taxes, and trust accounting stay with the licensed professionals responsible for them.',
+        'Customers, sales, jobs, inventory, invoicing, scheduling — and the books that feed your accountant. Payroll and taxes stay with your licensed pros.',
     },
     {
       title: 'Your Website, Wired In',
       detail:
-        'Your website and your system share one brain. Change a price once and it shows up everywhere.',
+        'Change a price once. It shows up everywhere.',
     },
     {
       title: 'An AI Employee on Every Shift',
       detail:
-        'Answers the phone, drafts follow-ups, chases what you’re owed, files paperwork from a photo. It can read your books. It cannot write them.',
+        'Answers the phone, chases what you’re owed, files paperwork from a photo. Reads your books. Cannot write them.',
     },
     {
       title: 'Books That Show Their Work',
       detail:
-        'Every sale, refund, and edit lands in one permanent journal, backed up every night. Your accountant can check every penny.',
+        'Every sale and edit lands in one permanent journal. Your accountant can check every penny.',
     },
     {
       title: 'You Own It',
       detail:
-        'You own the code, the data, and the system. If we ever part ways, it stays yours.',
+        'The code, the data, the system. If we ever part ways, it stays yours.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -102,13 +102,13 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We come to your business and walk every flow — how a sale rings, how inventory moves, what lives on paper.',
+        'We come to your building and walk every flow — sale, inventory, paper.',
     },
     {
       step: '02',
       title: 'Built Beside Your Old System',
       detail:
-        'Your old system keeps running. The new one runs beside it, checked against it every night, line by line.',
+        'The new one runs beside your old one, checked against it every night.',
     },
     {
       step: '03',
@@ -122,15 +122,6 @@ const data: PillarData = {
       detail:
         'Nightly backups, support you can actually call, new features as you grow.',
     },
-  ],
-  audienceHeading: 'Built for the Owner Who Still Knows How Everything Works',
-  audience: [
-    'Owner-led companies, roughly $1M–$20M a year',
-    'Where paper, spreadsheets, or one indispensable employee still carries part of the operation',
-    'Dealer & retail — register, inventory, customer book, invoicing',
-    'Trade & service — calls, estimates, scheduling, jobs, collections',
-    'Wholesale & accounts — orders, pull sheets, terms, receivables',
-    'The owner sits in the fitting. That’s where the system comes from.',
   ],
   result: {
     headline: 'Before Anything Switches',
@@ -147,17 +138,17 @@ const data: PillarData = {
     {
       title: 'Renting forever',
       detail:
-        'Big platforms charge rent forever and keep the working system if you leave. They rent you your own business back.',
+        'Leave, and they keep the working system. They rent you your own business back.',
     },
     {
       title: 'Generic software, forced workarounds',
       detail:
-        'Built for everyone, so it fits no one. Half the business stays on paper and in people’s heads.',
+        'Built for everyone, so it fits no one. Half the business stays on paper.',
     },
     {
       title: 'The custom software invoice',
       detail:
-        'Custom shops quote $50,000–$150,000, take 3–6 months, and bill 15–20% a year to keep it running. A single local business was never their customer.',
+        '$50,000–$150,000, 3–6 months, then 15–20% a year forever. A local business was never their customer.',
     },
     {
       title: 'Rip-and-replace migrations',
@@ -171,11 +162,11 @@ const data: PillarData = {
     items: [
       {
         title: 'One business, one isolated database',
-        detail: 'Your records never share a database with another company’s. Nightly backups with point-in-time recovery.',
+        detail: 'Never shared with another company. Nightly backups, point-in-time recovery.',
       },
       {
         title: 'A ledger nobody can silently rewrite',
-        detail: 'Money history is append-only. Corrections post on the record; originals stay visible.',
+        detail: 'Money history is append-only. Originals stay visible.',
       },
       {
         title: 'The AI reads. It cannot spend or rewrite history.',
@@ -193,13 +184,10 @@ const data: PillarData = {
     setup: OS_PRICING.setup,
     bullets: [
       'Month-to-month — no long-term contract',
-      'Hosting and nightly backups',
-      'Support from a human who knows the system',
-      'Security fixes and updates',
-      'Ongoing workflow improvements',
-      'The code and the data remain yours',
-      'Major new divisions scoped in writing first',
+      'Hosting, backups, support, security fixes',
       'No per-register or per-seat fees',
+      'Major new divisions scoped in writing first',
+      'The code and the data remain yours',
     ],
     promise: OS_PRICING.promise,
     kicker: 'The system earns the next month, every month.',
@@ -209,17 +197,17 @@ const data: PillarData = {
     {
       question: 'What exactly is Found It OS?',
       answer:
-        'One system for your whole business. Point of sale, inventory, customers, invoices, service tickets, and your website, with an AI employee working inside it. Built around how you run, and you own it outright.',
+        'One system for your whole business — register, inventory, customers, invoices, website — with an AI employee inside. You own it outright.',
     },
     {
       question: 'What does "AI employee" actually mean?',
       answer:
-        'Work the system does itself: answers the phone, drafts follow-ups, sends payment reminders, files paperwork from a photo. Your people approve what matters. It never touches the books on its own.',
+        'Work the system does itself: answers the phone, drafts follow-ups, chases receivables. Your people approve what matters. It never touches the books on its own.',
     },
     {
       question: 'What happens to my old system and my data?',
       answer:
-        'Nothing yet. It keeps running while Found It OS runs beside it, checked nightly. Your data comes in during the fitting — even the handwritten invoices. You switch when the numbers match.',
+        'Nothing yet. The old system keeps running while the new one runs beside it, checked nightly. You switch when the numbers match.',
     },
     {
       question: 'Who owns the system?',
@@ -237,18 +225,9 @@ const data: PillarData = {
         "Then you cancel with thirty days' notice. The system keeps running, and everything in it is still yours.",
     },
   ],
-  relatedReading: [
-    { title: 'Same Job Title. Different Deal. (vs the other AI employees)', href: '/blog/ai-employee-vs-ai-employee' },
-    { title: 'Custom Software by Industry', href: '/custom-software' },
-    { title: 'Auto Repair Shop Software You Own', href: '/custom-software/auto-repair-shops' },
-    { title: 'Contractor & Field Service Software You Own', href: '/custom-software/contractors' },
-    { title: 'Custom App Development', href: '/app-development' },
-    { title: 'The Free Walkthrough, Explained', href: '/blog/what-is-a-software-map' },
-    { title: 'You Can Export the Nouns. They Keep the Verbs.', href: '/blog/rented-software-no-data-rights' },
-  ],
   finalCtaHeadline: 'See What Yours Would Do First',
   finalCtaSub:
-    `Tell us how your business runs today. If it's a fit, we show you what your AI employee would take off your people first. If it's not, we say so.`,
+    `Tell us how you run. If it's a fit, we show you what the AI takes off your people first. If not, we say so.`,
 };
 
 export default function FoundItOSPillar() {
