@@ -23,6 +23,38 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'the-communication-law',
+        title: 'I Just Gave My AI a Law: Say Less. Show More.',
+        seoTitle: 'The Communication Law — Making AI Say Less',
+        seoDescription:
+            'One law, said once in plain English: concentrate the communication, magnify it visually. The AI rewrote every page-close on the site in minutes. Same page, before and after.',
+        date: '2026-09-05',
+        author: 'Trevor Ruby',
+        authorImage: '/trevorruby.jpeg',
+        excerpt:
+            'Last night I read my own website and got hit by waves of words. So I gave the AI that builds it one law: concentrate the communication, magnify it visually. Here is the same page, before and after — about a hundred words against twenty-three.',
+        image: '/images/blog/cta-law-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">Field report &middot; the communication law</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Last night I read my own homepage and got hit by waves of words. Good words. Half of them mine. That's the problem — I love words, and the AI I build with loves them more.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">A prospect doesn't want to read his way to a button. So I made a law and handed it to the machine, once, in plain English, mid-rant:</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0; color: #FF5500;">Concentrate the communication. Magnify it visually.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin: 2em 0;">
+<figure style="flex: 1 1 320px; margin: 0; min-width: 0;"><img src="/images/blog/cta-before-v1.png" alt="The old homepage close: about a hundred words — an eyebrow, a headline, an italic litany, a five-line paragraph, two buttons, two footnotes" style="border-radius: 12px; border: 1px solid #333; width: 100%;" /><figcaption style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 0.6em;">Before &middot; about a hundred words</figcaption></figure>
+<figure style="flex: 1 1 320px; margin: 0; min-width: 0;"><img src="/images/blog/cta-after-v1.png" alt="The new close: the headline at full scale, one sentence, one glowing button — twenty-three words" style="border-radius: 12px; border: 1px solid #FF5500; width: 100%;" /><figcaption style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 0.6em;">After &middot; twenty-three words</figcaption></figure>
+</div>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Same page. Same offer. Same button, pointed at the same sixty-second fit check. One of them respects your evening.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">I said it once. It became law everywhere.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Here's the part that still gets me. I didn't write a spec or open a design tool. I complained, in one sentence, that we were overwhelming people. Minutes later the new close was a single component with a note written inside it that forbids anyone — including the AI — from ever adding a paragraph to it. Then it swept every page on the site, and the old versions went into history where they belong.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">That is what working with an AI is supposed to feel like. <span style="color: #FF5500; font-weight: 800;">The owner legislates. The machine enforces.</span> Same deal as the ledger that can't be edited, same deal as the research system that can't sign its own work order. The intelligence gets to be enormous. The authority stays exactly where it started.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Beauty communicates. <span style="color: #FF5500;">Waves drown.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The old close wasn't wrong. It was just loud — five ideas fighting for one moment. The law is live at the bottom of every page now: one idea, at full size, with air around it.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
+<div style="margin: 2em 0 0; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;">Sixty seconds. Nothing to prepare. &rarr;</a></div>
+`,
+    },
+    {
         slug: 'the-roadmap-is-in-the-deed',
         title: 'We Had a 593-Line Plan. It Was Still Wrong.',
         seoTitle: 'We Had a 593-Line Plan. It Was Still Wrong',
