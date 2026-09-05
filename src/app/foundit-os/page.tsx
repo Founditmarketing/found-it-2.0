@@ -45,6 +45,10 @@ const data: PillarData = {
   },
   heroPriceLine: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup · Month-to-month · You own the code and data`,
   ctaLabel: 'Show Me Mine',
+  /* No questionnaire on the demo page (Trevor 9/5: "why are you asking me
+     so many questions") — the door leads to /fit; the quiz lives there. */
+  ctaHref: '/fit',
+  closeWithAsk: true,
   formSource: 'service_foundit_os',
   formPageSlug: 'foundit-os',
   formHeading: 'Start your Software Map',

@@ -17,6 +17,10 @@ const ROW_A = [
   ['AUG 28', 'The Owned Software Standard, in writing'],
   ['SEP 1', 'The machine posts its own odds on the boss'],
   ['SEP 2', 'The site deletes its own bragging — 45 lines'],
+  ['SEP 4', 'The Shipwright — it researches, writes the work order, and waits'],
+  ['SEP 5', 'The communication law: say less, show more — sitewide'],
+  ['SEP 5', 'The homepage price becomes an object'],
+  ['SEP 5', 'The OS page decides it is the demo'],
 ] as const;
 
 const ROW_B = [
@@ -31,6 +35,9 @@ const ROW_B = [
   ['SEP 2', 'The drivable OS gets its own stage at /drive'],
   ['SEP 3', 'The secretary learns to be interrupted'],
   ['SEP 3', 'The About page takes its walls off'],
+  ['SEP 4', 'The evidence room — status stamps on every claim'],
+  ['SEP 5', 'The handover manifest — all six items, one document'],
+  ['SEP 5', 'Owner Mode holds live levers on two pages'],
 ] as const;
 
 /** Newest entry — the About page's live strip reads it so "last ship" has
@@ -94,7 +101,7 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} ships &middot; 20 days &middot; <span className="text-primary">yours runs at the same pace</span>
+        {SHIPS} ships &middot; 22 days &middot; <span className="text-primary">yours runs at the same pace</span>
       </p>
 
       {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes

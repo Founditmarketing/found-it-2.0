@@ -25,12 +25,18 @@ const SUGGESTED = [
 
 const ORANGE = '#FF5500';
 
-export default function OwnerModeDemo() {
+/* targetId: the DOM region this Owner Mode holds the levers to. The blog
+   article passes nothing (default #post-body); /case-studies wraps its own
+   section as #ownermode-stage — WITHOUT a real target every op used to hit
+   null and die silently, which is how "this needs to actually do something"
+   happened (Trevor 9/5). */
+export default function OwnerModeDemo({ targetId = 'post-body' }: { targetId?: string } = {}) {
   const [input, setInput] = useState('');
   const [log, setLog] = useState<LogEntry[]>([]);
   const [touched, setTouched] = useState(false);
   const [busy, setBusy] = useState(false);
   const headline = useRef<string | null>(null);
+  const headlineEl = useRef<HTMLElement | null>(null);
   const accentNodes = useRef<{ el: HTMLElement; prop: 'color' | 'background'; old: string }[] | null>(null);
   const accent = useRef(ORANGE);
   const hidden = useRef<HTMLElement[]>([]);
@@ -38,7 +44,16 @@ export default function OwnerModeDemo() {
   const scaled = useRef(false);
   const box = useRef<HTMLDivElement>(null);
 
-  const body = () => document.getElementById('post-body');
+  const body = () => document.getElementById(targetId);
+  /* The headline this mode owns: the first h1/h2 inside its own region,
+     else the page h1 (the article title lives outside #post-body). */
+  const findHeadline = () => {
+    if (headlineEl.current) return headlineEl.current;
+    const el = body();
+    const h = (el?.querySelector<HTMLElement>('h1, h2') || document.querySelector<HTMLElement>('h1')) ?? null;
+    headlineEl.current = h;
+    return h;
+  };
   const calm = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* every change announces itself: the touched element glows for a beat */
   const pulse = (n: HTMLElement) => {
@@ -66,11 +81,16 @@ export default function OwnerModeDemo() {
     if (kind === 'done') setTouched(true);
   };
 
-  /* Find every inline orange once; recolors after that re-paint the same nodes. */
+  /* Find every orange once; recolors after that re-paint the same nodes.
+     Blog articles carry orange as inline styles; sections like the
+     case-studies stage carry it as Tailwind classes — collect both, and
+     never the module's own controls (the machinery stays machinery). */
   const collectAccent = (el: HTMLElement) => {
     if (accentNodes.current) return;
     accentNodes.current = [];
+    const mine = (n: HTMLElement) => box.current !== null && box.current.contains(n);
     el.querySelectorAll<HTMLElement>('[style]').forEach((n) => {
+      if (mine(n)) return;
       const st = n.getAttribute('style') || '';
       if (/color:\s*#ff5500/i.test(st) && !/background/i.test(st)) {
         accentNodes.current!.push({ el: n, prop: 'color', old: n.style.color });
@@ -79,11 +99,20 @@ export default function OwnerModeDemo() {
         accentNodes.current!.push({ el: n, prop: 'background', old: n.style.background });
       }
     });
+    el.querySelectorAll<HTMLElement>('.text-primary').forEach((n) => {
+      if (!mine(n)) accentNodes.current!.push({ el: n, prop: 'color', old: n.style.color });
+    });
+    el.querySelectorAll<HTMLElement>('.bg-primary').forEach((n) => {
+      if (!mine(n)) accentNodes.current!.push({ el: n, prop: 'background', old: n.style.background });
+    });
   };
 
   const apply = (a: Op) => {
     const el = body();
-    if (!el) return;
+    if (!el) {
+      push('Owner Mode could not find its page region. That is a bug on our side, not a wall.', 'note');
+      return;
+    }
     switch (a.op) {
       case 'setAccent': {
         collectAccent(el);
@@ -104,7 +133,7 @@ export default function OwnerModeDemo() {
         break;
       }
       case 'setHeadline': {
-        const h1 = document.querySelector('h1');
+        const h1 = findHeadline();
         if (h1 && a.text) {
           if (headline.current === null) headline.current = h1.textContent;
           h1.textContent = a.text;
@@ -156,7 +185,9 @@ export default function OwnerModeDemo() {
       }
       case 'trimIntro': {
         if (hidden.current.length === 0) {
-          const ps = el.querySelectorAll<HTMLElement>('p');
+          const ps = Array.from(el.querySelectorAll<HTMLElement>('p')).filter(
+            (p) => !(box.current !== null && box.current.contains(p)),
+          );
           for (let i = 1; i <= 3 && i < ps.length; i++) {
             hidden.current.push(ps[i]);
             ps[i].style.display = 'none';
@@ -172,8 +203,15 @@ export default function OwnerModeDemo() {
         break;
       }
       case 'textScale': {
+        /* zoom, not font-size: article text is sized in clamp()ed px and
+           section text in rem — a container font-size moves neither. zoom
+           moves everything; the module counter-zooms so the controls stay
+           put while the page grows around them. */
         el.style.transition = 'font-size 0.45s ease';
-        el.style.fontSize = `${a.scale}%`;
+        (el.style as CSSStyleDeclaration & { zoom: string }).zoom = String(a.scale / 100);
+        if (box.current && el.contains(box.current)) {
+          (box.current.style as CSSStyleDeclaration & { zoom: string }).zoom = String(100 / a.scale);
+        }
         scaled.current = a.scale !== 100;
         push(`Body text at ${a.scale} percent.`, 'done');
         break;
@@ -226,9 +264,9 @@ export default function OwnerModeDemo() {
   };
 
   const reset = () => {
-    const h1 = document.querySelector('h1');
-    if (h1 && headline.current !== null) h1.textContent = headline.current;
+    if (headlineEl.current && headline.current !== null) headlineEl.current.textContent = headline.current;
     headline.current = null;
+    headlineEl.current = null;
     accentNodes.current?.forEach(({ el, prop, old }) => {
       if (prop === 'color') el.style.color = old;
       else el.style.background = old;
@@ -240,7 +278,11 @@ export default function OwnerModeDemo() {
     banner.current?.remove();
     banner.current = null;
     const el = body();
-    if (el && scaled.current) el.style.fontSize = '';
+    if (el && scaled.current) {
+      el.style.fontSize = '';
+      (el.style as CSSStyleDeclaration & { zoom: string }).zoom = '';
+      if (box.current) (box.current.style as CSSStyleDeclaration & { zoom: string }).zoom = '';
+    }
     scaled.current = false;
     setLog([]);
     setTouched(false);

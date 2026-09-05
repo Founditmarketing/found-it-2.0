@@ -259,7 +259,9 @@ export default function CaseStudiesPage() {
       </div>
 
       <section className="relative bg-black/40 border-y border-primary/30 py-14 md:py-24 mb-14 md:mb-20 z-10">
-        <div className="max-w-[1000px] mx-auto px-6">
+        {/* ownermode-stage: the region this page's Owner Mode actually holds
+            the levers to — without it the module edited nothing (9/5). */}
+        <div id="ownermode-stage" className="max-w-[1000px] mx-auto px-6">
           <span className="relative flex h-3 w-3 mb-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
@@ -293,7 +295,7 @@ export default function CaseStudiesPage() {
             </span>
           </div>
           <div className="rounded-2xl shadow-[0_0_80px_-20px] shadow-primary/40">
-            <OwnerModeDemo />
+            <OwnerModeDemo targetId="ownermode-stage" />
           </div>
           <div className="mt-6">
             <Link href="/fit" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">

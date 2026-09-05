@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { buildServiceSchema, buildFAQSchema, buildBreadcrumbSchema, type ServiceOffer } from '@/lib/schema';
 import { LeadFormEmbed } from '@/components/lp/LeadFormEmbed';
 import { FitCheck } from '@/components/fit/FitCheck';
+import TheAsk from '@/components/TheAsk';
 import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
@@ -107,6 +108,11 @@ export interface PillarData {
    *  form — the software-map funnel only (/foundit-os). NOT A FIT captures
    *  nothing. */
   fitGate?: boolean;
+  /** 9/5 (Trevor, on the quiz-as-close: "why are you asking me so many
+      questions... draw me in"): true = no embedded questionnaire; the page
+      ends with the house close (TheAsk) and the quiz stays on /fit for
+      people who walk through the door. */
+  closeWithAsk?: boolean;
 }
 
 export function ServicePillar({ data }: { data: PillarData }) {
@@ -338,20 +344,38 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </section>
         )}
 
-        {/* What's included */}
+        {/* What's included — THE BUILD SHEET (9/5, Trevor on the old six
+            floating cards: "the most uninspiring thing ive ever seen").
+            Same document-object language as the /owned-software handover
+            manifest: one bordered sheet, mono header, numbered stamps that
+            ignite on hover. */}
         {data.included && data.included.length > 0 && (
         <section className="mb-32 md:mb-44">
           <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
             {data.includedHeading}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {data.included.map((item) => (
-              <div key={item.title} className="bg-card/10 border border-border/20 rounded-2xl p-6">
-                <h3 className="text-sm font-black uppercase italic tracking-tighter text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground font-medium leading-relaxed">{item.detail}</p>
-              </div>
-            ))}
+          <div className="border border-primary/40 rounded-[2rem] overflow-hidden bg-card/10">
+            <div className="px-6 lg:px-8 py-4 border-b border-border/20 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-primary">The Build Sheet</p>
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint">Every install &middot; no add-on menu</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {data.included.map((item, i) => (
+                <div
+                  key={item.title}
+                  className="group p-6 lg:p-7 border-b border-border/15 sm:odd:border-r sm:border-border/15 hover:bg-primary/[0.04] transition-colors"
+                >
+                  <div className="flex items-baseline gap-4 mb-1.5">
+                    <span className="font-mono text-2xl font-black text-primary/50 tabular-nums group-hover:text-primary transition-colors">
+                      0{i + 1}
+                    </span>
+                    <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">{item.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         )}
@@ -532,6 +556,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         )}
 
         {/* Lead form */}
+        {!data.closeWithAsk && (
         <section id="lead-form" className="mb-32 md:mb-44 scroll-mt-28">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
@@ -552,6 +577,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             )}
           </div>
         </section>
+        )}
 
         {/* FAQ */}
         <section className="mb-32 md:mb-44">
@@ -616,6 +642,9 @@ export function ServicePillar({ data }: { data: PillarData }) {
             </ul>
           </section>
         )}
+
+        {/* The house close — one door, no questionnaire on this page. */}
+        {data.closeWithAsk && <TheAsk />}
 
       </div>
 
