@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { OS_PRICING } from '@/lib/site';
+import TheAsk from '@/components/TheAsk';
 
 /* ─── /vs-grok — the DIY question, answered straight ───
    Every owner with a laptop has now seen AI write software. The honest
@@ -145,48 +146,44 @@ export default function VsGrokPage() {
           The AI is the same. <span className="text-primary">The finish line isn&rsquo;t.</span>
         </p>
 
-        {/* The pager argument (9/3): the tech-savvy owner isn't comparing us
-            against "free" — he's comparing against his own hours. And because
-            we deed the code, DIY isn't our competitor. It's his exit. */}
-        <div className="mb-14">
-          <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-6">
+        {/* The pager argument (9/3), concentrated 9/5 under the
+            communication law: the five bold theses survive at display scale,
+            their paragraphs cut to one line each. Full argument lives in git. */}
+        <div className="mb-16 md:mb-20">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-10">
             If you&rsquo;re tech-savvy, <span className="text-primary">read this part.</span>
           </h2>
-          <div className="space-y-5 text-base text-muted-foreground font-medium leading-relaxed max-w-3xl">
-            <p>
-              <span className="text-foreground font-bold">AI collapsed the cost of the first draft, not the cost of production.</span>{' '}
-              Any of today&rsquo;s tools will get you a working demo by Sunday, and it will feel 90% done. It&rsquo;s 20%.
-              The other 80% is the unglamorous part: auth and permissions, backups, migrations, what happens when the
-              office manager and a tech edit the same record, uptime when the phone starts ringing at seven. The gap
-              between &ldquo;works when I use it&rdquo; and &ldquo;works when my whole company and my customers hit it
-              daily&rdquo; is the actual product.
-            </p>
-            <p>
-              <span className="text-foreground font-bold">DIY doesn&rsquo;t eliminate the software bill &mdash; it moves it into your calendar.</span>{' '}
-              Software isn&rsquo;t a project, it&rsquo;s a pager. Every bug, every API deprecation, every
-              &ldquo;the site is down&rdquo; text now routes to you. And AI-generated code you prompted but never
-              understood is the hardest kind to debug eighteen months later. The whole point of an owned system is the
-              final say <em>without</em> another full-time job. DIY software is the other full-time job.
-            </p>
-            <p>
-              <span className="text-foreground font-bold">The dangerous parts are exactly what DIY skips.</span>{' '}
-              Guardrails, audit trails, the ledger walls, running the new system beside the old one until the numbers
-              agree. That work is boring, and solo builders skip boring. Nobody vibe-codes reconciliation. But it&rsquo;s
-              the difference between a demo and books you&rsquo;d bet the business on.
-            </p>
-            <p>
-              <span className="text-foreground font-bold">And the part no SaaS vendor can say:</span> you&rsquo;d own the
-              code either way &mdash; we deed it. So you&rsquo;re not choosing between owning and renting. You&rsquo;re
-              choosing who does the labor and who carries the pager. DIY isn&rsquo;t our competitor.{' '}
-              <span className="text-primary font-bold">It&rsquo;s your exit.</span> Month-to-month, no contract, code in
-              hand &mdash; the day we stop earning it, you already have everything you need to leave.
-            </p>
-            <p>
-              Honest concession: some tech-savvy owners <em>should</em> build their own &mdash; hobby-scale tools that
-              aren&rsquo;t load-bearing, or owners who genuinely enjoy the maintenance. If that&rsquo;s you, go build.
-              This page is for the owner whose Saturday project is about to become his company&rsquo;s production system.
-            </p>
+          <div className="space-y-10 md:space-y-12 max-w-3xl">
+            {[
+              {
+                punch: <>AI collapsed the cost of the first draft. <span className="text-primary">Not the cost of production.</span></>,
+                line: 'The Sunday demo feels 90% done. It\u2019s 20%. The other 80% is auth, backups, migrations, uptime.',
+              },
+              {
+                punch: <>DIY doesn&rsquo;t kill the software bill. <span className="text-primary">It moves it into your calendar.</span></>,
+                line: 'Software isn\u2019t a project, it\u2019s a pager \u2014 and every 3 AM text now routes to you.',
+              },
+              {
+                punch: <>The dangerous parts are <span className="text-primary">exactly what DIY skips.</span></>,
+                line: 'Nobody vibe-codes reconciliation. That\u2019s the difference between a demo and books you\u2019d bet the business on.',
+              },
+              {
+                punch: <>DIY isn&rsquo;t our competitor. <span className="text-primary">It&rsquo;s your exit.</span></>,
+                line: 'We deed the code either way. Month-to-month \u2014 the day we stop earning it, you leave with everything.',
+              },
+            ].map((t, i) => (
+              <div key={i}>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground mb-2">
+                  {t.punch}
+                </p>
+                <p className="text-base text-muted-foreground font-medium leading-relaxed">{t.line}</p>
+              </div>
+            ))}
           </div>
+          <p className="mt-10 text-sm text-faint font-medium leading-relaxed max-w-2xl italic">
+            Honest concession: hobby-scale tools that aren&rsquo;t load-bearing? Go build. This page
+            is for the owner whose Saturday project is about to become production.
+          </p>
           <p className="mt-8 text-xl sm:text-2xl font-black uppercase italic tracking-tighter leading-[0.95] text-foreground">
             AI made the first draft cheap. <span className="text-primary">It didn&rsquo;t make 3 AM cheap.</span>
           </p>
@@ -202,26 +199,15 @@ export default function VsGrokPage() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/fit"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-          >
-            Show Me What You&rsquo;d Build
-          </Link>
-          <Link
-            href="/vs-viktor"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
-          >
-            Compared to Viktor
-          </Link>
-          <Link
-            href="/foundit-os"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/30 text-foreground font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
-          >
-            What Found It OS Is
-          </Link>
-        </div>
+        <p className="font-mono text-[11px] font-black uppercase tracking-[0.18em] text-faint mb-2">
+          Also compared:{' '}
+          <Link href="/vs-viktor" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">Viktor</Link>
+          {' '}&middot;{' '}
+          <Link href="/foundit-os" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">what Found It OS is</Link>
+        </p>
+
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );
