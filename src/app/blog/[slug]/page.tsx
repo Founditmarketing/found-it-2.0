@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
 import { FounderByline } from '@/components/FounderByline';
 import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
@@ -65,6 +66,10 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  /* Read next (tailor doctrine 9/5): the editor picks ONE story and says why.
+     The generic two-card grid survives only as a fallback for a post whose
+     curated pick is missing or dangling. */
+  const nextPost = post.nextRead ? blogPosts.find((p) => p.slug === post.nextRead!.slug) : undefined;
   const relatedPosts = blogPosts.filter((p) => p.slug !== params.slug).slice(0, 2);
 
   const articleSchema = buildArticleSchema({
@@ -164,7 +169,25 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      {relatedPosts.length > 0 && (
+      {nextPost && post.nextRead ? (
+        <aside className="mt-24 border-t border-border pt-14">
+          <div className="max-w-3xl mx-auto px-6">
+            <p className="font-mono text-[11px] font-black uppercase tracking-[0.25em] text-primary mb-4">Read next</p>
+            <p className="text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-xl">
+              {post.nextRead.line}
+            </p>
+            <Link href={`/blog/${nextPost.slug}`} className="group mt-5 block">
+              <h2 className="text-2xl sm:text-4xl font-black text-foreground uppercase italic tracking-tighter leading-[1.0] group-hover:text-primary transition-colors duration-300 text-balance max-w-2xl">
+                {nextPost.title}
+              </h2>
+              <span className="mt-4 inline-flex items-center gap-2 text-xs font-black text-primary uppercase tracking-[0.2em]">
+                Read the post
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+            </Link>
+          </div>
+        </aside>
+      ) : relatedPosts.length > 0 && (
         <aside className="mt-24 border-t border-border pt-16">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-3xl font-black text-primary mb-12 text-center uppercase tracking-tighter italic">

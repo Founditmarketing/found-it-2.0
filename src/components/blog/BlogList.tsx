@@ -12,8 +12,44 @@ import { ClientSideFormattedDate } from './ClientSideFormattedDate';
  * TRUE aspect, full width. Every other post joins a big-type ledger —
  * date rail, headline at display size, one-line excerpt, hairlines — the
  * same ledger language as /about. The titles are the artwork.
- * Still a server component: paints without JS.
+ * 9/5 additions (round-4 critique, filtered): three fixed doors under the
+ * latest post so the opening communicates RANGE (a person, a confession,
+ * a save); honest reading time on every row; series chips for the Books
+ * trilogy. Still a server component: paints without JS.
  */
+
+/** Honest minutes from the rendered words (220 wpm, floor 1). */
+function minutes(html: string): number {
+  const words = html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-zA-Z#0-9]+;/g, ' ')
+    .trim()
+    .split(/\s+/).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
+/* Hand-picked, evergreen. Update by hand when a better door ships. */
+const DOORS = [
+  {
+    kicker: 'The Person',
+    slug: 'government-bid-finder-tree-service',
+    title: 'Tyler recognized one of the jobs.',
+    line: 'He had found it himself, the hard way. The software walked in carrying the same contract.',
+  },
+  {
+    kicker: 'The Confession',
+    slug: 'the-roadmap-is-in-the-deed',
+    title: 'Our 593-line plan was still wrong.',
+    line: 'Two customers, one tractor, two non-refundable deposits. The plan would have taken both.',
+  },
+  {
+    kicker: 'The Save',
+    slug: 'nursery-management-software',
+    title: 'Forty-four plants nearly missed the truck.',
+    line: 'A hand-copied order dropped its last line. The business was healthy. The software was the problem.',
+  },
+];
+
 export function BlogList() {
   if (!blogPosts || blogPosts.length === 0) {
     return (
@@ -61,6 +97,7 @@ export function BlogList() {
             <time dateTime={latest.date} className="text-muted-foreground">
               <ClientSideFormattedDate dateString={latest.date} />
             </time>
+            <span className="text-muted-foreground/60"> · {minutes(latest.content)} min</span>
           </p>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground uppercase italic tracking-tighter leading-[0.95] group-hover:text-primary transition-colors duration-300 text-balance">
             {latest.title}
@@ -75,6 +112,28 @@ export function BlogList() {
         </div>
       </Link>
 
+      {/* Start anywhere: three doors, three different reasons to read. */}
+      <div className="mb-14 lg:mb-20">
+        <p className="font-mono text-[11px] font-black uppercase tracking-[0.24em] text-muted-foreground mb-5">
+          Start anywhere
+        </p>
+        <div className="grid sm:grid-cols-3 gap-x-8 gap-y-7">
+          {DOORS.map((d) => (
+            <Link
+              key={d.slug}
+              href={`/blog/${d.slug}`}
+              className="group border-t-2 border-primary/40 pt-4 hover:border-primary transition-colors duration-300"
+            >
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary">{d.kicker}</p>
+              <h3 className="mt-2.5 text-lg lg:text-xl font-black text-foreground uppercase italic tracking-tighter leading-[1.05] group-hover:text-primary transition-colors duration-300">
+                {d.title}
+              </h3>
+              <p className="mt-2 text-[13px] text-muted-foreground font-medium leading-relaxed">{d.line}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* The ledger: every other post as its headline, full size. */}
       <div className="border-t border-border/15">
         {rest.map((post) => (
@@ -83,12 +142,22 @@ export function BlogList() {
             href={`/blog/${post.slug}`}
             className="group grid grid-cols-1 md:grid-cols-[130px_1fr] gap-x-8 gap-y-1.5 py-8 lg:py-10 border-b border-border/15 hover:bg-card/10 transition-colors duration-300 md:-mx-5 md:px-5 rounded-lg"
           >
-            <time
-              dateTime={post.date}
-              className="font-mono text-[11px] text-muted-foreground font-bold uppercase tracking-[0.15em] md:pt-2.5"
-            >
-              <ClientSideFormattedDate dateString={post.date} />
-            </time>
+            <div className="md:pt-2.5">
+              <time
+                dateTime={post.date}
+                className="block font-mono text-[11px] text-muted-foreground font-bold uppercase tracking-[0.15em]"
+              >
+                <ClientSideFormattedDate dateString={post.date} />
+              </time>
+              <span className="mt-1 block font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/50">
+                {minutes(post.content)} min
+              </span>
+              {post.series && (
+                <span className="mt-1 block font-mono text-[10px] font-black uppercase tracking-[0.15em] text-primary/70">
+                  {post.series}
+                </span>
+              )}
+            </div>
             <div className="min-w-0">
               <h2 className="text-xl sm:text-2xl lg:text-[2rem] font-black text-foreground uppercase italic tracking-tighter leading-[1.02] group-hover:text-primary transition-colors duration-300 text-balance">
                 {post.title}

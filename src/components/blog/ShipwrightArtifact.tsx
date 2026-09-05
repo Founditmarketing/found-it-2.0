@@ -15,7 +15,7 @@ import Link from 'next/link';
 const MONO = 'font-mono text-[9px] font-black uppercase tracking-[0.18em]';
 
 const STATUS = {
-  checked: 'Checked by a person · Sep 4, 2026',
+  checked: 'Checked by a person · Sep 5, 2026',
 };
 
 const ORDER_ROWS: [string, string][] = [
@@ -50,7 +50,7 @@ export default function ShipwrightArtifact() {
       <p className={`${MONO} text-faint text-center mb-3 tracking-[0.24em]`}>The score today · cycle one</p>
       <div className="grid grid-cols-3 border-y border-border/15 divide-x divide-border/10 mb-8">
         {[
-          ['Code shipped', '0'],
+          ['Code shipped', '1'],
           ['Customers contacted', '0'],
           ['Revenue claimed', '$0.00'],
         ].map(([l, v]) => (
@@ -85,12 +85,11 @@ export default function ShipwrightArtifact() {
               </span>
             </p>
             <p className={`${MONO} text-faint mt-2`}>Gross cart value — not booked revenue, not a recovery forecast</p>
-            <p className="mt-4 inline-flex items-center gap-2 rounded-md border border-amber-400/50 px-3 py-1.5">
-              <span className="relative flex h-2 w-2" aria-hidden>
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
-              </span>
-              <span className={`${MONO} text-amber-400 tracking-[0.2em]`}>Awaiting the owner · build authority: none</span>
+            {/* The gate closed with a GO (post body: "Then a human said go") —
+                the wait is over, so the ping is too. Stamp, not pulse. */}
+            <p className="mt-4 inline-flex items-center gap-2 rounded-md border border-primary/50 px-3 py-1.5">
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" aria-hidden />
+              <span className={`${MONO} text-primary tracking-[0.2em]`}>The owner said go · built · live on the dealer’s desk</span>
             </p>
           </div>
 

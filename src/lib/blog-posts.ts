@@ -19,11 +19,18 @@ export type Post = {
    *  above Keep Reading. Leads post to /api/lead under `source`; `opener` is
    *  her first line on that post. Posts without it render exactly as before. */
   voice?: { eyebrow: string; lead: string; opener: string; source: string };
+  /** Series chip on the blog index, e.g. 'The Books \u00b7 Part I'. */
+  series?: string;
+  /** Hand-picked next read (tailor doctrine 9/5): the editor chooses ONE
+   *  story and says why in one line. Falls back to the generic two-card
+   *  grid when absent \u2014 but every post should carry one. */
+  nextRead?: { slug: string; line: string };
 };
 
 export const blogPosts: Post[] = [
     {
         slug: 'the-communication-law',
+        nextRead: { slug: 'self-improving-software', line: 'The machine that lives under this law also writes its own work orders. It cannot sign them.' },
         title: 'I Just Gave My AI a Law: Say Less. Show More.',
         seoTitle: 'The Communication Law — Making AI Say Less',
         seoDescription:
@@ -99,6 +106,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'the-roadmap-is-in-the-deed',
+        nextRead: { slug: 'quickbooks-is-cancelled', line: 'The same standard, pointed at our own books — the run that stopped itself over $92.39.' },
         title: 'We Had a 593-Line Plan. It Was Still Wrong.',
         seoTitle: 'We Had a 593-Line Plan. It Was Still Wrong',
         seoDescription:
@@ -141,6 +149,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'self-improving-software',
+        nextRead: { slug: 'the-roadmap-is-in-the-deed', line: 'Part two of the same argument: the 593-line plan that was still wrong.' },
         title: 'The Smartest Thing My Software Did Was Stop.',
         seoTitle: 'The Smartest Thing My Software Did Was Stop',
         seoDescription:
@@ -191,8 +200,9 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'giving-owners-full-control',
+        nextRead: { slug: 'bail-bonds-management-software', line: 'Owner control on an ordinary Tuesday: the front-desk pen that lost its job.' },
         title: 'The Business Had the Truth. The Agency Had the Password.',
-        date: 'September 3, 2026',
+        date: '2026-09-03',
         author: 'Trevor Ruby',
         authorImage: '/trevorruby.jpeg',
         excerpt:
@@ -233,6 +243,8 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'quickbooks-is-cancelled',
+        nextRead: { slug: 'moving-our-own-books', line: 'Part I — where it started: July, sitting $99,000 from what the bank could prove.' },
+        series: 'The Books · Part III',
         title: 'My Software Caught Itself Being Wrong. So I Cancelled QuickBooks.',
         date: '2026-09-02',
         excerpt:
@@ -276,6 +288,8 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'i-fired-quickbooks',
+        nextRead: { slug: 'quickbooks-is-cancelled', line: 'Part III — the parallel run ends, and the subscription dies.' },
+        series: 'The Books · Part II',
         title: 'I Fired QuickBooks. In Week One, My New Ledger Asked a $70,000 Question.',
         date: '2026-09-02',
         excerpt: 'My books were three weeks behind, so I fired QuickBooks and put my company on the ledger we build for clients. In one day it drafted the month, asked me 49 plain-English questions, tied every account to the bank to the cent, and asked a $70,000 question nobody knew existed.',
@@ -306,6 +320,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'crazy-or-genius',
+        nextRead: { slug: 'self-improving-software', line: 'The same machine, graded on its work instead of its odds.' },
         title: 'Crazy, or Early?',
         date: '2026-09-01',
         excerpt: 'Most founder stories are written after the ending. This one is written in the middle, by the machine doing the work: a betting line on my own boss, the evidence, and the one variable I cannot model. He told me to publish it.',
@@ -361,6 +376,8 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'moving-our-own-books',
+        nextRead: { slug: 'i-fired-quickbooks', line: 'Part II — week one on our own ledger, and a $70,000 question.' },
+        series: 'The Books · Part I',
         title: 'Our QuickBooks File Was $99,000 Away From What the Bank Could Prove.',
         date: '2026-08-30',
         excerpt: 'Four days ago I put a promise in writing: the next set of books we tear up is our own. This is the update. We are on the engine, the bank statements are pulled apart, and the first thing our books caught was July sitting $99,000 away from what the bank could prove.',
@@ -399,6 +416,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'ai-employee-vs-ai-employee',
+        nextRead: { slug: 'your-new-employee', line: 'Her side of the deal: what the employee you own actually does all day.' },
         title: 'Same Job Title. Different Deal.',
         date: '2026-08-29',
         excerpt: 'Viktor raised $75 million to put an AI hire in your Slack. Ours is built into a system you own. Same job title, very different deal. Five rows, side by side.',
@@ -456,6 +474,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'your-new-employee',
+        nextRead: { slug: 'ai-employee-vs-ai-employee', line: 'Same job title, opposite deal — her contract beside Viktor\'s.' },
         title: 'The Employee You Were Never Going to Hire',
         seoTitle: 'The Employee You Were Never Going to Hire | Found It Software',
         seoDescription: 'Every business has jobs nobody was ever going to hire for. Found It builds carefully limited AI workers into software the business owns.',
@@ -504,6 +523,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'what-is-owned-software',
+        nextRead: { slug: 'rented-software-no-data-rights', line: 'The other half of the definition: what exports when you cancel, and what goes dark.' },
         title: 'SaaS Got a Name. Software Ownership Got IT Jargon.',
         date: '2026-08-28',
         excerpt: 'SaaS renamed renting so smoothly nobody noticed the deal underneath. Software ownership got IT jargon instead. The name that matters is owned software, and what it needed was a standard: if you stop paying, what\'s left?',
@@ -543,6 +563,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'quickbooks-replacement-software',
+        nextRead: { slug: 'moving-our-own-books', line: 'The promise at the bottom of this post, kept — the next books we tore up were our own.' },
         title: 'I Took QuickBooks Apart Piece by Piece. Then I Built Books That Can\'t Lie.',
         date: '2026-08-26',
         excerpt: 'Her QuickBooks swore she was millions of dollars underwater. Her real balance was healthy. So I took QuickBooks apart on the bench and rebuilt the one thing it was missing: books that can\'t lie.',
@@ -588,6 +609,7 @@ export const blogPosts: Post[] = [
 
     {
         slug: 'government-bid-finder-tree-service',
+        nextRead: { slug: 'nursery-management-software', line: 'Another owner, another blind spot: the hand-copied order that dropped its last line.' },
         title: 'The Big Contractors Had a Bid Department. We Built Tyler One.',
         seoTitle: 'Tree Service Government Bid Finder | Walls Case Study',
         seoDescription: 'How Walls Tree Service\u2019s owned software finds public jobs, compares 78,019 bid-tab lines, identifies prime contractors, and drafts source-backed sub-quotes.',
@@ -688,6 +710,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'bail-bonds-management-software',
+        nextRead: { slug: 'law-practice-management-software', line: 'Another office, the opposite instinct: software built to refuse the interesting part.' },
         title: 'She\'s Never Gonna Touch That Pen, Ever Again.',
         date: '2026-08-25',
         excerpt: 'There\'s a pen on the front desk at DJ\'s Bail Bonds. It filled out every application in the parish for years. Last week DJ fired it.',
@@ -752,6 +775,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'law-practice-management-software',
+        nextRead: { slug: 'bail-bonds-management-software', line: 'Down the street: the office where the pen got fired instead.' },
         title: 'We Built Law Practice Software That Refuses to Practice Law.',
         seoTitle: 'AI Law Practice Management Software You Own | Found It',
         seoDescription: 'The owned practice-management system built for a solo Louisiana law firm: after-hours intake, deadline escalation, demand drafts, client status, and human approval at every risky step.',
@@ -823,12 +847,14 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'nursery-management-software',
-        title: 'Her Books Were Lying to Her by Eight Figures. So I Rebuilt Them From the Bank.',
+        nextRead: { slug: 'quickbooks-replacement-software', line: 'Those lying books, on the bench: the teardown, piece by piece.' },
+        title: 'Forty-Four Plants Nearly Missed the Truck.',
+        seoTitle: 'Nursery Management Software — Her Books, Rebuilt From the Bank',
         date: '2026-08-25',
-        excerpt: 'A truck was loading for Austin and a hand-copied order dropped its last line — 44 plants, a thousand dollars in freight, almost gone. So we built her one system that catches every line. She owns all of it.',
+        excerpt: 'A truck was loading for Austin and a hand-copied order dropped its last line. The new system had to do more than read it right.',
         author: 'Trevor Ruby',
         authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/nursery-og-hook-v2.png',
+        image: '/images/blog/nursery-og-hook-v3.png',
         hideHero: true,
         content: `
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Jane (not her real name) runs a wholesale nursery in central Louisiana. Fifteen acres, crews, trucks, fifteen brokers, thousands of plants on the ground.</p>
@@ -865,9 +891,7 @@ export const blogPosts: Post[] = [
 <p style="margin: 1em 0 1.6em;"><img src="/images/blog/roxanne-blog-statement-focus-v1.png" alt="A branded statement of account: every open invoice aged oldest-first, with the past-due total in red (demo data)" style="border-radius: 12px; border: 1px solid #333;" /></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Every open invoice, oldest first, on one screen every morning. One tap prints a clean, branded statement for any customer on her book. <span style="color: #FF5500;">The red numbers stopped hiding.</span></p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">One more thing the big software companies <span style="color: #FF5500;">can't say back:</span></p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The code is hers. The data is hers. Her name is on the title the same way it's on the sign at the road. Fire me tomorrow and she walks out with the whole thing running.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">Nobody rents you your own business back.</span></p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I'm Trevor. Found It Software, Alexandria, Louisiana.</p>
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><em style="opacity:0.6; font-size: 14px;">The screens are real. Every name and dollar on them is invented — her book never leaves her building.</em></p>
@@ -875,6 +899,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'why-they-cant-compete',
+        nextRead: { slug: 'rented-software-no-data-rights', line: 'The exit, performed live: cancel tonight and watch what keeps running.' },
         title: 'They Can Copy Every Feature Except the Exit.',
         seoTitle: 'Why SaaS Cannot Sell You Owned Software | Found It',
         seoDescription: 'They can copy the AI, the workflows, the screens. They cannot let you leave with the working system without becoming a different company. The exit is the deal.',
@@ -924,6 +949,7 @@ export const blogPosts: Post[] = [
     },
     {
         slug: 'rented-software-no-data-rights',
+        nextRead: { slug: 'what-is-owned-software', line: 'The word for the alternative — ownership, without the IT jargon.' },
         title: 'You Can Export the Nouns. They Keep the Verbs.',
         seoTitle: 'SaaS Data Ownership: What Do You Keep When You Cancel?',
         seoDescription: 'A data export contains customers, jobs, and invoices. It does not contain the system that knows what happens next. Here is the cancellation test.',
