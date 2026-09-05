@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CASE_FILES } from '@/lib/case-files';
+import { CASE_FILES, caseAnchor } from '@/lib/case-files';
 import TheAsk from '@/components/TheAsk';
 
 /* THE RECORD (Trevor 8/29: "before and after they TRUST, not one that looks
@@ -43,7 +43,11 @@ export default function BeforeAfterPage() {
 
         <div className="space-y-14">
           {CASE_FILES.map((f) => (
-            <article key={f.name} className="border border-border/20 rounded-3xl overflow-hidden bg-card/5">
+            <article
+              key={f.name}
+              id={caseAnchor(f.name)}
+              className="scroll-mt-32 border border-border/20 rounded-3xl overflow-hidden bg-card/5"
+            >
               {/* File header + status stamp — the stamp gets its own line on
                   phones (RUNNING IN PARALLEL was crushing the title to ~90px) */}
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 px-5 sm:px-7 lg:px-9 pt-6 sm:pt-7">

@@ -126,7 +126,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-register fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-register fees, no surprise add-ons.`,
     },
     {
       question: "What if it doesn't work out?",

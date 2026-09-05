@@ -169,7 +169,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-writer fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-writer fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
     'A shop system we built runs a real independent auto shop today, on about ten years of migrated records.',
@@ -196,7 +196,7 @@ const data: PillarData = {
     {
       question: 'What does auto repair shop software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-writer fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-writer fees, no surprise add-ons.`,
     },
     {
       question: 'Will my shop go down during the switch?',

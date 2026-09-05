@@ -164,7 +164,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
   whyUsHeading: 'Why Contractors Choose Found It OS',
   whyUs: [
     'A field-service system we built is live in production today.',
@@ -196,7 +196,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. It does not grow when you add a truck or hire another tech.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. It does not grow when you add a truck or hire another tech.`,
     },
     {
       question: 'Who owns the system?',

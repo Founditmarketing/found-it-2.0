@@ -25,6 +25,17 @@ export type CaseFile = {
   imgPhone?: { src: string; alt: string };
 };
 
+/** Stable anchor id for a case on /before-after, DERIVED from its name —
+    never hand-typed ("DJ’s Bail Bonds" → "djs-bail-bonds"). Any page that
+    cites a case deep-links it with `/before-after#${caseAnchor(name)}`. */
+export function caseAnchor(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[’']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 export const CASE_FILES: CaseFile[] = [
   {
     name: 'Roxanne’s OS',

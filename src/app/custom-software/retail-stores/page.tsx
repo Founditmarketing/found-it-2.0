@@ -164,7 +164,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade.`,
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
     'One House System core fitted to real stores without forking the code.',
@@ -201,7 +201,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-terminal fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-terminal fees, no surprise add-ons.`,
     },
     {
       question: 'If I stop paying, do I lose my register and my data?',

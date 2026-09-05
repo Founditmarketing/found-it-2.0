@@ -165,7 +165,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We built this for a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',

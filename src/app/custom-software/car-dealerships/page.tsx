@@ -164,7 +164,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now, sales, service, and rentals in one system, for a Louisiana independent dealer.',
@@ -201,7 +201,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number. No per-listing fees. Major additions are scoped in writing before work begins.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-listing fees. Major additions are scoped in writing before work begins.`,
     },
     {
       question: 'Do I need a technical person on staff?',

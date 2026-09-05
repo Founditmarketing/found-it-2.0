@@ -169,7 +169,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'The Price Is on the Website',
   pricing:
-    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole number, published right here — no “call for pricing,” no per-seat fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
+    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill, published right here — no “call for pricing,” no per-seat fees. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,

@@ -23,7 +23,9 @@ const GlockMode = dynamic(
 );
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLP = pathname.startsWith('/lp');
+  // /fix/* are paid problem-landers (9/5): same bare shell as /lp — the ad
+  // clicker gets the problem, the price, and one door; no site nav to wander.
+  const isLP = pathname.startsWith('/lp') || pathname.startsWith('/fix');
 
   if (isLP) {
     return (
