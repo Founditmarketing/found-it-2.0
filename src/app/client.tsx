@@ -153,7 +153,10 @@ export default function HomePage() {
           THREE FITTINGS — proof before demonstration. Another owner's
           numbers open the sale; our screens close it below.
       ═══════════════════════════════════════════ */}
-      <section id="proof" className="relative py-16 md:py-28 scroll-mt-20">
+      {/* PHONE-HIDDEN (9/5 mobile cut): beside the moving reel these static
+          cards read as a second helping — one proof per phone. Desktop keeps
+          both. */}
+      <section id="proof" className="relative py-16 md:py-28 scroll-mt-20 max-sm:hidden">
         <div className="max-w-[1100px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -345,9 +348,14 @@ export default function HomePage() {
       <ShipLog />
 
       {/* ═══════════════════════════════════════════
-          ASK THE OS — the demo beat, self-serve
+          ASK THE OS — the demo beat, self-serve.
+          PHONE-HIDDEN (Trevor 9/5: "home page on cell communicates a vibe
+          like shit what the fuck is trevor selling" — 8.1 screens of scroll;
+          the phone story is what-it-is → watch-it-work → price → door, and
+          this 1.6-screen beat lives on where it belongs, the OS demo page).
+          Desktop untouched.
       ═══════════════════════════════════════════ */}
-      <section className="relative py-16 md:py-28">
+      <section className="relative py-16 md:py-28 max-sm:hidden">
         <div className="max-w-[1000px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
