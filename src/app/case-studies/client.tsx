@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -10,6 +11,7 @@ import { CASE_FILES, CASE_COUNTS } from '@/lib/case-files';
 import TheAsk from '@/components/TheAsk';
 import ParseOrderDemo from '@/components/case-studies/ParseOrderDemo';
 import TireQuoteDemo from '@/components/case-studies/TireQuoteDemo';
+import PhoneProof from './PhoneProof';
 
 /* The live bounded-AI demo proves itself on this page too — code-split so
    the chunk only ships here and on the Owner Mode article. */
@@ -60,9 +62,32 @@ function ActHeader({ kicker, children }: { kicker?: string; children: React.Reac
 }
 
 export default function CaseStudiesPage() {
+  /* ─── Desktop-theater mount gate (9/5 phone audit) ───
+     `hidden lg:block` only hid the theater visually — below lg React still
+     MOUNTED the whole desktop tree, so phones downloaded the Tony mp4
+     (autoplay ignores display:none) and fetched the OwnerModeDemo chunk.
+     Fix: start mounted (true) so SSR HTML and the first client render match
+     the server byte-for-byte — desktop >= lg stays mounted from first paint
+     onward, unchanged. After hydration, matchMedia prunes the branch below
+     lg (detaching the video and demos) and re-mounts it if the viewport
+     crosses back over 1024px. The `hidden lg:block` classes stay as the
+     pre-hydration guard. */
+  const [desktopMounted, setDesktopMounted] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const sync = () => setDesktopMounted(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
 
   return (
-    <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
+    <>
+    {/* Phones/tablets (< lg): the calm proof feed — Trevor 9/5: the theater
+        below was "just overwhelming" at phone width. Desktop is untouched. */}
+    <PhoneProof />
+    {desktopMounted && (
+    <main className="hidden lg:block bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
@@ -582,5 +607,7 @@ export default function CaseStudiesPage() {
 
       </div>
     </main>
+    )}
+    </>
   );
 }
