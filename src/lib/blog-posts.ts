@@ -32,7 +32,7 @@ export const blogPosts: Post[] = [
         author: 'Trevor Ruby',
         authorImage: '/trevorruby.jpeg',
         excerpt:
-            'Between last night and sunrise my company built five versions of the same app. I rejected four of them. I cannot write a line of code. Both of those sentences used to be impossible, and together they say something about who wins next.',
+            'Between last night and sunrise my company built five versions of the same app. I rejected four of them. I can code a little — but nobody codes like the thing that built these. Together those sentences say something about who wins next.',
         image: '/images/blog/smart-utility-og-v1.png',
         hideHero: true,
         content: `
@@ -48,8 +48,8 @@ export const blogPosts: Post[] = [
 </div>
 <p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin: 0.2em 0 1.8em;">Every version fully built &middot; screens, tables, a balanced ledger &middot; hours apart</p>
 
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">I can&rsquo;t write a line of code.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The machine built all five. That&rsquo;s the part that should scare people like me &mdash; and it&rsquo;s the part that doesn&rsquo;t.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em;  margin: 1.5em 0 0.3em;">I can code a little. <span style="color: #FF5500;">Nobody codes like this.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The machine built all five &mdash; and it would have out-built me, you, and every engineer either of us has ever hired. That&rsquo;s the part that should scare people like me. It&rsquo;s the part that doesn&rsquo;t.</p>
 
 <p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 1.6em 0 0.8em;">For a hundred years, every study of who earns what said the same boring thing: the smartest guy wins. Intelligence was the scarce ingredient, so intelligence collected the rent.</p>
 
