@@ -7,6 +7,8 @@ import {
   OWNED_SOFTWARE_TEST_QUESTION,
   FOUND_IT_METHOD,
 } from '@/lib/owned-software';
+import { DisappearDemo } from '@/components/DisappearDemo';
+import TheAsk from '@/components/TheAsk';
 
 /* ─── /owned-software — the category's permanent home ───
    The definition as a URL. This page exists to be cited: by people, and by
@@ -108,19 +110,11 @@ export default function OwnedSoftwarePage() {
             {OWNED_SOFTWARE_EQUATION}
           </p>
         </div>
-        <p className="text-base text-muted-foreground font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
-          That is the whole category, and any builder can qualify under it. 37signals explored the
-          pay-once, self-hosted version with ONCE. The self-hosted world builds the assemble-it
-          version. Found It builds the bespoke version. Different methods, one shift:{' '}
-          <span className="text-foreground font-bold">
-            businesses deciding they should own the software they run on.
-          </span>
-        </p>
         <p className="text-base text-muted-foreground font-medium leading-relaxed mb-32 md:mb-44 max-w-2xl">
-          And to be straight about it: SaaS is often the right answer for commodity tools &mdash;
-          email, documents, storage. Owned software matters most when the system{' '}
-          <span className="text-foreground font-bold">is</span> the business: the jobs, the
-          register, the inventory, the books, the customer history.
+          Any builder can qualify. 37signals&rsquo; ONCE explored the pay-once version; the
+          self-hosted world assembles its own; Found It builds bespoke. And SaaS is fine for
+          commodity tools &mdash; owning matters when the system{' '}
+          <span className="text-foreground font-bold">is</span> the business.
         </p>
 
         {/* The test */}
@@ -132,51 +126,64 @@ export default function OwnedSoftwarePage() {
             {OWNED_SOFTWARE_TEST_QUESTION}
           </p>
           <p className="text-base text-muted-foreground font-medium leading-relaxed mb-5">
-            Rented: you may keep an export of your records. You don&rsquo;t keep the working
-            system. Owned: everything. Still yours. Still running. Five questions settle it in
-            two minutes.
+            Rented: you keep an export. Owned: everything &mdash; still yours, still running.
           </p>
           <Link href="/owned-software-test" className="inline-block py-2 -my-2 text-base sm:text-sm text-primary font-bold hover:underline">
-            Take the test →
+            Take the test &middot; five questions, two minutes →
           </Link>
         </div>
 
-        {/* The standard — ownership as a checklist, not a sentence in a
-            contract (8/28, Trevor: "give them everything except my
-            computer"). Six items a departing client receives or controls.
-            The workshop line is the honest boundary: Found It's internal
-            build tooling stays home because the client's system doesn't
-            need it to run. */}
-        <div className="border border-primary/40 rounded-3xl p-7 lg:p-9 mb-32 md:mb-44 bg-card/10">
+        {/* THE MANIFEST — the six-item standard as a handover document
+            (9/5, communication law: the checklist becomes an object). The six
+            lines stay in substance-lockstep with the agreements (8/28 law:
+            agreements must match; template at status docs). The workshop line
+            survives as the footer punch. */}
+        <div id="standard" className="mb-10 md:mb-14 scroll-mt-24">
           <p className="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">
             The Owned Software Standard
           </p>
-          <p className="text-base text-muted-foreground font-medium leading-relaxed mb-6">
-            Ownership is testable. It is not a sentence in a contract; it is a handover you could
-            perform tomorrow. A business running owned software receives, or controls, all six:
+          <p className="text-base text-muted-foreground font-medium leading-relaxed mb-7 max-w-2xl">
+            Ownership is not a sentence in a contract. It is a handover you could perform
+            tomorrow.
           </p>
-          <ol className="space-y-3 mb-6 list-none">
-            {[
-              'The complete, runnable source-code repository.',
-              'The production database and routine backups, in a usable format.',
-              'The hosting account, or a documented transfer of the deployment.',
-              'Credentials, environment configuration, and dependency documentation.',
-              'The legal right for any developer to maintain and modify the system.',
-              'A plain list of the third-party services that still bill on their own: hosting, phone lines, card processing, AI.',
-            ].map((item, i) => (
-              <li key={item} className="flex gap-4">
-                <span className="text-primary font-black font-mono text-sm shrink-0 mt-0.5">{i + 1}</span>
-                <p className="text-base text-foreground font-medium leading-relaxed">{item}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="text-base text-muted-foreground font-medium leading-relaxed">
-            Found It hands over all six. The only thing that stays home is our workshop: the
-            internal tools we use to build systems, which your system does not need to run.{' '}
-            <span className="text-foreground font-bold">
-              You get everything except the computer we typed it on.
-            </span>
+          <div className="border border-primary/40 rounded-[2rem] overflow-hidden bg-card/10">
+            <div className="px-6 lg:px-9 py-5 border-b border-border/20 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-primary">Handover Manifest</p>
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint">If you ever leave &middot; all six go with you</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {[
+                { label: 'The Code', line: 'The complete, runnable source-code repository.' },
+                { label: 'The Data', line: 'The production database and routine backups, in a usable format.' },
+                { label: 'The Hosting', line: 'The hosting account, or a documented transfer of the deployment.' },
+                { label: 'The Keys', line: 'Credentials, environment configuration, and dependency documentation.' },
+                { label: 'The Legal Right', line: 'For any developer to maintain and modify the system.' },
+                { label: 'The Bill List', line: 'The third-party services that still bill on their own: hosting, phone lines, cards, AI.' },
+              ].map((it, i) => (
+                <div key={it.label} className="p-6 lg:p-7 border-b border-border/15 sm:odd:border-r sm:border-border/15">
+                  <div className="flex items-baseline gap-4 mb-1.5">
+                    <span className="font-mono text-2xl font-black text-primary/50 tabular-nums">0{i + 1}</span>
+                    <span className="text-lg font-black uppercase italic tracking-tighter text-foreground">{it.label}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">{it.line}</p>
+                </div>
+              ))}
+            </div>
+            <div className="px-6 lg:px-9 py-6">
+              <p className="text-xl lg:text-2xl font-black italic tracking-tighter text-foreground text-balance">
+                You get everything <span className="text-primary">except the computer we typed it on.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* The manifest, drivable — the parked About demo remounts where the
+            claim it proves now lives ("save it for later" → later is here). */}
+        <div className="mb-32 md:mb-44">
+          <p className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.22em] text-faint mb-4">
+            Run the scenario &middot; Found It vanishes tonight
           </p>
+          <DisappearDemo showStandardLink={false} />
         </div>
 
         {/* FAQ — visible mirror of the schema */}
@@ -211,9 +218,12 @@ export default function OwnedSoftwarePage() {
           ))}
         </div>
 
-        <p className="text-lg font-black text-primary italic tracking-tight">
+        <p className="text-lg font-black text-primary italic tracking-tight mb-6">
           Nobody rents you your own business back.
         </p>
+
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );
