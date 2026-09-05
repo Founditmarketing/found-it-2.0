@@ -167,7 +167,7 @@ export default function HomePage() {
           >
             <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
-              Three Fittings.
+              The Fittings.
             </h2>
             <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
               Real businesses, real numbers. This is what happens when the system fits.

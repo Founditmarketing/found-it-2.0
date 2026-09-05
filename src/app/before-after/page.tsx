@@ -15,7 +15,7 @@ import TheAsk from '@/components/TheAsk';
 export const metadata: Metadata = {
   title: 'Before & After: The Record',
   description:
-    'Six businesses. What they ran on before. What they run on now. Every number as it happened — receipts, screens, and the limits we kept. No adjectives.',
+    'What they ran on before. What they run on now. Every number as it happened — receipts, screens, and the limits we kept. No adjectives.',
   alternates: { canonical: '/before-after' },
 };
 
@@ -33,7 +33,7 @@ export default function BeforeAfterPage() {
             Before &amp; After &middot; The Record
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-heading uppercase italic tracking-tighter leading-[0.88] text-white mb-6">
-            Six Businesses.<br />Every Number as It Happened.
+            The Case Files.<br />Every Number as It Happened.
           </h1>
           <p className="text-base sm:text-lg text-white/80 font-medium max-w-2xl leading-relaxed">
             What they ran on before. What they run on now. What we refused to build. Written the

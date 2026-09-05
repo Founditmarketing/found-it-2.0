@@ -91,34 +91,11 @@ export const CASE_FILES: CaseFile[] = [
       alt: 'Zoomed: the money-due list — names, due dates, dollars — and an application filling itself in (demo data)',
     },
   },
-  {
-    name: 'Doggett Law Firm',
-    trade: 'Injury & Family Law · Alexandria',
-    status: 'LIVE',
-    filed: 'Filed August 2026',
-    before: [
-      'A one-man firm, third generation. The big cases come in by phone, and a solo lawyer’s phone doesn’t keep office hours — the 9 PM call went to voicemail.',
-      'He was about to hire somebody just to catch it. A desk seat runs about $2,500 a month around here.',
-    ],
-    work:
-      'An AI secretary fitted to the firm: answers after hours, takes the story, books the consult, opens the file, drafts the welcome text — and waits for his tap to send anything.',
-    after: [
-      'The dog-bite call at supper gets answered, booked, and filed. He reads all of it with his coffee on a screen that greets him by name.',
-      'The demand letter drafts itself from the file, on his letterhead, under a stamp it cannot sign.',
-    ],
-    receipt: '$2,500/mo',
-    receiptLabel: 'the desk seat he didn’t have to hire',
-    stillTrue:
-      'She will not calculate a deadline and cannot touch a dollar of client money — the two things that end law careers stay in Kenneth’s hands. He types every date himself; ignore one two days and it turns red and gets loud.',
-    img: {
-      src: '/images/blog/doggett-blog-today-focus-v1.png',
-      alt: 'The morning screen: calls the secretary took, dates needing his eyes (demo data)',
-    },
-    imgPhone: {
-      src: '/images/blog/doggett-blog-secretary-phone-v1.png',
-      alt: 'Zoomed: the secretary’s log — calls answered, drafts waiting for his approval, nothing sends itself (demo data)',
-    },
-  },
+  // Doggett Law Firm PULLED 9/5 (Trevor: "Doggett hasn't even seen his app
+  // yet") - the LIVE stamp and the $2,500/mo realized-saving receipt were
+  // overclaims until he walks through it and says so. Restore from git
+  // (commit before this one) when he blesses it. Counts derive - nothing
+  // else to touch.
   {
     name: 'Walls Tree Service',
     trade: 'Tree Work & Land Clearing · Louisiana',

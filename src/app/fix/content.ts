@@ -48,18 +48,21 @@ export const FIX_VARIANTS: Record<FixSlug, FixVariant> = {
     headlineAccent: 'Are Jobs You Lose.',
     problem:
       'The 9 PM call goes to voicemail. Whoever answers first gets the work.',
+    // Doggett proof PULLED 9/5 (client hasn't seen his app - the LIVE stamp
+    // and present-tense delivery copy were overclaims). DJ's published
+    // after-hours story stands in; every line mirrors the case record.
     proof: {
-      caseName: 'Doggett Law Firm',
-      trade: 'Injury & Family Law · Alexandria',
-      status: 'LIVE',
+      caseName: 'DJ\u2019s Bail Bonds',
+      trade: 'Bail Bonds \u00b7 Alexandria',
+      status: 'RUNNING IN PARALLEL',
       before:
-        'A one-man firm. The big cases come in by phone, and his phone doesn’t keep office hours. The 9 PM call went to voicemail. He was about to hire somebody just to catch it — a desk seat runs about $2,500 a month around here.',
+        'Bail work happens at midnight. The paperwork kept office hours \u2014 one pen filled out every application that came through the door, the same names copied paper to paper.',
       after:
-        'His system answers after hours, takes the story, books the consult, and opens the file. The dog-bite call at supper gets answered, booked, and filed. He reads all of it with his coffee.',
-      receipt: '$2,500/mo',
-      receiptLabel: 'the desk seat he didn’t have to hire',
+        'Now the office texts a link the moment the call comes in, and the application writes itself on a phone while the office sleeps. Every answer saves as they type.',
+      receipt: '11:52 PM',
+      receiptLabel: 'a bail application filling itself out, hours after the office closed (demo data)',
       shows:
-        'This is a law office. Yours might be a shop or a crew — the after-hours call dies the same way in both.',
+        'This is a bail office. Yours might be a shop or a crew \u2014 the after-hours call dies the same way in both.',
     },
   },
   paperwork: {

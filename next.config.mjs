@@ -18,6 +18,9 @@ const nextConfig = {
       // page for now") - TEMPORARY, page code untouched. Restore: delete this
       // line, re-add the sitemap row + footer link (same commit).
       { source: '/before-after', destination: '/case-studies', permanent: false },
+      // Doggett pulled 9/5 (hasn't seen his app yet) - the law-practice post is
+      // shelved with him. TEMPORARY; delete this line when he blesses it.
+      { source: '/blog/law-practice-management-software', destination: '/blog', permanent: false },
       // Wichita OFF the site (Trevor 9/4): the Kansas experiment LP is gone.
       { source: '/lp/wichita', destination: '/lp/walkthrough', permanent: true },
       // THE MAP IS OFF THE SITE (Trevor 9/4): page deleted, every CTA points
