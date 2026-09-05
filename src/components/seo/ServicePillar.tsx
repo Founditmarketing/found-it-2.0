@@ -7,6 +7,7 @@ import { PersonalizedChip } from '@/components/PersonalizedChip';
 import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { DriveOS } from '@/components/os/DriveOS';
+import { DemoHero } from '@/components/os/DemoHero';
 
 export interface PillarData {
   /** Service name, e.g. 'Google Ads Management' */
@@ -172,6 +173,21 @@ export function ServicePillar({ data }: { data: PillarData }) {
               </p>
             </div>
           )}
+          {data.heroChips ? (
+            /* The performed hero (9/5): headline lands, domains dock, the
+               arrow draws, ONE SYSTEM stamps. DemoHero owns the sequence. */
+            <DemoHero
+              eyebrow={data.eyebrow}
+              headline={data.headline}
+              headlineAccent={data.headlineAccent}
+              chips={data.heroChips}
+              ctaLabel={data.ctaLabel}
+              ctaHref={ctaHref}
+              watchHref={data.automationReel ? '#watch' : '/foundit-os#watch'}
+              priceLine={data.heroPriceLine}
+            />
+          ) : (
+          <>
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
             <PersonalizedChip />
@@ -180,21 +196,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.headline}{' '}
             <span className="text-primary">{data.headlineAccent}</span>
           </h1>
-          {data.heroChips ? (
-            <div className="flex flex-wrap items-center gap-2 max-w-2xl" aria-label={data.heroChips.items.join(', ') + ' — ' + data.heroChips.result}>
-              {data.heroChips.items.map((w) => (
-                <span key={w} className="inline-flex items-center h-8 px-3.5 rounded-full border border-border/30 bg-card/20 font-mono text-[11px] font-black uppercase tracking-[0.14em] text-muted-foreground">
-                  {w}
-                </span>
-              ))}
-              <span className="text-primary font-black text-lg mx-1" aria-hidden>
-                →
-              </span>
-              <span className="inline-flex items-center h-9 px-4 rounded-full bg-primary text-primary-foreground font-mono text-[11px] font-black uppercase tracking-[0.14em]">
-                {data.heroChips.result}
-              </span>
-            </div>
-          ) : data.heroDefinition ? (
+          {data.heroDefinition ? (
             <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
               {data.heroDefinition}
             </p>
@@ -218,6 +220,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
               {data.heroPriceLine}
             </p>
+          )}
+          </>
           )}
 
           {data.voiceDemo && data.voiceDemoHero && (
