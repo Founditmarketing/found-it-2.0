@@ -185,7 +185,12 @@ export function ServicePillar({ data }: { data: PillarData }) {
                   open it on its own stage →
                 </Link>
               </p>
-              <DriveOS />
+              {/* Full-bleed stage (Trevor 9/5: "full width... like the Chill
+                  dashboard") — the mission-control breakout pattern: the copy
+                  stays column-width, the machine takes the room. */}
+              <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-[1440px] px-3 sm:px-6">
+                <DriveOS />
+              </div>
             </div>
           )}
 
