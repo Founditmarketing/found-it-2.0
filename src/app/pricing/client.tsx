@@ -1,233 +1,142 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+/* ─── /pricing — THE GUCCI LAW (Trevor 9/5, verbatim): "let the price speak
+   for itself... I am the luxury. It's bespoke. Made for you, just for you.
+   Don't make them work, and don't fucking justify the price. Just state it
+   like it's fucking Gucci."
+   The old page answered questions nobody had asked yet — a rent-paradox Q&A,
+   four reassurance checkmarks, a catalog card. Now: the number, colossal;
+   the promise; the bespoke line; doctrine stated as fact, never as defense;
+   the monthly's scope folded behind one tap (the 8/29 claim-hygiene lists
+   survive verbatim — in the cabinet, not on the counter); the house close.
+   Never re-add a justification block, a "why we charge" heading, or a
+   marketing row to this page. */
+
+import { motion, useReducedMotion } from 'framer-motion';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
-import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING } from '@/lib/site';
-
-const ease = [0.16, 1, 0.3, 1] as const;
-
-/* 8/18 audit rebuild: this is FOUND IT OS pricing — one number, one thought.
-   MARKETING SALES DEAD (8/26, completed 9/4): every marketing row is gone —
-   AI Search Optimization came off 9/4 (Trevor: no AI SEO or marketing for new
-   clients, period). The only service below the OS is Custom App Development
-   (software). Never re-add a marketing row. */
-
-/* Outcome-first, one objection dead per line (8/19, Trevor: "we can do
-   better"). Declaratives only — restraint law bans staging the buyer's
-   questions in his own voice. The stop-paying line lives in the rent-paradox
-   block below, not here (once per page). */
-const osFeatures = [
-  'First we show you what we’d build if we owned your company. Free, about thirty minutes, screen-shared, before you pay anything',
-  'You keep working your old software like today. The new system fills itself beside it until the numbers match and you say go',
-  'Leave with 30 days’ notice and the system leaves with you, still running',
-  'Month to month. The system earns the next month, every month',
-];
-
-/* The one service that exists beside the OS. Price model printed, per doctrine. */
-const otherRows = [
-  { name: 'Custom App Development', model: 'Fixed project price, set on a free call', href: '/app-development' },
-];
+import TheAsk from '@/components/TheAsk';
 
 export default function PricingClient() {
+  const reduce = useReducedMotion();
+  const enter = (delay: number): Record<string, unknown> => ({
+    initial: reduce ? false : { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay, type: 'spring', stiffness: 120, damping: 18 },
+  });
+
   return (
-    <main className="bg-transparent text-foreground pt-32 lg:pt-40 pb-20 relative overflow-hidden">
+    <main className="bg-transparent text-foreground pt-36 lg:pt-48 pb-20 relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-primary/[0.03] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[150px]" />
       </div>
-      <div className="max-w-[1000px] mx-auto px-6 relative z-10">
+      <div className="max-w-[900px] mx-auto px-6 relative z-10">
+        <div className="text-center">
+          <motion.p
+            {...enter(0)}
+            className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.35em] text-primary mb-10"
+          >
+            Found It OS &middot; Bespoke &middot; Built for one business at a time
+          </motion.p>
 
-        {/* Hero */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center mb-24 md:mb-32"
-        >
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">Found It OS Pricing</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            The Whole Price.{' '}
-            <span className="text-primary">Printed.</span>
-          </h1>
-          <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-            Custom software almost never comes with a public price. Here&rsquo;s ours.
-          </p>
-          {/* The one fit-check line on this page (by law: exactly one). */}
-          <p className="mt-4">
-            <Link href="/fit" className="text-sm font-bold text-primary hover:underline">
-              Not sure you&apos;re who we build for? Check your fit. 60 seconds →
-            </Link>
-          </p>
-        </motion.div>
+          {/* THE NUMBER — it speaks for itself. */}
+          <motion.h1
+            {...enter(0.1)}
+            className="text-7xl sm:text-8xl lg:text-[8.5rem] font-black italic tracking-tighter text-primary tabular-nums leading-none"
+          >
+            {OS_PRICING.monthly}
+            <span className="text-2xl lg:text-3xl text-muted-foreground font-bold not-italic tracking-tight">/mo</span>
+          </motion.h1>
+          <motion.p
+            {...enter(0.22)}
+            className="mt-4 text-3xl sm:text-4xl font-black italic tracking-tighter text-foreground tabular-nums leading-none"
+          >
+            <span className="text-faint font-bold not-italic">+</span> {OS_PRICING.setup}
+            <span className="text-base text-muted-foreground font-bold not-italic tracking-tight"> setup &middot; once</span>
+          </motion.p>
 
-        {/* THE price */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="bg-card/20 backdrop-blur-xl border border-primary/25 rounded-3xl p-8 lg:p-12 shadow-2xl shadow-primary/10 mb-6"
-        >
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Found It OS</p>
-              <p className="text-4xl lg:text-5xl font-black text-foreground italic tracking-tighter">
-                {OS_PRICING.monthly}<span className="text-lg text-muted-foreground font-bold not-italic"> {OS_PRICING.monthlyLabel}</span>
-              </p>
-              <p className="text-xl font-black text-muted-foreground italic tracking-tighter mt-1">
-                + {OS_PRICING.setup} <span className="text-sm font-bold not-italic">{OS_PRICING.setupLabel}</span>
-              </p>
-              {/* Founding-accounts counter REMOVED (Trevor 9/4: "take the
-                  14/20 accounts thing down") — do not restore. */}
-            </div>
-            {/* The promise stands alone — a declaration, not a labeled
-                footnote. Verbatim, once on this page. */}
-            <p className="text-xl lg:text-2xl font-black text-primary italic tracking-tighter max-w-sm lg:text-right leading-tight">
-              {OS_PRICING.promise}
+          <motion.p
+            {...enter(0.38)}
+            className="mt-12 text-2xl sm:text-3xl lg:text-4xl font-black italic tracking-tighter leading-[1.05] text-foreground max-w-2xl mx-auto"
+          >
+            {OS_PRICING.promise}
+          </motion.p>
+
+          <motion.p
+            {...enter(0.5)}
+            className="mt-10 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground"
+          >
+            Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
+          </motion.p>
+          <motion.p
+            {...enter(0.58)}
+            className="mt-2 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint"
+          >
+            Stop Paying and the Work Stops &middot; Not Your Software
+          </motion.p>
+
+          {/* The scope, in the cabinet — one tap, both lists verbatim. */}
+          <motion.div {...enter(0.68)} className="mt-14 max-w-xl mx-auto text-left">
+            <details className="group border border-border/20 rounded-2xl overflow-hidden bg-card/10">
+              <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                  The monthly, in writing
+                </span>
+                <span className="text-primary font-black text-xl transition-transform group-open:rotate-45" aria-hidden>
+                  +
+                </span>
+              </summary>
+              <div className="px-5 pb-5 grid sm:grid-cols-2 gap-6">
+                <div>
+                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-primary mb-2.5">Covered</p>
+                  <ul className="space-y-2">
+                    {[
+                      'Hosting and nightly backups',
+                      'Support — you text or call, a human answers',
+                      'Bug fixes, security patches, and updates',
+                      'Ongoing fitting: the small workflow improvements that come up as you run',
+                      'New modules as we agree on them — that’s the point of ownership',
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-[13px] text-foreground font-medium leading-snug">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-2.5">
+                    Agreed first, priced separately
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      'A major new module or a whole new division — scoped and priced before it’s built, never surprise-billed',
+                      'Hardware: tablets, printers, check stock',
+                      'Third-party services that bill on their own: phone lines, card processing, AI usage',
+                      'Payroll and tax filing — never built, at any price. That work belongs to a person who signs their name to it',
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <span className="text-faint font-black leading-4">&middot;</span>
+                        <span className="text-[13px] text-muted-foreground font-medium leading-snug">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </details>
+            <p className="mt-4 text-center font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">
+              Also built:{' '}
+              <Link href="/app-development" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">
+                custom apps
+              </Link>{' '}
+              &middot; priced in writing first
             </p>
-          </div>
-          <div className="grid gap-3 md:grid-cols-2 mb-8">
-            {osFeatures.map((f, j) => (
-              <div key={j} className="flex items-start gap-3">
-                <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm text-foreground font-medium">{f}</span>
-              </div>
-            ))}
-          </div>
-          {/* THE GATE (8/16): the OS fitting starts at the fit check, not the
-              open contact form — qualified gets the call. */}
-          <Link href="/fit">
-            <motion.div whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto sm:inline-flex text-center font-black uppercase italic tracking-tighter py-4 px-10 rounded-xl text-sm bg-primary text-primary-foreground hover:opacity-90 transition-opacity items-center justify-center gap-2"
-            >
-              Are We a Fit? 60 Seconds. <ArrowRight className="w-4 h-4" />
-            </motion.div>
-          </Link>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* THE RENT PARADOX — P0 (8/18 audit): answer the question the price
-            just raised, before the visitor has to think it. */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="bg-card/10 border border-border/20 rounded-3xl p-8 lg:p-10 mb-32 md:mb-44"
-        >
-          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
-          <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-4">
-            If You Own It, Why Is There a Monthly Fee?
-          </h2>
-          <p className="text-base lg:text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
-            You&rsquo;re not paying to use your own software. The monthly covers{' '}
-            <span className="text-foreground font-bold">hosting, nightly backups, support you can
-            actually call, and new features as your business grows.</span>{' '}
-            <span className="text-foreground font-bold">Stop paying and the work stops, not your
-            software.</span> Cancel with 30 days&rsquo; notice and the system leaves with you. The
-            code and the data.
-          </p>
-        </motion.div>
-
-        {/* WHAT THE MONTHLY BUYS — the scope, in writing (8/29 review: an
-            open-ended monthly scares the skeptic AND overpromises to the
-            enthusiast; both readings are dangerous). Rules only from
-            established practice — the agreement's "new modules get added as
-            we agree on them" is the load-bearing sentence. */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="grid md:grid-cols-2 gap-4 mb-32 md:mb-44"
-        >
-          <div className="bg-card/10 border border-primary/20 rounded-2xl p-6 lg:p-8">
-            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-primary mb-3">The Monthly Covers</p>
-            <ul className="space-y-2.5">
-              {[
-                'Hosting and nightly backups',
-                'Support — you text or call, a human answers',
-                'Bug fixes, security patches, and updates',
-                'Ongoing fitting: the small workflow improvements that come up as you run',
-                'New modules as we agree on them — that’s the point of ownership',
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-3">
-                  <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-foreground font-medium">{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-card/5 border border-border/15 rounded-2xl p-6 lg:p-8">
-            <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-3">Priced Separately, Agreed First</p>
-            <ul className="space-y-2.5">
-              {[
-                'A major new module or a whole new division — scoped and priced before it’s built, never surprise-billed',
-                'Hardware: tablets, printers, check stock',
-                'Third-party services that bill on their own: phone lines, card processing, AI usage',
-                'Payroll and tax filing — never built, at any price. That work belongs to a person who signs their name to it',
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-3">
-                  <span className="w-4 h-4 shrink-0 mt-0.5 text-faint font-black text-center leading-4">·</span>
-                  <span className="text-sm text-muted-foreground font-medium">{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* The rest of the catalog — visibly secondary by design. */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="bg-card/5 border border-border/10 rounded-2xl p-6 lg:p-8 mb-32 md:mb-44"
-        >
-          <p className="text-[9px] font-black uppercase tracking-[0.3em] text-faint mb-1">Beyond the OS</p>
-          <h3 className="text-sm font-black tracking-tighter text-foreground mb-2">Everything Else We Build</h3>
-          <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-5 max-w-2xl">
-            Priced in writing before you pay. Found It builds software &mdash; we no longer take
-            new marketing clients of any kind.
-          </p>
-          <div className="divide-y divide-border/10">
-            {otherRows.map((row) => (
-              <div key={row.href} className="py-3 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-                <p className="text-sm font-bold text-foreground sm:w-56 shrink-0">{row.name}</p>
-                <p className="text-xs text-muted-foreground font-medium flex-grow">{row.model}</p>
-                <Link href={row.href} className="text-xs text-primary font-bold whitespace-nowrap hover:underline">
-                  Details →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="text-center py-16 border-t border-border/10"
-        >
-          <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7 mx-auto" aria-hidden />
-          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-4 text-foreground">
-            Show Us How Your Business Runs.
-          </h2>
-          <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            We&rsquo;ll show you what we&rsquo;d build if it were ours. If it&rsquo;s not a fit, we tell you straight.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/fit" className="w-full sm:w-auto max-w-sm">
-              <LiquidButton className="w-full sm:w-auto px-10 h-14 text-base tracking-[0.05em] shadow-2xl shadow-primary/20">
-                Are We a Fit? 60 Seconds.
-              </LiquidButton>
-            </Link>
-          </div>
-        </motion.div>
-
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );
