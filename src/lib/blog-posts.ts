@@ -23,6 +23,52 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'smart-is-a-utility-now',
+        title: 'I Threw Away Four Finished Apps Before Sunrise',
+        seoTitle: 'Intelligence Got Cheap. Speed and Taste Did Not.',
+        seoDescription:
+            'One night, five versions of the same app, four of them thrown away. What happens to the smart-guy advantage when intelligence becomes a utility — and what actually wins now.',
+        date: '2026-09-05',
+        author: 'Trevor Ruby',
+        authorImage: '/trevorruby.jpeg',
+        excerpt:
+            'Between last night and sunrise my company built five versions of the same app. I rejected four of them. I cannot write a line of code. Both of those sentences used to be impossible, and together they say something about who wins next.',
+        image: '/images/blog/smart-utility-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">Field report &middot; the night of five apps</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Between last night and sunrise, my company built five versions of the same app &mdash; a working demo for an equipment dealer, his real 74 machines in it. I threw away four of them.</p>
+
+<div style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; line-height: 2.1; letter-spacing: 1px; margin: 1.6em 0; border-left: 3px solid #FF5500; padding-left: 18px;">
+<div>V1 &middot; dark cockpit &middot; <span style="opacity:0.6;">my verdict: &ldquo;2020 vibes.&rdquo; Killed.</span></div>
+<div>V2 &middot; newspaper on cream paper &middot; <span style="opacity:0.6;">&ldquo;it got worse.&rdquo; Killed.</span></div>
+<div>V3 &middot; one-screen time machine &middot; <span style="opacity:0.6;">&ldquo;I don&rsquo;t understand what I&rsquo;m looking at.&rdquo; Killed.</span></div>
+<div>V4 &middot; the ember desk &middot; <span style="opacity:0.6;">&ldquo;I wasn&rsquo;t expecting this. Lean into it.&rdquo;</span></div>
+<div>V5 &middot; depth pass, double-entry books &middot; <span style="color: #FF5500;">&ldquo;I love it.&rdquo; Shipped.</span></div>
+</div>
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin: 0.2em 0 1.8em;">Every version fully built &middot; screens, tables, a balanced ledger &middot; hours apart</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">I can&rsquo;t write a line of code.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The machine built all five. That&rsquo;s the part that should scare people like me &mdash; and it&rsquo;s the part that doesn&rsquo;t.</p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 1.6em 0 0.8em;">For a hundred years, every study of who earns what said the same boring thing: the smartest guy wins. Intelligence was the scarce ingredient, so intelligence collected the rent.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">Smart just became a utility.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It comes out of the wall now, like electricity. And nobody brags about having electricity. When something everyone can rent stops deciding who wins, the money moves to whatever is still scarce. Last night I got to watch, up close, exactly what that is.</p>
+
+<p style="font-size: clamp(32px, 6vw, 56px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin: 1.4em 0 0.4em; color: #FF5500;">Speed. Stomach. Taste.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Speed</strong> is at-bats. Five complete products in one night is fifty swings where a normal shop gets one. You don&rsquo;t have to be right early when you can be wrong cheap.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Stomach</strong> is eating four misses without a meeting about it. Nothing died. No sprint was mourned. &ldquo;Again&rdquo; is a complete sentence now, and the people who can say it at 2 AM without flinching are going to lap the people who can&rsquo;t.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Taste</strong> is the one the machine can&rsquo;t rent back to you. All four dead versions worked. They compiled, they balanced, they looked professional. The machine never knew they missed &mdash; because the miss only existed in the gap between the screen and what the customer would feel holding it. Somebody still has to stand in that gap and say <em>not this.</em></p>
+
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 1.6em 0 0.8em;">This is the whole reason a small shop in Alexandria, Louisiana can hand a dealership a working system with their own inventory in it days after a handshake &mdash; and hand them the keys to it, instead of a rent bill. The intelligence is the same intelligence the big vendors use. The difference is how many times we&rsquo;re willing to tear it up before breakfast.</p>
+
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">The smartest thing in my office is rented. <span style="color: #FF5500;">The stubbornest thing is not.</span></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I&rsquo;m Trevor. Found It Software, Alexandria, Louisiana.</p>
+<div style="margin: 2em 0 0; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;">Sixty seconds. Nothing to prepare. &rarr;</a></div>
+`,
+    },
+    {
         slug: 'the-communication-law',
         title: 'I Just Gave My AI a Law: Say Less. Show More.',
         seoTitle: 'The Communication Law — Making AI Say Less',
