@@ -23,58 +23,6 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
-        slug: 'smart-is-a-utility-now',
-        title: 'I Threw Away Four Finished Apps Before Sunrise',
-        seoTitle: 'Intelligence Got Cheap. Speed and Taste Did Not.',
-        seoDescription:
-            'One night, five versions of the same app, four of them thrown away. What happens to the smart-guy advantage when intelligence becomes a utility — and what actually wins now.',
-        date: '2026-09-05',
-        author: 'Trevor Ruby',
-        authorImage: '/trevorruby.jpeg',
-        excerpt:
-            'Between last night and sunrise my company built five versions of the same app. I rejected four of them. I can code a little — but nobody codes like the thing that built these. Together those sentences say something about who wins next.',
-        image: '/images/blog/smart-utility-og-v1.png',
-        hideHero: true,
-        content: `
-<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">Field report &middot; the night of five apps</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Last night we built an equipment dealer a working demo with all 74 of his machines in it.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Then we built it again. And again.</p>
-<p style="font-size: clamp(22px, 3.5vw, 32px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1em 0 0.8em;">Five versions before sunrise. Four didn&rsquo;t survive.</p>
-
-<div style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; line-height: 2.1; letter-spacing: 1px; margin: 1.6em 0; border-left: 3px solid #FF5500; padding-left: 18px;">
-<div>V1 &middot; dark cockpit &middot; <span style="opacity:0.6;">my verdict: &ldquo;2020 vibes.&rdquo; Killed.</span></div>
-<div>V2 &middot; newspaper on cream paper &middot; <span style="opacity:0.6;">&ldquo;it got worse.&rdquo; Killed.</span></div>
-<div>V3 &middot; one-screen time machine &middot; <span style="opacity:0.6;">&ldquo;I don&rsquo;t understand what I&rsquo;m looking at.&rdquo; Killed.</span></div>
-<div>V4 &middot; the ember desk &middot; <span style="opacity:0.6;">&ldquo;I wasn&rsquo;t expecting this. Lean into it.&rdquo;</span></div>
-<div>V5 &middot; depth pass, double-entry books &middot; <span style="color: #FF5500;">&ldquo;I love it.&rdquo; Shipped.</span></div>
-</div>
-<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin: 0.2em 0 1.8em;">Not mockups &middot; every version had working screens, inventory tables, and a balanced ledger</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em;  margin: 1.5em 0 0.3em;">I can code a little. <span style="color: #FF5500;">Nobody codes like this.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The machine could build whatever I asked for, faster than any engineer either of us has ever hired. Unfortunately, that didn&rsquo;t mean I&rsquo;d asked for the right thing. Four finished apps say I hadn&rsquo;t.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">Smart just became a utility.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It comes out of the wall now, like electricity. And nobody hires an electrician because he has electricity. The guy across the street can plug in too. So the question stopped being who&rsquo;s got the intelligence.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The question is what&rsquo;s left. And what&rsquo;s left is not evenly distributed.</p>
-
-<p style="font-size: clamp(32px, 6vw, 56px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin: 1.4em 0 0.4em; color: #FF5500;">Speed. Stomach. Taste.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Speed</strong> buys another attempt. The useful part isn&rsquo;t delivering the first version sooner. It&rsquo;s discovering you hate it while there&rsquo;s still time to build a better one.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Stomach</strong> means throwing it away while it works. Broken is easy to reject. Finished is persuasive &mdash; it starts making little speeches about how much effort already went in. &ldquo;Again&rdquo; is a complete sentence now. The trick is saying it at 2 AM without flinching.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;"><strong>Taste</strong> is knowing whose day you&rsquo;re trying to improve. Not &ldquo;does this look expensive?&rdquo; but &ldquo;can the dealer find the machine, see what&rsquo;s holding up the sale, and get on with his day?&rdquo; A beautiful screen that leaves him asking the same questions is just a more attractive problem.</p>
-
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 1.6em 0 0.8em;">So no &mdash; the wall socket didn&rsquo;t level the field. It moved the fight. You&rsquo;re not competing with anybody&rsquo;s tools anymore. You&rsquo;re competing with their appetite. Ours kept a demo up past four in the morning because the third version wasn&rsquo;t good enough for a man who hadn&rsquo;t even seen the first one.</p>
-
-<p style="font-size: clamp(22px, 3.5vw, 32px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.5em 0 0.4em;">Here&rsquo;s the part an owner can steal.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Don&rsquo;t judge your next software demo by how many things it can do. Bring the ugly order. The awkward exception. The task that always comes back to your desk. Ask it to handle that. Anyone selling you software can survive their own demo &mdash; make them survive yours.</p>
-
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 1.6em 0 0.8em;">That&rsquo;s what a small shop in Alexandria, Louisiana does with the same intelligence the big vendors rent: we spend all of it getting one business right. His inventory. His people. His software to own. The customer doesn&rsquo;t need five apps &mdash; he needs somebody who refuses to settle for the first one.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.5em 0 0.3em;">The smartest thing in my office is rented. <span style="color: #FF5500;">The stubbornest thing is not.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">I&rsquo;m Trevor. Found It Software, Alexandria, Louisiana.</p>
-<div style="margin: 2em 0 0; display: flex; flex-wrap: wrap; gap: 12px;"><a href="/fit" style="display: inline-block; background: #FF5500; color: #0A0A0A; font-weight: 800; padding: 14px 22px; border-radius: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;">Sixty seconds. Nothing to prepare. &rarr;</a></div>
-`,
-    },
-    {
         slug: 'the-communication-law',
         title: 'I Just Gave My AI a Law: Say Less. Show More.',
         seoTitle: 'The Communication Law — Making AI Say Less',
