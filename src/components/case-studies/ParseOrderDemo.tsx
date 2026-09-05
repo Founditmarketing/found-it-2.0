@@ -18,9 +18,12 @@ const ROWS: ParsedRow[] = [
   { qty: '2', item: 'Pine Straw · pallet', flagged: false, note: 'caught' },
 ];
 
-/* step 1 = bubble in, steps 2–5 = rows land, step 6 = stamp. */
+/* step 1 = bubble in, steps 2–5 = rows land, step 6 = stamp.
+   PLAYS ONCE then stays settled (9/5, Trevor: "weird bug... clear haze over
+   the section" — the old infinite loop wiped everything to opacity 0 every
+   6.6s and a mid-cycle scroll-away froze the ghosts; content must never sit
+   half-faded). Any interruption settles the final frame immediately. */
 const STEP_TIMES = [400, 1600, 2300, 3000, 3700, 4700];
-const CYCLE_MS = 6600; // last step + ~1.9s rest, then wipe and loop
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -29,6 +32,7 @@ export default function ParseOrderDemo() {
   const inView = useInView(ref, { amount: 0.35 });
   const [reduced, setReduced] = useState(false);
   const [step, setStep] = useState(0);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -39,21 +43,20 @@ export default function ParseOrderDemo() {
   }, []);
 
   useEffect(() => {
-    if (reduced || !inView) return;
+    if (reduced || done || !inView) return;
     const timers: number[] = [];
-    const runCycle = () => {
-      setStep(0);
-      STEP_TIMES.forEach((t, i) => {
-        timers.push(window.setTimeout(() => setStep(i + 1), t));
-      });
-      timers.push(window.setTimeout(runCycle, CYCLE_MS));
+    STEP_TIMES.forEach((t, i) => {
+      timers.push(window.setTimeout(() => setStep(i + 1), t));
+    });
+    timers.push(window.setTimeout(() => setDone(true), STEP_TIMES[STEP_TIMES.length - 1] + 900));
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+      setDone(true); // interrupted mid-show → settle, never ghost
     };
-    runCycle();
-    return () => timers.forEach((t) => window.clearTimeout(t));
-  }, [reduced, inView]);
+  }, [reduced, done, inView]);
 
-  /* Reduced motion: render the final settled frame, no timers. */
-  const shown = reduced ? STEP_TIMES.length : step;
+  /* Reduced motion or finished: the final settled frame. */
+  const shown = reduced || done ? STEP_TIMES.length : step;
 
   return (
     <div

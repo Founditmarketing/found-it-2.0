@@ -18,6 +18,7 @@ export default function TireQuoteDemo() {
   const [reduced, setReduced] = useState(false);
   const [typed, setTyped] = useState(0);
   const [step, setStep] = useState(0);
+  const [cycleDone, setCycleDone] = useState(false);
   const [tenths, setTenths] = useState(0);
   const timers = useRef<number[]>([]);
   const clock = useRef<number | null>(null);
@@ -45,7 +46,7 @@ export default function TireQuoteDemo() {
   }, []);
 
   useEffect(() => {
-    if (!inView || reduced) return;
+    if (!inView || reduced || cycleDone) return;
     const at = (ms: number, fn: () => void) => timers.current.push(window.setTimeout(fn, ms));
     const stopClock = () => {
       if (clock.current !== null) {
@@ -73,17 +74,20 @@ export default function TireQuoteDemo() {
         stopClock();
       });
       at(4450, () => setStep(9));
-      at(6300, runCycle);
+      /* Plays ONCE then settles (9/5 haze fix): the old at(6300, runCycle)
+         loop wiped the board every 6.3s and left ghosts on scroll-away. */
+      at(5400, () => setCycleDone(true));
     };
     runCycle();
     return () => {
       timers.current.forEach((t) => window.clearTimeout(t));
       timers.current = [];
       stopClock();
+      setCycleDone(true); // interrupted mid-show → settle, never ghost
     };
-  }, [inView, reduced]);
+  }, [inView, reduced, cycleDone]);
 
-  const done = reduced;
+  const done = reduced || cycleDone;
   const shown = done ? QUERY.length : typed;
   const s = done ? 9 : step;
   const clockText = done ? '2.7' : (tenths / 10).toFixed(1);
