@@ -508,25 +508,10 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* ─── The centerpiece ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="mb-20 md:mb-44"
-        >
-          <SectionHeading sub="The most important thing about Found It is what happens without Found It. Go ahead.">
-            Make us <span className="text-primary">disappear.</span>
-          </SectionHeading>
-          <div className="relative">
-            <div aria-hidden className="absolute -inset-8 md:-inset-14 pointer-events-none">
-              <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_30%,rgba(255,85,0,0.10),transparent_70%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(45%_55%_at_80%_90%,rgba(52,211,153,0.05),transparent_70%)]" />
-            </div>
-            <DisappearDemo />
-          </div>
-        </motion.div>
+        {/* ─── Make Us Disappear: OFF the page (Trevor 9/5, "kill the make us
+            disappear section... save it for later"). The DisappearDemo
+            component stays defined above, unused — remount this section when
+            he calls for it. ─── */}
 
         {/* ─── What we are / what we are not ─── */}
         <motion.div
@@ -716,35 +701,34 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* ─── The ask ─── */}
+        {/* ─── The ask — an invitation, not an audit (Trevor 9/5: "way too
+            many words... give me a CTA that's beautiful and inviting").
+            ~25 words, air, and one door. ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: ease as any }}
-          className="text-center py-14 md:py-28 border-t border-border/10"
+          transition={{ duration: 0.8, ease: ease as any }}
+          className="text-center py-24 md:py-40 border-t border-border/10"
         >
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-faint leading-loose max-w-xl mx-auto mb-8 md:mb-12">
-            Audit summary — new software company · thirteen years inside local businesses · small team ·
-            AI used heavily · humans accountable · real systems running · ownership written down ·
-            long-term scale not yet proved. That&rsquo;s the company.
-          </p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-6 text-foreground">
+          <div className="w-10 h-[3px] bg-primary/70 rounded-full mx-auto mb-10" aria-hidden />
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground [text-wrap:balance]">
             Bring us <span className="text-primary">the ugly part.</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-xl mx-auto mb-8">
-            The spreadsheet. The notebook. The employee who knows everything. The invoice nobody followed up.
-            Show us how the work really moves, and we&rsquo;ll tell you whether software should touch it.
+          <p className="mt-6 text-lg md:text-xl text-muted-foreground font-medium">
+            Sixty seconds. A straight answer. <span className="text-foreground font-bold">Nothing to prepare.</span>
           </p>
-          <Link href="/fit" className="inline-flex items-center justify-center w-full sm:w-auto px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
-            Start the 60-Second Fit Check
-          </Link>
-          <p className="mt-5 text-sm text-muted-foreground font-medium">
-            When there&rsquo;s a fit: thirty minutes with Trevor, and he shows you the first system
-            we&rsquo;d build &mdash; working, on screen. If generic software is the better answer, we say so.
-          </p>
-          <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
-            Or text (318) 713-3781. Trevor answers.
+          <div className="mt-10 md:mt-12">
+            <Link
+              href="/fit"
+              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-12 h-16 rounded-full bg-gradient-to-b from-[#FF6414] to-[#FF5500] text-primary-foreground font-black uppercase tracking-wider text-base shadow-[0_18px_50px_-12px_rgba(255,85,0,0.5)] transition-all duration-300 hover:shadow-[0_22px_70px_-12px_rgba(255,85,0,0.65)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]"
+            >
+              Start the Fit Check
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden />
+            </Link>
+          </div>
+          <p className="mt-7 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
+            or text (318) 713-3781 &middot; Trevor answers
           </p>
         </motion.div>
 
