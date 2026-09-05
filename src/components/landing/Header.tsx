@@ -91,10 +91,10 @@ const navLinks: NavLink[] = [
 ];
 
 /* ───── Secret menu: AdWords landing pages (off public nav) ─────
-   MARKETING SALES DEAD (8/26): marketing LPs removed. */
-const SECRET_LPS = [
-  { title: 'App Development', href: '/lp/app-development' },
-];
+   MARKETING SALES DEAD (8/26): marketing LPs removed. App-development LP
+   retired 9/5 (Trevor: "we dont do this") — the list is empty but the
+   plumbing stays for future ad LPs. */
+const SECRET_LPS: { title: string; href: string }[] = [];
 
 /* ───────────────────────────── ANIMATION CONFIG ───────────────────── */
 

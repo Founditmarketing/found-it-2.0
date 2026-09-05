@@ -13,7 +13,7 @@ const abs = (path: string) => `${SITE_URL}${path === '/' ? '' : path}`;
       /comprehensive-marketing /solutions /platform /feasibility-study
       /free-proposal) — a sitemap of redirects is Search Console noise
     - /lp/* paid landing pages that canonicalize to a service pillar page
-      (ai-marketing, ai-search-seo, app-development, google-ads-management,
+      (ai-marketing, ai-search-seo, app-development [retired 9/5], google-ads-management,
       social-media-management, web-design) — indexing the pillar is enough.
       The /lp/* pages below are NOT duplicates: they canonicalize to
       themselves and have no organic-pillar counterpart, so they need their
@@ -56,7 +56,6 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   // social-media-management, ai-marketing, marketing-alexandria,
   // central-louisiana-web-design, pineville-seo, and the marketing /lp/*
   // pages are now permanent redirects — removed from the sitemap.
-  { path: '/app-development', priority: 0.9, changeFrequency: 'weekly' },
 
   // Tools / lead magnets
   { path: '/guide', priority: 0.6, changeFrequency: 'monthly' },

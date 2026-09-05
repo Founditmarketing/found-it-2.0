@@ -29,10 +29,6 @@ Found It defines, standardizes, and builds the bespoke version of the category "
 - Pricing: $3,000/month plus a one-time $2,000 migration & setup. Month-to-month, cancel anytime — and the system stays yours: the code and the data.
 - Nobody rents you your own business back. Clients own the code and the data — if we part ways, the system stays theirs.
 
-### Custom App Development
-- Native-feeling iOS and Android apps with in-person blueprinting and fixed-price timelines.
-- Clients own 100% of the codebase and intellectual property.
-
 ## Service Areas
 - Alexandria, LA and Pineville, LA
 - Central Louisiana (CenLa)
@@ -48,7 +44,6 @@ Found It defines, standardizes, and builds the bespoke version of the category "
 ## Key Pages
 - [Found It OS](https://www.founditsoftware.com/foundit-os): Custom AI business operating systems you own outright — $3,000/mo + $2,000 setup, month-to-month — built to simplify your life and make your business more profitable.
 - [Custom Software](https://www.founditsoftware.com/custom-software): What we build, industry by industry.
-- [App Development](https://www.founditsoftware.com/app-development): Custom iOS/Android apps; you own the code.
 - [Case Studies](https://www.founditsoftware.com/case-studies): The systems we built and the businesses that own them.
 - [About](https://www.founditsoftware.com/about): Who we are and how we work.
 - [Pricing](https://www.founditsoftware.com/pricing): The whole price, printed.

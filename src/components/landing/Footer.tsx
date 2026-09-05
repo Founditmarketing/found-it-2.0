@@ -75,21 +75,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Beyond the OS — MARKETING SALES DEAD (8/26): AI Search is the
-              sole marketing offer left; everything else here is software. */}
-          <div>
-            <h4 className={headingClass}>Beyond the OS</h4>
-            <ul className="space-y-3">
-              {SERVICES.filter((s) => s.slug !== 'foundit-os').map((service) => (
-                <li key={service.slug}>
-                  <Link href={`/${service.slug}`} className={linkClass}>
-                    {SERVICE_SHORT_LABELS[service.slug] ?? service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {/* Beyond-the-OS column OFF (9/5): app development retired, the
+              catalog is the OS — an empty column earns no heading. */}
           {/* Company + free things */}
           <div>
             <h4 className={headingClass}>Company</h4>

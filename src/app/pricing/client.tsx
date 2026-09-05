@@ -14,7 +14,6 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import Link from 'next/link';
 import { OS_PRICING } from '@/lib/site';
 import TheAsk from '@/components/TheAsk';
 
@@ -125,13 +124,7 @@ export default function PricingClient() {
                 </div>
               </div>
             </details>
-            <p className="mt-4 text-center font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">
-              Also built:{' '}
-              <Link href="/app-development" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">
-                custom apps
-              </Link>{' '}
-              &middot; priced in writing first
-            </p>
+            {/* Custom-apps line OFF (Trevor 9/5: "we dont do this") */}
           </motion.div>
         </div>
 

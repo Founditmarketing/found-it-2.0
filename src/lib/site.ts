@@ -212,7 +212,6 @@ export const AREA_SERVED: ServiceArea[] = [
 /** Short slug-keyed labels for nav/footer service lists (fall back to ServiceDef.name). */
 export const SERVICE_SHORT_LABELS: Record<string, string> = {
   'foundit-os': 'Found It OS',
-  'app-development': 'App Development',
 };
 
 /* ─── AI Search Optimization pricing — RETIRED AS AN OFFER (Trevor, 9/4) ───
@@ -247,11 +246,7 @@ export const SERVICES: ServiceDef[] = [
     description:
       'Custom operating systems built one business at a time — point of sale, inventory, customers, website, and a built-in AI in a single system clients own outright. Fitted in weeks with zero-downtime, penny-matched migration.',
   },
-  {
-    name: 'Custom App Development',
-    slug: 'app-development',
-    serviceType: 'Mobile App Development',
-    description:
-      'Native-feeling iOS and Android app development with in-person blueprinting and fixed-price timelines. Clients own 100% of the codebase.',
-  },
+  /* CUSTOM APP DEVELOPMENT RETIRED (Trevor 9/5: "we dont do this take this
+     off") — page deleted, permanent redirect to /foundit-os, footer column
+     collapses on its own. The OS is the whole catalog. Never re-add. */
 ];

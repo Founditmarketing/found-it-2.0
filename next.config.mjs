@@ -24,6 +24,10 @@ const nextConfig = {
       // pages deleted; legacy marketing redirects chain through here.
       { source: '/ai-search-optimization', destination: '/foundit-os', permanent: true },
       { source: '/ai-visibility-check', destination: '/', permanent: true },
+      // App development RETIRED (Trevor 9/5: "we dont do this") — the OS is
+      // the whole catalog.
+      { source: '/app-development', destination: '/foundit-os', permanent: true },
+      { source: '/lp/app-development', destination: '/lp/walkthrough', permanent: true },
       // /team merged into /about (8/16) — old links land on the team section.
       {
         source: '/team',
