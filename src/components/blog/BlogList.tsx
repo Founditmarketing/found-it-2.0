@@ -30,12 +30,16 @@ export function BlogList() {
   return (
     <div className="max-w-[900px]">
       <div className="mb-10 lg:mb-16 min-w-0">
+        {/* The front door promises discoveries, not accessibility (9/5,
+            the discovery doctrine: recognition, then interest, then the
+            software as the payoff). */}
         <h1 className="text-[7vw] sm:text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] mb-3 lg:mb-6">
-          Plain-English Notes<br />
-          <span className="text-primary">For Business Owners.</span>
+          What We Found<br />
+          <span className="text-primary">Behind the Counter.</span>
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl font-medium leading-snug">
-          Real systems, real numbers, written the way we&apos;d say it across your counter.
+          The strange rules, expensive workarounds, and small discoveries behind software built
+          for real businesses.
         </p>
       </div>
 
