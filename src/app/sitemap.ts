@@ -39,8 +39,9 @@ const staticRoutes: { path: string; priority: number; changeFrequency: ChangeFre
   { path: '/owned-software-test', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/it-just-works', priority: 0.8, changeFrequency: 'weekly' },
 
-  // The Record — before/after case files (evidence page, 8/29/2026)
-  { path: '/before-after', priority: 0.8, changeFrequency: 'monthly' },
+  // The Record — before/after case files (evidence page, 8/29/2026).
+  // /before-after HIDDEN for now (Trevor 9/5, temporary 307 in next.config) —
+  // restore the row when the redirect comes out.
   { path: '/the-record', priority: 0.8, changeFrequency: 'weekly' },
 
   // Service authority pillars (organic / GEO) — primary public service pages

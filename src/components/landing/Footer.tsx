@@ -69,7 +69,7 @@ export function Footer() {
               <li><Link href="/who-we-build-for" className={linkClass}>Who It&apos;s For</Link></li>
               <li><Link href="/fit" className={linkClass}>Check Your Fit (60 sec)</Link></li>
               <li><Link href="/security" className={linkClass}>Security &amp; Continuity</Link></li>
-              <li><Link href="/before-after" className={linkClass}>Before &amp; After</Link></li>
+              {/* /before-after hidden for now (Trevor 9/5, temporary) — restore with the redirect. */}
               <li><Link href="/the-record" className={linkClass}>The Record (Live)</Link></li>
               <li><Link href="/case-studies" className={linkClass}>Case Studies</Link></li>
             </ul>
