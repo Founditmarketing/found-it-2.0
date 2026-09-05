@@ -64,7 +64,7 @@ const STAGES = [
     id: 'nightly',
     title: 'The Nightly Check',
     people: [],
-    owns: 'The system reconciles its own books every night and the habit is published. Corrections post as new lines; the original entry stays on the record.',
+    owns: 'The system reconciles its own books every night and the habit is published.',
     notOwns: 'Editing history. It isn’t allowed to, even for us.',
     receipt: { label: 'Open The Record', href: '/the-record' },
   },
@@ -72,7 +72,7 @@ const STAGES = [
     id: 'support',
     title: 'Support',
     people: ['Reece', 'Thomas'],
-    owns: 'The phone when it rings. Reece owns client systems, Thomas owns the relationship, and you always know who owns the problem.',
+    owns: 'The phone when it rings. Reece owns client systems, Thomas owns the relationship.',
     notOwns: 'An anonymous queue. There isn’t one — Trevor reads every thread.',
     reach: 'Same number: (318) 713-3781.',
   },
@@ -117,7 +117,7 @@ const CLAIMS = [
     claim: '“No interns. No handoffs.”',
     status: 'REJECTED AS WRITTEN',
     tone: 'text-red-400',
-    note: 'A slogan a visitor couldn’t audit. Retired Sep 3, 2026 and replaced with named accountability — the stage map above says who owns what, and who covers.',
+    note: 'A slogan a visitor couldn’t audit. Retired Sep 3, 2026 and replaced with named accountability — the stage map above.',
   },
   {
     claim: '“If Found It disappears, your system doesn’t.”',
@@ -208,7 +208,6 @@ export default function AboutPage() {
           <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
             No origin myth. No culture manifesto. Just the people, the work, the rules, and the exit.
             Found It builds operating systems around real businesses, and the client owns the code and the data.
-            This page shows what that sentence requires.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-4">
             <a href="#inside" className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity">
@@ -246,7 +245,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="mb-20 md:mb-44 scroll-mt-28"
         >
-          <SectionHeading sub="Nothing below asks you to take our word. Each one opens the record it lives in.">
+          <SectionHeading sub="Each one opens the record it lives in.">
             What is true <span className="text-primary">right now.</span>
           </SectionHeading>
           {/* Phones: a swipe deck (the Three Fittings pattern) — four truths
@@ -298,7 +297,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="mb-20 md:mb-44 scroll-mt-28"
         >
-          <SectionHeading sub="Not job titles — the life of your system, stage by stage, with the person who answers for each one. No anonymous queue anywhere in it.">
+          <SectionHeading sub="Not job titles — the life of your system, stage by stage, with the person who answers for each one.">
             Who has <span className="text-primary">the keyboard.</span>
           </SectionHeading>
           <div className="border border-border/20 rounded-[2rem] overflow-hidden divide-y divide-border/15 bg-card/5">
@@ -367,8 +366,8 @@ export default function AboutPage() {
         >
           <SectionHeading>There was no <span className="text-primary">lightning-bolt day.</span></SectionHeading>
           <div className="max-w-2xl space-y-3 text-base md:text-lg text-muted-foreground font-medium leading-relaxed mb-8">
-            <p>For thirteen years, Found It worked inside local businesses as a marketing company.</p>
-            <p>AI lowered the cost of building serious custom software enough to make it practical for those same businesses.</p>
+            <p>Thirteen years inside local businesses as a marketing company.</p>
+            <p>AI made serious custom software practical for those same businesses.</p>
             <p>We built one system. Then another. The software became the work.</p>
             <p>In 2026, we stopped taking new marketing clients and made Found It Software the company.</p>
             <p className="pt-2 text-xl md:text-2xl font-black uppercase italic tracking-tight text-foreground">That&rsquo;s the whole origin story.</p>
@@ -452,7 +451,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="mb-20 md:mb-44"
         >
-          <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. Every claim below carries its status and its receipt — and the audit is allowed to catch our own copy. It has.">
+          <SectionHeading sub="Trevor can make a claim. He cannot mark it proved. The audit is allowed to catch our own copy — it has.">
             Marketing does not get <span className="text-primary">write access.</span>
           </SectionHeading>
           {/* Phones: the audit stays scannable — status + claim visible, the
@@ -573,7 +572,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, ease: ease as any }}
           className="mb-20 md:mb-44"
         >
-          <SectionHeading sub="Most About pages convert the future into past tense. This one keeps the tense correct. Items move to the audit above only with a date and a receipt.">
+          <SectionHeading sub="Most About pages convert the future into past tense. Items move to the audit above only with a date and a receipt.">
             What we have <span className="text-primary">not earned yet.</span>
           </SectionHeading>
           <div className="border-t border-border/15 max-w-3xl">

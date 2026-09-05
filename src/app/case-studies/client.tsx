@@ -97,14 +97,11 @@ export default function CaseStudiesPage() {
             </motion.span>
           </h1>
           <p className="text-lg text-muted-foreground font-medium max-w-2xl leading-relaxed mb-6">
-            No slides on this page. Systems doing their jobs, one live AI you can order around
-            yourself &mdash; and a status on everything, because a screenshot is
-            not a case study.
+            No slides. Systems doing their jobs, one live AI you can order around yourself &mdash; and a status on everything.
           </p>
           <p className="text-sm text-muted-foreground font-medium max-w-2xl leading-relaxed mb-8">
             The software company is new &mdash; <span className="text-foreground font-bold">August 2026</span>.
-            We don&apos;t have five years of software history. We have the first month, opened all
-            the way up.
+            Not five years of software history &mdash; the first month, opened all the way up.
           </p>
           {/* The proof strip — counts DERIVED from the case-file record, never hand-typed */}
           <div className="grid grid-cols-3 sm:grid-cols-5 border-y border-border/15 divide-x divide-border/10">
@@ -164,10 +161,7 @@ export default function CaseStudiesPage() {
             </div>
           </div>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
-            The real board runs the real store, beside their old system, matched nightly. A national
-            DIY mini-split dealer&apos;s command deck: the day&apos;s money against last week, live.
-            Shoppers who reached checkout and walked, by name, with their carts saved. Authorized
-            cards nobody collected, counting down to the day they expire. An AI secretary reads the
+            The real board runs the real store, beside their old system, matched nightly. A national DIY mini-split dealer&apos;s command deck. An AI secretary reads the
             whole board and drafts the follow-ups; a person always sends. Every number on this
             screen is a demo value.
           </p>
@@ -206,7 +200,7 @@ export default function CaseStudiesPage() {
                   <span className="font-mono text-[9px] font-black uppercase tracking-[0.16em] border border-primary/60 text-primary rounded-md px-2 py-0.5">Real screen recording</span>
                 </div>
                 <h3 className="text-lg font-black uppercase italic tracking-tighter text-foreground">This one isn&apos;t animated. It&apos;s the real system.</h3>
-                <p className="text-xs text-muted-foreground font-medium italic mt-1">Tekmetric, reverse-engineered &mdash; running at the shop every day.</p>
+                <p className="text-xs text-muted-foreground font-medium italic mt-1">Tekmetric, reverse-engineered.</p>
               </div>
               <div className="p-5">
                 <video
@@ -295,8 +289,7 @@ export default function CaseStudiesPage() {
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="rounded-full bg-primary px-3 py-1 text-xs font-black text-black">Try: &ldquo;Make the headline bigger&rdquo;</span>
             <span className="text-sm text-muted-foreground font-medium">
-              Then ask it for something it shouldn&apos;t do. Watch it refuse. That wall ships in
-              every OS we build.
+              Then ask it for something it shouldn&apos;t do. Watch it refuse.
             </span>
           </div>
           <div className="rounded-2xl shadow-[0_0_80px_-20px] shadow-primary/40">
@@ -304,7 +297,7 @@ export default function CaseStudiesPage() {
           </div>
           <div className="mt-6">
             <Link href="/fit" className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-primary hover:underline">
-              That AI works for our customers all day. Get yours &mdash; the 30-minute walkthrough{' '}
+              Get yours &mdash; the 30-minute walkthrough{' '}
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
@@ -376,8 +369,7 @@ export default function CaseStudiesPage() {
             A Screenshot Is Not <span className="text-primary">A Case Study.</span>
           </ActHeader>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl">
-            Every file below carries a status &mdash; live, or running beside the old system &mdash;
-            a receipt with the pennies on, and the thing the system{' '}
+            Every file below carries a status, a receipt with the pennies on, and the thing the system{' '}
             <span className="text-foreground font-bold">refuses</span> to do. When a screen shows
             demo data, it says so. When a client stays anonymous, it says why. When a system still
             runs beside the old one, we don&apos;t call it finished.
@@ -571,10 +563,7 @@ export default function CaseStudiesPage() {
             <span className="text-primary">The Scar Tissue Is Not.</span>
           </h2>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-3xl mb-4">
-            Found It Software became the company in August 2026. Before that, Found It spent
-            thirteen years inside local businesses &mdash; the phones, the leads, the handoffs, the
-            places work quietly falls through. AI lowered the cost of serious custom software
-            enough to make these systems practical for the same kind of businesses. Not thirteen
+            Found It Software became the company in August 2026, after thirteen years inside local businesses &mdash; the phones, the leads, the handoffs, the places work quietly falls through. AI made serious custom software practical for the same kind of businesses. Not thirteen
             years as a software platform. Thirteen years inside local businesses, finally building
             what they needed.
           </p>

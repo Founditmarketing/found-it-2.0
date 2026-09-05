@@ -37,7 +37,7 @@ const data: PillarData = {
   headline: 'Built for Your Company —',
   headlineAccent: 'Not the Average Company in Your Industry.',
   intro:
-    `Every local business runs on somebody else’s software — generic, rented, built for an “industry.” We build the opposite: an AI-powered operating system fitted to one business at a time, your records migrated in, first working screens live in days. Nothing switches until it runs beside your old system and matches it.`,
+    `An AI-powered operating system fitted to one business at a time — your records migrated in, first working screens live in days. Nothing switches until it runs beside your old system and matches it.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software',
   formPageSlug: 'custom-software',
@@ -52,7 +52,7 @@ const data: PillarData = {
   automationReel: true,
   definitionHeading: 'What Is Custom Business Software?',
   definition:
-    'A system built around how one business actually runs — its jobs, its register, its customer book — instead of a rented industry average. We map how yours works, build around that, migrate your records in so day one starts with your history, and put an AI on top that answers from your own data in plain English. When it’s done, you own it. The code, the data, everything.',
+    'A system built around how one business actually runs — its jobs, its register, its customer book — instead of a rented industry average. We map yours, build around it, migrate your records in, and put an AI on top that answers from your own data. When it’s done, you own it. The code, the data, everything.',
   includedHeading: 'What Every System We Build Includes',
   included: [
     {
@@ -63,17 +63,17 @@ const data: PillarData = {
     {
       title: 'Your Records, Migrated In',
       detail:
-        'Years of customers, jobs, and invoices come with you — migrated into the new system, not abandoned in the old one.',
+        'Years of customers, jobs, and invoices come with you — not abandoned in the old one.',
     },
     {
       title: 'The Whole Operation',
       detail:
-        'Register, dispatch board, customer book, jobs, invoices, inventory, scheduling, your website — whatever your business runs on, in one system.',
+        'Whatever your business runs on — register to website — in one system.',
     },
     {
       title: 'AI That Answers From Your Data',
       detail:
-        'Ask it questions in plain English — who bought what, what’s running behind, who hasn’t been in lately — and it answers from your own books.',
+        'Ask in plain English — who bought what, what’s running behind, who hasn’t been in lately.',
     },
     {
       title: 'Proven Before Anything Switches',
@@ -92,25 +92,25 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We sit down in your business and map every flow — how a job comes in, how a sale rings, what lives on paper. That becomes the blueprint.',
+        'We sit down in your business and map every flow — how a job comes in, how a sale rings, what lives on paper.',
     },
     {
       step: '02',
       title: 'The Migration',
       detail:
-        'Your existing records — customers, jobs, invoices, history — are migrated into the new system. Nothing gets abandoned.',
+        'Customers, jobs, invoices, history — migrated in. Nothing gets abandoned.',
     },
     {
       step: '03',
       title: 'Side by Side',
       detail:
-        'Your old system keeps running. The new one runs beside it, and we check the two against each other until they match. Nothing switches early.',
+        'Your old system keeps running beside the new one until the two match. Nothing switches early.',
     },
     {
       step: '04',
       title: 'You Say Go',
       detail:
-        'When the numbers have matched and you give the word, you switch — in days, not quarters. Then we stay on: backups, support, new features.',
+        'When the numbers have matched and you give the word, you switch — in days, not quarters.',
     },
   ],
   audienceHeading: 'Who This Is For',
@@ -142,29 +142,29 @@ const data: PillarData = {
       { value: '1', label: 'Retail Core — Never Forked' },
     ],
     narrative:
-      'A Louisiana auto shop runs its service desk on a system we fitted — live, on its own migrated records, not sample data. A field service company takes real leads through its system in production every day. Retail stores are being fitted to one shared core — staging registers in evaluation, zero forks — so every store gets every improvement. Shed builders, car dealerships, and home builders are being fitted now. None of these are mockups. They are businesses that own their software.',
+      'A Louisiana auto shop runs its service desk on its own migrated records — live, not sample data. A field service company takes real leads through its system in production every day. Retail stores are being fitted to one shared core — staging registers in evaluation, zero forks. Shed builders, car dealerships, and home builders are being fitted now. None of these are mockups. They are businesses that own their software.',
   },
   mistakesHeading: 'Why Off-the-Shelf Software Goes Wrong',
   mistakes: [
     {
       title: 'Built for an “industry,” not for you',
       detail:
-        'Generic systems are built for an industry average, which means they fit no one. Your team ends up keeping half the business on paper and in their heads.',
+        'An industry average fits no one. Half the business ends up on paper and in your team’s heads.',
     },
     {
       title: 'Rent forever, own nothing',
       detail:
-        'Subscription software charges you rent for as long as you stay, raises prices when it wants, and holds your data if you try to leave. You never own a thing.',
+        'Rent for as long as you stay, price hikes at will, your data held if you leave. You never own a thing.',
     },
     {
       title: 'The switch that abandons your records',
       detail:
-        'A new system that starts from zero throws away the most valuable thing you have — years of customers, jobs, and history. We migrate it in instead.',
+        'Starting from zero throws away years of customers, jobs, and history. We migrate it in instead.',
     },
     {
       title: 'The leap-of-faith cutover',
       detail:
-        'A rip-and-replace weekend bets the business on software you have never run. We never do it. The new system proves itself beside the old one first.',
+        'A rip-and-replace weekend bets the business on software you have never run. We never do it.',
     },
   ],
   pricingHeading: 'The Price Is on the Website',
@@ -175,8 +175,8 @@ const data: PillarData = {
     `Real local businesses running or being fitted on their own systems right now.`,
     `${TRACK_RECORD.yearsInBusiness} years building digital products and marketing systems for local businesses.`,
     'You own 100% of the code and the data.',
-    'Your records get migrated in — and nothing switches until the new system has run beside the old one and matched it.',
-    'Built-in AI that answers questions about your own business in plain English.',
+    'Nothing switches until the new system has run beside the old one and matched it.',
+    'Built-in AI that answers from your own books in plain English.',
     `A local Alexandria team you can actually reach — ${AWARD.year} ${AWARD.label} Award winner.`,
   ],
   faqHeading: 'Custom Business Software FAQ',
@@ -184,22 +184,22 @@ const data: PillarData = {
     {
       question: 'What does custom business software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market entirely; the point of Found It OS is the same ownership at a price you can read before you ever pick up the phone.`,
+        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market; Found It OS is the same ownership at a price you can read before you ever pick up the phone.`,
     },
     {
       question: 'Is this an alternative to Tekmetric, ShedSuite, or Buildertrend?',
       answer:
-        'Yes — that is exactly the seat it takes. Those are capable systems, but they are rented, and they are built for an industry rather than for your business. A Found It OS install is fitted to one business — yours — you own it outright, and your records come with you: migrated in, not abandoned. Nothing switches until the new system has run beside your current one and matched it.',
+        'Yes — that is exactly the seat it takes. Capable systems — but rented, and built for an industry, not for your business. A Found It OS install is fitted to one business — yours — owned outright, your records migrated in, not abandoned. Nothing switches until the new system has run beside your current one and matched it.',
     },
     {
       question: 'What happens to my years of records when I switch?',
       answer:
-        'They come with you. Migration is part of the fitting — your customers, jobs, invoices, and history get migrated into the new system, so day one starts with everything you have built, not a blank screen. One of our live installs, a Louisiana auto shop, runs entirely on its own migrated records.',
+        'They come with you. Migration is part of the fitting — customers, jobs, invoices, history — so day one starts with everything you have built, not a blank screen. One of our live installs, a Louisiana auto shop, runs entirely on its own migrated records.',
     },
     {
       question: 'How long does it take to install?',
       answer:
-        'Days, not quarters. Because the system is fitted to how you already run, there is no six-month rollout and no retraining your business around somebody else’s workflow. And the switch itself only happens after the new system has run beside your old one and matched it.',
+        'Days, not quarters. Fitted to how you already run, there is no six-month rollout and no retraining around somebody else’s workflow. And the switch itself only happens after the new system has run beside your old one and matched it.',
     },
     {
       question: 'Who owns the software when it’s done?',
@@ -209,7 +209,7 @@ const data: PillarData = {
     {
       question: 'My business isn’t one of the industries listed. Can you still build for it?',
       answer:
-        'Yes. The industry pages below are where we have live systems and fittings underway — auto repair, field service, retail, sheds, dealerships, home builders — but the method is the same everywhere: map how one business runs, build the system around it, migrate the records in. If your business runs on jobs, customers, and a register in any form, it can be fitted.',
+        'Yes. The industry pages below are where systems are live or in fitting — but the method is the same everywhere. If your business runs on jobs, customers, and a register in any form, it can be fitted.',
     },
     {
       question: 'What if it doesn’t work out?',

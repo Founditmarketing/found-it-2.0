@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Stop Renting Your Own',
   headlineAccent: 'Inventory Pages.',
   intro:
-    `You bought the car. You shot the photos, wrote it up, set the price. Then you pay rent every month to show it on a website you do not own. Leave, and the site and listings go with them. Found It OS ends that. One system for the whole lot. Inventory, website, sales desk, customer book, and whatever else your dealership runs. Your records migrated in. Owned by you outright. We are building exactly that right now for a Louisiana independent dealer, replacing a rented website-and-DMS combo.`,
+    `You bought the car. You shot the photos, wrote it up, set the price. Then you pay rent every month to show it on a website you do not own. Found It OS ends that. One system for the whole lot, owned by you outright. We are building exactly that right now for a Louisiana independent dealer, replacing a rented website-and-DMS combo.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_car_dealerships',
   formPageSlug: 'custom-software-car-dealerships',
@@ -48,18 +48,18 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is Dealership Software You Actually Own?',
   definition:
-    'Most dealership software is rented. A provider hosts your website, holds your inventory pages, and charges every month forever. Stop paying and your site disappears. Software you own is the opposite. One system for inventory, website, sales desk, service, rentals, and customer records, on a database and image hosting that belong to you. Ask it questions in plain English and it answers from your own records. The monthly fee covers backups, support, and new features. Not permission to keep your own inventory online.',
+    'Most dealership software is rented. Stop paying and your site disappears. Software you own is the opposite. One system for the whole lot, on a database and image hosting that belong to you.',
   includedHeading: 'What a Dealership Fitting Includes',
   included: [
     {
       title: 'Your Inventory, Your Pages',
       detail:
-        'Every vehicle, photo, and price lives in a database you own. List a car once and it is on your website. Nobody can hold those pages over your head.',
+        'Every vehicle, photo, and price lives in a database you own. Nobody can hold those pages over your head.',
     },
     {
       title: 'The Whole Lot, Not Just Listings',
       detail:
-        'Retail sales, a service department, rentals. The platform we are building runs all three in one system. Yours gets fitted to whatever your lot does.',
+        'Retail sales, a service department, rentals. The platform we are building runs all three in one system.',
     },
     {
       title: 'Your Website, Wired In',
@@ -69,7 +69,7 @@ const data: PillarData = {
     {
       title: 'Records Migrated In, Not Abandoned',
       detail:
-        'Your listings, customer book, and deal history get migrated into the new system. Not left behind in the old one.',
+        'Your listings, customer book, and deal history get migrated into the new system.',
     },
     {
       title: 'Ask It in Plain English',
@@ -106,7 +106,7 @@ const data: PillarData = {
       step: '04',
       title: 'We Stay On',
       detail:
-        'Nightly backups, support you can call, and new features as the dealership grows. Local and reachable, in person when you need us.',
+        'Nightly backups, support you can call, and new features as the dealership grows.',
     },
   ],
   audienceHeading: 'Who This Is For',
@@ -137,14 +137,14 @@ const data: PillarData = {
       { value: '100%', label: 'Owned by the Dealer' },
     ],
     narrative:
-      "We are building this for a Louisiana independent dealer running three businesses off one lot: retail sales, a service department, and rentals. The old setup was a rented website-and-DMS combo. Monthly fees forever, inventory pages the dealer never owned. The new platform runs on the dealer's own database and image hosting. The public site is built, and the back office is being fitted now. Same rule as every install: nothing switches until the new system runs beside the old one and proves itself.",
+      "We are building this for a Louisiana independent dealer running three businesses off one lot: retail sales, a service department, and rentals. The old setup was a rented website-and-DMS combo. The public site is built, and the back office is being fitted now. Same rule as every install: nothing switches until the new system runs beside the old one and proves itself.",
   },
   mistakesHeading: 'Why Dealership Software Usually Goes Wrong',
   mistakes: [
     {
       title: 'Renting your own inventory',
       detail:
-        'You do all the work. Buy the car, shoot it, price it, write it up. Then you pay rent every month to show it on pages you do not own. Stop paying and it all disappears.',
+        'You do all the work. Then you pay rent every month to show it on pages you do not own. Stop paying and it all disappears.',
     },
     {
       title: 'Listings held hostage',
@@ -159,7 +159,7 @@ const data: PillarData = {
     {
       title: 'Rip-and-replace switches',
       detail:
-        'Most switches mean a scary cutover weekend and lost records. We never do that. The new system proves itself beside the old one first, and your records come with you.',
+        'Most switches mean a scary cutover weekend and lost records. We never do that.',
     },
   ],
   pricingHeading: 'What It Costs',
@@ -176,17 +176,17 @@ const data: PillarData = {
     {
       question: 'Is this a Dealer Car Search alternative?',
       answer:
-        'Yes. Dealer Car Search is a well-known provider of rented dealership websites. The difference here is the model, not the features. You own the system instead of renting it. We are building a replacement for exactly that kind of rented combo for a Louisiana dealer right now.',
+        'Yes. Dealer Car Search rents dealership websites. The difference is the model, not the features. You own the system instead of renting it. We are building a replacement for a Louisiana dealer right now.',
     },
     {
       question: 'What happens to my current listings and customer records?',
       answer:
-        'They get migrated into the new system during the fitting. Inventory, photos, customer book, deal history. Nothing gets abandoned, and nothing switches until the new system proves itself beside the old one.',
+        'Migrated in during the fitting: inventory, photos, customer book, deal history. Nothing gets abandoned, and nothing switches until the new system proves itself beside the old one.',
     },
     {
       question: 'Do I actually own the website and the DMS?',
       answer:
-        'Yes. The code, the data, the website, the image hosting. The whole system is your asset. The monthly fee pays for backups, support, and new features. Not for permission to keep your own inventory online.',
+        'Yes. The code, the data, the website, the image hosting. The monthly fee pays for backups, support, and new features. Not for permission to keep your own inventory online.',
     },
     {
       question: 'Can it run my service department and rentals too?',
@@ -206,7 +206,7 @@ const data: PillarData = {
     {
       question: 'Do I need a technical person on staff?',
       answer:
-        'No. The people already working your lot can run it. We handle backups and support. If you ever take it in-house, you inherit a system you fully own.',
+        'No. The people already working your lot can run it. If you ever take it in-house, you inherit a system you fully own.',
     },
   ],
   relatedReading: [
@@ -217,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Lot on Its Own System',
   finalCtaSub:
-    `Tell us how your dealership runs today. The rented website, the paper tickets, the spreadsheet. We will show you what a system you own would look like. In person if you are local.`,
+    `Tell us how your dealership runs today. We will show you what a system you own would look like. In person if you are local.`,
 };
 
 export default function CarDealershipsPillar() {

@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Contractor Job Management',
   headlineAccent: 'Software You Own Outright.',
   intro:
-    `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Annual service work slips because nobody got a reminder. Found It OS is one system fitted to how your crews run jobs. The job board, the schedule, the customer book, the invoices, the website leads. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
+    `Right now your office is a truck cab. Jobs live on paper. The customer list lives in somebody's head. Found It OS is one system fitted to how your crews run jobs. You own it outright. Your records get migrated in, and nothing switches until the new system runs beside the old way and matches it.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_contractors',
   formPageSlug: 'custom-software-contractors',
@@ -48,23 +48,23 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is Contractor Job Management Software?',
   definition:
-    "Contractor job management software is one system that runs your whole field operation. Leads, estimates, jobs, customers, invoices, and the follow-up service that brings revenue back every year. Most contractors run all that out of a truck. Paper tickets, photos on a phone, a customer list in memory. Rented field-service apps were built for every trade at once, so crews work around them. We build the other way. We map how your jobs flow, from first call to final invoice to next year's service visit, then build the system around that. Ask it questions in plain English and it answers from your own books. And you own it. The code, the data, everything.",
+    "Contractor job management software is one system that runs your whole field operation. Rented field-service apps were built for every trade at once, so crews work around them. We build the other way. We map how your jobs flow, from first call to final invoice to next year's service visit, then build the system around that. And you own it. The code, the data, everything.",
   includedHeading: 'What Every Contractor OS Includes',
   included: [
     {
       title: 'Fitted to Your Trade',
       detail:
-        'We map how your jobs really run. How a lead comes in, how a crew gets dispatched, what lives on paper. Then we build the system around your process.',
+        'We map how your jobs really run, then build the system around your process.',
     },
     {
       title: 'Jobs Off Paper',
       detail:
-        'Every job on one board. Who called, what was quoted, who is on it, what is owed. No more tickets riding around on a dashboard.',
+        'Every job on one board. No more tickets riding around on a dashboard.',
     },
     {
       title: 'A Customer Book That Remembers',
       detail:
-        'Every customer, every job you have done for them, and automatic reminders when annual service comes due. That revenue stops slipping.',
+        'Every customer, every job, and automatic reminders when annual service comes due. That revenue stops slipping.',
     },
     {
       title: 'Your Website, Wired In',
@@ -88,7 +88,7 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We sit down with you and map every flow. How a call becomes a job, how a crew gets its day, where the paper piles up. That becomes the blueprint.',
+        'We sit down with you and map every flow. That becomes the blueprint.',
     },
     {
       step: '02',
@@ -106,7 +106,7 @@ const data: PillarData = {
       step: '04',
       title: 'We Stay On',
       detail:
-        'Nightly backups, support you can call, and new features as the business grows. Local and reachable, in person when you need us.',
+        'Nightly backups, support you can call, and new features as the business grows. In person when you need us.',
     },
   ],
   audienceHeading: 'Who This Is For',
@@ -137,19 +137,19 @@ const data: PillarData = {
       { value: 'Annual', label: 'Service Reminders Working' },
     ],
     narrative:
-      'A specialty outdoor-equipment service company runs its whole field operation on a system we fitted. Every job, every customer, and annual service reminders so repeat revenue stops slipping. When a customer fills out the website form, the lead lands right on the desk inside the system. No inbox, no copy-paste, no lost slip of paper.',
+      'A specialty outdoor-equipment service company runs its whole field operation on a system we fitted. Jobs, customers, service reminders, website leads landing on the desk. No inbox, no copy-paste, no lost slip of paper.',
   },
   mistakesHeading: 'Why Contractor Software Usually Goes Wrong',
   mistakes: [
     {
       title: 'The office in a truck',
       detail:
-        'Jobs on paper, quotes from memory, photos trapped on a phone. It works until it does not. A lost ticket, a forgotten quote, a customer nobody called back.',
+        'Jobs on paper, quotes from memory, photos trapped on a phone. It works until it does not.',
     },
     {
       title: 'Missed annual service revenue',
       detail:
-        'Service work you already earned, annual maintenance and seasonal checkups, quietly walks away because no system reminded anyone it was due.',
+        'Service work you already earned quietly walks away because no system reminded anyone it was due.',
     },
     {
       title: 'CRM-class rentals that fit nobody',
@@ -176,12 +176,12 @@ const data: PillarData = {
     {
       question: 'What does Found It OS replace for a contractor?',
       answer:
-        'The paper tickets, the whiteboard, the spreadsheet, the inbox where website leads die, and the rented CRM your crew works around. One system for jobs, scheduling, customers, estimates, invoices, service reminders, and your website. Fitted to your trade, owned by you.',
+        'The paper tickets, the whiteboard, the spreadsheet, the inbox where website leads die, and the rented CRM your crew works around. One system for all of it. Fitted to your trade, owned by you.',
     },
     {
       question: 'Is this a Jobber or ServiceTitan alternative?',
       answer:
-        'Yes, with one big difference. Jobber and ServiceTitan are rentals. You pay as long as you use them, and when you leave you might keep an export of your records — not the working system. Found It OS is built around your operation, and you own it outright. If we ever part ways, the system stays yours and keeps running.',
+        'Yes, with one big difference. Jobber and ServiceTitan are rentals. When you leave you might keep an export of your records — not the working system. Found It OS is built around your operation, and you own it outright. If we ever part ways, the system stays yours and keeps running.',
     },
     {
       question: 'Is this actually running for real field-service businesses?',
@@ -217,7 +217,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Jobs on One Desk',
   finalCtaSub:
-    `Tell us how your operation runs today. The truck cab, the paper, the reminders that never happen. We will show you what your own job management system would look like. In person if you are local.`,
+    `Tell us how your operation runs today. We will show you what your own job management system would look like. In person if you are local.`,
 };
 
 export default function ContractorSoftwarePillar() {

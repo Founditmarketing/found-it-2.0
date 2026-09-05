@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'The House System.',
   headlineAccent: 'A Register That Remembers.',
   intro:
-    `The House System was built for the established independent store whose operation is scattered. Inventory in the POS. Customer history in the processor's cloud. Layaway in a binder under the counter. Special orders in somebody's memory. We call it the House System because it thinks in households, not transactions. One system: the register, the inventory, the customer book, layaway, special orders, and an AI that answers from your own sales history. You own it outright. Your records get migrated in, and nothing switches until the new register runs beside your old one and matches it to the penny.`,
+    `Built for the established independent store whose operation is scattered. Inventory in the POS. Customer history in the processor's cloud. Layaway in a binder under the counter. Special orders in somebody's memory. We call it the House System because it thinks in households, not transactions. One system. You own it outright. Nothing switches until it matches your old register to the penny.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_custom_software_retail_stores',
   formPageSlug: 'custom-software-retail-stores',
@@ -48,7 +48,7 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is the House System?',
   definition:
-    "The House System is a point of sale that is your property. The code, the database, the customer history. Not a subscription you rent by the terminal. We built one retail core: register, inventory, customer households, layaway and special orders, and an ask-anything AI over the store's own history. We fit it to your store instead of making your store fit it. Every customer, ticket, and year of history gets migrated in. Ask the new register a question in plain English and it answers from your own books. No per-terminal fees. No vendor holding your customer list.",
+    "The House System is a point of sale that is your property. The code, the database, the customer history. Not a subscription you rent by the terminal. We built one retail core and fit it to your store instead of making your store fit it. No per-terminal fees. No vendor holding your customer list.",
   includedHeading: 'What Every Retail Fitting Includes',
   included: [
     {
@@ -69,7 +69,7 @@ const data: PillarData = {
     {
       title: 'Layaway & Special Orders',
       detail:
-        'Layaway, deposits, and special orders tracked in the system instead of a binder under the counter.',
+        'Layaway, deposits, and special orders tracked in the system, not a binder.',
     },
     {
       title: 'Ask the House',
@@ -79,7 +79,7 @@ const data: PillarData = {
     {
       title: 'You Own It',
       detail:
-        'The code, the data, the customer book. Yours. If we ever part ways, the register keeps ringing and it stays yours.',
+        'The code, the data, the customer book. Yours.',
     },
   ],
   approachHeading: 'How a Retail Fitting Works',
@@ -88,13 +88,13 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We stand at your counter and map how the store really runs. How a sale rings, how layaway works, where the customer book lives. That becomes the blueprint.',
+        'We stand at your counter and map how the store really runs. That becomes the blueprint.',
     },
     {
       step: '02',
       title: 'Your Records Come With You',
       detail:
-        'Every customer, ticket, and year of history we can pull from your current system gets migrated into the new one.',
+        'Every customer, ticket, and year of history we can pull gets migrated in.',
     },
     {
       step: '03',
@@ -137,7 +137,7 @@ const data: PillarData = {
       { value: '0', label: 'Forks of the Code' },
     ],
     narrative:
-      'We built the House System core once. Register, inventory, households, layaway, and Ask the House. Then we fitted it store by store: a luxury menswear shop, an appliance and furniture store in business since 1946, among others. One core, many fits, zero forks of the code. Staging registers are in evaluation now. No store switches until the side-by-side numbers earn it.',
+      'We built the House System core once and fitted it store by store: a luxury menswear shop, an appliance and furniture store in business since 1946, among others. One core, many fits, zero forks of the code. Staging registers are in evaluation now. No store switches until the side-by-side numbers earn it.',
   },
   mistakesHeading: 'Where Retail POS Usually Goes Wrong',
   mistakes: [
@@ -154,29 +154,29 @@ const data: PillarData = {
     {
       title: 'Generic POS, paper workarounds',
       detail:
-        "Most systems were not built for layaway, households, or special orders. So those live in a binder and in someone's memory, off the books.",
+        "Most systems were not built for layaway, households, or special orders, so those live in a binder, off the books.",
     },
     {
       title: 'Rip-and-replace switches',
       detail:
-        'A scary weekend cutover that drops records is the norm. We never rip anything out. Your records migrate in first, and the new register proves itself beside the old one.',
+        'A scary weekend cutover that drops records is the norm. We never rip anything out.',
     },
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migration means your records come with you. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade. The register, the code, and the customer book are yours.`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade.`,
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
-    'One House System core fitted to real stores, menswear, appliances and furniture, without forking the code.',
+    'One House System core fitted to real stores without forking the code.',
     `Real local businesses run their own systems right now.`,
-    "You own 100% of the code and the data. Your customer history is your asset, not your processor's.",
+    "You own 100% of the code and the data.",
   ],
   faqHeading: 'House System FAQ',
   faq: [
     {
       question: 'Why is it called the House System?',
       answer:
-        'Because it thinks in households, not transactions. The family that has furnished three homes with you is one relationship, not four hundred receipts. The whole house lives under one roof: register, inventory, households, layaway, and Ask the House, the AI that answers questions about your own store in plain English.',
+        'Because it thinks in households, not transactions. The family that has furnished three homes with you is one relationship, not four hundred receipts. The whole house lives under one roof, and Ask the House, the AI, answers questions about your own store in plain English.',
     },
     {
       question: 'Is the House System an alternative to Square, Clover, or Lightspeed?',
@@ -186,7 +186,7 @@ const data: PillarData = {
     {
       question: 'What happens to my customer history?',
       answer:
-        'It comes with you. Migration is part of the setup. Every customer, household, and ticket we can pull gets brought into the new system. One Louisiana store, in business since 1946, can pull up who bought a washer in 2018 on its staging register.',
+        'It comes with you, every customer, household, and ticket we can pull, as part of setup. One Louisiana store, in business since 1946, can pull up who bought a washer in 2018 on its staging register.',
     },
     {
       question: 'Do you charge per terminal or per register?',

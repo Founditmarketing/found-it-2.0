@@ -35,7 +35,7 @@ const data: PillarData = {
   headline: 'Stop Paying Rent on',
   headlineAccent: 'Every Building You Sell.',
   intro:
-    `Most shed software charges per unit. The more buildings you move, the bigger the bill. And your orders, dealer records, and RTO contracts live on someone else's servers. Found It OS is the other way. One system fitted to how your yard runs. Orders, dealer lots, the build queue, delivery scheduling, rent-to-own tracking. You own it outright, code and data. We built exactly this for a Texas shed manufacturer replacing a ShedSuite-class system. Nothing switches until the new system runs beside your old one and matches it.`,
+    `Most shed software charges per unit and keeps your records on its servers. Found It OS is the other way. One system fitted to how your yard runs, owned outright, code and data. We built exactly this for a Texas shed manufacturer replacing a ShedSuite-class system. Nothing switches until the new system runs beside your old one and matches it.`,
   ctaLabel: "Start the 60-Second Fit Check",
   formSource: 'service_shed_builders',
   formPageSlug: 'custom-software-shed-builders',
@@ -48,38 +48,38 @@ const data: PillarData = {
   ],
   definitionHeading: 'What Is Shed Builder Software?',
   definition:
-    "Shed builder software runs the whole life of a building. The order, the build, the haul, and the payments. Not a sales binder, a paper build sheet, and a driver's memory. A real system tracks every order from sold to set, shows every dealer lot on one screen, feeds the shop a clean build queue, schedules deliveries, and keeps rent-to-own accounts straight. Off-the-shelf versions rent you that and charge by the unit. Found It OS builds it around your operation, and you own it. The code, the data, everything. Ask it a question in plain English. Which lots are low, what is in the queue, who is behind on RTO. It answers from your own books.",
+    "Shed builder software runs the whole life of a building. The order, the build, the haul, and the payments. Not a sales binder, a paper build sheet, and a driver's memory. A real system tracks all of it, sold to set. Off-the-shelf versions rent you that by the unit. Found It OS builds it around your operation, and you own it. The code, the data, everything. Ask it in plain English which lots are low or who is behind on RTO. It answers from your own books.",
   includedHeading: 'What a Shed Builder OS Includes',
   included: [
     {
       title: 'One Order Desk',
       detail:
-        'Every building from sold to delivered on one pipeline. Who bought it, what options, where it stands, what is owed. Not a binder and three phone calls.',
+        'Every building from sold to delivered on one pipeline. Not a binder and three phone calls.',
     },
     {
       title: 'Dealer Lots on One Screen',
       detail:
-        'Every lot, every unit, every consignment in one place. No more calling around to find out what is sitting where.',
+        'Every lot, every unit, every consignment in one place. No calling around.',
     },
     {
       title: 'The Build Queue',
       detail:
-        'Paper build sheets get lost and smudged. The queue puts every spec in front of the shop in order, and the office sees where each build stands.',
+        'Every spec in front of the shop in order, and the office sees where each build stands.',
     },
     {
       title: 'Delivery Scheduling',
       detail:
-        'Hauls scheduled against the queue, not a whiteboard. The driver, the customer, and the office all see the same date.',
+        'Hauls scheduled against the queue, not a whiteboard. Everyone sees the same date.',
     },
     {
       title: 'Rent-to-Own Tracking',
       detail:
-        'Every RTO contract, payment, and balance in one ledger. Who is current, who is behind, what each account is worth. No spreadsheet on the side.',
+        'Every RTO contract, payment, and balance in one ledger. No spreadsheet on the side.',
     },
     {
       title: 'Spoken Order Intake',
       detail:
-        'Talk the order in. Size, options, lot, customer. The AI sorts it into a clean draft. A human reviews and confirms before anything hits the books.',
+        'Talk the order in. The AI sorts it into a clean draft. A human reviews and confirms before anything hits the books.',
     },
   ],
   approachHeading: 'How a Fitting Works',
@@ -88,7 +88,7 @@ const data: PillarData = {
       step: '01',
       title: 'The Fitting',
       detail:
-        'We map how your operation really runs. How an order comes in, how a build sheet reaches the shop, how a haul gets scheduled, how RTO money moves. That becomes the blueprint.',
+        'How an order comes in, how a build sheet reaches the shop, how a haul gets scheduled, how RTO money moves. That becomes the blueprint.',
     },
     {
       step: '02',
@@ -138,34 +138,34 @@ const data: PillarData = {
       { value: '$0', label: 'Per-Unit Fees' },
     ],
     narrative:
-      'A Texas shed manufacturer came to us renting a ShedSuite-class system. We fitted them a full system of their own. Orders, dealer lots, the build queue, delivery scheduling, and rent-to-own tracking on one desk. Plus spoken order intake: talk the order in, the AI sorts it, a human confirms it. Phase 1 is built and verified end-to-end, from a sold order through to delivery. Fitted to how they run, owned by them.',
+      'A Texas shed manufacturer came to us renting a ShedSuite-class system. We fitted them a full system of their own, spoken order intake included: talk the order in, the AI sorts it, a human confirms it. Phase 1 is built and verified end-to-end. Fitted to how they run, owned by them.',
   },
   mistakesHeading: 'Why Shed Software Usually Goes Wrong',
   mistakes: [
     {
       title: 'The per-unit toll',
       detail:
-        "The standard model charges by the building. Your best month becomes the software company's best month, and the bill grows forever. You never own a thing.",
+        "Your best month becomes the software company's best month, and you never own a thing.",
     },
     {
       title: 'Dealer-lot chaos',
       detail:
-        "When lot inventory lives in texts, calls, and a dealer's notebook, nobody knows what is on the ground. Units sit, sales stall, the office finds out last.",
+        "Lot inventory in texts, calls, and a dealer's notebook: units sit, sales stall, the office finds out last.",
     },
     {
       title: 'Paper build sheets',
       detail:
-        'A paper build sheet can be lost, misread, or built wrong. The shop deserves a queue it can trust, and the office deserves to see where every build stands.',
+        'A paper build sheet can be lost, misread, or built wrong. The shop deserves a queue it can trust.',
     },
     {
       title: 'Rip-and-replace switches',
       detail:
-        'Most switches mean a scary cutover weekend and records left behind. We never rip anything out. Your records come with you, and the new system proves itself beside the old one first.',
+        'We never rip anything out. Your records come with you, and the new system proves itself beside the old one first.',
     },
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Sell more buildings and the price stays the same. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
+    `The whole price, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We built this for a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
@@ -177,7 +177,7 @@ const data: PillarData = {
     {
       question: 'Is Found It OS a ShedSuite alternative?',
       answer:
-        'Yes. We built a full system for a Texas shed manufacturer to replace a ShedSuite-class system. Orders, dealer lots, build queue, delivery, rent-to-own. The difference is the model. ShedSuite is rental software. Found It OS is built around your operation, you own it outright, and there are no per-unit fees.',
+        'Yes. We built a full system for a Texas shed manufacturer to replace a ShedSuite-class system. ShedSuite is rental software. Found It OS is built around your operation, you own it outright, and there are no per-unit fees.',
     },
     {
       question: 'Do you charge per building like other shed software?',
@@ -187,17 +187,17 @@ const data: PillarData = {
     {
       question: 'What happens to my existing orders, dealer records, and RTO contracts?',
       answer:
-        'They come with you. Orders, lot inventory, rent-to-own accounts, customer history, even what lives on paper. Nothing gets abandoned, and nothing switches until the new system matches the old one.',
+        'They come with you. Orders, lot inventory, rent-to-own accounts, customer history, even what lives on paper. Nothing switches until the new system matches the old one.',
     },
     {
       question: 'Can my dealers use it on their lots?',
       answer:
-        'Yes. Every lot and every unit on one screen, so the office and the lots see the same inventory. The fitting maps how your dealer network works. Consignment, company lots, or both.',
+        'Yes. Every lot and every unit on one screen. The fitting maps how your dealer network works. Consignment, company lots, or both.',
     },
     {
       question: 'What is spoken order intake?',
       answer:
-        'You talk the order in. Building, size, options, customer, lot. The AI sorts what you said into a clean draft order, and a human confirms it before it hits the books. Built for how orders really happen: in the yard, on the phone.',
+        'You talk the order in. Building, size, options, customer, lot. The AI sorts it into a clean draft order, and a human confirms it before it hits the books. Built for how orders really happen: in the yard, on the phone.',
     },
     {
       question: 'Who owns the system?',
@@ -207,7 +207,7 @@ const data: PillarData = {
     {
       question: 'Is this in production at a shed company today?',
       answer:
-        'The first shed-industry build, for a Texas manufacturer, has Phase 1 built and verified end-to-end. From a sold order through dealer lots, the build queue, delivery, and rent-to-own. Nothing switches until the system proves itself beside your old one.',
+        'The first shed-industry build, for a Texas manufacturer, has Phase 1 built and verified end-to-end. From a sold order through to delivery. Nothing switches until the system proves itself beside your old one.',
     },
   ],
   relatedReading: [
@@ -218,7 +218,7 @@ const data: PillarData = {
   ],
   finalCtaHeadline: 'See Your Yard on Its Own OS',
   finalCtaSub:
-    `Tell us how your operation runs today. The order binder, the build sheets, the lot calls, the RTO spreadsheet. We will show you what your own operating system would look like. In person if you are local.`,
+    `Tell us how your operation runs today. We will show you what your own operating system would look like. In person if you are local.`,
 };
 
 export default function ShedBuildersPillar() {
