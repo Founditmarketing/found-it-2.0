@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CASE_FILES } from '@/lib/case-files';
+import TheAsk from '@/components/TheAsk';
 
 /* THE RECORD (Trevor 8/29: "before and after they TRUST, not one that looks
    cool"). Six case files in one strict format: BEFORE (dated facts + the
@@ -140,18 +141,8 @@ export default function BeforeAfterPage() {
           ))}
         </div>
 
-        {/* Close — one quiet line */}
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground font-medium mb-5">
-            Every screen above runs demo data; every dollar figure happened. Yours is the next file.
-          </p>
-          <Link
-            href="/fit"
-            className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-          >
-            Start the 60-Second Fit Check
-          </Link>
-        </div>
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );

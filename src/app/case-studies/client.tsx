@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/LiquidButton';
 import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 import { CASE_FILES, CASE_COUNTS } from '@/lib/case-files';
+import TheAsk from '@/components/TheAsk';
 import ParseOrderDemo from '@/components/case-studies/ParseOrderDemo';
 import TireQuoteDemo from '@/components/case-studies/TireQuoteDemo';
 
@@ -585,39 +586,8 @@ export default function CaseStudiesPage() {
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-4">&mdash; Trevor</p>
         </div>
 
-        {/* ─── The finale — one ending, one button ─── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.08 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: ease as any }}
-          className="text-center py-14 md:py-20 border-t border-border/10"
-        >
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-[0.9] text-foreground mb-6">
-            You&rsquo;ve Seen What We Built for Them.{' '}
-            <span className="text-primary">Now Bring Us the Ugly Part.</span>
-          </h2>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            The code and the data, one hundred percent. Nobody rents you your own business back.{' '}
-            {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup} {OS_PRICING.setupLabel},
-            month-to-month. One job: {OS_PRICING.promise}
-          </p>
-          <div className="h-px w-24 bg-primary mx-auto my-8" aria-hidden />
-          <p className="text-lg text-muted-foreground font-medium italic mb-8 max-w-md mx-auto">
-            Show us the work your current software still leaves behind. Thirty minutes with
-            Trevor and you see the first system we&rsquo;d build for you &mdash; working screens,
-            not slideware. No pitch deck. Straight answer.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Solid primary on purpose (reviewer 9/4: outlined = secondary) */}
-            <Link
-              href="/fit"
-              className="inline-flex items-center justify-center px-10 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity shadow-2xl shadow-primary/20"
-            >
-              Start the 60-Second Fit Check
-            </Link>
-          </div>
-        </motion.div>
+        {/* The house close */}
+        <TheAsk />
 
       </div>
     </main>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import TheAsk from '@/components/TheAsk';
 
 /* ─── /it-just-works — the registry of accounts fully in use (9/3) ───
    Trevor's spec: "live accounts that I tell you are fully in use." The bar
@@ -132,20 +133,8 @@ export default function ItJustWorksPage() {
           They move here when their owners say the sentence.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/drive"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-sm hover:opacity-90 transition-opacity"
-          >
-            Drive One Yourself
-          </Link>
-          <Link
-            href="/fit"
-            className="inline-flex items-center justify-center px-8 h-14 rounded-full border border-border/25 text-foreground/90 font-black uppercase tracking-wider text-sm hover:border-primary/50 transition-colors"
-          >
-            Start Yours
-          </Link>
-        </div>
+        {/* The house close */}
+        <TheAsk />
       </div>
     </main>
   );
