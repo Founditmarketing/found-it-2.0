@@ -149,7 +149,7 @@ export default function DarePage() {
         {/* ─── 4 · THE DARE BOARD — real problems from the published record.
             Every row traces to the case files or a standing house law; the
             declined row IS a house law. No invented dares, ever. ─── */}
-        <section className="mt-10">
+        <section id="the-board" className="mt-10 scroll-mt-6">
           <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-tight">
             The <span className="text-primary">Board.</span>
           </h2>
@@ -355,12 +355,12 @@ export default function DarePage() {
           >
             Text us the problem
           </a>
-          <Link
-            href="/case-studies"
+          <a
+            href="#the-board"
             className="flex-1 min-h-[52px] inline-flex items-center justify-center border border-border/40 text-foreground font-black uppercase italic tracking-tighter text-sm px-4 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             See proof
-          </Link>
+          </a>
         </div>
       </div>
     </main>
