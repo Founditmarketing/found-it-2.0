@@ -823,56 +823,6 @@ export const blogPosts: Post[] = [
 `,
     },
     {
-        slug: 'why-they-cant-compete',
-        nextRead: { slug: 'rented-software-no-data-rights', line: 'The exit, performed live: cancel tonight and watch what keeps running.' },
-        title: 'They Can Copy Every Feature Except the Exit.',
-        seoTitle: 'Why SaaS Cannot Sell You Owned Software | Found It',
-        seoDescription: 'They can copy the AI, the workflows, the screens. They cannot let you leave with the working system without becoming a different company. The exit is the deal.',
-        date: '2026-08-16',
-        excerpt: 'Any software company can add AI now. Give them enough engineers and they can copy nearly every screen we ship. The one thing they cannot copy without becoming a different company: what happens when you leave.',
-        author: 'Trevor Ruby',
-        authorImage: '/team-member-1.jpeg',
-        image: '/images/blog/why-they-cant-compete-v1.png',
-        hideHero: true,
-        content: `
-<p style="font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55; margin: 0 0 1.2em;">Why they can't compete \u00b7 owned software</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The data may be yours. The working system is not.</p>
-
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Any software company can add AI now. They can make the phone answer. Draft the quote. Chase the invoice. Put a chat box over the books. Give them enough engineers and enough time, and they can copy nearly every screen we ship.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">There is one thing they cannot copy without becoming a different company:</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">What happens when you leave.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Most subscription software says your data is yours. Some companies even make it easy to export. Good \u2014 you should be able to leave with your records. But what comes out? Customers in rows. Jobs in rows. Invoices in rows. The scheduler does not come with them. Neither do the automations, the phone logic, the permissions, the forms, the ledger rules, or the odd little workflow your company spent fifteen years teaching itself.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">You can take the data. <span style="color: #FF5500; font-weight: 800;">You cannot take the machine that knew what to do with it.</span> A CSV is not a company.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The subscription model is not broken.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">It is working exactly as designed. You pay for access. The software company keeps the asset. That is often a perfectly good arrangement \u2014 we rent email, file storage, and plenty of other software, and when the job is basically the same for everybody, renting a good tool usually makes sense.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The question changes when the software becomes the memory of the business. Who called. What they needed. What was quoted. Who is scheduled. What has been completed. What got invoiced. Who still owes money. What the books say happened. At that point, <strong>&ldquo;your data is yours&rdquo;</strong> and <strong>&ldquo;your system is yours&rdquo;</strong> are not the same sentence.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Why can't they just add ownership?</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Could a large software company hand over the source code, production database, deployment control, credentials, documentation, and the right to use another developer? Of course. The problem is not engineering. <strong>The problem is economics.</strong> Recurring software revenue depends on recurring access. Hand the customer the working system, and renewal stops being the key to the front door.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Ownership is not one more feature they have not gotten around to building.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;"><span style="color: #FF5500;">It is a different transaction.</span></p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">To make ownership standard, they would have to change how the product is built, priced, supported, sold, and valued. They can do that. They cannot do it and remain the company they are. <strong>That is what I mean by can't.</strong></p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">Found It charges monthly too.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is where the whole argument falls apart if I dodge the obvious question. Found It charges ${OS_PRICING.monthly} a month. So how is that not rent?</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Because the monthly payment buys work. Hosting. Backups. Support. Security patches. Updates. Continued fitting. The new modules we agree to build as the business changes. Stop paying us and that work stops. <span style="color: #FF5500; font-weight: 800;">Not the software.</span> The owner keeps the runnable source repository, the production database and backups, deployment control, credentials, documentation, and the legal right to hand the system to another developer \u2014 <a href="/owned-software" style="color: #FF5500; font-weight: 700;">in writing</a>.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">There are still bills. Cloud infrastructure costs money. Phone lines cost money. Card processing costs money. AI usage costs money. Ownership does not make infrastructure free. It means we are not the tollbooth standing between an owner and the business he already owns.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">We start with the exit.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">This is not theoretical software. Live systems run in front of a wholesale nursery, a bail bonds office, and a tree service \u2014 real customers, real records, real money, and the named ones are <a href="/before-after" style="color: #FF5500; font-weight: 700;">on the record</a>.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Those results prove the system can do useful work. They do not prove ownership. <span style="color: #FF5500; font-weight: 800;">The exit proves ownership.</span> A beautiful dashboard does not prove ownership, and a source-code clause does not prove the software is any good. You need both. That is why the slowest, most expensive part of our process happens before the switch: both systems run, both produce their numbers, and we match the money to the bank every night, down to the penny, until the owner looks at both screens and says go. Owning a broken system is not freedom. It is just a different problem.</p>
-
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The actual advantage.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">The big platforms can copy the AI. They can copy the workflow. They can add the feature, lower the price, and make the demonstration beautiful. They can even put <strong>YOUR DATA IS YOURS</strong> in bold letters. But to copy the deal, they have to let the customer leave with the product. They have to build an exit where the business keeps running and the software company is no longer necessary. They have to sell the asset their business was built to retain.</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Everything else is a feature.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The exit is the deal.</p>
-<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">They can copy what the system does. <span style="color: #FF5500;">They cannot copy who keeps it.</span></p>
-
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">\u2014 Trevor<br />Found It Software, Alexandria, Louisiana.</p>
-`,
-    },
-    {
         slug: 'rented-software-no-data-rights',
         nextRead: { slug: 'what-is-owned-software', line: 'The word for the alternative — ownership, without the IT jargon.' },
         title: 'You Can Export the Nouns. They Keep the Verbs.',

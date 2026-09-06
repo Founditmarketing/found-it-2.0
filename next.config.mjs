@@ -21,6 +21,10 @@ const nextConfig = {
       // Doggett pulled 9/5 (hasn't seen his app yet) - the law-practice post is
       // shelved with him. TEMPORARY; delete this line when he blesses it.
       { source: '/blog/law-practice-management-software', destination: '/blog', permanent: false },
+      // why-they-cant-compete REMOVED 9/5 (Trevor: "I don't think it's
+      // flattering to say they can do everything we can") - the exit-parity
+      // concession is off the books. FB traffic to it lands on the blog.
+      { source: '/blog/why-they-cant-compete', destination: '/blog', permanent: false },
       // Wichita OFF the site (Trevor 9/4): the Kansas experiment LP is gone.
       { source: '/lp/wichita', destination: '/lp/walkthrough', permanent: true },
       // THE MAP IS OFF THE SITE (Trevor 9/4): page deleted, every CTA points
