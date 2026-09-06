@@ -156,6 +156,16 @@ export default function DarePage() {
           <p className="text-sm text-muted-foreground font-medium mt-2 max-w-xl">
             Problems owners brought us — most before we ever called it a dare. What happened to each one.
           </p>
+          {/* the running score — the opponent is the problem, never the person.
+              The "beaten us" column exists so the record can take an honest L
+              the day one lands; that column is why strangers believe the rest. */}
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 rounded-xl border border-border/25 px-4 py-3 font-mono text-[11px] font-black uppercase tracking-[0.14em]">
+            <span className="text-muted-foreground">The running score</span>
+            <span className="text-foreground">Brought: 6</span>
+            <span className="text-primary">Built &amp; running: 5</span>
+            <span className="text-muted-foreground">Declined: 1</span>
+            <span className="text-foreground">Beaten us: 0 <span className="text-muted-foreground normal-case tracking-normal">(so far)</span></span>
+          </div>
           <div className="mt-5 space-y-4">
             {[
               {
