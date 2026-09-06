@@ -116,9 +116,9 @@ export default function DarePage() {
             <li className="flex gap-4">
               <span className="font-mono text-primary font-black text-lg leading-relaxed" aria-hidden>2</span>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">
-                <strong className="text-foreground">We dig in and build the fix.</strong>{' '}
-                Not a slideshow. Not a proposal. The working thing, with your
-                name on the door.
+                <strong className="text-foreground">We dig in. If we take the dare, we build.</strong>{' '}
+                And if we take it, you get working software with your name on
+                the door — not a proposal.
               </p>
             </li>
             <li className="flex gap-4">
@@ -133,32 +133,89 @@ export default function DarePage() {
             </li>
           </ol>
           <p className="text-sm text-muted-foreground font-medium mt-5 max-w-xl">
-            We build these one at a time, so every dare gets dug into for real.
-            If yours isn&rsquo;t a fit, we say so fast — that costs you one text.
+            We don&rsquo;t take every dare. If we take yours, we&rsquo;re
+            building it.
           </p>
         </section>
 
-        {/* ─── 4 · One receipt, anonymized from the record ─── */}
-        <section className="mt-10 rounded-2xl border border-primary/30 bg-primary/[0.04] p-5 sm:p-7">
-          <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-            The last dare we took
+        {/* ─── 4 · THE DARE BOARD — real problems from the published record.
+            Every row traces to the case files or a standing house law; the
+            declined row IS a house law. No invented dares, ever. ─── */}
+        <section className="mt-10">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase italic tracking-tighter leading-tight">
+            The <span className="text-primary">Board.</span>
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium mt-2 max-w-xl">
+            Problems owners brought us. What happened to each one.
           </p>
-          <blockquote className="text-xl sm:text-2xl font-black uppercase italic tracking-tighter leading-tight text-foreground mt-4">
-            &ldquo;My people keep recording serial numbers wrong at the
-            receiving door.&rdquo;
-          </blockquote>
-          <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-4 max-w-xl">
-            An equipment dealer&rsquo;s bookkeeper had fought wrong serials for
-            years. Now the software refuses a bad one at the door — and names
-            where the duplicate already lives. The owner typed a wrong serial
-            into it himself, on his own phone, the same week he told us about
-            the problem. It told him no.
-          </p>
+          <div className="mt-5 space-y-4">
+            {[
+              {
+                dare: 'My people keep recording serial numbers wrong at the receiving door.',
+                status: 'TAKEN → BUILT',
+                result:
+                  'An equipment dealer’s door now refuses a bad serial — and names where the duplicate already lives. The owner typed a wrong one in himself, the same week he told us. It said no.',
+              },
+              {
+                dare: 'Fifteen brokers send orders fifteen ways, and somebody retypes everything.',
+                status: 'TAKEN → RUNNING',
+                result:
+                  'A wholesale nursery pastes each order in exactly as it came. Every line lands or holds in red — never silently dropped.',
+              },
+              {
+                dare: 'One pen fills out every application that walks through the door.',
+                status: 'TAKEN → RUNNING',
+                result:
+                  'A bail office’s applications now fill themselves out on the defendant’s phone — at midnight, while the office sleeps.',
+              },
+              {
+                dare: 'The state posts every road job in public, and I find out after the work is gone.',
+                status: 'TAKEN → LIVE',
+                result:
+                  'A tree service’s system reads the state’s filings daily — 78,019 public bid lines so far — and prices the work from what actually won.',
+              },
+              {
+                dare: 'I don’t actually know who owes me money.',
+                status: 'TAKEN → FOUND $195,882.75',
+                result:
+                  'A roofing company’s books, read by its new system on day one: $195,882.75 sitting in open receivables the owner couldn’t see.',
+              },
+            ].map((r) => (
+              <div
+                key={r.status + r.dare.slice(0, 20)}
+                className="rounded-2xl border border-primary/30 bg-primary/[0.04] p-5 sm:p-6"
+              >
+                <blockquote className="text-lg sm:text-xl font-black uppercase italic tracking-tighter leading-tight text-foreground">
+                  &ldquo;{r.dare}&rdquo;
+                </blockquote>
+                <p className="font-mono text-[11px] font-black uppercase tracking-[0.18em] text-primary mt-3">
+                  {r.status}
+                </p>
+                <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-2 max-w-xl">
+                  {r.result}
+                </p>
+              </div>
+            ))}
+            {/* the declined row — the credibility row. A standing house law,
+                stated in public: some things software shouldn't own. */}
+            <div className="rounded-2xl border border-border/30 bg-transparent p-5 sm:p-6">
+              <blockquote className="text-lg sm:text-xl font-black uppercase italic tracking-tighter leading-tight text-muted-foreground">
+                &ldquo;Can you run my payroll and file my taxes?&rdquo;
+              </blockquote>
+              <p className="font-mono text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground mt-3">
+                DECLINED
+              </p>
+              <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-2 max-w-xl">
+                Some things software shouldn&rsquo;t be trusted to own. Part of
+                the dare is that we&rsquo;ll tell you which.
+              </p>
+            </div>
+          </div>
           <Link
             href="/case-studies"
-            className="inline-flex min-h-[48px] items-center gap-1.5 text-xs font-black uppercase tracking-wide text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md mt-2"
+            className="inline-flex min-h-[48px] items-center gap-1.5 text-xs font-black uppercase tracking-wide text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md mt-4"
           >
-            See systems running right now &rarr;
+            Open the case files &rarr;
           </Link>
         </section>
 
@@ -176,8 +233,9 @@ export default function DarePage() {
             </span>
           </p>
           <p className="text-sm text-muted-foreground font-medium mt-2">
-            That&rsquo;s the price when you&rsquo;ve seen it working and want to
-            keep it. Month-to-month. You own the code and the data.
+            If it solves the problem and you want to keep it: that. Month-to-month,
+            and you own the code and the data. If it doesn&rsquo;t — it cost you
+            a text.
           </p>
         </section>
 
