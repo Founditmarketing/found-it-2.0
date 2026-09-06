@@ -9,8 +9,21 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: { absolute: 'VSL v3 — Scripts | Found It Software' },
-  description: 'Production scripts for the current ad batch.',
+  description: 'Eleven scripts. One ending. Production reference for the current ad batch.',
   robots: { index: false, follow: false },
+  openGraph: {
+    title: 'VSL v3 — the scripts',
+    description: 'Eleven scripts. One ending. Nobody rents you your own business back.',
+    type: 'website',
+    url: 'https://www.founditsoftware.com/vsl-v3',
+    images: [{ url: '/vsl-v3-og-v1.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VSL v3 — the scripts',
+    description: 'Eleven scripts. One ending.',
+    images: ['/vsl-v3-og-v1.png'],
+  },
 };
 
 const NUMBER = '(318) 713-3781';
