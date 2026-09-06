@@ -59,8 +59,10 @@ export const blogPosts: Post[] = [
 <p style="font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.2em 0;">The luxury isn&rsquo;t how the screen looks. It&rsquo;s how little of your day you spend fighting it.</p>
 <p style="margin: 0 0 1em;">The question that could kill me: if software gets cheap as bubble gum, why need me? And it&rsquo;s headed there fast &mdash; a build that costs thousands and takes days today gets cut in half, and in half again, until it&rsquo;s five hundred dollars and three hours. I&rsquo;m counting on it.</p>
 <p style="margin: 0 0 1em;">Well &mdash; you might not need me to <em>produce</em> software. That&rsquo;s different from not wanting what I provide. The monthly buys real work: hosting, backups, support, the improvements we agree to. And the owner keeps the property &mdash; the code, the records, everything another builder would need to take over. Otherwise &ldquo;you own it&rdquo; is just something I said to get paid.</p>
-<p style="margin: 0 0 1.6em;">The unproven part, left in on purpose: the twentieth customer getting the care that made the first one say yes. That&rsquo;s the risk.</p>
-<p style="margin: 0 0 1em;">I&rsquo;m not betting ownership becomes unavoidable. I&rsquo;m betting owners will want it &mdash; all of it. The whole watch.</p>
+<p style="margin: 0 0 1.6em;">The unproven part, left in on purpose: the twentieth customer getting the care that made the first one say yes. The biggest way this fails is me delivering luxury-level attention at commodity prices. That&rsquo;s the risk, and it&rsquo;s mine.</p>
+<p style="margin: 0 0 1em;">And I don&rsquo;t need renting to lose. I need some owners to prefer being personally looked after.</p>
+<p style="font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.2em 0;">The bet was never that people will cherish code. It&rsquo;s that they&rsquo;ll cherish something that fits &mdash; and someone who takes care of it.</p>
+<p style="margin: 0 0 1em;">All of it. The whole watch.</p>
 <p style="margin: 0 0 1em;">And sure &mdash; control comes with baggage. So does a trip to France. You go anyway. You just don&rsquo;t carry your own bags.</p>
 <p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.4em 0 0;">This belongs to you.<br />We know how you like it.<br /><span style="color: #FF5500;">We take care of it.</span></p>
 `,
