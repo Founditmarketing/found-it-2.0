@@ -87,6 +87,11 @@ export default function DarePage() {
             Go ahead. The worst one. The one that burns you every single week —
             the one you&rsquo;ve just learned to live with.
           </p>
+          <p className="text-base text-muted-foreground font-medium leading-relaxed mt-3 max-w-xl">
+            It doesn&rsquo;t have to be exotic. The order typed twice. The
+            follow-up nobody made. The job that stalls until somebody asks you.
+            The expensive kind of boring.
+          </p>
         </header>
 
         {/* ─── 2 · The one door: text it ─── */}
@@ -117,8 +122,8 @@ export default function DarePage() {
               <span className="font-mono text-primary font-black text-lg leading-relaxed" aria-hidden>2</span>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">
                 <strong className="text-foreground">We dig in. If we take the dare, we build.</strong>{' '}
-                And if we take it, you get working software with your name on
-                the door — not a proposal.
+                A working demonstration wrapped around your actual workflow —
+                real screens, your name on the door. Not a proposal.
               </p>
             </li>
             <li className="flex gap-4">
@@ -127,14 +132,17 @@ export default function DarePage() {
                 <strong className="text-foreground">
                   It lands in your hands before you pay a dollar.
                 </strong>{' '}
-                You click the buttons. You try to break it. You watch your own
-                worst day get handled.
+                You click the buttons. You try to break it. And if it holds —
+                and you want it running your business for real — that&rsquo;s
+                the engagement: built in beside your old system, under a scope
+                we agree on before you commit.
               </p>
             </li>
           </ol>
           <p className="text-sm text-muted-foreground font-medium mt-5 max-w-xl">
             We don&rsquo;t take every dare. If we take yours, we&rsquo;re
-            building it.
+            building it. And nobody builds until we&rsquo;ve talked — a text
+            starts it, a short conversation decides it.
           </p>
         </section>
 
@@ -146,39 +154,39 @@ export default function DarePage() {
             The <span className="text-primary">Board.</span>
           </h2>
           <p className="text-sm text-muted-foreground font-medium mt-2 max-w-xl">
-            Problems owners brought us. What happened to each one.
+            Problems owners brought us — most before we ever called it a dare. What happened to each one.
           </p>
           <div className="mt-5 space-y-4">
             {[
               {
                 dare: 'My people keep recording serial numbers wrong at the receiving door.',
-                status: 'TAKEN → BUILT',
+                status: 'BUILT',
                 result:
                   'An equipment dealer’s door now refuses a bad serial — and names where the duplicate already lives. The owner typed a wrong one in himself, the same week he told us. It said no.',
               },
               {
                 dare: 'Fifteen brokers send orders fifteen ways, and somebody retypes everything.',
-                status: 'TAKEN → RUNNING',
+                status: 'RUNNING',
                 result:
                   'A wholesale nursery pastes each order in exactly as it came. Every line lands or holds in red — never silently dropped.',
               },
               {
                 dare: 'One pen fills out every application that walks through the door.',
-                status: 'TAKEN → RUNNING',
+                status: 'RUNNING',
                 result:
                   'A bail office’s applications now fill themselves out on the defendant’s phone — at midnight, while the office sleeps.',
               },
               {
                 dare: 'The state posts every road job in public, and I find out after the work is gone.',
-                status: 'TAKEN → LIVE',
+                status: 'LIVE',
                 result:
                   'A tree service’s system reads the state’s filings daily — 78,019 public bid lines so far — and prices the work from what actually won.',
               },
               {
                 dare: 'I don’t actually know who owes me money.',
-                status: 'TAKEN → FOUND $195,882.75',
+                status: 'SURFACED $195,882.75',
                 result:
-                  'A roofing company’s books, read by its new system on day one: $195,882.75 sitting in open receivables the owner couldn’t see.',
+                  'A roofing company’s books, read by its new system on day one: $195,882.75 sitting in open receivables the owner couldn’t see. Surfaced, on the first read — his to go collect.',
               },
             ].map((r) => (
               <div
@@ -200,14 +208,13 @@ export default function DarePage() {
                 stated in public: some things software shouldn't own. */}
             <div className="rounded-2xl border border-border/30 bg-transparent p-5 sm:p-6">
               <blockquote className="text-lg sm:text-xl font-black uppercase italic tracking-tighter leading-tight text-muted-foreground">
-                &ldquo;Can you run my payroll and file my taxes?&rdquo;
+                Payroll. Tax filing.
               </blockquote>
               <p className="font-mono text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground mt-3">
-                DECLINED
+                WE DECLINE THOSE — EVERY TIME
               </p>
               <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-2 max-w-xl">
-                Some things software shouldn&rsquo;t be trusted to own. Part of
-                the dare is that we&rsquo;ll tell you which.
+                Standing policy, not a sales line: some things software shouldn&rsquo;t be trusted to own. Part of the dare is that we&rsquo;ll tell you which.
               </p>
             </div>
           </div>
@@ -233,9 +240,11 @@ export default function DarePage() {
             </span>
           </p>
           <p className="text-sm text-muted-foreground font-medium mt-2">
-            If it solves the problem and you want to keep it: that. Month-to-month,
-            and you own the code and the data. If it doesn&rsquo;t — it cost you
-            a text.
+            We start with one problem so you can judge the work. The engagement
+            is a system built around your whole business — with support and
+            agreed improvements — not a subscription to one fix. Month-to-month,
+            scope agreed before you commit, and you own the code and the data
+            either way. If it never gets that far — it cost you a text.
           </p>
         </section>
 
@@ -247,6 +256,24 @@ export default function DarePage() {
           <p className="text-base text-muted-foreground font-medium leading-relaxed mt-3 max-w-xl">
             The new system runs beside your old one, checked against it nightly,
             until you say switch.
+          </p>
+        </section>
+
+        {/* ─── 6b · For the person who actually runs the place ───
+            The owner enjoys the dare; the office manager dreads another
+            interesting system becoming her problem. She gets her own terms. */}
+        <section className="mt-9 rounded-2xl border border-border/25 p-5 sm:p-6">
+          <h2 className="text-xl sm:text-2xl font-black uppercase italic tracking-tighter leading-tight">
+            For the person who <span className="text-primary">actually runs the place.</span>
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-3 max-w-xl">
+            The demonstration touches nothing. It runs on its own, beside your
+            day — no migration, no logins to hand over, no records to send.
+            What we need at this stage is a conversation, not your files.
+          </p>
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed mt-3 max-w-xl">
+            And when we demo it, we demo it to you — because your worst chore
+            gets built first, and if you say it stays, it stays.
           </p>
         </section>
 
