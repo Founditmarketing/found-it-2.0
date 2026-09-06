@@ -29,6 +29,39 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'my-bet',
+        nextRead: { slug: 'giving-owners-full-control', line: 'What a hundred percent looks like inside the software: the owner outranks the machine.' },
+        title: 'My Bet!',
+        seoTitle: 'My Bet — Business Owners Will Own Their Software',
+        seoDescription:
+            'Business owners are about to own their software outright — the code, the data, the whole thing — and hire the care, like a mechanical watch. The bet, said in public.',
+        date: '2026-09-06',
+        author: 'Trevor Ruby',
+        authorImage: '/trevorruby.jpeg',
+        excerpt:
+            'A friend who sells insurance spent an afternoon poking holes in my software company. He handed me my own thesis: you own the thing, you hire the care. The bet, said in public, with the losing side left in.',
+        image: '/my-bet-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">My bet &middot; said in public</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.4; opacity: 0.85; margin: 0 0 1em;">A friend who sells insurance spent an afternoon poking holes in my software company. His best shot:</p>
+<p style="font-size: clamp(20px, 3vw, 27px); font-weight: 700; font-style: italic; line-height: 1.3; margin: 1em 0; opacity: 0.95;">&ldquo;I love that protecting my customers&rsquo; information is somebody else&rsquo;s job.&rdquo;</p>
+<p style="margin: 0 0 1em;">He meant it as an objection to ownership. I think he described the experience I sell. He doesn&rsquo;t want another thing to maintain &mdash; he wants somebody competent taking care of it. Where we disagree is whether that means it shouldn&rsquo;t belong to him.</p>
+<p style="margin: 0 0 1em;">Think about a mechanical watch. You don&rsquo;t need it &mdash; and you love owning it. The feel. The familiarity. The fact that it&rsquo;s yours. You don&rsquo;t become a watchmaker. You find somebody who keeps it right.</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0;">You own the thing. You hire the care.</p>
+<p style="margin: 0 0 1em;">Nothing futuristic about that arrangement. So here&rsquo;s the bet, plainly:</p>
+<p style="font-size: clamp(26px, 4.4vw, 40px); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; color: #FF5500; margin: 1.2em 0;">Business owners are about to own their software. Outright. The code, the data, the whole thing &mdash; like the building, the trucks, the name on the sign.</p>
+<p style="margin: 0 0 1.6em;">Cheap technology just made it possible. The watch is why they&rsquo;ll want it.</p>
+<p style="margin: 0 0 1em;">Somewhere in that conversation I realized I&rsquo;d been making ownership sound like homework. Here&rsquo;s your code, congratulations on your enormous new responsibility. Who the hell wants that?</p>
+<p style="margin: 0 0 1em;">What I build is the opposite. A system fitted to how your business already works. Something aggravates you? You call the person who looks after it &mdash; they already know why it works that way. You&rsquo;re not persuading a product committee that enough other businesses share your problem. One business has it. Yours. That&rsquo;s enough.</p>
+<p style="font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.2em 0;">The luxury isn&rsquo;t how the screen looks. It&rsquo;s how little of your day you spend fighting it.</p>
+<p style="margin: 0 0 1em;">The question that could kill me: if software gets cheap as bubble gum, why need me? Well &mdash; you might not need me to <em>produce</em> software. That&rsquo;s different from not wanting what I provide. The monthly buys real work: hosting, backups, support, the improvements we agree to. And the owner keeps the property &mdash; the code, the records, everything another builder would need to take over. Otherwise &ldquo;you own it&rdquo; is just something I said to get paid.</p>
+<p style="margin: 0 0 1.6em;">The unproven part, left in on purpose: the twentieth customer getting the care that made the first one say yes. That&rsquo;s the risk.</p>
+<p style="margin: 0 0 1em;">I&rsquo;m not betting ownership becomes unavoidable. I&rsquo;m betting owners will want it &mdash; all of it. The whole watch.</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.4em 0 0;">This belongs to you.<br />We know how you like it.<br /><span style="color: #FF5500;">We take care of it.</span></p>
+`,
+    },
+    {
         slug: 'the-communication-law',
         nextRead: { slug: 'self-improving-software', line: 'The machine that lives under this law also writes its own work orders. It cannot sign them.' },
         title: 'I Just Gave My AI a Law: Say Less. Show More.',
