@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import ContactClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Contact | Found It Software',
+  title: 'Contact',
   description: 'Leave your number — Trevor calls you back. Alexandria, LA.',
   alternates: { canonical: '/contact' },
   openGraph: {

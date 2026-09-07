@@ -7,7 +7,7 @@ import EdwardsRoofingCaseStudy from './client';
    and pricing from OS_PRICING. Cory's quotes are verbatim from his
    on-camera clip — never paraphrase, never extend. */
 export const metadata: Metadata = {
-  title: 'Edwards Roofing Runs On A System It Owns | Found It Software',
+  title: 'Edwards Roofing Runs On A System It Owns',
   description:
     'Cory Edwards moved Edwards Roofing onto one system — estimates, jobs, invoices, the books. The penny-audit surfaced $195,882.75 in open receivables and caught a $19,000 bookkeeping error. He owns the code and the data.',
   alternates: { canonical: '/case-studies/edwards-roofing' },

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { TRACK_RECORD } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Media Kit | Found It Software',
+  title: 'Media Kit',
   description:
     'The official Found It Software media kit: who we are, what we build, the words, the colors, and the facts. Everything a writer, partner, or designer needs on one page.',
   alternates: { canonical: '/media' },

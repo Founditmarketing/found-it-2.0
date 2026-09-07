@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import FitClient from './client';
 
 export const metadata: Metadata = {
-  title: 'The Fit Check — 60 Seconds | Found It Software',
+  title: 'The Fit Check — 60 Seconds',
   description:
     'Five taps, one honest verdict: strong fit, borderline, or not a fit. We tell you straight either way — no typing until the end.',
   alternates: { canonical: '/fit' },

@@ -13,7 +13,7 @@ import TheAsk from '@/components/TheAsk';
    site. Adding an account = one entry in ACCOUNTS, nothing else. */
 
 export const metadata: Metadata = {
-  title: 'It Just Works — Accounts Fully in Use | Found It Software',
+  title: 'It Just Works — Accounts Fully in Use',
   description:
     'The shortest page on this site, on purpose. Businesses whose whole working day runs on a Found It OS — not sold, not building, not parallel. Confirmed by the owner, dated, receipt-linked.',
   alternates: { canonical: '/it-just-works' },

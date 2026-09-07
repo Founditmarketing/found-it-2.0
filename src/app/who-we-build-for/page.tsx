@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import WhoClient from './client';
 
 export const metadata: Metadata = {
-  title: 'For the Owner Everyone Still Has to Ask | Found It Software',
+  title: 'For the Owner Everyone Still Has to Ask',
   description:
     'Where’s that order? Did they pay? What did we promise? If too much of the system is still you, we build the system around how you run — and you own it. Owner-run, roughly $1M–$20M.',
   alternates: { canonical: '/who-we-build-for' },

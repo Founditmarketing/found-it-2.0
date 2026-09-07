@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import ThankYouClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Thank You | Found It Software',
+  title: 'Thank You',
   description: "Request received. Trevor calls you back.",
   robots: { index: false, follow: false },
 };
