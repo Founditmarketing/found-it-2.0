@@ -52,7 +52,7 @@ const faq = [
   },
   {
     q: 'If I own it, why is there a monthly fee?',
-    a: 'The monthly buys work, not permission: hosting, nightly backups, support you can call, and new features as the business grows. Stop paying and the work stops. Not your software.',
+    a: 'The monthly buys work, not permission. Care keeps it working — hosting, backups, a person who knows your system. Fitting makes ordinary adjustments. Expansion gets its own scope, agreed first. Stop paying and the work stops. Not your software.',
   },
   {
     q: 'What do I actually get if I leave?',

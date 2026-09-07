@@ -51,7 +51,7 @@ const OBJECTIONS: { q: string; a: string }[] = [
   },
   {
     q: 'What does the monthly cover?',
-    a: 'The monthly buys work, not permission: hosting, nightly backups, support you can call, and new features as the business grows. The few services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign.',
+    a: 'The monthly buys work, not permission. Care keeps the system working — hosting, nightly backups, a person you can call who knows your system. Fitting makes the ordinary adjustments as your business uses it. Expansion — substantial new capability — gets its own scope agreed before work begins. The few services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign.',
   },
   {
     q: 'What happens if I cancel?',
