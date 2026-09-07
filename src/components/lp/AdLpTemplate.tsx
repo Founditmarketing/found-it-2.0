@@ -13,6 +13,7 @@ import { AutomationReel } from '@/components/os/AutomationReel';
 import { VoiceAgentWidget } from '@/components/lp/VoiceAgentWidget';
 import { FounderByline } from '@/components/FounderByline';
 import { MessageSquare, type LucideIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { OS_PRICING } from '@/lib/site';
 import { BOOKING_URL } from '@/lib/booking';
 
@@ -60,6 +61,19 @@ interface AdLpTemplateProps {
    *  (capture_lead + after-call form + text fallback), so this is a fair
    *  re-test scoped to pages that opt in. */
   voiceHero?: boolean;
+  /** The ad's promised moment, playable first (9/7, nursery lander): a demo
+   *  mounted directly under the hero, before any mechanism talk — the
+   *  visitor watches the familiar task handled, then reads on. Same opt-in
+   *  pattern as voiceHero: pages that don't pass it render exactly as before. */
+  hookDemo?: {
+    heading: string;
+    accent: string;
+    sub: string;
+    node: ReactNode;
+    /** The complete-relationship line under the demo — the task earns
+     *  attention, this earns the price. */
+    footnote?: string;
+  };
 }
 
 const faqItems = [
@@ -98,7 +112,7 @@ const faqItems = [
   },
 ];
 
-export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: AdLpTemplateProps) {
+export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false, hookDemo }: AdLpTemplateProps) {
   return (
     // No bookingUrl on LPLayout on purpose: the sticky bar scrolls to the
     // hero FORM — the form is the primary conversion (8/14 audit).
@@ -152,6 +166,37 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false }: Ad
       {/* Proof directly under the hero — a named local business and numbers
           too specific to be invented. Specificity beats skepticism. */}
       {/* Cory proof block OFF (Trevor 9/5) */}
+
+      {/* The ad's promised moment, first (opt-in). The demo does the talking
+          before the page says another word. */}
+      {hookDemo && (
+        <section className="py-14 lg:py-20 px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.88] text-foreground mb-5">
+                {hookDemo.heading} <span className="text-primary">{hookDemo.accent}</span>
+              </h2>
+              <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+                {hookDemo.sub}
+              </p>
+            </div>
+            {hookDemo.node}
+            {hookDemo.footnote && (
+              <p className="mt-10 text-center text-base lg:text-lg font-bold text-white/90 max-w-2xl mx-auto leading-relaxed [text-wrap:balance]">
+                {hookDemo.footnote}
+              </p>
+            )}
+            <p className="text-center mt-8">
+              <a
+                href="#lp-form"
+                className="text-primary font-bold uppercase tracking-wide text-sm hover:underline"
+              >
+                See what we&apos;d fit to yours →
+              </a>
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* The mirror — make them say "that's my company" before any mechanism
           talk. Six places → one system (8/14 audit). */}
