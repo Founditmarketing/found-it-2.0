@@ -122,8 +122,10 @@ export default function DarePage() {
               <span className="font-mono text-primary font-black text-lg leading-relaxed" aria-hidden>2</span>
               <p className="text-base text-muted-foreground font-medium leading-relaxed">
                 <strong className="text-foreground">We dig in. If we take the dare, we build.</strong>{' '}
-                A working demonstration wrapped around your actual workflow —
-                real screens, your name on the door. Not a proposal.
+                You never write requirements — you bring the aggravation, we
+                work out the software. A working demonstration wrapped around
+                your actual workflow: real screens, your name on the door. Not
+                a proposal.
               </p>
             </li>
             <li className="flex gap-4">
