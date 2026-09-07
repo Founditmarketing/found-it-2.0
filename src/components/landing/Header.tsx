@@ -193,20 +193,22 @@ function MobileNavItem({
           href={link.href}
           onClick={onClose}
           className={cn(
-            'group flex items-center gap-4 py-4 px-2 rounded-2xl transition-all duration-300',
+            // Compact rows on phones (9/7): seven items + the CTA must fit an
+            // iPhone viewport without burying Blog under the button.
+            'group flex items-center gap-3 sm:gap-4 py-2.5 sm:py-4 px-2 rounded-2xl transition-all duration-300',
             'active:scale-[0.98]',
             isActive
               ? 'bg-primary/10 border border-primary/20'
               : 'hover:bg-white/5 border border-transparent'
           )}
         >
-          <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
+          <span className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
             <link.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
           </span>
           <div className="flex-1 min-w-0">
             <span
               className={cn(
-                'text-base font-semibold block',
+                'text-[15px] sm:text-base font-semibold block',
                 isActive ? 'text-primary' : 'text-foreground'
               )}
             >
@@ -232,20 +234,20 @@ function MobileNavItem({
       <button
         onClick={() => setExpanded(!expanded)}
         className={cn(
-          'w-full group flex items-center gap-4 py-4 px-2 rounded-2xl transition-all duration-300',
+          'w-full group flex items-center gap-3 sm:gap-4 py-2.5 sm:py-4 px-2 rounded-2xl transition-all duration-300',
           'active:scale-[0.98]',
           expanded
             ? 'bg-primary/10 border border-primary/20'
             : 'hover:bg-white/5 border border-transparent'
         )}
       >
-        <span className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
+        <span className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
           <link.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
         </span>
         <div className="flex-1 min-w-0 text-left">
           <span
             className={cn(
-              'text-base font-semibold block',
+              'text-[15px] sm:text-base font-semibold block',
               expanded || isActive ? 'text-primary' : 'text-foreground'
             )}
           >
@@ -570,14 +572,17 @@ export function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed inset-y-0 right-0 z-[161] w-full max-w-[380px] bg-background/95 backdrop-blur-2xl border-l border-border/20 shadow-2xl shadow-black/50 xl:hidden flex flex-col"
+              // Solid ground (9/7, Trevor's iPhone screenshot): iOS renders the
+              // translucent+blur panel with the page bleeding through, and the
+              // menu reads as broken. Opaque background, no panel blur.
+              className="fixed inset-y-0 right-0 z-[161] w-full max-w-[380px] bg-background border-l border-border/20 shadow-2xl shadow-black/50 xl:hidden flex flex-col"
             >
               {/* Decorative gradient */}
               <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/[0.06] to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-primary/[0.04] to-transparent pointer-events-none" />
 
               {/* ─── Close Button + Top Spacing ─── */}
-              <div className="h-20 shrink-0 flex items-center justify-end px-5">
+              <div className="h-14 sm:h-20 shrink-0 flex items-center justify-end px-5">
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
@@ -613,7 +618,7 @@ export function Header() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 40, opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.5, ease }}
-                className="relative z-10 p-5 border-t border-border/20 bg-background/80 backdrop-blur-xl space-y-3"
+                className="relative z-10 px-5 py-4 border-t border-border/20 bg-background space-y-2.5"
               >
                 {/* CTA */}
                 <Link
