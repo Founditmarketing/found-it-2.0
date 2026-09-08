@@ -59,7 +59,9 @@ export function ShipLog() {
           Keep Up.
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          Every line is a real thing we built &mdash; dated the day it went live.
+          The last software company you dealt with needed a month and a meeting to change a report.
+          Every line below is a real thing we built &mdash; dated the day it went live. It would
+          take a building full of people to move like this. It&rsquo;s not a building.
         </p>
       </div>
 
@@ -80,6 +82,9 @@ export function ShipLog() {
       </p>
       <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
         A machine writes this log <span className="text-foreground/70">every morning</span> while everybody sleeps
+      </p>
+      <p className="text-center text-sm lg:text-base font-bold text-foreground/85 tracking-tight mt-6 max-w-md mx-auto">
+        When the system is yours, your changes ride at this same speed.
       </p>
 
       {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes
