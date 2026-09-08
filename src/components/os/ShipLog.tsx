@@ -81,9 +81,6 @@ export function ShipLog() {
         <div className="text-primary font-black tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-none mt-4">
           ONE SHOP.
         </div>
-        <p className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-4">
-          One man at the controls
-        </p>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
@@ -98,12 +95,8 @@ export function ShipLog() {
         ))}
       </ul>
 
-      <p className="text-center font-black tracking-tight text-2xl lg:text-3xl text-foreground mt-10">
-        STILL GOING.
-      </p>
-
       {/* The skeptic's door: every entry, readable, nothing truncated. */}
-      <details className="max-w-xl mx-auto mt-8 px-6 group">
+      <details className="max-w-xl mx-auto mt-10 px-6 group">
         <summary className="cursor-pointer list-none text-center font-mono text-[11px] font-black uppercase tracking-[0.12em] text-primary select-none">
           Read the whole log <span className="group-open:hidden">↘</span><span className="hidden group-open:inline">↖</span>
         </summary>
