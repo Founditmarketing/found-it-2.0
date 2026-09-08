@@ -21,8 +21,10 @@ const ROW_B: Ship[] = LOG.filter((_, i) => i % 2 === 1);
 export const LATEST_SHIP = LOG[LOG.length - 1];
 
 const N_SYSTEM = LOG.filter((s) => s[2] === 'system').length;
-const N_CAP = LOG.filter((s) => s[2] === 'capability').length;
-const N_SITE = LOG.filter((s) => s[2] === 'site').length;
+
+/* Rebuilt on every Harbormaster push, so the day count stays true without
+   anyone touching it. */
+const DAYS = Math.max(1, Math.round((Date.now() - new Date('2026-08-14T00:00:00-05:00').getTime()) / 86400000));
 
 function Chip({ date, item }: { date: string; item: string }) {
   return (
@@ -61,9 +63,7 @@ export function ShipLog() {
           Keep Up.
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          The last software company you dealt with needed a month and a meeting to change a report.
-          Every line below is a real thing we built &mdash; dated the day it went live. It would
-          take a building full of people to move like this. It&rsquo;s not a building.
+          This should take a building full of people. It&rsquo;s not a building.
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {N_SYSTEM} systems put in hands &middot; {N_CAP} capabilities &middot; {N_SITE} site &amp; story &middot; since Aug 14
+        {N_SYSTEM} systems &middot; {DAYS} days &middot; one shop
       </p>
       <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
         A machine writes this log <span className="text-foreground/70">every morning</span> while everybody sleeps
