@@ -53,15 +53,11 @@ export function ShipLog() {
     <section id="ship-log" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-24">
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-10">
         <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5">
-          The Ship Log · Since Aug 14 · All of It Real
+          Ship Log
         </p>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
           Keep Up.
         </h2>
-        <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          Everything below shipped since August 14, and every line is live right now — on this
-          site, inside a client&rsquo;s system, or in a prospect&rsquo;s hands.
-        </p>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
@@ -77,7 +73,7 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} ships &middot; since Aug 14 &middot; <span className="text-primary">yours runs at the same pace</span>
+        {SHIPS} ships &middot; since Aug 14
       </p>
       <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
         Kept by <span className="text-foreground/70">THE HARBORMASTER</span> &mdash; a machine logs this fleet at first light
