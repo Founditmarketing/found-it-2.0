@@ -21,6 +21,11 @@ const ROW_A = [
   ['SEP 5', 'The communication law: say less, show more — sitewide'],
   ['SEP 5', 'The homepage price becomes an object'],
   ['SEP 5', 'The OS page decides it is the demo'],
+  ['SEP 5', 'A dealership demo runs serial-to-sold, books that foot'],
+  ['SEP 6', 'The Dare goes public — bring your worst problem'],
+  ['SEP 7', 'A contractor’s phone secretary answers the missed calls'],
+  ['SEP 7', 'Scan the sign, pay the space, pass on your phone'],
+  ['SEP 7', 'Roof inspections: photos up, homeowner report out'],
 ] as const;
 
 const ROW_B = [
@@ -38,6 +43,12 @@ const ROW_B = [
   ['SEP 4', 'The evidence room — status stamps on every claim'],
   ['SEP 5', 'The handover manifest — all six items, one document'],
   ['SEP 5', 'Owner Mode holds live levers on two pages'],
+  ['SEP 5', 'THE HANDSHAKE — no unit leaves before the check clears'],
+  ['SEP 6', '“My Bet!” — the ownership thesis, published'],
+  ['SEP 7', 'A billboard ledger where invoices write their own dates'],
+  ['SEP 7', 'Real payment rails built, dormant till the key turns'],
+  ['SEP 7', 'A tree service texts back in nine seconds'],
+  ['SEP 7', 'Five systems in one Labor Day — all live by dark'],
 ] as const;
 
 /** Newest entry — the About page's live strip reads it so "last ship" has
@@ -83,8 +94,8 @@ export function ShipLog() {
           Keep Up.
         </h2>
         <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          Everything below shipped in the last three weeks, and every line is live right now — on this
-          site or inside a client&rsquo;s system.
+          Everything below shipped since August 14, and every line is live right now — on this
+          site, inside a client&rsquo;s system, or in a prospect&rsquo;s hands.
         </p>
       </div>
 
@@ -101,7 +112,7 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} ships &middot; 22 days &middot; <span className="text-primary">yours runs at the same pace</span>
+        {SHIPS} ships &middot; 24 days &middot; <span className="text-primary">yours runs at the same pace</span>
       </p>
 
       {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes
