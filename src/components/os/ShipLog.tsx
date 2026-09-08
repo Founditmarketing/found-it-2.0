@@ -62,8 +62,9 @@ export function ShipLog() {
         <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4">
           Work Log
         </p>
-        <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.85] text-foreground">
-          Keep Up.
+        <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.9] text-foreground">
+          Keep up.
+          <span className="block text-primary">With me.</span>
         </h2>
 
         {/* The flex. Two huge numbers, small labels, one orange punch. */}
@@ -80,6 +81,9 @@ export function ShipLog() {
         <div className="text-primary font-black tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-none mt-4">
           ONE SHOP.
         </div>
+        <p className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-4">
+          One man at the controls
+        </p>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
