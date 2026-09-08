@@ -33,7 +33,7 @@ function Chip({ date, item }: { date: string; item: string }) {
   );
 }
 
-function Row({ items, reverse = false }: { items: ReadonlyArray<readonly [string, string]>; reverse?: boolean }) {
+function Row({ items, reverse = false }: { items: ReadonlyArray<Ship>; reverse?: boolean }) {
   // Track holds the list twice; the loop translates exactly one list-width.
   return (
     <div className="shiplog-row overflow-hidden">
