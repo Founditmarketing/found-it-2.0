@@ -53,6 +53,8 @@ export const SHIPS = [
   ['SEP 7', 'A billboard ledger where invoices write their own dates', 'system'],
   ['SEP 7', 'Real card payments wired, waiting on one key', 'capability'],
   ['SEP 7', 'A tree service texts back in nine seconds', 'system'],
+  ['SEP 7', 'A nursery lander: text order in, pull sheet out', 'site'],
+  ['SEP 7', 'The blog earns a Google preferred-source button', 'capability'],
 ] as const;
 
 export type ShipCategory = 'system' | 'capability' | 'site';
