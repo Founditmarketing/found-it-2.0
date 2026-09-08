@@ -23,11 +23,6 @@ const ROW_B: Ship[] = FEATURED.filter((_, i) => i % 2 === 1);
  *  exactly one source of truth. */
 export const LATEST_SHIP = LOG[LOG.length - 1];
 
-const N_SYSTEM = LOG.filter((s) => s[2] === 'system').length;
-
-/* Rebuilt on every Harbormaster push, so the day count stays true without
-   anyone touching it. */
-const DAYS = Math.max(1, Math.round((Date.now() - new Date('2026-08-14T00:00:00-05:00').getTime()) / 86400000));
 
 function Chip({ date, item }: { date: string; item: string }) {
   return (
@@ -66,21 +61,6 @@ export function ShipLog() {
           Keep up.
           <span className="block text-primary">With me.</span>
         </h2>
-
-        {/* The flex. Two huge numbers, small labels, one orange punch. */}
-        <div className="grid grid-cols-2 gap-6 max-w-sm sm:max-w-md mx-auto items-end mt-8">
-          <div>
-            <div className="text-[88px] sm:text-[104px] lg:text-[128px] font-black leading-[0.85] tracking-tighter text-foreground tabular-nums">{N_SYSTEM}</div>
-            <div className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-2">Systems</div>
-          </div>
-          <div>
-            <div className="text-[88px] sm:text-[104px] lg:text-[128px] font-black leading-[0.85] tracking-tighter text-foreground tabular-nums">{DAYS}</div>
-            <div className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-2">Days</div>
-          </div>
-        </div>
-        <div className="text-primary font-black tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-none mt-4">
-          ONE SHOP.
-        </div>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
@@ -111,9 +91,13 @@ export function ShipLog() {
         </ul>
       </details>
 
+      <p className="text-center font-black tracking-tight text-2xl lg:text-3xl text-foreground mt-14">
+        Your system will move like this.
+      </p>
+
       {/* Extra bottom clearance keeps the floating chat control out of the
           button's collision zone on phones. */}
-      <div className="text-center mt-14 pb-10 sm:pb-0">
+      <div className="text-center mt-6 pb-10 sm:pb-0">
         <a
           href="/dare"
           className="inline-block border border-primary/40 text-primary font-black tracking-tight rounded-full px-7 py-3.5 text-base hover:bg-primary hover:text-primary-foreground transition-colors"
