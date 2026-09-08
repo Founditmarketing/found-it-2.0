@@ -3,7 +3,12 @@
    component splits it into the two marquee rows and derives LATEST_SHIP
    from the last entry — so APPEND ONLY, newest last.
 
-   THE HARBORMASTER (daily cron, first light) appends here. Its laws:
+   THE HARBORMASTER (daily cron, first light) appends here. Entry format:
+   ['MMM D', 'dry line', category] where category is exactly one of:
+   'system' (a whole system put in someone's hands), 'capability' (a real
+   feature added to a system or the site's machinery), 'site' (site copy,
+   story, pages, presentation). Never write summary chips that re-count
+   other entries. Its laws:
    - Only real ships. A day with nothing real gets nothing written.
    - 0–3 chips per day, dates do the bragging, lines stay dry (< ~9 words).
    - Never a client, lead, or staff name. Never a dollar figure except the
@@ -12,43 +17,43 @@
      before the closing bracket. */
 
 export const SHIPS = [
-  ['AUG 14', 'The AI secretary takes her first live calls'],
-  ['AUG 16', 'The fit check starts guarding the front door'],
-  ['AUG 22', 'The automation reel — a day running itself'],
-  ['AUG 22', 'She learns to read the site out loud'],
-  ['AUG 28', 'FixFirst: type your business, it writes the fixes'],
-  ['AUG 28', 'The Owned Software Standard, in writing'],
-  ['AUG 29', 'The Record — systems publish their own receipts'],
-  ['AUG 29', 'The 8-question Software Map intake'],
-  ['AUG 29', '"Your New Employee" ships as post and ad'],
-  ['AUG 30', 'vs Grok and vs Viktor, side by side'],
-  ['AUG 30', 'The secretary takes over the link previews'],
-  ['AUG 31', 'The whole site re-cut for phones'],
-  ['SEP 1', 'The machine posts its own odds on the boss'],
-  ['SEP 1', 'The full blog catalog, back on the shelf'],
-  ['SEP 2', 'The site deletes its own bragging — 45 lines'],
-  ['SEP 2', 'The site fixes its own broken links'],
-  ['SEP 2', 'The drivable OS gets its own stage at /drive'],
-  ['SEP 3', 'The secretary learns to be interrupted'],
-  ['SEP 3', 'The About page takes its walls off'],
-  ['SEP 4', 'The Shipwright — it researches, writes the work order, and waits'],
-  ['SEP 4', 'The evidence room — status stamps on every claim'],
-  ['SEP 5', 'The communication law: say less, show more — sitewide'],
-  ['SEP 5', 'The homepage price becomes an object'],
-  ['SEP 5', 'The software page becomes the demo itself'],
-  ['SEP 5', 'The handover manifest — all six items, one document'],
-  ['SEP 5', 'Owner Mode holds live levers on two pages'],
-  ['SEP 5', 'A dealership demo, serial to sold, books balanced'],
-  ['SEP 5', 'THE HANDSHAKE — no unit leaves before the check clears'],
-  ['SEP 6', 'The Dare goes public — bring your worst problem'],
-  ['SEP 6', '"My Bet!" — the ownership thesis, published'],
-  ['SEP 7', 'A contractor’s phone secretary answers the missed calls'],
-  ['SEP 7', 'Scan the sign, pay the space, pass on your phone'],
-  ['SEP 7', 'Roof inspections: photos up, homeowner report out'],
-  ['SEP 7', 'A billboard ledger where invoices write their own dates'],
-  ['SEP 7', 'Real card payments wired, waiting on one key'],
-  ['SEP 7', 'A tree service texts back in nine seconds'],
-  ['SEP 7', 'Five systems in one Labor Day — all live by dark'],
+  ['AUG 14', 'The AI secretary takes her first live calls', 'capability'],
+  ['AUG 16', 'The fit check starts guarding the front door', 'capability'],
+  ['AUG 22', 'The automation reel — a day running itself', 'site'],
+  ['AUG 22', 'She learns to read the site out loud', 'capability'],
+  ['AUG 28', 'FixFirst: type your business, it writes the fixes', 'capability'],
+  ['AUG 28', 'The Owned Software Standard, in writing', 'site'],
+  ['AUG 29', 'The Record — systems publish their own receipts', 'capability'],
+  ['AUG 29', 'The 8-question Software Map intake', 'capability'],
+  ['AUG 29', '"Your New Employee" ships as post and ad', 'site'],
+  ['AUG 30', 'vs Grok and vs Viktor, side by side', 'site'],
+  ['AUG 30', 'The secretary takes over the link previews', 'capability'],
+  ['AUG 31', 'The whole site re-cut for phones', 'site'],
+  ['SEP 1', 'The machine posts its own odds on the boss', 'site'],
+  ['SEP 1', 'The full blog catalog, back on the shelf', 'site'],
+  ['SEP 2', 'The site deletes its own bragging — 45 lines', 'site'],
+  ['SEP 2', 'The site fixes its own broken links', 'capability'],
+  ['SEP 2', 'The drivable OS gets its own stage at /drive', 'system'],
+  ['SEP 3', 'The secretary learns to be interrupted', 'capability'],
+  ['SEP 3', 'The About page takes its walls off', 'site'],
+  ['SEP 4', 'The Shipwright — it researches, writes the work order, and waits', 'system'],
+  ['SEP 4', 'The evidence room — status stamps on every claim', 'site'],
+  ['SEP 5', 'The communication law: say less, show more — sitewide', 'site'],
+  ['SEP 5', 'The homepage price becomes an object', 'site'],
+  ['SEP 5', 'The software page becomes the demo itself', 'site'],
+  ['SEP 5', 'The handover manifest — all six items, one document', 'capability'],
+  ['SEP 5', 'Owner Mode holds live levers on two pages', 'capability'],
+  ['SEP 5', 'A dealership demo, serial to sold, books balanced', 'system'],
+  ['SEP 5', 'THE HANDSHAKE — no unit leaves before the check clears', 'capability'],
+  ['SEP 6', 'The Dare goes public — bring your worst problem', 'site'],
+  ['SEP 6', '"My Bet!" — the ownership thesis, published', 'site'],
+  ['SEP 7', 'A contractor’s phone secretary answers the missed calls', 'system'],
+  ['SEP 7', 'Scan the sign, pay the space, pass on your phone', 'system'],
+  ['SEP 7', 'Roof inspections: photos up, homeowner report out', 'capability'],
+  ['SEP 7', 'A billboard ledger where invoices write their own dates', 'system'],
+  ['SEP 7', 'Real card payments wired, waiting on one key', 'capability'],
+  ['SEP 7', 'A tree service texts back in nine seconds', 'system'],
 ] as const;
 
-export type Ship = readonly [string, string];
+export type ShipCategory = 'system' | 'capability' | 'site';
+export type Ship = readonly [string, string, ShipCategory];

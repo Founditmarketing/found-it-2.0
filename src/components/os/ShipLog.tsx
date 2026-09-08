@@ -20,7 +20,9 @@ const ROW_B: Ship[] = LOG.filter((_, i) => i % 2 === 1);
  *  exactly one source of truth. */
 export const LATEST_SHIP = LOG[LOG.length - 1];
 
-const SHIPS = LOG.length;
+const N_SYSTEM = LOG.filter((s) => s[2] === 'system').length;
+const N_CAP = LOG.filter((s) => s[2] === 'capability').length;
+const N_SITE = LOG.filter((s) => s[2] === 'site').length;
 
 function Chip({ date, item }: { date: string; item: string }) {
   return (
@@ -78,14 +80,36 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} jobs done &middot; since Aug 14
+        {N_SYSTEM} systems put in hands &middot; {N_CAP} capabilities &middot; {N_SITE} site &amp; story &middot; since Aug 14
       </p>
       <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
         A machine writes this log <span className="text-foreground/70">every morning</span> while everybody sleeps
       </p>
-      <p className="text-center text-sm lg:text-base font-bold text-foreground/85 tracking-tight mt-6 max-w-md mx-auto">
-        When the system is yours, your changes ride at this same speed.
-      </p>
+
+      {/* The skeptic's door: every entry, readable, nothing truncated. */}
+      <details className="max-w-xl mx-auto mt-8 px-6 group">
+        <summary className="cursor-pointer list-none text-center font-mono text-[11px] font-black uppercase tracking-[0.25em] text-primary select-none">
+          Read the whole log <span className="group-open:hidden">↓</span><span className="hidden group-open:inline">↑</span>
+        </summary>
+        <ul className="mt-6 space-y-2.5 text-left">
+          {[...LOG].reverse().map(([date, item, cat]) => (
+            <li key={date + item} className="flex items-baseline gap-3">
+              <span className="font-mono text-[10px] font-black tracking-[0.15em] text-primary shrink-0 w-14">{date}</span>
+              <span className="text-sm font-medium text-foreground/85 leading-snug">{item}</span>
+              <span className="ml-auto font-mono text-[9px] font-black uppercase tracking-[0.15em] text-muted-foreground/50 shrink-0">{cat === 'site' ? 'site & story' : cat}</span>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      <div className="text-center mt-10">
+        <a
+          href="/dare"
+          className="inline-block border border-primary/40 text-primary font-black tracking-tight rounded-full px-7 py-3.5 text-base hover:bg-primary hover:text-primary-foreground transition-colors"
+        >
+          Now put us to work on yours &rarr;
+        </a>
+      </div>
 
       {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes
           the `>` combinators in style text while the client doesn't, and the
