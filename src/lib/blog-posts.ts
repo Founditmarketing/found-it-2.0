@@ -34,21 +34,21 @@ export const blogPosts: Post[] = [
         title: 'We Challenged a Rented AI to a Fight.',
         seoTitle: 'Rented vs Owned — We Challenged a $500/mo AI Analyst to a Fight',
         seoDescription:
-            'A $2M/yr company runs on sixteen tools; one sale gets typed in four times. The owner rents an AI analyst to read the wreckage back. We challenged it: both run side by side on his real business, penny-matched, and he is the judge.',
+            'A seven-figure company runs on sixteen tools; one sale gets typed in four times. The owner rents an AI analyst to read the wreckage back. We challenged it: both run side by side on his real business, penny-matched, and he is the judge.',
         date: '2026-09-08',
         author: 'Trevor Ruby',
         authorImage: '/trevorruby.jpeg',
         excerpt:
-            'A business owner runs $2M a year on sixteen tools and rents an AI analyst for $500 a month to read the wreckage back to him. It’s good. I like it. So I challenged it to a fight — on his real business, penny-matched, with him as the judge. If we don’t win, he keeps what he has.',
+            'A business owner runs a seven-figure company on sixteen tools and rents an AI analyst for $500 a month to read the wreckage back to him. It’s good. I like it. So I challenged it to a fight — on his real business, penny-matched, with him as the judge. If we don’t win, he keeps what he has.',
         image: '/images/blog/the-contest-og-v1.png',
         hideHero: true,
         content: `
 <p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">The contest &middot; rented vs owned &middot; live now</p>
-<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.4; opacity: 0.85; margin: 0 0 1em;">A business owner I respect runs a two-million-dollar-a-year online training company on <strong>sixteen tools</strong>.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.4; opacity: 0.85; margin: 0 0 1em;">A business owner I respect runs a seven-figure online training company on <strong>sixteen tools</strong>.</p>
 <p style="margin: 0 0 1em;">The CRM takes the payment. Slack knows who closed it. A spreadsheet knows the commission. QuickBooks finds out eventually. One sale, typed in by hand, <strong>four times</strong>. Month-end isn&rsquo;t a report at his company &mdash; it&rsquo;s an investigation. He has a name for the pain, and it&rsquo;s a good one: <em>the seam between systems</em>.</p>
 <p style="margin: 0 0 1em;">And to live with it, he rents an AI analyst. Five hundred dollars a month, on credits, in a private Slack channel. It writes his scorecards. It answers cross-system questions by morning. And honestly? It&rsquo;s good. It even helped him fill out my onboarding questionnaire &mdash; some of the most thorough answers I&rsquo;ve ever received.</p>
 <p style="font-size: clamp(20px, 3vw, 27px); font-weight: 700; line-height: 1.3; margin: 1.2em 0;">I read those answers, decided I liked this analyst &mdash; and challenged it to a fight.</p>
-<figure style="margin: 1.6em 0 1.4em;"><img src="/images/blog/the-contest-poster-v1.png" alt="Fight poster: RENTED vs OWNED. Tale of the tape comparing the rented analyst against the owned system. If we don't win, he keeps what he has." style="width: 100%; border-radius: 12px; border: 1px solid #333; display: block;" /><figcaption style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; margin-top: 0.7em;">The fight card &middot; September 2026</figcaption></figure>
+<figure style="margin: 1.6em 0 1.4em;"><img src="/images/blog/the-contest-poster-v2.png" alt="Fight poster: RENTED vs OWNED. Tale of the tape comparing the rented analyst against the owned system. If we don't win, he keeps what he has." style="width: 100%; border-radius: 12px; border: 1px solid #333; display: block;" /><figcaption style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; margin-top: 0.7em;">The fight card &middot; September 2026</figcaption></figure>
 <p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0;">The rules &mdash; his terms, not mine.</p>
 <p style="margin: 0 0 1em;">View-only keys, handed over one system at a time. Nothing we build touches how he takes money or his certification records &mdash; those are sacred and they stay where they are. The new system runs <strong>beside</strong> everything he has, penny-matched against his own books, for as long as it takes. He declares what&rsquo;s true &mdash; not me, not a dashboard.</p>
 <p style="margin: 0 0 1em;">And the fight costs him nothing. Billing starts the day he calls it truth &mdash; not the day we start work.</p>

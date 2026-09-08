@@ -374,7 +374,7 @@ export default function HomePage() {
                   <span className="block text-6xl md:text-8xl text-primary">OWNED</span>
                 </div>
                 <p className="text-muted-foreground font-medium text-base md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
-                  We challenged a rented AI analyst to a fight on a real $2M business — side by side, penny-matched, and the fight costs him nothing. If we don&rsquo;t win, he keeps what he has.
+                  We challenged a rented AI analyst to a fight on a real seven-figure business — side by side, penny-matched, and the fight costs him nothing. If we don&rsquo;t win, he keeps what he has.
                 </p>
                 <span className="inline-flex items-center gap-2 mt-7 text-sm font-black uppercase tracking-wider text-primary">
                   Read the fight card
