@@ -53,11 +53,14 @@ export function ShipLog() {
     <section id="ship-log" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-24">
       <div className="max-w-[1000px] mx-auto px-6 text-center mb-10">
         <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5">
-          Ship Log
+          Work Log
         </p>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
           Keep Up.
         </h2>
+        <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
+          Every line is a real thing we built &mdash; dated the day it went live.
+        </p>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
@@ -73,10 +76,10 @@ export function ShipLog() {
       </ul>
 
       <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {SHIPS} ships &middot; since Aug 14
+        {SHIPS} jobs done &middot; since Aug 14
       </p>
       <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
-        Kept by <span className="text-foreground/70">THE HARBORMASTER</span> &mdash; a machine logs this fleet at first light
+        A machine writes this log <span className="text-foreground/70">every morning</span> while everybody sleeps
       </p>
 
       {/* dangerouslySetInnerHTML, not a text child: the server HTML-escapes

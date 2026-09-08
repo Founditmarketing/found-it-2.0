@@ -157,7 +157,7 @@ const SCARS = [
 /* ─── The four truths — one source, rendered twice (phone deck / sm+ grid) ─── */
 const TRUTHS = [
   { k: 'The nightly check', line: 'Every Found It system reconciles its own books every night, and the habit is public.', cta: 'Open The Record', href: '/the-record' },
-  { k: 'The ship log', line: `${LATEST_SHIP[1]} — shipped ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
+  { k: 'The work log', line: `${LATEST_SHIP[1]} — done ${LATEST_SHIP[0]}.`, cta: 'See what changed', href: '/#ship-log' },
   { k: 'A machine you can drive', line: 'A working demo OS — sample data, live behavior. Ring a sale. Try to edit the books.', cta: 'Drive it', href: '/drive' },
   { k: 'The deal itself', line: 'Own the code and the data, month to month, six-item handover if you ever leave.', cta: 'Read the standard', href: '/owned-software' },
 ];
