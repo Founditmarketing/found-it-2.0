@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from '@/components/blog/ClientSideFormattedDate';
 import { FounderByline } from '@/components/FounderByline';
+import { PreferredSourceBadge } from '@/components/blog/PreferredSourceBadge';
 import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema';
 
 /* The live AI secretary, for posts that opt in via `voice` on the post
@@ -216,6 +217,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </div>
         </aside>
       )}
+      <PreferredSourceBadge />
     </main>
   );
 }

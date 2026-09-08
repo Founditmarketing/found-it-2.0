@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { ClientSideFormattedDate } from './ClientSideFormattedDate';
+import { PreferredSourceBadge } from './PreferredSourceBadge';
 
 /**
  * The reading room (9/3 redesign — Trevor: "not memorable, just a list of
@@ -173,6 +174,8 @@ export function BlogList() {
           </Link>
         ))}
       </div>
+
+      <PreferredSourceBadge />
     </div>
   );
 }
