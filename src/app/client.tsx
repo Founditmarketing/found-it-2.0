@@ -347,6 +347,45 @@ export default function HomePage() {
           things is too much and i like the new one") — one marquee max. */}
       <ShipLog />
 
+      {/* ═══ THE CONTEST — rented vs owned, the live fight (9/8).
+          Anonymous on the prospect (Stephen stays private); links the
+          fight-card blog post. ═══ */}
+      <section className="relative py-16 md:py-24">
+        <div className="max-w-[900px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+          >
+            <Link
+              href="/blog/the-contest"
+              className="group block rounded-2xl border border-white/15 hover:border-primary/60 transition-colors overflow-hidden"
+            >
+              <div className="px-6 py-10 md:px-12 md:py-14 text-center bg-[radial-gradient(ellipse_at_top,rgba(255,85,0,0.08),transparent_60%)]">
+                <div className="font-mono text-[11px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">
+                  Live now · one real business · the owner is the judge
+                </div>
+                <div className="font-black tracking-tighter leading-[0.85]">
+                  <span className="block text-5xl md:text-7xl text-foreground">RENTED</span>
+                  <span className="inline-block my-2 md:my-3 bg-primary text-primary-foreground font-black text-lg md:text-2xl px-3 py-0.5 -rotate-3">
+                    VS
+                  </span>
+                  <span className="block text-6xl md:text-8xl text-primary">OWNED</span>
+                </div>
+                <p className="text-muted-foreground font-medium text-base md:text-lg max-w-md mx-auto mt-6 leading-relaxed">
+                  We challenged a rented AI analyst to a fight on a real $2M business — side by side, penny-matched, and the fight costs him nothing. If we don&rsquo;t win, he keeps what he has.
+                </p>
+                <span className="inline-flex items-center gap-2 mt-7 text-sm font-black uppercase tracking-wider text-primary">
+                  Read the fight card
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ═══════════════════════════════════════════
           ASK THE OS — the demo beat, self-serve.
           PHONE-HIDDEN (Trevor 9/5: "home page on cell communicates a vibe

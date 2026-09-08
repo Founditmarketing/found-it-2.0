@@ -29,6 +29,40 @@ export type Post = {
 
 export const blogPosts: Post[] = [
     {
+        slug: 'the-contest',
+        nextRead: { slug: 'my-bet', line: 'The thesis under this fight, said in public with the losing side left in.' },
+        title: 'We Challenged a Rented AI to a Fight.',
+        seoTitle: 'Rented vs Owned — We Challenged a $500/mo AI Analyst to a Fight',
+        seoDescription:
+            'A $2M/yr company runs on sixteen tools; one sale gets typed in four times. The owner rents an AI analyst to read the wreckage back. We challenged it: both run side by side on his real business, penny-matched, and he is the judge.',
+        date: '2026-09-08',
+        author: 'Trevor Ruby',
+        authorImage: '/trevorruby.jpeg',
+        excerpt:
+            'A business owner runs $2M a year on sixteen tools and rents an AI analyst for $500 a month to read the wreckage back to him. It’s good. I like it. So I challenged it to a fight — on his real business, penny-matched, with him as the judge. If we don’t win, he keeps what he has.',
+        image: '/images/blog/the-contest-og-v1.png',
+        hideHero: true,
+        content: `
+<p style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 3px; color: #FF5500; text-transform: uppercase; margin: 0 0 1.6em;">The contest &middot; rented vs owned &middot; live now</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.4; opacity: 0.85; margin: 0 0 1em;">A business owner I respect runs a two-million-dollar-a-year online training company on <strong>sixteen tools</strong>.</p>
+<p style="margin: 0 0 1em;">The CRM takes the payment. Slack knows who closed it. A spreadsheet knows the commission. QuickBooks finds out eventually. One sale, typed in by hand, <strong>four times</strong>. Month-end isn&rsquo;t a report at his company &mdash; it&rsquo;s an investigation. He has a name for the pain, and it&rsquo;s a good one: <em>the seam between systems</em>.</p>
+<p style="margin: 0 0 1em;">And to live with it, he rents an AI analyst. Five hundred dollars a month, on credits, in a private Slack channel. It writes his scorecards. It answers cross-system questions by morning. And honestly? It&rsquo;s good. It even helped him fill out my onboarding questionnaire &mdash; some of the most thorough answers I&rsquo;ve ever received.</p>
+<p style="font-size: clamp(20px, 3vw, 27px); font-weight: 700; line-height: 1.3; margin: 1.2em 0;">I read those answers, decided I liked this analyst &mdash; and challenged it to a fight.</p>
+<figure style="margin: 1.6em 0 1.4em;"><img src="/images/blog/the-contest-poster-v1.png" alt="Fight poster: RENTED vs OWNED. Tale of the tape comparing the rented analyst against the owned system. If we don't win, he keeps what he has." style="width: 100%; border-radius: 12px; border: 1px solid #333; display: block;" /><figcaption style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; margin-top: 0.7em;">The fight card &middot; September 2026</figcaption></figure>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.2em 0;">The rules &mdash; his terms, not mine.</p>
+<p style="margin: 0 0 1em;">View-only keys, handed over one system at a time. Nothing we build touches how he takes money or his certification records &mdash; those are sacred and they stay where they are. The new system runs <strong>beside</strong> everything he has, penny-matched against his own books, for as long as it takes. He declares what&rsquo;s true &mdash; not me, not a dashboard.</p>
+<p style="margin: 0 0 1em;">And the fight costs him nothing. Billing starts the day he calls it truth &mdash; not the day we start work.</p>
+<p style="font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin: 1.2em 0; color: #FF5500;">If we don&rsquo;t win, he keeps what he has.</p>
+<p style="font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 1.4em 0;">Why I think we win.</p>
+<p style="margin: 0 0 1em;">The analyst <em>reads</em>. It can&rsquo;t write into a single one of his tools. It isn&rsquo;t the record of anything. Every answer it gives him is a narration of numbers a human typed in four times. It&rsquo;s a brilliant commentator on a broken game.</p>
+<p style="margin: 0 0 1em;">We&rsquo;re not building a better reader. We&rsquo;re removing the thing it has to read around &mdash; the seam. When a sale lands <strong>once</strong>, with the closer and the commission already attached, month-end stops being an investigation and becomes a report. An analyst narrating a clean ledger beats an analyst narrating chaos.</p>
+<p style="margin: 0 0 1em;">And here&rsquo;s the part I love: the rented analyst can&rsquo;t take this bet. It can&rsquo;t run beside anything &mdash; it lives on somebody else&rsquo;s server, on somebody else&rsquo;s credits, and the day the subscription stops, it never existed. The only seat it can take in this fight is the commentary booth.</p>
+<p style="font-size: clamp(26px, 4.4vw, 40px); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; margin: 1.3em 0;">Rent the commentary &mdash; or own the record.</p>
+<p style="margin: 0 0 1em;">This is the fight I want to have a hundred times, with a hundred owners, and I&rsquo;m glad the first opponent is a good one. The contest is running now, on a real business, and I&rsquo;ll post the result either way &mdash; that part is the point.</p>
+<p style="margin: 0 0 1em;">Got a rented brain reading your wreckage back to you? <a href="/dare" style="color: #FF5500; font-weight: 700;">Name your worst problem.</a> We&rsquo;ll build the fix before you owe us a dollar &mdash; and then you can judge your own fight.</p>
+`,
+    },
+    {
         slug: 'my-bet',
         nextRead: { slug: 'giving-owners-full-control', line: 'What a hundred percent looks like inside the software: the owner outranks the machine.' },
         title: 'My Bet!',
