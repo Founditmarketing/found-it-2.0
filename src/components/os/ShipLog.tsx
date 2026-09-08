@@ -11,10 +11,13 @@
 import { SHIPS as LOG, type Ship } from './harbormaster-log';
 
 /* The flat chronological log lives in harbormaster-log.ts (THE HARBORMASTER —
-   the daily first-light cron — appends there). The two marquee rows are an
-   alternating split so both stay balanced as the log grows. */
-const ROW_A: Ship[] = LOG.filter((_, i) => i % 2 === 0);
-const ROW_B: Ship[] = LOG.filter((_, i) => i % 2 === 1);
+   the daily first-light cron — appends there). The moving tracks feature only
+   the heavyweight work (systems + capabilities); site-and-story entries live
+   in the full log below, so the record hides nothing and the tracks carry
+   only finished output. Alternating split keeps both tracks balanced. */
+const FEATURED: Ship[] = LOG.filter((s) => s[2] !== 'site');
+const ROW_A: Ship[] = FEATURED.filter((_, i) => i % 2 === 0);
+const ROW_B: Ship[] = FEATURED.filter((_, i) => i % 2 === 1);
 
 /** Newest entry — the About page's live strip reads it so "last ship" has
  *  exactly one source of truth. */
@@ -28,9 +31,9 @@ const DAYS = Math.max(1, Math.round((Date.now() - new Date('2026-08-14T00:00:00-
 
 function Chip({ date, item }: { date: string; item: string }) {
   return (
-    <span className="inline-flex items-center gap-3 shrink-0 border border-border/25 bg-card/15 rounded-full pl-4 pr-5 py-2.5 whitespace-nowrap">
-      <span className="font-mono text-[10px] font-black tracking-[0.2em] text-primary">{date}</span>
-      <span className="text-sm font-bold text-foreground/85 tracking-tight">{item}</span>
+    <span className="inline-flex items-center gap-3 shrink-0 border border-border/40 bg-card/25 rounded-[3px] pl-3.5 pr-4 py-2 whitespace-nowrap">
+      <span className="font-mono text-[10px] font-black tracking-[0.18em] text-primary">{date}</span>
+      <span className="text-[15px] font-bold text-foreground tracking-tight">{item}</span>
     </span>
   );
 }
@@ -54,17 +57,29 @@ function Row({ items, reverse = false }: { items: ReadonlyArray<Ship>; reverse?:
 
 export function ShipLog() {
   return (
-    <section id="ship-log" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-24">
-      <div className="max-w-[1000px] mx-auto px-6 text-center mb-10">
-        <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-5">
+    <section id="ship-log" className="relative pt-10 pb-24 lg:pt-14 lg:pb-28 overflow-hidden scroll-mt-24">
+      <div className="max-w-[1000px] mx-auto px-6 text-center mb-8">
+        <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4">
           Work Log
         </p>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.88] text-foreground mb-5">
+        <h2 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-[0.85] text-foreground">
           Keep Up.
         </h2>
-        <p className="text-muted-foreground font-medium text-base lg:text-lg max-w-xl mx-auto leading-relaxed">
-          This should take a building full of people. It&rsquo;s not a building.
-        </p>
+
+        {/* The flex. Two huge numbers, small labels, one orange punch. */}
+        <div className="grid grid-cols-2 gap-6 max-w-sm sm:max-w-md mx-auto items-end mt-8">
+          <div>
+            <div className="text-[88px] sm:text-[104px] lg:text-[128px] font-black leading-[0.85] tracking-tighter text-foreground tabular-nums">{N_SYSTEM}</div>
+            <div className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-2">Systems</div>
+          </div>
+          <div>
+            <div className="text-[88px] sm:text-[104px] lg:text-[128px] font-black leading-[0.85] tracking-tighter text-foreground tabular-nums">{DAYS}</div>
+            <div className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mt-2">Days</div>
+          </div>
+        </div>
+        <div className="text-primary font-black tracking-tighter text-4xl sm:text-5xl lg:text-6xl leading-none mt-4">
+          ONE SHOP.
+        </div>
       </div>
 
       {/* The moving rows are decoration to a screen reader; the sr-only list
@@ -79,17 +94,14 @@ export function ShipLog() {
         ))}
       </ul>
 
-      <p className="text-center font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-muted-foreground mt-10">
-        {N_SYSTEM} systems &middot; {DAYS} days &middot; one shop
-      </p>
-      <p className="text-center font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground/60 mt-3">
-        A machine writes this log <span className="text-foreground/70">every morning</span> while everybody sleeps
+      <p className="text-center font-black tracking-tight text-2xl lg:text-3xl text-foreground mt-10">
+        STILL GOING.
       </p>
 
       {/* The skeptic's door: every entry, readable, nothing truncated. */}
       <details className="max-w-xl mx-auto mt-8 px-6 group">
-        <summary className="cursor-pointer list-none text-center font-mono text-[11px] font-black uppercase tracking-[0.25em] text-primary select-none">
-          Read the whole log <span className="group-open:hidden">↓</span><span className="hidden group-open:inline">↑</span>
+        <summary className="cursor-pointer list-none text-center font-mono text-[11px] font-black uppercase tracking-[0.12em] text-primary select-none">
+          Read the whole log <span className="group-open:hidden">↘</span><span className="hidden group-open:inline">↖</span>
         </summary>
         <ul className="mt-6 space-y-2.5 text-left">
           {[...LOG].reverse().map(([date, item, cat]) => (
@@ -102,7 +114,9 @@ export function ShipLog() {
         </ul>
       </details>
 
-      <div className="text-center mt-10">
+      {/* Extra bottom clearance keeps the floating chat control out of the
+          button's collision zone on phones. */}
+      <div className="text-center mt-14 pb-10 sm:pb-0">
         <a
           href="/dare"
           className="inline-block border border-primary/40 text-primary font-black tracking-tight rounded-full px-7 py-3.5 text-base hover:bg-primary hover:text-primary-foreground transition-colors"
