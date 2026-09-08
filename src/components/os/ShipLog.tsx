@@ -92,7 +92,7 @@ export function ShipLog() {
       </details>
 
       <p className="text-center font-black tracking-tight text-2xl lg:text-3xl text-foreground mt-14">
-        Your system will move like this.
+        Your business will move like this.
       </p>
 
       {/* Extra bottom clearance keeps the floating chat control out of the
