@@ -35,7 +35,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat. Office and every crew included. Month-to-month. Cancel anytime and the system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included. Flat. Office and every crew included. Month-to-month. Cancel anytime and the system stays yours.`,
   },
   {
     question: 'Do I have to drop my current CRM on day one?',
@@ -81,7 +81,7 @@ export function RoofingLPContent() {
         formPageSlug="roofing"
         formQualify
         formFitGate
-        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo, setup included. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
       {/* Proof directly under the hero — he's a ROOFER on the roofing page:
@@ -136,7 +136,7 @@ export function RoofingLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
           },
         ]}
       />
@@ -152,7 +152,7 @@ export function RoofingLPContent() {
         benefits={[
           'We come to your shop or site, in person, free',
           'You see the app we’d build if we owned your roofing company',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Office and crews included`,
+          `The price is public: ${OS_PRICING.monthly}/mo, setup included. Office and crews included`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_roofing"

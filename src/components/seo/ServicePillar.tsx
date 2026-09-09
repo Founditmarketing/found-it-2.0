@@ -64,7 +64,7 @@ export interface PillarData {
   /** Compact trust block sourced from /security facts. */
   trust?: { headline: string; headlineAccent: string; items: { title: string; detail: string }[] };
   /** The offer as a decisive card instead of a paragraph. */
-  offerCard?: { monthly: string; setup: string; bullets: string[]; promise: string; kicker: string };
+  offerCard?: { monthly: string; bullets: string[]; promise: string; kicker: string };
   /* included/approach optional since 9/5 (Trevor: the flagship "can't decide
      what it is... if it's a demo then that's what it needs to be") — the demo
      page drops the informational sections; SEO pillar pages keep them. */
@@ -510,7 +510,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 {data.offerCard.monthly}<span className="text-xl text-muted-foreground font-bold">/month</span>
               </p>
               <p className="text-base font-bold text-muted-foreground mt-1 mb-6">
-                + {data.offerCard.setup} once, for migration and setup
+                Setup included
               </p>
               <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 mb-7">
                 {data.offerCard.bullets.map((bLine) => (

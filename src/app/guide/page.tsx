@@ -14,7 +14,7 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: `The Found It OS Guide — What You Get, the Price, and How a Fitting Works (Free PDF)`,
   description:
-    `Free 4-page PDF: what one custom system replaces, the whole price printed (${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}), how a fitting works, and the one job the system is built for: ${OS_PRICING.promise} Plain English, 2-minute read.`,
+    `Free 4-page PDF: what one custom system replaces, the whole price printed (${OS_PRICING.monthly}/mo, setup included), how a fitting works, and the one job the system is built for: ${OS_PRICING.promise} Plain English, 2-minute read.`,
   alternates: { canonical: '/guide' },
   openGraph: {
     title: `The Found It OS Guide — What You Get, the Price, and How a Fitting Works (Free PDF)`,
@@ -46,7 +46,7 @@ export default function GuidePage() {
         <p className="text-lg sm:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl">
           The one question every owner asks before a fitting — answered in four pages of plain
           English. What one custom system replaces, the whole price printed ({OS_PRICING.monthly}
-          /mo plus {OS_PRICING.setup} {OS_PRICING.setupLabel}), how the fitting works, and the one
+          /mo, setup included), how the fitting works, and the one
           job the system is built for: <span className="text-foreground font-bold">{OS_PRICING.promise}</span>{' '}
           The case studies on this site are Louisiana businesses running
           systems they own today. Read it in two minutes, hand it to your business partner.

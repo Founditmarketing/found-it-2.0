@@ -115,7 +115,7 @@ const faq = [
   },
   {
     q: 'What does the owned version cost?',
-    a: `${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} for migration and setup, month to month. The monthly buys upkeep — backups, support, new features — not access. The system is already yours.`,
+    a: `${OS_PRICING.monthly} a month, setup included, month to month. The monthly buys upkeep — backups, support, new features — not access. The system is already yours.`,
   },
 ];
 

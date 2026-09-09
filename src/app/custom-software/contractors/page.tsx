@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Contractor Job Management Software You Own | Found It OS',
   description:
-    `Contractor job management software you own. Jobs, customers, and service reminders in one system. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `Contractor job management software you own. Jobs, customers, and service reminders in one system. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/contractors' },
   openGraph: {
     title: 'Contractor Job Management Software You Own | Found It Software',
     description:
-      `One system for your whole field operation. Fitted to how your crews run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `One system for your whole field operation. Fitted to how your crews run jobs, proven beside the old way first, and yours forever. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/contractors',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Contractor Job Management Software',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS for contractors is custom job management software fitted to one contracting business at a time. Jobs, customers, scheduling, estimates, invoices, annual service reminders, and website leads in one system the contractor owns outright. Old records are migrated in. Nothing switches until the new system runs beside the old way and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `Found It OS for contractors is custom job management software fitted to one contracting business at a time. Jobs, customers, scheduling, estimates, invoices, annual service reminders, and website leads in one system the contractor owns outright. Old records are migrated in. Nothing switches until the new system runs beside the old way and matches it. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Found It OS · Contractors',
   headline: 'Contractor Job Management',
   headlineAccent: 'Software You Own Outright.',
@@ -164,7 +163,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-truck fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. No per-truck fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
   whyUsHeading: 'Why Contractors Choose Found It OS',
   whyUs: [
     'A field-service system we built is live in production today.',
@@ -196,7 +195,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. It does not grow when you add a truck or hire another tech.`,
+        `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. It does not grow when you add a truck or hire another tech.`,
     },
     {
       question: 'Who owns the system?',

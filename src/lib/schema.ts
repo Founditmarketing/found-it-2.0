@@ -171,7 +171,7 @@ export interface ServiceOffer {
   priceCurrency: string;
   /** UN/CEFACT unit code, e.g. 'MON' for per-month. Omit for one-time fees. */
   unitCode?: string;
-  /** Label for the line item, e.g. OS_PRICING.setupLabel. */
+  /** Label for the line item, e.g. OS_PRICING.monthlyLabel. */
   name?: string;
 }
 

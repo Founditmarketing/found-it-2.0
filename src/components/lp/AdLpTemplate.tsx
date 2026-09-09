@@ -25,7 +25,7 @@ import { BOOKING_URL } from '@/lib/booking';
    test = one thin content.tsx passing hero copy, never a copied page.
    Claims stay inside the doctrine: the money-back guarantee was retired
    8/14 (the offer line is OS_PRICING.promise, verbatim),
-   sanctioned numbers only ($3,000/$2,000, 30-minute call, Cory Edwards'
+   sanctioned numbers only ($3,000 — setup included, no separate fee — 30-minute call, Cory Edwards'
    $195,882.75 / $19,000 — customer counts retired 8/16, never reintroduce
    one), no "Zoom" anywhere — the booking page delivers Google Meet, so
    copy says "video call".
@@ -84,7 +84,7 @@ const faqItems = [
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime. The system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included. Month-to-month. Cancel anytime. The system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current software on day one?',
@@ -322,7 +322,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false, hook
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. Cancel anytime. The system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month. Cancel anytime. The system stays yours.`,
           },
         ]}
       />
@@ -345,7 +345,7 @@ export function AdLpTemplate({ hero, slug, sourcePrefix, voiceHero = false, hook
           'We walk your business with you, live, screen-shared',
           'You see the app we’d build if we owned your company. Add to it or take away',
           "A handful of new fittings a month, one business at a time. If it's not a fit, we tell you straight",
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. No surprises at the end`,
+          `The price is public: ${OS_PRICING.monthly}/mo, setup included. No surprises at the end`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source={`${sourcePrefix}_footer`}

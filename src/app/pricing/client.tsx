@@ -48,14 +48,6 @@ export default function PricingClient() {
             <span className="text-2xl lg:text-3xl text-muted-foreground font-bold not-italic tracking-tight">/mo</span>
           </motion.h1>
           <motion.p
-            {...enter(0.22)}
-            className="mt-4 text-3xl sm:text-4xl font-black italic tracking-tighter text-foreground tabular-nums leading-none"
-          >
-            <span className="text-faint font-bold not-italic">+</span> {OS_PRICING.setup}
-            <span className="text-base text-muted-foreground font-bold not-italic tracking-tight"> setup &middot; once</span>
-          </motion.p>
-
-          <motion.p
             {...enter(0.38)}
             className="mt-12 text-2xl sm:text-3xl lg:text-4xl font-black italic tracking-tighter leading-[1.05] text-foreground max-w-2xl mx-auto"
           >
@@ -66,7 +58,7 @@ export default function PricingClient() {
             {...enter(0.5)}
             className="mt-10 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground"
           >
-            Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
+            Setup Included &middot; Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
           </motion.p>
           <motion.p
             {...enter(0.58)}

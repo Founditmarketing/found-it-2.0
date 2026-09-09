@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Independent Dealership Software You Own Outright | Found It',
   description:
-    `Dealership software you own. Inventory, website, service, and rentals in one system. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `Dealership software you own. Inventory, website, service, and rentals in one system. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/car-dealerships' },
   openGraph: {
     title: 'Independent Dealership Software You Own Outright | Found It Software',
     description:
-      `One system for the whole lot. Inventory, website, sales desk, service, and rentals. Fitted to your lot, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `One system for the whole lot. Inventory, website, sales desk, service, and rentals. Fitted to your lot, and yours forever. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/car-dealerships',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Dealership Software & DMS',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom dealership software for independent car dealers. Inventory, website, sales desk, service department, and rentals in one system the dealer owns outright. Old records are migrated in. Built one dealership at a time by Found It Software in Alexandria, LA. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `Custom dealership software for independent car dealers. Inventory, website, sales desk, service department, and rentals in one system the dealer owns outright. Old records are migrated in. Built one dealership at a time by Found It Software in Alexandria, LA. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Custom Software · Car Dealerships',
   headline: 'Stop Renting Your Own',
   headlineAccent: 'Inventory Pages.',
@@ -164,7 +163,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. That covers the fitting, your records migrated in, the website, backups, and support. No per-listing fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Dealers Choose Found It OS',
   whyUs: [
     'We are building a full dealership platform right now, sales, service, and rentals in one system, for a Louisiana independent dealer.',
@@ -201,7 +200,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-listing fees. Major additions are scoped in writing before work begins.`,
+        `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-listing fees. Major additions are scoped in writing before work begins.`,
     },
     {
       question: 'Do I need a technical person on staff?',

@@ -64,7 +64,7 @@ const faq = [
   },
   {
     q: 'So what am I actually paying for if AI writes code?',
-    a: `The finish line. A fitting done in person, your history migrated in, books tied to the bank, a parallel run against your old system until the numbers match night after night, and a human on the hook afterward. ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} for migration and setup — and you own the code and the data outright.`,
+    a: `The finish line. A fitting done in person, your history migrated in, books tied to the bank, a parallel run against your old system until the numbers match night after night, and a human on the hook afterward. ${OS_PRICING.monthly} a month, setup included — and you own the code and the data outright.`,
   },
   {
     q: 'What happens to a DIY system when the owner gets busy?',

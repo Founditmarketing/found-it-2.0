@@ -45,7 +45,7 @@ const faq = [
   },
   {
     q: 'Is owned software more expensive than SaaS?',
-    a: `Most established businesses already pay several hundred to several thousand dollars a month across their rented seats. Owned software from Found It is ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} one-time migration and setup, month to month, and at the end you own the asset instead of a cancellation email.`,
+    a: `Most established businesses already pay several hundred to several thousand dollars a month across their rented seats. Owned software from Found It is ${OS_PRICING.monthly} a month, setup included, month to month, and at the end you own the asset instead of a cancellation email.`,
   },
   {
     q: 'How do I tell which one I have?',

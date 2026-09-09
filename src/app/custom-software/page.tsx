@@ -5,12 +5,12 @@ import { AWARD, OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Custom Business Software You Own — Built for Small Business',
   description:
-    `Custom business software built for one business at a time — you own it outright, records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `Custom business software built for one business at a time — you own it outright, records migrated in. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software' },
   openGraph: {
     title: 'Custom Business Software — Fitted to One Business at a Time | Found It Software',
     description:
-      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records migrated in. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month — cancel anytime, and the system stays yours.`,
+      `Custom AI-powered operating systems fitted to your business — your jobs, your register, your customer book — with your records migrated in. ${OS_PRICING.monthly}/mo, setup included. Month-to-month — cancel anytime, and the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Business Software Development',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are migrated in, and nothing switches until the new system has run beside the old one and matched it. First working screens in days, not quarters; cutover only after the parallel run proves it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup — built to simplify the owner’s life and make the business more profitable.`,
+    `Custom AI-powered business operating systems built one business at a time — the register, the dispatch board, the customer book, the jobs, and the website in a single system the client owns outright. Years of existing records are migrated in, and nothing switches until the new system has run beside the old one and matched it. First working screens in days, not quarters; cutover only after the parallel run proves it. ${OS_PRICING.monthly} per month, setup included — built to simplify the owner’s life and make the business more profitable.`,
   eyebrow: 'Custom Software',
   // 8/18 audit: the old accent ("not for an industry") argued with our own
   // industry pages. The enemy is the AVERAGE company, not the vertical.
@@ -169,7 +168,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'The Price Is on the Website',
   pricing:
-    `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill, published right here — no “call for pricing,” no per-seat fees. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
+    `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill, published right here — no “call for pricing,” no per-seat fees. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Businesses Choose Found It',
   whyUs: [
     `Real local businesses running or being fitted on their own systems right now.`,
@@ -184,7 +183,7 @@ const data: PillarData = {
     {
       question: 'What does custom business software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup — the whole price, published on this site. Traditional custom development prices a single local business out of the market; Found It OS is the same ownership at a price you can read before you ever pick up the phone.`,
+        `${OS_PRICING.monthly} a month, setup included — the whole price, published on this site. Traditional custom development prices a single local business out of the market; Found It OS is the same ownership at a price you can read before you ever pick up the phone.`,
     },
     {
       question: 'Is this an alternative to Tekmetric, ShedSuite, or Buildertrend?',

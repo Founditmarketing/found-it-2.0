@@ -65,7 +65,7 @@ const fineDetail: { title: string; detail: string }[] = [
   {
     title: 'Why not the cheapest option',
     detail:
-      `The price is printed: ${OS_PRICING.monthly} a month plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. If cheapest is the goal, we are not it. We would rather say that now.`,
+      `The price is printed: ${OS_PRICING.monthly} a month, setup included. If cheapest is the goal, we are not it. We would rather say that now.`,
   },
 ];
 
@@ -196,7 +196,7 @@ export default function WhoClient() {
           className="mb-10"
         >
           <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2">
-            {OS_PRICING.monthly}/mo + {OS_PRICING.setup} setup &middot; Month-to-Month &middot; Printed on Purpose
+            {OS_PRICING.monthly}/mo &middot; Setup Included &middot; Month-to-Month &middot; Printed on Purpose
           </p>
           <p className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint">
             No Restaurants &middot; No Payroll &middot; No Tax Filing &middot; No Trust Accounting &middot; Ever

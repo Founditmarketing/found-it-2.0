@@ -33,11 +33,11 @@ const faqItems = [
   {
     question: 'Our part prices in QuickBooks are years old. Is that a problem?',
     answer:
-      "It's the normal starting point. We load your current price files and reprice the catalog at your margin during the fitting. That's what the setup fee pays for.",
+      "It's the normal starting point. We load your current price files and reprice the catalog at your margin during the fitting. That's part of setup, and setup is included.",
   },
   {
     question: 'What does it cost?',
-    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Flat. Every counter seat and location included. Month-to-month. Cancel anytime and the system stays yours.`,
+    answer: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included. Flat. Every counter seat and location included. Month-to-month. Cancel anytime and the system stays yours.`,
   },
   {
     question: 'Do I have to switch off my current system on day one?',
@@ -83,7 +83,7 @@ export function DealershipLPContent() {
         formPageSlug="dealership"
         formQualify
         formFitGate
-        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Month-to-month. One job: ${OS_PRICING.promise}`}
+        formPrivacyNote={`The price is public: ${OS_PRICING.monthly}/mo, setup included. Month-to-month. One job: ${OS_PRICING.promise}`}
       />
 
       {/* Proof directly under the hero — a named local business and numbers
@@ -138,7 +138,7 @@ export function DealershipLPContent() {
           {
             number: '03',
             title: 'You Own It',
-            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
           },
         ]}
       />
@@ -154,7 +154,7 @@ export function DealershipLPContent() {
         benefits={[
           'We come to your dealership, in person, free',
           'You see the app we’d build if we owned your dealership',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. Every seat included`,
+          `The price is public: ${OS_PRICING.monthly}/mo, setup included. Every seat included`,
           `Month-to-month. One job: ${OS_PRICING.promise}`,
         ]}
         source="lp_dealership"

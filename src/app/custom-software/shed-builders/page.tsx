@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Shed Builder Software You Own - ShedSuite Alternative',
   description:
-    `Shed builder software you own outright. Orders, dealer lots, build queue, delivery, rent-to-own. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `Shed builder software you own outright. Orders, dealer lots, build queue, delivery, rent-to-own. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/shed-builders' },
   openGraph: {
     title: 'Shed Builder Software You Own Outright | Found It Software',
     description:
-      `One system for your whole yard. Orders, dealer lots, build queue, delivery, and rent-to-own. Fitted to how you run, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `One system for your whole yard. Orders, dealer lots, build queue, delivery, and rent-to-own. Fitted to how you run, and yours forever. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/shed-builders',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Shed Builder & Portable Building Dealer Software',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom operating system for shed builders and portable building dealers. Orders, dealer lots, build queue, delivery scheduling, and rent-to-own tracking in one system the business owns outright. An alternative to renting ShedSuite-class software with per-unit fees. Records are migrated in, and nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `Custom operating system for shed builders and portable building dealers. Orders, dealer lots, build queue, delivery scheduling, and rent-to-own tracking in one system the business owns outright. An alternative to renting ShedSuite-class software with per-unit fees. Records are migrated in, and nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Found It OS · Shed Builders',
   headline: 'Stop Paying Rent on',
   headlineAccent: 'Every Building You Sell.',
@@ -165,7 +164,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. No per-unit or per-lot fees. Month-to-month, and the system stays yours, code and data. One job: ${OS_PRICING.promise}`,
   whyUsHeading: 'Why Shed Builders Choose Found It OS',
   whyUs: [
     'We built this for a Texas shed manufacturer replacing a ShedSuite-class system, Phase 1 verified end-to-end.',
@@ -182,7 +181,7 @@ const data: PillarData = {
     {
       question: 'Do you charge per building like other shed software?',
       answer:
-        `No. The price is published and flat: ${OS_PRICING.monthly} a month plus a one-time ${OS_PRICING.setup} for migration and setup. Sell ten buildings or a hundred, the price does not move. No per-unit, per-lot, or per-user fees.`,
+        `No. The price is published and flat: ${OS_PRICING.monthly} a month, setup included. Sell ten buildings or a hundred, the price does not move. No per-unit, per-lot, or per-user fees.`,
     },
     {
       question: 'What happens to my existing orders, dealer records, and RTO contracts?',

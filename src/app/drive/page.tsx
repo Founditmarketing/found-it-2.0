@@ -79,7 +79,7 @@ export default function DrivePage() {
             </Link>
           </div>
           <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-            {OS_PRICING.monthly}/mo + {OS_PRICING.setup} setup &middot; Month-to-month &middot; You own the code and data
+            {OS_PRICING.monthly}/mo &middot; Setup included &middot; Month-to-month &middot; You own the code and data
           </p>
         </div>
 

@@ -138,8 +138,8 @@ export default function EdwardsRoofingCaseStudy() {
               The code and the data are Cory&rsquo;s, one hundred percent. The monthly fee is
               upkeep, not rent. It covers security, updates, and new features. Businesses across{' '}
               Louisiana run on systems built this way, at the same public price:{' '}
-              {OS_PRICING.monthly} {OS_PRICING.monthlyLabel} + {OS_PRICING.setup}{' '}
-              {OS_PRICING.setupLabel}, month-to-month. One job: {OS_PRICING.promise}
+              {OS_PRICING.monthly} {OS_PRICING.monthlyLabel}, setup included, month-to-month. One
+              job: {OS_PRICING.promise}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-5 pt-2">
@@ -163,7 +163,7 @@ export default function EdwardsRoofingCaseStudy() {
         benefits={[
           'A free 30-minute video call, screen-shared, walking how your business runs',
           'You see the app we’d build if we owned your company, live on the call',
-          `The price is public: ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. No surprises at the end`,
+          `The price is public: ${OS_PRICING.monthly}/mo, setup included. No surprises at the end`,
           'Month-to-month. Cancel anytime, and the system stays yours.',
         ]}
         source="case_edwards_footer"

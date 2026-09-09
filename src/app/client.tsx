@@ -313,16 +313,12 @@ export default function HomePage() {
                 <p className="text-6xl md:text-7xl lg:text-[104px] font-black italic tracking-tighter text-primary tabular-nums leading-none">
                   {OS_PRICING.monthly}<span className="text-xl lg:text-2xl text-muted-foreground font-bold not-italic tracking-tight">/mo</span>
                 </p>
-                <p className="text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter text-foreground tabular-nums leading-none">
-                  <span className="text-faint font-bold not-italic">+</span> {OS_PRICING.setup}
-                  <span className="text-sm lg:text-base text-muted-foreground font-bold not-italic tracking-tight"> setup &middot; once</span>
-                </p>
               </div>
               <p className="text-2xl md:text-3xl lg:text-4xl font-black italic tracking-tighter leading-[1.05] text-foreground max-w-2xl mb-4">
                 {OS_PRICING.promise}
               </p>
               <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint mb-10 md:mb-12">
-                Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
+                Setup Included &middot; Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
               </p>
 
               {/* Seats strip REMOVED (Trevor 9/4: "take the 14/20 accounts

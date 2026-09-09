@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'CoConstruct Alternative - Custom Home Builder Software',
   description:
-    `CoConstruct is being retired. Own a builder OS fitted to you. Draws, selections, change orders. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `CoConstruct is being retired. Own a builder OS fitted to you. Draws, selections, change orders. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/home-builders' },
   openGraph: {
     title: 'CoConstruct Alternative for Home Builders | Found It Software',
     description:
-      `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own before it goes dark. Draws, selections, change orders, sub scheduling. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `Every builder on CoConstruct has to move somewhere. Get fitted for a builder OS you own before it goes dark. Draws, selections, change orders, sub scheduling. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/home-builders',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Home Builder Software',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `A custom operating system for home builders. Draws, selections, change orders, sub scheduling, and takeoffs where the takeoff line is the estimate line. Built one builder at a time and owned outright by the client. Records are migrated in, and the new system runs beside the old one until the two match. In fitting with a custom home builder now, and recruiting design-partner builders ahead of the announced CoConstruct retirement. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `A custom operating system for home builders. Draws, selections, change orders, sub scheduling, and takeoffs where the takeoff line is the estimate line. Built one builder at a time and owned outright by the client. Records are migrated in, and the new system runs beside the old one until the two match. In fitting with a custom home builder now, and recruiting design-partner builders ahead of the announced CoConstruct retirement. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Builder OS',
   headline: 'CoConstruct Is Being Retired.',
   headlineAccent: 'Own What Replaces It.',
@@ -164,7 +163,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your records, jobs, clients, selections, and history is part of that setup, not a separate invoice. No per-seat fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. Migrating your records, jobs, clients, selections, and history is part of the fitting, not a separate invoice. No per-seat fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Traditional custom software is usually quoted in the five and six figures. This is ownership without that invoice.`,
   whyUsHeading: 'Why Builders Choose Found It',
   whyUs: [
     'The builder OS is in fitting with a custom home builder today.',
@@ -206,7 +205,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. Migrating your records is part of that setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-seat fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, setup included. Migrating your records is part of the fitting. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-seat fees, no surprise add-ons.`,
     },
   ],
   relatedReading: [

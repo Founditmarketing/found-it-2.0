@@ -104,12 +104,11 @@ const CANNED_QA: CannedQA[] = [
   {
     id: 'price',
     q: 'What does it cost?',
-    say: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel} plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month to month, and the system is yours. One job: ${OS_PRICING.promise}`,
+    say: `The price is public: ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included. Month to month, and the system is yours. One job: ${OS_PRICING.promise}`,
     card: {
       heading: 'The price is public',
       rows: [
         { label: 'Monthly', value: `${OS_PRICING.monthly}/mo` },
-        { label: 'Migration & setup', value: OS_PRICING.setup },
         { label: 'Contract', value: 'Month-to-month' },
       ],
       note: OS_PRICING.promise,

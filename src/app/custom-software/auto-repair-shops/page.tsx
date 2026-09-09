@@ -5,12 +5,12 @@ import { OS_PRICING } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The AI-Powered Tekmetric Alternative You Own',
   description:
-    `The Tekmetric alternative you own. Work orders, parts board, and AI that answers from your records. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `The Tekmetric alternative you own. Work orders, parts board, and AI that answers from your records. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/auto-repair-shops' },
   openGraph: {
     title: 'The AI-Powered Tekmetric Alternative You Own | Found It Software',
     description:
-      `One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. Fitted to your shop, owned by you. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `One system for your whole shop. Work orders, parts board, customer book, invoicing, and an AI service desk. Fitted to your shop, owned by you. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/auto-repair-shops',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Auto Repair Shop Management Software',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Custom shop management software for independent auto repair shops. Work orders, parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Old records are migrated in. Nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `Custom shop management software for independent auto repair shops. Work orders, parts and waiting board, customer book, invoicing, and an AI service desk in one system the shop owns outright. Old records are migrated in. Nothing switches until the new system runs beside the old one and matches it. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'Found It OS · The Tekmetric Alternative',
   headline: 'The AI-Powered',
   headlineAccent: 'Tekmetric Alternative You Own.',
@@ -169,7 +168,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-writer fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. No per-writer fees. Major additions are scoped in writing before work begins. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} The monthly covers backups, support, and new features. The system itself is already your asset.`,
   whyUsHeading: 'Why Shops Choose Found It OS',
   whyUs: [
     'A shop system we built runs a real independent auto shop today, on about ten years of migrated records.',
@@ -196,7 +195,7 @@ const data: PillarData = {
     {
       question: 'What does auto repair shop software cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-writer fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-writer fees, no surprise add-ons.`,
     },
     {
       question: 'Will my shop go down during the switch?',

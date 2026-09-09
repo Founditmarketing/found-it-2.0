@@ -5,12 +5,12 @@ import { OS_PRICING } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Found It OS — The AI Employee Your Business Owns',
   description:
-    `Found It OS is custom software + AI employee, built around your business. It answers, it types, it chases what you're owed, and you own it outright. ${OS_PRICING.monthly}/mo plus ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Alexandria, LA.`,
+    `Found It OS is custom software + AI employee, built around your business. It answers, it types, it chases what you're owed, and you own it outright. ${OS_PRICING.monthly}/mo, setup included. Alexandria, LA.`,
   alternates: { canonical: '/foundit-os' },
   openGraph: {
     title: 'Found It OS — Custom Operating Systems for Local Businesses | Found It Software',
     description:
-      `One system for your whole business, built to fit it, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. ${OS_PRICING.promise}`,
+      `One system for your whole business, built to fit it, and yours forever. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
     type: 'website',
     url: 'https://www.founditsoftware.com/foundit-os',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Custom Business Operating System',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so there is no rip-and-replace weekend. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} for migration and setup.`,
+    `Found It OS is a custom AI business operating system built one business at a time. Point of sale, inventory, customers, service tickets, website, and an AI employee that answers the phone, drafts follow-ups, and chases receivables, in one system the client owns outright. It runs beside the old system until the books match to the penny, so there is no rip-and-replace weekend. ${OS_PRICING.monthly} per month, setup included.`,
   eyebrow: 'The Software Version of Your Business',
   headline: 'It Answers. It Types. It Chases.',
   headlineAccent: 'You Own It.',
@@ -43,7 +42,7 @@ const data: PillarData = {
     items: ['Phone', 'Paperwork', 'Customers', 'Jobs', 'Books'],
     result: 'One System · Yours',
   },
-  heroPriceLine: `${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup · Month-to-month · You own the code and data`,
+  heroPriceLine: `${OS_PRICING.monthly}/mo · Setup included · Month-to-month · You own the code and data`,
   ctaLabel: 'Show Me Mine',
   /* No questionnaire on the demo page (Trevor 9/5: "why are you asking me
      so many questions") — the door leads to /fit; the quiz lives there. */
@@ -89,7 +88,6 @@ const data: PillarData = {
   pricingHeading: 'The Whole Price',
   offerCard: {
     monthly: OS_PRICING.monthly,
-    setup: OS_PRICING.setup,
     bullets: [
       'Month-to-month — no long-term contract',
       'Hosting, backups, support, security fixes',
@@ -126,7 +124,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-register fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-register fees, no surprise add-ons.`,
     },
     {
       question: "What if it doesn't work out?",

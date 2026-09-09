@@ -112,12 +112,7 @@ export default function FixPage({ params }: { params: { slug: string } }) {
           <p className="text-2xl sm:text-3xl font-black italic tracking-tighter">
             {OS_PRICING.monthly}
             <span className="text-sm font-bold uppercase tracking-wide text-muted-foreground not-italic ml-2">
-              {OS_PRICING.monthlyLabel}
-            </span>
-            <span className="text-muted-foreground font-medium mx-2">+</span>
-            {OS_PRICING.setup}
-            <span className="text-sm font-bold uppercase tracking-wide text-muted-foreground not-italic ml-2">
-              {OS_PRICING.setupLabel}
+              {OS_PRICING.monthlyLabel} &middot; setup included
             </span>
           </p>
           <p className="text-sm text-muted-foreground font-medium mt-2">

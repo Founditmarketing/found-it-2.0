@@ -305,7 +305,7 @@ export default function GuidePrintPage() {
               {OS_PRICING.monthlyLabel} — flat
             </p>
             <p style={{ fontSize: '9.5pt', color: '#e5e5e5', fontWeight: 600, marginBottom: '0.14in' }}>
-              + {OS_PRICING.setup} {OS_PRICING.setupLabel}
+              Setup included
             </p>
             {[
               'Every employee included — no per-seat fees',
@@ -360,7 +360,7 @@ export default function GuidePrintPage() {
           {
             n: '04',
             t: 'You Own It',
-            d: `Yours, 100% — the system and every record in it. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, ${OS_PRICING.setup} ${OS_PRICING.setupLabel}, month-to-month — no long-term contracts.`,
+            d: `Yours, 100% — the system and every record in it. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month — no long-term contracts.`,
           },
         ].map((s) => (
           <div key={s.n} className="flex items-start" style={{ gap: '0.18in', marginBottom: '0.17in' }}>

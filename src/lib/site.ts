@@ -119,15 +119,15 @@ export const MAP_VALUE = {
    data. The offer's spine is the promise below. */
 /* PRICE CHANGE (Trevor, 2026-08-22): list price raised to $3,000/mo. The first
    twenty accounts were founding accounts at $2,200 — every signed customer is
-   grandfathered forever; the founding line on /pricing tells that truth. Setup
-   stays $2,000 on purpose (the first check stays small; the monthly carries the
-   lift). Discounts need a NAME (founding / reference shop / slow-season) and
-   come off SETUP, never the monthly. */
+   grandfathered forever; the founding line on /pricing tells that truth.
+   NO SETUP FEE (Trevor, 2026-09-09, verbatim): "kill the setup fee. everybody
+   hates it. we always waive it… get rid of it." Setup is INCLUDED — one number,
+   $3,000/mo, month-to-month, cancel with 30 days, code and data theirs.
+   Discounts used to need a NAME and come off setup; with setup gone there is
+   nothing left to discount — the monthly holds absolutely, never moves. */
 export const OS_PRICING = {
   monthly: '$3,000',
   monthlyLabel: 'per month',
-  setup: '$2,000',
-  setupLabel: 'one-time migration & setup',
   /** What the system is FOR — the offer's one-line spine, verbatim. */
   promise: 'Simplify your life. Make your business more profitable.',
 } as const;

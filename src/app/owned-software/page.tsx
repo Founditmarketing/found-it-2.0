@@ -60,7 +60,7 @@ const faq = [
   },
   {
     q: 'Who builds owned software?',
-    a: `Any builder can, and more should: the category is bigger than one company. ${FOUND_IT_METHOD} The price is printed: ${OS_PRICING.monthly} per month plus ${OS_PRICING.setup} one-time migration and setup, month to month.`,
+    a: `Any builder can, and more should: the category is bigger than one company. ${FOUND_IT_METHOD} The price is printed: ${OS_PRICING.monthly} per month, setup included, month to month.`,
   },
 ];
 

@@ -5,12 +5,12 @@ import { OS_PRICING, TRACK_RECORD } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The House System - Retail POS You Own',
   description:
-    `The House System is a retail POS you own outright. Register, inventory, households, layaway, and AI over your own books. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} setup. ${OS_PRICING.promise}`,
+    `The House System is a retail POS you own outright. Register, inventory, households, layaway, and AI over your own books. ${OS_PRICING.monthly}/mo, setup included. ${OS_PRICING.promise}`,
   alternates: { canonical: '/custom-software/retail-stores' },
   openGraph: {
     title: 'The House System - Retail POS You Own | Found It Software',
     description:
-      `The House System. One system for your whole store. Register, inventory, customer book, layaway. Fitted to how you sell, and yours forever. ${OS_PRICING.monthly}/mo + ${OS_PRICING.setup} ${OS_PRICING.setupLabel}. Month-to-month. Cancel anytime, the system stays yours.`,
+      `The House System. One system for your whole store. Register, inventory, customer book, layaway. Fitted to how you sell, and yours forever. ${OS_PRICING.monthly}/mo, setup included. Month-to-month. Cancel anytime, the system stays yours.`,
     type: 'website',
     url: 'https://www.founditsoftware.com/custom-software/retail-stores',
     images: [{ url: '/og-image-v4.png', width: 1200, height: 630 }],
@@ -27,10 +27,9 @@ const data: PillarData = {
   serviceType: 'Retail Point of Sale Operating System',
   offers: [
     { price: usd(OS_PRICING.monthly), priceCurrency: 'USD', unitCode: 'MON', name: OS_PRICING.monthlyLabel },
-    { price: usd(OS_PRICING.setup), priceCurrency: 'USD', name: OS_PRICING.setupLabel },
   ],
   schemaDescription:
-    `The House System is Found It's retail point of sale, a system independent stores own outright. Register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Old records are migrated in, and the new system runs beside the old register until the books match to the penny. ${OS_PRICING.monthly} per month plus a one-time ${OS_PRICING.setup} migration and setup. Built to simplify the owner's life and make the business more profitable.`,
+    `The House System is Found It's retail point of sale, a system independent stores own outright. Register, inventory, customer households, layaway and special orders, and a built-in AI that answers questions from the store's own sales history in plain English. Old records are migrated in, and the new system runs beside the old register until the books match to the penny. ${OS_PRICING.monthly} per month, setup included. Built to simplify the owner's life and make the business more profitable.`,
   eyebrow: 'The House System · Retail',
   headline: 'The House System.',
   headlineAccent: 'A Register That Remembers.',
@@ -164,7 +163,7 @@ const data: PillarData = {
   ],
   pricingHeading: 'What It Costs',
   pricing:
-    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade.`,
+    `Our whole bill, printed right here: ${OS_PRICING.monthly} a month, setup included. No per-terminal fees, no processor lock-in. Month-to-month, and the system stays yours. One job: ${OS_PRICING.promise} Stores renting Square- or Lightspeed-class systems pay forever and own nothing. This is the opposite trade.`,
   whyUsHeading: 'Why Stores Choose the House System',
   whyUs: [
     'One House System core fitted to real stores without forking the code.',
@@ -201,7 +200,7 @@ const data: PillarData = {
     {
       question: 'What does it cost?',
       answer:
-        `${OS_PRICING.monthly} a month, plus a one-time ${OS_PRICING.setup} for migration and setup. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-terminal fees, no surprise add-ons.`,
+        `${OS_PRICING.monthly} a month, setup included. That is the whole of our bill. Third-party services that bill on their own — phone lines, card processing, AI usage — run on your accounts, in your name, listed in plain terms before you sign. No per-terminal fees, no surprise add-ons.`,
     },
     {
       question: 'If I stop paying, do I lose my register and my data?',
