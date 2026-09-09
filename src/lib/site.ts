@@ -132,6 +132,21 @@ export const OS_PRICING = {
   promise: 'Simplify your life. Make your business more profitable.',
 } as const;
 
+/* ─── THE KITCHEN SINK (Trevor, 2026-09-09, verbatim ask) ───
+   "a crazy outrageously high offer... everything and the kitchen sink
+   unlimited package... a token fire that blazes through the earth...
+   round the clock 24/7 we will take their call... full on luxury
+   treatment like a luxury car dealership or watch boutique... I want it
+   public on the pricing page." Priced at $50k on the anchor logic: it
+   makes $3k the sane middle, it funds the promise, and ONE SEAT makes
+   24/7 deliverable and the luxury true. `seatOpen` is maintained BY
+   HAND, exactly like OS_SLOTS — flipping it to false renders OCCUPIED. */
+export const KITCHEN_SINK = {
+  name: 'The Kitchen Sink',
+  monthly: '$50,000',
+  seatOpen: true,
+} as const;
+
 /* ─── The twenty seats (Trevor, 2026-08-25) ───
    His words: "14/20 slots spoken for — after 20 accounts we are not taking
    any more." A hard cap, not a marketing timer: at twenty accounts the door

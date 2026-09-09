@@ -14,7 +14,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { OS_PRICING } from '@/lib/site';
+import { OS_PRICING, KITCHEN_SINK } from '@/lib/site';
 import TheAsk from '@/components/TheAsk';
 
 export default function PricingClient() {
@@ -126,6 +126,62 @@ export default function PricingClient() {
             </details>
             {/* Custom-apps line OFF (Trevor 9/5: "we dont do this") */}
           </motion.div>
+        </div>
+
+        {/* ─── THE KITCHEN SINK — the one seat above everything ───
+            Same Gucci law as the number above it: stated, never justified.
+            Trevor's images kept verbatim (the token fire, the 24/7 call,
+            the boutique). One seat is the whole mechanism — it makes the
+            promise deliverable and the luxury true; when it's taken,
+            KITCHEN_SINK.seatOpen flips by hand and this block says
+            OCCUPIED. Never add checkmarks, comparisons, or a "what you
+            get" grid to this section. */}
+        <div className="mt-28 text-center">
+          <motion.p
+            {...enter(0)}
+            className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.35em] text-primary mb-8"
+          >
+            Above everything &middot; One seat &middot;{' '}
+            {KITCHEN_SINK.seatOpen ? 'It is open' : 'Occupied'}
+          </motion.p>
+          <motion.h2
+            {...enter(0.08)}
+            className="text-4xl sm:text-5xl font-black italic tracking-tighter text-foreground leading-none"
+          >
+            {KITCHEN_SINK.name}
+          </motion.h2>
+          <motion.p
+            {...enter(0.16)}
+            className="mt-6 text-6xl sm:text-7xl lg:text-8xl font-black italic tracking-tighter text-primary tabular-nums leading-none"
+          >
+            {KITCHEN_SINK.monthly}
+            <span className="text-xl lg:text-2xl text-muted-foreground font-bold not-italic tracking-tight">/mo</span>
+          </motion.p>
+          <motion.p
+            {...enter(0.22)}
+            className="mt-2 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground"
+          >
+            Setup included &middot; Of course it is
+          </motion.p>
+
+          <motion.div
+            {...enter(0.32)}
+            className="mt-10 max-w-xl mx-auto space-y-5 text-lg sm:text-xl font-bold italic tracking-tight leading-snug text-foreground"
+          >
+            <p>Everything. Every system your business can dream up, built and cared for, your work first in every queue.</p>
+            <p>A token fire that blazes through the earth &mdash; we build like the bill isn&rsquo;t real.</p>
+            <p>Round the clock. You call at 3 AM, a human who knows your business answers.</p>
+            <p className="text-muted-foreground not-italic font-medium text-base">
+              The etiquette of a watch boutique, pointed at your operation. Some demand this kind of care and are worthy of it.
+            </p>
+          </motion.div>
+
+          <motion.p
+            {...enter(0.42)}
+            className="mt-10 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint"
+          >
+            Month-to-Month Like Everything We Do &middot; The Code and the Data Are Yours
+          </motion.p>
         </div>
 
         {/* The house close */}
