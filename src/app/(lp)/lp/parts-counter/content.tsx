@@ -18,7 +18,11 @@ import { TRACK_RECORD, OS_PRICING } from '@/lib/site';
    priced from today's supplier cost at MY markup; a STOP at the counter
    before anything sells below cost; price proposals I approve in batches
    by supplier, never one line at a time; QuickBooks stays until I say
-   switch. The mechanism is THE GOVERNOR.
+   switch. The mechanism is THE GOVERNOR (named only in the FAQ; the
+   hero names the category). Claims track what ships: markup rules by
+   supplier / category / global (no per-line scope), supplier loads are
+   spreadsheet or CSV, the counter role hides totals/balances/queue, and
+   the to-the-cent match is the books mirror, not the pricing engine.
    CONTENT LAW: the story is anonymous and qualitative — "a Louisiana
    outdoor-power dealer" whose counter was quoting prices that had not
    changed in fifteen years. No name, no part counts, no proposal counts,
@@ -38,17 +42,17 @@ const faqItems = [
   {
     question: 'Do I drop QuickBooks on day one?',
     answer:
-      'No. QuickBooks stays. The new system runs beside it, penny-matched every night, until you trust it. Nothing switches until you say switch. The counter never stops selling.',
+      'No. QuickBooks stays. The new system runs beside it, and your books are matched to the cent before anything switches. Nothing switches until you say switch. The counter never stops selling.',
   },
   {
     question: 'Who sees what?',
     answer:
-      'Roles. The counter sees the sell price and the stop. The parts manager sees the queue. The owner sees cost, markup, and the totals. Nobody sees more than their job needs.',
+      'Roles. The counter sees the part, its price, and the stop. The parts manager sees the queue. Totals, balances, and the approval queue sit behind the owner’s login. Nobody sees more than their job needs.',
   },
   {
-    question: 'One of my suppliers only sends PDFs. Does that break it?',
+    question: 'My suppliers all send different files. Does that break it?',
     answer:
-      'No. We load what they send. Spreadsheet, CSV, PDF, a price book someone scanned. If a human can read it, we can load it. New files load as they come in.',
+      'No. Spreadsheet or CSV, whatever format they send it in, loads as it comes. Each supplier’s file fills that supplier’s queue. If one of yours only sends a PDF price book, bring the file to the walk-through. That is a fitting question and we answer it in the room.',
   },
   {
     question: 'Do I really own it?',
@@ -73,9 +77,9 @@ export function PartsCounterLPContent() {
       <LPNav />
 
       <LPSplitHero
-        headline="Your Counter Is Selling At 2011 Prices."
-        headlineAccent="The Governor Fixes That."
-        subheadline="For outdoor power, small engine, ag, and equipment dealers. Every part priced from today’s supplier cost at your markup. A stop at the counter before anything sells below cost. Price changes you approve in batches, by supplier, never one line at a time. QuickBooks stays until you say switch. You own it outright."
+        headline="Your Counter Is Selling At Fifteen-Year-Old Prices."
+        headlineAccent="Parts Counter Software That Prices From Today’s Cost."
+        subheadline="Every part priced from today’s supplier cost at your markup. A stop at the counter before anything sells below cost. QuickBooks stays until you say switch. You own it outright."
         highlight={'A Louisiana outdoor-power dealer’s counter was quoting prices that had not changed in fifteen years. The supplier cost had. Nobody at the counter could tell.'}
         highlightIcon={Gauge}
         voiceAgent
@@ -105,22 +109,22 @@ export function PartsCounterLPContent() {
           {
             title: '“I Don’t Want Anybody Touching My Books.”',
             detail:
-              'We don’t. QuickBooks stays where it is. The Governor runs beside it, penny-matched every night. When you say switch, you switch. Until then, nothing in your books moves.',
+              'We don’t. QuickBooks stays where it is. The system runs beside it, and your books are matched to the cent before anything switches. When you say switch, you switch. Until then, nothing in your books moves.',
           },
           {
             title: '“Whose Margin Rule Is It?”',
             detail:
-              'Yours. You set the markup, by supplier, by line, by category if you want. We never pick a number for you. The system holds the rule you gave it and nothing else.',
+              'Yours. You set the markup, by supplier, by category, or one number for everything. We never pick a number for you. The system holds the rule you gave it and nothing else.',
           },
           {
             title: '“I Don’t Want The Counter Guy Seeing My Numbers.”',
             detail:
-              'He doesn’t. The counter sees a sell price and a stop. Cost, markup, and totals sit behind the owner’s login. Everybody sees exactly their job and nothing past it.',
+              'He doesn’t. The counter sees the part, its price, and the stop. Your totals, your balances, and your approval queue sit behind the owner’s login. Everybody sees exactly their job and nothing past it.',
           },
           {
             title: '“My Suppliers All Send Something Different.”',
             detail:
-              'They do. Spreadsheets, CSVs, PDFs, a price book from 2011. Files load as they come. Each one fills the queue for that supplier. You approve the batch. The counter reads the new prices.',
+              'They do. Spreadsheet or CSV, whatever format they send, or a price book nobody has touched in fifteen years. Files load as they come. Each one fills the queue for that supplier. You approve the batch. The counter reads the new prices.',
           },
           {
             title: '“I Don’t Want Software Telling My People No.”',
@@ -135,32 +139,26 @@ export function PartsCounterLPContent() {
         steps={[
           {
             number: '01',
-            title: 'Load One Supplier File',
+            title: 'We Walk Your Counter. Free.',
             description:
-              'Pick one supplier. Send us the last price file they sent you. We load it. That is the whole first step.',
+              'About an hour at your dealership. We walk how a part goes from the supplier file to the ticket. Then we show you the app we’d build if we owned your parts counter. You add or take away. We’re deciding too: is this a fit? If not, we tell you straight.',
           },
           {
             number: '02',
-            title: 'Set Your Markup',
+            title: 'One Supplier File. Your Markup.',
             description:
-              'You tell us the rule. By supplier, by category, by line. It is your number. We type it in once.',
+              'Pick one supplier. Send us the last price file they sent you. We load it. You tell us the rule: by supplier, by category, or one number for everything. We type it in once. Every part on that file gets a proposed price, today’s cost at your markup, and waits in a queue for you.',
           },
           {
             number: '03',
-            title: 'The Queue Fills',
+            title: 'You Approve The Batch. The Counter Reads Live Prices.',
             description:
-              'Every part on that file gets a proposed price: today’s cost at your markup. Nothing changes yet. It waits in a queue, by supplier, for you.',
+              'One screen. One supplier. You look at the batch and approve it. Never one line at a time. From then on the counter sells at the price you approved, from today’s cost. Anything about to ring below cost stops and asks. QuickBooks stays until you say switch.',
           },
           {
             number: '04',
-            title: 'You Approve Batches',
-            description:
-              'One screen. One supplier. You look at the batch and approve it. Never one line at a time. The next file fills the next queue.',
-          },
-          {
-            number: '05',
-            title: 'The Counter Reads Live Prices',
-            description: `From then on the counter sells at the price you approved, from today’s cost. Anything about to ring below cost stops and asks. QuickBooks stays until you say switch. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month. You own it.`,
+            title: 'You Own It',
+            description: `The code and the data are yours, 100%. ${OS_PRICING.monthly} ${OS_PRICING.monthlyLabel}, setup included, month-to-month. No long-term contracts. Cancel anytime and the system stays yours.`,
           },
         ]}
       />
@@ -172,7 +170,7 @@ export function PartsCounterLPContent() {
         qualify
         fitGate
         heading="See What Yours Would Look Like"
-        subheading="Tell us about your counter. We take a handful of new fittings a month. If yours is a fit, we come walk it, about an hour, at your place. If it's not, we tell you straight."
+        subheading="Outdoor power, small engine, ag, and equipment dealers. Tell us about your counter. We take a handful of new fittings a month. If yours is a fit, we come walk it, about an hour, at your place. If it's not, we tell you straight."
         benefits={[
           'We come to your dealership, in person, free',
           'You see the app we’d build if we owned your parts counter',
