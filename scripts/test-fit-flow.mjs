@@ -27,6 +27,11 @@ try {
     serialize,
     hydrateFrom,
     shownFirstBuild,
+    rawFirstBuild,
+    shownWallReason,
+    scrubForDisplay,
+    normalizeDashes,
+    hasForbiddenWord,
     wallOf,
     buildTrail,
     validateContact,
@@ -136,12 +141,27 @@ try {
   // Strong goes through.
   const atNumber = reduce(st, { type: 'GO_NUMBER', from: 'verdict' });
   assert.equal(atNumber.screen, 'number');
-  // Verdict on a pending read still goes through (the read is held, not awaited).
+  // A pending read holds the verdict: nobody leaves until it lands (a late 'no' walls,
+  // and a wall can never reach the number screen). Done or failed releases.
   const pendingVerdict = answerAll(said, STRONG);
-  assert.equal(reduce(pendingVerdict, { type: 'GO_NUMBER', from: 'verdict' }).screen, 'number');
+  assert.equal(reduce(pendingVerdict, { type: 'GO_NUMBER', from: 'verdict' }), pendingVerdict, 'pending holds');
+  assert.equal(
+    reduce(reduce(pendingVerdict, { type: 'TAILOR_DONE', read: READ_OK }), { type: 'GO_NUMBER', from: 'verdict' }).screen,
+    'number'
+  );
+  assert.equal(
+    reduce(reduce(pendingVerdict, { type: 'TAILOR_FAILED' }), { type: 'GO_NUMBER', from: 'verdict' }).screen,
+    'number',
+    'a failed read releases'
+  );
 
-  /* ─── 7. A late 'no' read pulls number/time back to the verdict ─── */
-  const pendingNumber = reduce(pendingVerdict, { type: 'GO_NUMBER', from: 'verdict' });
+  /* ─── 7. A late 'no' read pulls number/time back to the verdict (the refresh path:
+     a stored number screen with a text want and no read hydrates as pending) ─── */
+  const pendingNumber = hydrateFrom(
+    JSON.stringify({ v: 1, screen: 'number', want: { kind: 'text', text: said.want.text }, answers: STRONG })
+  );
+  assert.equal(pendingNumber.screen, 'number');
+  assert.deepEqual(pendingNumber.tailor, { status: 'pending' });
   const pulled = reduce(pendingNumber, { type: 'TAILOR_DONE', read: READ_NO });
   assert.equal(pulled.screen, 'verdict');
   assert.equal(pulled.dir, -1);
@@ -240,6 +260,41 @@ try {
   assert.equal(shownFirstBuild(reduce(said, { type: 'TAILOR_FAILED' })), null);
   assert.equal(shownFirstBuild(reduce(said, { type: 'TAILOR_DONE', read: { ...READ_OK, firstTarget: '  ' } })), null);
   assert.equal(shownFirstBuild(initialState), null);
+
+  /* ─── 10b. The display scrub: dashes become sentence breaks, a forbidden word drops
+     the line (the card prints its fallback), the trail carries the raw string ─── */
+  assert.equal(
+    normalizeDashes('The phone after hours — answered, booked, and filed before anyone calls back.'),
+    'The phone after hours. Answered, booked, and filed before anyone calls back.'
+  );
+  assert.equal(normalizeDashes('Quoting – typed once.'), 'Quoting. Typed once.');
+  assert.equal(normalizeDashes('Trailing dash —'), 'Trailing dash');
+  assert.equal(normalizeDashes('— leading'), 'leading');
+  assert.equal(scrubForDisplay('  A free read of the books.  '), null);
+  assert.equal(scrubForDisplay('Guaranteed collections.'), null);
+  assert.equal(scrubForDisplay('Freely typed notes.'), 'Freely typed notes.', 'word boundary');
+  assert.equal(scrubForDisplay('   '), null);
+  assert.equal(hasForbiddenWord('A money-back promise'), true);
+  assert.equal(hasForbiddenWord('There is no risk here'), true);
+  assert.equal(hasForbiddenWord('Refunds handled'), true);
+  assert.equal(hasForbiddenWord('Discounted lines'), true);
+  assert.equal(hasForbiddenWord('Order intake, typed once.'), false);
+  const dashed = reduce(said, { type: 'TAILOR_DONE', read: { ...READ_OK, firstTarget: 'The phone after hours — answered, booked.' } });
+  assert.equal(shownFirstBuild(dashed), 'The phone after hours. Answered, booked.');
+  assert.equal(rawFirstBuild(dashed), 'The phone after hours — answered, booked.');
+  const badWord = reduce(said, { type: 'TAILOR_DONE', read: { ...READ_OK, firstTarget: 'A free quote engine.' } });
+  assert.equal(shownFirstBuild(badWord), null, 'the card prints the fallback');
+  assert.equal(rawFirstBuild(badWord), 'A free quote engine.');
+  assert.ok(
+    buildTrail({ want: said.want, tailor: badWord.tailor, answers: STRONG, time: { day: '', window: '' }, utms: {} }).includes(
+      'First build: A free quote engine.'
+    ),
+    'the inbox sees the raw line'
+  );
+  assert.equal(shownFirstBuild(s1), phoneJob.first, 'a chip line is house copy and passes untouched');
+  assert.equal(shownWallReason({ reason: 'Restaurants already have a POS — for that.' }), 'Restaurants already have a POS. For that.');
+  assert.equal(shownWallReason({ reason: '' }), 'That one is outside our lane.');
+  assert.equal(shownWallReason({ reason: 'A free tool does that.' }), 'That one is outside our lane.');
 
   /* ─── 11. buildTrail ─── */
   // (a) chip 'phone' + strong + tomorrow afternoon + one UTM.

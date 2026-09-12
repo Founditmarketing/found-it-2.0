@@ -35,6 +35,7 @@ import {
   reduce,
   serialize,
   shownFirstBuild,
+  shownWallReason,
   thankYouHref,
   validateContact,
   verdictOf,
@@ -68,7 +69,11 @@ type Dispatch = (a: Action) => void;
 
 /* ─── Shared type + control classes ─── */
 const titleClass =
-  'font-heading font-black uppercase italic tracking-tighter leading-[0.9] text-[28px] sm:text-[36px] text-foreground';
+  'font-heading font-black uppercase italic tracking-tighter leading-[0.9] text-[28px] sm:text-[36px] text-foreground outline-none';
+/* Every screen's title carries these: the flow focuses it once the screen
+   lands, so a screen reader hears the question and a keyboard user's next
+   Tab reaches the first chip, never the site header. */
+const titleFocus = { 'data-fit-title': true, tabIndex: -1 } as const;
 const subClass = 'mt-3 text-base text-muted-foreground font-medium leading-snug';
 const labelClass = 'font-mono text-[13px] font-black uppercase tracking-[0.25em] text-faint';
 const chipBase =
@@ -228,8 +233,30 @@ export function FitFlow() {
   const progress = progressOf(screen);
   const slide = instant ? 0 : 1;
 
+  /* (5) Focus follows the screen. AnimatePresence unmounts the tapped chip,
+     so focus would fall to <body> on every advance; instead the new title
+     (tabIndex -1) takes it when the entering screen's 'center' animation
+     completes (framer fires that for a zero-duration transition too, so
+     reduced motion lands the focus in the same frame). The effect only arms
+     the handoff: with mode="wait" the new screen is not in the DOM yet when
+     the effect runs. The mount and the HYDRATE pass never steal focus. */
+  const cardRef = useRef<HTMLDivElement>(null);
+  const prevScreenRef = useRef<typeof screen | null>(null);
+  const focusPendingRef = useRef(false);
+  const focusTitle = () => {
+    if (!focusPendingRef.current) return;
+    focusPendingRef.current = false;
+    cardRef.current?.querySelector<HTMLElement>('[data-fit-title]')?.focus();
+  };
+  useEffect(() => {
+    if (!hydrated) return;
+    const prev = prevScreenRef.current;
+    prevScreenRef.current = screen;
+    if (prev !== null && prev !== screen) focusPendingRef.current = true;
+  }, [screen, hydrated]);
+
   return (
-    <div className="relative rounded-2xl border border-border/20 bg-card/15 p-5 sm:p-8 overflow-hidden">
+    <div ref={cardRef} className="relative rounded-2xl border border-border/20 bg-card/15 p-5 sm:p-8 overflow-hidden">
       {/* The progress line: 2px orange along the top edge, width n/8. */}
       <div
         className="fit-progress absolute left-0 top-0 h-[2px] bg-primary"
@@ -237,8 +264,9 @@ export function FitFlow() {
         aria-hidden="true"
       />
 
-      {/* The header row: Back (or 'Tap one.') and the count. */}
-      <div className="flex items-center justify-between min-h-[44px] mb-3" aria-live="polite">
+      {/* The header row: Back (or 'Tap one.') and the count. Plain text: the
+          focused title does the announcing, not a live region. */}
+      <div className="flex items-center justify-between min-h-[44px] mb-3">
         {screen === 'want' ? (
           <span className="text-[13px] font-medium text-muted-foreground">Tap one.</span>
         ) : (
@@ -268,6 +296,9 @@ export function FitFlow() {
           animate="center"
           exit="exit"
           transition={{ duration: instant ? 0 : 0.28, ease }}
+          onAnimationComplete={(def) => {
+            if (def === 'center') focusTitle();
+          }}
         >
           {screen === 'want' && <WantScreen state={state} dispatch={dispatch} />}
           {isQuestionScreen(screen) && (
@@ -312,7 +343,9 @@ function WantScreen({ state, dispatch }: { state: FlowState; dispatch: Dispatch 
 
   return (
     <div>
-      <h1 className={titleClass}>Show us the job you&apos;re tired of doing.</h1>
+      <h1 {...titleFocus} className={titleClass}>
+        Show us the job you&apos;re tired of doing.
+      </h1>
       <p className={subClass}>Where does work get stuck? The worst one first.</p>
 
       <div className="mt-5 grid grid-cols-1 gap-2.5" role="group" aria-label="The job">
@@ -397,7 +430,9 @@ function QuestionScreen({
 }) {
   return (
     <div>
-      <h2 className={titleClass}>{question.prompt}</h2>
+      <h2 {...titleFocus} className={titleClass}>
+        {question.prompt}
+      </h2>
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5" role="group" aria-label={question.prompt}>
         {question.options.map((o) => {
           const on = value === o.value;
@@ -511,7 +546,16 @@ function VerdictScreen({
         </p>
       </div>
 
-      <button type="button" onClick={() => dispatch({ type: 'GO_NUMBER', from: 'verdict' })} className={`${pillClass} mt-7`}>
+      {/* Held while the read is out: a late 'no' walls, and nobody gets
+          pulled off the number screen mid-keystroke. The spinner above is
+          the busy state; the reducer drops GO_NUMBER while pending too. */}
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'GO_NUMBER', from: 'verdict' })}
+        disabled={pending}
+        aria-disabled={pending}
+        className={`${pillClass} mt-7 disabled:opacity-60 disabled:cursor-not-allowed`}
+      >
         Leave the number
       </button>
       <p className="mt-3 text-center text-[13px] font-medium text-muted-foreground">
@@ -536,10 +580,11 @@ function Headline({
   return (
     <motion.h2
       key={k}
+      {...titleFocus}
       initial={{ opacity: 0, y: instant ? 0 : 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: instant ? 0 : 0.32, delay: instant ? 0 : 0.06, ease }}
-      className={`font-heading font-black uppercase italic tracking-tighter leading-[0.9] text-[44px] sm:text-[60px] ${
+      className={`font-heading font-black uppercase italic tracking-tighter leading-[0.9] text-[44px] sm:text-[60px] outline-none ${
         tone === 'orange' ? 'text-primary' : 'text-foreground'
       }`}
     >
@@ -614,7 +659,7 @@ function TailorWall({
       <Headline instant={instant} tone="white" k="tailor-wall">
         Not our lane.
       </Headline>
-      <WallBody line={read.reason.trim() || 'That one is outside our lane.'} pointer={READ_MAP} restart={restart}>
+      <WallBody line={shownWallReason(read)} pointer={READ_MAP} restart={restart}>
         <p className="mt-2">
           <button type="button" onClick={onPickInstead} className={linkClass}>
             Think we misread it? Pick from the list instead
@@ -666,7 +711,9 @@ function NumberScreen({
   instant: boolean;
 }) {
   const uid = useId();
+  const nameRef = useRef<HTMLInputElement>(null);
   const mobileRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const [errors, setErrors] = useState<ContactErrors>({});
   const { contact } = state;
 
@@ -685,14 +732,24 @@ function NumberScreen({
     e?.preventDefault();
     const v = validateContact(contact);
     setErrors(v.errors);
-    if (v.ok) dispatch({ type: 'NEXT_TIME', from: 'number' });
+    if (v.ok) {
+      dispatch({ type: 'NEXT_TIME', from: 'number' });
+      return;
+    }
+    // Focus lands on the first failing field, name then mobile then email,
+    // so aria-describedby reads the error and a keyboard user is already
+    // on the fix.
+    const first = v.errors.name ? nameRef : v.errors.phone ? mobileRef : emailRef;
+    first.current?.focus();
   };
 
   const describedBy = (k: keyof ContactErrors) => (errors[k] ? `${uid}-${k}-err` : undefined);
 
   return (
     <div>
-      <h2 className={titleClass}>Leave a number.</h2>
+      <h2 {...titleFocus} className={titleClass}>
+        Leave a number.
+      </h2>
       <p className={subClass}>Trevor calls, you show him the job.</p>
 
       <form
@@ -711,6 +768,7 @@ function NumberScreen({
             First name
           </label>
           <input
+            ref={nameRef}
             id={`${uid}-name`}
             name="name"
             type="text"
@@ -779,6 +837,7 @@ function NumberScreen({
               Email (optional)
             </label>
             <input
+              ref={emailRef}
               id={`${uid}-email`}
               name="email"
               type="email"
@@ -861,7 +920,9 @@ function TimeScreen({
 
   return (
     <div>
-      <h2 className={titleClass}>When&apos;s good to talk?</h2>
+      <h2 {...titleFocus} className={titleClass}>
+        When&apos;s good to talk?
+      </h2>
       <p className={subClass}>Your pick. Leave it blank and any time works.</p>
 
       <p className={`${labelClass} mt-5 mb-2`}>Day</p>

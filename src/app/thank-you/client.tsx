@@ -19,10 +19,14 @@ const bookingUrl: string = LINKS.bookingCalendar;
    load, so the URL-rule Ads conversion fires). Only the eyebrow / h1 / line
    trio changes; the check, While You Wait, Back to Home, and
    trackThankYouConversion are untouched. useSearchParams needs a Suspense
-   boundary on a static route (Next 14.2); the fallback IS the generic
-   head, so every other form's thank-you is byte-identical and never
-   suspends. Anything outside the allowlist renders the fit block with no
-   restated pick. No response-time words anywhere. */
+   boundary on a static route (Next 14.2), and the prerendered HTML carries
+   the FALLBACK for every visitor, fit or not. So the fallback is a silent
+   spacer of the head's height (HeadSpacer): no copy in it, so no visitor
+   can read one message and watch it swap for another after hydration. The
+   real head (generic or fit) is chosen on the client from the URL; the
+   motion wrapper below starts at opacity 0 either way, so the empty beat
+   is never visible. Anything outside the allowlist renders the fit block
+   with no restated pick. No response-time words anywhere. */
 
 const DAY_WORDS: Record<string, string> = { today: 'today', tomorrow: 'tomorrow', week: 'this week' };
 const WINDOW_WORDS: Record<string, string> = {
@@ -46,6 +50,11 @@ function GenericHead() {
       </p>
     </>
   );
+}
+
+/** The Suspense fallback: the generic head's height, none of its words. */
+function HeadSpacer() {
+  return <div aria-hidden="true" className="min-h-[150px] sm:min-h-[160px] mb-10" />;
 }
 
 function FitHead({ day, window: win }: { day: string; window: string }) {
@@ -101,7 +110,7 @@ export default function ThankYouClient() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease }}>
-          <Suspense fallback={<GenericHead />}>
+          <Suspense fallback={<HeadSpacer />}>
             <HeadBlock />
           </Suspense>
 

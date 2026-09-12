@@ -247,10 +247,46 @@ export function wallOf(state: Pick<FlowState, 'answers' | 'tailor'>): 'quiz' | '
   return null;
 }
 
-/** The first-build line the verdict card shows, or null (pending, failed, or
- *  a done read with nothing to name). The card prints the fallback line for
- *  null; the trail omits 'First build:' for null. */
-export function shownFirstBuild(state: Pick<FlowState, 'want' | 'tailor'>): string | null {
+/* ─── The display scrub (THE WORD LAW for model output) ───
+   The tailor's heard / firstTarget / reason are model text. Before any of it
+   is printed on /fit it is normalised: an em or en dash becomes a period
+   (the JOBS[].first shape, 'The phone after hours. Answered, booked, ...'),
+   and a line carrying a forbidden word is dropped (null) so the card prints
+   its neutral fallback instead. The trail keeps the raw string: the inbox
+   sees what the model said. */
+
+const FORBIDDEN_RE = /\b(free|guarantee[sd]?|guaranteeing|refund(?:s|ed|able)?|discount(?:s|ed)?|no risk|risk[- ]free|money[- ]back)\b/i;
+
+/** True when a line carries a word the site never prints. */
+export function hasForbiddenWord(s: string): boolean {
+  return FORBIDDEN_RE.test(s);
+}
+
+/** Em and en dashes become a sentence break, the next letter capitalised. */
+export function normalizeDashes(s: string): string {
+  return s
+    .replace(/\s*[—–]\s*/g, (_m, offset: number, whole: string) => {
+      // A dash at the very end or start of the line simply vanishes.
+      const rest = whole.slice(offset).replace(/^\s*[—–]\s*/, '');
+      return rest === '' || offset === 0 ? '' : '. ';
+    })
+    .replace(/\.\s+([a-z])/g, (_m, ch: string) => `. ${ch.toUpperCase()}`)
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+/** The one gate for model text on its way to the screen: trimmed, dashes
+ *  normalised, null when empty or when a forbidden word survives. */
+export function scrubForDisplay(s: string): string | null {
+  const out = normalizeDashes(s.trim());
+  if (!out || hasForbiddenWord(out)) return null;
+  return out;
+}
+
+/** The raw first-build line (a chip's fixed line, or the model's firstTarget
+ *  verbatim), or null (pending, failed, or a done read with nothing to
+ *  name). This is what the trail carries. */
+export function rawFirstBuild(state: Pick<FlowState, 'want' | 'tailor'>): string | null {
   const w = state.want;
   if (!w) return null;
   if (w.kind === 'chip') return w.first;
@@ -258,6 +294,20 @@ export function shownFirstBuild(state: Pick<FlowState, 'want' | 'tailor'>): stri
     return state.tailor.read.firstTarget.trim();
   }
   return null;
+}
+
+/** The first-build line the verdict card shows, or null. A chip's line is
+ *  house copy and passes through; the model's line goes through
+ *  scrubForDisplay. The card prints the fallback line for null. */
+export function shownFirstBuild(state: Pick<FlowState, 'want' | 'tailor'>): string | null {
+  const raw = rawFirstBuild(state);
+  if (raw === null) return null;
+  return state.want?.kind === 'chip' ? raw : scrubForDisplay(raw);
+}
+
+/** The tailor wall's reason line as shown: scrubbed, or the house fallback. */
+export function shownWallReason(read: Pick<TailorRead, 'reason'>): string {
+  return scrubForDisplay(read.reason) ?? 'That one is outside our lane.';
 }
 
 /* ─── Reducer ─── */
@@ -328,6 +378,9 @@ export function reduce(state: FlowState, action: Action): FlowState {
     case 'GO_NUMBER': {
       if (action.from !== state.screen || state.screen !== 'verdict') return state;
       if (!verdictOf(state) || wallOf(state) !== null) return state;
+      // The read is still out: nobody leaves the verdict until it lands (a
+      // late 'no' walls, and a wall can never reach the number screen).
+      if (state.tailor.status === 'pending') return state;
       return { ...state, screen: 'number', dir: 1 };
     }
     case 'SET_CONTACT':
@@ -532,7 +585,8 @@ export function buildTrail({ want, tailor, answers, time, utms }: TrailInput): s
   lines.push(`Verdict: ${verdict.tier}`);
   if (read) lines.push(`AI fit read: ${read.fit}`);
 
-  const first = shownFirstBuild({ want, tailor });
+  // Raw on purpose: the inbox sees what the model said, the screen sees the scrub.
+  const first = rawFirstBuild({ want, tailor });
   if (first) lines.push(`First build: ${first}`);
 
   const picks = [
