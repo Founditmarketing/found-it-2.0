@@ -2,15 +2,82 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ArrowLeft, ArrowRight, CheckCircle2, CalendarCheck } from 'lucide-react';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { trackThankYouConversion, trackCalendlyOpen } from '@/lib/analytics';
+import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { LINKS } from '@/lib/site';
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 /** Config-gated booking calendar — renders only when a URL is set in site.ts. */
 const bookingUrl: string = LINKS.bookingCalendar;
+
+/* ─── The head: generic for every form, the fit block for /fit ───
+   The fit flow hops here with ?from=fit&d=<day>&t=<window> (a full page
+   load, so the URL-rule Ads conversion fires). Only the eyebrow / h1 / line
+   trio changes; the check, While You Wait, Back to Home, and
+   trackThankYouConversion are untouched. useSearchParams needs a Suspense
+   boundary on a static route (Next 14.2); the fallback IS the generic
+   head, so every other form's thank-you is byte-identical and never
+   suspends. Anything outside the allowlist renders the fit block with no
+   restated pick. No response-time words anywhere. */
+
+const DAY_WORDS: Record<string, string> = { today: 'today', tomorrow: 'tomorrow', week: 'this week' };
+const WINDOW_WORDS: Record<string, string> = {
+  morning: 'morning',
+  midday: 'midday',
+  afternoon: 'afternoon',
+  evening: 'evening',
+};
+
+function GenericHead() {
+  return (
+    <>
+      <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
+        Submission Successful
+      </p>
+      <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
+        You&apos;re In.
+      </h1>
+      <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed mb-10">
+        We&apos;ve got your information. Trevor will call you back.
+      </p>
+    </>
+  );
+}
+
+function FitHead({ day, window: win }: { day: string; window: string }) {
+  const picks = [DAY_WORDS[day], WINDOW_WORDS[win]].filter(Boolean);
+  return (
+    <>
+      <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
+        Fit check in
+      </p>
+      <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
+        Got it.
+      </h1>
+      {picks.length > 0 && (
+        <p className="text-lg text-foreground font-bold max-w-md mx-auto leading-relaxed mb-3">
+          You said {picks.join(', ')}.
+        </p>
+      )}
+      <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed">
+        Trevor calls. Sooner? Call now:
+      </p>
+      <p className="mb-10 flex justify-center">
+        <TrackedPhoneLink className="inline-flex items-center justify-center min-h-[52px] px-4 text-xl" />
+      </p>
+    </>
+  );
+}
+
+function HeadBlock() {
+  const params = useSearchParams();
+  if (params.get('from') !== 'fit') return <GenericHead />;
+  return <FitHead day={params.get('d') ?? ''} window={params.get('t') ?? ''} />;
+}
 
 export default function ThankYouClient() {
   useEffect(() => {
@@ -34,15 +101,9 @@ export default function ThankYouClient() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease }}>
-          <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-            Submission Successful
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
-            You&apos;re In.
-          </h1>
-          <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto leading-relaxed mb-10">
-            We&apos;ve got your information. Trevor will call you back.
-          </p>
+          <Suspense fallback={<GenericHead />}>
+            <HeadBlock />
+          </Suspense>
 
           {/* Next step: book a time */}
           {bookingUrl && (
