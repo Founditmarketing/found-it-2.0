@@ -1,28 +1,47 @@
 'use client';
 
-import { useEffect, useReducer, useState, type ReactNode } from 'react';
+import {
+  useEffect,
+  useId,
+  useReducer,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, BookOpen, Loader2, RotateCcw } from 'lucide-react';
-import { captureUTMs } from '@/lib/analytics';
+import { AlertTriangle, ArrowLeft, ArrowRight, BookOpen, Loader2, RotateCcw } from 'lucide-react';
+import { captureUTMs, getStoredUTMs, trackFormStart, trackLead } from '@/lib/analytics';
+import { TrackedPhoneLink } from '@/components/TrackedPhoneLink';
 import { READ_MAP, type FitQuestion, type FitVerdict } from '@/lib/fit';
 import { OS_PRICING } from '@/lib/site';
 import {
+  DAY_LABELS,
   JOBS,
   MAX_TEXT,
   MIN_TEXT,
   STORAGE_KEY,
+  WINDOW_LABELS,
+  buildTrail,
   hydrateFrom,
   initialState,
+  isComplete,
+  isQualified,
   isQuestionScreen,
   progressOf,
   questionFor,
   reduce,
   serialize,
   shownFirstBuild,
+  thankYouHref,
+  validateContact,
   verdictOf,
   wallOf,
   type Action,
+  type Contact,
+  type ContactErrors,
   type FlowState,
   type Job,
   type QuestionScreen,
@@ -68,6 +87,10 @@ const linkClass =
 export function FitFlow() {
   const [state, dispatch] = useReducer(reduce, initialState);
   const [hydrated, setHydrated] = useState(false);
+  /* Set on the 2xx: from then on the persist effect clears instead of
+     writing, so SEND_OK (a state change) can never re-store a sent flow. */
+  const doneRef = useRef(false);
+  const [sent, setSent] = useState(false);
   const reduceMotion = useReducedMotion();
   const instant = !!reduceMotion;
 
@@ -89,7 +112,8 @@ export function FitFlow() {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      sessionStorage.setItem(STORAGE_KEY, serialize(state));
+      if (doneRef.current) sessionStorage.removeItem(STORAGE_KEY);
+      else sessionStorage.setItem(STORAGE_KEY, serialize(state));
     } catch {
       /* storage blocked */
     }
@@ -157,6 +181,49 @@ export function FitFlow() {
     dispatch({ type: 'RESTART' });
   };
 
+  /* THE LEAD: POST /api/lead exactly once, from 'Send It'. Only strong and
+     borderline can reach the time screen; walls capture nothing. On 2xx:
+     trackLead, storage cleared, 'Sent.' for ~400 ms, then the full-page hop
+     to /thank-you?from=fit (the URL-rule Ads conversion; never router.push).
+     On anything else: the honest error, every answer kept. */
+  const send = async () => {
+    if (state.screen !== 'time' || state.send.status === 'sending' || sent) return;
+    const { want, answers, contact, time, tailor } = state;
+    if (!want || !isComplete(answers)) return;
+    dispatch({ type: 'SEND' });
+    const message = buildTrail({ want, tailor, answers, time, utms: getStoredUTMs() }).join(' · ');
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'fit_check',
+          name: contact.name.trim(),
+          phone: contact.phone.trim(),
+          email: contact.email.trim(),
+          businessName: contact.business.trim(),
+          message,
+          hp: contact.hp,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      trackLead('fit_check', { qualified: isQualified(answers) });
+      doneRef.current = true;
+      try {
+        sessionStorage.removeItem(STORAGE_KEY);
+      } catch {
+        /* storage blocked */
+      }
+      dispatch({ type: 'SEND_OK' });
+      setSent(true);
+      window.setTimeout(() => {
+        window.location.href = thankYouHref(time);
+      }, 400);
+    } catch {
+      dispatch({ type: 'SEND_ERR' });
+    }
+  };
+
   const { screen, dir } = state;
   const progress = progressOf(screen);
   const slide = instant ? 0 : 1;
@@ -217,8 +284,8 @@ export function FitFlow() {
           {screen === 'verdict' && (
             <VerdictScreen state={state} dispatch={dispatch} restart={restart} instant={instant} />
           )}
-          {screen === 'number' && <NumberScreen state={state} dispatch={dispatch} />}
-          {screen === 'time' && <TimeScreen state={state} dispatch={dispatch} />}
+          {screen === 'number' && <NumberScreen state={state} dispatch={dispatch} instant={instant} />}
+          {screen === 'time' && <TimeScreen state={state} dispatch={dispatch} send={send} sent={sent} />}
         </motion.div>
       </AnimatePresence>
     </div>
@@ -562,44 +629,302 @@ function TailorWall({
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   Screens 8 and 9: builder 2 fills these (placeholders below)
+   Screens 8 and 9: the ask (number) and the landing (best time + send)
    ═══════════════════════════════════════════════════════════════════ */
 
+const fieldLabelClass = `${labelClass} block mb-2`;
+const inputClass =
+  'w-full min-h-[52px] rounded-xl bg-card/20 border border-border/25 px-4 text-base text-foreground font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30';
+
+/** A field error: 13px, destructive token, opacity 0 to 1 in 0.18 s. */
+function FieldError({ id, text, instant }: { id: string; text?: string; instant: boolean }) {
+  if (!text) return null;
+  return (
+    <motion.p
+      id={id}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: instant ? 0 : 0.18 }}
+      className="mt-1.5 text-[13px] font-bold text-destructive"
+    >
+      {text}
+    </motion.p>
+  );
+}
+
 /* ── NumberScreen (builder 2) ──
-   PLACEHOLDER. Builder 2 replaces this with the real <form noValidate>:
-   First name, Mobile, Business (optional), the 'Add an email' swap, the
-   honeypot from NativeLeadForm, field errors, trackFormStart on first
-   focus, and 'Next' → validateContact → NEXT_TIME. The reducer already
-   gates NEXT_TIME on validateContact, so this pill is inert until the
-   fields exist. */
-function NumberScreen({ dispatch }: { state: FlowState; dispatch: Dispatch }) {
+   A real <form noValidate>: first name, mobile, business (optional), and an
+   email behind one quiet link. Nothing posts here; 'Next' validates and
+   moves to the time screen. trackFormStart fires once on the first focus
+   of any field (the NativeLeadForm pattern). The 'Next' pill sits in the
+   card under the fields, never fixed, so the iOS tel keypad (no Return
+   key) always has a visible submit. */
+function NumberScreen({
+  state,
+  dispatch,
+  instant,
+}: {
+  state: FlowState;
+  dispatch: Dispatch;
+  instant: boolean;
+}) {
+  const uid = useId();
+  const mobileRef = useRef<HTMLInputElement>(null);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const { contact } = state;
+
+  const set = (key: keyof Contact) => (e: ChangeEvent<HTMLInputElement>) => {
+    const patch = { [key]: e.target.value } as Partial<Contact>;
+    dispatch({ type: 'SET_CONTACT', patch });
+    // Nothing is judged before 'Next'; after it, an error clears the moment
+    // the field passes.
+    if ((key === 'name' || key === 'phone' || key === 'email') && errors[key]) {
+      const next = validateContact({ ...contact, ...patch }).errors;
+      if (!next[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
+    }
+  };
+
+  const next = (e?: FormEvent) => {
+    e?.preventDefault();
+    const v = validateContact(contact);
+    setErrors(v.errors);
+    if (v.ok) dispatch({ type: 'NEXT_TIME', from: 'number' });
+  };
+
+  const describedBy = (k: keyof ContactErrors) => (errors[k] ? `${uid}-${k}-err` : undefined);
+
   return (
     <div>
       <h2 className={titleClass}>Leave a number.</h2>
       <p className={subClass}>Trevor calls, you show him the job.</p>
-      <button type="button" onClick={() => dispatch({ type: 'NEXT_TIME', from: 'number' })} className={`${pillClass} mt-7`}>
-        Next
-      </button>
-      <p className="mt-3 text-center text-[13px] font-medium text-muted-foreground">One tap after this.</p>
+
+      <form
+        noValidate
+        onSubmit={next}
+        onFocusCapture={() => {
+          if (!state.started) {
+            dispatch({ type: 'STARTED' });
+            trackFormStart('fit_check');
+          }
+        }}
+        className="relative mt-5"
+      >
+        <div>
+          <label htmlFor={`${uid}-name`} className={fieldLabelClass}>
+            First name
+          </label>
+          <input
+            id={`${uid}-name`}
+            name="name"
+            type="text"
+            autoComplete="given-name"
+            autoCapitalize="words"
+            enterKeyHint="next"
+            maxLength={200}
+            value={contact.name}
+            onChange={set('name')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                mobileRef.current?.focus();
+              }
+            }}
+            aria-invalid={!!errors.name}
+            aria-describedby={describedBy('name')}
+            className={inputClass}
+          />
+          <FieldError id={`${uid}-name-err`} text={errors.name} instant={instant} />
+        </div>
+
+        <div className="mt-4">
+          <label htmlFor={`${uid}-phone`} className={fieldLabelClass}>
+            Mobile
+          </label>
+          <input
+            ref={mobileRef}
+            id={`${uid}-phone`}
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            enterKeyHint="send"
+            maxLength={40}
+            value={contact.phone}
+            onChange={set('phone')}
+            placeholder="(318) 555-0123"
+            aria-invalid={!!errors.phone}
+            aria-describedby={describedBy('phone')}
+            className={inputClass}
+          />
+          <FieldError id={`${uid}-phone-err`} text={errors.phone} instant={instant} />
+        </div>
+
+        <div className="mt-4">
+          <label htmlFor={`${uid}-business`} className={fieldLabelClass}>
+            Business (optional)
+          </label>
+          <input
+            id={`${uid}-business`}
+            name="businessName"
+            type="text"
+            autoComplete="organization"
+            enterKeyHint="send"
+            maxLength={200}
+            value={contact.business}
+            onChange={set('business')}
+            className={inputClass}
+          />
+        </div>
+
+        {contact.emailOpen ? (
+          <div className="mt-4">
+            <label htmlFor={`${uid}-email`} className={fieldLabelClass}>
+              Email (optional)
+            </label>
+            <input
+              id={`${uid}-email`}
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              enterKeyHint="send"
+              maxLength={254}
+              value={contact.email}
+              onChange={set('email')}
+              placeholder="you@yourbusiness.com"
+              aria-invalid={!!errors.email}
+              aria-describedby={describedBy('email')}
+              className={inputClass}
+            />
+            <FieldError id={`${uid}-email-err`} text={errors.email} instant={instant} />
+          </div>
+        ) : (
+          <p className="mt-2">
+            <button
+              type="button"
+              onClick={() => dispatch({ type: 'SET_CONTACT', patch: { emailOpen: true } })}
+              className={linkClass}
+            >
+              Add an email
+            </button>
+          </p>
+        )}
+
+        {/* Honeypot — humans never see this; bots fill it and get silently dropped.
+            Deliberately meaningless name: a field named "company" gets filled by
+            Chrome's address autofill (which ignores autocomplete="off"), turning
+            real submissions into silently-dropped ones. */}
+        <div
+          className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden"
+          aria-hidden="true"
+        >
+          <label htmlFor={`${uid}-fim-extra`}>Leave this field empty</label>
+          <input
+            id={`${uid}-fim-extra`}
+            name="fim_extra_field"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={contact.hp}
+            onChange={set('hp')}
+          />
+        </div>
+
+        <button type="submit" className={`${pillClass} mt-7`}>
+          Next
+        </button>
+        <p className="mt-3 text-center text-[13px] font-medium text-muted-foreground">One tap after this.</p>
+      </form>
     </div>
   );
 }
 
 /* ── TimeScreen (builder 2) ──
-   PLACEHOLDER. Builder 2 replaces this with the Day row (Today / Tomorrow /
-   This week), the Time of day row (Morning / Midday / Afternoon / Evening),
-   SET_TIME toggles, and 'Send It' → the one POST /api/lead, trackLead,
-   storage cleared, the full-page hop to thankYouHref(state.time). This
-   pill is a no-op. */
-function TimeScreen(_props: { state: FlowState; dispatch: Dispatch }) {
-  void _props;
+   The visitor's own pick: a day row and a time-of-day row, toggles, neither
+   required, no auto-advance. 'Send It' is the one POST /api/lead (the send
+   handler lives in FitFlow, which owns storage). Any failure keeps every
+   answer and shows the honest error with the phone link. */
+const DAYS = ['today', 'tomorrow', 'week'] as const;
+const WINDOWS = ['morning', 'midday', 'afternoon', 'evening'] as const;
+const timeChipBase = 'min-h-[52px] rounded-xl border px-1 text-base font-bold leading-snug text-center';
+
+function TimeScreen({
+  state,
+  dispatch,
+  send,
+  sent,
+}: {
+  state: FlowState;
+  dispatch: Dispatch;
+  send: () => void;
+  sent: boolean;
+}) {
+  const sending = state.send.status === 'sending';
+  const busy = sending || sent;
+
   return (
     <div>
       <h2 className={titleClass}>When&apos;s good to talk?</h2>
       <p className={subClass}>Your pick. Leave it blank and any time works.</p>
-      <button type="button" className={`${pillClass} mt-7`}>
-        Send It
+
+      <p className={`${labelClass} mt-5 mb-2`}>Day</p>
+      <div className="grid grid-cols-3 gap-2.5" role="group" aria-label="Day">
+        {DAYS.map((d) => {
+          const on = state.time.day === d;
+          return (
+            <button
+              key={d}
+              type="button"
+              aria-pressed={on}
+              onClick={() => dispatch({ type: 'SET_TIME', day: d })}
+              className={`${timeChipBase} ${on ? chipOn : chipIdle}`}
+            >
+              {DAY_LABELS[d]}
+            </button>
+          );
+        })}
+      </div>
+
+      <p className={`${labelClass} mt-5 mb-2`}>Time of day</p>
+      <div className="grid grid-cols-2 gap-2.5" role="group" aria-label="Time of day">
+        {WINDOWS.map((w) => {
+          const on = state.time.window === w;
+          return (
+            <button
+              key={w}
+              type="button"
+              aria-pressed={on}
+              onClick={() => dispatch({ type: 'SET_TIME', window: w })}
+              className={`${timeChipBase} ${on ? chipOn : chipIdle}`}
+            >
+              {WINDOW_LABELS[w]}
+            </button>
+          );
+        })}
+      </div>
+
+      <button
+        type="button"
+        onClick={send}
+        disabled={busy}
+        aria-busy={sending}
+        className={`${pillClass} mt-7 disabled:opacity-60 disabled:cursor-not-allowed`}
+      >
+        {sent ? 'Sent.' : sending ? 'Sending.' : 'Send It'}
       </button>
+
+      {state.send.status === 'error' && (
+        <div
+          role="alert"
+          className="mt-4 flex items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3"
+        >
+          <AlertTriangle className="w-4 h-4 text-destructive shrink-0 mt-1" aria-hidden="true" />
+          <p className="text-base text-foreground font-medium leading-snug">
+            That didn&apos;t send. Your answers are still here. Try again, or call Trevor:{' '}
+            <TrackedPhoneLink className="inline-flex items-center min-h-[44px] whitespace-nowrap" />
+          </p>
+        </div>
+      )}
     </div>
   );
 }
