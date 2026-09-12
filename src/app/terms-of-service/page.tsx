@@ -21,7 +21,7 @@ export default function TermsOfService() {
                     <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">📄 Terms of Service</h1>
                     <p className="text-muted-foreground">Effective Date: July 30, 2026</p>
                     <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-                        Welcome to Found It Marketing LLC ("Company," "we," "our," or "us"). By accessing or using our website, services, or communication channels (including SMS), you agree to the following Terms of Service.
+                        Welcome to Found It Marketing LLC (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using our website, services, or communication channels (including SMS), you agree to the following Terms of Service.
                     </p>
                 </div>
 
@@ -116,7 +116,7 @@ export default function TermsOfService() {
                             <li>Loss of revenue, leads, or business opportunities</li>
                             <li>Results from marketing campaigns, as outcomes may vary</li>
                         </ul>
-                        <p>All services are provided "as is" without guarantees of specific results.</p>
+                        <p>All services are provided &quot;as is&quot; without guarantees of specific results.</p>
                     </div>
                 </section>
 

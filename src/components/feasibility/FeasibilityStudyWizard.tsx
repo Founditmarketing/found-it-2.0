@@ -214,9 +214,9 @@ export function FeasibilityStudyWizard() {
 
       {step === 1 && (
         <div className="space-y-6 animate-in fade-in-50 duration-500">
-          <h3 className="text-2xl font-bold text-card-foreground text-center">What's the Business Concept?</h3>
+          <h3 className="text-2xl font-bold text-card-foreground text-center">What&apos;s the Business Concept?</h3>
           <div>
-            <Label htmlFor="businessConcept" className="text-muted-foreground">Describe your core idea, what you're selling, and to whom.</Label>
+            <Label htmlFor="businessConcept" className="text-muted-foreground">Describe your core idea, what you&apos;re selling, and to whom.</Label>
             <Textarea id="businessConcept" name="businessConcept" value={formData.businessConcept} onChange={handleChange} rows={6} placeholder="e.g., A subscription box service for rare, indoor plants targeted at millennial apartment dwellers." className="mt-2 text-base" />
             {errors.businessConcept && <p className="text-red-400 text-sm mt-2">{errors.businessConcept}</p>}
           </div>
@@ -236,7 +236,7 @@ export function FeasibilityStudyWizard() {
 
       {step === 3 && (
         <div className="space-y-6 animate-in fade-in-50 duration-500">
-          <h3 className="text-2xl font-bold text-card-foreground text-center">What's Your Unique Selling Proposition?</h3>
+          <h3 className="text-2xl font-bold text-card-foreground text-center">What&apos;s Your Unique Selling Proposition?</h3>
           <div>
             <Label htmlFor="uniqueSellingProposition" className="text-muted-foreground">What makes you different? Why would a customer choose you over a competitor?</Label>
             <Textarea id="uniqueSellingProposition" name="uniqueSellingProposition" value={formData.uniqueSellingProposition} onChange={handleChange} rows={6} placeholder="e.g., We source plants from exclusive international nurseries, provide expert-led care guides, and use 100% sustainable packaging." className="mt-2 text-base" />

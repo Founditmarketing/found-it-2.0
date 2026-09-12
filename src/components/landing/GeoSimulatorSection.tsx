@@ -207,10 +207,10 @@ export function GeoSimulatorSection() {
       <div className="max-w-[1440px] mx-auto px-6">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-foreground font-black text-[36px] md:text-[45px] leading-tight mb-4 uppercase italic tracking-tighter">
-            Show, <span className="text-primary">Don't Tell.</span>
+            Show, <span className="text-primary">Don&apos;t Tell.</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Your customers aren't just searching anymore—they're asking.
+            Your customers aren&apos;t just searching anymore—they&apos;re asking.
             Generative Engine Optimization (GEO) ensures your brand is the
             definitive answer, not just another blue link. See the difference
             for yourself.
@@ -245,7 +245,7 @@ export function GeoSimulatorSection() {
                     </span>
                   </p>
                   <p className="text-blue-400 text-sm font-medium">
-                    A Brand You've Never Heard Of
+                    A Brand You&apos;ve Never Heard Of
                   </p>
                 </div>
                 <div className="p-3 bg-muted/70 rounded">
@@ -273,7 +273,7 @@ export function GeoSimulatorSection() {
                     www.yourcompetitor.com
                   </p>
                   <p className="text-blue-400 text-sm font-medium">
-                    Your Competitor's Brand - A Top Result
+                    Your Competitor&apos;s Brand - A Top Result
                   </p>
                 </div>
                 <div className="p-3 bg-muted/70 rounded opacity-50">

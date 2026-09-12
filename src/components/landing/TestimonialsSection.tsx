@@ -104,7 +104,7 @@ export function TestimonialsSection() {
                         <Star key={i} className="w-5 h-5 text-primary fill-primary drop-shadow-[0_0_8px_rgba(255,85,0,0.5)]" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground italic text-lg mb-6 flex-grow relative z-10">"{testimonial.quote}"</p>
+                    <p className="text-muted-foreground italic text-lg mb-6 flex-grow relative z-10">&quot;{testimonial.quote}&quot;</p>
 
                     <div className="relative z-10">
                       <p className="font-bold text-card-foreground">{testimonial.name}</p>

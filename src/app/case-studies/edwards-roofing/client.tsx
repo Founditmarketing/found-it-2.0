@@ -147,7 +147,7 @@ export default function EdwardsRoofingCaseStudy() {
               href="/fit"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-7 py-4 rounded-xl text-sm hover:opacity-90 active:scale-[0.99] transition-all shadow-lg shadow-primary/20"
             >
-              Let's Talk <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              Let&apos;s Talk <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
         </div>

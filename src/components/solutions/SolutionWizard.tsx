@@ -237,7 +237,7 @@ export function SolutionWizard() {
             This is just the beginning. Our experts can turn this AI-generated plan into a real-world revenue engine for your business.
           </p>
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 h-14 px-8 text-lg font-bold rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
-            <Link href="/contact">Let's Make It Happen</Link>
+            <Link href="/contact">Let&apos;s Make It Happen</Link>
           </Button>
           <div className="mt-4">
             <Button onClick={() => { setResult(null); setStep(1); setFormData({ businessName: '', website: '', industry: '', revenue: '', targetAudience: '', challenges: [] }); }} variant="link">

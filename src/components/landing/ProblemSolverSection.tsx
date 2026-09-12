@@ -77,7 +77,7 @@ export function ProblemSolverSection() {
       <div className="max-w-[1440px] mx-auto px-6">
         <div className="mb-24">
           <h2 className="text-foreground text-oversized mb-4">
-            What's Holding You{' '}
+            What&apos;s Holding You{' '}
             <span className="text-primary">
               Back?
             </span>

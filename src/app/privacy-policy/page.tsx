@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
                     <h1 className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">Privacy Policy</h1>
                     <p className="text-muted-foreground">Effective Date: April 14, 2026</p>
                     <p className="text-lg leading-relaxed text-muted-foreground mt-4">
-                        Found It Marketing LLC ("we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information, including compliance with SMS communication regulations.
+                        Found It Marketing LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information, including compliance with SMS communication regulations.
                     </p>
                 </div>
 
