@@ -188,6 +188,13 @@ Pill-and-panel language. Interactive elements (buttons, chips, badges, tabs) are
 ### The OS Window (signature)
 The drivable Found It OS demo (DriveOS): rounded-3xl shell, `border-primary/25`, `bg-[#0B0B0B]/90` with backdrop blur, window drop shadow, 44px grid texture, orange/emerald radial glows behind it, mono title bar with live clock and the orange DEMO badge pinned top-right. Springs animate its life: entrance `spring 120/18`, receipt `spring 260/22`, refusal stamp `spring 300/16` — every animated element checks `useReducedMotion()` and degrades to static. The refusal stamp (border-4 border-primary, mono caps on black/70) is the house way to show the system saying no.
 
+### The Fit Flow (/fit)
+- **Card:** one static rounded-2xl shell (`bg-card/15 border-border/20`, p-5 phone / p-8 desktop) with a 2px orange progress line along its top edge (width n/8) and a 44px header row: Back on the left, the mono `n of N` count on the right (`Verdict` on the verdict card).
+- **Chips:** full width, 52px minimum, 16px bold, left aligned, hairline border; selected = orange fill + BLACK text, instant (no transition on the fill).
+- **Pill:** one 56px orange pill per screen (Leave the number / Next / Send It), inside the card, never fixed, so the iOS keypad always has a visible submit.
+- **Type floor:** 13px minimum (mono labels, counts, field errors); 16px body and inputs so iOS never zooms; titles Outfit black italic uppercase 28px phone / 36px desktop.
+- **Motion:** screens slide 14px with opacity in 0.28 s on the house ease (Back mirrors the sign); the progress line animates width; the verdict headline lands y 10 to 0; reduced motion is instant. The only spinner is the real /api/tailor wait.
+
 ## Do's and Don'ts
 
 ### Do:
