@@ -214,7 +214,7 @@ function MobileNavItem({
             >
               {link.title}
             </span>
-            <span className="text-[11px] text-muted-foreground font-medium block mt-0.5 truncate">
+            <span className="text-[13px] text-muted-foreground font-medium block mt-0.5 truncate">
               {link.description}
             </span>
           </div>
@@ -253,7 +253,7 @@ function MobileNavItem({
           >
             {link.title}
           </span>
-          <span className="text-[11px] text-muted-foreground font-medium block mt-0.5 truncate">
+          <span className="text-[13px] text-muted-foreground font-medium block mt-0.5 truncate">
             {link.description}
           </span>
         </div>
@@ -292,7 +292,7 @@ function MobileNavItem({
                   >
                     <span className="text-sm font-bold">{sublink.title}</span>
                     {sublink.tag && (
-                      <span className="text-[9px] uppercase tracking-widest font-black text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                      <span className="text-[13px] uppercase tracking-widest font-black text-primary bg-primary/10 px-2 py-0.5 rounded-full">
                         {sublink.tag}
                       </span>
                     )}
@@ -640,7 +640,7 @@ export function Header() {
 
                 {/* Copyright */}
                 <div className="flex items-center justify-center pt-1">
-                  <span className="text-[9px] text-faint font-mono uppercase tracking-widest">
+                  <span className="text-[13px] text-faint font-mono uppercase tracking-widest">
                     © {new Date().getFullYear()} Found It
                   </span>
                 </div>

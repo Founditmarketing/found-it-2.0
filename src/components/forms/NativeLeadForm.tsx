@@ -12,7 +12,7 @@ const inputClass =
   'w-full bg-card/20 border border-border/20 rounded-xl px-4 py-3.5 text-base text-foreground font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors';
 
 const labelClass =
-  'block text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2';
+  'block text-[13px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-2';
 
 export interface NativeLeadFormProps {
   /** Attribution tag sent to /api/lead, e.g. 'service_foundit_os'. */
@@ -420,7 +420,7 @@ export function NativeLeadForm({
       </form>
 
       {privacyNote && (
-        <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
+        <p className="mt-4 flex items-center justify-center gap-2 text-[13px] text-faint font-medium">
           <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
           {privacyNote}
         </p>

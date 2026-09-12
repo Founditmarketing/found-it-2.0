@@ -145,7 +145,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
       <div className="max-w-[900px] mx-auto px-6 relative z-10">
 
-        <nav aria-label="Breadcrumb" className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-faint">
+        <nav aria-label="Breadcrumb" className="mb-10 text-[13px] font-bold uppercase tracking-[0.2em] text-faint">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <span className="mx-2 text-faint">/</span>
           <span className="text-foreground">{data.name}</span>
@@ -158,14 +158,14 @@ export function ServicePillar({ data }: { data: PillarData }) {
               survives as the one-line frame above it. */}
           {data.driveOs && (
             <div className="mb-14 md:mb-20">
-              <p className="mb-4 font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-primary leading-relaxed">
+              <p className="mb-4 font-mono text-[13px] font-black uppercase tracking-[0.2em] text-primary leading-relaxed">
                 There is no generic Found It OS &middot; this one was fitted to a tire &amp; auto
                 shop &middot; yours gets fitted to <span className="text-foreground">you</span>
               </p>
               <div className="relative left-1/2 -translate-x-1/2 w-screen max-w-[1440px] px-3 sm:px-6">
                 <DriveOS />
               </div>
-              <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.22em] text-faint">
+              <p className="mt-4 font-mono text-[13px] font-black uppercase tracking-[0.22em] text-faint">
                 Drive it &middot; sample data &middot; live behavior &middot;{' '}
                 <Link href="/drive" className="text-primary underline underline-offset-4 hover:text-foreground transition-colors">
                   open it on its own stage →
@@ -189,7 +189,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           ) : (
           <>
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
+            <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] opacity-80">{data.eyebrow}</p>
             <PersonalizedChip />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
@@ -217,7 +217,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </div>
 
           {data.heroPriceLine && (
-            <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+            <p className="mt-5 font-mono text-[13px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
               {data.heroPriceLine}
             </p>
           )}
@@ -226,7 +226,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
 
           {data.voiceDemo && data.voiceDemoHero && (
             <div id="talk-to-her" className="mt-12 scroll-mt-24">
-              <p className="text-primary font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.4em] mb-2">
+              <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-2">
                 Live Demo &middot; Not a Video
               </p>
               <p className="text-muted-foreground font-medium text-sm sm:text-base leading-relaxed mb-5 max-w-2xl">
@@ -241,7 +241,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
         {data.proof && (
           <section className="mb-32 md:mb-44">
             <div className="w-10 h-[3px] bg-primary/70 rounded-full mb-7" aria-hidden />
-            <p className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-primary mb-4">{data.proof.kicker}</p>
+            <p className="font-mono text-[13px] font-black uppercase tracking-[0.3em] text-primary mb-4">{data.proof.kicker}</p>
             <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-[0.9] mb-8 text-foreground">
               {data.proof.headline} <span className="text-primary">{data.proof.headlineAccent}</span>
             </h2>
@@ -257,7 +257,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
               <Link href={data.proof.href} className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wider text-primary hover:gap-3 transition-all">
                 {data.proof.hrefLabel} →
               </Link>
-              <p className="text-xs text-faint font-medium">{data.proof.qualifier}</p>
+              <p className="text-[13px] text-faint font-medium">{data.proof.qualifier}</p>
             </div>
           </section>
         )}
@@ -286,7 +286,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             {data.stats.map((s) => (
               <div key={s.label} className="bg-card/15 border border-border/20 rounded-2xl p-5 text-center">
                 <p className="text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
-                <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
+                <p className="text-[13px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
               </div>
             ))}
           </div>
@@ -361,8 +361,8 @@ export function ServicePillar({ data }: { data: PillarData }) {
           </h2>
           <div className="border border-primary/40 rounded-[2rem] overflow-hidden bg-card/10">
             <div className="px-6 lg:px-8 py-4 border-b border-border/20 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <p className="font-mono text-xs font-black uppercase tracking-[0.3em] text-primary">The Build Sheet</p>
-              <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-faint">Every install &middot; no add-on menu</p>
+              <p className="font-mono text-[13px] font-black uppercase tracking-[0.3em] text-primary">The Build Sheet</p>
+              <p className="font-mono text-[13px] font-black uppercase tracking-[0.2em] text-faint">Every install &middot; no add-on menu</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2">
               {data.included.map((item, i) => (
@@ -418,7 +418,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {data.audience.slice(0, 4).map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">✓</span>
+                  <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-[13px] font-black">✓</span>
                   <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
                 </div>
               ))}
@@ -455,7 +455,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 {data.result.stats.map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-2xl sm:text-3xl font-black text-primary italic tracking-tighter">{s.value}</p>
-                    <p className="text-[10px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
+                    <p className="text-[13px] font-black uppercase tracking-[0.15em] text-faint mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -551,7 +551,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
           <div className="space-y-5">
             {data.whyUs.map((item, i) => (
               <div key={i} className="flex items-start gap-4">
-                <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-xs font-black">✓</span>
+                <span className="w-6 h-6 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 text-[13px] font-black">✓</span>
                 <p className="text-foreground font-bold text-sm leading-relaxed">{item}</p>
               </div>
             ))}
@@ -625,7 +625,7 @@ export function ServicePillar({ data }: { data: PillarData }) {
                 <Link
                   key={c.href}
                   href={c.href}
-                  className="inline-flex items-center justify-center px-6 h-11 rounded-full border border-primary/35 bg-primary/[0.06] text-primary font-mono text-[11px] font-black uppercase tracking-[0.18em] hover:bg-primary/15 transition-colors"
+                  className="inline-flex items-center justify-center px-6 h-11 rounded-full border border-primary/35 bg-primary/[0.06] text-primary font-mono text-[13px] font-black uppercase tracking-[0.18em] hover:bg-primary/15 transition-colors"
                 >
                   {c.label} &rarr;
                 </Link>

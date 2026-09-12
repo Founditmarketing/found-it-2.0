@@ -34,7 +34,7 @@ export default function ThankYouClient() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease }}>
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
+          <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             Submission Successful
           </p>
           <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground mb-6">
@@ -62,7 +62,7 @@ export default function ThankYouClient() {
 
           {/* While you wait */}
           <div className="bg-card/10 border border-border/15 rounded-2xl p-6 mb-10 text-left">
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-faint mb-2">
+            <p className="text-[13px] font-black uppercase tracking-[0.2em] text-faint mb-2">
               While you wait
             </p>
             <Link href="/case-studies" className="group flex items-center justify-between gap-4">

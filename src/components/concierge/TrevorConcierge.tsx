@@ -99,18 +99,18 @@ function LeadCapture({ messages, onDone }: { messages: Msg[]; onDone: () => void
           <button
             type="submit"
             disabled={status === 'sending' || !contact.trim()}
-            className="shrink-0 inline-flex items-center gap-1.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-4 py-2.5 rounded-xl text-xs disabled:opacity-40 hover:shadow-lg hover:shadow-primary/25 transition-shadow"
+            className="shrink-0 inline-flex items-center gap-1.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter px-4 py-2.5 rounded-xl text-[13px] disabled:opacity-40 hover:shadow-lg hover:shadow-primary/25 transition-shadow"
           >
             {status === 'sending' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Send'}
           </button>
         </div>
       </form>
       {status === 'error' && (
-        <p role="alert" className="text-[11px] font-bold text-red-400">
+        <p role="alert" className="text-[13px] font-bold text-red-400">
           Could not send. Call <SafePhoneText /> instead.
         </p>
       )}
-      <p className="text-[11px] text-faint font-medium">
+      <p className="text-[13px] text-faint font-medium">
         Rather talk now?{' '}
         <Link href="/contact" onClick={() => trackCTAClick('concierge_book_call')} className="text-primary font-bold hover:underline">
           Book a call →
@@ -248,7 +248,7 @@ export function TrevorConcierge() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-black uppercase italic tracking-tighter text-foreground leading-none">Ask Trevor</p>
-                <p className="text-[10px] text-muted-foreground font-medium mt-1">Instant answers. Real human on the phone.</p>
+                <p className="text-[13px] text-muted-foreground font-medium mt-1">Instant answers. Real human on the phone.</p>
               </div>
               <button
                 onClick={() => setOpen(false)}
@@ -273,7 +273,7 @@ export function TrevorConcierge() {
                       <button
                         key={q}
                         onClick={() => send(q)}
-                        className="text-xs font-bold text-primary border border-primary/25 bg-primary/5 hover:bg-primary/15 rounded-full px-3.5 py-2 transition-colors text-left"
+                        className="text-[13px] font-bold text-primary border border-primary/25 bg-primary/5 hover:bg-primary/15 rounded-full px-3.5 py-2 transition-colors text-left"
                       >
                         {q}
                       </button>
@@ -299,7 +299,7 @@ export function TrevorConcierge() {
               ))}
 
               {busy && messages[messages.length - 1]?.role === 'user' && (
-                <div className="flex items-center gap-2 text-faint text-xs font-bold pl-1">
+                <div className="flex items-center gap-2 text-faint text-[13px] font-bold pl-1">
                   <Loader2 className="w-3.5 h-3.5 animate-spin" /> thinking…
                 </div>
               )}

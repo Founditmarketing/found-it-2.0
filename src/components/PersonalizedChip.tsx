@@ -25,7 +25,7 @@ export function PersonalizedChip({ className = '' }: { className?: string }) {
         className={`inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-4 py-1.5 ${className}`}
       >
         <MapPin className="w-3.5 h-3.5 text-primary shrink-0" aria-hidden="true" />
-        <span className="text-[11px] font-black uppercase tracking-[0.18em] text-primary">{label}</span>
+        <span className="text-[13px] font-black uppercase tracking-[0.18em] text-primary">{label}</span>
       </motion.span>
     </AnimatePresence>
   );

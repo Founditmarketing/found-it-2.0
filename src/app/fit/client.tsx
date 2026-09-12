@@ -15,7 +15,7 @@ export default function FitClient() {
 
       <div className="max-w-[680px] mx-auto px-6 relative z-10">
         <div className="text-center mb-10">
-          <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 opacity-80">
+          <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
             The Fit Check
           </p>
           {/* Desire-first (Trevor 9/5: "what about those who want the latest

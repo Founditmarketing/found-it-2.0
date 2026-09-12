@@ -126,7 +126,7 @@ function TailorDoor({
     return (
       <motion.div key="heard" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
         <div className="bg-card/15 backdrop-blur-xl border border-primary/30 rounded-2xl p-6 lg:p-8 mb-6 shadow-2xl shadow-primary/10">
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-3">
+          <p className="font-mono text-[13px] font-black uppercase tracking-[0.25em] text-primary mb-3">
             Commissioned
           </p>
           <p className="text-lg lg:text-xl font-black italic tracking-tight text-foreground leading-snug mb-5">
@@ -134,7 +134,7 @@ function TailorDoor({
           </p>
           {read.firstTarget && (
             <>
-              <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-1.5">
+              <p className="font-mono text-[13px] font-black uppercase tracking-[0.25em] text-faint mb-1.5">
                 The first build &middot; sized on the walkthrough
               </p>
               <p className="text-sm text-foreground font-bold leading-relaxed">{read.firstTarget}</p>
@@ -155,7 +155,7 @@ function TailorDoor({
             `AI fit read: ${read.fit}`,
           ].filter(Boolean)}
         />
-        <p className="mt-5 text-center text-xs font-bold text-muted-foreground">
+        <p className="mt-5 text-center text-[13px] font-bold text-muted-foreground">
           <button type="button" onClick={() => setPhase('ask')} className="hover:text-primary transition-colors">
             Pick different →
           </button>
@@ -180,7 +180,7 @@ function TailorDoor({
           <p className="text-sm text-foreground font-bold mb-6">
             No hard feelings. Most good businesses aren&apos;t ours to build.
           </p>
-          <p className="text-xs font-bold text-muted-foreground">
+          <p className="text-[13px] font-bold text-muted-foreground">
             <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
               Think we misread it? Five quick taps →
             </button>
@@ -193,7 +193,7 @@ function TailorDoor({
   return (
     <motion.div key="ask" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease }}>
       <div className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8">
-        <p className="font-mono text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-5">
+        <p className="font-mono text-[13px] font-black uppercase tracking-[0.25em] text-primary mb-5">
           Point at it &middot; one tap
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-7">
@@ -210,7 +210,7 @@ function TailorDoor({
               <span className="block text-[15px] font-black uppercase italic tracking-tighter text-foreground leading-tight group-hover:text-primary transition-colors">
                 {w.title}
               </span>
-              <span className="mt-1 block font-mono text-[10px] font-black uppercase tracking-[0.12em] text-faint">
+              <span className="mt-1 block font-mono text-[13px] font-black uppercase tracking-[0.12em] text-faint">
                 {w.sub}
               </span>
             </motion.button>
@@ -224,13 +224,13 @@ function TailorDoor({
             <span className="block text-[15px] font-black uppercase italic tracking-tighter text-primary leading-tight">
               Something nobody else has
             </span>
-            <span className="mt-1 block font-mono text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="mt-1 block font-mono text-[13px] font-black uppercase tracking-[0.12em] text-muted-foreground">
               Say it below. We fit it.
             </span>
           </motion.div>
         </div>
 
-        <label htmlFor="want-line" className="block font-mono text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground mb-2.5">
+        <label htmlFor="want-line" className="block font-mono text-[13px] font-black uppercase tracking-[0.25em] text-muted-foreground mb-2.5">
           Or say it your way
         </label>
         <div className="flex flex-col sm:flex-row gap-2">
@@ -252,16 +252,16 @@ function TailorDoor({
             type="button"
             onClick={submit}
             disabled={phase === 'busy' || problem.trim().length < 8}
-            className="px-8 min-h-[52px] w-full sm:w-auto whitespace-nowrap rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-xs shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:shadow-none"
+            className="px-8 min-h-[52px] w-full sm:w-auto whitespace-nowrap rounded-full bg-primary text-primary-foreground font-black uppercase tracking-wider text-[13px] shadow-[0_14px_44px_-10px_rgba(255,85,0,0.45)] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:shadow-none"
           >
             {phase === 'busy' ? 'Reading it…' : 'Hand It Over'}
           </button>
         </div>
-        <p className="mt-4 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">
+        <p className="mt-4 font-mono text-[13px] font-black uppercase tracking-[0.18em] text-faint">
           No prep &middot; no forms &middot; the rest gets sized on the walkthrough
         </p>
       </div>
-      <p className="mt-4 text-center text-xs font-bold text-muted-foreground">
+      <p className="mt-4 text-center text-[13px] font-bold text-muted-foreground">
         <button type="button" onClick={() => onQuiz()} className="hover:text-primary transition-colors">
           Prefer taps all the way? The sixty-second version →
         </button>
@@ -387,9 +387,9 @@ export function FitCheck({
                   {step > 0 ? (
                     backButton
                   ) : (
-                    <span className="text-xs font-medium text-muted-foreground">Tap one.</span>
+                    <span className="text-[13px] font-medium text-muted-foreground">Tap one.</span>
                   )}
-                  <span className="text-xs font-mono font-bold text-faint tracking-widest">
+                  <span className="text-[13px] font-mono font-bold text-faint tracking-widest">
                     {step + 1} / {FIT_QUESTIONS.length}
                   </span>
                 </div>
@@ -399,7 +399,7 @@ export function FitCheck({
                 {chips('sm')}
               </div>
               {privacyNote && (
-                <p className="mt-4 flex items-center justify-center gap-2 text-xs text-faint font-medium">
+                <p className="mt-4 flex items-center justify-center gap-2 text-[13px] text-faint font-medium">
                   <ShieldCheck className="w-3.5 h-3.5 text-primary/70 shrink-0" aria-hidden="true" />
                   {privacyNote}
                 </p>
@@ -477,7 +477,7 @@ export function FitCheck({
               />
               {bookingUrl && (
                 <div className="mt-4">
-                  <p className="mb-2.5 text-center text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
+                  <p className="mb-2.5 text-center text-[13px] font-black uppercase tracking-[0.2em] text-white/40">
                     Ready now? Skip the call-back.
                   </p>
                   <BookingCta
@@ -521,15 +521,15 @@ export function FitCheck({
           className="bg-card/15 backdrop-blur-xl border border-border/20 rounded-2xl p-6 lg:p-8"
         >
           {entry.note && (
-            <p className="mb-4 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-faint">{entry.note}</p>
+            <p className="mb-4 font-mono text-[13px] font-black uppercase tracking-[0.18em] text-faint">{entry.note}</p>
           )}
           <div className="flex items-center justify-between mb-6 min-h-[28px]">
             {step > 0 ? (
               backButton
             ) : (
-              <span className="text-xs font-medium text-muted-foreground">Tap one.</span>
+              <span className="text-[13px] font-medium text-muted-foreground">Tap one.</span>
             )}
-            <span className="text-xs font-mono font-bold text-faint tracking-widest">
+            <span className="text-[13px] font-mono font-bold text-faint tracking-widest">
               {step + 1} / {FIT_QUESTIONS.length}
             </span>
           </div>

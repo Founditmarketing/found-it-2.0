@@ -58,7 +58,7 @@ export default function TheAsk({
           <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden />
         </Link>
       </div>
-      <p className="mt-7 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-faint">
+      <p className="mt-7 font-mono text-[13px] font-bold uppercase tracking-[0.14em] text-faint">
         or text (318) 713-3781 &middot; Trevor answers
       </p>
     </motion.div>

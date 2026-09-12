@@ -956,7 +956,7 @@ export function VoiceAgentWidget({
       <button
         type="submit"
         disabled={afterStatus === 'sending' || !afterName.trim() || !afterPhone.trim()}
-        className="shrink-0 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity"
+        className="shrink-0 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity"
       >
         {afterStatus === 'sending' ? 'Sending…' : 'Call me back'}
       </button>
@@ -984,7 +984,7 @@ export function VoiceAgentWidget({
           <p className="truncate text-[13px] font-black uppercase italic tracking-tight text-white" aria-live="polite">
             {phase === 'connecting' ? 'Ringing her now…' : liveStatus}
           </p>
-          <p className="truncate text-[11px] font-medium text-white/55">
+          <p className="truncate text-[13px] font-medium text-white/55">
             {mode === 'narrate' ? 'Cut in anytime. Ask about any number' : 'Say anything about your business'} · {fmt(secondsLeft)}
           </p>
         </div>
@@ -1031,7 +1031,7 @@ export function VoiceAgentWidget({
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2 py-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" aria-hidden="true" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.15em] text-black">Live</span>
+                  <span className="text-[13px] font-black uppercase tracking-[0.15em] text-black">Live</span>
                 </span>
               </span>
               <span
@@ -1064,7 +1064,7 @@ export function VoiceAgentWidget({
               <button
                 type="button"
                 onClick={skipToText}
-                className="mt-3.5 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-xs font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors animate-[fadeIn_0.4s_ease]"
+                className="mt-3.5 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors animate-[fadeIn_0.4s_ease]"
               >
                 <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Skip the wait. Ask by text
               </button>
@@ -1081,7 +1081,7 @@ export function VoiceAgentWidget({
                 <p className="text-sm sm:text-base font-black uppercase italic tracking-tight text-white" aria-live="polite">
                   {liveStatus}
                 </p>
-                <p className="text-[12px] text-white/50 font-medium mt-0.5">
+                <p className="text-[13px] text-white/50 font-medium mt-0.5">
                   {missed
                     ? 'Try a little louder, a little closer to the mic.'
                     : mode === 'narrate'
@@ -1090,7 +1090,7 @@ export function VoiceAgentWidget({
                 </p>
               </div>
               <span
-                className={`text-xs font-black tabular-nums ${secondsLeft <= 30 ? 'text-primary' : 'text-white/50'}`}
+                className={`text-[13px] font-black tabular-nums ${secondsLeft <= 30 ? 'text-primary' : 'text-white/50'}`}
                 aria-label="Time remaining"
               >
                 {fmt(secondsLeft)}
@@ -1111,7 +1111,7 @@ export function VoiceAgentWidget({
                 ))}
               </span>
               <span
-                className={`text-[10px] font-black uppercase tracking-[0.18em] ${missed ? 'text-red-400' : youTalking ? 'text-primary' : 'text-white/40'}`}
+                className={`text-[13px] font-black uppercase tracking-[0.18em] ${missed ? 'text-red-400' : youTalking ? 'text-primary' : 'text-white/40'}`}
               >
                 {missed ? 'Didn’t catch that' : youTalking ? 'She hears you' : 'Mic live'}
               </span>
@@ -1123,7 +1123,7 @@ export function VoiceAgentWidget({
             {/* Her show_answer card — the page reacting to her voice. */}
             {answerCard && (
               <div className="mt-4 rounded-xl border border-primary/30 bg-primary/[0.06] p-4 animate-[fadeIn_0.4s_ease]">
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
+                <p className="text-[13px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
                   {answerCard.heading}
                 </p>
                 <div className="space-y-1.5">
@@ -1135,7 +1135,7 @@ export function VoiceAgentWidget({
                   ))}
                 </div>
                 {answerCard.note && (
-                  <p className="mt-2.5 text-[10px] font-medium text-white/40">{answerCard.note}</p>
+                  <p className="mt-2.5 text-[13px] font-medium text-white/40">{answerCard.note}</p>
                 )}
               </div>
             )}
@@ -1143,7 +1143,7 @@ export function VoiceAgentWidget({
             <button
               type="button"
               onClick={() => endSession('user')}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-xs font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-border/25 bg-white/[0.04] px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-white/70 hover:text-white hover:bg-white/[0.08] transition-colors"
             >
               <PhoneOff className="w-3.5 h-3.5" aria-hidden="true" /> End the call
             </button>
@@ -1175,7 +1175,7 @@ export function VoiceAgentWidget({
                   </p>
                 )}
                 {afterStatus === 'error' && (
-                  <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
+                  <p role="alert" className="mt-2 text-[13px] font-bold text-red-400">
                     Could not send. Use the form on this page instead.
                   </p>
                 )}
@@ -1183,7 +1183,7 @@ export function VoiceAgentWidget({
                   <button
                     type="button"
                     onClick={start}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/60 hover:text-primary transition-colors"
                   >
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk to her again
                   </button>
@@ -1191,12 +1191,12 @@ export function VoiceAgentWidget({
                     <button
                       type="button"
                       onClick={() => setWantsCall(true)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/60 hover:text-primary transition-colors"
                     >
                       I want Trevor to call me
                     </button>
                   )}
-                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/60 hover:text-primary transition-colors">
                     Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
@@ -1212,11 +1212,11 @@ export function VoiceAgentWidget({
                   <button
                     type="button"
                     onClick={start}
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
                   >
                     <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Talk again
                   </button>
-                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors">
+                  <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/70 hover:text-primary transition-colors">
                     Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
@@ -1262,7 +1262,7 @@ export function VoiceAgentWidget({
 
             {fallbackQ && (
               <div key={fallbackQ.id} className="mt-4 rounded-xl border border-primary/30 bg-primary/[0.06] p-4 animate-[fadeIn_0.4s_ease]">
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
+                <p className="text-[13px] font-black uppercase tracking-[0.2em] text-primary mb-2.5">
                   {fallbackQ.card.heading}
                 </p>
                 <div className="space-y-1.5">
@@ -1274,7 +1274,7 @@ export function VoiceAgentWidget({
                   ))}
                 </div>
                 {fallbackQ.card.note && (
-                  <p className="mt-2.5 text-[10px] font-medium text-white/40">{fallbackQ.card.note}</p>
+                  <p className="mt-2.5 text-[13px] font-medium text-white/40">{fallbackQ.card.note}</p>
                 )}
                 <p className="mt-3 text-[13px] sm:text-sm text-white/70 font-medium leading-snug">
                   {fallbackQ.say}
@@ -1289,7 +1289,7 @@ export function VoiceAgentWidget({
                 </p>
                 {afterCaptureForm}
                 {afterStatus === 'error' && (
-                  <p role="alert" className="mt-2 text-[11px] font-bold text-red-400">
+                  <p role="alert" className="mt-2 text-[13px] font-bold text-red-400">
                     Could not send. Use the form on this page instead.
                   </p>
                 )}
@@ -1304,11 +1304,11 @@ export function VoiceAgentWidget({
               <button
                 type="button"
                 onClick={start}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors"
+                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/60 hover:text-primary transition-colors"
               >
                 <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try the voice line again
               </button>
-              <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-primary transition-colors">
+              <a href={fallbackHref} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/60 hover:text-primary transition-colors">
                 Or see what yours would look like <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
               </a>
             </div>
@@ -1332,13 +1332,13 @@ export function VoiceAgentWidget({
                   setFallbackQ(null);
                   setPhase('fallback');
                 }}
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
               >
                 <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" /> Ask her by text
               </button>
               <a
                 href={fallbackHref}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-primary transition-colors"
+                className="inline-flex items-center gap-1.5 text-[13px] font-bold text-white/70 hover:text-primary transition-colors"
               >
                 Leave my info <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
               </a>
@@ -1359,18 +1359,18 @@ export function VoiceAgentWidget({
               <button
                 type="button"
                 onClick={start}
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-[13px] font-black uppercase tracking-wide text-primary-foreground hover:opacity-90 transition-opacity"
               >
                 <Mic className="w-3.5 h-3.5" aria-hidden="true" /> Try again
               </button>
-              <a href={fallbackHref} className="text-xs font-bold text-white/70 hover:text-primary transition-colors">
+              <a href={fallbackHref} className="text-[13px] font-bold text-white/70 hover:text-primary transition-colors">
                 Use the form instead
               </a>
             </div>
           </div>
         )}
 
-        <p className="relative mt-3 text-[10px] font-medium text-white/35 leading-snug">
+        <p className="relative mt-3 text-[13px] font-medium text-white/35 leading-snug">
           Live AI demo. {Math.round(maxSeconds / 60)}-minute limit.
         </p>
       </div>

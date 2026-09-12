@@ -46,7 +46,7 @@ export function DemoHero({
   return (
     <div ref={ref}>
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <p className="text-primary font-mono text-xs font-black uppercase tracking-[0.4em] opacity-80">{eyebrow}</p>
+        <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] opacity-80">{eyebrow}</p>
         <PersonalizedChip />
       </div>
 
@@ -80,7 +80,7 @@ export function DemoHero({
         {chips.items.map((w, i) => (
           <motion.span
             key={w}
-            className="inline-flex items-center h-8 px-3.5 rounded-full border border-border/30 bg-card/20 font-mono text-[11px] font-black uppercase tracking-[0.14em] text-muted-foreground"
+            className="inline-flex items-center h-8 px-3.5 rounded-full border border-border/30 bg-card/20 font-mono text-[13px] font-black uppercase tracking-[0.14em] text-muted-foreground"
             initial={reduce ? false : { opacity: 0, x: (i - 2) * 26, y: i % 2 ? -22 : 26, rotate: i % 2 ? -6 : 5 }}
             animate={on ? { opacity: 1, x: 0, y: 0, rotate: 0 } : {}}
             transition={{ delay: 0.7 + i * 0.11, type: 'spring', stiffness: 260, damping: 22 }}
@@ -105,7 +105,7 @@ export function DemoHero({
         >
           {/* glow-behind, static, ≤0.15 orange per the house rule */}
           <span aria-hidden className="absolute -inset-4 rounded-full bg-[radial-gradient(closest-side,rgba(255,85,0,0.15),transparent)]" />
-          <span className="relative inline-flex items-center h-9 px-4 rounded-full bg-primary text-primary-foreground font-mono text-[11px] font-black uppercase tracking-[0.14em]">
+          <span className="relative inline-flex items-center h-9 px-4 rounded-full bg-primary text-primary-foreground font-mono text-[13px] font-black uppercase tracking-[0.14em]">
             {chips.result}
           </span>
         </motion.span>
@@ -133,7 +133,7 @@ export function DemoHero({
 
       {priceLine && (
         <motion.p
-          className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+          className="mt-5 font-mono text-[13px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
           initial={reduce ? false : { opacity: 0 }}
           animate={on ? { opacity: 1 } : {}}
           transition={{ delay: 1.9, duration: 0.5, ease: EASE }}

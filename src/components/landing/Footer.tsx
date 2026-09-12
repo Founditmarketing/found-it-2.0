@@ -22,7 +22,7 @@ function socialFor(url: string): { Icon: LucideIcon; label: string } | null {
 const linkClass =
   'text-sm text-muted-foreground hover:text-primary transition-colors font-medium';
 const headingClass =
-  'font-black text-[10px] uppercase tracking-[0.4em] text-primary mb-5 opacity-80';
+  'font-black text-[13px] uppercase tracking-[0.4em] text-primary mb-5 opacity-80';
 
 export function Footer() {
   // LINKS values are config-gated: render the review link only when a real URL is set.
@@ -150,7 +150,7 @@ export function Footer() {
             >
               found it<span className="text-primary">.</span>
             </Link>
-            <span className="text-faint text-xs font-mono">
+            <span className="text-faint text-[13px] font-mono">
               © {new Date().getFullYear()}
             </span>
           </div>
@@ -176,13 +176,13 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/terms-of-service" className="text-[10px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
+            <Link href="/terms-of-service" className="text-[13px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
               Terms
             </Link>
-            <Link href="/privacy-policy" className="text-[10px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
+            <Link href="/privacy-policy" className="text-[13px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
               Privacy
             </Link>
-            <Link href="/media" className="text-[10px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
+            <Link href="/media" className="text-[13px] text-faint hover:text-primary transition-colors font-bold uppercase tracking-widest">
               Media Kit
             </Link>
           </div>

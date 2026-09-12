@@ -34,7 +34,7 @@ export default function PricingClient() {
         <div className="text-center">
           <motion.p
             {...enter(0)}
-            className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.35em] text-primary mb-10"
+            className="font-mono text-[13px] font-black uppercase tracking-[0.35em] text-primary mb-10"
           >
             Found It OS &middot; Bespoke &middot; Built for one business at a time
           </motion.p>
@@ -56,13 +56,13 @@ export default function PricingClient() {
 
           <motion.p
             {...enter(0.5)}
-            className="mt-10 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground"
+            className="mt-10 font-mono text-[13px] font-black uppercase tracking-[0.2em] text-muted-foreground"
           >
             Setup Included &middot; Month-to-Month &middot; No Per-Seat Fees &middot; The Code and the Data Are Yours
           </motion.p>
           <motion.p
             {...enter(0.58)}
-            className="mt-2 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint"
+            className="mt-2 font-mono text-[13px] font-black uppercase tracking-[0.2em] text-faint"
           >
             Stop Paying and the Work Stops &middot; Not Your Software
           </motion.p>
@@ -71,7 +71,7 @@ export default function PricingClient() {
           <motion.div {...enter(0.68)} className="mt-14 max-w-xl mx-auto text-left">
             <details className="group border border-border/20 rounded-2xl overflow-hidden bg-card/10">
               <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                <span className="font-mono text-[13px] font-black uppercase tracking-[0.2em] text-muted-foreground">
                   The monthly, in writing
                 </span>
                 <span className="text-primary font-black text-xl transition-transform group-open:rotate-45" aria-hidden>
@@ -80,7 +80,7 @@ export default function PricingClient() {
               </summary>
               <div className="px-5 pb-5 grid sm:grid-cols-2 gap-6">
                 <div>
-                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-primary mb-2.5">Covered</p>
+                  <p className="font-mono text-[13px] font-black uppercase tracking-[0.25em] text-primary mb-2.5">Covered</p>
                   <ul className="space-y-2">
                     {[
                       'Hosting and nightly backups',
@@ -97,7 +97,7 @@ export default function PricingClient() {
                   </ul>
                 </div>
                 <div>
-                  <p className="font-mono text-[9px] font-black uppercase tracking-[0.25em] text-faint mb-2.5">
+                  <p className="font-mono text-[13px] font-black uppercase tracking-[0.25em] text-faint mb-2.5">
                     Agreed first, priced separately
                   </p>
                   <ul className="space-y-2">
@@ -131,7 +131,7 @@ export default function PricingClient() {
         <div className="mt-28 text-center">
           <motion.p
             {...enter(0)}
-            className="font-mono text-[10px] sm:text-xs font-black uppercase tracking-[0.35em] text-primary mb-8"
+            className="font-mono text-[13px] font-black uppercase tracking-[0.35em] text-primary mb-8"
           >
             Above everything &middot; One seat &middot;{' '}
             {KITCHEN_SINK.seatOpen ? 'It is open' : 'Occupied'}
@@ -151,7 +151,7 @@ export default function PricingClient() {
           </motion.p>
           <motion.p
             {...enter(0.22)}
-            className="mt-2 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground"
+            className="mt-2 font-mono text-[13px] font-black uppercase tracking-[0.2em] text-muted-foreground"
           >
             Setup included &middot; Of course it is
           </motion.p>
@@ -170,7 +170,7 @@ export default function PricingClient() {
 
           <motion.p
             {...enter(0.42)}
-            className="mt-10 font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-faint"
+            className="mt-10 font-mono text-[13px] font-black uppercase tracking-[0.2em] text-faint"
           >
             Month-to-Month Like Everything We Do &middot; The Code and the Data Are Yours
           </motion.p>
