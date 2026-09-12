@@ -71,6 +71,7 @@ import { GoogleTag } from '@/components/analytics/GoogleTag';
 import { GoogleTagManager } from '@/components/analytics/GoogleTagManager';
 import { LinkedInInsight } from '@/components/analytics/LinkedInInsight';
 import { SiteSchema } from '@/components/seo/SiteSchema';
+import { VisualViewportPin } from '@/components/VisualViewportPin';
 
 export default function RootLayout({
   children,
@@ -91,6 +92,7 @@ export default function RootLayout({
         <GoogleTag />
         <LinkedInInsight />
         <SiteSchema />
+        <VisualViewportPin />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

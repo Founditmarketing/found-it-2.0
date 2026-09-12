@@ -66,11 +66,15 @@ export function LPLayout({
       {/* ─── Mobile Sticky CTA Bar ───
           No entrance delay: the swipe-back decision happens in the first
           two seconds, which is exactly when this used to be invisible. */}
+      {/* iOS Chrome (9/12): the fixed seat carries no transform; the slide
+          rides the inner bar and overflow-hidden clips its hidden state.
+          dock-kb-hide: steps out while a field has focus (keyboard law). */}
+      <div className="dock-kb-hide fixed bottom-0 inset-x-0 z-50 lg:hidden overflow-hidden pointer-events-none">
       <motion.div
         initial={{ y: 100 }}
         animate={{ y: formVisible ? 100 : 0 }}
         transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 safe-bottom"
+        className="pointer-events-auto bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 safe-bottom"
       >
         {bookingLive ? (
           <a
@@ -103,6 +107,7 @@ export function LPLayout({
           </Link>
         )}
       </motion.div>
+      </div>
     </div>
   );
 }

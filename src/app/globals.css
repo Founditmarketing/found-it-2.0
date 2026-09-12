@@ -246,6 +246,17 @@ body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; poin
   }
 }
 
+/* iOS KEYBOARD LAW, site-wide (9/12): on phones, while any field has focus,
+   the bottom docks that carry no input of their own step out so the keyboard
+   never pins them mid-screen. A dock that IS the input (the Ask Trevor panel,
+   the call-back card, the live-call bar) is pinned to the visual viewport
+   instead, via --vv-bottom / --vv-height set by VisualViewportPin. */
+@media (max-width: 767px) {
+  body:has(input:focus, textarea:focus, select:focus, [contenteditable="true"]:focus) .dock-kb-hide {
+    display: none !important;
+  }
+}
+
 /* THE FIT FLOW on phones (9/11, iOS KEYBOARD LAW): while a field has focus
    the fixed site header steps out so the keyboard never pins it over the
    input. The Ask Trevor launcher steps out for the whole flow (9/12): its

@@ -128,13 +128,17 @@ export function VoiceIntro() {
 
       <AnimatePresence>
         {show && (
-          <motion.div
+          // iOS Chrome (9/12): the fixed seat carries no transform and is pinned
+          // to the visual viewport; the entrance rides the inner motion box.
+          <div
             key="voice-intro"
+            className="dock-kb-hide fixed left-5 z-[140] bottom-[calc(1.25rem_+_var(--vv-bottom,0px))]"
+          >
+          <motion.div
             initial={{ opacity: 0, y: 24, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.5, ease }}
-            className="fixed bottom-5 left-5 z-[140]"
           >
             <div className="relative">
               <button
@@ -193,6 +197,7 @@ export function VoiceIntro() {
               </button>
             </div>
           </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>

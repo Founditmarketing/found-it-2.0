@@ -16,14 +16,22 @@ export function LPNav() {
   }, []);
 
   return (
-    <motion.header
+    // iOS Chrome (9/12): the fixed box carries no transform, filter or blur.
+    // The framer entrance (it leaves an inline filter) and the glass ride the
+    // inner w-full h-full box, so the look is identical.
+    <header
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid ${
+        isScrolled ? 'h-16 lg:h-20' : 'h-20 lg:h-24'
+      }`}
+    >
+    <motion.div
       initial={{ y: -30, opacity: 0, filter: 'blur(4px)' }}
       animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
       transition={{ delay: 0.3, duration: 1, ease }}
-      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid ${
+      className={`w-full h-full transition-all duration-700 ease-liquid ${
         isScrolled
-          ? 'h-16 lg:h-20 bg-black/80 backdrop-blur-xl border-b border-border/40'
-          : 'h-20 lg:h-24 bg-transparent'
+          ? 'bg-black/80 backdrop-blur-xl border-b border-border/40'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 h-full">
@@ -40,6 +48,7 @@ export function LPNav() {
           </Link>
         </div>
       </div>
-    </motion.header>
+    </motion.div>
+    </header>
   );
 }

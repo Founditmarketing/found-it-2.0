@@ -80,7 +80,7 @@ export function VisitorCapture() {
         onClick={() => setOpen(true)}
         aria-expanded={false}
         aria-label="Get a call back — leave your name and number"
-        className="fixed bottom-4 left-4 z-[70] inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2.5 text-xs font-black uppercase tracking-tight shadow-lg shadow-black/40 hover:opacity-90 transition-opacity"
+        className="dock-kb-hide fixed left-4 z-[70] bottom-[calc(1rem_+_var(--vv-bottom,0px))] inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2.5 text-xs font-black uppercase tracking-tight shadow-lg shadow-black/40 hover:opacity-90 transition-opacity"
       >
         <PhoneCall className="w-3.5 h-3.5" aria-hidden="true" />
         Get a call back
@@ -89,8 +89,12 @@ export function VisitorCapture() {
   }
 
   return (
+    // iOS Chrome (9/12): the fixed seat carries no transform; the entrance
+    // animation rides the inner card. Pinned to the visual viewport (this dock
+    // holds the inputs, so it follows the keyboard instead of hiding).
+    <div className="fixed left-4 z-[70] w-[calc(100vw-2rem)] max-w-sm bottom-[calc(1rem_+_var(--vv-bottom,0px))]">
     <div
-      className="fixed bottom-4 left-4 z-[70] w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-border bg-background shadow-2xl p-5 animate-in slide-in-from-bottom-4 fade-in duration-300"
+      className="relative rounded-2xl border border-border bg-background shadow-2xl p-5 animate-in slide-in-from-bottom-4 fade-in duration-300"
       role="dialog"
       aria-label="Get a call back"
     >
@@ -150,6 +154,7 @@ export function VisitorCapture() {
           </form>
         </>
       )}
+    </div>
     </div>
   );
 }

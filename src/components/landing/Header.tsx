@@ -442,16 +442,26 @@ export function Header() {
 
   return (
     <>
-      {/* CSS entrance (not framer-motion) so the header paints even before JS loads */}
+      {/* CSS entrance (not framer-motion) so the header paints even before JS loads.
+          iOS Chrome (9/12): the fixed box itself carries NO transform, filter or
+          backdrop-filter. The entrance animation (its 'both' fill keeps a transform)
+          and the glass ride the inner wrapper, which is w-full h-full so the look is
+          identical. A fixed box with a transform strands mid-screen when the
+          browser toolbar collapses. */}
       <header
         className={cn(
-          'fixed inset-x-0 top-0 z-50 w-full animate-header-in transition-all duration-700 ease-liquid',
-          isScrolled
-            ? 'h-16 lg:h-20 bg-black/80 backdrop-blur-xl border-b border-border/40'
-            : 'h-20 lg:h-24 bg-transparent'
+          'fixed inset-x-0 top-0 z-50 w-full transition-all duration-700 ease-liquid',
+          isScrolled ? 'h-16 lg:h-20' : 'h-20 lg:h-24'
         )}
       >
-        <div className="w-full mx-auto px-6 xl:px-12 h-full">
+        <div
+          className={cn(
+            'w-full mx-auto px-6 xl:px-12 h-full animate-header-in transition-all duration-700 ease-liquid',
+            isScrolled
+              ? 'bg-black/80 backdrop-blur-xl border-b border-border/40'
+              : 'bg-transparent'
+          )}
+        >
           <div className="flex items-center justify-between h-full">
             {/* ─── Logo ─── */}
             <Link
@@ -665,17 +675,22 @@ export function Header() {
               className="fixed inset-0 z-[170] bg-black/80 backdrop-blur-md"
               onClick={() => setSecretMenuOpen(false)}
             />
-            <motion.div
+            {/* iOS Chrome (9/12): the fixed box is a plain flex centerer (no translate
+                centering, no transform, no blur). The animated glass panel is inside it. */}
+            <div
               key="secret-panel"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Campaign landing pages"
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3, ease }}
-              className="fixed left-1/2 top-1/2 z-[171] w-[calc(100%-2rem)] max-w-[440px] -translate-x-1/2 -translate-y-1/2 bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
+              className="fixed inset-0 z-[171] flex items-center justify-center p-4 pointer-events-none"
             >
+              <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-label="Campaign landing pages"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.3, ease }}
+                className="pointer-events-auto relative w-full max-w-[440px] bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
+              >
               <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/[0.07] to-transparent pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between px-6 pt-6 pb-4">
                 <div className="flex items-center gap-2.5">
@@ -734,7 +749,8 @@ export function Header() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>

@@ -965,8 +965,10 @@ export function VoiceAgentWidget({
 
   const onTheLine = phase === 'live' || phase === 'connecting';
   const followBar = sticky && onTheLine && !cardVisible && (
-    <div className="fixed inset-x-3 bottom-3 z-[70] sm:inset-x-auto sm:left-1/2 sm:w-[440px] sm:-translate-x-1/2 animate-[fadeIn_0.3s_ease]">
-      <div className="flex items-center gap-3 rounded-2xl border border-primary/35 bg-black/95 px-3 py-2.5 shadow-2xl shadow-black/70">
+    // iOS Chrome (9/12): centered with inset-x-0 + mx-auto (no translate on the
+    // fixed box), pinned to the visual viewport, entrance on the inner card.
+    <div className="fixed inset-x-3 z-[70] sm:inset-x-0 sm:mx-auto sm:w-[440px] bottom-[calc(0.75rem_+_var(--vv-bottom,0px))]">
+      <div className="flex items-center gap-3 rounded-2xl border border-primary/35 bg-black/95 px-3 py-2.5 shadow-2xl shadow-black/70 animate-[fadeIn_0.3s_ease]">
         <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary">
           {phase === 'connecting' ? (
             <span className="w-4 h-4 rounded-full border-[3px] border-black/30 border-t-black animate-spin" aria-hidden="true" />

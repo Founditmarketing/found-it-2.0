@@ -77,14 +77,19 @@ export function GlockMode() {
   return (
     <>
       {/* Drops from under the logo (top-left), collapses back up into it.
-          Unmount on close stops the audio. */}
+          Unmount on close stops the audio.
+          iOS Chrome (9/12): the fixed seat carries no transform; the drop and
+          collapse animations (forwards fill keeps a transform) ride the inner box. */}
       <div
         ref={panelRef}
+        className="fixed top-20 lg:top-24 left-4 z-[55] w-[min(92vw,360px)]"
+      >
+      <div
         style={{
           transformOrigin: 'top left',
           animation: `${phase === 'closing' ? 'glockcollapse' : 'glockdrop'} ${COLLAPSE_MS}ms cubic-bezier(0.22, 1, 0.36, 1) forwards`,
         }}
-        className="fixed top-20 lg:top-24 left-4 z-[55] w-[min(92vw,360px)] rounded-2xl overflow-hidden border border-primary/40 shadow-2xl shadow-primary/20 bg-background"
+        className="rounded-2xl overflow-hidden border border-primary/40 shadow-2xl shadow-primary/20 bg-background"
       >
         <div className="flex items-center justify-between px-4 py-2.5 bg-primary">
           <p className="text-[11px] font-black uppercase tracking-[0.25em] text-black flex items-center gap-2">
@@ -113,6 +118,7 @@ export function GlockMode() {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         />
+      </div>
       </div>
 
       <style>{`

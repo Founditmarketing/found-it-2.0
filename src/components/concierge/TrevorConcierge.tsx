@@ -210,36 +210,51 @@ export function TrevorConcierge() {
       {/* Launcher */}
       <AnimatePresence>
         {!open && (
-          <motion.button
+          // iOS Chrome (9/12): the fixed box is a plain seat pinned to the visual
+          // viewport (--vv-bottom from VisualViewportPin); the animated button
+          // rides inside it, so the fixed element never carries a transform.
+          // .concierge-fab lives on the seat so every step-aside rule still hides it.
+          // dock-kb-hide: the keyboard law hides this dock while a field has focus.
+          // z-40 keeps the launcher below the header (z-50) and the mobile menu overlay/panel
+          // (z-[160]/z-[161]) so it can't intercept taps when the menu is open.
+          <div
             key="launcher"
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            transition={{ duration: 0.4, ease, delay: 1.2 }}
-            onClick={() => { setOpen(true); trackCTAClick('concierge_open'); }}
-            aria-label="Ask Trevor a question"
-            // z-40 keeps the launcher below the header (z-50) and the mobile menu overlay/panel
-            // (z-[160]/z-[161]) so it can't intercept taps when the menu is open.
-            className="concierge-fab fixed bottom-5 right-5 z-40 inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-primary/30 hover:scale-105 transition-transform"
+            className="concierge-fab dock-kb-hide fixed right-5 z-40 bottom-[calc(1.25rem_+_var(--vv-bottom,0px))]"
           >
-            <MessageCircle className="w-5 h-5" />
-            <span className="text-sm hidden sm:block">Ask Trevor</span>
-          </motion.button>
+            <motion.button
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.9 }}
+              transition={{ duration: 0.4, ease, delay: 1.2 }}
+              onClick={() => { setOpen(true); trackCTAClick('concierge_open'); }}
+              aria-label="Ask Trevor a question"
+              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-black uppercase italic tracking-tighter pl-4 pr-5 py-3.5 rounded-full shadow-2xl shadow-primary/30 hover:scale-105 transition-transform"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span className="text-sm hidden sm:block">Ask Trevor</span>
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
 
       {/* Panel */}
       <AnimatePresence>
         {open && (
-          <motion.div
+          // This dock IS the input, so it is pinned to the visual viewport, never
+          // hidden: the seat follows the iOS keyboard and the panel's max height
+          // shrinks with --vv-height (desktop: 78vh, unchanged).
+          <div
             key="panel"
+            className="fixed right-4 left-4 sm:left-auto z-40 sm:w-[400px] bottom-[calc(1rem_+_var(--vv-bottom,0px))]"
+          >
+          <motion.div
             initial={{ opacity: 0, y: 28, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 28, scale: 0.97 }}
             transition={{ duration: 0.35, ease }}
             role="dialog"
             aria-label="Ask Trevor"
-            className="fixed bottom-4 right-4 left-4 sm:left-auto z-40 sm:w-[400px] max-h-[78vh] flex flex-col bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
+            className="flex flex-col max-h-[min(78vh,calc(var(--vv-height,100vh)_-_2rem))] bg-background/95 backdrop-blur-2xl border border-border/30 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-5 py-4 border-b border-border/20 bg-gradient-to-r from-primary/[0.08] to-transparent">
@@ -343,6 +358,7 @@ export function TrevorConcierge() {
               </button>
             </form>
           </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>

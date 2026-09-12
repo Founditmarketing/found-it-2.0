@@ -354,7 +354,7 @@ export default function DarePage() {
       </div>
 
       {/* ─── Persistent thumb bar (phones/tablets) — pure CSS, no motion ─── */}
-      <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 pb-[max(env(safe-area-inset-bottom),12px)]">
+      <div className="dock-kb-hide fixed bottom-0 inset-x-0 z-50 lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/30 px-4 py-3 pb-[max(env(safe-area-inset-bottom),12px)]">
         <div className="flex gap-3 max-w-[760px] mx-auto">
           <a
             href={SMS_HREF}
