@@ -89,16 +89,16 @@ export interface FitVerdict {
   weakness?: string;
   /** NOT A FIT only: one kind sentence why. */
   reason?: string;
-  /** NOT A FIT only: one genuinely useful free thing — a read, not a capture. */
+  /** NOT A FIT only: one genuinely useful thing, a read, not a capture. */
   pointer?: { label: string; href: string };
 }
 
 const UNDER_250K = REVENUE_BANDS[0].label; // 'Under $250k / yr' — the unqualified band
 const BAND_250K_1M = REVENUE_BANDS[1].label; // qualified, but below the sweet spot
 
-/** Free reads, no email gate — the only thing the NOT-A-FIT tier points at. */
-export const READ_MAP = { label: 'What we’d show you on the call, a free read', href: '/blog/what-is-a-software-map' };
-const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. A free read', href: '/blog/rented-software-no-data-rights' };
+/** Reads with no email gate, the only thing the NOT-A-FIT tier points at. */
+export const READ_MAP = { label: 'What we’d show you on the call. A read, no email.', href: '/blog/what-is-a-software-map' };
+const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. A read, no email.', href: '/blog/rented-software-no-data-rights' };
 
 /**
  * The verdict. Deterministic and honest:

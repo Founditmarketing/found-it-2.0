@@ -247,12 +247,27 @@ body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; poin
 }
 
 /* THE FIT FLOW on phones (9/11, iOS KEYBOARD LAW): while a field has focus
-   the fixed site header and the Ask Trevor launcher step out so the keyboard
-   never pins them over the input. */
+   the fixed site header steps out so the keyboard never pins it over the
+   input. The Ask Trevor launcher steps out for the whole flow (9/12): its
+   fixed bottom-right seat sat on the arrow button and the verdict pill. */
 @media (max-width: 767px) {
-  body.fit-flow:has(input:focus, textarea:focus) header,
-  body.fit-flow:has(input:focus, textarea:focus) .concierge-fab {
+  body.fit-flow .concierge-fab {
     display: none !important;
+  }
+  body.fit-flow:has(input:focus, textarea:focus) header {
+    display: none !important;
+  }
+}
+
+/* THE FIT FLOW progress line: the width transition lives here, not inline,
+   so the server HTML never carries a transition the client cannot retract
+   under reduced motion (hydration keeps the server inline style). */
+.fit-progress {
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fit-progress {
+    transition: none;
   }
 }
 

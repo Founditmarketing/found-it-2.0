@@ -232,11 +232,8 @@ export function FitFlow() {
     <div className="relative rounded-2xl border border-border/20 bg-card/15 p-5 sm:p-8 overflow-hidden">
       {/* The progress line: 2px orange along the top edge, width n/8. */}
       <div
-        className="absolute left-0 top-0 h-[2px] bg-primary"
-        style={{
-          width: `${(progress.step / progress.total) * 100}%`,
-          transition: instant ? 'none' : `width 0.3s cubic-bezier(${ease.join(',')})`,
-        }}
+        className="fit-progress absolute left-0 top-0 h-[2px] bg-primary"
+        style={{ width: `${(progress.step / progress.total) * 100}%` }}
         aria-hidden="true"
       />
 
