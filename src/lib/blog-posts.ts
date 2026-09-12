@@ -59,6 +59,19 @@ export const blogPosts: Post[] = [
 <p style="margin: 0 0 1em;">And here&rsquo;s the part I love: the rented analyst can&rsquo;t take this bet. It can&rsquo;t run beside anything &mdash; it lives on somebody else&rsquo;s server, on somebody else&rsquo;s credits, and the day the subscription stops, it never existed. The only seat it can take in this fight is the commentary booth.</p>
 <p style="font-size: clamp(26px, 4.4vw, 40px); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; margin: 1.3em 0;">Rent the commentary &mdash; or own the record.</p>
 <p style="margin: 0 0 1em;">This is the fight I want to have a hundred times, with a hundred owners, and I&rsquo;m glad the first opponent is a good one. The contest is running now, on a real business, and I&rsquo;ll post the result either way &mdash; that part is the point.</p>
+<p style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin: 1.6em 0 0.35em;">The scoreboard.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; opacity: 0.85; margin: 0 0 0.8em;">Updated as the fight goes. He declares what&rsquo;s true. These are the reads, on the record, for him to check.</p>
+<div style="border: 1px solid rgba(255,85,0,0.35); border-radius: 16px; padding: 1.1em 1.25em; margin: 0.4em 0 1.2em;">
+<p style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #FF5500; margin: 0 0 0.6em;">Round one &middot; the first read &middot; September 12, 2026</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>August, replayed from his payment processor against his own books: to the penny, both accounts.</strong></p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>105,737</strong> people came in and never bought.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>80,744</strong> of them never got a single human message.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>160</strong> wrote in and are still waiting on a reply.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>23,051</strong> open deals idle two weeks or more.</p>
+<p style="font-size: clamp(17px, 2.4vw, 21px); line-height: 1.35; margin: 0 0 0.55em;"><strong>102,043</strong> assigned to nobody.</p>
+<p style="font-size: 15px; line-height: 1.4; opacity: 0.7; margin: 0.6em 0 0;">Read from the view-only keys he handed over, nothing typed, nothing guessed, every count footed twice. The rented analyst&rsquo;s round is his to score.</p>
+</div>
+
 <p style="margin: 0 0 1em;">Got a rented brain reading your wreckage back to you? <a href="/dare" style="color: #FF5500; font-weight: 700;">Name your worst problem.</a> We&rsquo;ll build the fix before you owe us a dollar &mdash; and then you can judge your own fight.</p>
 `,
     },
