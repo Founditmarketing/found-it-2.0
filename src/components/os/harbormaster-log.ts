@@ -61,6 +61,9 @@ export const SHIPS = [
   ['SEP 10', 'A calling desk: six hundred names, one tap', 'system'],
   ['SEP 10', 'Friday hours: one printable sheet per crew', 'capability'],
   ['SEP 10', 'Spoken notes sort themselves by case, one confirm', 'capability'],
+  ['SEP 11', 'A dealer’s books match the bank to the penny', 'capability'],
+  ['SEP 11', 'A shed yard rings the sale, the board moves', 'capability'],
+  ['SEP 11', 'Bail paperwork: the defendant signs a note too', 'capability'],
 ] as const;
 
 export type ShipCategory = 'system' | 'capability' | 'site';
