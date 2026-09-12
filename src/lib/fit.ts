@@ -97,7 +97,7 @@ const UNDER_250K = REVENUE_BANDS[0].label; // 'Under $250k / yr' — the unquali
 const BAND_250K_1M = REVENUE_BANDS[1].label; // qualified, but below the sweet spot
 
 /** Free reads, no email gate — the only thing the NOT-A-FIT tier points at. */
-const READ_MAP = { label: 'What we’d show you on the call, a free read', href: '/blog/what-is-a-software-map' };
+export const READ_MAP = { label: 'What we’d show you on the call, a free read', href: '/blog/what-is-a-software-map' };
 const READ_RENT = { label: 'The Rent Isn’t the Problem. The Hostage Is. A free read', href: '/blog/rented-software-no-data-rights' };
 
 /**
