@@ -1,10 +1,12 @@
 'use client';
 
-import { FitCheck } from '@/components/fit/FitCheck';
+import { FitFlow } from '@/components/fit/FitFlow';
 
-/* THE FIT CHECK page — chrome only. The quiz, verdicts, and form reveal all
-   live in the shared FitCheck component (src/components/fit/FitCheck.tsx),
-   which the gated LP form slots embed too. One quiz, everywhere. */
+/* THE FIT CHECK page, chrome only. One path (9/11): the job, five fit
+   questions, the verdict, the number, the best time, the hop to
+   /thank-you?from=fit. The flow lives in src/components/fit/FitFlow.tsx;
+   the LP form slots still embed the compact quiz from FitCheck.tsx.
+   The screen-1 title is the page h1, so no headline sits above the card. */
 
 export default function FitClient() {
   return (
@@ -14,19 +16,11 @@ export default function FitClient() {
       </div>
 
       <div className="max-w-[680px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-10">
-          <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-4 opacity-80">
-            The Fit Check
-          </p>
-          {/* Desire-first (Trevor 9/5: "what about those who want the latest
-              greatest" — the door sells the want; pain still welcome). */}
-          <h1 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter leading-[0.85] text-foreground">
-            Tell Us What You{' '}
-            <span className="text-primary">Want Built.</span>
-          </h1>
-        </div>
+        <p className="text-primary font-mono text-[13px] font-black uppercase tracking-[0.4em] mb-5 opacity-80">
+          The Fit Check
+        </p>
 
-        <FitCheck variant="page" source="fit_check" pageSlug="fit" />
+        <FitFlow />
       </div>
     </main>
   );

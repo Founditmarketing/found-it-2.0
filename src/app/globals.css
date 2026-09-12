@@ -246,6 +246,16 @@ body.voice-live .concierge-fab { opacity: 0 !important; visibility: hidden; poin
   }
 }
 
+/* THE FIT FLOW on phones (9/11, iOS KEYBOARD LAW): while a field has focus
+   the fixed site header and the Ask Trevor launcher step out so the keyboard
+   never pins them over the input. */
+@media (max-width: 767px) {
+  body.fit-flow:has(input:focus, textarea:focus) header,
+  body.fit-flow:has(input:focus, textarea:focus) .concierge-fab {
+    display: none !important;
+  }
+}
+
 /* ─── Dead-tap lag fix (9/3, sitewide): taps must land NOW ───
    touch-action: manipulation strips the browser's double-tap-zoom wait
    (~350ms on iOS) from every control — the single biggest source of taps

@@ -126,7 +126,7 @@ export const JOBS: Job[] = [
   },
 ];
 
-/** The free-text gate: 8 trimmed characters, matching /api/tailor's min. */
+/** The typed-line gate: 8 trimmed characters, matching /api/tailor's min. */
 export const MIN_TEXT = 8;
 export const MAX_TEXT = 600;
 
